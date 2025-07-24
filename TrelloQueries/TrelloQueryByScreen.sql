@@ -47,18 +47,41 @@ WHERE cli.[Status] = 0 AND me.UserId = 1
 --10. Home Page on the Home tab → Assigned cards section, list all cards that are currently assigned to the user.
 SELECT *
 FROM Cards ca
-JOIN Members me ON me.OwnerId = 2
-JOIN CardAssignMembers cam ON cam.MemberId = me.Id
-WHERE me.UserId = 1
+JOIN Members me ON me.OwnerId = ca.Id
+WHERE me.OwnerTypeId = 3 AND me.UserId = 1 
 
 --11. Home Page on the Home tab → Activity feed section, list all recent activities performed by the user.
+SELECT *
+FROM Activities
+WHERE UserId = 1
+Order By CreatedAt DESC
 
 --12. Home Page on the Workspace page → Boards section, list all boards under the selected workspace.
+SELECT *
+FROM Boards bo
+WHERE bo.WorkspaceId = 1
 
---13. Home Page on the Workspace page → Members section, list all members in the workspace along with their permissiHome Page on roles.
+--13. Home Page on the Workspace page → Members section, list all members in the workspace along with their permission on roles.
+SELECT *
+FROM Members me
+JOIN [Permissions] pe ON pe.Id = me.PermissionId
+WHERE me.OwnerTypeId = 1
+ORDER BY OwnerId
 
 --12. Home Page on the Workspace page → Members section, count the total number of members in the selected workspace.
+SELECT COUNT(*)
+FROM Members me
+JOIN [Permissions] pe ON pe.Id = me.PermissionId
+WHERE me.OwnerTypeId = 1 AND me.OwnerId = 153
 
 --13. Home Page on the Workspace page → Settings section, list all workspace setting keys with the current user's selected values.
+SELECT 
+    sk.KeyName, 
+    COALESCE(sv.Value, sk.DefaultValue) AS Value,
+    sv.OwnerId
+FROM SettingKeys sk 
+LEFT JOIN SettingValues sv ON sv.SettingKeyId = sk.Id AND sk.OwnerTypeId = 4 AND sv.OwnerId = 1
 
 --14. Home Page on the Workspace page → Upgrade section, list all available billing plans that the workspace can upgrade to.
+SELECT * 
+FROM BillingPlans
