@@ -1,27 +1,27 @@
---HomeScreen.BoardTab
---Recently viewed Board
---List Workspace of a user
---List of Boards in specific Workspace's name
---Number of notification of a user
+﻿--On the Boards tab → Recently viewed section, list all boards that the user has accessed recently.
 
---HomeScreen.TemplateTab
---List Template
---List TemplateCategory
+--On the Boards tab → Your Workspaces section, list all workspaces that the current user is a member of.
 
---HomeScreen.HomeTab
---List of CheckListItem of a specific user with Status is False
---List of Card is assign to a specific user
---List of Activity of a specific user
+--On the Boards tab → Workspace item → Boards button, list all boards belonging to a specific workspace.
 
---HomeScreen.Workspace.Board
---List of Board in a specific Workspace
+--On the Header (top right corner), show the total number of unread notifications of the user.
 
---HomeScreen.Workspace.Members
---List of Member in a specific Workspace with their Permission
---Number of Member in a specific Workspace
+--On the Templates tab → Main area, list all available public or user-created templates.
 
---HomeScreen.Workspace.Settings
---List SettingKey in Workspace's Setting with User's Choice
+--On the Templates tab → Sidebar, list all template categories available for filtering.
 
---HomeScreen.Workspace.UpgradeWorkspace
---List of BillingPlan
+--On the Home tab → Checklist section, list all checklist items assigned to the user with status set to false (incomplete).
+
+--On the Home tab → Assigned cards section, list all cards that are currently assigned to the user.
+
+--On the Home tab → Activity feed section, list all recent activities performed by the user.
+
+--On the Workspace page → Boards section, list all boards under the selected workspace.
+
+--On the Workspace page → Members section, list all members in the workspace along with their permission roles.
+
+--On the Workspace page → Members section, count the total number of members in the selected workspace.
+
+--On the Workspace page → Settings section, list all workspace setting keys with the current user's selected values.
+
+--On the Workspace page → Upgrade section, list all available billing plans that the workspace can upgrade to.
