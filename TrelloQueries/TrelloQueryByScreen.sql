@@ -122,19 +122,41 @@ JOIN Users us ON us.Id = ac.UserId
 Order By day_ago
 
 --12. Home Page on the Workspace page → Boards section, list all boards under the selected workspace.
-SELECT *
+SELECT 
+    bo.BackgroundUrl AS board_background,
+    bo.[Name] AS board_name
 FROM Boards bo
 WHERE bo.WorkspaceId = 1
 
 --13. Home Page on the Workspace page → Members section, list all members in the workspace along with their permission on roles.
-SELECT *
-FROM Members me
+WITH BoardCountByEachUser AS(
+    SELECT UserId, COUNT(UserId) AS board_count
+    FROM Members
+    WHERE OwnerTypeId = 2
+    GROUP BY UserId
+)
+
+SELECT 
+    us.PictureUrl AS user_picture,
+    us.Username,
+    us.Email AS user_email,
+    us.LastActive AS user_last_active,
+    pe.[Name] AS [permission_name],
+    bcb.board_count
+FROM (
+    SELECT 
+        UserId, OwnerTypeId, OwnerId,PermissionId 
+    FROM Members
+    WHERE OwnerTypeId = 1 AND OwnerId = 1
+    ) AS me
 JOIN [Permissions] pe ON pe.Id = me.PermissionId
-WHERE me.OwnerTypeId = 1
+JOIN Users us ON us.Id = me.UserId
+JOIN BoardCountByEachUser bcb ON bcb.UserId = me.UserId
 ORDER BY OwnerId
 
 --14. Home Page on the Workspace page → Members section, count the total number of members in the selected workspace.
-SELECT COUNT(*)
+SELECT 
+    COUNT(me.UserId) AS workspace_member_number
 FROM Members me
 JOIN [Permissions] pe ON pe.Id = me.PermissionId
 WHERE me.OwnerTypeId = 1 AND me.OwnerId = 153
@@ -148,29 +170,58 @@ FROM SettingKeys sk
 LEFT JOIN SettingValues sv ON sv.SettingKeyId = sk.Id AND sk.OwnerTypeId = 4 AND sv.OwnerId = 1
 
 --16. Home Page on the Workspace page → Settings section, list all settingoption of a specific workspace setting.
-SELECT *
-FROM SettingKeySettingOptions sso
-JOIN SettingKeys sk ON sk.Id = sso.SettingKeyId
+WITH sk AS (
+    SELECT 
+    KeyName,
+    [Description],
+    Id
+    FROM SettingKeys
+    WHERE OwnerTypeId = 1 AND Id = 1
+)
+
+SELECT 
+    sk.KeyName AS setting_key,
+    sk.[Description] AS setting_key_description,
+    so.DisplayValue AS setting_option_display_value
+FROM SettingKeySettingOptions sso 
+JOIN sk ON sso.SettingKeyId = sk.Id
 JOIN SettingOptions so ON so.Id = sso.SettingOptionId
-WHERE sk.Id = 68
 
 --17. Home Page on the Workspace page → Upgrade section, list all available billing plans that the workspace can upgrade to.
-SELECT * 
+SELECT 
+    [Name] AS billing_plan_name,
+    [Description] AS billing_plan_description,
+    [Type] AS biling_plan_type,
+    PricePerUser
 FROM BillingPlans
 
 --18. Board Page on the Share Board pop-up, list all members in the board along with their permission on roles.
-SELECT * 
-FROM Members me
-JOIN Boards bo ON bo.Id = me.OwnerId AND me.OwnerTypeId = 2
-WHERE bo.Id = 1
+SELECT
+    us.PictureUrl user_picture,
+    us.Username,
+    us.Email user_mail,
+    pe.[Name] [permission_name]
+FROM (
+    SELECT UserId, PermissionId, OwnerId
+    FROM Members
+    WHERE OwnerTypeId = 2 AND OwnerId = 1
+) AS me
+JOIN [Permissions] pe ON pe.Id = me.PermissionId
+JOIN Boards bo ON bo.Id = me.OwnerId
+JOIN Users us ON us.Id = me.UserId
 
 --19. Board Page on the Share Board pop-up, list all permission options can choose
-SELECT *
+SELECT 
+    [Name] AS [permission_name]
 FROM [Permissions]
 
 --20 Board Page on the Setting pop-up, list all board's setting key and user's choice of a specific user
-SELECT sk.KeyName, COALESCE(sv.Value, sk.DefaultValue) as setting_value, OwnerId
-FROM SettingKeys sk
-LEFT JOIN SettingValues sv ON sv.SettingKeyId = sk.Id AND sk.OwnerTypeId = 2 AND sv.OwnerId = 1
-
-
+SELECT 
+    sk.KeyName, 
+    COALESCE(sv.Value, sk.DefaultValue) as setting_value
+FROM (
+    SELECT *
+    FROM SettingKeys
+    WHERE OwnerTypeId = 2
+) AS sk
+LEFT JOIN SettingValues sv ON sv.SettingKeyId = sk.Id AND sv.OwnerId = 1
