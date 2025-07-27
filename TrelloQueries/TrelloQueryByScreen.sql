@@ -71,7 +71,31 @@ JOIN Users us ON us.Id = te.CreatedBy
 JOIN Boards bo ON bo.Id = te.BoardId
 WHERE Title LIKE '%da%'
 
---9.Slide 7 | Home Page on the Home tab → Checklist section, list all checklist items assigned to the user with status set to false (incomplete).
+--9. Slide 6 | Home Page on the Templates tab → Main area → Select specific tempalte, show information of a specific template.
+WITH selected_template AS (
+    SELECT
+        Title,
+        CreatedBy,
+        Copied,
+        Viewed,
+        Description,
+        BoardId
+    FROM Templates
+    WHERE Id = 1
+)
+
+SELECT
+    us.PictureUrl AS user_picture,
+    st.[Description] AS template_description,
+    st.Title AS template_title,
+    us.Username,
+    st.Copied AS copied_number,
+    st.Viewed AS viewed_number,
+    st.BoardId
+FROM selected_template st
+JOIN Users us ON us.Id = st.CreatedBy
+
+--10.Slide 7 | Home Page on the Home tab → Checklist section, list all checklist items assigned to the user with status set to false (incomplete).
 SELECT 
     cli.[Name] AS checklist_item_name, 
     cli.[Status] AS checklist_item_status,
@@ -87,7 +111,7 @@ JOIN Members me ON me.Id = cli.MemberId
 JOIN Users us ON us.Id = me.UserId
 WHERE cli.[Status] = 0 AND me.UserId = 1
 
---10.Slide 7 Home Page on the Home tab → Assigned cards section, list all cards that are currently assigned to the user.
+--11.Slide 7 Home Page on the Home tab → Assigned cards section, list all cards that are currently assigned to the user.
 SELECT 
     ca.Title AS card_title,
     bo.[Name] AS board_name,
@@ -102,7 +126,7 @@ JOIN Stages st ON st.Id = ca.StageId
 JOIN Boards bo ON bo.Id = st.BoardId
 JOIN Users us ON us.Id = me.UserId
 ORDER BY day_ago
---11.Slide 7 Home Page on the Home tab → Activity feed section, list all recent card's activities in the user's card.
+--12.Slide 7 Home Page on the Home tab → Activity feed section, list all recent card's activities in the user's card.
 SELECT 
     ca.Title AS card_title,
     wo.[Name] AS workspace_name,
@@ -121,14 +145,14 @@ JOIN Workspaces wo ON wo.Id = bo.WorkspaceId
 JOIN Users us ON us.Id = ac.UserId
 Order By day_ago
 
---12.Slide 9 Home Page on the Workspace page → Boards section, list all boards under the selected workspace.
+--13.Slide 9 Home Page on the Workspace page → Boards section, list all boards under the selected workspace.
 SELECT 
     bo.BackgroundUrl AS board_background,
     bo.[Name] AS board_name
 FROM Boards bo
 WHERE bo.WorkspaceId = 1
 
---13.Slide 13 Home Page on the Workspace page → Members section, list all members in the workspace along with their permission on roles.
+--14.Slide 13 Home Page on the Workspace page → Members section, list all members in the workspace along with their permission on roles.
 WITH BoardCountByEachUser AS(
     SELECT UserId, COUNT(UserId) AS board_count
     FROM Members
@@ -154,14 +178,35 @@ JOIN Users us ON us.Id = me.UserId
 JOIN BoardCountByEachUser bcb ON bcb.UserId = me.UserId
 ORDER BY OwnerId
 
---14.Slide 13 Home Page on the Workspace page → Members section, count the total number of members in the selected workspace.
+--15.Slide 13 Home Page on the Workspace page → Members section, count the total number of members in the selected workspace.
 SELECT 
     COUNT(me.UserId) AS workspace_member_number
 FROM Members me
 JOIN [Permissions] pe ON pe.Id = me.PermissionId
 WHERE me.OwnerTypeId = 1 AND me.OwnerId = 153
 
---15.Slide 17 Home Page on the Workspace page → Settings section, list all workspace setting keys with the current user's selected values.
+--16.Slide 14 Board Page on the Share Board pop-up, list all members in the board along with their permission on roles.
+SELECT
+    us.PictureUrl user_picture,
+    us.Username,
+    us.Email user_mail,
+    pe.[Name] [permission_name]
+FROM (
+    SELECT UserId, PermissionId, OwnerId
+    FROM Members
+    WHERE OwnerTypeId = 2 AND OwnerId = 1
+) AS me
+JOIN [Permissions] pe ON pe.Id = me.PermissionId
+JOIN Boards bo ON bo.Id = me.OwnerId
+JOIN Users us ON us.Id = me.UserId
+
+--17.Slide 15 Board Page on the Share Board pop-up, list all permission options can choose
+SELECT 
+    [Name] AS [permission_name]
+FROM [Permissions]
+
+
+--18.Slide 17 Home Page on the Workspace page → Settings section, list all workspace setting keys with the current user's selected values.
 SELECT 
     sk.KeyName, 
     COALESCE(sv.Value, sk.DefaultValue) AS Value,
@@ -169,7 +214,7 @@ SELECT
 FROM SettingKeys sk 
 LEFT JOIN SettingValues sv ON sv.SettingKeyId = sk.Id AND sk.OwnerTypeId = 4 AND sv.OwnerId = 1
 
---16.Slide 17 Home Page on the Workspace page → Settings section, list all settingoption of a specific workspace setting.
+--19.Slide 17 Home Page on the Workspace page → Settings section, list all settingoption of a specific workspace setting.
 WITH sk AS (
     SELECT 
     KeyName,
@@ -187,33 +232,6 @@ FROM SettingKeySettingOptions sso
 JOIN sk ON sso.SettingKeyId = sk.Id
 JOIN SettingOptions so ON so.Id = sso.SettingOptionId
 
---17.Slide 24 Home Page on the Workspace page → Upgrade section, list all available billing plans that the workspace can upgrade to.
-SELECT 
-    [Name] AS billing_plan_name,
-    [Description] AS billing_plan_description,
-    [Type] AS biling_plan_type,
-    PricePerUser
-FROM BillingPlans
-
---18.Slide 14 Board Page on the Share Board pop-up, list all members in the board along with their permission on roles.
-SELECT
-    us.PictureUrl user_picture,
-    us.Username,
-    us.Email user_mail,
-    pe.[Name] [permission_name]
-FROM (
-    SELECT UserId, PermissionId, OwnerId
-    FROM Members
-    WHERE OwnerTypeId = 2 AND OwnerId = 1
-) AS me
-JOIN [Permissions] pe ON pe.Id = me.PermissionId
-JOIN Boards bo ON bo.Id = me.OwnerId
-JOIN Users us ON us.Id = me.UserId
-
---19.Slide 15 Board Page on the Share Board pop-up, list all permission options can choose
-SELECT 
-    [Name] AS [permission_name]
-FROM [Permissions]
 
 --20.Slide 19 Board Page on the Setting pop-up, list all board's setting key and user's choice of a specific user
 SELECT 
@@ -225,3 +243,94 @@ FROM (
     WHERE OwnerTypeId = 2
 ) AS sk
 LEFT JOIN SettingValues sv ON sv.SettingKeyId = sk.Id AND sv.OwnerId = 1
+
+--21.Slide 21 Home Page on the Workspace page → Power-Ups section, list on power-ups of a specific workspace are using
+WITH boards_in_specific_workspace AS (
+    SELECT Id, WorkspaceId
+    FROM Boards
+    WHERE WorkspaceId = 1
+), 
+power_ups_in_workspace AS (
+    SELECT
+        bop.PowerUpId AS power_ups_id,
+        COUNT(bop.PowerUpId) AS number_of_boards
+
+    FROM boards_in_specific_workspace bo
+    JOIN BoardPowerUps bop ON bop.BoardId = bo.Id
+    GROUP BY bop.PowerUpId
+)
+
+SELECT 
+    pu.IconUrl AS power_up_icon,
+    pu.[Name] AS power_up_name,
+    puiw.number_of_boards
+FROM power_ups_in_workspace puiw
+JOIN PowerUps pu ON pu.Id = puiw.power_ups_id
+
+--22.Slide 22 Home Page on the Workspace page → Power-Ups section → click a specific power-ups, show information of a specific power-up
+WITH board_using_powerup_count AS (
+    SELECT
+        PowerUpId,
+        COUNT(PowerUpId) AS number_of_board
+    FROM BoardPowerUps
+    WHERE PowerUpId = 1
+    GROUP BY PowerUpId
+)
+
+SELECT
+    po.Id,
+    po.IconUrl,
+    po.AuthorName,
+    po.PowerUpCategoryId,
+    po.EmailContact,
+    po.PolicyUrl,
+    po.[Name],
+    po.[Description],
+    bc.number_of_board
+FROM PowerUps po
+JOIN board_using_powerup_count bc ON bc.PowerUpId = po.Id 
+
+--23.Slide 24 Home Page on the Workspace page → Upgrade section, list all available billing plans that the workspace can upgrade to.
+SELECT 
+    [Name] AS billing_plan_name,
+    [Description] AS billing_plan_description,
+    [Type] AS biling_plan_type,
+    PricePerUser
+FROM BillingPlans;
+
+--24.Slide 26.Home Page on the Workspace page → Billing section, show information of payment and billing
+WITH billing_selected_workspace AS (
+    SELECT
+        Id,
+        WorkspaceId,
+        Name,
+        Email,
+        AdditionalInvoiceDetail
+    FROM Billings
+    WHERE WorkspaceId = 1
+),
+member_in_workspace AS (
+    SELECT
+        OwnerId,
+        COUNT(OwnerId) AS number_of_member
+    FROM Members
+    WHERE OwnerTypeId = 1 AND OwnerId = 1
+    GROUP BY OwnerId
+)
+
+SELECT 
+    su.EndDate AS end_day_subscription,
+    bp.Name AS plan_name,
+    bp.PricePerUser AS plan_price_per_person,
+    miw.number_of_member,
+    bp.Type AS type_of_plan,
+    pai.CardNumber AS credit_card_number,
+    bsw.Name AS billing_contact_name,
+    bsw.Email AS billing_contact_email,
+    bsw.AdditionalInvoiceDetail AS invoice_details
+
+FROM billing_selected_workspace bsw
+JOIN PaymentInformations pai ON pai.BillingId = bsw.Id
+JOIN Subscriptions su ON su.BillingId = bsw.Id
+JOIN BillingPlans bp ON bp.Id = su.BillingPlanId
+JOIN member_in_workspace miw ON miw.OwnerId = bsw.WorkspaceId;
