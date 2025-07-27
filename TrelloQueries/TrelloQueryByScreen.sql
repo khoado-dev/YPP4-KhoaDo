@@ -5,7 +5,7 @@ SELECT
 FROM BoardUsers bu
 JOIN Boards bo ON bo.Id = bu.BoardId
 WHERE UserId = 1
-ORDER BY bu.AccessedAt DESC
+ORDER BY bu.AccessedAt DESC;
 
 --2.Slide 4 | Home Page on the Boards tab → Your Workspaces section, list all workspaces that the current user is a member of.
 SELECT 
@@ -13,7 +13,7 @@ SELECT
     wo.LogoUrl
 FROM Workspaces wo
 JOIN Members me ON me.OwnerId = wo.Id
-WHERE me.OwnerTypeId = 1 AND me.UserId = 1
+WHERE me.OwnerTypeId = 1 AND me.UserId = 1;
 
 --3.Slide 4 | Home Page on the Boards tab → Workspace item → Boards button, list all boards  that the current user is a member of belonging to a specific workspace.
 SELECT 
@@ -23,7 +23,7 @@ FROM Boards bo
 JOIN Members me ON me.OwnerId = bo.Id
 WHERE bo.WorkspaceId = 1 
     AND me.UserId = 1 
-    AND me.OwnerTypeId = 2
+    AND me.OwnerTypeId = 2;
 
 --4.Slide 4 | Home Page on the Header (top right corner), query boards have name that contains the keyword 'ab'
 SELECT 
@@ -32,14 +32,14 @@ SELECT
     bo.[Status]
 FROM Boards bo
 JOIN Workspaces wo ON wo.Id = bo.Id
-WHERE bo.[Name] LIKE '%ab%'
+WHERE bo.[Name] LIKE '%ab%';
 
 --5.Slide 4 | Home Page on the Header (top right corner), show the total number of unread notifications of the user.
 SELECT 
     COUNT(ac.UserId) AS number_of_notifications
 FROM Notifications [no]
 JOIN Activities ac ON ac.Id = no.ActivityId
-WHERE ac.UserId = 2 AND no.[Status] = 'UNREAD'
+WHERE ac.UserId = 2 AND no.[Status] = 'UNREAD';
 
 --6.Slide 5 | Home Page on the Templates tab → Main area, list all available public or user-created templates.
 SELECT 
@@ -53,13 +53,13 @@ SELECT
 FROM Templates te
 JOIN Users us ON us.Id = te.CreatedBy
 JOIn Boards bo ON bo.Id = te.BoardId
-ORDER BY Viewed DESC, Copied DESC
+ORDER BY Viewed DESC, Copied DESC;
 
 --7.Slide 5 | Home Page on the Templates tab → Sidebar, list all template categories available for filtering.
 SELECT 
     IconUrl AS template_category_icon, 
     [Name] AS template_name
-FROM TemplateCategories
+FROM TemplateCategories;
 
 --8.Slide 5 | Home Page on the Templates tab, query templates have title that contains the keyword 'da' 
 SELECT 
@@ -69,7 +69,7 @@ SELECT
 FROM Templates te
 JOIN Users us ON us.Id = te.CreatedBy
 JOIN Boards bo ON bo.Id = te.BoardId
-WHERE Title LIKE '%da%'
+WHERE Title LIKE '%da%';
 
 --9. Slide 6 | Home Page on the Templates tab → Main area → Select specific tempalte, show information of a specific template.
 WITH selected_template AS (
@@ -93,7 +93,7 @@ SELECT
     st.Viewed AS viewed_number,
     st.BoardId
 FROM selected_template st
-JOIN Users us ON us.Id = st.CreatedBy
+JOIN Users us ON us.Id = st.CreatedBy;
 
 --10.Slide 7 | Home Page on the Home tab → Checklist section, list all checklist items assigned to the user with status set to false (incomplete).
 SELECT 
@@ -109,7 +109,7 @@ JOIN Stages st ON st.Id = ca.StageId
 JOIN Boards bo ON bo.Id = st.BoardId
 JOIN Members me ON me.Id = cli.MemberId
 JOIN Users us ON us.Id = me.UserId
-WHERE cli.[Status] = 0 AND me.UserId = 1
+WHERE cli.[Status] = 0 AND me.UserId = 1;
 
 --11.Slide 7 Home Page on the Home tab → Assigned cards section, list all cards that are currently assigned to the user.
 SELECT 
@@ -125,7 +125,7 @@ FROM (Cards ca
 JOIN Stages st ON st.Id = ca.StageId
 JOIN Boards bo ON bo.Id = st.BoardId
 JOIN Users us ON us.Id = me.UserId
-ORDER BY day_ago
+ORDER BY day_ago;
 --12.Slide 7 Home Page on the Home tab → Activity feed section, list all recent card's activities in the user's card.
 SELECT 
     ca.Title AS card_title,
@@ -143,14 +143,14 @@ JOIN Stages st ON st.Id = ca.StageId
 JOIN Boards bo ON bo.Id = st.BoardId
 JOIN Workspaces wo ON wo.Id = bo.WorkspaceId
 JOIN Users us ON us.Id = ac.UserId
-Order By day_ago
+Order By day_ago;
 
 --13.Slide 9 Home Page on the Workspace page → Boards section, list all boards under the selected workspace.
 SELECT 
     bo.BackgroundUrl AS board_background,
     bo.[Name] AS board_name
 FROM Boards bo
-WHERE bo.WorkspaceId = 1
+WHERE bo.WorkspaceId = 1;
 
 --14.Slide 13 Home Page on the Workspace page → Members section, list all members in the workspace along with their permission on roles.
 WITH BoardCountByEachUser AS(
@@ -176,14 +176,14 @@ FROM (
 JOIN [Permissions] pe ON pe.Id = me.PermissionId
 JOIN Users us ON us.Id = me.UserId
 JOIN BoardCountByEachUser bcb ON bcb.UserId = me.UserId
-ORDER BY OwnerId
+ORDER BY OwnerId;
 
 --15.Slide 13 Home Page on the Workspace page → Members section, count the total number of members in the selected workspace.
 SELECT 
     COUNT(me.UserId) AS workspace_member_number
 FROM Members me
 JOIN [Permissions] pe ON pe.Id = me.PermissionId
-WHERE me.OwnerTypeId = 1 AND me.OwnerId = 153
+WHERE me.OwnerTypeId = 1 AND me.OwnerId = 153;
 
 --16.Slide 14 Board Page on the Share Board pop-up, list all members in the board along with their permission on roles.
 SELECT
@@ -198,7 +198,7 @@ FROM (
 ) AS me
 JOIN [Permissions] pe ON pe.Id = me.PermissionId
 JOIN Boards bo ON bo.Id = me.OwnerId
-JOIN Users us ON us.Id = me.UserId
+JOIN Users us ON us.Id = me.UserId;
 
 --17.Slide 15 Board Page on the Share Board pop-up, list all permission options can choose
 SELECT 
@@ -212,7 +212,7 @@ SELECT
     COALESCE(sv.Value, sk.DefaultValue) AS Value,
     sv.OwnerId
 FROM SettingKeys sk 
-LEFT JOIN SettingValues sv ON sv.SettingKeyId = sk.Id AND sk.OwnerTypeId = 4 AND sv.OwnerId = 1
+LEFT JOIN SettingValues sv ON sv.SettingKeyId = sk.Id AND sk.OwnerTypeId = 4 AND sv.OwnerId = 1;
 
 --19.Slide 17 Home Page on the Workspace page → Settings section, list all settingoption of a specific workspace setting.
 WITH sk AS (
@@ -230,7 +230,7 @@ SELECT
     so.DisplayValue AS setting_option_display_value
 FROM SettingKeySettingOptions sso 
 JOIN sk ON sso.SettingKeyId = sk.Id
-JOIN SettingOptions so ON so.Id = sso.SettingOptionId
+JOIN SettingOptions so ON so.Id = sso.SettingOptionId;
 
 
 --20.Slide 19 Board Page on the Setting pop-up, list all board's setting key and user's choice of a specific user
@@ -242,7 +242,7 @@ FROM (
     FROM SettingKeys
     WHERE OwnerTypeId = 2
 ) AS sk
-LEFT JOIN SettingValues sv ON sv.SettingKeyId = sk.Id AND sv.OwnerId = 1
+LEFT JOIN SettingValues sv ON sv.SettingKeyId = sk.Id AND sv.OwnerId = 1;
 
 --21.Slide 21 Home Page on the Workspace page → Power-Ups section, list on power-ups of a specific workspace are using
 WITH boards_in_specific_workspace AS (
@@ -265,7 +265,7 @@ SELECT
     pu.[Name] AS power_up_name,
     puiw.number_of_boards
 FROM power_ups_in_workspace puiw
-JOIN PowerUps pu ON pu.Id = puiw.power_ups_id
+JOIN PowerUps pu ON pu.Id = puiw.power_ups_id;
 
 --22.Slide 22 Home Page on the Workspace page → Power-Ups section → click a specific power-ups, show information of a specific power-up
 WITH board_using_powerup_count AS (
@@ -288,7 +288,7 @@ SELECT
     po.[Description],
     bc.number_of_board
 FROM PowerUps po
-JOIN board_using_powerup_count bc ON bc.PowerUpId = po.Id 
+JOIN board_using_powerup_count bc ON bc.PowerUpId = po.Id;
 
 --23.Slide 24 Home Page on the Workspace page → Upgrade section, list all available billing plans that the workspace can upgrade to.
 SELECT 
@@ -334,3 +334,30 @@ JOIN PaymentInformations pai ON pai.BillingId = bsw.Id
 JOIN Subscriptions su ON su.BillingId = bsw.Id
 JOIN BillingPlans bp ON bp.Id = su.BillingPlanId
 JOIN member_in_workspace miw ON miw.OwnerId = bsw.WorkspaceId;
+
+-- Slide 30. Home Page on the Workspace page → Export section, list all history exports of a selected workspace
+SELECT
+    CreatedAt,
+    Size
+FROM Exports
+WHERE WorkspaceId = 1;
+
+-- Slide 33. Select a board → Board page, list all Stage in a selected board include Card
+SELECT
+    ca.Title AS card_title,
+    ca.Position AS card_postion,
+    st.Title AS stage_title,
+    bo.[Name] AS board_name,
+    bo.Status AS board_status
+FROM (
+    SELECT
+        Id,
+        [Name],
+        [Status],
+        WorkspaceId
+    FROM Boards
+    WHERE Id = 1
+) bo
+JOIN Stages st ON st.BoardId = bo.Id
+JOIN Cards ca ON ca.StageId = st.Id
+ORDER BY st.Position, ca.Position
