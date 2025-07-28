@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("UnitTestForTrello")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+af12e1a2aa0ebbe4bc9d02578653fc0c2b4bca0c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+03d8e7c95a72ba5408c6c04de1365fcd0c634524")]
 [assembly: System.Reflection.AssemblyProductAttribute("UnitTestForTrello")]
 [assembly: System.Reflection.AssemblyTitleAttribute("UnitTestForTrello")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
