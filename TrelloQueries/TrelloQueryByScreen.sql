@@ -18,12 +18,12 @@ WHERE me.OwnerTypeId = 1 AND me.UserId = 1;
 --3.Slide 4 | Home Page on the Boards tab → Workspace item → Boards button, list all boards  that the current user is a member of belonging to a specific workspace.
 SELECT 
     bo.[Name] AS board_name, 
-    bo.BackgroundUrl
+    bo.BackgroundUrl AS board_background,
+    wo.[Name] AS workspace_name
 FROM Boards bo
 JOIN Members me ON me.OwnerId = bo.Id
-WHERE bo.WorkspaceId = 1 
-    AND me.UserId = 1 
-    AND me.OwnerTypeId = 2;
+JOIN Workspaces wo ON wo.Id = bo.WorkspaceId
+WHERE me.UserId = 1 AND me.OwnerTypeId = 2; --2:Board
 
 --4.Slide 4 | Home Page on the Header (top right corner), query boards have name that contains the keyword 'ab'
 SELECT 
@@ -303,10 +303,10 @@ WITH billing_selected_workspace AS (
     SELECT
         Id,
         WorkspaceId,
-        Name,
+        [Name],
         Email,
         AdditionalInvoiceDetail
-    FROM Billings
+    FROM BillingContacts
     WHERE WorkspaceId = 1
 ),
 member_in_workspace AS (
@@ -320,12 +320,12 @@ member_in_workspace AS (
 
 SELECT 
     su.EndDate AS end_day_subscription,
-    bp.Name AS plan_name,
+    bp.[Name] AS plan_name,
     bp.PricePerUser AS plan_price_per_person,
     miw.number_of_member,
-    bp.Type AS type_of_plan,
+    bp.[Type] AS type_of_plan,
     pai.CardNumber AS credit_card_number,
-    bsw.Name AS billing_contact_name,
+    bsw.[Name] AS billing_contact_name,
     bsw.Email AS billing_contact_email,
     bsw.AdditionalInvoiceDetail AS invoice_details
 
@@ -335,20 +335,20 @@ JOIN Subscriptions su ON su.BillingId = bsw.Id
 JOIN BillingPlans bp ON bp.Id = su.BillingPlanId
 JOIN member_in_workspace miw ON miw.OwnerId = bsw.WorkspaceId;
 
--- Slide 30. Home Page on the Workspace page → Export section, list all history exports of a selected workspace
+--25.Slide 30. Home Page on the Workspace page → Export section, list all history exports of a selected workspace
 SELECT
     CreatedAt,
     Size
 FROM Exports
 WHERE WorkspaceId = 1;
 
--- Slide 33. Select a board → Board page, list all Stage in a selected board include Card
+--26. Slide 33. Select a board → Board page, list all Stage in a selected board include Card
 SELECT
     ca.Title AS card_title,
     ca.Position AS card_postion,
     st.Title AS stage_title,
     bo.[Name] AS board_name,
-    bo.Status AS board_status
+    bo.[Status] AS board_status
 FROM (
     SELECT
         Id,
@@ -360,4 +360,91 @@ FROM (
 ) bo
 JOIN Stages st ON st.BoardId = bo.Id
 JOIN Cards ca ON ca.StageId = st.Id
-ORDER BY st.Position, ca.Position
+ORDER BY st.Position, ca.Position;
+
+--27. Slide 34. Select a board → Board page → in a stage, show information of a stage
+WITH card_in_specific_stage AS (
+    SELECT 
+        Id AS card_id,
+        Title AS card_title,
+        [Location] AS card_location,
+        StartDate AS card_start_date,
+        DueDate AS card_due_date,
+        CoverType,
+        CoverValue,
+        Position AS card_position,
+        [Status],
+        StageId
+    FROM Cards
+    WHERE StageId = 1
+),
+attachment_count_by_card AS (
+    SELECT
+        CardId, 
+        COUNT(CardId) AS number_of_attachment
+    FROM Attachments
+    WHERE CardId in (SELECT card_id FROM card_in_specific_stage)
+    GROUP BY CardId
+),
+checklist_item_count AS (
+    SELECT 
+        cl.CardId,
+        COUNT(CardId) AS number_of_checklist_item
+    FROM CheckLists cl
+    JOIN CheckListItems cli ON cli.CheckListId = cl.Id
+    WHERE CardId in (
+        SELECT
+            card_id
+        FROM card_in_specific_stage
+    )
+    GROUP BY CardId
+)
+
+SELECT 
+     ca.card_id,
+     ca.card_title,
+     ca.card_location,
+     ca.card_start_date,
+     ca.card_due_date,
+     ca.CoverType,
+     ca.CoverValue,
+     card_position,
+     ca.[Status],
+     ca.StageId,
+    at.number_of_attachment,
+    ch.number_of_checklist_item
+FROM card_in_specific_stage ca
+JOIN attachment_count_by_card at ON at.CardId = ca.card_id
+JOIN checklist_item_count ch ON ch.CardId = ca.card_id
+
+--28 Slide 34. Select a board → Board page → in a stage, show picture of each user is member of specific card
+SELECT
+    me.card_id,
+    us.PictureUrl AS user_picture
+FROM (
+    SELECT 
+        UserId,
+        OwnerId AS card_id
+    FROM Members me
+    JOIN OwnerTypes ot ON ot.Id = me.OwnerTypeId
+    WHERE ot.[Value] = 'Card' AND me.OwnerId = 1 --OwnerId is CardId
+) me
+JOIN Users us ON us.Id = me.UserId;
+
+--29. Slide 35. Select a board → Board page → in a stage → select a card, show labels of a card
+SELECT
+    ca.Id AS card_id,
+    ca.Title AS card_title,
+    la.Id AS [label_id],
+    co.[Name] AS color_name,
+    co.Icon AS color_icon
+FROM (
+    SELECT 
+        CardId,
+        LabelId
+    FROM CardLabels
+    WHERE CardId = 1
+) cl
+JOIN Cards ca ON ca.Id = cl.CardId
+JOIN Labels la ON la.Id = cl.LabelId
+JOIN Colors co ON co.Id = la.ColorId
