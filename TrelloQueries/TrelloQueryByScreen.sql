@@ -203,7 +203,7 @@ JOIN Users us ON us.Id = me.UserId;
 --17.Slide 15 Board Page on the Share Board pop-up, list all permission options can choose
 SELECT 
     [Name] AS [permission_name]
-FROM [Permissions]
+FROM [Permissions];
 
 
 --18.Slide 17 Home Page on the Workspace page → Settings section, list all workspace setting keys with the current user's selected values.
@@ -447,7 +447,7 @@ FROM (
 ) cl
 JOIN Cards ca ON ca.Id = cl.CardId
 JOIN Labels la ON la.Id = cl.LabelId
-JOIN Colors co ON co.Id = la.ColorId
+JOIN Colors co ON co.Id = la.ColorId;
 
 --30. Slide 36. Select a board → Board page → in a stage → select a card, show activities in a specific card
 SELECT 
@@ -467,14 +467,14 @@ FROM (
     WHERE OwnerTypeId = 3 AND OwnerId = 1 --3:Card
 ) ac
 JOIN Users us ON us.Id = ac.UserId
-ORDER BY CreatedAt DESC
+ORDER BY CreatedAt DESC;
 
 --31. Slide 37. Select a board → Board page → in a stage → select a card → click on cover, show list of colors with icon can selected
 SELECT 
     Id,
     [Name],
     Icon
-FROM Colors
+FROM Colors;
 
 --32. Slide 38. Select a board → Board page → in a stage → select a card, show list of labels with color that card selected
 SELECT
@@ -492,7 +492,7 @@ FROM (
     WHERE CardId = 1
 ) cl
 JOIN Labels la ON la.Id = cl.LabelId
-JOIN Colors co ON co.Id = la.ColorId
+JOIN Colors co ON co.Id = la.ColorId;
 
 --33. Slide 40. Select a board → Board page → in a stage → select a card → checklist section, checklist and its item in a specific card(832)
 SELECT
@@ -561,7 +561,7 @@ SELECT
     IsCover
 FROM Attachments
 WHERE FileType IS NULL
-ORDER BY UploadAt DESC
+ORDER BY UploadAt DESC;
 
 --36. Slide 42. Select a board → Board page → in a stage → select a card → attachment section, show all attachment have FILE type in a specific card 
 SELECT 
@@ -590,7 +590,7 @@ FROM (
     FROM Comments
     WHERE CardId = 123
 ) co
-JOIN Users us ON us.Id = co.CreatedBy
+JOIN Users us ON us.Id = co.CreatedBy;
 
 --38. Slide 43. Select a board → Board page → in a stage → select a card → comment section, show all reactions in a comment(104) of a specific card 
 SELECT
@@ -624,5 +624,115 @@ FROM (
     FROM Activities
     WHERE OwnerTypeId = 3 AND OwnerId = 1
 ) ac
-JOIN Users us ON us.Id = ac.UserId
+JOIN Users us ON us.Id = ac.UserId;
 
+--40. Slide 45. Select a board → Board page → in a stage → select a card → CustomField section, 
+--          show all CustomField and Selection of a specific card
+WITH CustomFieldOfCard AS (
+    SELECT 
+        Id,
+        Title,
+        FieldType,
+        Position,
+        BoardId
+    FROM CustomFields cf
+    WHERE BoardId = (
+        SELECT 
+            st.BoardId
+        FROM (
+            SELECT 
+                Id,
+                StageId
+            FROM Cards
+            WHERE Id = 1
+        ) ca
+        JOIN Stages st ON st.Id = ca.StageId
+    )
+)
+SELECT
+    cfoc.Id AS custom_field_id,
+    cfoc.Title AS custom_field_title,
+    cfoc.FieldType AS custom_field_type,
+    cfoc.Position AS custom_field_position,
+    fv.[Value] AS field_value,
+    CASE 
+        WHEN cfoc.FieldType = 'DROPDOWN' THEN fi.[Value]
+        ELSE fv.[Value] 
+    END AS field_item_value,
+    fv.CardId AS card_id
+FROM CustomFieldOfCard cfoc
+JOIN FieldValues fv ON fv.CustomFieldId = cfoc.Id AND fv.CardId = 1
+LEFT JOIN FieldItems fi ON cfoc.FieldType = 'DROPDOWN' AND fi.Id = TRY_CAST(fv.[Value] AS INT);
+
+--41. Slide 45. Select a board → Board page → in a stage → select a card → CustomField section, 
+--          show all options of a custom field with DROPDOWN type with Id = 13
+
+SELECT 
+    cf.Id AS custom_field_id,
+    cf.Title AS custom_field_title,
+    cf.FieldType AS custom_field_type,
+    fi.[Value] AS field_item_value,
+    fi.[Priority] AS field_item_priority,
+    co.[Name] AS color_name,
+    co.Icon AS color_icon
+FROM CustomFields cf
+JOIN FieldItems fi ON fi.CustomFieldId = cf.Id
+JOIN Colors co ON co.Id = fi.ColorId
+WHERE cf.Id = 13
+ORDER BY fi.[Priority];
+
+--42. Slide 47. Select a board → Board page → Setting section → Click stickers, show list of sticker can select
+SELECT 
+    Id,
+    [Name],
+    StickerUrl
+FROM Stickers;
+
+--43. Slide 47. Select a board → Board page → in a stage, show sticker in cover of a card
+SELECT 
+    st.Id AS sticker_id,
+    st.[Name] AS sticker_name,
+    st.StickerUrl AS sticker_url,
+    PositionX,
+    PositionY,
+    IndexZ,
+    CardId AS card_id
+FROM CardStickers cs
+JOIN Stickers st ON st.Id = cs.StickerId
+WHERE CardId = 1;
+
+--44. Slide 49. Click notification icon, show all notification are unread
+SELECT 
+    no.Id AS notification_id,
+    us.PictureUrl AS user_picture,
+    us.Username,
+    ac.[Description] AS activity_description,
+    ac.OwnerTypeId,
+    ac.OwnerId
+FROM Notifications [no]
+JOIN Activities ac ON ac.Id = no.ActivityId
+JOIN Users us ON us.Id = ac.UserId
+WHERE ac.UserId = 2 AND no.[Status] = 'UNREAD';
+
+--45. Slide 49. Click notification icon, show all notification are read
+SELECT 
+    no.Id AS notification_id,
+    us.PictureUrl AS user_picture,
+    us.Username,
+    ac.[Description] AS activity_description,
+    ac.OwnerTypeId,
+    ac.OwnerId
+FROM Notifications [no]
+JOIN Activities ac ON ac.Id = no.ActivityId
+JOIN Users us ON us.Id = ac.UserId
+WHERE ac.UserId = 2 AND no.[Status] = 'READ';
+
+--45. Slide 52. Click setting of a workspace → click board tab, show board and collection its belong with
+SELECT 
+    bo.Name AS board_name,
+    co.Name AS collection_name
+FROM BoardCollections bc
+JOIN Boards bo ON bo.Id = bc.BoardId
+JOIN Collections co ON co.Id = bc.CollectionId
+WHERE bo.WorkspaceId = 1
+ORDER BY board_name;
