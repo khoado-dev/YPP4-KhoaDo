@@ -113,9 +113,9 @@ WHERE cli.[Status] = 0 AND me.UserId = 1;
 
 --11.Slide 7 Home Page on the Home tab → Assigned cards section, list all cards that are currently assigned to the user.
 SELECT 
-    ca.Title AS card_title,
     bo.[Name] AS board_name,
     st.Title AS stage_title,
+    ca.Title AS card_title,
     us.PictureUrl AS user_picture,
     ABS(DATEDIFF(DAY, GETDATE(), me.JoinedAt)) AS day_ago
 FROM (Cards ca 
@@ -448,3 +448,181 @@ FROM (
 JOIN Cards ca ON ca.Id = cl.CardId
 JOIN Labels la ON la.Id = cl.LabelId
 JOIN Colors co ON co.Id = la.ColorId
+
+--30. Slide 36. Select a board → Board page → in a stage → select a card, show activities in a specific card
+SELECT 
+    us.PictureUrl AS user_picture,
+    us.Username,
+    ac.[Description],
+    ac.CreatedAt,
+    card_id
+FROM (
+    SELECT 
+        UserId,
+        OwnerId AS card_id,
+        [Description],
+        CreatedAt
+    FROM
+        Activities
+    WHERE OwnerTypeId = 3 AND OwnerId = 1 --3:Card
+) ac
+JOIN Users us ON us.Id = ac.UserId
+ORDER BY CreatedAt DESC
+
+--31. Slide 37. Select a board → Board page → in a stage → select a card → click on cover, show list of colors with icon can selected
+SELECT 
+    Id,
+    [Name],
+    Icon
+FROM Colors
+
+--32. Slide 38. Select a board → Board page → in a stage → select a card, show list of labels with color that card selected
+SELECT
+    cl.CardId,
+    cl.LabelId,
+    la.Title AS label_title,
+    co.[Name] AS color_name,
+    co.Icon AS color_icon
+FROM (
+    SELECT
+        CardId,
+        LabelId
+    FROM
+        CardLabels
+    WHERE CardId = 1
+) cl
+JOIN Labels la ON la.Id = cl.LabelId
+JOIN Colors co ON co.Id = la.ColorId
+
+--33. Slide 40. Select a board → Board page → in a stage → select a card → checklist section, checklist and its item in a specific card(832)
+SELECT
+    cl.CardId AS card_id,
+    cl.[Name] AS checklist_name,
+    cl.checklist_position,
+    cli.[Status] AS checklist_item_status,
+    cli.[Name] AS checklist_item_name,
+    cli.DueDate AS checklist_item_due_date,
+    cli.Position AS checklist_item_position,
+    us.PictureUrl AS user_picture
+FROM (
+    SELECT 
+        Id,
+        [Name],
+        CardId,
+        Position AS checklist_position
+    FROM CheckLists
+    WHERE CardId = 832
+) cl
+JOIN CheckListItems cli ON cli.CheckListId = cl.Id
+JOIN Members me ON me.Id = cli.MemberId
+JOIN Users us ON us.Id = me.UserId
+ORDER BY cl.checklist_position, cli.Position;
+--34. Slide 40. Select a board → Board page → in a stage → select a card → checklist section, 
+--              list members in card, 
+--                              board contains this card, 
+--                              workspace contains this board to assign in checklist's item
+WITH RankedUsers AS (
+    SELECT
+        us.Id AS [user_id],
+        us.PictureUrl AS user_picture, 
+        us.Username,
+        me.OwnerTypeId,
+        ROW_NUMBER() OVER (PARTITION BY us.Id ORDER BY me.OwnerTypeId DESC) AS rn
+    FROM (
+        SELECT
+            Id,
+            StageId
+        FROM Cards
+        WHERE Id = 832
+    ) ca
+    JOIN Stages st ON st.Id = ca.StageId
+    JOIN Boards bo ON bo.Id = st.BoardId
+    JOIN Workspaces wo ON wo.Id = bo.WorkspaceId
+    RIGHT JOIN Members me ON  (me.OwnerTypeId = 1 AND me.OwnerId = wo.Id) OR
+                        (me.OwnerTypeId = 2 AND me.OwnerId = bo.Id) OR
+                        (me.OwnerTypeId = 3 AND me.OwnerId = ca.Id)
+    JOIN Users us ON us.Id = me.UserId
+)
+
+SELECT 
+    [user_id],
+    user_picture,
+    Username,
+    OwnerTypeId
+FROM RankedUsers
+WHERE rn = 1
+ORDER BY OwnerTypeId DESC;
+
+--35. Slide 42. Select a board → Board page → in a stage → select a card → attachment section, show all attachment have LINK type in a specific card 
+SELECT 
+    Link AS [attachment_url],
+    [Name] AS attachment_name,
+    UploadAt,
+    IsCover
+FROM Attachments
+WHERE FileType IS NULL
+ORDER BY UploadAt DESC
+
+--36. Slide 42. Select a board → Board page → in a stage → select a card → attachment section, show all attachment have FILE type in a specific card 
+SELECT 
+    FilePath AS [attachment_url],
+    [Name] AS attachment_name,
+    UploadAt,
+    IsCover
+FROM Attachments
+WHERE FileType IS NOT NULL
+ORDER BY UploadAt DESC;
+
+--37. Slide 43. Select a board → Board page → in a stage → select a card → comment section, show all comment in a specific card(123) 
+SELECT
+    co.Id AS comment_id,
+    us.PictureUrl AS user_picture,
+    us.Username,
+    co.CreatedAt,
+    co.Content
+FROM (
+    SELECT 
+        Id,
+        Content,
+        CreatedAt,
+        CreatedBy,
+        CardId
+    FROM Comments
+    WHERE CardId = 123
+) co
+JOIN Users us ON us.Id = co.CreatedBy
+
+--38. Slide 43. Select a board → Board page → in a stage → select a card → comment section, show all reactions in a comment(104) of a specific card 
+SELECT
+    re.Id AS reaction_id,
+    re.icon,
+    COUNT(re.Id) AS number_of_reaction
+FROM (
+    SELECT
+        CommentId,
+        ReactionId
+    FROM CommentReactions
+    WHERE CommentId = 104
+) cr
+JOIN Reactions re ON re.Id = cr.ReactionId
+GROUP BY re.Id, re.icon;
+
+--39. Slide 43. Select a board → Board page → in a stage → select a card → comment section → show detail, 
+--          show all activities of a specific card
+SELECT 
+    us.PictureUrl AS user_picture,
+    us.Username,
+    ac.[Description] AS activity_description,
+    ac.CreatedAt AS activity_created_at
+FROM (
+    SELECT
+        Id,
+        [Description],
+        CreatedAt,
+        UserId,
+        OwnerId AS card_id
+    FROM Activities
+    WHERE OwnerTypeId = 3 AND OwnerId = 1
+) ac
+JOIN Users us ON us.Id = ac.UserId
+
