@@ -727,7 +727,7 @@ JOIN Activities ac ON ac.Id = no.ActivityId
 JOIN Users us ON us.Id = ac.UserId
 WHERE ac.UserId = 2 AND no.[Status] = 'READ';
 
---45. Slide 52. Click setting of a workspace → click board tab, show board and collection its belong with
+--46. Slide 52. Click setting of a workspace → click board tab, show board and collection its belong with
 SELECT 
     bo.Name AS board_name,
     co.Name AS collection_name
