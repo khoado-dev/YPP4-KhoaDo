@@ -4,7 +4,7 @@ SELECT
         bo.BackgroundUrl
 FROM BoardUsers bu
 JOIN Boards bo ON bo.Id = bu.BoardId
-WHERE UserId = 1
+WHERE bu.UserId = 1
 ORDER BY bu.AccessedAt DESC;
 
 --2.Slide 4 | Home Page on the Boards tab → Your Workspaces section, list all workspaces that the current user is a member of.
