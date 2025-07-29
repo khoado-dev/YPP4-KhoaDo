@@ -222,7 +222,7 @@ GO
 CREATE TABLE Members (
     Id int IDENTITY(1,1) PRIMARY KEY,
     UserId [int] NULL FOREIGN KEY REFERENCES Users(Id),
-    PermissionId [int] NULL FOREIGN KEY REFERENCES Permissions(Id),
+    PermissionId [int] NULL FOREIGN KEY REFERENCES RolePermissions(Id),
     OwnerTypeId [int] NULL FOREIGN KEY REFERENCES OwnerTypes(Id),
     OwnerId [int] NULL,
     InvitedBy [int] NULL,
@@ -344,7 +344,7 @@ GO
 CREATE TABLE SettingValues (
     Id int IDENTITY(1,1) PRIMARY KEY,
     SettingKeyId [int] NULL FOREIGN KEY REFERENCES SettingKeys(Id),
-    SettingValueValue [int] NULL,
+    SettingValue [int] NULL,
     OwnerId [int] NULL    
 );
 GO
@@ -353,7 +353,7 @@ CREATE TABLE ShareLinks (
     Id int IDENTITY(1,1) PRIMARY KEY,
     OwnerTypeId [int] NULL FOREIGN KEY REFERENCES OwnerTypes(Id),
     OwnerId [int] NULL,
-    PermissionId [int] NULL FOREIGN KEY REFERENCES Permissions(Id),
+    PermissionId [int] NULL FOREIGN KEY REFERENCES RolePermissions(Id),
     Token [varchar](255) NULL,
     ShareLinkStatus [varchar](50) NULL   
 );
