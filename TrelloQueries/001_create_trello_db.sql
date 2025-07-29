@@ -5,6 +5,7 @@ CREATE TABLE Users (
     Email [varchar](255) NULL,
     LastActive [datetime] NULL,
     CreatedAt [datetime] NULL,
+    UpdatedAt [datetime] NULL,
     PictureUrl [varchar](2000) NULL    
 );
 GO
@@ -32,6 +33,8 @@ CREATE TABLE Workspaces (
     WorkspaceType [varchar](100) NULL,
     CreatedAt [datetime] NULL,
     CreatedBy [int] NULL FOREIGN KEY REFERENCES Users(Id),
+    UpdatedAt [datetime] NULL,
+    UpdatedBy [int] NULL FOREIGN KEY REFERENCES Users(Id),
     LogoUrl [varchar](500) NULL
 );
 GO
@@ -42,6 +45,8 @@ CREATE TABLE Boards (
     BoardDescription [text] NULL,
     CreatedAt [datetime] NULL,
     CreatedBy [int] NULL FOREIGN KEY REFERENCES Users(Id),
+    UpdatedAt [datetime] NULL,
+    UpdatedBy [int] NULL FOREIGN KEY REFERENCES Users(Id),
     AccessedAt [datetime] NULL,
     IsStar [bit] NULL,
     BackgroundUrl [varchar](2000) NULL,
@@ -61,6 +66,9 @@ CREATE TABLE Stages (
     Id int IDENTITY(1,1) PRIMARY KEY,
     Title [varchar](255) NULL,
     CreatedAt [datetime] NULL,
+    CreatedBy [int] NULL FOREIGN KEY REFERENCES Users(Id),
+    UpdatedAt [datetime] NULL,
+    UpdatedBy [int] NULL FOREIGN KEY REFERENCES Users(Id),
     BoardId [int] NULL FOREIGN KEY REFERENCES Boards(Id),
     StageStatus [varchar](20) NULL,
     ColorId [int] NULL FOREIGN KEY REFERENCES Colors(Id),
@@ -74,7 +82,9 @@ CREATE TABLE Cards (
     Title [varchar](255) NULL,
     CardDescription [text] NULL,
     CreatedAt [datetime] NULL,
-    CreatedBy [int] NULL,
+    CreatedBy [int] NULL FOREIGN KEY REFERENCES Users(Id),
+    UpdatedAt [datetime] NULL,
+    UpdatedBy [int] NULL FOREIGN KEY REFERENCES Users(Id),
     CardStatus [varchar](20) NULL,
     CardLocation [varchar](255) NULL,
     StartDate [date] NULL,
@@ -92,8 +102,10 @@ CREATE TABLE Attachments (
     FileType [varchar](50) NULL,
     FilePath [varchar](255) NULL,
     AttachmentName [varchar](255) NULL,
-    UploadAt [datetime] NULL,
-    UploadBy [int] NULL FOREIGN KEY REFERENCES Users(Id),
+    CreatedAt [datetime] NULL,
+    CreatedBy [int] NULL FOREIGN KEY REFERENCES Users(Id),
+    UpdatedAt [datetime] NULL,
+    UpdatedBy [int] NULL FOREIGN KEY REFERENCES Users(Id),
     IsCover [bit] NULL    
 );
 GO
@@ -129,8 +141,10 @@ GO
 CREATE TABLE Collections (
     Id int IDENTITY(1,1) PRIMARY KEY,
     CollectionName [varchar](255) NULL,
-    CreatedBy [int] NULL FOREIGN KEY REFERENCES Users(Id),
     CreatedAt [datetime] NULL,
+    CreatedBy [int] NULL FOREIGN KEY REFERENCES Users(Id),
+    UpdatedAt [datetime] NULL,
+    UpdatedBy [int] NULL FOREIGN KEY REFERENCES Users(Id),
     WorkspaceId [int] NULL,    
 );
 GO
@@ -178,6 +192,10 @@ GO
 CREATE TABLE Labels (
     Id int IDENTITY(1,1) PRIMARY KEY,
     Title [varchar](100) NULL,
+    CreatedAt [datetime] NULL,
+    CreatedBy [int] NULL FOREIGN KEY REFERENCES Users(Id),
+    UpdatedAt [datetime] NULL,
+    UpdatedBy [int] NULL FOREIGN KEY REFERENCES Users(Id),
     ColorId [int] NULL FOREIGN KEY REFERENCES Colors(Id)    
 );
 GO
@@ -198,6 +216,10 @@ GO
 CREATE TABLE CardStickers (
     CardId [int] NOT NULL FOREIGN KEY REFERENCES Cards(Id),
     StickerId [int] NOT NULL FOREIGN KEY REFERENCES Stickers(Id),
+    CreatedAt [datetime] NULL,
+    CreatedBy [int] NULL FOREIGN KEY REFERENCES Users(Id),
+    UpdatedAt [datetime] NULL,
+    UpdatedBy [int] NULL FOREIGN KEY REFERENCES Users(Id),
     PositionX [float] NULL,
     PositionY [float] NULL,
     IndexZ [int] NULL
@@ -208,7 +230,11 @@ CREATE TABLE CheckLists (
     Id int IDENTITY(1,1) PRIMARY KEY,
     CheckListName [varchar](255) NULL,
     CardId [int] NULL FOREIGN KEY REFERENCES Cards(Id),
-    Position [int] NULL,    
+    Position [int] NULL,
+    CreatedAt [datetime] NULL,
+    CreatedBy [int] NULL FOREIGN KEY REFERENCES Users(Id),
+    UpdatedAt [datetime] NULL,
+    UpdatedBy [int] NULL FOREIGN KEY REFERENCES Users(Id),
 );
 GO
 
@@ -238,6 +264,10 @@ CREATE TABLE CheckListItems (
     CheckListId [int] NULL FOREIGN KEY REFERENCES CheckLists(Id),
     DueDate [date] NULL,
     CheckListItemStatus [bit] NULL,
+    CreatedAt [datetime] NULL,
+    CreatedBy [int] NULL FOREIGN KEY REFERENCES Users(Id),
+    UpdatedAt [datetime] NULL,
+    UpdatedBy [int] NULL FOREIGN KEY REFERENCES Users(Id),
     Position [int] NULL,    
 );
 GO
@@ -247,7 +277,9 @@ CREATE TABLE Comments (
     Content [text] NULL,
     CardId [int] NULL FOREIGN KEY REFERENCES Cards(Id),
     CreatedAt [datetime] NULL,
-    CreatedBy [int] NULL FOREIGN KEY REFERENCES Users(Id),    
+    CreatedBy [int] NULL FOREIGN KEY REFERENCES Users(Id),
+    UpdatedAt [datetime] NULL,
+    UpdatedBy [int] NULL FOREIGN KEY REFERENCES Users(Id),
 );
 GO
 
@@ -270,6 +302,10 @@ CREATE TABLE CustomFields (
     Title [varchar](255) NULL,
     FieldType [varchar](50) NULL,
     BoardId [int] NULL FOREIGN KEY REFERENCES Boards(Id),
+    CreatedAt [datetime] NULL,
+    CreatedBy [int] NULL FOREIGN KEY REFERENCES Users(Id),
+    UpdatedAt [datetime] NULL,
+    UpdatedBy [int] NULL FOREIGN KEY REFERENCES Users(Id),
     Position [int] NULL    
 );
 GO
@@ -297,12 +333,6 @@ CREATE TABLE FieldValues (
     CardId [int] NULL FOREIGN KEY REFERENCES Cards(Id),
     FieldValue [varchar](255) NULL,
     CustomFieldId [int] NULL FOREIGN KEY REFERENCES CustomFields(Id)    
-);
-GO
-
-CREATE TABLE MemberReactions (
-    MemberId [int] NOT NULL FOREIGN KEY REFERENCES Members(Id),
-    ReactionId [int] NOT NULL FOREIGN KEY REFERENCES Reactions(Id)
 );
 GO
 
@@ -345,6 +375,10 @@ CREATE TABLE SettingValues (
     Id int IDENTITY(1,1) PRIMARY KEY,
     SettingKeyId [int] NULL FOREIGN KEY REFERENCES SettingKeys(Id),
     SettingValue [int] NULL,
+    CreatedAt [datetime] NULL,
+    CreatedBy [int] NULL FOREIGN KEY REFERENCES Users(Id),
+    UpdatedAt [datetime] NULL,
+    UpdatedBy [int] NULL FOREIGN KEY REFERENCES Users(Id),
     OwnerId [int] NULL    
 );
 GO
@@ -388,6 +422,8 @@ CREATE TABLE Templates (
     Copied [int] NULL,
     CreatedBy [int] NULL FOREIGN KEY REFERENCES Users(Id),
     CreatedAt [datetime] NULL,
+    UpdatedAt [datetime] NULL,
+    UpdatedBy [int] NULL FOREIGN KEY REFERENCES Users(Id),
     BoardId [int] NULL FOREIGN KEY REFERENCES Boards(Id),
     BackgroundUrl [varchar](2000) NULL    
 );
