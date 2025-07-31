@@ -10,7 +10,7 @@ ORDER BY bu.AccessedAt DESC;
 --2.Slide 4 | Home Page on the Boards tab → Your Workspaces section, list all workspaces that the current user is a member of.
 SELECT 
     wo.WorkspaceName, 
-    wo.LogoUrl
+    wo.IconUrl
 FROM Workspaces wo
 JOIN Members me ON me.OwnerId = wo.Id
 WHERE me.OwnerTypeId = 1 AND me.UserId = 1;
@@ -58,7 +58,7 @@ ORDER BY Viewed DESC, Copied DESC;
 --7.Slide 5 | Home Page on the Templates tab → Sidebar, list all template categories available for filtering.
 SELECT 
     IconUrl AS template_category_icon, 
-    TemplateCategoryName AS template_name
+    CategoryName AS category_name
 FROM TemplateCategories;
 
 --8.Slide 5 | Home Page on the Templates tab, query templates have title that contains the keyword 'da' 
@@ -138,7 +138,7 @@ SELECT
     ac.ActivityDescription AS activity_description
 FROM (SELECT UserId, OwnerTypeId, OwnerId, ActivityDescription, CreatedAt
     FROM Activities WHERE OwnerTypeId = 3) ac
-JOIN Cards ca ON ca.Id = ac.OwnerId AND ca.CreatedBy = 1
+JOIN Cards ca ON ca.Id = ac.OwnerId
 JOIN Stages st ON st.Id = ca.StageId
 JOIN Boards bo ON bo.Id = st.BoardId
 JOIN Workspaces wo ON wo.Id = bo.WorkspaceId
@@ -165,7 +165,7 @@ SELECT
     us.Username,
     us.Email AS user_email,
     us.LastActive AS user_last_active,
-    pe.RolePermissionName,
+    pe.PermissionName,
     bcb.board_count
 FROM (
     SELECT 
@@ -190,7 +190,7 @@ SELECT
     us.PictureUrl user_picture,
     us.Username,
     us.Email user_mail,
-    pe.RolePermissionName
+    pe.PermissionName
 FROM (
     SELECT UserId, PermissionId, OwnerId
     FROM Members
@@ -202,14 +202,14 @@ JOIN Users us ON us.Id = me.UserId;
 
 --17.Slide 15 Board Page on the Share Board pop-up, list all permission options can choose
 SELECT 
-    RolePermissionName
+    PermissionName
 FROM RolePermissions;
 
 
 --18.Slide 17 Home Page on the Workspace page → Settings section, list all workspace setting keys with the current user's selected values.
 SELECT 
     sk.KeyName, 
-    COALESCE(sv.SettingValue, sk.DefaultValue) AS Value
+    COALESCE(sv.SettingContent, sk.DefaultValue) AS Value
 FROM SettingKeys sk 
 LEFT JOIN SettingValues sv ON sv.SettingKeyId = sk.Id AND sk.OwnerTypeId = 4 AND sv.OwnerId = 1;
 
@@ -235,7 +235,7 @@ JOIN SettingOptions so ON so.Id = sso.SettingOptionId;
 --20.Slide 19 Board Page on the Setting pop-up, list all board's setting key and user's choice of a specific user
 SELECT 
     sk.KeyName, 
-    COALESCE(sv.SettingValue, sk.DefaultValue) as setting_value
+    COALESCE(sv.SettingContent, sk.DefaultValue) as setting_value
 FROM (
     SELECT
         Id,
@@ -296,8 +296,8 @@ JOIN board_using_powerup_count bc ON bc.PowerUpId = po.Id;
 
 --23.Slide 24 Home Page on the Workspace page → Upgrade section, list all available billing plans that the workspace can upgrade to.
 SELECT 
-    BillingPlanName AS billing_plan_name,
-    BillingPlanDescription AS billing_plan_description,
+    PlanName AS billing_plan_name,
+    --PlanDescription AS billing_plan_description,
     BillingPlanType AS biling_plan_type,
     PricePerUser
 FROM BillingPlans;
@@ -308,7 +308,7 @@ WITH billing_selected_workspace AS (
         Id,
         WorkspaceId,
         BillingContactName,
-        Email,
+        BillingContactEmail,
         AdditionalInvoiceDetail
     FROM BillingContacts
     WHERE WorkspaceId = 1
@@ -324,18 +324,18 @@ member_in_workspace AS (
 
 SELECT 
     su.EndDate AS end_day_subscription,
-    bp.BillingPlanName AS plan_name,
+    bp.PlanName AS plan_name,
     bp.PricePerUser AS plan_price_per_person,
     miw.number_of_member,
     bp.BillingPlanType AS type_of_plan,
     pai.CardNumber AS credit_card_number,
     bsw.BillingContactName AS billing_contact_name,
-    bsw.Email AS billing_contact_email,
+    bsw.BillingContactEmail AS billing_contact_email,
     bsw.AdditionalInvoiceDetail AS invoice_details
 
 FROM billing_selected_workspace bsw
-JOIN PaymentInformations pai ON pai.BillingId = bsw.Id
-JOIN Subscriptions su ON su.BillingId = bsw.Id
+JOIN PaymentInformations pai ON pai.BillingContactId = bsw.Id
+JOIN Subscriptions su ON su.BillingContactId = bsw.Id
 JOIN BillingPlans bp ON bp.Id = su.BillingPlanId
 JOIN member_in_workspace miw ON miw.OwnerId = bsw.WorkspaceId;
 
@@ -502,25 +502,25 @@ JOIN Colors co ON co.Id = la.ColorId;
 SELECT
     cl.CardId AS card_id,
     cl.CheckListName AS checklist_name,
-    cl.checklist_position,
+    --cl.checklist_position,
     cli.CheckListItemStatus AS checklist_item_status,
     cli.CheckListItemName AS checklist_item_name,
     cli.DueDate AS checklist_item_due_date,
-    cli.Position AS checklist_item_position,
+    --cli.Position AS checklist_item_position,
     us.PictureUrl AS user_picture
 FROM (
     SELECT 
         Id,
         CheckListName,
-        CardId,
-        Position AS checklist_position
+        CardId
+        --,Position AS checklist_position
     FROM CheckLists
     WHERE CardId = 832
 ) cl
 JOIN CheckListItems cli ON cli.CheckListId = cl.Id
 JOIN Members me ON me.Id = cli.MemberId
-JOIN Users us ON us.Id = me.UserId
-ORDER BY cl.checklist_position, cli.Position;
+JOIN Users us ON us.Id = me.UserId;
+--ORDER BY cl.checklist_position, cli.Position;
 --34. Slide 40. Select a board → Board page → in a stage → select a card → checklist section, 
 --              list members in card, 
 --                              board contains this card, 
@@ -636,7 +636,7 @@ WITH CustomFieldOfCard AS (
     SELECT 
         Id,
         Title,
-        FieldType,
+        DataTypeId,
         Position,
         BoardId
     FROM CustomFields cf
@@ -656,17 +656,17 @@ WITH CustomFieldOfCard AS (
 SELECT
     cfoc.Id AS custom_field_id,
     cfoc.Title AS custom_field_title,
-    cfoc.FieldType AS custom_field_type,
+    cfoc.DataTypeId AS custom_field_type,
     cfoc.Position AS custom_field_position,
     fv.FieldValue AS field_value,
     CASE 
-        WHEN cfoc.FieldType = 'DROPDOWN' THEN fi.FieldItemValue
+        WHEN cfoc.DataTypeId = 1 THEN fi.FieldItemValue
         ELSE fv.FieldValue 
     END AS field_item_value,
     fv.CardId AS card_id
 FROM CustomFieldOfCard cfoc
 JOIN FieldValues fv ON fv.CustomFieldId = cfoc.Id AND fv.CardId = 1
-LEFT JOIN FieldItems fi ON cfoc.FieldType = 'DROPDOWN' AND fi.Id = TRY_CAST(fv.FieldValue AS INT);
+LEFT JOIN FieldItems fi ON cfoc.DataTypeId = 1 AND fi.Id = TRY_CAST(fv.FieldValue AS INT);
 
 --41. Slide 45. Select a board → Board page → in a stage → select a card → CustomField section, 
 --          show all options of a custom field with DROPDOWN type with Id = 13
@@ -674,16 +674,16 @@ LEFT JOIN FieldItems fi ON cfoc.FieldType = 'DROPDOWN' AND fi.Id = TRY_CAST(fv.F
 SELECT 
     cf.Id AS custom_field_id,
     cf.Title AS custom_field_title,
-    cf.FieldType AS custom_field_type,
+    cf.DataTypeId AS custom_field_type,
     fi.FieldItemValue AS field_item_value,
-    fi.FieldItemPriority AS field_item_priority,
+    fi.Priority AS field_item_priority,
     co.ColorName AS color_name,
     co.Icon AS color_icon
 FROM CustomFields cf
 JOIN FieldItems fi ON fi.CustomFieldId = cf.Id
 JOIN Colors co ON co.Id = fi.ColorId
 WHERE cf.Id = 13
-ORDER BY fi.FieldItemPriority;
+ORDER BY fi.Priority;
 
 --42. Slide 47. Select a board → Board page → Setting section → Click stickers, show list of sticker can select
 SELECT 
@@ -740,3 +740,17 @@ JOIN Boards bo ON bo.Id = bc.BoardId
 JOIN Collections co ON co.Id = bc.CollectionId
 WHERE bo.WorkspaceId = 1
 ORDER BY board_name;
+
+select 
+    bo.Id board_id,
+    bo.BoardName board_name,
+    bo.WorkspaceId workspace_id,
+    co.Id collection_id,
+    co.CollectionName
+from Boards bo
+JOIN BoardCollections bc ON bc.BoardId = bo.Id 
+JOIN Collections co ON co.Id = bc.CollectionId
+WHERE bo.WorkspaceId = 1 AND co.WorkspaceId = 1
+select * from boards where WorkspaceId = 1
+select * from Collections where WorkspaceId = 1
+
