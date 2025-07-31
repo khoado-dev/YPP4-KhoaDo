@@ -13,7 +13,7 @@ GO
 CREATE TABLE [dbo].[DataTypes](
     [Id] [int] IDENTITY(1,1) PRIMARY KEY,
     [TypeValue] [varchar](20) NULL,
-    Icon [int] NOT NULL
+    Icon [varchar](255) NOT NULL
 );
 GO
 
@@ -215,10 +215,20 @@ CREATE TABLE CardLabels (
 );
 GO
 
+
+CREATE TABLE StickerCategories(
+    Id int IDENTITY(1,1) PRIMARY KEY,
+    CategoryName [varchar](100) NOT NULL,
+    Position int NOT NULL
+)
+
 CREATE TABLE Stickers (
     Id int IDENTITY(1,1) PRIMARY KEY,
+    StickerCategoryId [int] NULL FOREIGN KEY REFERENCES StickerCategories(Id),
     StickerName [varchar](50) NULL,
-    StickerUrl [varchar](2000) NULL    
+    StickerUrl [varchar](2000) NULL,
+    CreatedAt [datetime] NULL,
+    CreatedBy [int] NULL FOREIGN KEY REFERENCES Users(Id)
 );
 GO
 
@@ -290,10 +300,21 @@ CREATE TABLE Comments (
 );
 GO
 
+CREATE TABLE ReactionCategories (
+    Id int IDENTITY(1,1) PRIMARY KEY,
+    CategoryName [varchar](50) NOT NULL,      -- e.g. Food & Drink
+    Icon [varchar](255) NULL,  
+    Position [int] NOT NULL,
+    IsActive [bit] NOT NULL,
+);
+
+
 CREATE TABLE Reactions (
     Id int IDENTITY(1,1) PRIMARY KEY,
-    ReactionsName [varchar](255) NULL,
-    Icon [varchar](50) NULL    
+    ReactionsName [varchar](255) NULL, 
+    ShortCode [varchar](50) NOT NULL, -- e.g. :neutral_face:
+    ReactionCategoryId [int] FOREIGN KEY REFERENCES ReactionCategories(Id),
+    Icon [varchar](255) NULL    
 );
 GO
 
