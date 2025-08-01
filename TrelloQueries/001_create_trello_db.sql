@@ -1,3 +1,10 @@
+CREATE DATABASE Trello;
+GO
+
+USE [Trello];
+GO
+
+
 CREATE TABLE Users (
     Id int IDENTITY(1,1) PRIMARY KEY,
     Username [varchar](255) NULL,
