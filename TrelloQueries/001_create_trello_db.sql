@@ -1,7 +1,7 @@
-CREATE DATABASE Trello;
+CREATE DATABASE Trello3;
 GO
 
-USE [Trello];
+USE [Trello3];
 GO
 
 

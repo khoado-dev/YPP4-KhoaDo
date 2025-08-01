@@ -1,4 +1,4 @@
-USE [Trello];
+USE [Trello3];
 GO
 
 
@@ -1738,177 +1738,182 @@ VALUES
 ('Admin', 'admin');
 GO
 
--- OwnerTypes
-INSERT INTO OwnerTypes (OwnerTypeValue) VALUES ('WORKSPACE');
-INSERT INTO OwnerTypes (OwnerTypeValue) VALUES ('BOARD');
-INSERT INTO OwnerTypes (OwnerTypeValue) VALUES ('CARD');
-INSERT INTO OwnerTypes (OwnerTypeValue) VALUES ('USER');
+-- Insert data into CategoryTypes and Categories based on the merged category structure
 
--- DataTypes
-INSERT INTO DataTypes (TypeValue, Icon) VALUES
-('CHECKBOX', 'https://cdn-icons-png.flaticon.com/512/1828/1828778.png'),
-('DATE', 'https://cdn-icons-png.flaticon.com/512/747/747310.png'),
-('DROPDOWN', 'https://cdn-icons-png.flaticon.com/512/32/32195.png'),
-('NUMBER', 'https://cdn-icons-png.flaticon.com/512/833/833472.png'),
-('TEXT', 'https://cdn-icons-png.flaticon.com/512/84/84380.png'),
-('BOOLEAN', 'https://cdn-icons-png.flaticon.com/512/190/190411.png');
+-- CategoryTypes
+INSERT INTO CategoryTypes (CategoryTypeValue) VALUES ('OwnerTypes');
+INSERT INTO CategoryTypes (CategoryTypeValue) VALUES ('DataTypes');
+INSERT INTO CategoryTypes (CategoryTypeValue) VALUES ('ReactionCategories');
+INSERT INTO CategoryTypes (CategoryTypeValue) VALUES ('StickerCategories');
+INSERT INTO CategoryTypes (CategoryTypeValue) VALUES ('PowerUpCategories');
+INSERT INTO CategoryTypes (CategoryTypeValue) VALUES ('TemplateCategories');
 
+-- Categories for OwnerTypes (assume CategoryTypeId = 1)
+INSERT INTO Categories (CategoryName, CategoryTypeId, IsActive) VALUES 
+('WORKSPACE', 1, 1),
+('BOARD', 1, 1),
+('CARD', 1, 1),
+('USER', 1, 1);
 
--- Reaction categories
-INSERT INTO ReactionCategories (CategoryName, Icon, Position, IsActive) VALUES
-('Smileys & People',     'https://example.com/icons/smileys.png',        1, 1),
-('Animals & Nature',     'https://example.com/icons/animals.png',        2, 1),
-('Food & Drink',         'https://example.com/icons/food.png',           3, 1),
-('Activities',           'https://example.com/icons/activities.png',     4, 1),
-('Travel & Places',      'https://example.com/icons/travel.png',         5, 1),
-('Objects',              'https://example.com/icons/objects.png',        6, 1),
-('Symbols',              'https://example.com/icons/symbols.png',        7, 1),
-('Flags',                'https://example.com/icons/flags.png',          8, 1);
+-- Categories for DataTypes (assume CategoryTypeId = 2)
+INSERT INTO Categories (CategoryName, Icon, CategoryTypeId, IsActive) VALUES 
+('CHECKBOX', 'https://cdn-icons-png.flaticon.com/512/1828/1828778.png', 2, 1),
+('DATE', 'https://cdn-icons-png.flaticon.com/512/747/747310.png', 2, 1),
+('DROPDOWN', 'https://cdn-icons-png.flaticon.com/512/32/32195.png', 2, 1),
+('NUMBER', 'https://cdn-icons-png.flaticon.com/512/833/833472.png', 2, 1),
+('TEXT', 'https://cdn-icons-png.flaticon.com/512/84/84380.png', 2, 1),
+('BOOLEAN', 'https://cdn-icons-png.flaticon.com/512/190/190411.png', 2, 1);
 
--- Reactions
-INSERT INTO Reactions (ReactionsName, ShortCode, ReactionCategoryId, Icon) VALUES
-    (N'Grinning Face', ':grinning:', 1, 'https://cdn.example.com/emojis/grinning.png'),
-    (N'Face with Tears of Joy', ':joy:', 1, 'https://cdn.example.com/emojis/joy.png'),
-    (N'Smiling Face with Heart-Eyes', ':heart_eyes:', 1, 'https://cdn.example.com/emojis/heart_eyes.png'),
-    (N'Dog Face', ':dog:', 2, 'https://cdn.example.com/emojis/dog.png'),
-    (N'Cat Face', ':cat:', 2, 'https://cdn.example.com/emojis/cat.png'),
-    (N'Burger', ':hamburger:', 3, 'https://cdn.example.com/emojis/hamburger.png'),
-    (N'Pizza', ':pizza:', 3, 'https://cdn.example.com/emojis/pizza.png'),
-    (N'Soccer Ball', ':soccer:', 4, 'https://cdn.example.com/emojis/soccer.png'),
-    (N'Trophy', ':trophy:', 4, 'https://cdn.example.com/emojis/trophy.png'),
-    (N'Statue of Liberty', ':statue_of_liberty:', 5, 'https://cdn.example.com/emojis/statue_of_liberty.png'),
-    (N'Eiffel Tower', ':eiffel_tower:', 5, 'https://cdn.example.com/emojis/eiffel_tower.png'),
-    (N'Laptop', ':laptop:', 6, 'https://cdn.example.com/emojis/laptop.png'),
-    (N'Mobile Phone', ':mobile_phone:', 6, 'https://cdn.example.com/emojis/mobile_phone.png'),
-    (N'No Entry', ':no_entry:', 7, 'https://cdn.example.com/emojis/no_entry.png'),
-    (N'Warning', ':warning:', 7, 'https://cdn.example.com/emojis/warning.png'),
-    (N'Checkered Flag', ':checkered_flag:', 8, 'https://cdn.example.com/emojis/checkered_flag.png'),
-    (N'Rainbow Flag', ':rainbow_flag:', 8, 'https://cdn.example.com/emojis/rainbow_flag.png');
+-- Categories for ReactionCategories (assume CategoryTypeId = 3)
+INSERT INTO Categories (CategoryName, Icon, Position, IsActive, CategoryTypeId) VALUES 
+('Smileys & People',     'https://example.com/icons/smileys.png',        1, 1, 3),
+('Animals & Nature',     'https://example.com/icons/animals.png',        2, 1, 3),
+('Food & Drink',         'https://example.com/icons/food.png',           3, 1, 3),
+('Activities',           'https://example.com/icons/activities.png',     4, 1, 3),
+('Travel & Places',      'https://example.com/icons/travel.png',         5, 1, 3),
+('Objects',              'https://example.com/icons/objects.png',        6, 1, 3),
+('Symbols',              'https://example.com/icons/symbols.png',        7, 1, 3),
+('Flags',                'https://example.com/icons/flags.png',          8, 1, 3);
 
--- StickerCateogries
-INSERT INTO StickerCategories (CategoryName, Position)
-VALUES 
-('General', 1),
-('Taco pack', 2),
-('Pete the Computer', 3),
-('Custom stickers', 99);
+-- Categories for StickerCategories (assume CategoryTypeId = 4)
+INSERT INTO Categories (CategoryName, Position, IsActive, CategoryTypeId) VALUES 
+('General', 1, 1, 4),
+('Taco pack', 2, 1, 4),
+('Pete the Computer', 3, 1, 4),
+('Custom stickers', 99, 1, 4);
+
+-- Categories for PowerUpCategories (assume CategoryTypeId = 5)
+INSERT INTO Categories (CategoryName, IsActive, CategoryTypeId) VALUES 
+('Analytics & reporting', 1, 5),
+('Automation', 1, 5),
+('Board utilities', 1, 5),
+('Communication & collaboration', 1, 5),
+('Developer tools', 1, 5),
+('File management', 1, 5),
+('HR & operations', 1, 5),
+('IT & project management', 1, 5),
+('Marketing & social media', 1, 5),
+('Product & design', 1, 5),
+('Sales & support', 1, 5);
+
+-- Categories for TemplateCategories (assume CategoryTypeId = 6)
+INSERT INTO Categories (CategoryName, Icon, CategoryTypeId, IsActive) VALUES
+('Business', 'https://example.com/icons/business.svg', 6, 1),
+('Design', 'https://example.com/icons/design.svg', 6, 1),
+('Education', 'https://example.com/icons/education.svg', 6, 1),
+('Engineering', 'https://example.com/icons/engineering.svg', 6, 1),
+('Marketing', 'https://example.com/icons/marketing.svg', 6, 1),
+('HR & Operations', 'https://example.com/icons/hr_&_operations.svg', 6, 1),
+('Personal', 'https://example.com/icons/personal.svg', 6, 1),
+('Productivity', 'https://example.com/icons/productivity.svg', 6, 1),
+('Product management', 'https://example.com/icons/product_management.svg', 6, 1),
+('Project management', 'https://example.com/icons/project_management.svg', 6, 1),
+('Remote work', 'https://example.com/icons/remote_work.svg', 6, 1),
+('Sales', 'https://example.com/icons/sales.svg', 6, 1),
+('Support', 'https://example.com/icons/support.svg', 6, 1),
+('Team management', 'https://example.com/icons/team_management.svg', 6, 1);
 
 -- Stickers
-INSERT INTO Stickers (StickerCategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
-VALUES (1, 'General Sticker 1', 'https://example.com/general_sticker_1.png', GETDATE(), NULL);
-INSERT INTO Stickers (StickerCategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
-VALUES (1, 'General Sticker 2', 'https://example.com/general_sticker_2.png', GETDATE(), NULL);
-INSERT INTO Stickers (StickerCategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
-VALUES (1, 'General Sticker 3', 'https://example.com/general_sticker_3.png', GETDATE(), NULL);
-INSERT INTO Stickers (StickerCategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
-VALUES (1, 'General Sticker 4', 'https://example.com/general_sticker_4.png', GETDATE(), NULL);
-INSERT INTO Stickers (StickerCategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
-VALUES (1, 'General Sticker 5', 'https://example.com/general_sticker_5.png', GETDATE(), NULL);
-INSERT INTO Stickers (StickerCategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
-VALUES (1, 'General Sticker 6', 'https://example.com/general_sticker_6.png', GETDATE(), NULL);
-INSERT INTO Stickers (StickerCategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
-VALUES (1, 'General Sticker 7', 'https://example.com/general_sticker_7.png', GETDATE(), NULL);
-INSERT INTO Stickers (StickerCategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
-VALUES (1, 'General Sticker 8', 'https://example.com/general_sticker_8.png', GETDATE(), NULL);
-INSERT INTO Stickers (StickerCategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
-VALUES (1, 'General Sticker 9', 'https://example.com/general_sticker_9.png', GETDATE(), NULL);
-INSERT INTO Stickers (StickerCategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
-VALUES (1, 'General Sticker 10', 'https://example.com/general_sticker_10.png', GETDATE(), NULL);
-INSERT INTO Stickers (StickerCategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
-VALUES (1, 'General Sticker 11', 'https://example.com/general_sticker_11.png', GETDATE(), NULL);
-INSERT INTO Stickers (StickerCategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
-VALUES (1, 'General Sticker 12', 'https://example.com/general_sticker_12.png', GETDATE(), NULL);
-INSERT INTO Stickers (StickerCategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
-VALUES (2, 'Taco pack Sticker 1', 'https://example.com/taco_pack_sticker_1.png', GETDATE(), NULL);
-INSERT INTO Stickers (StickerCategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
-VALUES (2, 'Taco pack Sticker 2', 'https://example.com/taco_pack_sticker_2.png', GETDATE(), NULL);
-INSERT INTO Stickers (StickerCategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
-VALUES (2, 'Taco pack Sticker 3', 'https://example.com/taco_pack_sticker_3.png', GETDATE(), NULL);
-INSERT INTO Stickers (StickerCategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
-VALUES (2, 'Taco pack Sticker 4', 'https://example.com/taco_pack_sticker_4.png', GETDATE(), NULL);
-INSERT INTO Stickers (StickerCategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
-VALUES (2, 'Taco pack Sticker 5', 'https://example.com/taco_pack_sticker_5.png', GETDATE(), NULL);
-INSERT INTO Stickers (StickerCategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
-VALUES (2, 'Taco pack Sticker 6', 'https://example.com/taco_pack_sticker_6.png', GETDATE(), NULL);
-INSERT INTO Stickers (StickerCategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
-VALUES (2, 'Taco pack Sticker 7', 'https://example.com/taco_pack_sticker_7.png', GETDATE(), NULL);
-INSERT INTO Stickers (StickerCategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
-VALUES (2, 'Taco pack Sticker 8', 'https://example.com/taco_pack_sticker_8.png', GETDATE(), NULL);
-INSERT INTO Stickers (StickerCategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
-VALUES (2, 'Taco pack Sticker 9', 'https://example.com/taco_pack_sticker_9.png', GETDATE(), NULL);
-INSERT INTO Stickers (StickerCategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
-VALUES (2, 'Taco pack Sticker 10', 'https://example.com/taco_pack_sticker_10.png', GETDATE(), NULL);
-INSERT INTO Stickers (StickerCategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
-VALUES (2, 'Taco pack Sticker 11', 'https://example.com/taco_pack_sticker_11.png', GETDATE(), NULL);
-INSERT INTO Stickers (StickerCategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
-VALUES (2, 'Taco pack Sticker 12', 'https://example.com/taco_pack_sticker_12.png', GETDATE(), NULL);
-INSERT INTO Stickers (StickerCategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
-VALUES (3, 'Pete the Computer Sticker 1', 'https://example.com/pete_the_computer_sticker_1.png', GETDATE(), NULL);
-INSERT INTO Stickers (StickerCategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
-VALUES (3, 'Pete the Computer Sticker 2', 'https://example.com/pete_the_computer_sticker_2.png', GETDATE(), NULL);
-INSERT INTO Stickers (StickerCategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
-VALUES (3, 'Pete the Computer Sticker 3', 'https://example.com/pete_the_computer_sticker_3.png', GETDATE(), NULL);
-INSERT INTO Stickers (StickerCategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
-VALUES (3, 'Pete the Computer Sticker 4', 'https://example.com/pete_the_computer_sticker_4.png', GETDATE(), NULL);
-INSERT INTO Stickers (StickerCategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
-VALUES (3, 'Pete the Computer Sticker 5', 'https://example.com/pete_the_computer_sticker_5.png', GETDATE(), NULL);
-INSERT INTO Stickers (StickerCategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
-VALUES (3, 'Pete the Computer Sticker 6', 'https://example.com/pete_the_computer_sticker_6.png', GETDATE(), NULL);
-INSERT INTO Stickers (StickerCategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
-VALUES (3, 'Pete the Computer Sticker 7', 'https://example.com/pete_the_computer_sticker_7.png', GETDATE(), NULL);
-INSERT INTO Stickers (StickerCategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
-VALUES (3, 'Pete the Computer Sticker 8', 'https://example.com/pete_the_computer_sticker_8.png', GETDATE(), NULL);
-INSERT INTO Stickers (StickerCategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
-VALUES (3, 'Pete the Computer Sticker 9', 'https://example.com/pete_the_computer_sticker_9.png', GETDATE(), NULL);
-INSERT INTO Stickers (StickerCategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
-VALUES (3, 'Pete the Computer Sticker 10', 'https://example.com/pete_the_computer_sticker_10.png', GETDATE(), NULL);
-INSERT INTO Stickers (StickerCategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
-VALUES (3, 'Pete the Computer Sticker 11', 'https://example.com/pete_the_computer_sticker_11.png', GETDATE(), NULL);
-INSERT INTO Stickers (StickerCategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
-VALUES (3, 'Pete the Computer Sticker 12', 'https://example.com/pete_the_computer_sticker_12.png', GETDATE(), NULL);
-INSERT INTO Stickers (StickerCategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
-VALUES (4, 'Custom stickers Sticker 1', 'https://example.com/custom_stickers_sticker_1.png', GETDATE(), NULL);
-INSERT INTO Stickers (StickerCategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
-VALUES (4, 'Custom stickers Sticker 2', 'https://example.com/custom_stickers_sticker_2.png', GETDATE(), NULL);
-INSERT INTO Stickers (StickerCategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
-VALUES (4, 'Custom stickers Sticker 3', 'https://example.com/custom_stickers_sticker_3.png', GETDATE(), NULL);
-INSERT INTO Stickers (StickerCategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
-VALUES (4, 'Custom stickers Sticker 4', 'https://example.com/custom_stickers_sticker_4.png', GETDATE(), NULL);
-INSERT INTO Stickers (StickerCategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
-VALUES (4, 'Custom stickers Sticker 5', 'https://example.com/custom_stickers_sticker_5.png', GETDATE(), NULL);
-INSERT INTO Stickers (StickerCategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
-VALUES (4, 'Custom stickers Sticker 6', 'https://example.com/custom_stickers_sticker_6.png', GETDATE(), NULL);
-INSERT INTO Stickers (StickerCategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
-VALUES (4, 'Custom stickers Sticker 7', 'https://example.com/custom_stickers_sticker_7.png', GETDATE(), NULL);
-INSERT INTO Stickers (StickerCategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
-VALUES (4, 'Custom stickers Sticker 8', 'https://example.com/custom_stickers_sticker_8.png', GETDATE(), NULL);
-INSERT INTO Stickers (StickerCategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
-VALUES (4, 'Custom stickers Sticker 9', 'https://example.com/custom_stickers_sticker_9.png', GETDATE(), NULL);
-INSERT INTO Stickers (StickerCategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
-VALUES (4, 'Custom stickers Sticker 10', 'https://example.com/custom_stickers_sticker_10.png', GETDATE(), NULL);
-INSERT INTO Stickers (StickerCategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
-VALUES (4, 'Custom stickers Sticker 11', 'https://example.com/custom_stickers_sticker_11.png', GETDATE(), NULL);
-INSERT INTO Stickers (StickerCategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
-VALUES (4, 'Custom stickers Sticker 12', 'https://example.com/custom_stickers_sticker_12.png', GETDATE(), NULL);
-
--- PowerUpCategories
-INSERT INTO PowerUpCategories (PowerUpCategoryName)
-VALUES
-('Analytics & reporting'),
-('Automation'),
-('Board utilities'),
-('Communication & collaboration'),
-('Developer tools'),
-('File management'),
-('HR & operations'),
-('IT & project management'),
-('Marketing & social media'),
-('Product & design'),
-('Sales & support');
+INSERT INTO Stickers (CategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
+VALUES (19, 'General Sticker 1', 'https://example.com/general_sticker_1.png', GETDATE(), NULL);
+INSERT INTO Stickers (CategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
+VALUES (19, 'General Sticker 2', 'https://example.com/general_sticker_2.png', GETDATE(), NULL);
+INSERT INTO Stickers (CategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
+VALUES (19, 'General Sticker 3', 'https://example.com/general_sticker_3.png', GETDATE(), NULL);
+INSERT INTO Stickers (CategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
+VALUES (19, 'General Sticker 4', 'https://example.com/general_sticker_4.png', GETDATE(), NULL);
+INSERT INTO Stickers (CategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
+VALUES (19, 'General Sticker 5', 'https://example.com/general_sticker_5.png', GETDATE(), NULL);
+INSERT INTO Stickers (CategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
+VALUES (19, 'General Sticker 6', 'https://example.com/general_sticker_6.png', GETDATE(), NULL);
+INSERT INTO Stickers (CategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
+VALUES (19, 'General Sticker 7', 'https://example.com/general_sticker_7.png', GETDATE(), NULL);
+INSERT INTO Stickers (CategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
+VALUES (19, 'General Sticker 8', 'https://example.com/general_sticker_8.png', GETDATE(), NULL);
+INSERT INTO Stickers (CategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
+VALUES (19, 'General Sticker 9', 'https://example.com/general_sticker_9.png', GETDATE(), NULL);
+INSERT INTO Stickers (CategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
+VALUES (19, 'General Sticker 10', 'https://example.com/general_sticker_10.png', GETDATE(), NULL);
+INSERT INTO Stickers (CategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
+VALUES (19, 'General Sticker 11', 'https://example.com/general_sticker_11.png', GETDATE(), NULL);
+INSERT INTO Stickers (CategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
+VALUES (19, 'General Sticker 12', 'https://example.com/general_sticker_12.png', GETDATE(), NULL);
+INSERT INTO Stickers (CategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
+VALUES (20, 'Taco pack Sticker 1', 'https://example.com/taco_pack_sticker_1.png', GETDATE(), NULL);
+INSERT INTO Stickers (CategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
+VALUES (20, 'Taco pack Sticker 2', 'https://example.com/taco_pack_sticker_2.png', GETDATE(), NULL);
+INSERT INTO Stickers (CategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
+VALUES (20, 'Taco pack Sticker 3', 'https://example.com/taco_pack_sticker_3.png', GETDATE(), NULL);
+INSERT INTO Stickers (CategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
+VALUES (20, 'Taco pack Sticker 4', 'https://example.com/taco_pack_sticker_4.png', GETDATE(), NULL);
+INSERT INTO Stickers (CategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
+VALUES (20, 'Taco pack Sticker 5', 'https://example.com/taco_pack_sticker_5.png', GETDATE(), NULL);
+INSERT INTO Stickers (CategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
+VALUES (20, 'Taco pack Sticker 6', 'https://example.com/taco_pack_sticker_6.png', GETDATE(), NULL);
+INSERT INTO Stickers (CategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
+VALUES (20, 'Taco pack Sticker 7', 'https://example.com/taco_pack_sticker_7.png', GETDATE(), NULL);
+INSERT INTO Stickers (CategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
+VALUES (20, 'Taco pack Sticker 8', 'https://example.com/taco_pack_sticker_8.png', GETDATE(), NULL);
+INSERT INTO Stickers (CategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
+VALUES (20, 'Taco pack Sticker 9', 'https://example.com/taco_pack_sticker_9.png', GETDATE(), NULL);
+INSERT INTO Stickers (CategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
+VALUES (20, 'Taco pack Sticker 10', 'https://example.com/taco_pack_sticker_10.png', GETDATE(), NULL);
+INSERT INTO Stickers (CategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
+VALUES (20, 'Taco pack Sticker 11', 'https://example.com/taco_pack_sticker_11.png', GETDATE(), NULL);
+INSERT INTO Stickers (CategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
+VALUES (20, 'Taco pack Sticker 12', 'https://example.com/taco_pack_sticker_12.png', GETDATE(), NULL);
+INSERT INTO Stickers (CategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
+VALUES (21, 'Pete the Computer Sticker 1', 'https://example.com/pete_the_computer_sticker_1.png', GETDATE(), NULL);
+INSERT INTO Stickers (CategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
+VALUES (21, 'Pete the Computer Sticker 2', 'https://example.com/pete_the_computer_sticker_2.png', GETDATE(), NULL);
+INSERT INTO Stickers (CategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
+VALUES (21, 'Pete the Computer Sticker 3', 'https://example.com/pete_the_computer_sticker_3.png', GETDATE(), NULL);
+INSERT INTO Stickers (CategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
+VALUES (21, 'Pete the Computer Sticker 4', 'https://example.com/pete_the_computer_sticker_4.png', GETDATE(), NULL);
+INSERT INTO Stickers (CategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
+VALUES (21, 'Pete the Computer Sticker 5', 'https://example.com/pete_the_computer_sticker_5.png', GETDATE(), NULL);
+INSERT INTO Stickers (CategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
+VALUES (21, 'Pete the Computer Sticker 6', 'https://example.com/pete_the_computer_sticker_6.png', GETDATE(), NULL);
+INSERT INTO Stickers (CategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
+VALUES (21, 'Pete the Computer Sticker 7', 'https://example.com/pete_the_computer_sticker_7.png', GETDATE(), NULL);
+INSERT INTO Stickers (CategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
+VALUES (21, 'Pete the Computer Sticker 8', 'https://example.com/pete_the_computer_sticker_8.png', GETDATE(), NULL);
+INSERT INTO Stickers (CategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
+VALUES (21, 'Pete the Computer Sticker 9', 'https://example.com/pete_the_computer_sticker_9.png', GETDATE(), NULL);
+INSERT INTO Stickers (CategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
+VALUES (21, 'Pete the Computer Sticker 10', 'https://example.com/pete_the_computer_sticker_10.png', GETDATE(), NULL);
+INSERT INTO Stickers (CategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
+VALUES (21, 'Pete the Computer Sticker 11', 'https://example.com/pete_the_computer_sticker_11.png', GETDATE(), NULL);
+INSERT INTO Stickers (CategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
+VALUES (21, 'Pete the Computer Sticker 12', 'https://example.com/pete_the_computer_sticker_12.png', GETDATE(), NULL);
+INSERT INTO Stickers (CategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
+VALUES (22, 'Custom stickers Sticker 1', 'https://example.com/custom_stickers_sticker_1.png', GETDATE(), NULL);
+INSERT INTO Stickers (CategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
+VALUES (22, 'Custom stickers Sticker 2', 'https://example.com/custom_stickers_sticker_2.png', GETDATE(), NULL);
+INSERT INTO Stickers (CategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
+VALUES (22, 'Custom stickers Sticker 3', 'https://example.com/custom_stickers_sticker_3.png', GETDATE(), NULL);
+INSERT INTO Stickers (CategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
+VALUES (22, 'Custom stickers Sticker 4', 'https://example.com/custom_stickers_sticker_4.png', GETDATE(), NULL);
+INSERT INTO Stickers (CategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
+VALUES (22, 'Custom stickers Sticker 5', 'https://example.com/custom_stickers_sticker_5.png', GETDATE(), NULL);
+INSERT INTO Stickers (CategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
+VALUES (22, 'Custom stickers Sticker 6', 'https://example.com/custom_stickers_sticker_6.png', GETDATE(), NULL);
+INSERT INTO Stickers (CategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
+VALUES (22, 'Custom stickers Sticker 7', 'https://example.com/custom_stickers_sticker_7.png', GETDATE(), NULL);
+INSERT INTO Stickers (CategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
+VALUES (22, 'Custom stickers Sticker 8', 'https://example.com/custom_stickers_sticker_8.png', GETDATE(), NULL);
+INSERT INTO Stickers (CategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
+VALUES (22, 'Custom stickers Sticker 9', 'https://example.com/custom_stickers_sticker_9.png', GETDATE(), NULL);
+INSERT INTO Stickers (CategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
+VALUES (22, 'Custom stickers Sticker 10', 'https://example.com/custom_stickers_sticker_10.png', GETDATE(), NULL);
+INSERT INTO Stickers (CategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
+VALUES (22, 'Custom stickers Sticker 11', 'https://example.com/custom_stickers_sticker_11.png', GETDATE(), NULL);
+INSERT INTO Stickers (CategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
+VALUES (22, 'Custom stickers Sticker 12', 'https://example.com/custom_stickers_sticker_12.png', GETDATE(), NULL);
 
 
 -- PowerUps
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Analytics & reporting Tool 1', 
         'https://example.com/icons/analytics_and_reporting_1.png',
         'https://example.com/backgrounds/analytics_and_reporting_1.jpg',
@@ -1919,7 +1924,7 @@ VALUES ('Analytics & reporting Tool 1',
         1, 
         1, 
         1);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Analytics & reporting Tool 2', 
         'https://example.com/icons/analytics_and_reporting_2.png',
         'https://example.com/backgrounds/analytics_and_reporting_2.jpg',
@@ -1930,7 +1935,7 @@ VALUES ('Analytics & reporting Tool 2',
         0, 
         0, 
         1);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Analytics & reporting Tool 3', 
         'https://example.com/icons/analytics_and_reporting_3.png',
         'https://example.com/backgrounds/analytics_and_reporting_3.jpg',
@@ -1941,7 +1946,7 @@ VALUES ('Analytics & reporting Tool 3',
         1, 
         1, 
         1);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Analytics & reporting Tool 4', 
         'https://example.com/icons/analytics_and_reporting_4.png',
         'https://example.com/backgrounds/analytics_and_reporting_4.jpg',
@@ -1952,7 +1957,7 @@ VALUES ('Analytics & reporting Tool 4',
         0, 
         0, 
         1);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Analytics & reporting Tool 5', 
         'https://example.com/icons/analytics_and_reporting_5.png',
         'https://example.com/backgrounds/analytics_and_reporting_5.jpg',
@@ -1963,7 +1968,7 @@ VALUES ('Analytics & reporting Tool 5',
         1, 
         1, 
         1);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Analytics & reporting Tool 6', 
         'https://example.com/icons/analytics_and_reporting_6.png',
         'https://example.com/backgrounds/analytics_and_reporting_6.jpg',
@@ -1974,7 +1979,7 @@ VALUES ('Analytics & reporting Tool 6',
         0, 
         0, 
         1);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Analytics & reporting Tool 7', 
         'https://example.com/icons/analytics_and_reporting_7.png',
         'https://example.com/backgrounds/analytics_and_reporting_7.jpg',
@@ -1985,7 +1990,7 @@ VALUES ('Analytics & reporting Tool 7',
         1, 
         1, 
         1);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Analytics & reporting Tool 8', 
         'https://example.com/icons/analytics_and_reporting_8.png',
         'https://example.com/backgrounds/analytics_and_reporting_8.jpg',
@@ -1996,7 +2001,7 @@ VALUES ('Analytics & reporting Tool 8',
         0, 
         0, 
         1);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Analytics & reporting Tool 9', 
         'https://example.com/icons/analytics_and_reporting_9.png',
         'https://example.com/backgrounds/analytics_and_reporting_9.jpg',
@@ -2007,7 +2012,7 @@ VALUES ('Analytics & reporting Tool 9',
         1, 
         1, 
         1);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Analytics & reporting Tool 10', 
         'https://example.com/icons/analytics_and_reporting_10.png',
         'https://example.com/backgrounds/analytics_and_reporting_10.jpg',
@@ -2018,7 +2023,7 @@ VALUES ('Analytics & reporting Tool 10',
         0, 
         0, 
         1);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Automation Tool 1', 
         'https://example.com/icons/automation_1.png',
         'https://example.com/backgrounds/automation_1.jpg',
@@ -2029,7 +2034,7 @@ VALUES ('Automation Tool 1',
         1, 
         1, 
         2);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Automation Tool 2', 
         'https://example.com/icons/automation_2.png',
         'https://example.com/backgrounds/automation_2.jpg',
@@ -2040,7 +2045,7 @@ VALUES ('Automation Tool 2',
         0, 
         0, 
         2);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Automation Tool 3', 
         'https://example.com/icons/automation_3.png',
         'https://example.com/backgrounds/automation_3.jpg',
@@ -2051,7 +2056,7 @@ VALUES ('Automation Tool 3',
         1, 
         1, 
         2);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Automation Tool 4', 
         'https://example.com/icons/automation_4.png',
         'https://example.com/backgrounds/automation_4.jpg',
@@ -2062,7 +2067,7 @@ VALUES ('Automation Tool 4',
         0, 
         0, 
         2);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Automation Tool 5', 
         'https://example.com/icons/automation_5.png',
         'https://example.com/backgrounds/automation_5.jpg',
@@ -2073,7 +2078,7 @@ VALUES ('Automation Tool 5',
         1, 
         1, 
         2);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Automation Tool 6', 
         'https://example.com/icons/automation_6.png',
         'https://example.com/backgrounds/automation_6.jpg',
@@ -2084,7 +2089,7 @@ VALUES ('Automation Tool 6',
         0, 
         0, 
         2);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Automation Tool 7', 
         'https://example.com/icons/automation_7.png',
         'https://example.com/backgrounds/automation_7.jpg',
@@ -2095,7 +2100,7 @@ VALUES ('Automation Tool 7',
         1, 
         1, 
         2);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Automation Tool 8', 
         'https://example.com/icons/automation_8.png',
         'https://example.com/backgrounds/automation_8.jpg',
@@ -2106,7 +2111,7 @@ VALUES ('Automation Tool 8',
         0, 
         0, 
         2);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Automation Tool 9', 
         'https://example.com/icons/automation_9.png',
         'https://example.com/backgrounds/automation_9.jpg',
@@ -2117,7 +2122,7 @@ VALUES ('Automation Tool 9',
         1, 
         1, 
         2);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Automation Tool 10', 
         'https://example.com/icons/automation_10.png',
         'https://example.com/backgrounds/automation_10.jpg',
@@ -2128,7 +2133,7 @@ VALUES ('Automation Tool 10',
         0, 
         0, 
         2);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Board utilities Tool 1', 
         'https://example.com/icons/board_utilities_1.png',
         'https://example.com/backgrounds/board_utilities_1.jpg',
@@ -2139,7 +2144,7 @@ VALUES ('Board utilities Tool 1',
         1, 
         1, 
         3);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Board utilities Tool 2', 
         'https://example.com/icons/board_utilities_2.png',
         'https://example.com/backgrounds/board_utilities_2.jpg',
@@ -2150,7 +2155,7 @@ VALUES ('Board utilities Tool 2',
         0, 
         0, 
         3);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Board utilities Tool 3', 
         'https://example.com/icons/board_utilities_3.png',
         'https://example.com/backgrounds/board_utilities_3.jpg',
@@ -2161,7 +2166,7 @@ VALUES ('Board utilities Tool 3',
         1, 
         1, 
         3);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Board utilities Tool 4', 
         'https://example.com/icons/board_utilities_4.png',
         'https://example.com/backgrounds/board_utilities_4.jpg',
@@ -2172,7 +2177,7 @@ VALUES ('Board utilities Tool 4',
         0, 
         0, 
         3);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Board utilities Tool 5', 
         'https://example.com/icons/board_utilities_5.png',
         'https://example.com/backgrounds/board_utilities_5.jpg',
@@ -2183,7 +2188,7 @@ VALUES ('Board utilities Tool 5',
         1, 
         1, 
         3);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Board utilities Tool 6', 
         'https://example.com/icons/board_utilities_6.png',
         'https://example.com/backgrounds/board_utilities_6.jpg',
@@ -2194,7 +2199,7 @@ VALUES ('Board utilities Tool 6',
         0, 
         0, 
         3);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Board utilities Tool 7', 
         'https://example.com/icons/board_utilities_7.png',
         'https://example.com/backgrounds/board_utilities_7.jpg',
@@ -2205,7 +2210,7 @@ VALUES ('Board utilities Tool 7',
         1, 
         1, 
         3);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Board utilities Tool 8', 
         'https://example.com/icons/board_utilities_8.png',
         'https://example.com/backgrounds/board_utilities_8.jpg',
@@ -2216,7 +2221,7 @@ VALUES ('Board utilities Tool 8',
         0, 
         0, 
         3);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Board utilities Tool 9', 
         'https://example.com/icons/board_utilities_9.png',
         'https://example.com/backgrounds/board_utilities_9.jpg',
@@ -2227,7 +2232,7 @@ VALUES ('Board utilities Tool 9',
         1, 
         1, 
         3);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Board utilities Tool 10', 
         'https://example.com/icons/board_utilities_10.png',
         'https://example.com/backgrounds/board_utilities_10.jpg',
@@ -2238,7 +2243,7 @@ VALUES ('Board utilities Tool 10',
         0, 
         0, 
         3);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Communication & collaboration Tool 1', 
         'https://example.com/icons/communication_and_collaboration_1.png',
         'https://example.com/backgrounds/communication_and_collaboration_1.jpg',
@@ -2249,7 +2254,7 @@ VALUES ('Communication & collaboration Tool 1',
         1, 
         1, 
         4);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Communication & collaboration Tool 2', 
         'https://example.com/icons/communication_and_collaboration_2.png',
         'https://example.com/backgrounds/communication_and_collaboration_2.jpg',
@@ -2260,7 +2265,7 @@ VALUES ('Communication & collaboration Tool 2',
         0, 
         0, 
         4);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Communication & collaboration Tool 3', 
         'https://example.com/icons/communication_and_collaboration_3.png',
         'https://example.com/backgrounds/communication_and_collaboration_3.jpg',
@@ -2271,7 +2276,7 @@ VALUES ('Communication & collaboration Tool 3',
         1, 
         1, 
         4);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Communication & collaboration Tool 4', 
         'https://example.com/icons/communication_and_collaboration_4.png',
         'https://example.com/backgrounds/communication_and_collaboration_4.jpg',
@@ -2282,7 +2287,7 @@ VALUES ('Communication & collaboration Tool 4',
         0, 
         0, 
         4);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Communication & collaboration Tool 5', 
         'https://example.com/icons/communication_and_collaboration_5.png',
         'https://example.com/backgrounds/communication_and_collaboration_5.jpg',
@@ -2293,7 +2298,7 @@ VALUES ('Communication & collaboration Tool 5',
         1, 
         1, 
         4);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Communication & collaboration Tool 6', 
         'https://example.com/icons/communication_and_collaboration_6.png',
         'https://example.com/backgrounds/communication_and_collaboration_6.jpg',
@@ -2304,7 +2309,7 @@ VALUES ('Communication & collaboration Tool 6',
         0, 
         0, 
         4);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Communication & collaboration Tool 7', 
         'https://example.com/icons/communication_and_collaboration_7.png',
         'https://example.com/backgrounds/communication_and_collaboration_7.jpg',
@@ -2315,7 +2320,7 @@ VALUES ('Communication & collaboration Tool 7',
         1, 
         1, 
         4);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Communication & collaboration Tool 8', 
         'https://example.com/icons/communication_and_collaboration_8.png',
         'https://example.com/backgrounds/communication_and_collaboration_8.jpg',
@@ -2326,7 +2331,7 @@ VALUES ('Communication & collaboration Tool 8',
         0, 
         0, 
         4);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Communication & collaboration Tool 9', 
         'https://example.com/icons/communication_and_collaboration_9.png',
         'https://example.com/backgrounds/communication_and_collaboration_9.jpg',
@@ -2337,7 +2342,7 @@ VALUES ('Communication & collaboration Tool 9',
         1, 
         1, 
         4);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Communication & collaboration Tool 10', 
         'https://example.com/icons/communication_and_collaboration_10.png',
         'https://example.com/backgrounds/communication_and_collaboration_10.jpg',
@@ -2348,7 +2353,7 @@ VALUES ('Communication & collaboration Tool 10',
         0, 
         0, 
         4);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Developer tools Tool 1', 
         'https://example.com/icons/developer_tools_1.png',
         'https://example.com/backgrounds/developer_tools_1.jpg',
@@ -2359,7 +2364,7 @@ VALUES ('Developer tools Tool 1',
         1, 
         1, 
         5);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Developer tools Tool 2', 
         'https://example.com/icons/developer_tools_2.png',
         'https://example.com/backgrounds/developer_tools_2.jpg',
@@ -2370,7 +2375,7 @@ VALUES ('Developer tools Tool 2',
         0, 
         0, 
         5);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Developer tools Tool 3', 
         'https://example.com/icons/developer_tools_3.png',
         'https://example.com/backgrounds/developer_tools_3.jpg',
@@ -2381,7 +2386,7 @@ VALUES ('Developer tools Tool 3',
         1, 
         1, 
         5);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Developer tools Tool 4', 
         'https://example.com/icons/developer_tools_4.png',
         'https://example.com/backgrounds/developer_tools_4.jpg',
@@ -2392,7 +2397,7 @@ VALUES ('Developer tools Tool 4',
         0, 
         0, 
         5);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Developer tools Tool 5', 
         'https://example.com/icons/developer_tools_5.png',
         'https://example.com/backgrounds/developer_tools_5.jpg',
@@ -2403,7 +2408,7 @@ VALUES ('Developer tools Tool 5',
         1, 
         1, 
         5);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Developer tools Tool 6', 
         'https://example.com/icons/developer_tools_6.png',
         'https://example.com/backgrounds/developer_tools_6.jpg',
@@ -2414,7 +2419,7 @@ VALUES ('Developer tools Tool 6',
         0, 
         0, 
         5);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Developer tools Tool 7', 
         'https://example.com/icons/developer_tools_7.png',
         'https://example.com/backgrounds/developer_tools_7.jpg',
@@ -2425,7 +2430,7 @@ VALUES ('Developer tools Tool 7',
         1, 
         1, 
         5);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Developer tools Tool 8', 
         'https://example.com/icons/developer_tools_8.png',
         'https://example.com/backgrounds/developer_tools_8.jpg',
@@ -2436,7 +2441,7 @@ VALUES ('Developer tools Tool 8',
         0, 
         0, 
         5);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Developer tools Tool 9', 
         'https://example.com/icons/developer_tools_9.png',
         'https://example.com/backgrounds/developer_tools_9.jpg',
@@ -2447,7 +2452,7 @@ VALUES ('Developer tools Tool 9',
         1, 
         1, 
         5);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Developer tools Tool 10', 
         'https://example.com/icons/developer_tools_10.png',
         'https://example.com/backgrounds/developer_tools_10.jpg',
@@ -2458,7 +2463,7 @@ VALUES ('Developer tools Tool 10',
         0, 
         0, 
         5);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('File management Tool 1', 
         'https://example.com/icons/file_management_1.png',
         'https://example.com/backgrounds/file_management_1.jpg',
@@ -2469,7 +2474,7 @@ VALUES ('File management Tool 1',
         1, 
         1, 
         6);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('File management Tool 2', 
         'https://example.com/icons/file_management_2.png',
         'https://example.com/backgrounds/file_management_2.jpg',
@@ -2480,7 +2485,7 @@ VALUES ('File management Tool 2',
         0, 
         0, 
         6);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('File management Tool 3', 
         'https://example.com/icons/file_management_3.png',
         'https://example.com/backgrounds/file_management_3.jpg',
@@ -2491,7 +2496,7 @@ VALUES ('File management Tool 3',
         1, 
         1, 
         6);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('File management Tool 4', 
         'https://example.com/icons/file_management_4.png',
         'https://example.com/backgrounds/file_management_4.jpg',
@@ -2502,7 +2507,7 @@ VALUES ('File management Tool 4',
         0, 
         0, 
         6);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('File management Tool 5', 
         'https://example.com/icons/file_management_5.png',
         'https://example.com/backgrounds/file_management_5.jpg',
@@ -2513,7 +2518,7 @@ VALUES ('File management Tool 5',
         1, 
         1, 
         6);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('File management Tool 6', 
         'https://example.com/icons/file_management_6.png',
         'https://example.com/backgrounds/file_management_6.jpg',
@@ -2524,7 +2529,7 @@ VALUES ('File management Tool 6',
         0, 
         0, 
         6);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('File management Tool 7', 
         'https://example.com/icons/file_management_7.png',
         'https://example.com/backgrounds/file_management_7.jpg',
@@ -2535,7 +2540,7 @@ VALUES ('File management Tool 7',
         1, 
         1, 
         6);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('File management Tool 8', 
         'https://example.com/icons/file_management_8.png',
         'https://example.com/backgrounds/file_management_8.jpg',
@@ -2546,7 +2551,7 @@ VALUES ('File management Tool 8',
         0, 
         0, 
         6);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('File management Tool 9', 
         'https://example.com/icons/file_management_9.png',
         'https://example.com/backgrounds/file_management_9.jpg',
@@ -2557,7 +2562,7 @@ VALUES ('File management Tool 9',
         1, 
         1, 
         6);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('File management Tool 10', 
         'https://example.com/icons/file_management_10.png',
         'https://example.com/backgrounds/file_management_10.jpg',
@@ -2568,7 +2573,7 @@ VALUES ('File management Tool 10',
         0, 
         0, 
         6);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('HR & operations Tool 1', 
         'https://example.com/icons/hr_and_operations_1.png',
         'https://example.com/backgrounds/hr_and_operations_1.jpg',
@@ -2579,7 +2584,7 @@ VALUES ('HR & operations Tool 1',
         1, 
         1, 
         7);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('HR & operations Tool 2', 
         'https://example.com/icons/hr_and_operations_2.png',
         'https://example.com/backgrounds/hr_and_operations_2.jpg',
@@ -2590,7 +2595,7 @@ VALUES ('HR & operations Tool 2',
         0, 
         0, 
         7);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('HR & operations Tool 3', 
         'https://example.com/icons/hr_and_operations_3.png',
         'https://example.com/backgrounds/hr_and_operations_3.jpg',
@@ -2601,7 +2606,7 @@ VALUES ('HR & operations Tool 3',
         1, 
         1, 
         7);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('HR & operations Tool 4', 
         'https://example.com/icons/hr_and_operations_4.png',
         'https://example.com/backgrounds/hr_and_operations_4.jpg',
@@ -2612,7 +2617,7 @@ VALUES ('HR & operations Tool 4',
         0, 
         0, 
         7);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('HR & operations Tool 5', 
         'https://example.com/icons/hr_and_operations_5.png',
         'https://example.com/backgrounds/hr_and_operations_5.jpg',
@@ -2623,7 +2628,7 @@ VALUES ('HR & operations Tool 5',
         1, 
         1, 
         7);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('HR & operations Tool 6', 
         'https://example.com/icons/hr_and_operations_6.png',
         'https://example.com/backgrounds/hr_and_operations_6.jpg',
@@ -2634,7 +2639,7 @@ VALUES ('HR & operations Tool 6',
         0, 
         0, 
         7);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('HR & operations Tool 7', 
         'https://example.com/icons/hr_and_operations_7.png',
         'https://example.com/backgrounds/hr_and_operations_7.jpg',
@@ -2645,7 +2650,7 @@ VALUES ('HR & operations Tool 7',
         1, 
         1, 
         7);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('HR & operations Tool 8', 
         'https://example.com/icons/hr_and_operations_8.png',
         'https://example.com/backgrounds/hr_and_operations_8.jpg',
@@ -2656,7 +2661,7 @@ VALUES ('HR & operations Tool 8',
         0, 
         0, 
         7);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('HR & operations Tool 9', 
         'https://example.com/icons/hr_and_operations_9.png',
         'https://example.com/backgrounds/hr_and_operations_9.jpg',
@@ -2667,7 +2672,7 @@ VALUES ('HR & operations Tool 9',
         1, 
         1, 
         7);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('HR & operations Tool 10', 
         'https://example.com/icons/hr_and_operations_10.png',
         'https://example.com/backgrounds/hr_and_operations_10.jpg',
@@ -2678,7 +2683,7 @@ VALUES ('HR & operations Tool 10',
         0, 
         0, 
         7);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('IT & project management Tool 1', 
         'https://example.com/icons/it_and_project_management_1.png',
         'https://example.com/backgrounds/it_and_project_management_1.jpg',
@@ -2689,7 +2694,7 @@ VALUES ('IT & project management Tool 1',
         1, 
         1, 
         8);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('IT & project management Tool 2', 
         'https://example.com/icons/it_and_project_management_2.png',
         'https://example.com/backgrounds/it_and_project_management_2.jpg',
@@ -2700,7 +2705,7 @@ VALUES ('IT & project management Tool 2',
         0, 
         0, 
         8);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('IT & project management Tool 3', 
         'https://example.com/icons/it_and_project_management_3.png',
         'https://example.com/backgrounds/it_and_project_management_3.jpg',
@@ -2711,7 +2716,7 @@ VALUES ('IT & project management Tool 3',
         1, 
         1, 
         8);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('IT & project management Tool 4', 
         'https://example.com/icons/it_and_project_management_4.png',
         'https://example.com/backgrounds/it_and_project_management_4.jpg',
@@ -2722,7 +2727,7 @@ VALUES ('IT & project management Tool 4',
         0, 
         0, 
         8);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('IT & project management Tool 5', 
         'https://example.com/icons/it_and_project_management_5.png',
         'https://example.com/backgrounds/it_and_project_management_5.jpg',
@@ -2733,7 +2738,7 @@ VALUES ('IT & project management Tool 5',
         1, 
         1, 
         8);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('IT & project management Tool 6', 
         'https://example.com/icons/it_and_project_management_6.png',
         'https://example.com/backgrounds/it_and_project_management_6.jpg',
@@ -2744,7 +2749,7 @@ VALUES ('IT & project management Tool 6',
         0, 
         0, 
         8);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('IT & project management Tool 7', 
         'https://example.com/icons/it_and_project_management_7.png',
         'https://example.com/backgrounds/it_and_project_management_7.jpg',
@@ -2755,7 +2760,7 @@ VALUES ('IT & project management Tool 7',
         1, 
         1, 
         8);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('IT & project management Tool 8', 
         'https://example.com/icons/it_and_project_management_8.png',
         'https://example.com/backgrounds/it_and_project_management_8.jpg',
@@ -2766,7 +2771,7 @@ VALUES ('IT & project management Tool 8',
         0, 
         0, 
         8);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('IT & project management Tool 9', 
         'https://example.com/icons/it_and_project_management_9.png',
         'https://example.com/backgrounds/it_and_project_management_9.jpg',
@@ -2777,7 +2782,7 @@ VALUES ('IT & project management Tool 9',
         1, 
         1, 
         8);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('IT & project management Tool 10', 
         'https://example.com/icons/it_and_project_management_10.png',
         'https://example.com/backgrounds/it_and_project_management_10.jpg',
@@ -2788,7 +2793,7 @@ VALUES ('IT & project management Tool 10',
         0, 
         0, 
         8);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Marketing & social media Tool 1', 
         'https://example.com/icons/marketing_and_social_media_1.png',
         'https://example.com/backgrounds/marketing_and_social_media_1.jpg',
@@ -2799,7 +2804,7 @@ VALUES ('Marketing & social media Tool 1',
         1, 
         1, 
         9);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Marketing & social media Tool 2', 
         'https://example.com/icons/marketing_and_social_media_2.png',
         'https://example.com/backgrounds/marketing_and_social_media_2.jpg',
@@ -2810,7 +2815,7 @@ VALUES ('Marketing & social media Tool 2',
         0, 
         0, 
         9);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Marketing & social media Tool 3', 
         'https://example.com/icons/marketing_and_social_media_3.png',
         'https://example.com/backgrounds/marketing_and_social_media_3.jpg',
@@ -2821,7 +2826,7 @@ VALUES ('Marketing & social media Tool 3',
         1, 
         1, 
         9);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Marketing & social media Tool 4', 
         'https://example.com/icons/marketing_and_social_media_4.png',
         'https://example.com/backgrounds/marketing_and_social_media_4.jpg',
@@ -2832,7 +2837,7 @@ VALUES ('Marketing & social media Tool 4',
         0, 
         0, 
         9);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Marketing & social media Tool 5', 
         'https://example.com/icons/marketing_and_social_media_5.png',
         'https://example.com/backgrounds/marketing_and_social_media_5.jpg',
@@ -2843,7 +2848,7 @@ VALUES ('Marketing & social media Tool 5',
         1, 
         1, 
         9);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Marketing & social media Tool 6', 
         'https://example.com/icons/marketing_and_social_media_6.png',
         'https://example.com/backgrounds/marketing_and_social_media_6.jpg',
@@ -2854,7 +2859,7 @@ VALUES ('Marketing & social media Tool 6',
         0, 
         0, 
         9);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Marketing & social media Tool 7', 
         'https://example.com/icons/marketing_and_social_media_7.png',
         'https://example.com/backgrounds/marketing_and_social_media_7.jpg',
@@ -2865,7 +2870,7 @@ VALUES ('Marketing & social media Tool 7',
         1, 
         1, 
         9);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Marketing & social media Tool 8', 
         'https://example.com/icons/marketing_and_social_media_8.png',
         'https://example.com/backgrounds/marketing_and_social_media_8.jpg',
@@ -2876,7 +2881,7 @@ VALUES ('Marketing & social media Tool 8',
         0, 
         0, 
         9);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Marketing & social media Tool 9', 
         'https://example.com/icons/marketing_and_social_media_9.png',
         'https://example.com/backgrounds/marketing_and_social_media_9.jpg',
@@ -2887,7 +2892,7 @@ VALUES ('Marketing & social media Tool 9',
         1, 
         1, 
         9);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Marketing & social media Tool 10', 
         'https://example.com/icons/marketing_and_social_media_10.png',
         'https://example.com/backgrounds/marketing_and_social_media_10.jpg',
@@ -2898,7 +2903,7 @@ VALUES ('Marketing & social media Tool 10',
         0, 
         0, 
         9);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Product & design Tool 1', 
         'https://example.com/icons/product_and_design_1.png',
         'https://example.com/backgrounds/product_and_design_1.jpg',
@@ -2909,7 +2914,7 @@ VALUES ('Product & design Tool 1',
         1, 
         1, 
         10);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Product & design Tool 2', 
         'https://example.com/icons/product_and_design_2.png',
         'https://example.com/backgrounds/product_and_design_2.jpg',
@@ -2920,7 +2925,7 @@ VALUES ('Product & design Tool 2',
         0, 
         0, 
         10);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Product & design Tool 3', 
         'https://example.com/icons/product_and_design_3.png',
         'https://example.com/backgrounds/product_and_design_3.jpg',
@@ -2931,7 +2936,7 @@ VALUES ('Product & design Tool 3',
         1, 
         1, 
         10);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Product & design Tool 4', 
         'https://example.com/icons/product_and_design_4.png',
         'https://example.com/backgrounds/product_and_design_4.jpg',
@@ -2942,7 +2947,7 @@ VALUES ('Product & design Tool 4',
         0, 
         0, 
         10);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Product & design Tool 5', 
         'https://example.com/icons/product_and_design_5.png',
         'https://example.com/backgrounds/product_and_design_5.jpg',
@@ -2953,7 +2958,7 @@ VALUES ('Product & design Tool 5',
         1, 
         1, 
         10);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Product & design Tool 6', 
         'https://example.com/icons/product_and_design_6.png',
         'https://example.com/backgrounds/product_and_design_6.jpg',
@@ -2964,7 +2969,7 @@ VALUES ('Product & design Tool 6',
         0, 
         0, 
         10);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Product & design Tool 7', 
         'https://example.com/icons/product_and_design_7.png',
         'https://example.com/backgrounds/product_and_design_7.jpg',
@@ -2975,7 +2980,7 @@ VALUES ('Product & design Tool 7',
         1, 
         1, 
         10);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Product & design Tool 8', 
         'https://example.com/icons/product_and_design_8.png',
         'https://example.com/backgrounds/product_and_design_8.jpg',
@@ -2986,7 +2991,7 @@ VALUES ('Product & design Tool 8',
         0, 
         0, 
         10);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Product & design Tool 9', 
         'https://example.com/icons/product_and_design_9.png',
         'https://example.com/backgrounds/product_and_design_9.jpg',
@@ -2997,7 +3002,7 @@ VALUES ('Product & design Tool 9',
         1, 
         1, 
         10);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Product & design Tool 10', 
         'https://example.com/icons/product_and_design_10.png',
         'https://example.com/backgrounds/product_and_design_10.jpg',
@@ -3008,7 +3013,7 @@ VALUES ('Product & design Tool 10',
         0, 
         0, 
         10);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Sales & support Tool 1', 
         'https://example.com/icons/sales_and_support_1.png',
         'https://example.com/backgrounds/sales_and_support_1.jpg',
@@ -3019,7 +3024,7 @@ VALUES ('Sales & support Tool 1',
         1, 
         1, 
         11);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Sales & support Tool 2', 
         'https://example.com/icons/sales_and_support_2.png',
         'https://example.com/backgrounds/sales_and_support_2.jpg',
@@ -3030,7 +3035,7 @@ VALUES ('Sales & support Tool 2',
         0, 
         0, 
         11);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Sales & support Tool 3', 
         'https://example.com/icons/sales_and_support_3.png',
         'https://example.com/backgrounds/sales_and_support_3.jpg',
@@ -3041,7 +3046,7 @@ VALUES ('Sales & support Tool 3',
         1, 
         1, 
         11);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Sales & support Tool 4', 
         'https://example.com/icons/sales_and_support_4.png',
         'https://example.com/backgrounds/sales_and_support_4.jpg',
@@ -3052,7 +3057,7 @@ VALUES ('Sales & support Tool 4',
         0, 
         0, 
         11);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Sales & support Tool 5', 
         'https://example.com/icons/sales_and_support_5.png',
         'https://example.com/backgrounds/sales_and_support_5.jpg',
@@ -3063,7 +3068,7 @@ VALUES ('Sales & support Tool 5',
         1, 
         1, 
         11);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Sales & support Tool 6', 
         'https://example.com/icons/sales_and_support_6.png',
         'https://example.com/backgrounds/sales_and_support_6.jpg',
@@ -3074,7 +3079,7 @@ VALUES ('Sales & support Tool 6',
         0, 
         0, 
         11);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Sales & support Tool 7', 
         'https://example.com/icons/sales_and_support_7.png',
         'https://example.com/backgrounds/sales_and_support_7.jpg',
@@ -3085,7 +3090,7 @@ VALUES ('Sales & support Tool 7',
         1, 
         1, 
         11);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Sales & support Tool 8', 
         'https://example.com/icons/sales_and_support_8.png',
         'https://example.com/backgrounds/sales_and_support_8.jpg',
@@ -3096,7 +3101,7 @@ VALUES ('Sales & support Tool 8',
         0, 
         0, 
         11);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Sales & support Tool 9', 
         'https://example.com/icons/sales_and_support_9.png',
         'https://example.com/backgrounds/sales_and_support_9.jpg',
@@ -3107,7 +3112,7 @@ VALUES ('Sales & support Tool 9',
         1, 
         1, 
         11);
-INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, PowerUpCategoryId)
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Sales & support Tool 10', 
         'https://example.com/icons/sales_and_support_10.png',
         'https://example.com/backgrounds/sales_and_support_10.jpg',
@@ -3258,41 +3263,11 @@ INSERT INTO SettingOptions (SettingOptionValue, DisplayValue)
 VALUES ('onlyworkspacemembers', 'Only Workspace Members');
 
 -- BillingPlans
-INSERT INTO BillingPlans (PlanName, BillingPlanDescription, BIllingPlanType, PricePerUser, BillingPlanStatus)
+INSERT INTO BillingPlans (PlanName, BillingPlanDescription, CategoryId, PricePerUser, BillingPlanStatus)
 VALUES 
 ('Free', 'Capture your to-dos, get organized, and get sh*t done.', 'Annually', 0.00, 'Active'),
 ('Standard', 'Get more done with advanced Planner, card mirroring, collapsable lists, list colors, and more.', 'Annually', 60.00, 'Active'),
 ('Premium', 'Add AI to your boards and advanced admin options like domain verification, account capture, and 24/5 support.', 'Annually', 119.99, 'Active'),
 ('Enterprise', 'Add enterprise-grade security and controls. This plan includes Atlassian Guard Standard and 24/7 Enterprise Admin support.', 'Annually', NULL, 'Contact Sales');
 
--- TemplateCategories
-INSERT INTO TemplateCategories (TemplateCategoryName, IconUrl)
-VALUES ('Business', 'https://example.com/icons/business.svg');
-INSERT INTO TemplateCategories (TemplateCategoryName, IconUrl)
-VALUES ('Design', 'https://example.com/icons/design.svg');
-INSERT INTO TemplateCategories (TemplateCategoryName, IconUrl)
-VALUES ('Education', 'https://example.com/icons/education.svg');
-INSERT INTO TemplateCategories (TemplateCategoryName, IconUrl)
-VALUES ('Engineering', 'https://example.com/icons/engineering.svg');
-INSERT INTO TemplateCategories (TemplateCategoryName, IconUrl)
-VALUES ('Marketing', 'https://example.com/icons/marketing.svg');
-INSERT INTO TemplateCategories (TemplateCategoryName, IconUrl)
-VALUES ('HR & Operations', 'https://example.com/icons/hr_&_operations.svg');
-INSERT INTO TemplateCategories (TemplateCategoryName, IconUrl)
-VALUES ('Personal', 'https://example.com/icons/personal.svg');
-INSERT INTO TemplateCategories (TemplateCategoryName, IconUrl)
-VALUES ('Productivity', 'https://example.com/icons/productivity.svg');
-INSERT INTO TemplateCategories (TemplateCategoryName, IconUrl)
-VALUES ('Product management', 'https://example.com/icons/product_management.svg');
-INSERT INTO TemplateCategories (TemplateCategoryName, IconUrl)
-VALUES ('Project management', 'https://example.com/icons/project_management.svg');
-INSERT INTO TemplateCategories (TemplateCategoryName, IconUrl)
-VALUES ('Remote work', 'https://example.com/icons/remote_work.svg');
-INSERT INTO TemplateCategories (TemplateCategoryName, IconUrl)
-VALUES ('Sales', 'https://example.com/icons/sales.svg');
-INSERT INTO TemplateCategories (TemplateCategoryName, IconUrl)
-VALUES ('Support', 'https://example.com/icons/support.svg');
-INSERT INTO TemplateCategories (TemplateCategoryName, IconUrl)
-VALUES ('Team management', 'https://example.com/icons/team_management.svg');
-
--- INSERT FOR TABLES HAVE FOREIGN KEY
+--PowerCategory, BillingPlansCategory not exactly
