@@ -42,7 +42,7 @@ CREATE TABLE Activities (
     CreatedAt [datetime] NULL,
     ActivityDescription [nvarchar](1000) NULL,
     UserId [int] NULL FOREIGN KEY REFERENCES Users(Id),
-    CategoryTypeId [int] NULL FOREIGN KEY REFERENCES CategoryTypes(Id), --workspace,board,card,user
+    CategoryId [int] NULL FOREIGN KEY REFERENCES Categories(Id), --workspace,board,card,user
     OwnerId [int] NULL    
 );
 GO
@@ -256,17 +256,25 @@ CREATE TABLE CheckLists (
 );
 GO
 
+CREATE TABLE RolePermissions (
+    Id int IDENTITY(1,1) PRIMARY KEY,
+    PermissionName [varchar](50) NULL,
+    PermissionCode [varchar](50) NULL    
+);
+GO
+
 CREATE TABLE Members (
     Id int IDENTITY(1,1) PRIMARY KEY,
     UserId [int] NULL FOREIGN KEY REFERENCES Users(Id),
-    CategoryId [int] NULL FOREIGN KEY REFERENCES Categories(Id),
-    CategoryTypeId [int] NULL FOREIGN KEY REFERENCES CategoryTypes(Id), --Workspace, Board, Card
+    RolePermissonId [int] NULL FOREIGN KEY REFERENCES RolePermissions(Id), --Admin, Member, Observer
+    CategoryId [int] NULL FOREIGN KEY REFERENCES Categories(Id), --Workspace, Board, Card
     OwnerId [int] NULL,
     InvitedBy [int] NULL,
     JoinedAt [datetime] NULL,
     MemberStatus [varchar](50) NULL    
 );
 GO
+
 
 CREATE TABLE CheckListItems (
     Id int IDENTITY(1,1) PRIMARY KEY,
@@ -375,9 +383,9 @@ CREATE TABLE SettingKeys (
     Id int IDENTITY(1,1) PRIMARY KEY,
     KeyName [varchar](100) NULL,
     SettingKeyDescription [nvarchar](1000) NULL,
-    CategoryTypeId [int] NULL FOREIGN KEY REFERENCES CategoryTypes(Id), --workspace, board, card
+    CategoryId [int] NULL FOREIGN KEY REFERENCES CategoryTypes(Id), --workspace, board, card
     DefaultValue [int] NULL,
-    CategoryId [int] NULL FOREIGN KEY REFERENCES Categories(Id), --data type
+    IsBoolean [bit] NOT NULL
 );
 GO
                 
@@ -401,9 +409,8 @@ GO
 
 CREATE TABLE ShareLinks (
     Id int IDENTITY(1,1) PRIMARY KEY,
-    CategoryTypeId [int] NULL FOREIGN KEY REFERENCES CategoryTypes(Id), --workspace, board, card
+    CategoryId [int] NULL FOREIGN KEY REFERENCES Categories(Id), --workspace, board, card
     OwnerId [int] NULL,
-    CategoryId [int] NULL FOREIGN KEY REFERENCES Categories(Id),
     ShareLinkToken [varchar](255) NULL,
     ShareLinkStatus [bit] NOT NULL   
 );
