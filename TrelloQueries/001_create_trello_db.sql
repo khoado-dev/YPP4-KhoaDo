@@ -1,7 +1,7 @@
-CREATE DATABASE Trello3;
+CREATE DATABASE Trello;
 GO
 
-USE [Trello3];
+USE [Trello];
 GO
 
 
@@ -151,9 +151,8 @@ CREATE TABLE BillingPlans (
     Id int IDENTITY(1,1) PRIMARY KEY,
     PlanName [varchar](100) NULL,
     BillingPlanDescription [varchar](1000) NULL,
-    CategoryId [int] NULL FOREIGN KEY REFERENCES Categories(Id), --BIllingPlan Type
     PricePerUser [decimal](10, 2) NULL,
-    BillingPlanStatus [varchar](50) NULL  
+    IsActive [bit] NOT NULL
 );
 GO
 
@@ -256,17 +255,10 @@ CREATE TABLE CheckLists (
 );
 GO
 
-CREATE TABLE RolePermissions (
-    Id int IDENTITY(1,1) PRIMARY KEY,
-    PermissionName [varchar](50) NULL,
-    PermissionCode [varchar](50) NULL    
-);
-GO
-
 CREATE TABLE Members (
     Id int IDENTITY(1,1) PRIMARY KEY,
     UserId [int] NULL FOREIGN KEY REFERENCES Users(Id),
-    PermissionId [int] NULL FOREIGN KEY REFERENCES RolePermissions(Id),
+    CategoryId [int] NULL FOREIGN KEY REFERENCES Categories(Id),
     CategoryTypeId [int] NULL FOREIGN KEY REFERENCES CategoryTypes(Id), --Workspace, Board, Card
     OwnerId [int] NULL,
     InvitedBy [int] NULL,
@@ -410,7 +402,7 @@ CREATE TABLE ShareLinks (
     Id int IDENTITY(1,1) PRIMARY KEY,
     CategoryTypeId [int] NULL FOREIGN KEY REFERENCES CategoryTypes(Id), --workspace, board, card
     OwnerId [int] NULL,
-    PermissionId [int] NULL FOREIGN KEY REFERENCES RolePermissions(Id),
+    CategoryId [int] NULL FOREIGN KEY REFERENCES Categories(Id),
     ShareLinkToken [varchar](255) NULL,
     ShareLinkStatus [bit] NOT NULL   
 );
@@ -422,7 +414,7 @@ CREATE TABLE Subscriptions (
     BillingPlanId [int] NULL FOREIGN KEY REFERENCES BillingPlans(Id),
     StartDate [date] NULL,
     EndDate [date] NULL,
-    BillingCycle [varchar](20) NULL,
+    IsMonthly [bit] NOT NULL, --Monthly/Annually
     SubscriptionStatus [varchar](50) NULL,
     AutoRenew [bit] NULL,
     MemberCountBilled [int] NULL    
