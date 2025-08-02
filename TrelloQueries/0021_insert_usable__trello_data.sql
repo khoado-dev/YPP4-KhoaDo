@@ -3632,3 +3632,589 @@ INSERT INTO Boards (BoardName, BoardDescription, CreatedAt, CreatedBy, AccessedA
 INSERT INTO Boards (BoardName, BoardDescription, CreatedAt, CreatedBy, AccessedAt, IsStar, BackgroundUrl, WorkspaceId, BoardStatus, UpdatedAt, UpdatedBy) VALUES (N'Intuitive context-sensitive strategy', N'Really up skin development open compare fill read camera rock we we hot.', '2025-07-29 00:00:00', 5, '2025-08-01 00:00:00', 0, 'https://example.com/backgrounds/243.jpg', 99, 'active', '2025-08-01 00:00:00', 5);
 INSERT INTO Boards (BoardName, BoardDescription, CreatedAt, CreatedBy, AccessedAt, IsStar, BackgroundUrl, WorkspaceId, BoardStatus, UpdatedAt, UpdatedBy) VALUES (N'Visionary non-volatile alliance', N'Own TV whose determine not view cell seat.', '2025-07-14 00:00:00', 12, '2025-07-25 00:00:00', 0, 'https://example.com/backgrounds/244.jpg', 100, 'private', '2025-07-24 00:00:00', 12);
 INSERT INTO Boards (BoardName, BoardDescription, CreatedAt, CreatedBy, AccessedAt, IsStar, BackgroundUrl, WorkspaceId, BoardStatus, UpdatedAt, UpdatedBy) VALUES (N'Front-line grid-enabled functionalities', N'Player white start prove role from activity decide.', '2025-07-23 00:00:00', 3, '2025-07-31 00:00:00', 0, 'https://example.com/backgrounds/245.jpg', 100, 'active', '2025-07-30 00:00:00', 3);
+
+-- BillingContact
+INSERT INTO BillingContacts (UserId, WorkspaceId, BillingContactName, BillingContactEmail, BillingLanguage, AdditionalInvoiceDetail)
+VALUES 
+(1, 1, N'kburke', 'james85@booth-daniels.net', 1, N'From user kburke'),
+(2, 2, N'rossjonathan', 'shelby02@hotmail.com', 1, N'From user rossjonathan'),
+(3, 3, N'gfitzpatrick', 'mkelly@gmail.com', 1, N'From user gfitzpatrick'),
+(4, 4, N'harperbrandon', 'jeremyblankenship@rodriguez.com', 1, N'From user harperbrandon'),
+(5, 5, N'johnsonbrendan', 'lindarobinson@krause.info', 1, N'From user johnsonbrendan'),
+(6, 6, N'deborah15', 'melissa59@gmail.com', 1, N'From user deborah15'),
+(7, 7, N'cshort', 'mackmartin@yahoo.com', 1, N'From user cshort'),
+(8, 8, N'helen55', 'mitchelljustin@campbell.com', 1, N'From user helen55'),
+(9, 9, N'kfry', 'elizabethsmith@hotmail.com', 1, N'From user kfry'),
+(10, 10, N'bryan36', 'xwoods@roach.net', 1, N'From user bryan36'),
+(11, 11, N'calvin32', 'chanson@williams.net', 1, N'From user calvin32'),
+(12, 12, N'bryanhensley', 'shirleyguerrero@hotmail.com', 1, N'From user bryanhensley'),
+(13, 13, N'ijackson', 'xjenkins@hotmail.com', 1, N'From user ijackson'),
+(14, 14, N'qferguson', 'armstrongapril@hotmail.com', 1, N'From user qferguson'),
+(15, 15, N'lyoung', 'kathryn35@bryant-henson.info', 1, N'From user lyoung'),
+(16, 16, N'frenchtonya', 'stephanie80@gmail.com', 1, N'From user frenchtonya'),
+(17, 17, N'justin09', 'gutierreznancy@duncan.org', 1, N'From user justin09'),
+(18, 18, N'frusso', 'aaron99@mclaughlin.com', 1, N'From user frusso'),
+(19, 19, N'fwilliams', 'msanchez@yahoo.com', 1, N'From user fwilliams'),
+(20, 20, N'kgregory', 'michael87@hotmail.com', 1, N'From user kgregory');
+
+-- Subscriptions
+INSERT INTO Subscriptions (BillingContactId, BillingPlanId, StartDate, EndDate, IsMonthly, SubscriptionStatus, AutoRenew, MemberCountBilled)
+VALUES 
+(1, 1, '2025-08-01', '2025-09-01', 1, 1, 1, 5),
+(2, 2, '2025-08-01', '2026-08-01', 0, 1, 1, 10),
+(3, 3, '2025-08-01', '2025-09-01', 1, 1, 1, 8),
+(4, 4, '2025-08-01', '2026-08-01', 0, 1, 1, 50),
+
+(5, 1, '2025-08-01', '2025-09-01', 1, 1, 1, 3),
+(6, 2, '2025-08-01', '2026-08-01', 0, 1, 1, 7),
+(7, 3, '2025-08-01', '2025-09-01', 1, 1, 1, 9),
+(8, 4, '2025-08-01', '2026-08-01', 0, 1, 1, 100),
+
+(9, 1, '2025-08-01', '2025-09-01', 1, 1, 1, 2),
+(10, 2, '2025-08-01', '2026-08-01', 0, 1, 1, 20),
+(11, 3, '2025-08-01', '2025-09-01', 1, 1, 1, 15),
+(12, 4, '2025-08-01', '2026-08-01', 0, 1, 1, 200),
+
+(13, 1, '2025-08-01', '2025-09-01', 1, 1, 1, 4),
+(14, 2, '2025-08-01', '2026-08-01', 0, 1, 1, 6),
+(15, 3, '2025-08-01', '2025-09-01', 1, 1, 1, 12),
+(16, 4, '2025-08-01', '2026-08-01', 0, 1, 1, 250),
+
+(17, 1, '2025-08-01', '2025-09-01', 1, 1, 1, 7),
+(18, 2, '2025-08-01', '2026-08-01', 0, 1, 1, 11),
+(19, 3, '2025-08-01', '2025-09-01', 1, 1, 1, 13),
+(20, 4, '2025-08-01', '2026-08-01', 0, 1, 1, 300);
+
+--PaymentInformations
+INSERT INTO PaymentInformations (BillingContactId, CardNumber, CardBrand, ExpirationDate, Cvv, Country, PostalCode)
+VALUES
+(1, '4111111111111111', 'Visa', '2027-12-01', '123', 'United States', '10001'),
+(2, '5500000000000004', 'MasterCard', '2026-09-01', '456', 'Canada', 'M5H 2N2'),
+(3, '340000000000009',  'American Express', '2025-11-01', '7890', 'United Kingdom', 'SW1A 1AA'),
+(4, '6011000000000004', 'Discover', '2028-01-01', '321', 'Germany', '10115'),
+(5, '4111111111111111', 'Visa', '2027-07-01', '111', 'France', '75001'),
+(6, '5500000000000004', 'MasterCard', '2026-03-01', '222', 'Japan', '100-0001'),
+(7, '340000000000009',  'American Express', '2029-06-01', '3333', 'Australia', '2000'),
+(8, '6011000000000004', 'Discover', '2026-08-01', '444', 'India', '110001'),
+(9, '4111111111111111', 'Visa', '2025-12-01', '555', 'Brazil', '01000-000'),
+(10, '5500000000000004', 'MasterCard', '2027-05-01', '666', 'Mexico', '06000'),
+
+(11, '340000000000009',  'American Express', '2026-01-01', '7777', 'Italy', '00184'),
+(12, '6011000000000004', 'Discover', '2028-02-01', '888', 'Netherlands', '1012 JS'),
+(13, '4111111111111111', 'Visa', '2027-11-01', '999', 'Singapore', '018989'),
+(14, '5500000000000004', 'MasterCard', '2026-04-01', '000', 'Malaysia', '50000'),
+(15, '340000000000009',  'American Express', '2025-10-01', '1122', 'Thailand', '10330'),
+(16, '6011000000000004', 'Discover', '2026-12-01', '2233', 'Vietnam', '70000'),
+(17, '4111111111111111', 'Visa', '2029-03-01', '3344', 'South Korea', '04524'),
+(18, '5500000000000004', 'MasterCard', '2027-06-01', '4455', 'Indonesia', '10110'),
+(19, '340000000000009',  'American Express', '2026-11-01', '5566', 'Spain', '28013'),
+(20, '6011000000000004', 'Discover', '2025-09-01', '6677', 'Sweden', '111 29');
+
+-- Collections for Workspace 1
+INSERT INTO Collections (CollectionName, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, WorkspaceId)
+VALUES (N'General Workspace 1', '2025-08-01', 1, '2025-08-01', 1, 1);
+
+-- Collections for Workspace 2
+INSERT INTO Collections (CollectionName, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, WorkspaceId)
+VALUES (N'Design Assets', '2025-08-01', 2, '2025-08-01', 2, 2);
+INSERT INTO Collections (CollectionName, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, WorkspaceId)
+VALUES (N'Marketing Material', '2025-08-01', 2, '2025-08-01', 2, 2);
+
+-- Collections for Workspace 3
+INSERT INTO Collections (CollectionName, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, WorkspaceId)
+VALUES (N'Product Backlog', '2025-08-01', 3, '2025-08-01', 3, 3);
+
+-- Collections for Workspace 4
+INSERT INTO Collections (CollectionName, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, WorkspaceId)
+VALUES (N'Sprint Boards', '2025-08-01', 4, '2025-08-01', 4, 4);
+INSERT INTO Collections (CollectionName, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, WorkspaceId)
+VALUES (N'Planning Docs', '2025-08-01', 4, '2025-08-01', 4, 4);
+
+-- Collections for Workspace 5
+INSERT INTO Collections (CollectionName, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, WorkspaceId)
+VALUES (N'Marketing Campaigns', '2025-08-01', 5, '2025-08-01', 5, 5);
+
+-- Collections for Workspace 6
+INSERT INTO Collections (CollectionName, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, WorkspaceId)
+VALUES (N'Client Projects', '2025-08-01', 6, '2025-08-01', 6, 6);
+INSERT INTO Collections (CollectionName, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, WorkspaceId)
+VALUES (N'Sales Pipeline', '2025-08-01', 6, '2025-08-01', 6, 6);
+INSERT INTO Collections (CollectionName, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, WorkspaceId)
+VALUES (N'Q3 Goals', '2025-08-01', 6, '2025-08-01', 6, 6);
+
+-- Collections for Workspace 7
+INSERT INTO Collections (CollectionName, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, WorkspaceId)
+VALUES (N'Bug Tracking', '2025-08-01', 7, '2025-08-01', 7, 7);
+
+-- Collections for Workspace 8
+INSERT INTO Collections (CollectionName, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, WorkspaceId)
+VALUES (N'Engineering Docs', '2025-08-01', 8, '2025-08-01', 8, 8);
+INSERT INTO Collections (CollectionName, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, WorkspaceId)
+VALUES (N'Design Research', '2025-08-01', 8, '2025-08-01', 8, 8);
+
+-- Collections for Workspace 9
+INSERT INTO Collections (CollectionName, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, WorkspaceId)
+VALUES (N'Internal Tools', '2025-08-01', 9, '2025-08-01', 9, 9);
+
+-- Collections for Workspace 10
+INSERT INTO Collections (CollectionName, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, WorkspaceId)
+VALUES (N'New Features', '2025-08-01', 10, '2025-08-01', 10, 10);
+INSERT INTO Collections (CollectionName, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, WorkspaceId)
+VALUES (N'Archived Projects', '2025-08-01', 10, '2025-08-01', 10, 10);
+
+-- Collections for Workspace 11
+INSERT INTO Collections (CollectionName, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, WorkspaceId)
+VALUES (N'Mobile App', '2025-08-01', 11, '2025-08-01', 11, 11);
+
+-- Collections for Workspace 12
+INSERT INTO Collections (CollectionName, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, WorkspaceId)
+VALUES (N'Data Insights', '2025-08-01', 12, '2025-08-01', 12, 12);
+INSERT INTO Collections (CollectionName, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, WorkspaceId)
+VALUES (N'Customer Feedback', '2025-08-01', 12, '2025-08-01', 12, 12);
+INSERT INTO Collections (CollectionName, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, WorkspaceId)
+VALUES (N'Experiments', '2025-08-01', 12, '2025-08-01', 12, 12);
+
+-- Collections for Workspace 13
+INSERT INTO Collections (CollectionName, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, WorkspaceId)
+VALUES (N'Beta Features', '2025-08-01', 13, '2025-08-01', 13, 13);
+
+-- Collections for Workspace 14
+INSERT INTO Collections (CollectionName, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, WorkspaceId)
+VALUES (N'Project X', '2025-08-01', 14, '2025-08-01', 14, 14);
+INSERT INTO Collections (CollectionName, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, WorkspaceId)
+VALUES (N'Product Experiments', '2025-08-01', 14, '2025-08-01', 14, 14);
+
+-- Collections for Workspace 15
+INSERT INTO Collections (CollectionName, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, WorkspaceId)
+VALUES (N'Strategy 2025', '2025-08-01', 15, '2025-08-01', 15, 15);
+
+-- Collections for Workspace 16
+INSERT INTO Collections (CollectionName, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, WorkspaceId)
+VALUES (N'Planning', '2025-08-01', 16, '2025-08-01', 16, 16);
+INSERT INTO Collections (CollectionName, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, WorkspaceId)
+VALUES (N'Product Vision', '2025-08-01', 16, '2025-08-01', 16, 16);
+
+-- Collections for Workspace 17
+INSERT INTO Collections (CollectionName, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, WorkspaceId)
+VALUES (N'Metrics Dashboard', '2025-08-01', 17, '2025-08-01', 17, 17);
+
+-- Collections for Workspace 18
+INSERT INTO Collections (CollectionName, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, WorkspaceId)
+VALUES (N'Board Templates', '2025-08-01', 18, '2025-08-01', 18, 18);
+
+-- Collections for Workspace 19
+INSERT INTO Collections (CollectionName, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, WorkspaceId)
+VALUES (N'Knowledge Base', '2025-08-01', 19, '2025-08-01', 19, 19);
+INSERT INTO Collections (CollectionName, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, WorkspaceId)
+VALUES (N'How-Tos', '2025-08-01', 19, '2025-08-01', 19, 19);
+
+-- Collections for Workspace 20
+INSERT INTO Collections (CollectionName, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, WorkspaceId)
+VALUES (N'Design System', '2025-08-01', 20, '2025-08-01', 20, 20);
+
+--WorkspaceMembershipDomains
+INSERT INTO WorkspaceMembershipDomains (WorkspaceId, Domain, CreatedAt) VALUES
+(1, N'alpha1.com', '2025-08-01'),
+(1, N'devteam1.org', '2025-08-01'),
+
+(2, N'beta2.com', '2025-08-01'),
+
+(3, N'workspace3.io', '2025-08-01'),
+(3, N'data3.org', '2025-08-01'),
+(3, N'tech3.net', '2025-08-01'),
+
+(4, N'project4.com', '2025-08-01'),
+
+(5, N'marketing5.net', '2025-08-01'),
+(5, N'sales5.org', '2025-08-01'),
+
+(6, N'design6.co', '2025-08-01'),
+(6, N'product6.com', '2025-08-01'),
+
+(7, N'team7.io', '2025-08-01'),
+
+(8, N'ops8.org', '2025-08-01'),
+(8, N'cloud8.com', '2025-08-01'),
+
+(9, N'support9.net', '2025-08-01'),
+
+(10, N'global10.com', '2025-08-01'),
+(10, N'dev10.org', '2025-08-01'),
+
+(11, N'test11.io', '2025-08-01'),
+
+(12, N'research12.edu', '2025-08-01'),
+(12, N'stats12.com', '2025-08-01'),
+(12, N'growth12.org', '2025-08-01'),
+
+(13, N'brand13.net', '2025-08-01'),
+
+(14, N'security14.com', '2025-08-01'),
+(14, N'privacy14.org', '2025-08-01'),
+
+(15, N'internal15.io', '2025-08-01'),
+
+(16, N'partner16.com', '2025-08-01'),
+(16, N'business16.net', '2025-08-01'),
+
+(17, N'consulting17.org', '2025-08-01'),
+
+(18, N'devops18.io', '2025-08-01'),
+(18, N'qa18.net', '2025-08-01'),
+
+(19, N'compliance19.com', '2025-08-01'),
+
+(20, N'engineering20.org', '2025-08-01'),
+(20, N'build20.io', '2025-08-01'),
+(20, N'domain20.com', '2025-08-01');
+
+--Exports
+INSERT INTO Exports (WorkspaceId, CreatedBy, CreatedAt, Size) VALUES
+(1, 1, '2025-07-01 10:15:00', 504),
+(1, 1, '2025-07-20 14:03:00', 1250),
+
+(2, 2, '2025-06-25 09:42:00', 890),
+
+(3, 3, '2025-07-08 17:55:00', 342),
+(3, 3, '2025-07-19 11:22:00', 978),
+(3, 3, '2025-07-25 13:01:00', 2123),
+
+(4, 4, '2025-07-11 08:10:00', 1500),
+
+(5, 5, '2025-06-30 16:32:00', 781),
+(5, 5, '2025-07-14 12:00:00', 1345),
+
+(6, 6, '2025-07-05 15:45:00', 310),
+
+(7, 7, '2025-07-02 10:05:00', 255),
+(7, 7, '2025-07-17 09:18:00', 870),
+
+(8, 8, '2025-06-28 13:20:00', 1300),
+
+(9, 9, '2025-07-07 07:00:00', 450),
+(9, 9, '2025-07-21 10:10:00', 1599),
+
+(10, 10, '2025-07-15 15:00:00', 2300),
+
+(11, 11, '2025-07-18 16:16:00', 678),
+(11, 11, '2025-07-30 18:31:00', 1002),
+
+(12, 12, '2025-07-03 13:55:00', 540),
+
+(13, 13, '2025-07-09 11:11:00', 950),
+(13, 13, '2025-07-23 08:08:00', 1700),
+(13, 13, '2025-07-29 19:05:00', 2222),
+
+(14, 14, '2025-07-10 14:14:00', 1248),
+
+(15, 15, '2025-07-04 09:09:00', 312),
+(15, 15, '2025-07-24 12:24:00', 1530),
+
+(16, 16, '2025-07-06 07:07:00', 1050),
+
+(17, 17, '2025-07-13 13:13:00', 880),
+(17, 17, '2025-07-26 16:16:00', 1195),
+
+(18, 18, '2025-07-12 12:12:00', 1400),
+
+(19, 19, '2025-07-16 10:10:00', 996),
+(19, 19, '2025-07-27 18:45:00', 1555),
+
+(20, 20, '2025-07-22 22:22:00', 780),
+(20, 20, '2025-07-30 20:30:00', 1333),
+(20, 20, '2025-08-01 09:00:00', 2900);
+
+-- CategoryId 1 = WORKSPACE
+INSERT INTO ShareLinks (CategoryId, OwnerId, ShareLinkToken, ShareLinkStatus) VALUES
+(1, 1,  'ws_1_shr_TkAB1', 1),
+(1, 2,  'ws_2_shr_HFJY7', 1),
+(1, 3,  'ws_3_shr_LPOI3', 0),
+(1, 4,  'ws_4_shr_98UY6', 1),
+(1, 5,  'ws_5_shr_MNBV9', 0),
+(1, 6,  'ws_6_shr_QAZX1', 1),
+(1, 7,  'ws_7_shr_WSCDE', 0),
+(1, 8,  'ws_8_shr_TGBN2', 1),
+(1, 9,  'ws_9_shr_PLKM3', 1),
+(1, 10, 'ws_10_shr_HUJK4', 0),
+(1, 11, 'ws_11_shr_ZXCV5', 1),
+(1, 12, 'ws_12_shr_IOPL6', 1),
+(1, 13, 'ws_13_shr_MKO8A', 0),
+(1, 14, 'ws_14_shr_BGTRE', 1),
+(1, 15, 'ws_15_shr_FDSEW', 0),
+(1, 16, 'ws_16_shr_KOLP9', 1),
+(1, 17, 'ws_17_shr_JIUY7', 1),
+(1, 18, 'ws_18_shr_NMJU5', 1),
+(1, 19, 'ws_19_shr_KLZX3', 0),
+(1, 20, 'ws_20_shr_XSWQ2', 1);
+
+--ShareLinks CategoryId 2 = BOARD
+INSERT INTO ShareLinks (CategoryId, OwnerId, ShareLinkToken, ShareLinkStatus) VALUES
+(2, 1,  'bd_1_shr_YTREW', 1),
+(2, 2,  'bd_2_shr_VCXZ1', 1),
+(2, 3,  'bd_3_shr_MKJU9', 1),
+(2, 4,  'bd_4_shr_HGFD7', 0),
+(2, 5,  'bd_5_shr_DSAQ2', 1),
+(2, 6,  'bd_6_shr_LKJH3', 0),
+(2, 7,  'bd_7_shr_POIU4', 1),
+(2, 8,  'bd_8_shr_TGBN5', 1),
+(2, 9,  'bd_9_shr_QAZX6', 1),
+(2, 10, 'bd_10_shr_PLKM7', 0),
+(2, 11, 'bd_11_shr_HYGT8', 1),
+(2, 12, 'bd_12_shr_JUYT9', 0),
+(2, 13, 'bd_13_shr_FREW1', 1),
+(2, 14, 'bd_14_shr_KJUY2', 1),
+(2, 15, 'bd_15_shr_MNHY3', 1),
+(2, 16, 'bd_16_shr_BGTY4', 0),
+(2, 17, 'bd_17_shr_VFRT5', 1),
+(2, 18, 'bd_18_shr_CDXE6', 1),
+(2, 19, 'bd_19_shr_ZQAW7', 0),
+(2, 20, 'bd_20_shr_XEDC8', 1);
+
+--ShareLinks CategoryId 3 = CARD
+INSERT INTO ShareLinks (CategoryId, OwnerId, ShareLinkToken, ShareLinkStatus) VALUES
+(3, 1,  'cd_1_shr_WSXZ1', 1),
+(3, 2,  'cd_2_shr_KLMN2', 1),
+(3, 3,  'cd_3_shr_ASDF3', 0),
+(3, 4,  'cd_4_shr_QWED4', 1),
+(3, 5,  'cd_5_shr_ZXCV5', 0),
+(3, 6,  'cd_6_shr_TYUI6', 1),
+(3, 7,  'cd_7_shr_HJKL7', 1),
+(3, 8,  'cd_8_shr_MNBV8', 0),
+(3, 9,  'cd_9_shr_POIU9', 1),
+(3, 10, 'cd_10_shr_LKJH1', 1),
+(3, 11, 'cd_11_shr_XCVB2', 0),
+(3, 12, 'cd_12_shr_REWS3', 1),
+(3, 13, 'cd_13_shr_QAZX4', 1),
+(3, 14, 'cd_14_shr_KMLO5', 0),
+(3, 15, 'cd_15_shr_BGTY6', 1),
+(3, 16, 'cd_16_shr_YTRE7', 1),
+(3, 17, 'cd_17_shr_VFRC8', 0),
+(3, 18, 'cd_18_shr_DEWS9', 1),
+(3, 19, 'cd_19_shr_CVBN0', 1),
+(3, 20, 'cd_20_shr_MIKL1', 1);
+
+--UserViewHistory
+-- CategoryId: 1 = WORKSPACE, 2 = BOARD, 3 = CARD
+INSERT INTO UserViewHistory (UserId, CategoryId, OwnerId, AccessedAt) VALUES
+(1, 1, 1, '2025-07-25 09:00:00'),
+(1, 2, 1, '2025-07-26 10:00:00'),
+(1, 3, 1, '2025-07-27 11:00:00'),
+
+(2, 1, 2, '2025-07-25 08:15:00'),
+(2, 2, 2, '2025-07-26 09:20:00'),
+(2, 3, 2, '2025-07-27 10:45:00'),
+
+(3, 1, 3, '2025-07-28 07:00:00'),
+(3, 2, 3, '2025-07-29 08:30:00'),
+(3, 3, 3, '2025-07-30 09:50:00'),
+
+(4, 1, 4, '2025-07-30 14:00:00'),
+(4, 2, 4, '2025-07-30 14:15:00'),
+(4, 3, 4, '2025-07-30 14:30:00'),
+
+(5, 1, 5, '2025-07-29 11:00:00'),
+(5, 2, 5, '2025-07-30 12:00:00'),
+(5, 3, 5, '2025-07-30 13:00:00'),
+
+(6, 1, 6, '2025-07-31 09:10:00'),
+(6, 2, 6, '2025-07-31 09:40:00'),
+(6, 3, 6, '2025-07-31 10:15:00'),
+
+(7, 1, 7, '2025-07-31 11:00:00'),
+(7, 2, 7, '2025-07-31 11:30:00'),
+(7, 3, 7, '2025-07-31 12:00:00'),
+
+(8, 1, 8, '2025-08-01 08:00:00'),
+(8, 2, 8, '2025-08-01 09:00:00'),
+(8, 3, 8, '2025-08-01 10:00:00'),
+
+(9, 1, 9, '2025-08-01 10:10:00'),
+(9, 2, 9, '2025-08-01 10:30:00'),
+(9, 3, 9, '2025-08-01 10:50:00'),
+
+(10, 1, 10, '2025-08-01 13:00:00'),
+(10, 2, 10, '2025-08-01 13:20:00'),
+(10, 3, 10, '2025-08-01 13:45:00'),
+
+(11, 1, 11, '2025-08-01 14:00:00'),
+(11, 2, 11, '2025-08-01 14:30:00'),
+(11, 3, 11, '2025-08-01 15:00:00'),
+
+(12, 1, 12, '2025-08-01 16:00:00'),
+(12, 2, 12, '2025-08-01 16:20:00'),
+(12, 3, 12, '2025-08-01 16:40:00'),
+
+(13, 1, 13, '2025-08-01 17:00:00'),
+(13, 2, 13, '2025-08-01 17:20:00'),
+(13, 3, 13, '2025-08-01 17:40:00'),
+
+(14, 1, 14, '2025-08-01 18:00:00'),
+(14, 2, 14, '2025-08-01 18:20:00'),
+(14, 3, 14, '2025-08-01 18:40:00'),
+
+(15, 1, 15, '2025-08-01 19:00:00'),
+(15, 2, 15, '2025-08-01 19:20:00'),
+(15, 3, 15, '2025-08-01 19:40:00'),
+
+(16, 1, 16, '2025-08-01 20:00:00'),
+(16, 2, 16, '2025-08-01 20:20:00'),
+(16, 3, 16, '2025-08-01 20:40:00'),
+
+(17, 1, 17, '2025-08-01 21:00:00'),
+(17, 2, 17, '2025-08-01 21:20:00'),
+(17, 3, 17, '2025-08-01 21:40:00'),
+
+(18, 1, 18, '2025-08-01 22:00:00'),
+(18, 2, 18, '2025-08-01 22:20:00'),
+(18, 3, 18, '2025-08-01 22:40:00'),
+
+(19, 1, 19, '2025-08-01 23:00:00'),
+(19, 2, 19, '2025-08-01 23:20:00'),
+(19, 3, 19, '2025-08-01 23:40:00'),
+
+(20, 1, 20, '2025-08-02 00:00:00'),
+(20, 2, 20, '2025-08-02 00:20:00'),
+(20, 3, 20, '2025-08-02 00:40:00');
+
+--140 Templates
+INSERT INTO Templates (Title, TemplateDescription, CategoryId, Viewed, Copied, CreatedBy, CreatedAt, UpdatedAt, UpdatedBy, BoardId, BackgroundUrl) VALUES
+('Quarterly OKRs Planning', 'A ready-to-use template for business use case: Quarterly OKRs Planning.', 1, 105, 48, 6, '2025-07-07', '2025-07-12', 8, 20, 'https://example.com/backgrounds/business_1.jpg'),
+('Marketing Campaign Tracker', 'A ready-to-use template for business use case: Marketing Campaign Tracker.', 1, 389, 53, 4, '2025-07-16', '2025-07-19', 4, 15, 'https://example.com/backgrounds/business_2.jpg'),
+('Sales Pipeline Overview', 'A ready-to-use template for business use case: Sales Pipeline Overview.', 1, 481, 117, 10, '2025-07-05', '2025-07-09', 2, 17, 'https://example.com/backgrounds/business_3.jpg'),
+('Weekly Leadership Agenda', 'A ready-to-use template for business use case: Weekly Leadership Agenda.', 1, 134, 90, 8, '2025-07-29', '2025-07-31', 8, 9, 'https://example.com/backgrounds/business_4.jpg'),
+('Budget Approval Workflow', 'A ready-to-use template for business use case: Budget Approval Workflow.', 1, 480, 78, 3, '2025-07-19', '2025-07-21', 5, 8, 'https://example.com/backgrounds/business_5.jpg'),
+('Vendor Contract Management', 'A ready-to-use template for business use case: Vendor Contract Management.', 1, 186, 87, 3, '2025-07-04', '2025-07-07', 5, 11, 'https://example.com/backgrounds/business_6.jpg'),
+('Meeting Notes & Action Items', 'A ready-to-use template for business use case: Meeting Notes & Action Items.', 1, 279, 146, 3, '2025-07-21', '2025-07-22', 7, 18, 'https://example.com/backgrounds/business_7.jpg'),
+('Company Handbook Builder', 'A ready-to-use template for business use case: Company Handbook Builder.', 1, 186, 103, 4, '2025-07-13', '2025-07-18', 8, 11, 'https://example.com/backgrounds/business_8.jpg'),
+('Client Onboarding Checklist', 'A ready-to-use template for business use case: Client Onboarding Checklist.', 1, 246, 132, 1, '2025-07-31', '2025-08-05', 7, 9, 'https://example.com/backgrounds/business_9.jpg'),
+('Annual Strategic Planning', 'A ready-to-use template for business use case: Annual Strategic Planning.', 1, 291, 116, 4, '2025-07-22', '2025-07-26', 7, 18, 'https://example.com/backgrounds/business_10.jpg'),
+('UI Review & Feedback Board', 'A ready-to-use template for design use case: UI Review & Feedback Board.', 2, 408, 106, 9, '2025-07-27', '2025-07-30', 5, 17, 'https://example.com/backgrounds/design_1.jpg'),
+('Brand Assets Library', 'A ready-to-use template for design use case: Brand Assets Library.', 2, 237, 63, 10, '2025-07-07', '2025-07-10', 9, 12, 'https://example.com/backgrounds/design_2.jpg'),
+('Design Sprint Planner', 'A ready-to-use template for design use case: Design Sprint Planner.', 2, 193, 92, 7, '2025-07-25', '2025-07-29', 6, 1, 'https://example.com/backgrounds/design_3.jpg'),
+('UX Research Repository', 'A ready-to-use template for design use case: UX Research Repository.', 2, 365, 31, 6, '2025-07-11', '2025-07-15', 3, 16, 'https://example.com/backgrounds/design_4.jpg'),
+('Creative Brief Organizer', 'A ready-to-use template for design use case: Creative Brief Organizer.', 2, 330, 97, 8, '2025-07-15', '2025-07-18', 1, 15, 'https://example.com/backgrounds/design_5.jpg'),
+('Component Design Tracker', 'A ready-to-use template for design use case: Component Design Tracker.', 2, 153, 144, 8, '2025-07-13', '2025-07-16', 10, 6, 'https://example.com/backgrounds/design_6.jpg'),
+('Figma Handoff Checklist', 'A ready-to-use template for design use case: Figma Handoff Checklist.', 2, 355, 146, 5, '2025-07-16', '2025-07-19', 8, 16, 'https://example.com/backgrounds/design_7.jpg'),
+('Design Team Tasks', 'A ready-to-use template for design use case: Design Team Tasks.', 2, 177, 125, 6, '2025-07-06', '2025-07-07', 8, 9, 'https://example.com/backgrounds/design_8.jpg'),
+('Portfolio Showcase Planner', 'A ready-to-use template for design use case: Portfolio Showcase Planner.', 2, 201, 89, 5, '2025-07-17', '2025-07-20', 4, 19, 'https://example.com/backgrounds/design_9.jpg'),
+('Illustration Queue', 'A ready-to-use template for design use case: Illustration Queue.', 2, 240, 118, 3, '2025-07-02', '2025-07-05', 6, 17, 'https://example.com/backgrounds/design_10.jpg'),
+('Semester Lesson Planner', 'A ready-to-use template for education use case: Semester Lesson Planner.', 3, 227, 144, 7, '2025-07-22', '2025-07-23', 9, 9, 'https://example.com/backgrounds/education_1.jpg'),
+('Assignment Submission Tracker', 'A ready-to-use template for education use case: Assignment Submission Tracker.', 3, 116, 61, 5, '2025-07-25', '2025-07-29', 7, 6, 'https://example.com/backgrounds/education_2.jpg'),
+('Course Syllabus Organizer', 'A ready-to-use template for education use case: Course Syllabus Organizer.', 3, 430, 126, 3, '2025-07-01', '2025-07-05', 3, 16, 'https://example.com/backgrounds/education_3.jpg'),
+('Student Progress Dashboard', 'A ready-to-use template for education use case: Student Progress Dashboard.', 3, 320, 117, 6, '2025-07-20', '2025-07-22', 5, 1, 'https://example.com/backgrounds/education_4.jpg'),
+('Exam Schedule Board', 'A ready-to-use template for education use case: Exam Schedule Board.', 3, 238, 139, 3, '2025-07-07', '2025-07-12', 6, 18, 'https://example.com/backgrounds/education_5.jpg'),
+('Reading List & Notes', 'A ready-to-use template for education use case: Reading List & Notes.', 3, 158, 89, 7, '2025-07-22', '2025-07-26', 1, 18, 'https://example.com/backgrounds/education_6.jpg'),
+('Thesis Writing Plan', 'A ready-to-use template for education use case: Thesis Writing Plan.', 3, 322, 97, 9, '2025-07-21', '2025-07-22', 10, 6, 'https://example.com/backgrounds/education_7.jpg'),
+('Classroom Group Project Board', 'A ready-to-use template for education use case: Classroom Group Project Board.', 3, 339, 101, 1, '2025-07-11', '2025-07-12', 3, 6, 'https://example.com/backgrounds/education_8.jpg'),
+('Research Sources Organizer', 'A ready-to-use template for education use case: Research Sources Organizer.', 3, 477, 90, 4, '2025-07-04', '2025-07-07', 6, 5, 'https://example.com/backgrounds/education_9.jpg'),
+('Online Course Creation', 'A ready-to-use template for education use case: Online Course Creation.', 3, 108, 137, 7, '2025-07-07', '2025-07-09', 8, 11, 'https://example.com/backgrounds/education_10.jpg'),
+('Sprint Backlog Board', 'A ready-to-use template for engineering use case: Sprint Backlog Board.', 4, 387, 68, 8, '2025-07-03', '2025-07-08', 6, 18, 'https://example.com/backgrounds/engineering_1.jpg'),
+('Bug Triage & QA', 'A ready-to-use template for engineering use case: Bug Triage & QA.', 4, 348, 49, 2, '2025-07-04', '2025-07-05', 8, 18, 'https://example.com/backgrounds/engineering_2.jpg'),
+('DevOps Deployment Tracker', 'A ready-to-use template for engineering use case: DevOps Deployment Tracker.', 4, 209, 100, 2, '2025-07-23', '2025-07-26', 10, 15, 'https://example.com/backgrounds/engineering_3.jpg'),
+('Technical Debt Cleanup', 'A ready-to-use template for engineering use case: Technical Debt Cleanup.', 4, 192, 80, 9, '2025-07-15', '2025-07-18', 10, 13, 'https://example.com/backgrounds/engineering_4.jpg'),
+('Code Review Board', 'A ready-to-use template for engineering use case: Code Review Board.', 4, 357, 132, 8, '2025-07-23', '2025-07-24', 6, 10, 'https://example.com/backgrounds/engineering_5.jpg'),
+('Feature Launch Checklist', 'A ready-to-use template for engineering use case: Feature Launch Checklist.', 4, 258, 38, 5, '2025-07-27', '2025-08-01', 8, 7, 'https://example.com/backgrounds/engineering_6.jpg'),
+('Architecture Decision Log', 'A ready-to-use template for engineering use case: Architecture Decision Log.', 4, 378, 57, 10, '2025-07-25', '2025-07-28', 8, 15, 'https://example.com/backgrounds/engineering_7.jpg'),
+('CI/CD Pipeline Overview', 'A ready-to-use template for engineering use case: CI/CD Pipeline Overview.', 4, 425, 83, 3, '2025-07-12', '2025-07-13', 9, 2, 'https://example.com/backgrounds/engineering_8.jpg'),
+('Incident Response Log', 'A ready-to-use template for engineering use case: Incident Response Log.', 4, 320, 148, 2, '2025-07-25', '2025-07-28', 1, 10, 'https://example.com/backgrounds/engineering_9.jpg'),
+('API Documentation Tasks', 'A ready-to-use template for engineering use case: API Documentation Tasks.', 4, 383, 62, 7, '2025-07-10', '2025-07-14', 1, 14, 'https://example.com/backgrounds/engineering_10.jpg'),
+('Content Calendar', 'A ready-to-use template for marketing use case: Content Calendar.', 5, 207, 75, 4, '2025-07-12', '2025-07-16', 6, 15, 'https://example.com/backgrounds/marketing_1.jpg'),
+('Campaign Brainstorming', 'A ready-to-use template for marketing use case: Campaign Brainstorming.', 5, 384, 55, 5, '2025-07-25', '2025-07-26', 7, 19, 'https://example.com/backgrounds/marketing_2.jpg'),
+('SEO Audit Checklist', 'A ready-to-use template for marketing use case: SEO Audit Checklist.', 5, 199, 125, 2, '2025-07-16', '2025-07-17', 1, 18, 'https://example.com/backgrounds/marketing_3.jpg'),
+('Social Media Schedule', 'A ready-to-use template for marketing use case: Social Media Schedule.', 5, 483, 136, 2, '2025-07-07', '2025-07-12', 9, 20, 'https://example.com/backgrounds/marketing_4.jpg'),
+('Email Campaign Planner', 'A ready-to-use template for marketing use case: Email Campaign Planner.', 5, 345, 76, 1, '2025-07-06', '2025-07-08', 4, 10, 'https://example.com/backgrounds/marketing_5.jpg'),
+('Influencer Outreach Board', 'A ready-to-use template for marketing use case: Influencer Outreach Board.', 5, 333, 139, 2, '2025-07-23', '2025-07-27', 1, 19, 'https://example.com/backgrounds/marketing_6.jpg'),
+('Product Launch Plan', 'A ready-to-use template for marketing use case: Product Launch Plan.', 5, 309, 91, 2, '2025-07-21', '2025-07-26', 9, 16, 'https://example.com/backgrounds/marketing_7.jpg'),
+('Ad Copy Testing Tracker', 'A ready-to-use template for marketing use case: Ad Copy Testing Tracker.', 5, 429, 67, 5, '2025-07-08', '2025-07-12', 7, 1, 'https://example.com/backgrounds/marketing_8.jpg'),
+('Press Release Workflow', 'A ready-to-use template for marketing use case: Press Release Workflow.', 5, 116, 57, 10, '2025-07-03', '2025-07-04', 5, 2, 'https://example.com/backgrounds/marketing_9.jpg'),
+('Newsletter Production Board', 'A ready-to-use template for marketing use case: Newsletter Production Board.', 5, 246, 84, 6, '2025-07-13', '2025-07-16', 9, 9, 'https://example.com/backgrounds/marketing_10.jpg'),
+('Employee Onboarding', 'A ready-to-use template for hr & operations use case: Employee Onboarding.', 6, 339, 81, 5, '2025-07-20', '2025-07-21', 3, 18, 'https://example.com/backgrounds/hr_&_operations_1.jpg'),
+('Leave Request Tracker', 'A ready-to-use template for hr & operations use case: Leave Request Tracker.', 6, 221, 72, 8, '2025-07-15', '2025-07-16', 5, 3, 'https://example.com/backgrounds/hr_&_operations_2.jpg'),
+('Internal Policy Approvals', 'A ready-to-use template for hr & operations use case: Internal Policy Approvals.', 6, 181, 133, 1, '2025-07-15', '2025-07-20', 4, 20, 'https://example.com/backgrounds/hr_&_operations_3.jpg'),
+('HR Events Planning', 'A ready-to-use template for hr & operations use case: HR Events Planning.', 6, 295, 82, 10, '2025-07-14', '2025-07-19', 5, 20, 'https://example.com/backgrounds/hr_&_operations_4.jpg'),
+('Hiring Pipeline', 'A ready-to-use template for hr & operations use case: Hiring Pipeline.', 6, 164, 145, 9, '2025-07-03', '2025-07-08', 7, 3, 'https://example.com/backgrounds/hr_&_operations_5.jpg'),
+('Performance Review Cycle', 'A ready-to-use template for hr & operations use case: Performance Review Cycle.', 6, 358, 127, 4, '2025-07-28', '2025-08-01', 10, 14, 'https://example.com/backgrounds/hr_&_operations_6.jpg'),
+('Team Building Activities', 'A ready-to-use template for hr & operations use case: Team Building Activities.', 6, 256, 88, 7, '2025-07-28', '2025-07-29', 5, 12, 'https://example.com/backgrounds/hr_&_operations_7.jpg'),
+('Benefits Enrollment Board', 'A ready-to-use template for hr & operations use case: Benefits Enrollment Board.', 6, 240, 51, 3, '2025-07-18', '2025-07-23', 1, 17, 'https://example.com/backgrounds/hr_&_operations_8.jpg'),
+('Payroll Process Tracker', 'A ready-to-use template for hr & operations use case: Payroll Process Tracker.', 6, 126, 67, 2, '2025-07-17', '2025-07-20', 3, 13, 'https://example.com/backgrounds/hr_&_operations_9.jpg'),
+('Workplace Incident Log', 'A ready-to-use template for hr & operations use case: Workplace Incident Log.', 6, 421, 135, 5, '2025-07-06', '2025-07-08', 3, 9, 'https://example.com/backgrounds/hr_&_operations_10.jpg'),
+('Personal Goal Tracker', 'A ready-to-use template for personal use case: Personal Goal Tracker.', 7, 486, 83, 1, '2025-07-25', '2025-07-28', 6, 9, 'https://example.com/backgrounds/personal_1.jpg'),
+('Daily Habit Board', 'A ready-to-use template for personal use case: Daily Habit Board.', 7, 466, 123, 3, '2025-07-21', '2025-07-23', 8, 8, 'https://example.com/backgrounds/personal_2.jpg'),
+('Grocery Shopping List', 'A ready-to-use template for personal use case: Grocery Shopping List.', 7, 420, 150, 9, '2025-07-15', '2025-07-20', 10, 3, 'https://example.com/backgrounds/personal_3.jpg'),
+('Vacation Planning Board', 'A ready-to-use template for personal use case: Vacation Planning Board.', 7, 231, 139, 3, '2025-07-12', '2025-07-17', 9, 7, 'https://example.com/backgrounds/personal_4.jpg'),
+('Reading Challenge', 'A ready-to-use template for personal use case: Reading Challenge.', 7, 200, 57, 5, '2025-07-03', '2025-07-08', 5, 3, 'https://example.com/backgrounds/personal_5.jpg'),
+('Fitness Progress Tracker', 'A ready-to-use template for personal use case: Fitness Progress Tracker.', 7, 157, 91, 2, '2025-07-02', '2025-07-06', 4, 7, 'https://example.com/backgrounds/personal_6.jpg'),
+('Budget & Expense Tracker', 'A ready-to-use template for personal use case: Budget & Expense Tracker.', 7, 428, 34, 6, '2025-07-15', '2025-07-16', 1, 10, 'https://example.com/backgrounds/personal_7.jpg'),
+('House Chores Checklist', 'A ready-to-use template for personal use case: House Chores Checklist.', 7, 160, 95, 3, '2025-07-08', '2025-07-10', 6, 7, 'https://example.com/backgrounds/personal_8.jpg'),
+('Meal Prep Planner', 'A ready-to-use template for personal use case: Meal Prep Planner.', 7, 228, 60, 1, '2025-07-31', '2025-08-01', 8, 11, 'https://example.com/backgrounds/personal_9.jpg'),
+('Life Admin Board', 'A ready-to-use template for personal use case: Life Admin Board.', 7, 284, 147, 9, '2025-07-11', '2025-07-12', 3, 14, 'https://example.com/backgrounds/personal_10.jpg'),
+('Time Blocking Planner', 'A ready-to-use template for productivity use case: Time Blocking Planner.', 8, 183, 99, 9, '2025-07-09', '2025-07-12', 6, 12, 'https://example.com/backgrounds/productivity_1.jpg'),
+('Pomodoro Task Tracker', 'A ready-to-use template for productivity use case: Pomodoro Task Tracker.', 8, 363, 48, 10, '2025-07-19', '2025-07-21', 3, 15, 'https://example.com/backgrounds/productivity_2.jpg'),
+('Focus Goals Board', 'A ready-to-use template for productivity use case: Focus Goals Board.', 8, 172, 27, 4, '2025-07-06', '2025-07-09', 3, 8, 'https://example.com/backgrounds/productivity_3.jpg'),
+('Weekly Review & Planning', 'A ready-to-use template for productivity use case: Weekly Review & Planning.', 8, 119, 105, 3, '2025-07-21', '2025-07-26', 5, 2, 'https://example.com/backgrounds/productivity_4.jpg'),
+('Task Prioritization Matrix', 'A ready-to-use template for productivity use case: Task Prioritization Matrix.', 8, 428, 143, 5, '2025-07-26', '2025-07-28', 10, 8, 'https://example.com/backgrounds/productivity_5.jpg'),
+('Inbox Zero Workflow', 'A ready-to-use template for productivity use case: Inbox Zero Workflow.', 8, 420, 122, 9, '2025-07-11', '2025-07-15', 9, 6, 'https://example.com/backgrounds/productivity_6.jpg'),
+('Deep Work Session Log', 'A ready-to-use template for productivity use case: Deep Work Session Log.', 8, 206, 38, 6, '2025-07-10', '2025-07-15', 4, 15, 'https://example.com/backgrounds/productivity_7.jpg'),
+('Priority Projects Dashboard', 'A ready-to-use template for productivity use case: Priority Projects Dashboard.', 8, 415, 145, 1, '2025-07-24', '2025-07-25', 2, 12, 'https://example.com/backgrounds/productivity_8.jpg'),
+('Distraction Log', 'A ready-to-use template for productivity use case: Distraction Log.', 8, 364, 71, 9, '2025-07-14', '2025-07-18', 7, 2, 'https://example.com/backgrounds/productivity_9.jpg'),
+('Workload Balancer', 'A ready-to-use template for productivity use case: Workload Balancer.', 8, 202, 116, 4, '2025-07-20', '2025-07-22', 10, 6, 'https://example.com/backgrounds/productivity_10.jpg'),
+('Product Roadmap', 'A ready-to-use template for product management use case: Product Roadmap.', 9, 118, 115, 1, '2025-07-06', '2025-07-07', 8, 11, 'https://example.com/backgrounds/product_management_1.jpg'),
+('Feature Request Triage', 'A ready-to-use template for product management use case: Feature Request Triage.', 9, 208, 42, 2, '2025-07-25', '2025-07-28', 5, 14, 'https://example.com/backgrounds/product_management_2.jpg'),
+('Beta Feedback Collector', 'A ready-to-use template for product management use case: Beta Feedback Collector.', 9, 174, 51, 7, '2025-07-02', '2025-07-05', 5, 12, 'https://example.com/backgrounds/product_management_3.jpg'),
+('Release Notes Board', 'A ready-to-use template for product management use case: Release Notes Board.', 9, 455, 24, 5, '2025-07-14', '2025-07-15', 5, 1, 'https://example.com/backgrounds/product_management_4.jpg'),
+('Cross-functional Alignment', 'A ready-to-use template for product management use case: Cross-functional Alignment.', 9, 454, 139, 10, '2025-07-05', '2025-07-10', 10, 4, 'https://example.com/backgrounds/product_management_5.jpg'),
+('User Story Map', 'A ready-to-use template for product management use case: User Story Map.', 9, 221, 25, 7, '2025-07-05', '2025-07-10', 7, 16, 'https://example.com/backgrounds/product_management_6.jpg'),
+('Stakeholder Updates', 'A ready-to-use template for product management use case: Stakeholder Updates.', 9, 488, 72, 9, '2025-07-12', '2025-07-15', 2, 19, 'https://example.com/backgrounds/product_management_7.jpg'),
+('Metrics & KPIs Dashboard', 'A ready-to-use template for product management use case: Metrics & KPIs Dashboard.', 9, 437, 147, 9, '2025-07-29', '2025-07-30', 9, 9, 'https://example.com/backgrounds/product_management_8.jpg'),
+('Product Audit Log', 'A ready-to-use template for product management use case: Product Audit Log.', 9, 174, 127, 1, '2025-07-02', '2025-07-04', 4, 4, 'https://example.com/backgrounds/product_management_9.jpg'),
+('Go-to-Market Checklist', 'A ready-to-use template for product management use case: Go-to-Market Checklist.', 9, 104, 137, 6, '2025-07-29', '2025-08-03', 1, 13, 'https://example.com/backgrounds/product_management_10.jpg'),
+('Project Timeline Planner', 'A ready-to-use template for project management use case: Project Timeline Planner.', 10, 211, 129, 3, '2025-07-02', '2025-07-05', 10, 4, 'https://example.com/backgrounds/project_management_1.jpg'),
+('Milestone Tracker', 'A ready-to-use template for project management use case: Milestone Tracker.', 10, 303, 45, 6, '2025-07-22', '2025-07-24', 3, 12, 'https://example.com/backgrounds/project_management_2.jpg'),
+('Task Assignment Board', 'A ready-to-use template for project management use case: Task Assignment Board.', 10, 458, 98, 9, '2025-07-28', '2025-07-31', 2, 1, 'https://example.com/backgrounds/project_management_3.jpg'),
+('Risk Management Matrix', 'A ready-to-use template for project management use case: Risk Management Matrix.', 10, 312, 47, 3, '2025-07-08', '2025-07-09', 10, 7, 'https://example.com/backgrounds/project_management_4.jpg'),
+('Resource Allocation Plan', 'A ready-to-use template for project management use case: Resource Allocation Plan.', 10, 122, 61, 1, '2025-07-29', '2025-07-31', 5, 3, 'https://example.com/backgrounds/project_management_5.jpg'),
+('Stakeholder Communication', 'A ready-to-use template for project management use case: Stakeholder Communication.', 10, 469, 29, 8, '2025-07-21', '2025-07-24', 5, 13, 'https://example.com/backgrounds/project_management_6.jpg'),
+('Agile Ceremonies Board', 'A ready-to-use template for project management use case: Agile Ceremonies Board.', 10, 375, 50, 9, '2025-07-17', '2025-07-21', 10, 12, 'https://example.com/backgrounds/project_management_7.jpg'),
+('Dependencies Tracker', 'A ready-to-use template for project management use case: Dependencies Tracker.', 10, 351, 100, 3, '2025-07-03', '2025-07-07', 10, 1, 'https://example.com/backgrounds/project_management_8.jpg'),
+('Gantt Chart Tasks', 'A ready-to-use template for project management use case: Gantt Chart Tasks.', 10, 224, 88, 10, '2025-07-28', '2025-07-30', 10, 13, 'https://example.com/backgrounds/project_management_9.jpg'),
+('Retrospective Notes', 'A ready-to-use template for project management use case: Retrospective Notes.', 10, 306, 38, 1, '2025-07-15', '2025-07-18', 3, 15, 'https://example.com/backgrounds/project_management_10.jpg'),
+('Daily Standup Board', 'A ready-to-use template for remote work use case: Daily Standup Board.', 11, 359, 95, 5, '2025-07-31', '2025-08-04', 8, 3, 'https://example.com/backgrounds/remote_work_1.jpg'),
+('Remote Team Tasks', 'A ready-to-use template for remote work use case: Remote Team Tasks.', 11, 260, 50, 3, '2025-07-30', '2025-07-31', 10, 9, 'https://example.com/backgrounds/remote_work_2.jpg'),
+('Async Updates Board', 'A ready-to-use template for remote work use case: Async Updates Board.', 11, 362, 83, 5, '2025-07-22', '2025-07-23', 1, 2, 'https://example.com/backgrounds/remote_work_3.jpg'),
+('Virtual Meeting Agenda', 'A ready-to-use template for remote work use case: Virtual Meeting Agenda.', 11, 206, 124, 10, '2025-07-12', '2025-07-14', 9, 4, 'https://example.com/backgrounds/remote_work_4.jpg'),
+('Time Zone Coordination', 'A ready-to-use template for remote work use case: Time Zone Coordination.', 11, 224, 128, 5, '2025-07-28', '2025-08-02', 9, 8, 'https://example.com/backgrounds/remote_work_5.jpg'),
+('WFH Equipment Tracker', 'A ready-to-use template for remote work use case: WFH Equipment Tracker.', 11, 456, 60, 10, '2025-07-25', '2025-07-30', 2, 13, 'https://example.com/backgrounds/remote_work_6.jpg'),
+('Remote Feedback Requests', 'A ready-to-use template for remote work use case: Remote Feedback Requests.', 11, 388, 26, 4, '2025-07-26', '2025-07-27', 4, 19, 'https://example.com/backgrounds/remote_work_7.jpg'),
+('Work Log Archive', 'A ready-to-use template for remote work use case: Work Log Archive.', 11, 232, 55, 2, '2025-07-11', '2025-07-15', 8, 11, 'https://example.com/backgrounds/remote_work_8.jpg'),
+('Team Wins Board', 'A ready-to-use template for remote work use case: Team Wins Board.', 11, 215, 32, 7, '2025-07-29', '2025-08-01', 2, 4, 'https://example.com/backgrounds/remote_work_9.jpg'),
+('Connectivity Issue Log', 'A ready-to-use template for remote work use case: Connectivity Issue Log.', 11, 257, 110, 6, '2025-07-03', '2025-07-05', 5, 9, 'https://example.com/backgrounds/remote_work_10.jpg'),
+('Lead Qualification Board', 'A ready-to-use template for sales use case: Lead Qualification Board.', 12, 482, 31, 3, '2025-07-30', '2025-08-04', 6, 19, 'https://example.com/backgrounds/sales_1.jpg'),
+('Client Demo Schedule', 'A ready-to-use template for sales use case: Client Demo Schedule.', 12, 393, 37, 9, '2025-07-10', '2025-07-15', 6, 10, 'https://example.com/backgrounds/sales_2.jpg'),
+('Contract Follow-up Tracker', 'A ready-to-use template for sales use case: Contract Follow-up Tracker.', 12, 412, 37, 1, '2025-07-16', '2025-07-19', 4, 2, 'https://example.com/backgrounds/sales_3.jpg'),
+('Sales Training Hub', 'A ready-to-use template for sales use case: Sales Training Hub.', 12, 411, 52, 4, '2025-07-10', '2025-07-14', 5, 3, 'https://example.com/backgrounds/sales_4.jpg'),
+('Target Account Planner', 'A ready-to-use template for sales use case: Target Account Planner.', 12, 394, 134, 8, '2025-07-21', '2025-07-25', 4, 1, 'https://example.com/backgrounds/sales_5.jpg'),
+('Territory Assignment Board', 'A ready-to-use template for sales use case: Territory Assignment Board.', 12, 247, 39, 10, '2025-07-24', '2025-07-28', 1, 2, 'https://example.com/backgrounds/sales_6.jpg'),
+('Proposal Drafting Checklist', 'A ready-to-use template for sales use case: Proposal Drafting Checklist.', 12, 494, 90, 10, '2025-07-20', '2025-07-25', 8, 12, 'https://example.com/backgrounds/sales_7.jpg'),
+('Discount Approval Flow', 'A ready-to-use template for sales use case: Discount Approval Flow.', 12, 121, 50, 5, '2025-07-28', '2025-07-29', 4, 6, 'https://example.com/backgrounds/sales_8.jpg'),
+('Quarterly Sales Goals', 'A ready-to-use template for sales use case: Quarterly Sales Goals.', 12, 439, 36, 10, '2025-07-19', '2025-07-23', 6, 5, 'https://example.com/backgrounds/sales_9.jpg'),
+('CRM Sync Checklist', 'A ready-to-use template for sales use case: CRM Sync Checklist.', 12, 247, 44, 6, '2025-07-14', '2025-07-18', 10, 11, 'https://example.com/backgrounds/sales_10.jpg'),
+('Customer Issue Tracker', 'A ready-to-use template for support use case: Customer Issue Tracker.', 13, 144, 135, 5, '2025-07-07', '2025-07-10', 6, 7, 'https://example.com/backgrounds/support_1.jpg'),
+('Support Ticket Queue', 'A ready-to-use template for support use case: Support Ticket Queue.', 13, 482, 38, 6, '2025-07-16', '2025-07-19', 4, 11, 'https://example.com/backgrounds/support_2.jpg'),
+('FAQs Development', 'A ready-to-use template for support use case: FAQs Development.', 13, 181, 113, 8, '2025-07-31', '2025-08-03', 10, 11, 'https://example.com/backgrounds/support_3.jpg'),
+('Live Chat Logs Review', 'A ready-to-use template for support use case: Live Chat Logs Review.', 13, 474, 120, 6, '2025-07-28', '2025-07-30', 5, 20, 'https://example.com/backgrounds/support_4.jpg'),
+('Escalation Path Board', 'A ready-to-use template for support use case: Escalation Path Board.', 13, 418, 82, 2, '2025-07-22', '2025-07-26', 7, 1, 'https://example.com/backgrounds/support_5.jpg'),
+('Response Time Audit', 'A ready-to-use template for support use case: Response Time Audit.', 13, 320, 120, 7, '2025-07-28', '2025-07-30', 5, 10, 'https://example.com/backgrounds/support_6.jpg'),
+('Help Center Content', 'A ready-to-use template for support use case: Help Center Content.', 13, 267, 109, 10, '2025-07-22', '2025-07-26', 7, 4, 'https://example.com/backgrounds/support_7.jpg'),
+('Troubleshooting Playbook', 'A ready-to-use template for support use case: Troubleshooting Playbook.', 13, 486, 84, 8, '2025-07-16', '2025-07-20', 9, 11, 'https://example.com/backgrounds/support_8.jpg'),
+('On-call Schedule', 'A ready-to-use template for support use case: On-call Schedule.', 13, 107, 95, 6, '2025-07-31', '2025-08-02', 9, 3, 'https://example.com/backgrounds/support_9.jpg'),
+('Support Workflow Overview', 'A ready-to-use template for support use case: Support Workflow Overview.', 13, 454, 112, 9, '2025-07-10', '2025-07-13', 9, 11, 'https://example.com/backgrounds/support_10.jpg'),
+('1:1 Meeting Notes', 'A ready-to-use template for team management use case: 1:1 Meeting Notes.', 14, 127, 150, 10, '2025-07-06', '2025-07-09', 4, 14, 'https://example.com/backgrounds/team_management_1.jpg'),
+('Team Retrospective Board', 'A ready-to-use template for team management use case: Team Retrospective Board.', 14, 476, 90, 2, '2025-07-14', '2025-07-17', 8, 19, 'https://example.com/backgrounds/team_management_2.jpg'),
+('Quarterly Planning Board', 'A ready-to-use template for team management use case: Quarterly Planning Board.', 14, 288, 99, 7, '2025-07-23', '2025-07-27', 1, 14, 'https://example.com/backgrounds/team_management_3.jpg'),
+('Conflict Resolution Tracker', 'A ready-to-use template for team management use case: Conflict Resolution Tracker.', 14, 468, 77, 10, '2025-07-16', '2025-07-19', 7, 20, 'https://example.com/backgrounds/team_management_4.jpg'),
+('Team Health Survey', 'A ready-to-use template for team management use case: Team Health Survey.', 14, 159, 64, 2, '2025-07-13', '2025-07-17', 6, 8, 'https://example.com/backgrounds/team_management_5.jpg'),
+('Weekly Task Planning', 'A ready-to-use template for team management use case: Weekly Task Planning.', 14, 230, 43, 3, '2025-07-09', '2025-07-13', 5, 12, 'https://example.com/backgrounds/team_management_6.jpg'),
+('Training Schedule', 'A ready-to-use template for team management use case: Training Schedule.', 14, 236, 22, 7, '2025-07-24', '2025-07-27', 6, 5, 'https://example.com/backgrounds/team_management_7.jpg'),
+('Role Clarity Organizer', 'A ready-to-use template for team management use case: Role Clarity Organizer.', 14, 147, 72, 9, '2025-07-16', '2025-07-20', 1, 18, 'https://example.com/backgrounds/team_management_8.jpg'),
+('Celebration & Recognition Board', 'A ready-to-use template for team management use case: Celebration & Recognition Board.', 14, 327, 119, 6, '2025-07-02', '2025-07-05', 7, 17, 'https://example.com/backgrounds/team_management_9.jpg'),
+('Feedback Collection Tracker', 'A ready-to-use template for team management use case: Feedback Collection Tracker.', 14, 469, 133, 7, '2025-07-11', '2025-07-12', 7, 8, 'https://example.com/backgrounds/team_management_10.jpg');

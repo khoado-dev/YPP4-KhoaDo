@@ -198,7 +198,7 @@ GO
 
 CREATE TABLE UserViewHistory (
     UserId [int] NOT NULL FOREIGN KEY REFERENCES Users(Id),
-    CategoryTypeId [int] NULL FOREIGN KEY REFERENCES CategoryTypes(Id), --Workspace, Board, Card
+    CategoryId [int] NULL FOREIGN KEY REFERENCES Categories(Id), --Workspace, Board, Card
     OwnerId [int] NOT NULL,
     AccessedAt [datetime] NULL
 );
@@ -423,7 +423,7 @@ CREATE TABLE Subscriptions (
     StartDate [date] NULL,
     EndDate [date] NULL,
     IsMonthly [bit] NOT NULL, --Monthly/Annually
-    SubscriptionStatus [varchar](50) NULL,
+    SubscriptionStatus [bit] NOT NULL,
     AutoRenew [bit] NULL,
     MemberCountBilled [int] NULL    
 );
