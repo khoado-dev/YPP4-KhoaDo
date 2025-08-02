@@ -123,8 +123,9 @@ CREATE TABLE Attachments (
     CategoryId [int] NULL FOREIGN KEY REFERENCES Categories(Id), --attachment type
     AttachmentPath [varchar](255) NULL, --both link and file path store here
     AttachmentName [varchar](255) NULL,
-    UpdatedAt [datetime] NULL,
-    UpdatedBy [int] NULL FOREIGN KEY REFERENCES Users(Id),
+    CreatedAt [datetime] NULL,
+    CreatedBy [int] NULL FOREIGN KEY REFERENCES Users(Id),
+    Size [varchar](255) NULL,
     IsCover [bit] NULL    
 );
 GO

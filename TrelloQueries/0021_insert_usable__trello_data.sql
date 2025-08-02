@@ -1804,6 +1804,23 @@ INSERT INTO Categories (CategoryName, Icon, CategoryTypeId, IsActive) VALUES
 ('Support', 'https://example.com/icons/support.svg', 6, 1),
 ('Team management', 'https://example.com/icons/team_management.svg', 6, 1);
 
+-- Categories for WorkspaceCategories (assume CategoryTypeId = 7)
+INSERT INTO Categories (CategoryName, Icon, Position, IsActive, CategoryTypeId) VALUES
+('Sales CRM',        NULL, 1, 1, 7),
+('Engineering-IT',   NULL, 2, 1, 7),
+('Small Business',   NULL, 3, 1, 7),
+('Education',        NULL, 4, 1, 7),
+('Human Resources',  NULL, 5, 1, 7),
+('Operations',       NULL, 6, 1, 7),
+('Marketing',        NULL, 7, 1, 7),
+('Other',            NULL, 8, 1, 7);
+
+-- Categories for RolePermissionTypes (assume CategoryTypeId = 8)
+INSERT INTO Categories (CategoryName, Icon, Position, IsActive, CategoryTypeId) VALUES
+('Admin',    NULL, 1, 1, 8),
+('Member',   NULL, 2, 1, 8),
+('Observer', NULL, 3, 1, 8);
+
 -- Stickers
 INSERT INTO Stickers (CategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
 VALUES (19, 'General Sticker 1', 'https://example.com/general_sticker_1.png', GETDATE(), NULL);
