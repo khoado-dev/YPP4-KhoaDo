@@ -1914,7 +1914,7 @@ VALUES ('Analytics & reporting Tool 1',
         'https://example.com/policy/analytics_and_reporting_1',
         1, 
         1, 
-        1);
+        23);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Analytics & reporting Tool 2', 
         'https://example.com/icons/analytics_and_reporting_2.png',
@@ -1925,7 +1925,7 @@ VALUES ('Analytics & reporting Tool 2',
         'https://example.com/policy/analytics_and_reporting_2',
         0, 
         0, 
-        1);
+        23);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Analytics & reporting Tool 3', 
         'https://example.com/icons/analytics_and_reporting_3.png',
@@ -1936,7 +1936,7 @@ VALUES ('Analytics & reporting Tool 3',
         'https://example.com/policy/analytics_and_reporting_3',
         1, 
         1, 
-        1);
+        23);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Analytics & reporting Tool 4', 
         'https://example.com/icons/analytics_and_reporting_4.png',
@@ -1947,7 +1947,7 @@ VALUES ('Analytics & reporting Tool 4',
         'https://example.com/policy/analytics_and_reporting_4',
         0, 
         0, 
-        1);
+        23);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Analytics & reporting Tool 5', 
         'https://example.com/icons/analytics_and_reporting_5.png',
@@ -1958,7 +1958,7 @@ VALUES ('Analytics & reporting Tool 5',
         'https://example.com/policy/analytics_and_reporting_5',
         1, 
         1, 
-        1);
+        23);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Analytics & reporting Tool 6', 
         'https://example.com/icons/analytics_and_reporting_6.png',
@@ -1969,7 +1969,7 @@ VALUES ('Analytics & reporting Tool 6',
         'https://example.com/policy/analytics_and_reporting_6',
         0, 
         0, 
-        1);
+        23);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Analytics & reporting Tool 7', 
         'https://example.com/icons/analytics_and_reporting_7.png',
@@ -1980,7 +1980,7 @@ VALUES ('Analytics & reporting Tool 7',
         'https://example.com/policy/analytics_and_reporting_7',
         1, 
         1, 
-        1);
+        23);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Analytics & reporting Tool 8', 
         'https://example.com/icons/analytics_and_reporting_8.png',
@@ -1991,7 +1991,7 @@ VALUES ('Analytics & reporting Tool 8',
         'https://example.com/policy/analytics_and_reporting_8',
         0, 
         0, 
-        1);
+        23);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Analytics & reporting Tool 9', 
         'https://example.com/icons/analytics_and_reporting_9.png',
@@ -2002,7 +2002,7 @@ VALUES ('Analytics & reporting Tool 9',
         'https://example.com/policy/analytics_and_reporting_9',
         1, 
         1, 
-        1);
+        23);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Analytics & reporting Tool 10', 
         'https://example.com/icons/analytics_and_reporting_10.png',
@@ -2013,7 +2013,7 @@ VALUES ('Analytics & reporting Tool 10',
         'https://example.com/policy/analytics_and_reporting_10',
         0, 
         0, 
-        1);
+        23);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Automation Tool 1', 
         'https://example.com/icons/automation_1.png',
@@ -2024,7 +2024,7 @@ VALUES ('Automation Tool 1',
         'https://example.com/policy/automation_1',
         1, 
         1, 
-        2);
+        24);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Automation Tool 2', 
         'https://example.com/icons/automation_2.png',
@@ -2035,7 +2035,7 @@ VALUES ('Automation Tool 2',
         'https://example.com/policy/automation_2',
         0, 
         0, 
-        2);
+        24);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Automation Tool 3', 
         'https://example.com/icons/automation_3.png',
@@ -2046,7 +2046,7 @@ VALUES ('Automation Tool 3',
         'https://example.com/policy/automation_3',
         1, 
         1, 
-        2);
+        24);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Automation Tool 4', 
         'https://example.com/icons/automation_4.png',
@@ -2057,7 +2057,7 @@ VALUES ('Automation Tool 4',
         'https://example.com/policy/automation_4',
         0, 
         0, 
-        2);
+        24);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Automation Tool 5', 
         'https://example.com/icons/automation_5.png',
@@ -2068,7 +2068,7 @@ VALUES ('Automation Tool 5',
         'https://example.com/policy/automation_5',
         1, 
         1, 
-        2);
+        24);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Automation Tool 6', 
         'https://example.com/icons/automation_6.png',
@@ -2079,7 +2079,7 @@ VALUES ('Automation Tool 6',
         'https://example.com/policy/automation_6',
         0, 
         0, 
-        2);
+        24);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Automation Tool 7', 
         'https://example.com/icons/automation_7.png',
@@ -2090,7 +2090,7 @@ VALUES ('Automation Tool 7',
         'https://example.com/policy/automation_7',
         1, 
         1, 
-        2);
+        24);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Automation Tool 8', 
         'https://example.com/icons/automation_8.png',
@@ -2101,7 +2101,7 @@ VALUES ('Automation Tool 8',
         'https://example.com/policy/automation_8',
         0, 
         0, 
-        2);
+        24);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Automation Tool 9', 
         'https://example.com/icons/automation_9.png',
@@ -2112,7 +2112,7 @@ VALUES ('Automation Tool 9',
         'https://example.com/policy/automation_9',
         1, 
         1, 
-        2);
+        24);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Automation Tool 10', 
         'https://example.com/icons/automation_10.png',
@@ -2123,7 +2123,7 @@ VALUES ('Automation Tool 10',
         'https://example.com/policy/automation_10',
         0, 
         0, 
-        2);
+        24);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Board utilities Tool 1', 
         'https://example.com/icons/board_utilities_1.png',
@@ -2134,7 +2134,7 @@ VALUES ('Board utilities Tool 1',
         'https://example.com/policy/board_utilities_1',
         1, 
         1, 
-        3);
+        25);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Board utilities Tool 2', 
         'https://example.com/icons/board_utilities_2.png',
@@ -2145,7 +2145,7 @@ VALUES ('Board utilities Tool 2',
         'https://example.com/policy/board_utilities_2',
         0, 
         0, 
-        3);
+        25);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Board utilities Tool 3', 
         'https://example.com/icons/board_utilities_3.png',
@@ -2156,7 +2156,7 @@ VALUES ('Board utilities Tool 3',
         'https://example.com/policy/board_utilities_3',
         1, 
         1, 
-        3);
+        25);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Board utilities Tool 4', 
         'https://example.com/icons/board_utilities_4.png',
@@ -2167,7 +2167,7 @@ VALUES ('Board utilities Tool 4',
         'https://example.com/policy/board_utilities_4',
         0, 
         0, 
-        3);
+        25);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Board utilities Tool 5', 
         'https://example.com/icons/board_utilities_5.png',
@@ -2178,7 +2178,7 @@ VALUES ('Board utilities Tool 5',
         'https://example.com/policy/board_utilities_5',
         1, 
         1, 
-        3);
+        25);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Board utilities Tool 6', 
         'https://example.com/icons/board_utilities_6.png',
@@ -2189,7 +2189,7 @@ VALUES ('Board utilities Tool 6',
         'https://example.com/policy/board_utilities_6',
         0, 
         0, 
-        3);
+        25);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Board utilities Tool 7', 
         'https://example.com/icons/board_utilities_7.png',
@@ -2200,7 +2200,7 @@ VALUES ('Board utilities Tool 7',
         'https://example.com/policy/board_utilities_7',
         1, 
         1, 
-        3);
+        25);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Board utilities Tool 8', 
         'https://example.com/icons/board_utilities_8.png',
@@ -2211,7 +2211,7 @@ VALUES ('Board utilities Tool 8',
         'https://example.com/policy/board_utilities_8',
         0, 
         0, 
-        3);
+        25);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Board utilities Tool 9', 
         'https://example.com/icons/board_utilities_9.png',
@@ -2222,7 +2222,7 @@ VALUES ('Board utilities Tool 9',
         'https://example.com/policy/board_utilities_9',
         1, 
         1, 
-        3);
+        25);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Board utilities Tool 10', 
         'https://example.com/icons/board_utilities_10.png',
@@ -2233,7 +2233,7 @@ VALUES ('Board utilities Tool 10',
         'https://example.com/policy/board_utilities_10',
         0, 
         0, 
-        3);
+        25);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Communication & collaboration Tool 1', 
         'https://example.com/icons/communication_and_collaboration_1.png',
@@ -2244,7 +2244,7 @@ VALUES ('Communication & collaboration Tool 1',
         'https://example.com/policy/communication_and_collaboration_1',
         1, 
         1, 
-        4);
+        26);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Communication & collaboration Tool 2', 
         'https://example.com/icons/communication_and_collaboration_2.png',
@@ -2255,7 +2255,7 @@ VALUES ('Communication & collaboration Tool 2',
         'https://example.com/policy/communication_and_collaboration_2',
         0, 
         0, 
-        4);
+        26);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Communication & collaboration Tool 3', 
         'https://example.com/icons/communication_and_collaboration_3.png',
@@ -2266,7 +2266,7 @@ VALUES ('Communication & collaboration Tool 3',
         'https://example.com/policy/communication_and_collaboration_3',
         1, 
         1, 
-        4);
+        26);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Communication & collaboration Tool 4', 
         'https://example.com/icons/communication_and_collaboration_4.png',
@@ -2277,7 +2277,7 @@ VALUES ('Communication & collaboration Tool 4',
         'https://example.com/policy/communication_and_collaboration_4',
         0, 
         0, 
-        4);
+        26);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Communication & collaboration Tool 5', 
         'https://example.com/icons/communication_and_collaboration_5.png',
@@ -2288,7 +2288,7 @@ VALUES ('Communication & collaboration Tool 5',
         'https://example.com/policy/communication_and_collaboration_5',
         1, 
         1, 
-        4);
+        26);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Communication & collaboration Tool 6', 
         'https://example.com/icons/communication_and_collaboration_6.png',
@@ -2299,7 +2299,7 @@ VALUES ('Communication & collaboration Tool 6',
         'https://example.com/policy/communication_and_collaboration_6',
         0, 
         0, 
-        4);
+        26);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Communication & collaboration Tool 7', 
         'https://example.com/icons/communication_and_collaboration_7.png',
@@ -2310,7 +2310,7 @@ VALUES ('Communication & collaboration Tool 7',
         'https://example.com/policy/communication_and_collaboration_7',
         1, 
         1, 
-        4);
+        26);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Communication & collaboration Tool 8', 
         'https://example.com/icons/communication_and_collaboration_8.png',
@@ -2321,7 +2321,7 @@ VALUES ('Communication & collaboration Tool 8',
         'https://example.com/policy/communication_and_collaboration_8',
         0, 
         0, 
-        4);
+        26);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Communication & collaboration Tool 9', 
         'https://example.com/icons/communication_and_collaboration_9.png',
@@ -2332,7 +2332,7 @@ VALUES ('Communication & collaboration Tool 9',
         'https://example.com/policy/communication_and_collaboration_9',
         1, 
         1, 
-        4);
+        26);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Communication & collaboration Tool 10', 
         'https://example.com/icons/communication_and_collaboration_10.png',
@@ -2343,7 +2343,7 @@ VALUES ('Communication & collaboration Tool 10',
         'https://example.com/policy/communication_and_collaboration_10',
         0, 
         0, 
-        4);
+        26);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Developer tools Tool 1', 
         'https://example.com/icons/developer_tools_1.png',
@@ -2354,7 +2354,7 @@ VALUES ('Developer tools Tool 1',
         'https://example.com/policy/developer_tools_1',
         1, 
         1, 
-        5);
+        27);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Developer tools Tool 2', 
         'https://example.com/icons/developer_tools_2.png',
@@ -2365,7 +2365,7 @@ VALUES ('Developer tools Tool 2',
         'https://example.com/policy/developer_tools_2',
         0, 
         0, 
-        5);
+        27);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Developer tools Tool 3', 
         'https://example.com/icons/developer_tools_3.png',
@@ -2376,7 +2376,7 @@ VALUES ('Developer tools Tool 3',
         'https://example.com/policy/developer_tools_3',
         1, 
         1, 
-        5);
+        27);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Developer tools Tool 4', 
         'https://example.com/icons/developer_tools_4.png',
@@ -2387,7 +2387,7 @@ VALUES ('Developer tools Tool 4',
         'https://example.com/policy/developer_tools_4',
         0, 
         0, 
-        5);
+        27);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Developer tools Tool 5', 
         'https://example.com/icons/developer_tools_5.png',
@@ -2398,7 +2398,7 @@ VALUES ('Developer tools Tool 5',
         'https://example.com/policy/developer_tools_5',
         1, 
         1, 
-        5);
+        27);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Developer tools Tool 6', 
         'https://example.com/icons/developer_tools_6.png',
@@ -2409,7 +2409,7 @@ VALUES ('Developer tools Tool 6',
         'https://example.com/policy/developer_tools_6',
         0, 
         0, 
-        5);
+        27);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Developer tools Tool 7', 
         'https://example.com/icons/developer_tools_7.png',
@@ -2420,7 +2420,7 @@ VALUES ('Developer tools Tool 7',
         'https://example.com/policy/developer_tools_7',
         1, 
         1, 
-        5);
+        27);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Developer tools Tool 8', 
         'https://example.com/icons/developer_tools_8.png',
@@ -2431,7 +2431,7 @@ VALUES ('Developer tools Tool 8',
         'https://example.com/policy/developer_tools_8',
         0, 
         0, 
-        5);
+        27);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Developer tools Tool 9', 
         'https://example.com/icons/developer_tools_9.png',
@@ -2442,7 +2442,7 @@ VALUES ('Developer tools Tool 9',
         'https://example.com/policy/developer_tools_9',
         1, 
         1, 
-        5);
+        27);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Developer tools Tool 10', 
         'https://example.com/icons/developer_tools_10.png',
@@ -2453,7 +2453,7 @@ VALUES ('Developer tools Tool 10',
         'https://example.com/policy/developer_tools_10',
         0, 
         0, 
-        5);
+        27);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('File management Tool 1', 
         'https://example.com/icons/file_management_1.png',
@@ -2464,7 +2464,7 @@ VALUES ('File management Tool 1',
         'https://example.com/policy/file_management_1',
         1, 
         1, 
-        6);
+        28);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('File management Tool 2', 
         'https://example.com/icons/file_management_2.png',
@@ -2475,7 +2475,7 @@ VALUES ('File management Tool 2',
         'https://example.com/policy/file_management_2',
         0, 
         0, 
-        6);
+        28);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('File management Tool 3', 
         'https://example.com/icons/file_management_3.png',
@@ -2486,7 +2486,7 @@ VALUES ('File management Tool 3',
         'https://example.com/policy/file_management_3',
         1, 
         1, 
-        6);
+        28);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('File management Tool 4', 
         'https://example.com/icons/file_management_4.png',
@@ -2497,7 +2497,7 @@ VALUES ('File management Tool 4',
         'https://example.com/policy/file_management_4',
         0, 
         0, 
-        6);
+        28);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('File management Tool 5', 
         'https://example.com/icons/file_management_5.png',
@@ -2508,7 +2508,7 @@ VALUES ('File management Tool 5',
         'https://example.com/policy/file_management_5',
         1, 
         1, 
-        6);
+        28);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('File management Tool 6', 
         'https://example.com/icons/file_management_6.png',
@@ -2519,7 +2519,7 @@ VALUES ('File management Tool 6',
         'https://example.com/policy/file_management_6',
         0, 
         0, 
-        6);
+        28);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('File management Tool 7', 
         'https://example.com/icons/file_management_7.png',
@@ -2530,7 +2530,7 @@ VALUES ('File management Tool 7',
         'https://example.com/policy/file_management_7',
         1, 
         1, 
-        6);
+        28);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('File management Tool 8', 
         'https://example.com/icons/file_management_8.png',
@@ -2541,7 +2541,7 @@ VALUES ('File management Tool 8',
         'https://example.com/policy/file_management_8',
         0, 
         0, 
-        6);
+        28);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('File management Tool 9', 
         'https://example.com/icons/file_management_9.png',
@@ -2552,7 +2552,7 @@ VALUES ('File management Tool 9',
         'https://example.com/policy/file_management_9',
         1, 
         1, 
-        6);
+        28);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('File management Tool 10', 
         'https://example.com/icons/file_management_10.png',
@@ -2563,7 +2563,7 @@ VALUES ('File management Tool 10',
         'https://example.com/policy/file_management_10',
         0, 
         0, 
-        6);
+        28);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('HR & operations Tool 1', 
         'https://example.com/icons/hr_and_operations_1.png',
@@ -2574,7 +2574,7 @@ VALUES ('HR & operations Tool 1',
         'https://example.com/policy/hr_and_operations_1',
         1, 
         1, 
-        7);
+        29);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('HR & operations Tool 2', 
         'https://example.com/icons/hr_and_operations_2.png',
@@ -2585,7 +2585,7 @@ VALUES ('HR & operations Tool 2',
         'https://example.com/policy/hr_and_operations_2',
         0, 
         0, 
-        7);
+        29);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('HR & operations Tool 3', 
         'https://example.com/icons/hr_and_operations_3.png',
@@ -2596,7 +2596,7 @@ VALUES ('HR & operations Tool 3',
         'https://example.com/policy/hr_and_operations_3',
         1, 
         1, 
-        7);
+        29);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('HR & operations Tool 4', 
         'https://example.com/icons/hr_and_operations_4.png',
@@ -2607,7 +2607,7 @@ VALUES ('HR & operations Tool 4',
         'https://example.com/policy/hr_and_operations_4',
         0, 
         0, 
-        7);
+        29);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('HR & operations Tool 5', 
         'https://example.com/icons/hr_and_operations_5.png',
@@ -2618,7 +2618,7 @@ VALUES ('HR & operations Tool 5',
         'https://example.com/policy/hr_and_operations_5',
         1, 
         1, 
-        7);
+        29);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('HR & operations Tool 6', 
         'https://example.com/icons/hr_and_operations_6.png',
@@ -2629,7 +2629,7 @@ VALUES ('HR & operations Tool 6',
         'https://example.com/policy/hr_and_operations_6',
         0, 
         0, 
-        7);
+        29);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('HR & operations Tool 7', 
         'https://example.com/icons/hr_and_operations_7.png',
@@ -2640,7 +2640,7 @@ VALUES ('HR & operations Tool 7',
         'https://example.com/policy/hr_and_operations_7',
         1, 
         1, 
-        7);
+        29);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('HR & operations Tool 8', 
         'https://example.com/icons/hr_and_operations_8.png',
@@ -2651,7 +2651,7 @@ VALUES ('HR & operations Tool 8',
         'https://example.com/policy/hr_and_operations_8',
         0, 
         0, 
-        7);
+        29);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('HR & operations Tool 9', 
         'https://example.com/icons/hr_and_operations_9.png',
@@ -2662,7 +2662,7 @@ VALUES ('HR & operations Tool 9',
         'https://example.com/policy/hr_and_operations_9',
         1, 
         1, 
-        7);
+        29);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('HR & operations Tool 10', 
         'https://example.com/icons/hr_and_operations_10.png',
@@ -2673,7 +2673,7 @@ VALUES ('HR & operations Tool 10',
         'https://example.com/policy/hr_and_operations_10',
         0, 
         0, 
-        7);
+        29);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('IT & project management Tool 1', 
         'https://example.com/icons/it_and_project_management_1.png',
@@ -2684,7 +2684,7 @@ VALUES ('IT & project management Tool 1',
         'https://example.com/policy/it_and_project_management_1',
         1, 
         1, 
-        8);
+        30);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('IT & project management Tool 2', 
         'https://example.com/icons/it_and_project_management_2.png',
@@ -2695,7 +2695,7 @@ VALUES ('IT & project management Tool 2',
         'https://example.com/policy/it_and_project_management_2',
         0, 
         0, 
-        8);
+        30);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('IT & project management Tool 3', 
         'https://example.com/icons/it_and_project_management_3.png',
@@ -2706,7 +2706,7 @@ VALUES ('IT & project management Tool 3',
         'https://example.com/policy/it_and_project_management_3',
         1, 
         1, 
-        8);
+        30);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('IT & project management Tool 4', 
         'https://example.com/icons/it_and_project_management_4.png',
@@ -2717,7 +2717,7 @@ VALUES ('IT & project management Tool 4',
         'https://example.com/policy/it_and_project_management_4',
         0, 
         0, 
-        8);
+        30);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('IT & project management Tool 5', 
         'https://example.com/icons/it_and_project_management_5.png',
@@ -2728,7 +2728,7 @@ VALUES ('IT & project management Tool 5',
         'https://example.com/policy/it_and_project_management_5',
         1, 
         1, 
-        8);
+        30);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('IT & project management Tool 6', 
         'https://example.com/icons/it_and_project_management_6.png',
@@ -2739,7 +2739,7 @@ VALUES ('IT & project management Tool 6',
         'https://example.com/policy/it_and_project_management_6',
         0, 
         0, 
-        8);
+        30);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('IT & project management Tool 7', 
         'https://example.com/icons/it_and_project_management_7.png',
@@ -2750,7 +2750,7 @@ VALUES ('IT & project management Tool 7',
         'https://example.com/policy/it_and_project_management_7',
         1, 
         1, 
-        8);
+        30);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('IT & project management Tool 8', 
         'https://example.com/icons/it_and_project_management_8.png',
@@ -2761,7 +2761,7 @@ VALUES ('IT & project management Tool 8',
         'https://example.com/policy/it_and_project_management_8',
         0, 
         0, 
-        8);
+        30);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('IT & project management Tool 9', 
         'https://example.com/icons/it_and_project_management_9.png',
@@ -2772,7 +2772,7 @@ VALUES ('IT & project management Tool 9',
         'https://example.com/policy/it_and_project_management_9',
         1, 
         1, 
-        8);
+        30);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('IT & project management Tool 10', 
         'https://example.com/icons/it_and_project_management_10.png',
@@ -2783,7 +2783,7 @@ VALUES ('IT & project management Tool 10',
         'https://example.com/policy/it_and_project_management_10',
         0, 
         0, 
-        8);
+        30);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Marketing & social media Tool 1', 
         'https://example.com/icons/marketing_and_social_media_1.png',
@@ -2794,7 +2794,7 @@ VALUES ('Marketing & social media Tool 1',
         'https://example.com/policy/marketing_and_social_media_1',
         1, 
         1, 
-        9);
+        31);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Marketing & social media Tool 2', 
         'https://example.com/icons/marketing_and_social_media_2.png',
@@ -2805,7 +2805,7 @@ VALUES ('Marketing & social media Tool 2',
         'https://example.com/policy/marketing_and_social_media_2',
         0, 
         0, 
-        9);
+        31);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Marketing & social media Tool 3', 
         'https://example.com/icons/marketing_and_social_media_3.png',
@@ -2816,7 +2816,7 @@ VALUES ('Marketing & social media Tool 3',
         'https://example.com/policy/marketing_and_social_media_3',
         1, 
         1, 
-        9);
+        31);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Marketing & social media Tool 4', 
         'https://example.com/icons/marketing_and_social_media_4.png',
@@ -2827,7 +2827,7 @@ VALUES ('Marketing & social media Tool 4',
         'https://example.com/policy/marketing_and_social_media_4',
         0, 
         0, 
-        9);
+        31);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Marketing & social media Tool 5', 
         'https://example.com/icons/marketing_and_social_media_5.png',
@@ -2838,7 +2838,7 @@ VALUES ('Marketing & social media Tool 5',
         'https://example.com/policy/marketing_and_social_media_5',
         1, 
         1, 
-        9);
+        31);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Marketing & social media Tool 6', 
         'https://example.com/icons/marketing_and_social_media_6.png',
@@ -2849,7 +2849,7 @@ VALUES ('Marketing & social media Tool 6',
         'https://example.com/policy/marketing_and_social_media_6',
         0, 
         0, 
-        9);
+        31);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Marketing & social media Tool 7', 
         'https://example.com/icons/marketing_and_social_media_7.png',
@@ -2860,7 +2860,7 @@ VALUES ('Marketing & social media Tool 7',
         'https://example.com/policy/marketing_and_social_media_7',
         1, 
         1, 
-        9);
+        31);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Marketing & social media Tool 8', 
         'https://example.com/icons/marketing_and_social_media_8.png',
@@ -2871,7 +2871,7 @@ VALUES ('Marketing & social media Tool 8',
         'https://example.com/policy/marketing_and_social_media_8',
         0, 
         0, 
-        9);
+        31);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Marketing & social media Tool 9', 
         'https://example.com/icons/marketing_and_social_media_9.png',
@@ -2882,7 +2882,7 @@ VALUES ('Marketing & social media Tool 9',
         'https://example.com/policy/marketing_and_social_media_9',
         1, 
         1, 
-        9);
+        31);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Marketing & social media Tool 10', 
         'https://example.com/icons/marketing_and_social_media_10.png',
@@ -2893,7 +2893,7 @@ VALUES ('Marketing & social media Tool 10',
         'https://example.com/policy/marketing_and_social_media_10',
         0, 
         0, 
-        9);
+        31);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Product & design Tool 1', 
         'https://example.com/icons/product_and_design_1.png',
@@ -2904,7 +2904,7 @@ VALUES ('Product & design Tool 1',
         'https://example.com/policy/product_and_design_1',
         1, 
         1, 
-        10);
+        32);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Product & design Tool 2', 
         'https://example.com/icons/product_and_design_2.png',
@@ -2915,7 +2915,7 @@ VALUES ('Product & design Tool 2',
         'https://example.com/policy/product_and_design_2',
         0, 
         0, 
-        10);
+        32);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Product & design Tool 3', 
         'https://example.com/icons/product_and_design_3.png',
@@ -2926,7 +2926,7 @@ VALUES ('Product & design Tool 3',
         'https://example.com/policy/product_and_design_3',
         1, 
         1, 
-        10);
+        32);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Product & design Tool 4', 
         'https://example.com/icons/product_and_design_4.png',
@@ -2937,7 +2937,7 @@ VALUES ('Product & design Tool 4',
         'https://example.com/policy/product_and_design_4',
         0, 
         0, 
-        10);
+        32);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Product & design Tool 5', 
         'https://example.com/icons/product_and_design_5.png',
@@ -2948,7 +2948,7 @@ VALUES ('Product & design Tool 5',
         'https://example.com/policy/product_and_design_5',
         1, 
         1, 
-        10);
+        32);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Product & design Tool 6', 
         'https://example.com/icons/product_and_design_6.png',
@@ -2959,7 +2959,7 @@ VALUES ('Product & design Tool 6',
         'https://example.com/policy/product_and_design_6',
         0, 
         0, 
-        10);
+        32);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Product & design Tool 7', 
         'https://example.com/icons/product_and_design_7.png',
@@ -2970,7 +2970,7 @@ VALUES ('Product & design Tool 7',
         'https://example.com/policy/product_and_design_7',
         1, 
         1, 
-        10);
+        32);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Product & design Tool 8', 
         'https://example.com/icons/product_and_design_8.png',
@@ -2981,7 +2981,7 @@ VALUES ('Product & design Tool 8',
         'https://example.com/policy/product_and_design_8',
         0, 
         0, 
-        10);
+        32);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Product & design Tool 9', 
         'https://example.com/icons/product_and_design_9.png',
@@ -2992,7 +2992,7 @@ VALUES ('Product & design Tool 9',
         'https://example.com/policy/product_and_design_9',
         1, 
         1, 
-        10);
+        32);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Product & design Tool 10', 
         'https://example.com/icons/product_and_design_10.png',
@@ -3003,7 +3003,7 @@ VALUES ('Product & design Tool 10',
         'https://example.com/policy/product_and_design_10',
         0, 
         0, 
-        10);
+        32);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Sales & support Tool 1', 
         'https://example.com/icons/sales_and_support_1.png',
@@ -3014,7 +3014,7 @@ VALUES ('Sales & support Tool 1',
         'https://example.com/policy/sales_and_support_1',
         1, 
         1, 
-        11);
+        33);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Sales & support Tool 2', 
         'https://example.com/icons/sales_and_support_2.png',
@@ -3025,7 +3025,7 @@ VALUES ('Sales & support Tool 2',
         'https://example.com/policy/sales_and_support_2',
         0, 
         0, 
-        11);
+        33);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Sales & support Tool 3', 
         'https://example.com/icons/sales_and_support_3.png',
@@ -3036,7 +3036,7 @@ VALUES ('Sales & support Tool 3',
         'https://example.com/policy/sales_and_support_3',
         1, 
         1, 
-        11);
+        33);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Sales & support Tool 4', 
         'https://example.com/icons/sales_and_support_4.png',
@@ -3047,7 +3047,7 @@ VALUES ('Sales & support Tool 4',
         'https://example.com/policy/sales_and_support_4',
         0, 
         0, 
-        11);
+        33);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Sales & support Tool 5', 
         'https://example.com/icons/sales_and_support_5.png',
@@ -3058,7 +3058,7 @@ VALUES ('Sales & support Tool 5',
         'https://example.com/policy/sales_and_support_5',
         1, 
         1, 
-        11);
+        33);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Sales & support Tool 6', 
         'https://example.com/icons/sales_and_support_6.png',
@@ -3069,7 +3069,7 @@ VALUES ('Sales & support Tool 6',
         'https://example.com/policy/sales_and_support_6',
         0, 
         0, 
-        11);
+        33);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Sales & support Tool 7', 
         'https://example.com/icons/sales_and_support_7.png',
@@ -3080,7 +3080,7 @@ VALUES ('Sales & support Tool 7',
         'https://example.com/policy/sales_and_support_7',
         1, 
         1, 
-        11);
+        33);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Sales & support Tool 8', 
         'https://example.com/icons/sales_and_support_8.png',
@@ -3091,7 +3091,7 @@ VALUES ('Sales & support Tool 8',
         'https://example.com/policy/sales_and_support_8',
         0, 
         0, 
-        11);
+        33);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Sales & support Tool 9', 
         'https://example.com/icons/sales_and_support_9.png',
@@ -3102,7 +3102,7 @@ VALUES ('Sales & support Tool 9',
         'https://example.com/policy/sales_and_support_9',
         1, 
         1, 
-        11);
+        33);
 INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId)
 VALUES ('Sales & support Tool 10', 
         'https://example.com/icons/sales_and_support_10.png',
@@ -3113,7 +3113,7 @@ VALUES ('Sales & support Tool 10',
         'https://example.com/policy/sales_and_support_10',
         0, 
         0, 
-        11);
+        33);
 
 -- Colors
 INSERT INTO Colors (ColorName, ColorHex, Icon)
