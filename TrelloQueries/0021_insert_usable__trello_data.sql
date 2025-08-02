@@ -1,6 +1,5 @@
-USE [Trello3];
+USE [Trello];
 GO
-
 
 -- INSERT FOR TABLES DONT HAVE FOREIGN KEY
 -- Users
@@ -1730,25 +1729,17 @@ INSERT INTO Users (Username, Bio, Email, LastActive, CreatedAt, UpdatedAt, Pictu
 INSERT INTO Users (Username, Bio, Email, LastActive, CreatedAt, UpdatedAt, PictureUrl) VALUES (N'vbrown', N'Hot put fight involve see way. Land situation produce owner real knowledge include. Wish gas increase energy than say good.
 Ago today set. Similar kitchen season fire feel range.', 'vwagner@murphy.com', '2025-07-30 11:49:04', '2025-06-26 11:03:58', '2025-07-18 03:56:43', 'https://placeimg.com/955/445/any');
 
--- RolePermissions
-INSERT INTO RolePermissions (PermissionName, PermissionCode)
-VALUES 
-('Member', 'member'),
-('Observer', 'observer'),
-('Admin', 'admin');
-GO
-
--- Insert data into CategoryTypes and Categories based on the merged category structure
-
 -- CategoryTypes
 INSERT INTO CategoryTypes (CategoryTypeValue) VALUES ('OwnerTypes');
 INSERT INTO CategoryTypes (CategoryTypeValue) VALUES ('DataTypes');
-INSERT INTO CategoryTypes (CategoryTypeValue) VALUES ('ReactionCategories');
-INSERT INTO CategoryTypes (CategoryTypeValue) VALUES ('StickerCategories');
-INSERT INTO CategoryTypes (CategoryTypeValue) VALUES ('PowerUpCategories');
-INSERT INTO CategoryTypes (CategoryTypeValue) VALUES ('TemplateCategories');
+INSERT INTO CategoryTypes (CategoryTypeValue) VALUES ('ReactionTypes');
+INSERT INTO CategoryTypes (CategoryTypeValue) VALUES ('StickerTypes');
+INSERT INTO CategoryTypes (CategoryTypeValue) VALUES ('PowerUpTypes');
+INSERT INTO CategoryTypes (CategoryTypeValue) VALUES ('TemplateTypes');
+INSERT INTO CategoryTypes (CategoryTypeValue) VALUES ('WorkspaceTypes');
+INSERT INTO CategoryTypes (CategoryTypeValue) VALUES ('RolePermissionTypes');
 
--- Categories for OwnerTypes (assume CategoryTypeId = 1)
+-- Categories for OwnerTypes (assume CategoryTypeId = 1
 INSERT INTO Categories (CategoryName, CategoryTypeId, IsActive) VALUES 
 ('WORKSPACE', 1, 1),
 ('BOARD', 1, 1),
@@ -3263,11 +3254,12 @@ INSERT INTO SettingOptions (SettingOptionValue, DisplayValue)
 VALUES ('onlyworkspacemembers', 'Only Workspace Members');
 
 -- BillingPlans
-INSERT INTO BillingPlans (PlanName, BillingPlanDescription, CategoryId, PricePerUser, BillingPlanStatus)
+INSERT INTO BillingPlans (PlanName, BillingPlanDescription, PricePerUser, IsActive)
 VALUES 
-('Free', 'Capture your to-dos, get organized, and get sh*t done.', 'Annually', 0.00, 'Active'),
-('Standard', 'Get more done with advanced Planner, card mirroring, collapsable lists, list colors, and more.', 'Annually', 60.00, 'Active'),
-('Premium', 'Add AI to your boards and advanced admin options like domain verification, account capture, and 24/5 support.', 'Annually', 119.99, 'Active'),
-('Enterprise', 'Add enterprise-grade security and controls. This plan includes Atlassian Guard Standard and 24/7 Enterprise Admin support.', 'Annually', NULL, 'Contact Sales');
+--monthly
+('Free', 'Capture your to-dos, get organized, and get sh*t done.', 0.00, 1),
+('Standard', 'Get more done with advanced Planner, card mirroring, collapsable lists, list colors, and more.', 60.00, 1),
+('Premium', 'Add AI to your boards and advanced admin options like domain verification, account capture, and 24/5 support.', 119.99, 1),
+('Enterprise', 'Add enterprise-grade security and controls. This plan includes Atlassian Guard Standard and 24/7 Enterprise Admin support.', NULL, 1);
 
 --PowerCategory, BillingPlansCategory not exactly
