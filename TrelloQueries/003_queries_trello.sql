@@ -1,19 +1,21 @@
 ﻿--1.Slide 4 | Home Page on the Boards tab → Recently viewed section, list all boards that the user has accessed recently.
 SELECT 
-        bo.BoardName AS board_name, 
-        bo.BackgroundUrl
-FROM BoardUsers bu
-JOIN Boards bo ON bo.Id = bu.BoardId
+        bo.Id board_id,
+        bo.BoardName board_name, 
+        bo.BackgroundUrl,
+        bo.AccessedAt
+FROM UserViewHistory bu
+JOIN Boards bo ON bo.Id = bu.OwnerId AND bu.CategoryId = 2
 WHERE bu.UserId = 1
 ORDER BY bu.AccessedAt DESC;
 
 --2.Slide 4 | Home Page on the Boards tab → Your Workspaces section, list all workspaces that the current user is a member of.
 SELECT 
     wo.WorkspaceName, 
-    wo.IconUrl
+    wo.LogoUrl
 FROM Workspaces wo
 JOIN Members me ON me.OwnerId = wo.Id
-WHERE me.OwnerTypeId = 1 AND me.UserId = 1;
+WHERE me.CategoryId = 1 AND me.UserId = 1;
 
 --3.Slide 4 | Home Page on the Boards tab → Workspace item → Boards button, list all boards  that the current user is a member of belonging to a specific workspace.
 SELECT 
@@ -23,23 +25,23 @@ SELECT
 FROM Boards bo
 JOIN Members me ON me.OwnerId = bo.Id
 JOIN Workspaces wo ON wo.Id = bo.WorkspaceId
-WHERE me.UserId = 1 AND me.OwnerTypeId = 2; --2:Board
+WHERE me.UserId = 1 AND me.CategoryId = 2; --2:Board
 
---4.Slide 4 | Home Page on the Header (top right corner), query boards have name that contains the keyword 'ab'
+--4.Slide 4 | Home Page on the Header (top right corner), query boards have name that contains the keyword 'app'
 SELECT 
     bo.BoardName, 
     wo.WorkspaceName, 
     bo.BoardStatus
 FROM Boards bo
 JOIN Workspaces wo ON wo.Id = bo.Id
-WHERE bo.BoardName LIKE '%ab%';
+WHERE bo.BoardName LIKE '%app%';
 
 --5.Slide 4 | Home Page on the Header (top right corner), show the total number of unread notifications of the user.
 SELECT 
     COUNT(ac.UserId) AS number_of_notifications
 FROM Notifications [no]
 JOIN Activities ac ON ac.Id = no.ActivityId
-WHERE ac.UserId = 2 AND no.NotificationStatus = 'UNREAD';
+WHERE ac.UserId = 1 AND no.IsRead = 0;
 
 --6.Slide 5 | Home Page on the Templates tab → Main area, list all available public or user-created templates.
 SELECT 
@@ -57,9 +59,14 @@ ORDER BY Viewed DESC, Copied DESC;
 
 --7.Slide 5 | Home Page on the Templates tab → Sidebar, list all template categories available for filtering.
 SELECT 
-    IconUrl AS template_category_icon, 
-    CategoryName AS category_name
-FROM TemplateCategories;
+    ct.Id category_type_id,
+    ca.Id category_id,
+    ca.CategoryName,
+    ca.IsActive
+FROM CategoryTypes ct
+JOIN Categories ca ON ca.CategoryTypeId = ct.Id
+WHERE ct.CategoryTypeValue = 'TemplateTypes'
+ORDER BY ca.Position;
 
 --8.Slide 5 | Home Page on the Templates tab, query templates have title that contains the keyword 'da' 
 SELECT 
@@ -121,7 +128,7 @@ SELECT
 FROM (Cards ca 
     JOIN Members me ON me.OwnerId = ca.Id 
                         AND me.UserId = 1 
-                        AND me.OwnerTypeId = 3)
+                        AND me.CategoryId = 3)
 JOIN Stages st ON st.Id = ca.StageId
 JOIN Boards bo ON bo.Id = st.BoardId
 JOIN Users us ON us.Id = me.UserId
@@ -136,8 +143,8 @@ SELECT
     us.PictureUrl AS user_picture,
     ABS(DATEDIFF(DAY, GETDATE(), ac.CreatedAt)) AS day_ago,
     ac.ActivityDescription AS activity_description
-FROM (SELECT UserId, OwnerTypeId, OwnerId, ActivityDescription, CreatedAt
-    FROM Activities WHERE OwnerTypeId = 3) ac
+FROM (SELECT UserId, CategoryId, OwnerId, ActivityDescription, CreatedAt
+    FROM Activities WHERE CategoryId = 3) ac
 JOIN Cards ca ON ca.Id = ac.OwnerId
 JOIN Stages st ON st.Id = ca.StageId
 JOIN Boards bo ON bo.Id = st.BoardId
@@ -156,7 +163,7 @@ WHERE bo.WorkspaceId = 1;
 WITH BoardCountByEachUser AS(
     SELECT UserId, COUNT(UserId) AS board_count
     FROM Members
-    WHERE OwnerTypeId = 2
+    WHERE CategoryId = 2
     GROUP BY UserId
 )
 
@@ -169,11 +176,11 @@ SELECT
     bcb.board_count
 FROM (
     SELECT 
-        UserId, OwnerTypeId, OwnerId,PermissionId 
+        UserId, CategoryId, OwnerId,RolePermissonId 
     FROM Members
-    WHERE OwnerTypeId = 1 AND OwnerId = 1
+    WHERE CategoryId = 1 AND OwnerId = 1
     ) AS me
-JOIN RolePermissions pe ON pe.Id = me.PermissionId
+JOIN RolePermissions pe ON pe.Id = me.RolePermissonId
 JOIN Users us ON us.Id = me.UserId
 JOIN BoardCountByEachUser bcb ON bcb.UserId = me.UserId
 ORDER BY OwnerId;
@@ -182,8 +189,8 @@ ORDER BY OwnerId;
 SELECT 
     COUNT(me.UserId) AS workspace_member_number
 FROM Members me
-JOIN RolePermissions pe ON pe.Id = me.PermissionId
-WHERE me.OwnerTypeId = 1 AND me.OwnerId = 153;
+JOIN RolePermissions pe ON pe.Id = me.RolePermissonId
+WHERE me.CategoryId = 1 AND me.OwnerId = 153;
 
 --16.Slide 14 Board Page on the Share Board pop-up, list all members in the board along with their permission on roles.
 SELECT
@@ -192,11 +199,11 @@ SELECT
     us.Email user_mail,
     pe.PermissionName
 FROM (
-    SELECT UserId, PermissionId, OwnerId
+    SELECT UserId, RolePermissonId, OwnerId
     FROM Members
-    WHERE OwnerTypeId = 2 AND OwnerId = 1
+    WHERE CategoryId = 2 AND OwnerId = 1
 ) AS me
-JOIN RolePermissions pe ON pe.Id = me.PermissionId
+JOIN RolePermissions pe ON pe.Id = me.RolePermissonId
 JOIN Boards bo ON bo.Id = me.OwnerId
 JOIN Users us ON us.Id = me.UserId;
 
@@ -211,7 +218,7 @@ SELECT
     sk.KeyName, 
     COALESCE(sv.SettingContent, sk.DefaultValue) AS Value
 FROM SettingKeys sk 
-LEFT JOIN SettingValues sv ON sv.SettingKeyId = sk.Id AND sk.OwnerTypeId = 4 AND sv.OwnerId = 1;
+LEFT JOIN SettingValues sv ON sv.SettingKeyId = sk.Id AND sk.CategoryId = 4 AND sv.OwnerId = 1;
 
 --19.Slide 17 Home Page on the Workspace page → Settings section, list all settingoption of a specific workspace setting.
 WITH sk AS (
@@ -220,7 +227,7 @@ WITH sk AS (
     SettingKeyDescription,
     Id
     FROM SettingKeys
-    WHERE OwnerTypeId = 1 AND Id = 1
+    WHERE CategoryId = 1 AND Id = 1
 )
 
 SELECT 
@@ -242,7 +249,7 @@ FROM (
         KeyName,
         DefaultValue
     FROM SettingKeys
-    WHERE OwnerTypeId = 2
+    WHERE CategoryId = 2
 ) AS sk
 LEFT JOIN SettingValues sv ON sv.SettingKeyId = sk.Id AND sv.OwnerId = 1;
 
@@ -285,7 +292,7 @@ SELECT
     po.Id,
     po.IconUrl,
     po.AuthorName,
-    po.PowerUpCategoryId,
+    po.CategoryId, --PowerUpCategoryId
     po.EmailContact,
     po.PolicyUrl,
     po.PowerUpName,
@@ -298,7 +305,6 @@ JOIN board_using_powerup_count bc ON bc.PowerUpId = po.Id;
 SELECT 
     PlanName AS billing_plan_name,
     --PlanDescription AS billing_plan_description,
-    BillingPlanType AS biling_plan_type,
     PricePerUser
 FROM BillingPlans;
 
@@ -318,7 +324,7 @@ member_in_workspace AS (
         OwnerId,
         COUNT(OwnerId) AS number_of_member
     FROM Members
-    WHERE OwnerTypeId = 1 AND OwnerId = 1
+    WHERE CategoryId = 1 AND OwnerId = 1
     GROUP BY OwnerId
 )
 
@@ -327,7 +333,7 @@ SELECT
     bp.PlanName AS plan_name,
     bp.PricePerUser AS plan_price_per_person,
     miw.number_of_member,
-    bp.BillingPlanType AS type_of_plan,
+    su.IsMonthly AS is_monthly,
     pai.CardNumber AS credit_card_number,
     bsw.BillingContactName AS billing_contact_name,
     bsw.BillingContactEmail AS billing_contact_email,
@@ -374,7 +380,7 @@ WITH card_in_specific_stage AS (
         CardLocation AS card_location,
         StartDate AS card_start_date,
         DueDate AS card_due_date,
-        CoverType,
+        CategoryId, --CoverType
         CoverValue,
         Position AS card_position,
         CardStatus,
@@ -410,7 +416,7 @@ SELECT
      ca.card_location,
      ca.card_start_date,
      ca.card_due_date,
-     ca.CoverType,
+     ca.CategoryId,
      ca.CoverValue,
      card_position,
      ca.CardStatus,
@@ -430,8 +436,8 @@ FROM (
         UserId,
         OwnerId AS card_id
     FROM Members me
-    JOIN OwnerTypes ot ON ot.Id = me.OwnerTypeId
-    WHERE ot.OwnerTypeValue = 'Card' AND me.OwnerId = 1 --OwnerId is CardId
+    JOIN Categories ct ON ct.Id = me.CategoryId
+    WHERE ct.CategoryName = 'CARD' AND me.OwnerId = 1 --OwnerId is CardId
 ) me
 JOIN Users us ON us.Id = me.UserId;
 
@@ -468,7 +474,7 @@ FROM (
         CreatedAt
     FROM
         Activities
-    WHERE OwnerTypeId = 3 AND OwnerId = 1 --3:Card
+    WHERE CategoryId = 3 AND OwnerId = 1 --3:Card
 ) ac
 JOIN Users us ON us.Id = ac.UserId
 ORDER BY CreatedAt DESC;
@@ -530,8 +536,8 @@ WITH RankedUsers AS (
         us.Id AS [user_id],
         us.PictureUrl AS user_picture, 
         us.Username,
-        me.OwnerTypeId,
-        ROW_NUMBER() OVER (PARTITION BY us.Id ORDER BY me.OwnerTypeId DESC) AS rn
+        me.CategoryId,
+        ROW_NUMBER() OVER (PARTITION BY us.Id ORDER BY me.CategoryId DESC) AS rn
     FROM (
         SELECT
             Id,
@@ -542,9 +548,9 @@ WITH RankedUsers AS (
     JOIN Stages st ON st.Id = ca.StageId
     JOIN Boards bo ON bo.Id = st.BoardId
     JOIN Workspaces wo ON wo.Id = bo.WorkspaceId
-    RIGHT JOIN Members me ON  (me.OwnerTypeId = 1 AND me.OwnerId = wo.Id) OR
-                        (me.OwnerTypeId = 2 AND me.OwnerId = bo.Id) OR
-                        (me.OwnerTypeId = 3 AND me.OwnerId = ca.Id)
+    RIGHT JOIN Members me ON  (me.CategoryId = 1 AND me.OwnerId = wo.Id) OR
+                        (me.CategoryId = 2 AND me.OwnerId = bo.Id) OR
+                        (me.CategoryId = 3 AND me.OwnerId = ca.Id)
     JOIN Users us ON us.Id = me.UserId
 )
 
@@ -552,19 +558,19 @@ SELECT
     [user_id],
     user_picture,
     Username,
-    OwnerTypeId
+    CategoryId
 FROM RankedUsers
 WHERE rn = 1
-ORDER BY OwnerTypeId DESC;
+ORDER BY CategoryId DESC;
 
 --35. Slide 42. Select a board → Board page → in a stage → select a card → attachment section, show all attachment have LINK type in a specific card 
 SELECT 
     Link AS [attachment_url],
     AttachmentName AS attachment_name,
-    UploadAt,
+    CreatedAt,
     IsCover
 FROM Attachments
-WHERE FileType IS NULL
+WHERE CategoryId = 
 ORDER BY UploadAt DESC;
 
 --36. Slide 42. Select a board → Board page → in a stage → select a card → attachment section, show all attachment have FILE type in a specific card 
@@ -626,7 +632,7 @@ FROM (
         UserId,
         OwnerId AS card_id
     FROM Activities
-    WHERE OwnerTypeId = 3 AND OwnerId = 1
+    WHERE CategoryId = 3 AND OwnerId = 1
 ) ac
 JOIN Users us ON us.Id = ac.UserId;
 
@@ -636,7 +642,7 @@ WITH CustomFieldOfCard AS (
     SELECT 
         Id,
         Title,
-        DataTypeId,
+        CategoryId, --DataTypeId
         Position,
         BoardId
     FROM CustomFields cf
@@ -656,34 +662,34 @@ WITH CustomFieldOfCard AS (
 SELECT
     cfoc.Id AS custom_field_id,
     cfoc.Title AS custom_field_title,
-    cfoc.DataTypeId AS custom_field_type,
+    cfoc.CategoryId AS custom_field_type,
     cfoc.Position AS custom_field_position,
     fv.FieldValue AS field_value,
     CASE 
-        WHEN cfoc.DataTypeId = 1 THEN fi.FieldItemValue
+        WHEN cfoc.CategoryId = 1 THEN fi.FieldItemValue
         ELSE fv.FieldValue 
     END AS field_item_value,
     fv.CardId AS card_id
 FROM CustomFieldOfCard cfoc
 JOIN FieldValues fv ON fv.CustomFieldId = cfoc.Id AND fv.CardId = 1
-LEFT JOIN FieldItems fi ON cfoc.DataTypeId = 1 AND fi.Id = TRY_CAST(fv.FieldValue AS INT);
+LEFT JOIN FieldItems fi ON cfoc.CategoryId = 7 AND fi.Id = TRY_CAST(fv.FieldValue AS INT);
 
 --41. Slide 45. Select a board → Board page → in a stage → select a card → CustomField section, 
---          show all options of a custom field with DROPDOWN type with Id = 13
+--          show all options of a custom field with DROPDOWN type with Id = 21
 
 SELECT 
     cf.Id AS custom_field_id,
     cf.Title AS custom_field_title,
-    cf.DataTypeId AS custom_field_type,
+    cf.CategoryId AS custom_field_type, --DataTypeId
     fi.FieldItemValue AS field_item_value,
-    fi.Priority AS field_item_priority,
+    fi.Position AS field_item_position,
     co.ColorName AS color_name,
     co.Icon AS color_icon
 FROM CustomFields cf
 JOIN FieldItems fi ON fi.CustomFieldId = cf.Id
 JOIN Colors co ON co.Id = fi.ColorId
-WHERE cf.Id = 13
-ORDER BY fi.Priority;
+WHERE cf.Id = 21
+ORDER BY cf.Id, fi.Position;
 
 --42. Slide 47. Select a board → Board page → Setting section → Click stickers, show list of sticker can select
 SELECT 
@@ -711,12 +717,12 @@ SELECT
     us.PictureUrl AS user_picture,
     us.Username,
     ac.ActivityDescription AS activity_description,
-    ac.OwnerTypeId,
+    ac.CategoryId,
     ac.OwnerId
 FROM Notifications noti
 JOIN Activities ac ON ac.Id = noti.ActivityId
 JOIN Users us ON us.Id = ac.UserId
-WHERE ac.UserId = 2 AND noti.NotificationStatus = 'UNREAD';
+WHERE ac.UserId = 2 AND noti.IsRead = 0; --0 means UNREAD
 
 --45. Slide 49. Click notification icon, show all notification are read
 SELECT 
@@ -724,12 +730,13 @@ SELECT
     us.PictureUrl AS user_picture,
     us.Username,
     ac.ActivityDescription AS activity_description,
-    ac.OwnerTypeId,
+    ac.CategoryId,
     ac.OwnerId
 FROM Notifications noti
 JOIN Activities ac ON ac.Id = noti.ActivityId
 JOIN Users us ON us.Id = ac.UserId
-WHERE ac.UserId = 2 AND noti.NotificationStatus = 'READ';
+WHERE ac.UserId = 2 AND noti.IsRead = 1 --1 means already READ
+ORDER BY ac.CategoryId;
 
 --46. Slide 52. Click setting of a workspace → click board tab, show board and collection its belong with
 SELECT 

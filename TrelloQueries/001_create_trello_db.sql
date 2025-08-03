@@ -363,7 +363,7 @@ GO
 CREATE TABLE Notifications (
     Id int IDENTITY(1,1) PRIMARY KEY,
     ActivityId [int] NULL FOREIGN KEY REFERENCES Activities(Id),
-    NotificationStatus [varchar](50) NULL    
+    IsRead [bit] NOT NULL  
 );
 GO
 
