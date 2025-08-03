@@ -1740,85 +1740,85 @@ INSERT INTO CategoryTypes (CategoryTypeValue) VALUES ('WorkspaceTypes');
 
 -- Categories for OwnerTypes (assume CategoryTypeId = 1
 INSERT INTO Categories (CategoryName, CategoryTypeId, IsActive) VALUES 
-('WORKSPACE', 1, 1),
-('BOARD', 1, 1),
-('CARD', 1, 1),
-('USER', 1, 1);
+('WORKSPACE', 1, 1),    --id = 1
+('BOARD', 1, 1),        --id = 2
+('CARD', 1, 1),         --id = 3
+('USER', 1, 1);         --id = 4
 
 -- Categories for DataTypes (assume CategoryTypeId = 2)
 INSERT INTO Categories (CategoryName, Icon, CategoryTypeId, IsActive) VALUES 
-('CHECKBOX', 'https://cdn-icons-png.flaticon.com/512/1828/1828778.png', 2, 1),
-('DATE', 'https://cdn-icons-png.flaticon.com/512/747/747310.png', 2, 1),
-('DROPDOWN', 'https://cdn-icons-png.flaticon.com/512/32/32195.png', 2, 1),
-('NUMBER', 'https://cdn-icons-png.flaticon.com/512/833/833472.png', 2, 1),
-('TEXT', 'https://cdn-icons-png.flaticon.com/512/84/84380.png', 2, 1),
-('BOOLEAN', 'https://cdn-icons-png.flaticon.com/512/190/190411.png', 2, 1);
+('CHECKBOX', 'https://cdn-icons-png.flaticon.com/512/1828/1828778.png', 2, 1),  --id = 5
+('DATE', 'https://cdn-icons-png.flaticon.com/512/747/747310.png', 2, 1),        --id = 6
+('DROPDOWN', 'https://cdn-icons-png.flaticon.com/512/32/32195.png', 2, 1),      --id = 7
+('NUMBER', 'https://cdn-icons-png.flaticon.com/512/833/833472.png', 2, 1),      --id = 8
+('TEXT', 'https://cdn-icons-png.flaticon.com/512/84/84380.png', 2, 1),          --id = 9
+('BOOLEAN', 'https://cdn-icons-png.flaticon.com/512/190/190411.png', 2, 1);     --id = 10
 
 -- Categories for ReactionCategories (assume CategoryTypeId = 3)
 INSERT INTO Categories (CategoryName, Icon, Position, IsActive, CategoryTypeId) VALUES 
-('Smileys & People',     'https://example.com/icons/smileys.png',        1, 1, 3),
-('Animals & Nature',     'https://example.com/icons/animals.png',        2, 1, 3),
-('Food & Drink',         'https://example.com/icons/food.png',           3, 1, 3),
-('Activities',           'https://example.com/icons/activities.png',     4, 1, 3),
-('Travel & Places',      'https://example.com/icons/travel.png',         5, 1, 3),
-('Objects',              'https://example.com/icons/objects.png',        6, 1, 3),
-('Symbols',              'https://example.com/icons/symbols.png',        7, 1, 3),
-('Flags',                'https://example.com/icons/flags.png',          8, 1, 3);
+('Smileys & People',     'https://example.com/icons/smileys.png',        1, 1, 3),  --id = 11
+('Animals & Nature',     'https://example.com/icons/animals.png',        2, 1, 3),  --id = 12
+('Food & Drink',         'https://example.com/icons/food.png',           3, 1, 3),  --id = 13
+('Activities',           'https://example.com/icons/activities.png',     4, 1, 3),  --id = 14
+('Travel & Places',      'https://example.com/icons/travel.png',         5, 1, 3),  --id = 15   
+('Objects',              'https://example.com/icons/objects.png',        6, 1, 3),  --id = 16
+('Symbols',              'https://example.com/icons/symbols.png',        7, 1, 3),  --id = 17
+('Flags',                'https://example.com/icons/flags.png',          8, 1, 3);  --id = 18
 
 -- Categories for StickerCategories (assume CategoryTypeId = 4)
 INSERT INTO Categories (CategoryName, Position, IsActive, CategoryTypeId) VALUES 
-('General', 1, 1, 4),
-('Taco pack', 2, 1, 4),
-('Pete the Computer', 3, 1, 4),
-('Custom stickers', 99, 1, 4);
+('General', 1, 1, 4),           --id = 19
+('Taco pack', 2, 1, 4),         --id = 20
+('Pete the Computer', 3, 1, 4), --id = 21
+('Custom stickers', 99, 1, 4);  --id = 22
 
 -- Categories for PowerUpCategories (assume CategoryTypeId = 5)
 INSERT INTO Categories (CategoryName, IsActive, CategoryTypeId) VALUES 
-('Analytics & reporting', 1, 5),
-('Automation', 1, 5),
-('Board utilities', 1, 5),
-('Communication & collaboration', 1, 5),
-('Developer tools', 1, 5),
-('File management', 1, 5),
-('HR & operations', 1, 5),
-('IT & project management', 1, 5),
-('Marketing & social media', 1, 5),
-('Product & design', 1, 5),
-('Sales & support', 1, 5);
+('Analytics & reporting', 1, 5),            --id = 23
+('Automation', 1, 5),                       --id = 24
+('Board utilities', 1, 5),                  --id = 25
+('Communication & collaboration', 1, 5),    --id = 26
+('Developer tools', 1, 5),                  --id = 27
+('File management', 1, 5),                  --id = 28
+('HR & operations', 1, 5),                  --id = 29
+('IT & project management', 1, 5),          --id = 30
+('Marketing & social media', 1, 5),         --id = 31
+('Product & design', 1, 5),                 --id = 32
+('Sales & support', 1, 5);                  --id = 33
 
 -- Categories for TemplateCategories (assume CategoryTypeId = 6)
 INSERT INTO Categories (CategoryName, Icon, CategoryTypeId, IsActive) VALUES
-('Business', 'https://example.com/icons/business.svg', 6, 1),
-('Design', 'https://example.com/icons/design.svg', 6, 1),
-('Education', 'https://example.com/icons/education.svg', 6, 1),
-('Engineering', 'https://example.com/icons/engineering.svg', 6, 1),
-('Marketing', 'https://example.com/icons/marketing.svg', 6, 1),
-('HR & Operations', 'https://example.com/icons/hr_&_operations.svg', 6, 1),
-('Personal', 'https://example.com/icons/personal.svg', 6, 1),
-('Productivity', 'https://example.com/icons/productivity.svg', 6, 1),
-('Product management', 'https://example.com/icons/product_management.svg', 6, 1),
-('Project management', 'https://example.com/icons/project_management.svg', 6, 1),
-('Remote work', 'https://example.com/icons/remote_work.svg', 6, 1),
-('Sales', 'https://example.com/icons/sales.svg', 6, 1),
-('Support', 'https://example.com/icons/support.svg', 6, 1),
-('Team management', 'https://example.com/icons/team_management.svg', 6, 1);
+('Business', 'https://example.com/icons/business.svg', 6, 1),                       --id = 34
+('Design', 'https://example.com/icons/design.svg', 6, 1),                           --id = 35
+('Education', 'https://example.com/icons/education.svg', 6, 1),                     --id = 36
+('Engineering', 'https://example.com/icons/engineering.svg', 6, 1),                 --id = 37
+('Marketing', 'https://example.com/icons/marketing.svg', 6, 1),                     --id = 38
+('HR & Operations', 'https://example.com/icons/hr_&_operations.svg', 6, 1),         --id = 39
+('Personal', 'https://example.com/icons/personal.svg', 6, 1),                       --id = 40
+('Productivity', 'https://example.com/icons/productivity.svg', 6, 1),               --id = 41
+('Product management', 'https://example.com/icons/product_management.svg', 6, 1),   --id = 42
+('Project management', 'https://example.com/icons/project_management.svg', 6, 1),   --id = 43
+('Remote work', 'https://example.com/icons/remote_work.svg', 6, 1),                 --id = 44
+('Sales', 'https://example.com/icons/sales.svg', 6, 1),                             --id = 45
+('Support', 'https://example.com/icons/support.svg', 6, 1),                         --id = 46
+('Team management', 'https://example.com/icons/team_management.svg', 6, 1);         --id = 47
 
 -- Categories for WorkspaceCategories (assume CategoryTypeId = 7)
 INSERT INTO Categories (CategoryName, Icon, Position, IsActive, CategoryTypeId) VALUES
-('Sales CRM',        NULL, 1, 1, 7),
-('Engineering-IT',   NULL, 2, 1, 7),
-('Small Business',   NULL, 3, 1, 7),
-('Education',        NULL, 4, 1, 7),
-('Human Resources',  NULL, 5, 1, 7),
-('Operations',       NULL, 6, 1, 7),
-('Marketing',        NULL, 7, 1, 7),
-('Other',            NULL, 8, 1, 7);
+('Sales CRM',        NULL, 1, 1, 7),    --id = 48
+('Engineering-IT',   NULL, 2, 1, 7),    --id = 49
+('Small Business',   NULL, 3, 1, 7),    --id = 50
+('Education',        NULL, 4, 1, 7),    --id = 51
+('Human Resources',  NULL, 5, 1, 7),    --id = 52
+('Operations',       NULL, 6, 1, 7),    --id = 53
+('Marketing',        NULL, 7, 1, 7),    --id = 54
+('Other',            NULL, 8, 1, 7);    --id = 55
 
 -- Categories for RolePermissionTypes (assume CategoryTypeId = 8)
 INSERT INTO Categories (CategoryName, Icon, Position, IsActive, CategoryTypeId) VALUES
-('Admin',    NULL, 1, 1, 8),
-('Member',   NULL, 2, 1, 8),
-('Observer', NULL, 3, 1, 8);
+('Admin',    NULL, 1, 1, 8),    --id = 56
+('Member',   NULL, 2, 1, 8),    --id = 57
+('Observer', NULL, 3, 1, 8);    --id = 58
 
 -- Stickers
 INSERT INTO Stickers (CategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy)
@@ -13694,3 +13694,2711 @@ INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, C
 
 
 
+
+
+-- BillingContact
+INSERT INTO BillingContacts (UserId, WorkspaceId, BillingContactName, BillingContactEmail, BillingLanguage, AdditionalInvoiceDetail)
+VALUES 
+(1, 1, N'kburke', 'james85@booth-daniels.net', 1, N'From user kburke'),
+(2, 2, N'rossjonathan', 'shelby02@hotmail.com', 1, N'From user rossjonathan'),
+(3, 3, N'gfitzpatrick', 'mkelly@gmail.com', 1, N'From user gfitzpatrick'),
+(4, 4, N'harperbrandon', 'jeremyblankenship@rodriguez.com', 1, N'From user harperbrandon'),
+(5, 5, N'johnsonbrendan', 'lindarobinson@krause.info', 1, N'From user johnsonbrendan'),
+(6, 6, N'deborah15', 'melissa59@gmail.com', 1, N'From user deborah15'),
+(7, 7, N'cshort', 'mackmartin@yahoo.com', 1, N'From user cshort'),
+(8, 8, N'helen55', 'mitchelljustin@campbell.com', 1, N'From user helen55'),
+(9, 9, N'kfry', 'elizabethsmith@hotmail.com', 1, N'From user kfry'),
+(10, 10, N'bryan36', 'xwoods@roach.net', 1, N'From user bryan36'),
+(11, 11, N'calvin32', 'chanson@williams.net', 1, N'From user calvin32'),
+(12, 12, N'bryanhensley', 'shirleyguerrero@hotmail.com', 1, N'From user bryanhensley'),
+(13, 13, N'ijackson', 'xjenkins@hotmail.com', 1, N'From user ijackson'),
+(14, 14, N'qferguson', 'armstrongapril@hotmail.com', 1, N'From user qferguson'),
+(15, 15, N'lyoung', 'kathryn35@bryant-henson.info', 1, N'From user lyoung'),
+(16, 16, N'frenchtonya', 'stephanie80@gmail.com', 1, N'From user frenchtonya'),
+(17, 17, N'justin09', 'gutierreznancy@duncan.org', 1, N'From user justin09'),
+(18, 18, N'frusso', 'aaron99@mclaughlin.com', 1, N'From user frusso'),
+(19, 19, N'fwilliams', 'msanchez@yahoo.com', 1, N'From user fwilliams'),
+(20, 20, N'kgregory', 'michael87@hotmail.com', 1, N'From user kgregory');
+
+-- Subscriptions
+INSERT INTO Subscriptions (BillingContactId, BillingPlanId, StartDate, EndDate, IsMonthly, SubscriptionStatus, AutoRenew, MemberCountBilled)
+VALUES 
+(1, 1, '2025-08-01', '2025-09-01', 1, 1, 1, 5),
+(2, 2, '2025-08-01', '2026-08-01', 0, 1, 1, 10),
+(3, 3, '2025-08-01', '2025-09-01', 1, 1, 1, 8),
+(4, 4, '2025-08-01', '2026-08-01', 0, 1, 1, 50),
+
+(5, 1, '2025-08-01', '2025-09-01', 1, 1, 1, 3),
+(6, 2, '2025-08-01', '2026-08-01', 0, 1, 1, 7),
+(7, 3, '2025-08-01', '2025-09-01', 1, 1, 1, 9),
+(8, 4, '2025-08-01', '2026-08-01', 0, 1, 1, 100),
+
+(9, 1, '2025-08-01', '2025-09-01', 1, 1, 1, 2),
+(10, 2, '2025-08-01', '2026-08-01', 0, 1, 1, 20),
+(11, 3, '2025-08-01', '2025-09-01', 1, 1, 1, 15),
+(12, 4, '2025-08-01', '2026-08-01', 0, 1, 1, 200),
+
+(13, 1, '2025-08-01', '2025-09-01', 1, 1, 1, 4),
+(14, 2, '2025-08-01', '2026-08-01', 0, 1, 1, 6),
+(15, 3, '2025-08-01', '2025-09-01', 1, 1, 1, 12),
+(16, 4, '2025-08-01', '2026-08-01', 0, 1, 1, 250),
+
+(17, 1, '2025-08-01', '2025-09-01', 1, 1, 1, 7),
+(18, 2, '2025-08-01', '2026-08-01', 0, 1, 1, 11),
+(19, 3, '2025-08-01', '2025-09-01', 1, 1, 1, 13),
+(20, 4, '2025-08-01', '2026-08-01', 0, 1, 1, 300);
+
+--PaymentInformations
+INSERT INTO PaymentInformations (BillingContactId, CardNumber, CardBrand, ExpirationDate, Cvv, Country, PostalCode)
+VALUES
+(1, '4111111111111111', 'Visa', '2027-12-01', '123', 'United States', '10001'),
+(2, '5500000000000004', 'MasterCard', '2026-09-01', '456', 'Canada', 'M5H 2N2'),
+(3, '340000000000009',  'American Express', '2025-11-01', '7890', 'United Kingdom', 'SW1A 1AA'),
+(4, '6011000000000004', 'Discover', '2028-01-01', '321', 'Germany', '10115'),
+(5, '4111111111111111', 'Visa', '2027-07-01', '111', 'France', '75001'),
+(6, '5500000000000004', 'MasterCard', '2026-03-01', '222', 'Japan', '100-0001'),
+(7, '340000000000009',  'American Express', '2029-06-01', '3333', 'Australia', '2000'),
+(8, '6011000000000004', 'Discover', '2026-08-01', '444', 'India', '110001'),
+(9, '4111111111111111', 'Visa', '2025-12-01', '555', 'Brazil', '01000-000'),
+(10, '5500000000000004', 'MasterCard', '2027-05-01', '666', 'Mexico', '06000'),
+
+(11, '340000000000009',  'American Express', '2026-01-01', '7777', 'Italy', '00184'),
+(12, '6011000000000004', 'Discover', '2028-02-01', '888', 'Netherlands', '1012 JS'),
+(13, '4111111111111111', 'Visa', '2027-11-01', '999', 'Singapore', '018989'),
+(14, '5500000000000004', 'MasterCard', '2026-04-01', '000', 'Malaysia', '50000'),
+(15, '340000000000009',  'American Express', '2025-10-01', '1122', 'Thailand', '10330'),
+(16, '6011000000000004', 'Discover', '2026-12-01', '2233', 'Vietnam', '70000'),
+(17, '4111111111111111', 'Visa', '2029-03-01', '3344', 'South Korea', '04524'),
+(18, '5500000000000004', 'MasterCard', '2027-06-01', '4455', 'Indonesia', '10110'),
+(19, '340000000000009',  'American Express', '2026-11-01', '5566', 'Spain', '28013'),
+(20, '6011000000000004', 'Discover', '2025-09-01', '6677', 'Sweden', '111 29');
+
+-- Collections for Workspace 1
+INSERT INTO Collections (CollectionName, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, WorkspaceId)
+VALUES (N'General Workspace 1', '2025-08-01', 1, '2025-08-01', 1, 1);
+
+-- Collections for Workspace 2
+INSERT INTO Collections (CollectionName, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, WorkspaceId)
+VALUES (N'Design Assets', '2025-08-01', 2, '2025-08-01', 2, 2);
+INSERT INTO Collections (CollectionName, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, WorkspaceId)
+VALUES (N'Marketing Material', '2025-08-01', 2, '2025-08-01', 2, 2);
+
+-- Collections for Workspace 3
+INSERT INTO Collections (CollectionName, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, WorkspaceId)
+VALUES (N'Product Backlog', '2025-08-01', 3, '2025-08-01', 3, 3);
+
+-- Collections for Workspace 4
+INSERT INTO Collections (CollectionName, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, WorkspaceId)
+VALUES (N'Sprint Boards', '2025-08-01', 4, '2025-08-01', 4, 4);
+INSERT INTO Collections (CollectionName, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, WorkspaceId)
+VALUES (N'Planning Docs', '2025-08-01', 4, '2025-08-01', 4, 4);
+
+-- Collections for Workspace 5
+INSERT INTO Collections (CollectionName, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, WorkspaceId)
+VALUES (N'Marketing Campaigns', '2025-08-01', 5, '2025-08-01', 5, 5);
+
+-- Collections for Workspace 6
+INSERT INTO Collections (CollectionName, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, WorkspaceId)
+VALUES (N'Client Projects', '2025-08-01', 6, '2025-08-01', 6, 6);
+INSERT INTO Collections (CollectionName, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, WorkspaceId)
+VALUES (N'Sales Pipeline', '2025-08-01', 6, '2025-08-01', 6, 6);
+INSERT INTO Collections (CollectionName, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, WorkspaceId)
+VALUES (N'Q3 Goals', '2025-08-01', 6, '2025-08-01', 6, 6);
+
+-- Collections for Workspace 7
+INSERT INTO Collections (CollectionName, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, WorkspaceId)
+VALUES (N'Bug Tracking', '2025-08-01', 7, '2025-08-01', 7, 7);
+
+-- Collections for Workspace 8
+INSERT INTO Collections (CollectionName, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, WorkspaceId)
+VALUES (N'Engineering Docs', '2025-08-01', 8, '2025-08-01', 8, 8);
+INSERT INTO Collections (CollectionName, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, WorkspaceId)
+VALUES (N'Design Research', '2025-08-01', 8, '2025-08-01', 8, 8);
+
+-- Collections for Workspace 9
+INSERT INTO Collections (CollectionName, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, WorkspaceId)
+VALUES (N'Internal Tools', '2025-08-01', 9, '2025-08-01', 9, 9);
+
+-- Collections for Workspace 10
+INSERT INTO Collections (CollectionName, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, WorkspaceId)
+VALUES (N'New Features', '2025-08-01', 10, '2025-08-01', 10, 10);
+INSERT INTO Collections (CollectionName, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, WorkspaceId)
+VALUES (N'Archived Projects', '2025-08-01', 10, '2025-08-01', 10, 10);
+
+-- Collections for Workspace 11
+INSERT INTO Collections (CollectionName, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, WorkspaceId)
+VALUES (N'Mobile App', '2025-08-01', 11, '2025-08-01', 11, 11);
+
+-- Collections for Workspace 12
+INSERT INTO Collections (CollectionName, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, WorkspaceId)
+VALUES (N'Data Insights', '2025-08-01', 12, '2025-08-01', 12, 12);
+INSERT INTO Collections (CollectionName, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, WorkspaceId)
+VALUES (N'Customer Feedback', '2025-08-01', 12, '2025-08-01', 12, 12);
+INSERT INTO Collections (CollectionName, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, WorkspaceId)
+VALUES (N'Experiments', '2025-08-01', 12, '2025-08-01', 12, 12);
+
+-- Collections for Workspace 13
+INSERT INTO Collections (CollectionName, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, WorkspaceId)
+VALUES (N'Beta Features', '2025-08-01', 13, '2025-08-01', 13, 13);
+
+-- Collections for Workspace 14
+INSERT INTO Collections (CollectionName, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, WorkspaceId)
+VALUES (N'Project X', '2025-08-01', 14, '2025-08-01', 14, 14);
+INSERT INTO Collections (CollectionName, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, WorkspaceId)
+VALUES (N'Product Experiments', '2025-08-01', 14, '2025-08-01', 14, 14);
+
+-- Collections for Workspace 15
+INSERT INTO Collections (CollectionName, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, WorkspaceId)
+VALUES (N'Strategy 2025', '2025-08-01', 15, '2025-08-01', 15, 15);
+
+-- Collections for Workspace 16
+INSERT INTO Collections (CollectionName, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, WorkspaceId)
+VALUES (N'Planning', '2025-08-01', 16, '2025-08-01', 16, 16);
+INSERT INTO Collections (CollectionName, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, WorkspaceId)
+VALUES (N'Product Vision', '2025-08-01', 16, '2025-08-01', 16, 16);
+
+-- Collections for Workspace 17
+INSERT INTO Collections (CollectionName, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, WorkspaceId)
+VALUES (N'Metrics Dashboard', '2025-08-01', 17, '2025-08-01', 17, 17);
+
+-- Collections for Workspace 18
+INSERT INTO Collections (CollectionName, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, WorkspaceId)
+VALUES (N'Board Templates', '2025-08-01', 18, '2025-08-01', 18, 18);
+
+-- Collections for Workspace 19
+INSERT INTO Collections (CollectionName, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, WorkspaceId)
+VALUES (N'Knowledge Base', '2025-08-01', 19, '2025-08-01', 19, 19);
+INSERT INTO Collections (CollectionName, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, WorkspaceId)
+VALUES (N'How-Tos', '2025-08-01', 19, '2025-08-01', 19, 19);
+
+-- Collections for Workspace 20
+INSERT INTO Collections (CollectionName, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, WorkspaceId)
+VALUES (N'Design System', '2025-08-01', 20, '2025-08-01', 20, 20);
+
+--WorkspaceMembershipDomains
+INSERT INTO WorkspaceMembershipDomains (WorkspaceId, Domain, CreatedAt) VALUES
+(1, N'alpha1.com', '2025-08-01'),
+(1, N'devteam1.org', '2025-08-01'),
+
+(2, N'beta2.com', '2025-08-01'),
+
+(3, N'workspace3.io', '2025-08-01'),
+(3, N'data3.org', '2025-08-01'),
+(3, N'tech3.net', '2025-08-01'),
+
+(4, N'project4.com', '2025-08-01'),
+
+(5, N'marketing5.net', '2025-08-01'),
+(5, N'sales5.org', '2025-08-01'),
+
+(6, N'design6.co', '2025-08-01'),
+(6, N'product6.com', '2025-08-01'),
+
+(7, N'team7.io', '2025-08-01'),
+
+(8, N'ops8.org', '2025-08-01'),
+(8, N'cloud8.com', '2025-08-01'),
+
+(9, N'support9.net', '2025-08-01'),
+
+(10, N'global10.com', '2025-08-01'),
+(10, N'dev10.org', '2025-08-01'),
+
+(11, N'test11.io', '2025-08-01'),
+
+(12, N'research12.edu', '2025-08-01'),
+(12, N'stats12.com', '2025-08-01'),
+(12, N'growth12.org', '2025-08-01'),
+
+(13, N'brand13.net', '2025-08-01'),
+
+(14, N'security14.com', '2025-08-01'),
+(14, N'privacy14.org', '2025-08-01'),
+
+(15, N'internal15.io', '2025-08-01'),
+
+(16, N'partner16.com', '2025-08-01'),
+(16, N'business16.net', '2025-08-01'),
+
+(17, N'consulting17.org', '2025-08-01'),
+
+(18, N'devops18.io', '2025-08-01'),
+(18, N'qa18.net', '2025-08-01'),
+
+(19, N'compliance19.com', '2025-08-01'),
+
+(20, N'engineering20.org', '2025-08-01'),
+(20, N'build20.io', '2025-08-01'),
+(20, N'domain20.com', '2025-08-01');
+
+--Exports
+INSERT INTO Exports (WorkspaceId, CreatedBy, CreatedAt, Size) VALUES
+(1, 1, '2025-07-01 10:15:00', 504),
+(1, 1, '2025-07-20 14:03:00', 1250),
+
+(2, 2, '2025-06-25 09:42:00', 890),
+
+(3, 3, '2025-07-08 17:55:00', 342),
+(3, 3, '2025-07-19 11:22:00', 978),
+(3, 3, '2025-07-25 13:01:00', 2123),
+
+(4, 4, '2025-07-11 08:10:00', 1500),
+
+(5, 5, '2025-06-30 16:32:00', 781),
+(5, 5, '2025-07-14 12:00:00', 1345),
+
+(6, 6, '2025-07-05 15:45:00', 310),
+
+(7, 7, '2025-07-02 10:05:00', 255),
+(7, 7, '2025-07-17 09:18:00', 870),
+
+(8, 8, '2025-06-28 13:20:00', 1300),
+
+(9, 9, '2025-07-07 07:00:00', 450),
+(9, 9, '2025-07-21 10:10:00', 1599),
+
+(10, 10, '2025-07-15 15:00:00', 2300),
+
+(11, 11, '2025-07-18 16:16:00', 678),
+(11, 11, '2025-07-30 18:31:00', 1002),
+
+(12, 12, '2025-07-03 13:55:00', 540),
+
+(13, 13, '2025-07-09 11:11:00', 950),
+(13, 13, '2025-07-23 08:08:00', 1700),
+(13, 13, '2025-07-29 19:05:00', 2222),
+
+(14, 14, '2025-07-10 14:14:00', 1248),
+
+(15, 15, '2025-07-04 09:09:00', 312),
+(15, 15, '2025-07-24 12:24:00', 1530),
+
+(16, 16, '2025-07-06 07:07:00', 1050),
+
+(17, 17, '2025-07-13 13:13:00', 880),
+(17, 17, '2025-07-26 16:16:00', 1195),
+
+(18, 18, '2025-07-12 12:12:00', 1400),
+
+(19, 19, '2025-07-16 10:10:00', 996),
+(19, 19, '2025-07-27 18:45:00', 1555),
+
+(20, 20, '2025-07-22 22:22:00', 780),
+(20, 20, '2025-07-30 20:30:00', 1333),
+(20, 20, '2025-08-01 09:00:00', 2900);
+
+-- CategoryId 1 = WORKSPACE
+INSERT INTO ShareLinks (CategoryId, OwnerId, ShareLinkToken, ShareLinkStatus) VALUES
+(1, 1,  'ws_1_shr_TkAB1', 1),
+(1, 2,  'ws_2_shr_HFJY7', 1),
+(1, 3,  'ws_3_shr_LPOI3', 0),
+(1, 4,  'ws_4_shr_98UY6', 1),
+(1, 5,  'ws_5_shr_MNBV9', 0),
+(1, 6,  'ws_6_shr_QAZX1', 1),
+(1, 7,  'ws_7_shr_WSCDE', 0),
+(1, 8,  'ws_8_shr_TGBN2', 1),
+(1, 9,  'ws_9_shr_PLKM3', 1),
+(1, 10, 'ws_10_shr_HUJK4', 0),
+(1, 11, 'ws_11_shr_ZXCV5', 1),
+(1, 12, 'ws_12_shr_IOPL6', 1),
+(1, 13, 'ws_13_shr_MKO8A', 0),
+(1, 14, 'ws_14_shr_BGTRE', 1),
+(1, 15, 'ws_15_shr_FDSEW', 0),
+(1, 16, 'ws_16_shr_KOLP9', 1),
+(1, 17, 'ws_17_shr_JIUY7', 1),
+(1, 18, 'ws_18_shr_NMJU5', 1),
+(1, 19, 'ws_19_shr_KLZX3', 0),
+(1, 20, 'ws_20_shr_XSWQ2', 1);
+
+--ShareLinks CategoryId 2 = BOARD
+INSERT INTO ShareLinks (CategoryId, OwnerId, ShareLinkToken, ShareLinkStatus) VALUES
+(2, 1,  'bd_1_shr_YTREW', 1),
+(2, 2,  'bd_2_shr_VCXZ1', 1),
+(2, 3,  'bd_3_shr_MKJU9', 1),
+(2, 4,  'bd_4_shr_HGFD7', 0),
+(2, 5,  'bd_5_shr_DSAQ2', 1),
+(2, 6,  'bd_6_shr_LKJH3', 0),
+(2, 7,  'bd_7_shr_POIU4', 1),
+(2, 8,  'bd_8_shr_TGBN5', 1),
+(2, 9,  'bd_9_shr_QAZX6', 1),
+(2, 10, 'bd_10_shr_PLKM7', 0),
+(2, 11, 'bd_11_shr_HYGT8', 1),
+(2, 12, 'bd_12_shr_JUYT9', 0),
+(2, 13, 'bd_13_shr_FREW1', 1),
+(2, 14, 'bd_14_shr_KJUY2', 1),
+(2, 15, 'bd_15_shr_MNHY3', 1),
+(2, 16, 'bd_16_shr_BGTY4', 0),
+(2, 17, 'bd_17_shr_VFRT5', 1),
+(2, 18, 'bd_18_shr_CDXE6', 1),
+(2, 19, 'bd_19_shr_ZQAW7', 0),
+(2, 20, 'bd_20_shr_XEDC8', 1);
+
+--ShareLinks CategoryId 3 = CARD
+INSERT INTO ShareLinks (CategoryId, OwnerId, ShareLinkToken, ShareLinkStatus) VALUES
+(3, 1,  'cd_1_shr_WSXZ1', 1),
+(3, 2,  'cd_2_shr_KLMN2', 1),
+(3, 3,  'cd_3_shr_ASDF3', 0),
+(3, 4,  'cd_4_shr_QWED4', 1),
+(3, 5,  'cd_5_shr_ZXCV5', 0),
+(3, 6,  'cd_6_shr_TYUI6', 1),
+(3, 7,  'cd_7_shr_HJKL7', 1),
+(3, 8,  'cd_8_shr_MNBV8', 0),
+(3, 9,  'cd_9_shr_POIU9', 1),
+(3, 10, 'cd_10_shr_LKJH1', 1),
+(3, 11, 'cd_11_shr_XCVB2', 0),
+(3, 12, 'cd_12_shr_REWS3', 1),
+(3, 13, 'cd_13_shr_QAZX4', 1),
+(3, 14, 'cd_14_shr_KMLO5', 0),
+(3, 15, 'cd_15_shr_BGTY6', 1),
+(3, 16, 'cd_16_shr_YTRE7', 1),
+(3, 17, 'cd_17_shr_VFRC8', 0),
+(3, 18, 'cd_18_shr_DEWS9', 1),
+(3, 19, 'cd_19_shr_CVBN0', 1),
+(3, 20, 'cd_20_shr_MIKL1', 1);
+
+--UserViewHistory
+-- CategoryId: 1 = WORKSPACE, 2 = BOARD, 3 = CARD
+INSERT INTO UserViewHistory (UserId, CategoryId, OwnerId, AccessedAt) VALUES
+(1, 1, 1, '2025-07-25 09:00:00'),
+(1, 2, 1, '2025-07-26 10:00:00'),
+(1, 3, 1, '2025-07-27 11:00:00'),
+
+(2, 1, 2, '2025-07-25 08:15:00'),
+(2, 2, 2, '2025-07-26 09:20:00'),
+(2, 3, 2, '2025-07-27 10:45:00'),
+
+(3, 1, 3, '2025-07-28 07:00:00'),
+(3, 2, 3, '2025-07-29 08:30:00'),
+(3, 3, 3, '2025-07-30 09:50:00'),
+
+(4, 1, 4, '2025-07-30 14:00:00'),
+(4, 2, 4, '2025-07-30 14:15:00'),
+(4, 3, 4, '2025-07-30 14:30:00'),
+
+(5, 1, 5, '2025-07-29 11:00:00'),
+(5, 2, 5, '2025-07-30 12:00:00'),
+(5, 3, 5, '2025-07-30 13:00:00'),
+
+(6, 1, 6, '2025-07-31 09:10:00'),
+(6, 2, 6, '2025-07-31 09:40:00'),
+(6, 3, 6, '2025-07-31 10:15:00'),
+
+(7, 1, 7, '2025-07-31 11:00:00'),
+(7, 2, 7, '2025-07-31 11:30:00'),
+(7, 3, 7, '2025-07-31 12:00:00'),
+
+(8, 1, 8, '2025-08-01 08:00:00'),
+(8, 2, 8, '2025-08-01 09:00:00'),
+(8, 3, 8, '2025-08-01 10:00:00'),
+
+(9, 1, 9, '2025-08-01 10:10:00'),
+(9, 2, 9, '2025-08-01 10:30:00'),
+(9, 3, 9, '2025-08-01 10:50:00'),
+
+(10, 1, 10, '2025-08-01 13:00:00'),
+(10, 2, 10, '2025-08-01 13:20:00'),
+(10, 3, 10, '2025-08-01 13:45:00'),
+
+(11, 1, 11, '2025-08-01 14:00:00'),
+(11, 2, 11, '2025-08-01 14:30:00'),
+(11, 3, 11, '2025-08-01 15:00:00'),
+
+(12, 1, 12, '2025-08-01 16:00:00'),
+(12, 2, 12, '2025-08-01 16:20:00'),
+(12, 3, 12, '2025-08-01 16:40:00'),
+
+(13, 1, 13, '2025-08-01 17:00:00'),
+(13, 2, 13, '2025-08-01 17:20:00'),
+(13, 3, 13, '2025-08-01 17:40:00'),
+
+(14, 1, 14, '2025-08-01 18:00:00'),
+(14, 2, 14, '2025-08-01 18:20:00'),
+(14, 3, 14, '2025-08-01 18:40:00'),
+
+(15, 1, 15, '2025-08-01 19:00:00'),
+(15, 2, 15, '2025-08-01 19:20:00'),
+(15, 3, 15, '2025-08-01 19:40:00'),
+
+(16, 1, 16, '2025-08-01 20:00:00'),
+(16, 2, 16, '2025-08-01 20:20:00'),
+(16, 3, 16, '2025-08-01 20:40:00'),
+
+(17, 1, 17, '2025-08-01 21:00:00'),
+(17, 2, 17, '2025-08-01 21:20:00'),
+(17, 3, 17, '2025-08-01 21:40:00'),
+
+(18, 1, 18, '2025-08-01 22:00:00'),
+(18, 2, 18, '2025-08-01 22:20:00'),
+(18, 3, 18, '2025-08-01 22:40:00'),
+
+(19, 1, 19, '2025-08-01 23:00:00'),
+(19, 2, 19, '2025-08-01 23:20:00'),
+(19, 3, 19, '2025-08-01 23:40:00'),
+
+(20, 1, 20, '2025-08-02 00:00:00'),
+(20, 2, 20, '2025-08-02 00:20:00'),
+(20, 3, 20, '2025-08-02 00:40:00');
+
+--140 Templates
+INSERT INTO Templates (Title, TemplateDescription, CategoryId, Viewed, Copied, CreatedBy, CreatedAt, UpdatedAt, UpdatedBy, BoardId, BackgroundUrl) VALUES
+('Quarterly OKRs Planning', 'A ready-to-use template for business use case: Quarterly OKRs Planning.', 1, 105, 48, 6, '2025-07-07', '2025-07-12', 8, 20, 'https://example.com/backgrounds/business_1.jpg'),
+('Marketing Campaign Tracker', 'A ready-to-use template for business use case: Marketing Campaign Tracker.', 1, 389, 53, 4, '2025-07-16', '2025-07-19', 4, 15, 'https://example.com/backgrounds/business_2.jpg'),
+('Sales Pipeline Overview', 'A ready-to-use template for business use case: Sales Pipeline Overview.', 1, 481, 117, 10, '2025-07-05', '2025-07-09', 2, 17, 'https://example.com/backgrounds/business_3.jpg'),
+('Weekly Leadership Agenda', 'A ready-to-use template for business use case: Weekly Leadership Agenda.', 1, 134, 90, 8, '2025-07-29', '2025-07-31', 8, 9, 'https://example.com/backgrounds/business_4.jpg'),
+('Budget Approval Workflow', 'A ready-to-use template for business use case: Budget Approval Workflow.', 1, 480, 78, 3, '2025-07-19', '2025-07-21', 5, 8, 'https://example.com/backgrounds/business_5.jpg'),
+('Vendor Contract Management', 'A ready-to-use template for business use case: Vendor Contract Management.', 1, 186, 87, 3, '2025-07-04', '2025-07-07', 5, 11, 'https://example.com/backgrounds/business_6.jpg'),
+('Meeting Notes & Action Items', 'A ready-to-use template for business use case: Meeting Notes & Action Items.', 1, 279, 146, 3, '2025-07-21', '2025-07-22', 7, 18, 'https://example.com/backgrounds/business_7.jpg'),
+('Company Handbook Builder', 'A ready-to-use template for business use case: Company Handbook Builder.', 1, 186, 103, 4, '2025-07-13', '2025-07-18', 8, 11, 'https://example.com/backgrounds/business_8.jpg'),
+('Client Onboarding Checklist', 'A ready-to-use template for business use case: Client Onboarding Checklist.', 1, 246, 132, 1, '2025-07-31', '2025-08-05', 7, 9, 'https://example.com/backgrounds/business_9.jpg'),
+('Annual Strategic Planning', 'A ready-to-use template for business use case: Annual Strategic Planning.', 1, 291, 116, 4, '2025-07-22', '2025-07-26', 7, 18, 'https://example.com/backgrounds/business_10.jpg'),
+('UI Review & Feedback Board', 'A ready-to-use template for design use case: UI Review & Feedback Board.', 2, 408, 106, 9, '2025-07-27', '2025-07-30', 5, 17, 'https://example.com/backgrounds/design_1.jpg'),
+('Brand Assets Library', 'A ready-to-use template for design use case: Brand Assets Library.', 2, 237, 63, 10, '2025-07-07', '2025-07-10', 9, 12, 'https://example.com/backgrounds/design_2.jpg'),
+('Design Sprint Planner', 'A ready-to-use template for design use case: Design Sprint Planner.', 2, 193, 92, 7, '2025-07-25', '2025-07-29', 6, 1, 'https://example.com/backgrounds/design_3.jpg'),
+('UX Research Repository', 'A ready-to-use template for design use case: UX Research Repository.', 2, 365, 31, 6, '2025-07-11', '2025-07-15', 3, 16, 'https://example.com/backgrounds/design_4.jpg'),
+('Creative Brief Organizer', 'A ready-to-use template for design use case: Creative Brief Organizer.', 2, 330, 97, 8, '2025-07-15', '2025-07-18', 1, 15, 'https://example.com/backgrounds/design_5.jpg'),
+('Component Design Tracker', 'A ready-to-use template for design use case: Component Design Tracker.', 2, 153, 144, 8, '2025-07-13', '2025-07-16', 10, 6, 'https://example.com/backgrounds/design_6.jpg'),
+('Figma Handoff Checklist', 'A ready-to-use template for design use case: Figma Handoff Checklist.', 2, 355, 146, 5, '2025-07-16', '2025-07-19', 8, 16, 'https://example.com/backgrounds/design_7.jpg'),
+('Design Team Tasks', 'A ready-to-use template for design use case: Design Team Tasks.', 2, 177, 125, 6, '2025-07-06', '2025-07-07', 8, 9, 'https://example.com/backgrounds/design_8.jpg'),
+('Portfolio Showcase Planner', 'A ready-to-use template for design use case: Portfolio Showcase Planner.', 2, 201, 89, 5, '2025-07-17', '2025-07-20', 4, 19, 'https://example.com/backgrounds/design_9.jpg'),
+('Illustration Queue', 'A ready-to-use template for design use case: Illustration Queue.', 2, 240, 118, 3, '2025-07-02', '2025-07-05', 6, 17, 'https://example.com/backgrounds/design_10.jpg'),
+('Semester Lesson Planner', 'A ready-to-use template for education use case: Semester Lesson Planner.', 3, 227, 144, 7, '2025-07-22', '2025-07-23', 9, 9, 'https://example.com/backgrounds/education_1.jpg'),
+('Assignment Submission Tracker', 'A ready-to-use template for education use case: Assignment Submission Tracker.', 3, 116, 61, 5, '2025-07-25', '2025-07-29', 7, 6, 'https://example.com/backgrounds/education_2.jpg'),
+('Course Syllabus Organizer', 'A ready-to-use template for education use case: Course Syllabus Organizer.', 3, 430, 126, 3, '2025-07-01', '2025-07-05', 3, 16, 'https://example.com/backgrounds/education_3.jpg'),
+('Student Progress Dashboard', 'A ready-to-use template for education use case: Student Progress Dashboard.', 3, 320, 117, 6, '2025-07-20', '2025-07-22', 5, 1, 'https://example.com/backgrounds/education_4.jpg'),
+('Exam Schedule Board', 'A ready-to-use template for education use case: Exam Schedule Board.', 3, 238, 139, 3, '2025-07-07', '2025-07-12', 6, 18, 'https://example.com/backgrounds/education_5.jpg'),
+('Reading List & Notes', 'A ready-to-use template for education use case: Reading List & Notes.', 3, 158, 89, 7, '2025-07-22', '2025-07-26', 1, 18, 'https://example.com/backgrounds/education_6.jpg'),
+('Thesis Writing Plan', 'A ready-to-use template for education use case: Thesis Writing Plan.', 3, 322, 97, 9, '2025-07-21', '2025-07-22', 10, 6, 'https://example.com/backgrounds/education_7.jpg'),
+('Classroom Group Project Board', 'A ready-to-use template for education use case: Classroom Group Project Board.', 3, 339, 101, 1, '2025-07-11', '2025-07-12', 3, 6, 'https://example.com/backgrounds/education_8.jpg'),
+('Research Sources Organizer', 'A ready-to-use template for education use case: Research Sources Organizer.', 3, 477, 90, 4, '2025-07-04', '2025-07-07', 6, 5, 'https://example.com/backgrounds/education_9.jpg'),
+('Online Course Creation', 'A ready-to-use template for education use case: Online Course Creation.', 3, 108, 137, 7, '2025-07-07', '2025-07-09', 8, 11, 'https://example.com/backgrounds/education_10.jpg'),
+('Sprint Backlog Board', 'A ready-to-use template for engineering use case: Sprint Backlog Board.', 4, 387, 68, 8, '2025-07-03', '2025-07-08', 6, 18, 'https://example.com/backgrounds/engineering_1.jpg'),
+('Bug Triage & QA', 'A ready-to-use template for engineering use case: Bug Triage & QA.', 4, 348, 49, 2, '2025-07-04', '2025-07-05', 8, 18, 'https://example.com/backgrounds/engineering_2.jpg'),
+('DevOps Deployment Tracker', 'A ready-to-use template for engineering use case: DevOps Deployment Tracker.', 4, 209, 100, 2, '2025-07-23', '2025-07-26', 10, 15, 'https://example.com/backgrounds/engineering_3.jpg'),
+('Technical Debt Cleanup', 'A ready-to-use template for engineering use case: Technical Debt Cleanup.', 4, 192, 80, 9, '2025-07-15', '2025-07-18', 10, 13, 'https://example.com/backgrounds/engineering_4.jpg'),
+('Code Review Board', 'A ready-to-use template for engineering use case: Code Review Board.', 4, 357, 132, 8, '2025-07-23', '2025-07-24', 6, 10, 'https://example.com/backgrounds/engineering_5.jpg'),
+('Feature Launch Checklist', 'A ready-to-use template for engineering use case: Feature Launch Checklist.', 4, 258, 38, 5, '2025-07-27', '2025-08-01', 8, 7, 'https://example.com/backgrounds/engineering_6.jpg'),
+('Architecture Decision Log', 'A ready-to-use template for engineering use case: Architecture Decision Log.', 4, 378, 57, 10, '2025-07-25', '2025-07-28', 8, 15, 'https://example.com/backgrounds/engineering_7.jpg'),
+('CI/CD Pipeline Overview', 'A ready-to-use template for engineering use case: CI/CD Pipeline Overview.', 4, 425, 83, 3, '2025-07-12', '2025-07-13', 9, 2, 'https://example.com/backgrounds/engineering_8.jpg'),
+('Incident Response Log', 'A ready-to-use template for engineering use case: Incident Response Log.', 4, 320, 148, 2, '2025-07-25', '2025-07-28', 1, 10, 'https://example.com/backgrounds/engineering_9.jpg'),
+('API Documentation Tasks', 'A ready-to-use template for engineering use case: API Documentation Tasks.', 4, 383, 62, 7, '2025-07-10', '2025-07-14', 1, 14, 'https://example.com/backgrounds/engineering_10.jpg'),
+('Content Calendar', 'A ready-to-use template for marketing use case: Content Calendar.', 5, 207, 75, 4, '2025-07-12', '2025-07-16', 6, 15, 'https://example.com/backgrounds/marketing_1.jpg'),
+('Campaign Brainstorming', 'A ready-to-use template for marketing use case: Campaign Brainstorming.', 5, 384, 55, 5, '2025-07-25', '2025-07-26', 7, 19, 'https://example.com/backgrounds/marketing_2.jpg'),
+('SEO Audit Checklist', 'A ready-to-use template for marketing use case: SEO Audit Checklist.', 5, 199, 125, 2, '2025-07-16', '2025-07-17', 1, 18, 'https://example.com/backgrounds/marketing_3.jpg'),
+('Social Media Schedule', 'A ready-to-use template for marketing use case: Social Media Schedule.', 5, 483, 136, 2, '2025-07-07', '2025-07-12', 9, 20, 'https://example.com/backgrounds/marketing_4.jpg'),
+('Email Campaign Planner', 'A ready-to-use template for marketing use case: Email Campaign Planner.', 5, 345, 76, 1, '2025-07-06', '2025-07-08', 4, 10, 'https://example.com/backgrounds/marketing_5.jpg'),
+('Influencer Outreach Board', 'A ready-to-use template for marketing use case: Influencer Outreach Board.', 5, 333, 139, 2, '2025-07-23', '2025-07-27', 1, 19, 'https://example.com/backgrounds/marketing_6.jpg'),
+('Product Launch Plan', 'A ready-to-use template for marketing use case: Product Launch Plan.', 5, 309, 91, 2, '2025-07-21', '2025-07-26', 9, 16, 'https://example.com/backgrounds/marketing_7.jpg'),
+('Ad Copy Testing Tracker', 'A ready-to-use template for marketing use case: Ad Copy Testing Tracker.', 5, 429, 67, 5, '2025-07-08', '2025-07-12', 7, 1, 'https://example.com/backgrounds/marketing_8.jpg'),
+('Press Release Workflow', 'A ready-to-use template for marketing use case: Press Release Workflow.', 5, 116, 57, 10, '2025-07-03', '2025-07-04', 5, 2, 'https://example.com/backgrounds/marketing_9.jpg'),
+('Newsletter Production Board', 'A ready-to-use template for marketing use case: Newsletter Production Board.', 5, 246, 84, 6, '2025-07-13', '2025-07-16', 9, 9, 'https://example.com/backgrounds/marketing_10.jpg'),
+('Employee Onboarding', 'A ready-to-use template for hr & operations use case: Employee Onboarding.', 6, 339, 81, 5, '2025-07-20', '2025-07-21', 3, 18, 'https://example.com/backgrounds/hr_&_operations_1.jpg'),
+('Leave Request Tracker', 'A ready-to-use template for hr & operations use case: Leave Request Tracker.', 6, 221, 72, 8, '2025-07-15', '2025-07-16', 5, 3, 'https://example.com/backgrounds/hr_&_operations_2.jpg'),
+('Internal Policy Approvals', 'A ready-to-use template for hr & operations use case: Internal Policy Approvals.', 6, 181, 133, 1, '2025-07-15', '2025-07-20', 4, 20, 'https://example.com/backgrounds/hr_&_operations_3.jpg'),
+('HR Events Planning', 'A ready-to-use template for hr & operations use case: HR Events Planning.', 6, 295, 82, 10, '2025-07-14', '2025-07-19', 5, 20, 'https://example.com/backgrounds/hr_&_operations_4.jpg'),
+('Hiring Pipeline', 'A ready-to-use template for hr & operations use case: Hiring Pipeline.', 6, 164, 145, 9, '2025-07-03', '2025-07-08', 7, 3, 'https://example.com/backgrounds/hr_&_operations_5.jpg'),
+('Performance Review Cycle', 'A ready-to-use template for hr & operations use case: Performance Review Cycle.', 6, 358, 127, 4, '2025-07-28', '2025-08-01', 10, 14, 'https://example.com/backgrounds/hr_&_operations_6.jpg'),
+('Team Building Activities', 'A ready-to-use template for hr & operations use case: Team Building Activities.', 6, 256, 88, 7, '2025-07-28', '2025-07-29', 5, 12, 'https://example.com/backgrounds/hr_&_operations_7.jpg'),
+('Benefits Enrollment Board', 'A ready-to-use template for hr & operations use case: Benefits Enrollment Board.', 6, 240, 51, 3, '2025-07-18', '2025-07-23', 1, 17, 'https://example.com/backgrounds/hr_&_operations_8.jpg'),
+('Payroll Process Tracker', 'A ready-to-use template for hr & operations use case: Payroll Process Tracker.', 6, 126, 67, 2, '2025-07-17', '2025-07-20', 3, 13, 'https://example.com/backgrounds/hr_&_operations_9.jpg'),
+('Workplace Incident Log', 'A ready-to-use template for hr & operations use case: Workplace Incident Log.', 6, 421, 135, 5, '2025-07-06', '2025-07-08', 3, 9, 'https://example.com/backgrounds/hr_&_operations_10.jpg'),
+('Personal Goal Tracker', 'A ready-to-use template for personal use case: Personal Goal Tracker.', 7, 486, 83, 1, '2025-07-25', '2025-07-28', 6, 9, 'https://example.com/backgrounds/personal_1.jpg'),
+('Daily Habit Board', 'A ready-to-use template for personal use case: Daily Habit Board.', 7, 466, 123, 3, '2025-07-21', '2025-07-23', 8, 8, 'https://example.com/backgrounds/personal_2.jpg'),
+('Grocery Shopping List', 'A ready-to-use template for personal use case: Grocery Shopping List.', 7, 420, 150, 9, '2025-07-15', '2025-07-20', 10, 3, 'https://example.com/backgrounds/personal_3.jpg'),
+('Vacation Planning Board', 'A ready-to-use template for personal use case: Vacation Planning Board.', 7, 231, 139, 3, '2025-07-12', '2025-07-17', 9, 7, 'https://example.com/backgrounds/personal_4.jpg'),
+('Reading Challenge', 'A ready-to-use template for personal use case: Reading Challenge.', 7, 200, 57, 5, '2025-07-03', '2025-07-08', 5, 3, 'https://example.com/backgrounds/personal_5.jpg'),
+('Fitness Progress Tracker', 'A ready-to-use template for personal use case: Fitness Progress Tracker.', 7, 157, 91, 2, '2025-07-02', '2025-07-06', 4, 7, 'https://example.com/backgrounds/personal_6.jpg'),
+('Budget & Expense Tracker', 'A ready-to-use template for personal use case: Budget & Expense Tracker.', 7, 428, 34, 6, '2025-07-15', '2025-07-16', 1, 10, 'https://example.com/backgrounds/personal_7.jpg'),
+('House Chores Checklist', 'A ready-to-use template for personal use case: House Chores Checklist.', 7, 160, 95, 3, '2025-07-08', '2025-07-10', 6, 7, 'https://example.com/backgrounds/personal_8.jpg'),
+('Meal Prep Planner', 'A ready-to-use template for personal use case: Meal Prep Planner.', 7, 228, 60, 1, '2025-07-31', '2025-08-01', 8, 11, 'https://example.com/backgrounds/personal_9.jpg'),
+('Life Admin Board', 'A ready-to-use template for personal use case: Life Admin Board.', 7, 284, 147, 9, '2025-07-11', '2025-07-12', 3, 14, 'https://example.com/backgrounds/personal_10.jpg'),
+('Time Blocking Planner', 'A ready-to-use template for productivity use case: Time Blocking Planner.', 8, 183, 99, 9, '2025-07-09', '2025-07-12', 6, 12, 'https://example.com/backgrounds/productivity_1.jpg'),
+('Pomodoro Task Tracker', 'A ready-to-use template for productivity use case: Pomodoro Task Tracker.', 8, 363, 48, 10, '2025-07-19', '2025-07-21', 3, 15, 'https://example.com/backgrounds/productivity_2.jpg'),
+('Focus Goals Board', 'A ready-to-use template for productivity use case: Focus Goals Board.', 8, 172, 27, 4, '2025-07-06', '2025-07-09', 3, 8, 'https://example.com/backgrounds/productivity_3.jpg'),
+('Weekly Review & Planning', 'A ready-to-use template for productivity use case: Weekly Review & Planning.', 8, 119, 105, 3, '2025-07-21', '2025-07-26', 5, 2, 'https://example.com/backgrounds/productivity_4.jpg'),
+('Task Prioritization Matrix', 'A ready-to-use template for productivity use case: Task Prioritization Matrix.', 8, 428, 143, 5, '2025-07-26', '2025-07-28', 10, 8, 'https://example.com/backgrounds/productivity_5.jpg'),
+('Inbox Zero Workflow', 'A ready-to-use template for productivity use case: Inbox Zero Workflow.', 8, 420, 122, 9, '2025-07-11', '2025-07-15', 9, 6, 'https://example.com/backgrounds/productivity_6.jpg'),
+('Deep Work Session Log', 'A ready-to-use template for productivity use case: Deep Work Session Log.', 8, 206, 38, 6, '2025-07-10', '2025-07-15', 4, 15, 'https://example.com/backgrounds/productivity_7.jpg'),
+('Priority Projects Dashboard', 'A ready-to-use template for productivity use case: Priority Projects Dashboard.', 8, 415, 145, 1, '2025-07-24', '2025-07-25', 2, 12, 'https://example.com/backgrounds/productivity_8.jpg'),
+('Distraction Log', 'A ready-to-use template for productivity use case: Distraction Log.', 8, 364, 71, 9, '2025-07-14', '2025-07-18', 7, 2, 'https://example.com/backgrounds/productivity_9.jpg'),
+('Workload Balancer', 'A ready-to-use template for productivity use case: Workload Balancer.', 8, 202, 116, 4, '2025-07-20', '2025-07-22', 10, 6, 'https://example.com/backgrounds/productivity_10.jpg'),
+('Product Roadmap', 'A ready-to-use template for product management use case: Product Roadmap.', 9, 118, 115, 1, '2025-07-06', '2025-07-07', 8, 11, 'https://example.com/backgrounds/product_management_1.jpg'),
+('Feature Request Triage', 'A ready-to-use template for product management use case: Feature Request Triage.', 9, 208, 42, 2, '2025-07-25', '2025-07-28', 5, 14, 'https://example.com/backgrounds/product_management_2.jpg'),
+('Beta Feedback Collector', 'A ready-to-use template for product management use case: Beta Feedback Collector.', 9, 174, 51, 7, '2025-07-02', '2025-07-05', 5, 12, 'https://example.com/backgrounds/product_management_3.jpg'),
+('Release Notes Board', 'A ready-to-use template for product management use case: Release Notes Board.', 9, 455, 24, 5, '2025-07-14', '2025-07-15', 5, 1, 'https://example.com/backgrounds/product_management_4.jpg'),
+('Cross-functional Alignment', 'A ready-to-use template for product management use case: Cross-functional Alignment.', 9, 454, 139, 10, '2025-07-05', '2025-07-10', 10, 4, 'https://example.com/backgrounds/product_management_5.jpg'),
+('User Story Map', 'A ready-to-use template for product management use case: User Story Map.', 9, 221, 25, 7, '2025-07-05', '2025-07-10', 7, 16, 'https://example.com/backgrounds/product_management_6.jpg'),
+('Stakeholder Updates', 'A ready-to-use template for product management use case: Stakeholder Updates.', 9, 488, 72, 9, '2025-07-12', '2025-07-15', 2, 19, 'https://example.com/backgrounds/product_management_7.jpg'),
+('Metrics & KPIs Dashboard', 'A ready-to-use template for product management use case: Metrics & KPIs Dashboard.', 9, 437, 147, 9, '2025-07-29', '2025-07-30', 9, 9, 'https://example.com/backgrounds/product_management_8.jpg'),
+('Product Audit Log', 'A ready-to-use template for product management use case: Product Audit Log.', 9, 174, 127, 1, '2025-07-02', '2025-07-04', 4, 4, 'https://example.com/backgrounds/product_management_9.jpg'),
+('Go-to-Market Checklist', 'A ready-to-use template for product management use case: Go-to-Market Checklist.', 9, 104, 137, 6, '2025-07-29', '2025-08-03', 1, 13, 'https://example.com/backgrounds/product_management_10.jpg'),
+('Project Timeline Planner', 'A ready-to-use template for project management use case: Project Timeline Planner.', 10, 211, 129, 3, '2025-07-02', '2025-07-05', 10, 4, 'https://example.com/backgrounds/project_management_1.jpg'),
+('Milestone Tracker', 'A ready-to-use template for project management use case: Milestone Tracker.', 10, 303, 45, 6, '2025-07-22', '2025-07-24', 3, 12, 'https://example.com/backgrounds/project_management_2.jpg'),
+('Task Assignment Board', 'A ready-to-use template for project management use case: Task Assignment Board.', 10, 458, 98, 9, '2025-07-28', '2025-07-31', 2, 1, 'https://example.com/backgrounds/project_management_3.jpg'),
+('Risk Management Matrix', 'A ready-to-use template for project management use case: Risk Management Matrix.', 10, 312, 47, 3, '2025-07-08', '2025-07-09', 10, 7, 'https://example.com/backgrounds/project_management_4.jpg'),
+('Resource Allocation Plan', 'A ready-to-use template for project management use case: Resource Allocation Plan.', 10, 122, 61, 1, '2025-07-29', '2025-07-31', 5, 3, 'https://example.com/backgrounds/project_management_5.jpg'),
+('Stakeholder Communication', 'A ready-to-use template for project management use case: Stakeholder Communication.', 10, 469, 29, 8, '2025-07-21', '2025-07-24', 5, 13, 'https://example.com/backgrounds/project_management_6.jpg'),
+('Agile Ceremonies Board', 'A ready-to-use template for project management use case: Agile Ceremonies Board.', 10, 375, 50, 9, '2025-07-17', '2025-07-21', 10, 12, 'https://example.com/backgrounds/project_management_7.jpg'),
+('Dependencies Tracker', 'A ready-to-use template for project management use case: Dependencies Tracker.', 10, 351, 100, 3, '2025-07-03', '2025-07-07', 10, 1, 'https://example.com/backgrounds/project_management_8.jpg'),
+('Gantt Chart Tasks', 'A ready-to-use template for project management use case: Gantt Chart Tasks.', 10, 224, 88, 10, '2025-07-28', '2025-07-30', 10, 13, 'https://example.com/backgrounds/project_management_9.jpg'),
+('Retrospective Notes', 'A ready-to-use template for project management use case: Retrospective Notes.', 10, 306, 38, 1, '2025-07-15', '2025-07-18', 3, 15, 'https://example.com/backgrounds/project_management_10.jpg'),
+('Daily Standup Board', 'A ready-to-use template for remote work use case: Daily Standup Board.', 11, 359, 95, 5, '2025-07-31', '2025-08-04', 8, 3, 'https://example.com/backgrounds/remote_work_1.jpg'),
+('Remote Team Tasks', 'A ready-to-use template for remote work use case: Remote Team Tasks.', 11, 260, 50, 3, '2025-07-30', '2025-07-31', 10, 9, 'https://example.com/backgrounds/remote_work_2.jpg'),
+('Async Updates Board', 'A ready-to-use template for remote work use case: Async Updates Board.', 11, 362, 83, 5, '2025-07-22', '2025-07-23', 1, 2, 'https://example.com/backgrounds/remote_work_3.jpg'),
+('Virtual Meeting Agenda', 'A ready-to-use template for remote work use case: Virtual Meeting Agenda.', 11, 206, 124, 10, '2025-07-12', '2025-07-14', 9, 4, 'https://example.com/backgrounds/remote_work_4.jpg'),
+('Time Zone Coordination', 'A ready-to-use template for remote work use case: Time Zone Coordination.', 11, 224, 128, 5, '2025-07-28', '2025-08-02', 9, 8, 'https://example.com/backgrounds/remote_work_5.jpg'),
+('WFH Equipment Tracker', 'A ready-to-use template for remote work use case: WFH Equipment Tracker.', 11, 456, 60, 10, '2025-07-25', '2025-07-30', 2, 13, 'https://example.com/backgrounds/remote_work_6.jpg'),
+('Remote Feedback Requests', 'A ready-to-use template for remote work use case: Remote Feedback Requests.', 11, 388, 26, 4, '2025-07-26', '2025-07-27', 4, 19, 'https://example.com/backgrounds/remote_work_7.jpg'),
+('Work Log Archive', 'A ready-to-use template for remote work use case: Work Log Archive.', 11, 232, 55, 2, '2025-07-11', '2025-07-15', 8, 11, 'https://example.com/backgrounds/remote_work_8.jpg'),
+('Team Wins Board', 'A ready-to-use template for remote work use case: Team Wins Board.', 11, 215, 32, 7, '2025-07-29', '2025-08-01', 2, 4, 'https://example.com/backgrounds/remote_work_9.jpg'),
+('Connectivity Issue Log', 'A ready-to-use template for remote work use case: Connectivity Issue Log.', 11, 257, 110, 6, '2025-07-03', '2025-07-05', 5, 9, 'https://example.com/backgrounds/remote_work_10.jpg'),
+('Lead Qualification Board', 'A ready-to-use template for sales use case: Lead Qualification Board.', 12, 482, 31, 3, '2025-07-30', '2025-08-04', 6, 19, 'https://example.com/backgrounds/sales_1.jpg'),
+('Client Demo Schedule', 'A ready-to-use template for sales use case: Client Demo Schedule.', 12, 393, 37, 9, '2025-07-10', '2025-07-15', 6, 10, 'https://example.com/backgrounds/sales_2.jpg'),
+('Contract Follow-up Tracker', 'A ready-to-use template for sales use case: Contract Follow-up Tracker.', 12, 412, 37, 1, '2025-07-16', '2025-07-19', 4, 2, 'https://example.com/backgrounds/sales_3.jpg'),
+('Sales Training Hub', 'A ready-to-use template for sales use case: Sales Training Hub.', 12, 411, 52, 4, '2025-07-10', '2025-07-14', 5, 3, 'https://example.com/backgrounds/sales_4.jpg'),
+('Target Account Planner', 'A ready-to-use template for sales use case: Target Account Planner.', 12, 394, 134, 8, '2025-07-21', '2025-07-25', 4, 1, 'https://example.com/backgrounds/sales_5.jpg'),
+('Territory Assignment Board', 'A ready-to-use template for sales use case: Territory Assignment Board.', 12, 247, 39, 10, '2025-07-24', '2025-07-28', 1, 2, 'https://example.com/backgrounds/sales_6.jpg'),
+('Proposal Drafting Checklist', 'A ready-to-use template for sales use case: Proposal Drafting Checklist.', 12, 494, 90, 10, '2025-07-20', '2025-07-25', 8, 12, 'https://example.com/backgrounds/sales_7.jpg'),
+('Discount Approval Flow', 'A ready-to-use template for sales use case: Discount Approval Flow.', 12, 121, 50, 5, '2025-07-28', '2025-07-29', 4, 6, 'https://example.com/backgrounds/sales_8.jpg'),
+('Quarterly Sales Goals', 'A ready-to-use template for sales use case: Quarterly Sales Goals.', 12, 439, 36, 10, '2025-07-19', '2025-07-23', 6, 5, 'https://example.com/backgrounds/sales_9.jpg'),
+('CRM Sync Checklist', 'A ready-to-use template for sales use case: CRM Sync Checklist.', 12, 247, 44, 6, '2025-07-14', '2025-07-18', 10, 11, 'https://example.com/backgrounds/sales_10.jpg'),
+('Customer Issue Tracker', 'A ready-to-use template for support use case: Customer Issue Tracker.', 13, 144, 135, 5, '2025-07-07', '2025-07-10', 6, 7, 'https://example.com/backgrounds/support_1.jpg'),
+('Support Ticket Queue', 'A ready-to-use template for support use case: Support Ticket Queue.', 13, 482, 38, 6, '2025-07-16', '2025-07-19', 4, 11, 'https://example.com/backgrounds/support_2.jpg'),
+('FAQs Development', 'A ready-to-use template for support use case: FAQs Development.', 13, 181, 113, 8, '2025-07-31', '2025-08-03', 10, 11, 'https://example.com/backgrounds/support_3.jpg'),
+('Live Chat Logs Review', 'A ready-to-use template for support use case: Live Chat Logs Review.', 13, 474, 120, 6, '2025-07-28', '2025-07-30', 5, 20, 'https://example.com/backgrounds/support_4.jpg'),
+('Escalation Path Board', 'A ready-to-use template for support use case: Escalation Path Board.', 13, 418, 82, 2, '2025-07-22', '2025-07-26', 7, 1, 'https://example.com/backgrounds/support_5.jpg'),
+('Response Time Audit', 'A ready-to-use template for support use case: Response Time Audit.', 13, 320, 120, 7, '2025-07-28', '2025-07-30', 5, 10, 'https://example.com/backgrounds/support_6.jpg'),
+('Help Center Content', 'A ready-to-use template for support use case: Help Center Content.', 13, 267, 109, 10, '2025-07-22', '2025-07-26', 7, 4, 'https://example.com/backgrounds/support_7.jpg'),
+('Troubleshooting Playbook', 'A ready-to-use template for support use case: Troubleshooting Playbook.', 13, 486, 84, 8, '2025-07-16', '2025-07-20', 9, 11, 'https://example.com/backgrounds/support_8.jpg'),
+('On-call Schedule', 'A ready-to-use template for support use case: On-call Schedule.', 13, 107, 95, 6, '2025-07-31', '2025-08-02', 9, 3, 'https://example.com/backgrounds/support_9.jpg'),
+('Support Workflow Overview', 'A ready-to-use template for support use case: Support Workflow Overview.', 13, 454, 112, 9, '2025-07-10', '2025-07-13', 9, 11, 'https://example.com/backgrounds/support_10.jpg'),
+('1:1 Meeting Notes', 'A ready-to-use template for team management use case: 1:1 Meeting Notes.', 14, 127, 150, 10, '2025-07-06', '2025-07-09', 4, 14, 'https://example.com/backgrounds/team_management_1.jpg'),
+('Team Retrospective Board', 'A ready-to-use template for team management use case: Team Retrospective Board.', 14, 476, 90, 2, '2025-07-14', '2025-07-17', 8, 19, 'https://example.com/backgrounds/team_management_2.jpg'),
+('Quarterly Planning Board', 'A ready-to-use template for team management use case: Quarterly Planning Board.', 14, 288, 99, 7, '2025-07-23', '2025-07-27', 1, 14, 'https://example.com/backgrounds/team_management_3.jpg'),
+('Conflict Resolution Tracker', 'A ready-to-use template for team management use case: Conflict Resolution Tracker.', 14, 468, 77, 10, '2025-07-16', '2025-07-19', 7, 20, 'https://example.com/backgrounds/team_management_4.jpg'),
+('Team Health Survey', 'A ready-to-use template for team management use case: Team Health Survey.', 14, 159, 64, 2, '2025-07-13', '2025-07-17', 6, 8, 'https://example.com/backgrounds/team_management_5.jpg'),
+('Weekly Task Planning', 'A ready-to-use template for team management use case: Weekly Task Planning.', 14, 230, 43, 3, '2025-07-09', '2025-07-13', 5, 12, 'https://example.com/backgrounds/team_management_6.jpg'),
+('Training Schedule', 'A ready-to-use template for team management use case: Training Schedule.', 14, 236, 22, 7, '2025-07-24', '2025-07-27', 6, 5, 'https://example.com/backgrounds/team_management_7.jpg'),
+('Role Clarity Organizer', 'A ready-to-use template for team management use case: Role Clarity Organizer.', 14, 147, 72, 9, '2025-07-16', '2025-07-20', 1, 18, 'https://example.com/backgrounds/team_management_8.jpg'),
+('Celebration & Recognition Board', 'A ready-to-use template for team management use case: Celebration & Recognition Board.', 14, 327, 119, 6, '2025-07-02', '2025-07-05', 7, 17, 'https://example.com/backgrounds/team_management_9.jpg'),
+('Feedback Collection Tracker', 'A ready-to-use template for team management use case: Feedback Collection Tracker.', 14, 469, 133, 7, '2025-07-11', '2025-07-12', 7, 8, 'https://example.com/backgrounds/team_management_10.jpg');
+
+-- INSERT CustomFields for first 20 Boards with <3 fields
+INSERT INTO CustomFields (Title, CategoryId, BoardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position, IsFrontCardShowed) VALUES (N'Active', 5, 1, '2025-08-03 03:31:53', 19, '2025-08-03 03:31:53', 19, 1, 1);
+INSERT INTO CustomFields (Title, CategoryId, BoardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position, IsFrontCardShowed) VALUES (N'Start Date', 6, 1, '2025-08-03 03:31:53', 19, '2025-08-03 03:31:53', 19, 2, 1);
+INSERT INTO CustomFields (Title, CategoryId, BoardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position, IsFrontCardShowed) VALUES (N'Description', 9, 1, '2025-08-03 03:31:53', 19, '2025-08-03 03:31:53', 19, 3, 1);
+INSERT INTO CustomFields (Title, CategoryId, BoardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position, IsFrontCardShowed) VALUES (N'Status', 7, 2, '2025-08-03 03:31:53', 18, '2025-08-03 03:31:53', 18, 4, 1);
+INSERT INTO CustomFields (Title, CategoryId, BoardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position, IsFrontCardShowed) VALUES (N'Agree', 5, 2, '2025-08-03 03:31:53', 18, '2025-08-03 03:31:53', 18, 5, 1);
+INSERT INTO CustomFields (Title, CategoryId, BoardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position, IsFrontCardShowed) VALUES (N'Comment', 9, 2, '2025-08-03 03:31:53', 18, '2025-08-03 03:31:53', 18, 6, 1);
+INSERT INTO CustomFields (Title, CategoryId, BoardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position, IsFrontCardShowed) VALUES (N'Comment', 9, 3, '2025-08-03 03:31:53', 4, '2025-08-03 03:31:53', 4, 7, 1);
+INSERT INTO CustomFields (Title, CategoryId, BoardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position, IsFrontCardShowed) VALUES (N'Agree', 5, 3, '2025-08-03 03:31:53', 4, '2025-08-03 03:31:53', 4, 8, 1);
+INSERT INTO CustomFields (Title, CategoryId, BoardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position, IsFrontCardShowed) VALUES (N'Priority', 7, 4, '2025-08-03 03:31:53', 18, '2025-08-03 03:31:53', 18, 9, 1);
+INSERT INTO CustomFields (Title, CategoryId, BoardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position, IsFrontCardShowed) VALUES (N'Comment', 9, 4, '2025-08-03 03:31:53', 18, '2025-08-03 03:31:53', 18, 10, 1);
+INSERT INTO CustomFields (Title, CategoryId, BoardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position, IsFrontCardShowed) VALUES (N'Description', 9, 5, '2025-08-03 03:31:53', 12, '2025-08-03 03:31:53', 12, 11, 1);
+INSERT INTO CustomFields (Title, CategoryId, BoardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position, IsFrontCardShowed) VALUES (N'Score', 8, 5, '2025-08-03 03:31:53', 12, '2025-08-03 03:31:53', 12, 12, 1);
+INSERT INTO CustomFields (Title, CategoryId, BoardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position, IsFrontCardShowed) VALUES (N'Done', 5, 6, '2025-08-03 03:31:53', 19, '2025-08-03 03:31:53', 19, 13, 1);
+INSERT INTO CustomFields (Title, CategoryId, BoardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position, IsFrontCardShowed) VALUES (N'Estimate', 8, 6, '2025-08-03 03:31:53', 19, '2025-08-03 03:31:53', 19, 14, 1);
+INSERT INTO CustomFields (Title, CategoryId, BoardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position, IsFrontCardShowed) VALUES (N'Enabled', 5, 6, '2025-08-03 03:31:53', 19, '2025-08-03 03:31:53', 19, 15, 1);
+INSERT INTO CustomFields (Title, CategoryId, BoardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position, IsFrontCardShowed) VALUES (N'Start Date', 6, 7, '2025-08-03 03:31:53', 15, '2025-08-03 03:31:53', 15, 16, 1);
+INSERT INTO CustomFields (Title, CategoryId, BoardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position, IsFrontCardShowed) VALUES (N'Enabled', 5, 7, '2025-08-03 03:31:53', 15, '2025-08-03 03:31:53', 15, 17, 1);
+INSERT INTO CustomFields (Title, CategoryId, BoardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position, IsFrontCardShowed) VALUES (N'Point', 8, 8, '2025-08-03 03:31:53', 19, '2025-08-03 03:31:53', 19, 18, 1);
+INSERT INTO CustomFields (Title, CategoryId, BoardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position, IsFrontCardShowed) VALUES (N'Visible', 5, 8, '2025-08-03 03:31:53', 19, '2025-08-03 03:31:53', 19, 19, 1);
+INSERT INTO CustomFields (Title, CategoryId, BoardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position, IsFrontCardShowed) VALUES (N'Agree', 5, 8, '2025-08-03 03:31:53', 19, '2025-08-03 03:31:53', 19, 20, 1);
+INSERT INTO CustomFields (Title, CategoryId, BoardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position, IsFrontCardShowed) VALUES (N'Status', 7, 9, '2025-08-03 03:31:53', 18, '2025-08-03 03:31:53', 18, 21, 1);
+INSERT INTO CustomFields (Title, CategoryId, BoardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position, IsFrontCardShowed) VALUES (N'Description', 9, 9, '2025-08-03 03:31:53', 18, '2025-08-03 03:31:53', 18, 22, 1);
+INSERT INTO CustomFields (Title, CategoryId, BoardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position, IsFrontCardShowed) VALUES (N'Due Date', 6, 9, '2025-08-03 03:31:53', 18, '2025-08-03 03:31:53', 18, 23, 1);
+INSERT INTO CustomFields (Title, CategoryId, BoardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position, IsFrontCardShowed) VALUES (N'Priority', 7, 10, '2025-08-03 03:31:53', 13, '2025-08-03 03:31:53', 13, 24, 1);
+INSERT INTO CustomFields (Title, CategoryId, BoardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position, IsFrontCardShowed) VALUES (N'Deadline', 6, 10, '2025-08-03 03:31:53', 13, '2025-08-03 03:31:53', 13, 25, 1);
+INSERT INTO CustomFields (Title, CategoryId, BoardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position, IsFrontCardShowed) VALUES (N'Comment', 9, 10, '2025-08-03 03:31:53', 13, '2025-08-03 03:31:53', 13, 26, 1);
+INSERT INTO CustomFields (Title, CategoryId, BoardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position, IsFrontCardShowed) VALUES (N'Active', 5, 11, '2025-08-03 03:31:53', 7, '2025-08-03 03:31:53', 7, 27, 1);
+INSERT INTO CustomFields (Title, CategoryId, BoardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position, IsFrontCardShowed) VALUES (N'Deadline', 6, 11, '2025-08-03 03:31:53', 7, '2025-08-03 03:31:53', 7, 28, 1);
+INSERT INTO CustomFields (Title, CategoryId, BoardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position, IsFrontCardShowed) VALUES (N'Estimate', 8, 11, '2025-08-03 03:31:53', 7, '2025-08-03 03:31:53', 7, 29, 1);
+INSERT INTO CustomFields (Title, CategoryId, BoardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position, IsFrontCardShowed) VALUES (N'Priority', 7, 12, '2025-08-03 03:31:53', 3, '2025-08-03 03:31:53', 3, 30, 1);
+INSERT INTO CustomFields (Title, CategoryId, BoardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position, IsFrontCardShowed) VALUES (N'Score', 8, 12, '2025-08-03 03:31:53', 3, '2025-08-03 03:31:53', 3, 31, 1);
+INSERT INTO CustomFields (Title, CategoryId, BoardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position, IsFrontCardShowed) VALUES (N'Enabled', 5, 13, '2025-08-03 03:31:53', 2, '2025-08-03 03:31:53', 2, 32, 1);
+INSERT INTO CustomFields (Title, CategoryId, BoardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position, IsFrontCardShowed) VALUES (N'Done', 5, 13, '2025-08-03 03:31:53', 2, '2025-08-03 03:31:53', 2, 33, 1);
+INSERT INTO CustomFields (Title, CategoryId, BoardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position, IsFrontCardShowed) VALUES (N'Point', 8, 14, '2025-08-03 03:31:53', 9, '2025-08-03 03:31:53', 9, 34, 1);
+INSERT INTO CustomFields (Title, CategoryId, BoardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position, IsFrontCardShowed) VALUES (N'Status', 7, 14, '2025-08-03 03:31:53', 9, '2025-08-03 03:31:53', 9, 35, 1);
+INSERT INTO CustomFields (Title, CategoryId, BoardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position, IsFrontCardShowed) VALUES (N'Point', 8, 15, '2025-08-03 03:31:53', 17, '2025-08-03 03:31:53', 17, 36, 1);
+INSERT INTO CustomFields (Title, CategoryId, BoardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position, IsFrontCardShowed) VALUES (N'Deadline', 6, 15, '2025-08-03 03:31:53', 17, '2025-08-03 03:31:53', 17, 37, 1);
+INSERT INTO CustomFields (Title, CategoryId, BoardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position, IsFrontCardShowed) VALUES (N'Active', 5, 15, '2025-08-03 03:31:53', 17, '2025-08-03 03:31:53', 17, 38, 1);
+INSERT INTO CustomFields (Title, CategoryId, BoardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position, IsFrontCardShowed) VALUES (N'Type', 7, 16, '2025-08-03 03:31:53', 17, '2025-08-03 03:31:53', 17, 39, 1);
+INSERT INTO CustomFields (Title, CategoryId, BoardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position, IsFrontCardShowed) VALUES (N'Description', 9, 16, '2025-08-03 03:31:53', 17, '2025-08-03 03:31:53', 17, 40, 1);
+INSERT INTO CustomFields (Title, CategoryId, BoardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position, IsFrontCardShowed) VALUES (N'Priority', 7, 17, '2025-08-03 03:31:53', 2, '2025-08-03 03:31:53', 2, 41, 1);
+INSERT INTO CustomFields (Title, CategoryId, BoardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position, IsFrontCardShowed) VALUES (N'Due Date', 6, 17, '2025-08-03 03:31:53', 2, '2025-08-03 03:31:53', 2, 42, 1);
+INSERT INTO CustomFields (Title, CategoryId, BoardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position, IsFrontCardShowed) VALUES (N'Deadline', 6, 18, '2025-08-03 03:31:53', 11, '2025-08-03 03:31:53', 11, 43, 1);
+INSERT INTO CustomFields (Title, CategoryId, BoardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position, IsFrontCardShowed) VALUES (N'Description', 9, 18, '2025-08-03 03:31:53', 11, '2025-08-03 03:31:53', 11, 44, 1);
+INSERT INTO CustomFields (Title, CategoryId, BoardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position, IsFrontCardShowed) VALUES (N'Score', 8, 18, '2025-08-03 03:31:53', 11, '2025-08-03 03:31:53', 11, 45, 1);
+INSERT INTO CustomFields (Title, CategoryId, BoardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position, IsFrontCardShowed) VALUES (N'Enabled', 5, 19, '2025-08-03 03:31:53', 4, '2025-08-03 03:31:53', 4, 46, 1);
+INSERT INTO CustomFields (Title, CategoryId, BoardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position, IsFrontCardShowed) VALUES (N'Status', 7, 19, '2025-08-03 03:31:53', 4, '2025-08-03 03:31:53', 4, 47, 1);
+INSERT INTO CustomFields (Title, CategoryId, BoardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position, IsFrontCardShowed) VALUES (N'Comment', 9, 20, '2025-08-03 03:31:53', 14, '2025-08-03 03:31:53', 14, 48, 1);
+INSERT INTO CustomFields (Title, CategoryId, BoardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position, IsFrontCardShowed) VALUES (N'Score', 8, 20, '2025-08-03 03:31:53', 14, '2025-08-03 03:31:53', 14, 49, 1);
+INSERT INTO CustomFields (Title, CategoryId, BoardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position, IsFrontCardShowed) VALUES (N'Start Date', 6, 20, '2025-08-03 03:31:53', 14, '2025-08-03 03:31:53', 14, 50, 1);
+
+-- INSERT FieldItems for dropdown CustomFields
+INSERT INTO FieldItems (ColorId, FieldItemValue, Position, CustomFieldId) VALUES (11, N'In Progress', 1, 4);
+INSERT INTO FieldItems (ColorId, FieldItemValue, Position, CustomFieldId) VALUES (22, N'Done', 2, 4);
+INSERT INTO FieldItems (ColorId, FieldItemValue, Position, CustomFieldId) VALUES (23, N'Blocked', 3, 4);
+INSERT INTO FieldItems (ColorId, FieldItemValue, Position, CustomFieldId) VALUES (17, N'To Do', 4, 4);
+INSERT INTO FieldItems (ColorId, FieldItemValue, Position, CustomFieldId) VALUES (14, N'Medium', 1, 9);
+INSERT INTO FieldItems (ColorId, FieldItemValue, Position, CustomFieldId) VALUES (33, N'High', 2, 9);
+INSERT INTO FieldItems (ColorId, FieldItemValue, Position, CustomFieldId) VALUES (33, N'Blocked', 1, 21);
+INSERT INTO FieldItems (ColorId, FieldItemValue, Position, CustomFieldId) VALUES (17, N'In Progress', 2, 21);
+INSERT INTO FieldItems (ColorId, FieldItemValue, Position, CustomFieldId) VALUES (23, N'Done', 3, 21);
+INSERT INTO FieldItems (ColorId, FieldItemValue, Position, CustomFieldId) VALUES (25, N'To Do', 4, 21);
+INSERT INTO FieldItems (ColorId, FieldItemValue, Position, CustomFieldId) VALUES (13, N'Medium', 1, 24);
+INSERT INTO FieldItems (ColorId, FieldItemValue, Position, CustomFieldId) VALUES (24, N'High', 2, 24);
+INSERT INTO FieldItems (ColorId, FieldItemValue, Position, CustomFieldId) VALUES (31, N'Low', 1, 30);
+INSERT INTO FieldItems (ColorId, FieldItemValue, Position, CustomFieldId) VALUES (17, N'Medium', 2, 30);
+INSERT INTO FieldItems (ColorId, FieldItemValue, Position, CustomFieldId) VALUES (38, N'High', 3, 30);
+INSERT INTO FieldItems (ColorId, FieldItemValue, Position, CustomFieldId) VALUES (11, N'To Do', 1, 35);
+INSERT INTO FieldItems (ColorId, FieldItemValue, Position, CustomFieldId) VALUES (23, N'Done', 2, 35);
+INSERT INTO FieldItems (ColorId, FieldItemValue, Position, CustomFieldId) VALUES (19, N'Improvement', 1, 39);
+INSERT INTO FieldItems (ColorId, FieldItemValue, Position, CustomFieldId) VALUES (29, N'Feature', 2, 39);
+INSERT INTO FieldItems (ColorId, FieldItemValue, Position, CustomFieldId) VALUES (19, N'Task', 3, 39);
+INSERT INTO FieldItems (ColorId, FieldItemValue, Position, CustomFieldId) VALUES (27, N'Bug', 4, 39);
+INSERT INTO FieldItems (ColorId, FieldItemValue, Position, CustomFieldId) VALUES (4, N'Urgent', 1, 41);
+INSERT INTO FieldItems (ColorId, FieldItemValue, Position, CustomFieldId) VALUES (27, N'Medium', 2, 41);
+INSERT INTO FieldItems (ColorId, FieldItemValue, Position, CustomFieldId) VALUES (39, N'Low', 3, 41);
+INSERT INTO FieldItems (ColorId, FieldItemValue, Position, CustomFieldId) VALUES (37, N'High', 4, 41);
+INSERT INTO FieldItems (ColorId, FieldItemValue, Position, CustomFieldId) VALUES (23, N'Done', 1, 47);
+INSERT INTO FieldItems (ColorId, FieldItemValue, Position, CustomFieldId) VALUES (2, N'To Do', 2, 47);
+INSERT INTO FieldItems (ColorId, FieldItemValue, Position, CustomFieldId) VALUES (38, N'Blocked', 3, 47);
+
+-- INSERT FieldValues for selected CustomFields
+INSERT INTO FieldValues (CardId, FieldValue, CustomFieldId) VALUES (1, N'1', 4);
+INSERT INTO FieldValues (CardId, FieldValue, CustomFieldId) VALUES (2, N'2', 4);
+INSERT INTO FieldValues (CardId, FieldValue, CustomFieldId) VALUES (3, N'3', 4);
+INSERT INTO FieldValues (CardId, FieldValue, CustomFieldId) VALUES (4, N'Initial note', 6);
+INSERT INTO FieldValues (CardId, FieldValue, CustomFieldId) VALUES (5, N'Client feedback', 6);
+INSERT INTO FieldValues (CardId, FieldValue, CustomFieldId) VALUES (6, N'Client feedback', 6);
+INSERT INTO FieldValues (CardId, FieldValue, CustomFieldId) VALUES (7, N'2025-08-30 00:00:00', 2);
+INSERT INTO FieldValues (CardId, FieldValue, CustomFieldId) VALUES (8, N'2025-08-13 00:00:00', 2);
+INSERT INTO FieldValues (CardId, FieldValue, CustomFieldId) VALUES (9, N'2025-08-21 00:00:00', 2);
+INSERT INTO FieldValues (CardId, FieldValue, CustomFieldId) VALUES (10, N'0', 5);
+INSERT INTO FieldValues (CardId, FieldValue, CustomFieldId) VALUES (11, N'0', 5);
+INSERT INTO FieldValues (CardId, FieldValue, CustomFieldId) VALUES (12, N'1', 5);
+INSERT INTO FieldValues (CardId, FieldValue, CustomFieldId) VALUES (13, N'1', 8);
+INSERT INTO FieldValues (CardId, FieldValue, CustomFieldId) VALUES (14, N'1', 8);
+INSERT INTO FieldValues (CardId, FieldValue, CustomFieldId) VALUES (15, N'1', 8);
+INSERT INTO FieldValues (CardId, FieldValue, CustomFieldId) VALUES (16, N'27', 18);
+INSERT INTO FieldValues (CardId, FieldValue, CustomFieldId) VALUES (17, N'76', 18);
+INSERT INTO FieldValues (CardId, FieldValue, CustomFieldId) VALUES (18, N'39', 18);
+INSERT INTO FieldValues (CardId, FieldValue, CustomFieldId) VALUES (19, N'Internal comment', 10);
+INSERT INTO FieldValues (CardId, FieldValue, CustomFieldId) VALUES (20, N'Client feedback', 10);
+INSERT INTO FieldValues (CardId, FieldValue, CustomFieldId) VALUES (21, N'Internal comment', 10);
+INSERT INTO FieldValues (CardId, FieldValue, CustomFieldId) VALUES (22, N'15', 35);
+INSERT INTO FieldValues (CardId, FieldValue, CustomFieldId) VALUES (23, N'16', 35);
+INSERT INTO FieldValues (CardId, FieldValue, CustomFieldId) VALUES (24, N'15', 35);
+INSERT INTO FieldValues (CardId, FieldValue, CustomFieldId) VALUES (25, N'59', 29);
+INSERT INTO FieldValues (CardId, FieldValue, CustomFieldId) VALUES (26, N'31', 29);
+INSERT INTO FieldValues (CardId, FieldValue, CustomFieldId) VALUES (27, N'74', 29);
+INSERT INTO FieldValues (CardId, FieldValue, CustomFieldId) VALUES (28, N'2025-08-19 00:00:00', 23);
+INSERT INTO FieldValues (CardId, FieldValue, CustomFieldId) VALUES (29, N'2025-08-16 00:00:00', 23);
+INSERT INTO FieldValues (CardId, FieldValue, CustomFieldId) VALUES (30, N'2025-08-06 00:00:00', 23);
+INSERT INTO FieldValues (CardId, FieldValue, CustomFieldId) VALUES (31, N'28', 47);
+INSERT INTO FieldValues (CardId, FieldValue, CustomFieldId) VALUES (32, N'28', 47);
+INSERT INTO FieldValues (CardId, FieldValue, CustomFieldId) VALUES (33, N'26', 47);
+
+-- INSERT 1000 Activities
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-18 11:59:27', N'updated workspace settings', 2, 1, 52);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-30 03:02:27', N'added a checklist to the card', 2, 3, 43);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-12 17:39:27', N'updated card details', 18, 3, 61);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-20 07:58:27', N'updated card details', 10, 3, 82);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-08 05:01:27', N'invited a user to the workspace', 5, 1, 17);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-25 22:07:27', N'moved the card to another list', 9, 3, 68);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-21 18:43:27', N'set a due date for the card', 13, 3, 54);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-25 08:18:27', N'assigned a member to the card', 11, 3, 78);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-19 19:42:27', N'invited a user to the workspace', 17, 1, 63);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-27 05:56:27', N'created a card', 15, 3, 81);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-14 09:17:27', N'renamed the workspace', 11, 1, 44);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-15 19:10:27', N'added a checklist to the card', 14, 3, 84);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-21 02:02:27', N'added a new member to the board', 9, 2, 20);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-07 23:47:27', N'added a checklist to the card', 3, 3, 100);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-21 20:33:27', N'invited a user to the workspace', 13, 1, 23);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-30 13:19:27', N'invited a user to the workspace', 20, 1, 96);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-16 14:53:27', N'moved the card to another list', 12, 3, 61);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-30 10:20:27', N'created a new workspace', 18, 1, 3);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-23 13:26:27', N'created a new board', 6, 2, 97);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-04 23:38:27', N'set a due date for the card', 17, 3, 74);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-13 22:45:27', N'assigned a member to the card', 14, 3, 70);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-03 01:38:27', N'changed board permissions', 3, 2, 1);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-13 01:16:27', N'set a due date for the card', 4, 3, 19);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-26 07:49:27', N'updated workspace settings', 11, 1, 5);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-07 15:09:27', N'updated the board background', 18, 2, 96);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-13 09:58:27', N'invited a user to the workspace', 13, 1, 45);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-27 03:52:27', N'invited a user to the workspace', 8, 1, 32);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-04 13:03:27', N'set a due date for the card', 9, 3, 37);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-26 17:25:27', N'updated the board background', 19, 2, 11);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-27 00:51:27', N'archived the workspace', 7, 1, 19);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-21 08:24:27', N'archived the workspace', 2, 1, 48);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-15 14:52:27', N'updated the board background', 12, 2, 12);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-20 02:27:27', N'added a checklist to the card', 5, 3, 76);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-05 13:23:27', N'updated workspace settings', 2, 1, 35);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-02 00:49:27', N'archived the board', 5, 2, 66);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-14 02:56:27', N'created a new board', 16, 2, 28);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-30 07:08:27', N'moved the card to another list', 15, 3, 18);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-08-02 19:56:27', N'updated workspace settings', 14, 1, 11);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-19 02:18:27', N'updated card details', 16, 3, 16);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-25 09:47:27', N'created a new board', 13, 2, 2);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-08 05:54:27', N'moved the card to another list', 17, 3, 4);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-24 19:27:27', N'updated workspace settings', 3, 1, 8);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-22 02:39:27', N'archived the board', 14, 2, 18);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-15 03:50:27', N'added a checklist to the card', 16, 3, 67);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-03 13:18:27', N'added a checklist to the card', 2, 3, 42);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-19 19:36:27', N'added a new member to the board', 5, 2, 46);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-25 05:50:27', N'archived the workspace', 8, 1, 90);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-15 07:13:27', N'set a due date for the card', 13, 3, 23);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-20 21:55:27', N'assigned a member to the card', 9, 3, 25);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-15 03:01:27', N'renamed the workspace', 4, 1, 36);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-19 17:23:27', N'created a new board', 9, 2, 15);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-04 18:27:27', N'updated the board background', 1, 2, 2);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-30 15:54:27', N'updated workspace settings', 5, 1, 63);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-15 02:33:27', N'changed board permissions', 18, 2, 34);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-18 22:55:27', N'set a due date for the card', 2, 3, 30);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-28 16:06:27', N'updated the board background', 3, 2, 74);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-04 10:27:27', N'added a checklist to the card', 3, 3, 64);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-12 15:24:27', N'archived the board', 6, 2, 34);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-17 22:56:27', N'created a new workspace', 1, 1, 72);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-06 23:10:27', N'added a checklist to the card', 8, 3, 10);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-06 10:48:27', N'changed board permissions', 18, 2, 19);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-19 08:19:27', N'updated workspace settings', 18, 1, 44);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-13 20:49:27', N'assigned a member to the card', 19, 3, 16);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-11 11:03:27', N'archived the workspace', 19, 1, 77);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-04 21:05:27', N'updated the board background', 1, 2, 8);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-18 23:52:27', N'archived the workspace', 14, 1, 47);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-13 07:11:27', N'updated workspace settings', 8, 1, 79);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-18 21:39:27', N'archived the workspace', 5, 1, 88);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-13 21:56:27', N'updated the board background', 6, 2, 30);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-03 15:15:27', N'invited a user to the workspace', 15, 1, 51);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-26 06:19:27', N'invited a user to the workspace', 5, 1, 7);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-25 20:07:27', N'updated workspace settings', 5, 1, 15);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-19 07:38:27', N'archived the workspace', 1, 1, 4);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-15 05:22:27', N'updated card details', 12, 3, 82);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-18 09:45:27', N'created a new board', 14, 2, 65);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-17 15:11:27', N'updated workspace settings', 3, 1, 99);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-26 08:09:27', N'created a new board', 7, 2, 97);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-28 19:49:27', N'updated workspace settings', 2, 1, 20);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-20 15:09:27', N'updated workspace settings', 17, 1, 6);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-29 01:48:27', N'created a new workspace', 17, 1, 34);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-29 20:42:27', N'archived the workspace', 20, 1, 67);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-12 03:09:27', N'created a new board', 9, 2, 57);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-02 01:52:27', N'assigned a member to the card', 15, 3, 83);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-20 16:50:27', N'updated the board background', 19, 2, 76);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-27 20:04:27', N'moved the card to another list', 9, 3, 90);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-28 02:18:27', N'archived the board', 12, 2, 66);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-07 18:46:27', N'created a new workspace', 10, 1, 98);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-29 05:14:27', N'updated the board background', 20, 2, 80);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-21 20:35:27', N'updated card details', 6, 3, 40);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-23 01:43:27', N'added a new member to the board', 1, 2, 56);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-09 18:35:27', N'invited a user to the workspace', 6, 1, 24);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-11 10:31:27', N'set a due date for the card', 11, 3, 92);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-16 06:01:27', N'invited a user to the workspace', 3, 1, 44);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-28 20:01:27', N'updated workspace settings', 4, 1, 54);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-24 12:17:27', N'renamed the workspace', 4, 1, 55);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-03 01:14:27', N'added a new member to the board', 17, 2, 35);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-15 14:30:27', N'assigned a member to the card', 16, 3, 69);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-20 20:10:27', N'changed board permissions', 9, 2, 18);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-13 00:35:27', N'set a due date for the card', 18, 3, 9);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-11 16:28:27', N'set a due date for the card', 1, 3, 24);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-18 16:35:27', N'changed board permissions', 2, 2, 36);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-27 09:42:27', N'updated card details', 5, 3, 97);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-25 06:26:27', N'archived the workspace', 16, 1, 37);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-23 00:06:27', N'archived the workspace', 2, 1, 19);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-14 12:04:27', N'updated the board background', 7, 2, 61);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-19 22:45:27', N'invited a user to the workspace', 20, 1, 32);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-17 03:28:27', N'set a due date for the card', 7, 3, 4);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-22 06:17:27', N'archived the workspace', 4, 1, 27);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-25 02:07:27', N'renamed the workspace', 1, 1, 63);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-12 19:54:27', N'updated the board background', 7, 2, 80);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-02 00:10:27', N'archived the board', 6, 2, 29);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-25 05:01:27', N'archived the board', 13, 2, 67);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-13 19:53:27', N'archived the board', 3, 2, 84);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-10 21:08:27', N'invited a user to the workspace', 1, 1, 96);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-22 07:35:27', N'added a new member to the board', 18, 2, 37);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-28 08:08:27', N'updated card details', 4, 3, 51);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-29 15:57:27', N'added a new member to the board', 7, 2, 78);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-07 20:43:27', N'added a new member to the board', 19, 2, 21);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-27 11:51:27', N'archived the board', 7, 2, 16);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-15 13:34:27', N'added a checklist to the card', 8, 3, 36);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-13 06:48:27', N'renamed the workspace', 6, 1, 23);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-14 04:39:27', N'updated the board background', 18, 2, 81);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-09 07:55:27', N'updated the board background', 9, 2, 32);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-21 21:16:27', N'added a new member to the board', 15, 2, 44);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-11 18:18:27', N'changed board permissions', 18, 2, 49);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-16 02:48:27', N'archived the workspace', 14, 1, 8);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-19 08:08:27', N'archived the board', 8, 2, 65);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-13 21:31:27', N'renamed the workspace', 10, 1, 42);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-27 01:14:27', N'set a due date for the card', 1, 3, 15);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-23 08:19:27', N'updated card details', 20, 3, 2);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-04 22:32:27', N'archived the workspace', 13, 1, 65);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-05 19:04:27', N'updated the board background', 17, 2, 5);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-09 08:05:27', N'archived the workspace', 3, 1, 89);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-04 10:07:27', N'updated card details', 11, 3, 90);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-05 17:33:27', N'updated workspace settings', 20, 1, 82);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-16 16:16:27', N'changed board permissions', 20, 2, 73);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-04 17:40:27', N'archived the board', 7, 2, 96);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-08-01 15:04:27', N'archived the workspace', 9, 1, 76);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-13 06:43:27', N'renamed the workspace', 18, 1, 73);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-05 08:31:27', N'changed board permissions', 11, 2, 2);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-08 00:40:27', N'invited a user to the workspace', 11, 1, 97);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-11 03:16:27', N'invited a user to the workspace', 16, 1, 11);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-20 13:26:27', N'updated workspace settings', 19, 1, 60);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-16 16:12:27', N'moved the card to another list', 12, 3, 31);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-04 14:30:27', N'added a new member to the board', 10, 2, 86);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-20 07:45:27', N'added a new member to the board', 17, 2, 22);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-09 17:17:27', N'archived the workspace', 12, 1, 17);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-31 05:26:27', N'changed board permissions', 9, 2, 27);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-20 23:52:27', N'renamed the workspace', 7, 1, 26);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-26 22:34:27', N'updated the board background', 19, 2, 37);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-24 17:19:27', N'updated card details', 14, 3, 25);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-25 20:37:27', N'assigned a member to the card', 19, 3, 62);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-03 13:29:27', N'archived the workspace', 14, 1, 1);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-08-02 15:15:27', N'invited a user to the workspace', 13, 1, 99);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-04 00:46:27', N'added a new member to the board', 7, 2, 39);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-25 15:16:27', N'assigned a member to the card', 10, 3, 42);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-18 14:40:27', N'added a new member to the board', 17, 2, 39);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-23 10:39:27', N'added a new member to the board', 12, 2, 82);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-17 23:33:27', N'set a due date for the card', 17, 3, 44);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-23 14:20:27', N'created a new board', 17, 2, 4);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-13 01:30:27', N'updated workspace settings', 10, 1, 20);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-04 15:59:27', N'changed board permissions', 13, 2, 62);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-05 10:42:27', N'archived the board', 17, 2, 32);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-03 19:04:27', N'assigned a member to the card', 6, 3, 83);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-24 15:51:27', N'created a card', 9, 3, 37);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-20 04:46:27', N'updated card details', 2, 3, 7);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-17 00:33:27', N'moved the card to another list', 12, 3, 59);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-01 01:37:27', N'added a new member to the board', 11, 2, 7);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-26 11:15:27', N'added a checklist to the card', 13, 3, 69);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-28 10:26:27', N'updated the board background', 10, 2, 18);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-13 06:45:27', N'assigned a member to the card', 6, 3, 2);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-29 00:09:27', N'set a due date for the card', 6, 3, 93);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-29 09:50:27', N'changed board permissions', 15, 2, 86);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-25 22:20:27', N'set a due date for the card', 16, 3, 44);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-21 13:43:27', N'updated workspace settings', 9, 1, 24);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-06 09:00:27', N'archived the board', 6, 2, 93);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-11 20:26:27', N'moved the card to another list', 5, 3, 47);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-03 14:36:27', N'created a new board', 13, 2, 18);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-19 08:36:27', N'updated the board background', 12, 2, 23);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-23 10:57:27', N'added a new member to the board', 8, 2, 2);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-21 13:40:27', N'changed board permissions', 13, 2, 31);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-18 13:49:27', N'created a new board', 6, 2, 45);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-25 15:33:27', N'created a new board', 1, 2, 78);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-03 11:01:27', N'added a new member to the board', 20, 2, 62);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-25 19:30:27', N'moved the card to another list', 2, 3, 100);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-12 12:04:27', N'moved the card to another list', 14, 3, 74);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-06 14:38:27', N'archived the workspace', 13, 1, 99);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-24 03:04:27', N'added a new member to the board', 12, 2, 94);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-25 13:17:27', N'created a new board', 15, 2, 56);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-06 14:50:27', N'updated workspace settings', 14, 1, 58);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-25 23:27:27', N'created a new board', 10, 2, 71);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-22 23:31:27', N'added a checklist to the card', 6, 3, 29);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-09 13:02:27', N'assigned a member to the card', 19, 3, 68);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-27 19:38:27', N'changed board permissions', 3, 2, 31);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-07 06:01:27', N'set a due date for the card', 11, 3, 22);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-28 04:37:27', N'added a new member to the board', 9, 2, 14);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-15 03:22:27', N'created a new workspace', 5, 1, 5);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-04 04:07:27', N'created a card', 10, 3, 20);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-21 01:06:27', N'added a new member to the board', 7, 2, 59);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-21 21:10:27', N'invited a user to the workspace', 6, 1, 54);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-21 06:10:27', N'archived the board', 16, 2, 77);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-30 21:27:27', N'updated workspace settings', 18, 1, 17);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-15 20:47:27', N'set a due date for the card', 12, 3, 86);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-18 13:27:27', N'created a card', 3, 3, 51);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-08-03 00:11:27', N'updated workspace settings', 12, 1, 17);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-05 17:06:27', N'archived the workspace', 5, 1, 26);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-05 00:01:27', N'invited a user to the workspace', 9, 1, 28);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-26 11:09:27', N'updated card details', 11, 3, 55);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-24 22:07:27', N'invited a user to the workspace', 14, 1, 50);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-25 08:31:27', N'renamed the workspace', 13, 1, 32);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-08-01 09:49:27', N'invited a user to the workspace', 11, 1, 27);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-28 09:04:27', N'updated the board background', 1, 2, 2);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-11 14:22:27', N'archived the workspace', 6, 1, 100);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-09 12:44:27', N'added a checklist to the card', 3, 3, 17);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-21 19:59:27', N'changed board permissions', 15, 2, 11);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-18 14:03:27', N'archived the workspace', 19, 1, 32);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-28 14:17:27', N'renamed the workspace', 3, 1, 55);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-06 03:25:27', N'added a new member to the board', 7, 2, 76);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-10 16:07:27', N'archived the board', 6, 2, 16);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-23 12:36:27', N'added a new member to the board', 19, 2, 11);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-29 04:18:27', N'created a new board', 19, 2, 26);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-20 18:47:27', N'archived the board', 2, 2, 86);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-08 08:02:27', N'changed board permissions', 19, 2, 27);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-29 07:26:27', N'invited a user to the workspace', 15, 1, 87);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-03 04:28:27', N'invited a user to the workspace', 8, 1, 46);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-30 20:56:27', N'created a card', 9, 3, 82);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-25 10:00:27', N'updated card details', 1, 3, 39);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-25 11:01:27', N'created a new workspace', 2, 1, 76);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-25 17:47:27', N'added a new member to the board', 18, 2, 52);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-18 01:05:27', N'archived the workspace', 13, 1, 100);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-06 01:00:27', N'archived the workspace', 8, 1, 35);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-23 12:31:27', N'created a new board', 13, 2, 89);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-23 05:19:27', N'invited a user to the workspace', 20, 1, 6);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-22 06:27:27', N'updated card details', 15, 3, 36);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-28 08:09:27', N'archived the workspace', 7, 1, 95);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-31 06:22:27', N'updated the board background', 5, 2, 74);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-15 13:25:27', N'updated card details', 3, 3, 18);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-15 03:03:27', N'updated card details', 16, 3, 63);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-15 17:45:27', N'created a new board', 20, 2, 45);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-06 05:52:27', N'created a new workspace', 16, 1, 12);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-18 12:17:27', N'added a new member to the board', 18, 2, 79);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-08 12:38:27', N'updated the board background', 13, 2, 19);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-15 11:05:27', N'added a checklist to the card', 8, 3, 29);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-12 03:33:27', N'updated card details', 12, 3, 12);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-12 11:26:27', N'updated the board background', 11, 2, 19);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-10 01:34:27', N'added a checklist to the card', 6, 3, 13);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-28 03:43:27', N'added a new member to the board', 19, 2, 3);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-16 10:55:27', N'changed board permissions', 12, 2, 23);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-22 14:36:27', N'changed board permissions', 15, 2, 47);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-15 08:46:27', N'archived the board', 10, 2, 71);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-10 02:01:27', N'added a new member to the board', 6, 2, 35);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-20 08:37:27', N'moved the card to another list', 5, 3, 55);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-21 21:05:27', N'renamed the workspace', 20, 1, 18);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-21 14:15:27', N'added a checklist to the card', 5, 3, 43);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-15 01:40:27', N'created a new board', 14, 2, 51);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-20 11:49:27', N'updated workspace settings', 12, 1, 29);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-31 03:00:27', N'added a checklist to the card', 8, 3, 27);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-21 21:10:27', N'moved the card to another list', 9, 3, 61);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-12 07:24:27', N'added a new member to the board', 8, 2, 4);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-21 18:50:27', N'added a checklist to the card', 6, 3, 33);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-13 06:41:27', N'assigned a member to the card', 5, 3, 4);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-13 23:04:27', N'updated card details', 13, 3, 73);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-21 19:35:27', N'created a new workspace', 6, 1, 26);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-17 00:35:27', N'updated workspace settings', 4, 1, 47);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-27 17:03:27', N'renamed the workspace', 4, 1, 10);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-25 11:52:27', N'created a new board', 14, 2, 4);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-29 17:45:27', N'updated workspace settings', 7, 1, 54);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-22 12:49:27', N'updated card details', 6, 3, 51);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-26 00:54:27', N'set a due date for the card', 6, 3, 65);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-31 15:25:27', N'updated the board background', 19, 2, 100);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-13 13:11:27', N'updated workspace settings', 15, 1, 51);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-23 05:48:27', N'added a new member to the board', 6, 2, 86);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-16 17:07:27', N'assigned a member to the card', 6, 3, 13);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-23 02:46:27', N'renamed the workspace', 17, 1, 6);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-05 17:00:27', N'changed board permissions', 9, 2, 30);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-23 15:19:27', N'added a new member to the board', 13, 2, 62);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-27 19:15:27', N'added a new member to the board', 3, 2, 66);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-14 16:32:27', N'created a card', 16, 3, 21);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-18 22:31:27', N'created a card', 17, 3, 92);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-25 14:44:27', N'updated workspace settings', 19, 1, 89);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-03 13:46:27', N'added a new member to the board', 3, 2, 30);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-03 16:29:27', N'invited a user to the workspace', 8, 1, 18);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-20 21:35:27', N'assigned a member to the card', 1, 3, 50);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-08-01 06:41:27', N'moved the card to another list', 9, 3, 46);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-16 05:26:27', N'assigned a member to the card', 1, 3, 89);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-08 07:08:27', N'invited a user to the workspace', 13, 1, 68);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-26 00:11:27', N'created a card', 11, 3, 38);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-29 22:12:27', N'archived the workspace', 19, 1, 76);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-22 16:11:27', N'added a checklist to the card', 8, 3, 2);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-10 00:13:27', N'created a new board', 13, 2, 34);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-03 12:20:27', N'created a new board', 12, 2, 76);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-07 08:25:27', N'updated workspace settings', 12, 1, 60);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-23 09:43:27', N'invited a user to the workspace', 13, 1, 83);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-04 08:27:27', N'created a new board', 19, 2, 5);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-10 10:17:27', N'added a checklist to the card', 9, 3, 52);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-14 08:24:27', N'archived the board', 1, 2, 13);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-18 03:21:27', N'set a due date for the card', 13, 3, 38);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-24 12:51:27', N'updated the board background', 14, 2, 87);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-17 09:44:27', N'moved the card to another list', 12, 3, 6);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-26 00:08:27', N'updated card details', 1, 3, 91);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-12 08:53:27', N'updated card details', 5, 3, 100);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-28 05:34:27', N'archived the workspace', 3, 1, 21);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-23 15:01:27', N'created a card', 4, 3, 34);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-24 19:03:27', N'added a new member to the board', 14, 2, 65);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-26 19:02:27', N'moved the card to another list', 20, 3, 33);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-29 10:40:27', N'archived the board', 2, 2, 26);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-27 23:24:27', N'set a due date for the card', 6, 3, 67);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-09 19:42:27', N'updated card details', 6, 3, 65);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-02 12:10:27', N'created a card', 3, 3, 76);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-26 16:21:27', N'archived the board', 19, 2, 20);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-28 18:21:27', N'renamed the workspace', 1, 1, 83);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-28 10:54:27', N'archived the workspace', 6, 1, 85);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-10 21:52:27', N'created a card', 16, 3, 21);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-28 10:51:27', N'archived the board', 11, 2, 31);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-03 13:47:27', N'updated workspace settings', 17, 1, 88);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-25 12:35:27', N'assigned a member to the card', 16, 3, 52);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-11 20:05:27', N'invited a user to the workspace', 16, 1, 19);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-31 09:52:27', N'added a checklist to the card', 5, 3, 41);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-19 21:46:27', N'added a new member to the board', 14, 2, 17);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-28 23:41:27', N'changed board permissions', 12, 2, 30);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-18 23:04:27', N'invited a user to the workspace', 15, 1, 75);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-09 04:50:27', N'created a new workspace', 7, 1, 35);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-07 02:12:27', N'created a new board', 19, 2, 75);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-21 13:50:27', N'added a new member to the board', 11, 2, 55);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-02 08:08:27', N'moved the card to another list', 11, 3, 78);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-16 06:49:27', N'renamed the workspace', 10, 1, 2);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-11 13:39:27', N'updated the board background', 19, 2, 46);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-05 09:37:27', N'added a new member to the board', 12, 2, 47);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-29 22:23:27', N'set a due date for the card', 3, 3, 89);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-11 22:32:27', N'created a new board', 15, 2, 86);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-29 13:01:27', N'created a new workspace', 15, 1, 24);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-07 23:48:27', N'added a checklist to the card', 2, 3, 21);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-15 14:45:27', N'invited a user to the workspace', 12, 1, 20);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-17 20:26:27', N'updated card details', 10, 3, 57);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-18 15:56:27', N'renamed the workspace', 14, 1, 7);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-10 15:53:27', N'added a checklist to the card', 10, 3, 3);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-20 05:26:27', N'archived the board', 2, 2, 74);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-15 08:09:27', N'created a card', 5, 3, 30);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-17 05:17:27', N'added a checklist to the card', 8, 3, 7);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-05 09:52:27', N'updated workspace settings', 20, 1, 57);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-08 14:25:27', N'updated workspace settings', 10, 1, 24);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-19 11:50:27', N'added a new member to the board', 16, 2, 29);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-16 00:10:27', N'added a new member to the board', 18, 2, 10);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-25 17:28:27', N'moved the card to another list', 9, 3, 49);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-27 22:17:27', N'changed board permissions', 8, 2, 89);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-03 19:53:27', N'archived the board', 12, 2, 39);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-18 23:23:27', N'added a checklist to the card', 13, 3, 55);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-03 06:39:27', N'invited a user to the workspace', 10, 1, 30);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-28 23:03:27', N'updated workspace settings', 10, 1, 52);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-22 15:14:27', N'renamed the workspace', 1, 1, 45);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-19 19:01:27', N'updated card details', 10, 3, 61);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-07 08:37:27', N'changed board permissions', 15, 2, 19);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-15 05:00:27', N'set a due date for the card', 11, 3, 41);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-31 23:03:27', N'moved the card to another list', 4, 3, 82);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-29 18:13:27', N'created a new workspace', 2, 1, 24);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-28 14:53:27', N'created a new board', 9, 2, 27);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-27 19:23:27', N'moved the card to another list', 20, 3, 85);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-10 08:29:27', N'updated the board background', 6, 2, 95);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-13 13:25:27', N'set a due date for the card', 12, 3, 74);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-08 15:15:27', N'archived the board', 12, 2, 67);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-28 18:54:27', N'moved the card to another list', 8, 3, 7);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-27 18:37:27', N'moved the card to another list', 1, 3, 55);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-01 10:57:27', N'created a new board', 3, 2, 61);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-08-01 05:23:27', N'added a new member to the board', 20, 2, 96);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-11 23:37:27', N'changed board permissions', 14, 2, 53);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-20 09:27:27', N'created a card', 11, 3, 50);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-21 18:33:27', N'added a new member to the board', 11, 2, 80);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-27 16:41:27', N'assigned a member to the card', 18, 3, 79);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-07 13:30:27', N'created a card', 16, 3, 11);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-19 12:34:27', N'set a due date for the card', 6, 3, 93);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-27 21:19:27', N'renamed the workspace', 17, 1, 16);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-08 16:37:27', N'set a due date for the card', 12, 3, 46);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-06 15:29:27', N'updated the board background', 8, 2, 42);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-02 03:03:27', N'added a new member to the board', 14, 2, 78);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-08-02 21:24:27', N'added a new member to the board', 1, 2, 49);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-19 14:52:27', N'set a due date for the card', 3, 3, 70);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-20 03:27:27', N'updated workspace settings', 17, 1, 56);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-17 17:10:27', N'created a card', 1, 3, 67);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-21 08:44:27', N'moved the card to another list', 16, 3, 87);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-19 10:40:27', N'assigned a member to the card', 13, 3, 1);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-21 15:51:27', N'changed board permissions', 14, 2, 38);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-27 00:06:27', N'archived the board', 1, 2, 56);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-14 13:35:27', N'changed board permissions', 6, 2, 72);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-11 22:59:27', N'renamed the workspace', 15, 1, 49);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-24 11:36:27', N'archived the board', 19, 2, 81);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-09 04:45:27', N'updated workspace settings', 19, 1, 10);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-29 05:40:27', N'updated card details', 13, 3, 11);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-16 15:15:27', N'updated workspace settings', 1, 1, 100);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-13 09:42:27', N'assigned a member to the card', 5, 3, 62);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-11 14:10:27', N'changed board permissions', 9, 2, 37);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-26 05:08:27', N'created a card', 13, 3, 2);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-25 01:48:27', N'created a card', 14, 3, 96);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-04 09:50:27', N'updated workspace settings', 6, 1, 86);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-14 04:29:27', N'invited a user to the workspace', 18, 1, 4);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-31 18:57:27', N'created a card', 3, 3, 33);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-08 04:28:27', N'added a new member to the board', 9, 2, 100);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-22 07:50:27', N'invited a user to the workspace', 14, 1, 100);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-29 08:11:27', N'invited a user to the workspace', 5, 1, 53);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-13 19:12:27', N'updated the board background', 15, 2, 74);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-25 16:43:27', N'created a new board', 18, 2, 72);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-15 03:35:27', N'set a due date for the card', 1, 3, 49);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-28 00:36:27', N'moved the card to another list', 10, 3, 5);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-16 18:43:27', N'added a checklist to the card', 4, 3, 36);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-28 04:22:27', N'changed board permissions', 18, 2, 3);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-22 02:01:27', N'changed board permissions', 8, 2, 82);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-21 01:47:27', N'added a new member to the board', 11, 2, 22);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-09 03:47:27', N'changed board permissions', 20, 2, 80);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-17 07:56:27', N'added a new member to the board', 7, 2, 53);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-25 17:23:27', N'created a new board', 4, 2, 91);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-09 02:50:27', N'updated the board background', 11, 2, 88);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-10 21:40:27', N'archived the board', 5, 2, 51);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-06 07:14:27', N'invited a user to the workspace', 18, 1, 14);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-27 07:15:27', N'archived the board', 2, 2, 39);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-04 16:31:27', N'set a due date for the card', 3, 3, 100);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-03 16:45:27', N'renamed the workspace', 14, 1, 72);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-03 17:00:27', N'renamed the workspace', 2, 1, 13);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-14 23:06:27', N'created a new board', 18, 2, 63);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-19 11:53:27', N'added a new member to the board', 4, 2, 70);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-05 01:45:27', N'added a new member to the board', 3, 2, 8);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-13 15:58:27', N'added a checklist to the card', 10, 3, 60);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-29 22:09:27', N'updated card details', 14, 3, 55);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-30 13:01:27', N'invited a user to the workspace', 8, 1, 43);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-18 15:40:27', N'created a card', 18, 3, 56);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-04 19:10:27', N'created a new board', 5, 2, 26);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-25 17:26:27', N'archived the workspace', 15, 1, 6);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-16 01:53:27', N'added a new member to the board', 6, 2, 56);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-15 09:32:27', N'invited a user to the workspace', 10, 1, 5);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-17 01:04:27', N'moved the card to another list', 18, 3, 98);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-30 10:31:27', N'updated the board background', 5, 2, 42);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-05 06:09:27', N'created a new workspace', 6, 1, 84);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-28 19:41:27', N'created a card', 9, 3, 35);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-24 03:33:27', N'changed board permissions', 13, 2, 22);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-11 16:55:27', N'archived the board', 2, 2, 24);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-24 23:08:27', N'updated workspace settings', 6, 1, 5);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-27 12:58:27', N'added a checklist to the card', 17, 3, 29);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-23 13:35:27', N'renamed the workspace', 20, 1, 55);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-12 11:12:27', N'created a new board', 18, 2, 26);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-21 00:56:27', N'archived the workspace', 3, 1, 89);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-29 12:06:27', N'assigned a member to the card', 2, 3, 98);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-09 13:45:27', N'assigned a member to the card', 10, 3, 58);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-10 05:50:27', N'updated workspace settings', 17, 1, 90);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-25 04:16:27', N'set a due date for the card', 7, 3, 54);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-08 23:17:27', N'changed board permissions', 2, 2, 53);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-20 23:47:27', N'updated card details', 5, 3, 99);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-22 11:21:27', N'renamed the workspace', 13, 1, 67);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-08 01:49:27', N'created a new workspace', 3, 1, 6);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-20 18:50:27', N'moved the card to another list', 12, 3, 8);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-05 00:50:27', N'invited a user to the workspace', 18, 1, 63);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-02 23:36:27', N'added a new member to the board', 15, 2, 13);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-18 06:54:27', N'renamed the workspace', 10, 1, 52);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-09 01:56:27', N'moved the card to another list', 12, 3, 76);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-29 16:32:27', N'archived the workspace', 5, 1, 37);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-31 17:04:27', N'updated workspace settings', 10, 1, 9);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-06 08:55:27', N'created a card', 13, 3, 41);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-17 15:10:27', N'added a new member to the board', 3, 2, 36);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-24 09:18:27', N'invited a user to the workspace', 3, 1, 89);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-03 23:19:27', N'archived the workspace', 5, 1, 76);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-27 07:54:27', N'set a due date for the card', 19, 3, 33);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-14 17:39:27', N'archived the board', 12, 2, 25);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-15 03:16:27', N'set a due date for the card', 20, 3, 18);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-03 20:04:27', N'archived the board', 17, 2, 58);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-24 14:45:27', N'added a new member to the board', 10, 2, 67);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-21 18:37:27', N'added a new member to the board', 4, 2, 71);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-03 20:19:27', N'renamed the workspace', 13, 1, 37);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-19 13:25:27', N'archived the board', 3, 2, 79);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-06 09:37:27', N'changed board permissions', 15, 2, 26);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-11 22:46:27', N'created a new board', 1, 2, 60);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-26 23:10:27', N'archived the board', 19, 2, 48);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-23 19:53:27', N'invited a user to the workspace', 4, 1, 37);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-13 20:53:27', N'updated card details', 17, 3, 46);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-29 03:45:27', N'archived the workspace', 9, 1, 17);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-21 16:26:27', N'archived the workspace', 9, 1, 46);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-08-03 00:26:27', N'assigned a member to the card', 10, 3, 89);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-13 07:43:27', N'archived the workspace', 11, 1, 65);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-07 16:44:27', N'created a card', 3, 3, 56);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-13 01:33:27', N'invited a user to the workspace', 9, 1, 55);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-08-02 14:21:27', N'created a new board', 3, 2, 34);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-02 10:25:27', N'created a new workspace', 2, 1, 42);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-08 23:06:27', N'created a new workspace', 13, 1, 65);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-16 15:50:27', N'set a due date for the card', 1, 3, 40);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-16 17:08:27', N'changed board permissions', 20, 2, 67);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-15 23:17:27', N'created a new workspace', 3, 1, 6);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-07 13:44:27', N'archived the workspace', 1, 1, 25);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-12 18:33:27', N'invited a user to the workspace', 17, 1, 41);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-18 22:52:27', N'created a new workspace', 1, 1, 93);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-11 15:59:27', N'updated workspace settings', 19, 1, 53);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-12 19:47:27', N'updated the board background', 6, 2, 11);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-27 03:00:27', N'created a new workspace', 11, 1, 83);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-17 23:32:27', N'created a new board', 19, 2, 88);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-16 07:14:27', N'archived the workspace', 7, 1, 17);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-13 15:06:27', N'archived the workspace', 9, 1, 100);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-30 20:56:27', N'moved the card to another list', 13, 3, 85);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-07 09:19:27', N'updated card details', 10, 3, 64);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-05 08:24:27', N'created a new workspace', 7, 1, 37);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-12 19:43:27', N'changed board permissions', 15, 2, 78);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-12 03:55:27', N'invited a user to the workspace', 15, 1, 25);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-08 02:20:27', N'created a new board', 7, 2, 28);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-26 11:54:27', N'renamed the workspace', 2, 1, 88);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-23 02:31:27', N'assigned a member to the card', 13, 3, 36);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-07 03:26:27', N'added a checklist to the card', 3, 3, 34);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-25 18:07:27', N'assigned a member to the card', 6, 3, 9);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-12 02:22:27', N'created a new board', 3, 2, 40);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-09 14:30:27', N'archived the workspace', 13, 1, 32);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-13 11:08:27', N'created a new workspace', 3, 1, 89);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-08-01 04:07:27', N'created a card', 2, 3, 1);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-08 23:32:27', N'created a new workspace', 13, 1, 29);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-06 13:41:27', N'added a checklist to the card', 11, 3, 9);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-28 03:42:27', N'archived the workspace', 12, 1, 79);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-27 08:29:27', N'assigned a member to the card', 10, 3, 72);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-19 14:40:27', N'added a new member to the board', 6, 2, 81);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-11 03:34:27', N'created a card', 17, 3, 65);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-08-02 16:19:27', N'set a due date for the card', 4, 3, 80);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-03 13:09:27', N'updated the board background', 1, 2, 47);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-05 09:18:27', N'set a due date for the card', 5, 3, 59);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-20 06:46:27', N'updated card details', 13, 3, 5);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-24 06:37:27', N'added a checklist to the card', 17, 3, 2);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-07 20:27:27', N'added a checklist to the card', 11, 3, 30);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-27 23:34:27', N'set a due date for the card', 15, 3, 100);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-24 20:22:27', N'created a new board', 13, 2, 41);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-11 22:07:27', N'assigned a member to the card', 9, 3, 78);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-28 18:33:27', N'updated workspace settings', 12, 1, 29);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-26 22:32:27', N'renamed the workspace', 12, 1, 18);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-03 17:17:27', N'updated workspace settings', 16, 1, 63);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-16 05:40:27', N'created a new board', 10, 2, 17);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-10 10:30:27', N'created a card', 8, 3, 13);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-08 01:18:27', N'renamed the workspace', 20, 1, 72);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-13 19:21:27', N'added a checklist to the card', 7, 3, 39);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-31 03:05:27', N'archived the workspace', 9, 1, 2);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-18 20:43:27', N'added a new member to the board', 14, 2, 37);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-07 12:29:27', N'archived the workspace', 11, 1, 35);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-16 16:10:27', N'created a new board', 20, 2, 52);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-25 22:37:27', N'created a card', 7, 3, 96);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-14 18:19:27', N'created a card', 12, 3, 9);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-08-02 14:36:27', N'archived the board', 2, 2, 5);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-29 02:02:27', N'created a new board', 10, 2, 56);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-18 08:05:27', N'archived the workspace', 16, 1, 39);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-30 20:16:27', N'assigned a member to the card', 11, 3, 62);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-28 16:09:27', N'moved the card to another list', 11, 3, 83);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-21 17:15:27', N'created a new workspace', 3, 1, 43);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-08-01 11:40:27', N'archived the workspace', 11, 1, 47);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-05 07:13:27', N'assigned a member to the card', 3, 3, 47);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-09 11:50:27', N'updated the board background', 8, 2, 39);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-24 03:01:27', N'created a card', 16, 3, 70);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-02 18:10:27', N'invited a user to the workspace', 17, 1, 5);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-10 23:28:27', N'created a card', 5, 3, 24);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-24 06:13:27', N'moved the card to another list', 1, 3, 72);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-20 03:16:27', N'assigned a member to the card', 9, 3, 81);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-30 01:02:27', N'updated card details', 6, 3, 99);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-30 17:58:27', N'invited a user to the workspace', 14, 1, 44);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-10 03:36:27', N'invited a user to the workspace', 7, 1, 84);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-08-01 18:53:27', N'assigned a member to the card', 7, 3, 46);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-18 06:38:27', N'archived the workspace', 10, 1, 21);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-23 00:43:27', N'updated the board background', 5, 2, 7);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-08 22:40:27', N'added a new member to the board', 2, 2, 21);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-18 18:44:27', N'added a new member to the board', 12, 2, 24);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-30 01:46:27', N'archived the board', 17, 2, 5);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-10 16:28:27', N'updated workspace settings', 2, 1, 70);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-23 02:17:27', N'updated card details', 14, 3, 47);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-21 22:51:27', N'renamed the workspace', 20, 1, 8);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-29 10:13:27', N'added a new member to the board', 5, 2, 3);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-13 04:17:27', N'updated workspace settings', 4, 1, 19);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-23 05:01:27', N'archived the workspace', 1, 1, 17);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-01 07:10:27', N'updated the board background', 10, 2, 24);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-14 08:11:27', N'assigned a member to the card', 20, 3, 78);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-08-01 03:08:27', N'created a card', 9, 3, 23);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-10 06:39:27', N'added a new member to the board', 14, 2, 93);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-27 06:50:27', N'invited a user to the workspace', 12, 1, 58);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-24 02:17:27', N'created a new board', 19, 2, 53);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-03 17:26:27', N'set a due date for the card', 17, 3, 49);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-22 17:55:27', N'moved the card to another list', 9, 3, 57);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-03 03:04:27', N'created a card', 20, 3, 5);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-29 04:23:27', N'assigned a member to the card', 16, 3, 46);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-10 19:18:27', N'moved the card to another list', 20, 3, 90);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-30 10:00:27', N'changed board permissions', 9, 2, 10);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-27 05:43:27', N'added a checklist to the card', 3, 3, 91);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-08 09:16:27', N'updated card details', 10, 3, 90);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-18 15:16:27', N'created a card', 2, 3, 48);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-23 09:45:27', N'created a new board', 14, 2, 69);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-14 18:47:27', N'created a new board', 1, 2, 92);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-08 11:07:27', N'updated workspace settings', 11, 1, 49);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-21 00:07:27', N'invited a user to the workspace', 15, 1, 33);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-17 20:46:27', N'created a card', 9, 3, 11);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-28 04:47:27', N'archived the board', 1, 2, 99);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-30 07:01:27', N'invited a user to the workspace', 4, 1, 1);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-20 00:47:27', N'added a checklist to the card', 14, 3, 64);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-13 05:20:27', N'renamed the workspace', 18, 1, 13);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-16 12:12:27', N'created a new workspace', 15, 1, 39);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-23 19:17:27', N'assigned a member to the card', 15, 3, 45);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-26 22:59:27', N'updated card details', 12, 3, 64);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-22 10:09:27', N'moved the card to another list', 16, 3, 68);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-08-02 06:56:27', N'added a checklist to the card', 8, 3, 45);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-09 17:22:27', N'updated workspace settings', 14, 1, 92);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-18 01:39:27', N'changed board permissions', 3, 2, 40);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-26 18:21:27', N'updated workspace settings', 17, 1, 24);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-10 10:57:27', N'moved the card to another list', 2, 3, 11);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-14 08:27:27', N'changed board permissions', 17, 2, 89);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-16 07:36:27', N'archived the board', 12, 2, 2);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-20 09:07:27', N'assigned a member to the card', 3, 3, 75);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-17 08:36:27', N'moved the card to another list', 4, 3, 59);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-23 18:56:27', N'added a new member to the board', 12, 2, 62);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-30 13:07:27', N'moved the card to another list', 17, 3, 75);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-10 19:59:27', N'moved the card to another list', 6, 3, 57);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-28 11:00:27', N'archived the board', 7, 2, 97);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-30 21:44:27', N'renamed the workspace', 19, 1, 67);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-02 22:55:27', N'added a new member to the board', 5, 2, 95);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-27 13:55:27', N'moved the card to another list', 14, 3, 45);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-16 06:17:27', N'archived the workspace', 11, 1, 71);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-09 04:11:27', N'updated workspace settings', 11, 1, 38);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-31 14:05:27', N'created a new workspace', 13, 1, 21);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-21 22:23:27', N'updated the board background', 16, 2, 14);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-08-01 20:48:27', N'updated the board background', 11, 2, 81);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-13 20:01:27', N'changed board permissions', 17, 2, 69);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-07 10:10:27', N'created a new board', 11, 2, 19);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-20 08:41:27', N'assigned a member to the card', 10, 3, 30);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-10 02:51:27', N'changed board permissions', 18, 2, 31);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-06 01:29:27', N'archived the workspace', 18, 1, 85);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-03 23:46:27', N'archived the workspace', 2, 1, 38);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-07 23:04:27', N'created a new workspace', 6, 1, 74);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-29 14:40:27', N'archived the board', 19, 2, 34);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-01 09:01:27', N'updated workspace settings', 11, 1, 71);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-18 08:55:27', N'archived the board', 6, 2, 83);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-05 04:11:27', N'assigned a member to the card', 17, 3, 8);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-30 17:35:27', N'updated the board background', 20, 2, 64);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-23 07:26:27', N'renamed the workspace', 16, 1, 13);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-21 09:49:27', N'added a checklist to the card', 16, 3, 56);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-12 10:28:27', N'updated card details', 18, 3, 64);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-21 14:57:27', N'updated workspace settings', 6, 1, 98);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-23 09:50:27', N'assigned a member to the card', 20, 3, 27);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-12 13:40:27', N'updated card details', 3, 3, 60);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-16 18:10:27', N'updated the board background', 5, 2, 58);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-17 05:59:27', N'created a new workspace', 6, 1, 10);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-15 09:34:27', N'archived the board', 15, 2, 78);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-18 20:24:27', N'set a due date for the card', 13, 3, 40);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-04 11:54:27', N'renamed the workspace', 11, 1, 50);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-11 23:21:27', N'set a due date for the card', 9, 3, 91);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-14 23:16:27', N'added a checklist to the card', 18, 3, 44);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-06 14:23:27', N'archived the workspace', 6, 1, 13);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-28 12:29:27', N'created a new board', 20, 2, 6);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-15 14:59:27', N'added a new member to the board', 15, 2, 78);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-21 07:37:27', N'updated the board background', 7, 2, 36);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-31 11:05:27', N'renamed the workspace', 1, 1, 3);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-16 09:42:27', N'invited a user to the workspace', 6, 1, 6);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-28 07:41:27', N'added a checklist to the card', 18, 3, 55);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-13 00:02:27', N'assigned a member to the card', 11, 3, 91);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-05 16:35:27', N'changed board permissions', 4, 2, 27);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-28 16:43:27', N'updated card details', 18, 3, 79);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-13 23:47:27', N'added a checklist to the card', 16, 3, 64);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-25 10:07:27', N'updated card details', 6, 3, 78);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-18 10:52:27', N'created a new workspace', 1, 1, 38);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-12 11:48:27', N'set a due date for the card', 7, 3, 50);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-15 15:59:27', N'renamed the workspace', 4, 1, 68);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-17 08:30:27', N'invited a user to the workspace', 6, 1, 50);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-30 16:10:27', N'added a checklist to the card', 14, 3, 62);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-20 14:41:27', N'added a checklist to the card', 2, 3, 81);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-12 09:25:27', N'set a due date for the card', 19, 3, 93);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-31 03:01:27', N'changed board permissions', 12, 2, 43);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-17 05:47:27', N'created a new board', 19, 2, 7);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-17 12:31:27', N'changed board permissions', 2, 2, 99);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-30 23:29:27', N'changed board permissions', 14, 2, 89);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-06 11:24:27', N'updated card details', 4, 3, 60);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-10 09:53:27', N'set a due date for the card', 6, 3, 62);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-02 19:59:27', N'invited a user to the workspace', 1, 1, 27);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-22 13:31:27', N'renamed the workspace', 20, 1, 14);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-14 02:34:27', N'created a new workspace', 14, 1, 40);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-01 00:19:27', N'updated the board background', 8, 2, 11);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-05 03:34:27', N'updated workspace settings', 20, 1, 42);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-09 12:45:27', N'changed board permissions', 14, 2, 20);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-19 12:44:27', N'archived the board', 15, 2, 14);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-24 03:25:27', N'updated workspace settings', 20, 1, 49);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-06 02:52:27', N'updated card details', 9, 3, 76);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-09 09:43:27', N'invited a user to the workspace', 10, 1, 57);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-26 21:50:27', N'changed board permissions', 17, 2, 38);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-20 15:17:27', N'archived the board', 5, 2, 81);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-03 12:41:27', N'updated card details', 2, 3, 32);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-05 23:48:27', N'archived the workspace', 10, 1, 12);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-12 06:24:27', N'assigned a member to the card', 15, 3, 72);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-25 19:24:27', N'created a new board', 13, 2, 22);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-17 22:51:27', N'invited a user to the workspace', 3, 1, 96);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-10 04:14:27', N'added a new member to the board', 12, 2, 75);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-02 23:13:27', N'created a new board', 19, 2, 75);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-09 21:55:27', N'set a due date for the card', 9, 3, 68);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-13 05:56:27', N'renamed the workspace', 15, 1, 99);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-05 03:14:27', N'set a due date for the card', 2, 3, 8);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-05 03:04:27', N'renamed the workspace', 1, 1, 58);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-07 20:41:27', N'updated the board background', 18, 2, 19);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-13 19:09:27', N'created a card', 15, 3, 77);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-06 07:12:27', N'moved the card to another list', 13, 3, 16);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-28 12:47:27', N'updated the board background', 3, 2, 13);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-27 20:43:27', N'archived the workspace', 19, 1, 37);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-18 14:10:27', N'created a new workspace', 9, 1, 80);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-14 00:07:27', N'updated workspace settings', 3, 1, 32);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-29 16:02:27', N'moved the card to another list', 19, 3, 48);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-16 16:11:27', N'updated the board background', 3, 2, 85);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-04 00:08:27', N'set a due date for the card', 14, 3, 75);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-12 09:59:27', N'archived the workspace', 9, 1, 63);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-24 08:09:27', N'archived the workspace', 8, 1, 80);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-08-01 22:02:27', N'created a card', 12, 3, 34);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-14 14:21:27', N'added a checklist to the card', 15, 3, 88);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-26 11:50:27', N'renamed the workspace', 20, 1, 12);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-04 10:03:27', N'archived the workspace', 20, 1, 80);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-05 23:46:27', N'updated card details', 17, 3, 98);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-25 16:49:27', N'renamed the workspace', 20, 1, 94);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-15 16:47:27', N'added a checklist to the card', 16, 3, 53);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-21 08:50:27', N'created a new board', 3, 2, 62);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-02 09:28:27', N'changed board permissions', 15, 2, 31);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-16 10:13:27', N'added a checklist to the card', 3, 3, 73);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-05 14:57:27', N'created a new workspace', 3, 1, 14);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-08-02 16:53:27', N'renamed the workspace', 18, 1, 82);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-17 23:36:27', N'archived the board', 4, 2, 7);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-04 09:49:27', N'invited a user to the workspace', 8, 1, 43);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-22 10:37:27', N'added a new member to the board', 18, 2, 46);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-21 02:18:27', N'assigned a member to the card', 5, 3, 29);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-26 14:25:27', N'updated workspace settings', 13, 1, 24);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-11 22:48:27', N'invited a user to the workspace', 10, 1, 17);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-30 01:56:27', N'updated workspace settings', 12, 1, 48);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-04 18:09:27', N'assigned a member to the card', 4, 3, 4);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-11 17:22:27', N'updated workspace settings', 19, 1, 23);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-12 16:48:27', N'archived the workspace', 15, 1, 54);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-13 00:51:27', N'archived the workspace', 17, 1, 87);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-29 06:40:27', N'created a card', 3, 3, 32);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-16 00:51:27', N'added a checklist to the card', 7, 3, 79);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-07 06:11:27', N'updated card details', 5, 3, 72);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-05 22:46:27', N'added a checklist to the card', 15, 3, 59);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-16 00:58:27', N'archived the board', 9, 2, 69);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-29 02:59:27', N'created a new board', 7, 2, 88);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-03 10:37:27', N'updated workspace settings', 17, 1, 52);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-16 06:56:27', N'archived the board', 4, 2, 48);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-08-01 15:03:27', N'updated workspace settings', 13, 1, 82);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-13 22:56:27', N'renamed the workspace', 4, 1, 51);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-31 02:55:27', N'set a due date for the card', 16, 3, 91);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-29 12:16:27', N'invited a user to the workspace', 10, 1, 98);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-06 05:06:27', N'invited a user to the workspace', 17, 1, 25);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-19 12:37:27', N'archived the workspace', 6, 1, 6);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-16 19:04:27', N'created a card', 2, 3, 93);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-01 18:23:27', N'created a new workspace', 10, 1, 13);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-10 18:36:27', N'invited a user to the workspace', 15, 1, 11);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-29 14:37:27', N'invited a user to the workspace', 15, 1, 36);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-23 19:24:27', N'moved the card to another list', 16, 3, 93);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-24 20:02:27', N'assigned a member to the card', 15, 3, 71);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-07 06:04:27', N'renamed the workspace', 12, 1, 3);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-16 19:56:27', N'archived the workspace', 12, 1, 17);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-27 12:47:27', N'set a due date for the card', 18, 3, 34);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-14 17:13:27', N'archived the board', 15, 2, 86);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-06 00:43:27', N'added a checklist to the card', 8, 3, 31);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-03 08:28:27', N'updated card details', 1, 3, 4);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-05 06:08:27', N'created a card', 17, 3, 17);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-24 05:33:27', N'assigned a member to the card', 14, 3, 87);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-12 07:52:27', N'updated the board background', 19, 2, 81);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-09 21:57:27', N'renamed the workspace', 15, 1, 35);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-05 04:05:27', N'added a checklist to the card', 16, 3, 71);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-15 11:52:27', N'created a card', 4, 3, 39);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-21 02:13:27', N'moved the card to another list', 17, 3, 61);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-04 17:20:27', N'archived the board', 8, 2, 18);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-16 02:40:27', N'added a new member to the board', 5, 2, 15);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-10 07:25:27', N'changed board permissions', 11, 2, 23);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-25 08:31:27', N'created a new workspace', 16, 1, 90);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-04 09:30:27', N'created a card', 1, 3, 92);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-18 08:45:27', N'renamed the workspace', 12, 1, 35);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-21 08:49:27', N'created a new board', 1, 2, 41);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-14 08:38:27', N'renamed the workspace', 16, 1, 1);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-24 09:00:27', N'invited a user to the workspace', 19, 1, 1);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-21 06:19:27', N'changed board permissions', 15, 2, 79);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-20 05:25:27', N'archived the workspace', 5, 1, 46);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-11 20:26:27', N'added a checklist to the card', 3, 3, 72);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-03 16:01:27', N'moved the card to another list', 12, 3, 55);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-01 05:58:27', N'assigned a member to the card', 14, 3, 88);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-22 18:17:27', N'moved the card to another list', 5, 3, 64);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-08 06:03:27', N'renamed the workspace', 6, 1, 46);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-12 21:12:27', N'created a new board', 12, 2, 21);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-22 18:47:27', N'archived the workspace', 17, 1, 55);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-10 04:19:27', N'created a new board', 5, 2, 8);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-11 16:33:27', N'created a card', 12, 3, 26);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-12 12:58:27', N'invited a user to the workspace', 13, 1, 43);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-18 22:34:27', N'created a new workspace', 4, 1, 88);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-05 23:52:27', N'added a new member to the board', 12, 2, 89);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-15 06:01:27', N'invited a user to the workspace', 7, 1, 2);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-11 01:06:27', N'set a due date for the card', 6, 3, 95);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-05 11:11:27', N'updated the board background', 20, 2, 19);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-27 02:16:27', N'renamed the workspace', 16, 1, 68);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-12 18:33:27', N'updated card details', 6, 3, 91);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-17 15:12:27', N'created a new board', 2, 2, 45);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-20 18:55:27', N'invited a user to the workspace', 16, 1, 66);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-14 01:54:27', N'archived the board', 13, 2, 3);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-24 15:52:27', N'updated the board background', 19, 2, 66);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-25 19:47:27', N'archived the workspace', 6, 1, 55);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-08 06:27:27', N'created a new workspace', 4, 1, 49);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-19 11:17:27', N'changed board permissions', 13, 2, 22);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-11 08:44:27', N'created a new board', 3, 2, 6);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-23 04:34:27', N'assigned a member to the card', 19, 3, 93);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-29 20:42:27', N'created a new board', 16, 2, 34);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-26 03:49:27', N'updated the board background', 18, 2, 2);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-09 15:59:27', N'updated card details', 19, 3, 51);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-29 21:53:27', N'created a new workspace', 15, 1, 72);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-07 19:04:27', N'renamed the workspace', 4, 1, 46);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-01 18:31:27', N'created a new board', 19, 2, 72);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-22 23:03:27', N'archived the workspace', 14, 1, 16);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-09 16:44:27', N'changed board permissions', 1, 2, 78);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-05 18:35:27', N'archived the workspace', 13, 1, 86);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-08 05:34:27', N'created a new board', 6, 2, 79);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-28 08:19:27', N'updated workspace settings', 12, 1, 36);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-05 19:56:27', N'created a new board', 14, 2, 75);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-16 07:06:27', N'added a checklist to the card', 20, 3, 43);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-08-02 04:33:27', N'updated the board background', 18, 2, 32);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-04 22:27:27', N'updated workspace settings', 14, 1, 58);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-22 07:45:27', N'invited a user to the workspace', 18, 1, 9);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-15 07:23:27', N'renamed the workspace', 11, 1, 65);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-19 16:47:27', N'assigned a member to the card', 5, 3, 67);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-19 21:03:27', N'updated card details', 5, 3, 55);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-25 15:57:27', N'created a card', 18, 3, 65);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-03 12:59:27', N'updated the board background', 19, 2, 99);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-16 23:40:27', N'updated the board background', 17, 2, 2);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-13 11:41:27', N'created a card', 14, 3, 49);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-26 20:58:27', N'added a new member to the board', 8, 2, 20);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-04 17:24:27', N'created a new board', 12, 2, 48);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-14 08:54:27', N'updated card details', 8, 3, 53);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-23 20:58:27', N'created a card', 20, 3, 96);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-21 05:06:27', N'invited a user to the workspace', 8, 1, 41);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-03 07:05:27', N'invited a user to the workspace', 4, 1, 39);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-31 11:32:27', N'added a new member to the board', 4, 2, 56);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-21 10:22:27', N'moved the card to another list', 4, 3, 42);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-20 08:43:27', N'invited a user to the workspace', 6, 1, 18);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-24 02:31:27', N'updated card details', 1, 3, 51);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-28 18:50:27', N'updated workspace settings', 12, 1, 90);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-04 16:17:27', N'created a new workspace', 15, 1, 22);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-07 15:16:27', N'created a new board', 20, 2, 56);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-05 23:59:27', N'created a card', 1, 3, 8);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-26 20:21:27', N'updated the board background', 7, 2, 4);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-07 05:32:27', N'changed board permissions', 6, 2, 15);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-25 23:22:27', N'renamed the workspace', 20, 1, 16);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-25 00:23:27', N'created a new workspace', 18, 1, 47);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-05 10:55:27', N'set a due date for the card', 18, 3, 36);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-13 22:04:27', N'created a new workspace', 8, 1, 90);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-18 13:53:27', N'updated the board background', 17, 2, 40);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-13 03:49:27', N'set a due date for the card', 6, 3, 64);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-31 07:42:27', N'updated the board background', 6, 2, 9);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-23 02:58:27', N'changed board permissions', 11, 2, 14);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-17 03:38:27', N'updated workspace settings', 5, 1, 35);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-18 01:16:27', N'created a new board', 18, 2, 56);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-15 21:46:27', N'renamed the workspace', 5, 1, 17);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-14 00:05:27', N'archived the board', 11, 2, 8);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-20 15:19:27', N'assigned a member to the card', 2, 3, 35);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-18 07:57:27', N'updated card details', 9, 3, 52);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-08-01 05:01:27', N'archived the workspace', 12, 1, 8);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-23 17:23:27', N'assigned a member to the card', 20, 3, 11);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-10 12:35:27', N'assigned a member to the card', 5, 3, 52);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-21 19:55:27', N'set a due date for the card', 17, 3, 54);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-13 03:36:27', N'moved the card to another list', 2, 3, 86);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-23 20:35:27', N'assigned a member to the card', 12, 3, 72);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-18 04:50:27', N'added a new member to the board', 3, 2, 55);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-28 09:44:27', N'updated workspace settings', 8, 1, 17);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-12 11:16:27', N'updated workspace settings', 15, 1, 44);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-09 19:15:27', N'created a new board', 8, 2, 59);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-29 11:12:27', N'set a due date for the card', 14, 3, 11);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-17 20:27:27', N'renamed the workspace', 14, 1, 7);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-22 07:57:27', N'added a checklist to the card', 8, 3, 37);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-21 03:52:27', N'updated the board background', 13, 2, 98);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-22 19:39:27', N'updated workspace settings', 1, 1, 4);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-06 19:19:27', N'updated card details', 18, 3, 81);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-21 13:18:27', N'created a card', 6, 3, 55);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-25 10:28:27', N'archived the workspace', 12, 1, 38);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-24 03:16:27', N'assigned a member to the card', 16, 3, 33);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-08-02 00:11:27', N'set a due date for the card', 19, 3, 24);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-22 09:37:27', N'added a checklist to the card', 3, 3, 97);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-17 18:05:27', N'moved the card to another list', 14, 3, 78);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-12 03:35:27', N'invited a user to the workspace', 6, 1, 41);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-19 06:38:27', N'updated the board background', 1, 2, 33);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-08-01 21:34:27', N'set a due date for the card', 11, 3, 7);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-27 20:11:27', N'archived the board', 13, 2, 1);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-30 12:30:27', N'archived the board', 7, 2, 23);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-11 21:13:27', N'created a card', 10, 3, 42);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-05 05:04:27', N'updated the board background', 16, 2, 28);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-21 14:02:27', N'changed board permissions', 8, 2, 5);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-08 20:50:27', N'added a new member to the board', 18, 2, 15);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-27 09:47:27', N'created a new workspace', 10, 1, 97);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-17 21:55:27', N'updated workspace settings', 12, 1, 91);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-15 13:27:27', N'updated workspace settings', 1, 1, 8);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-21 08:09:27', N'added a checklist to the card', 5, 3, 79);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-19 21:49:27', N'changed board permissions', 5, 2, 14);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-28 18:05:27', N'moved the card to another list', 9, 3, 65);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-25 23:54:27', N'added a new member to the board', 5, 2, 11);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-17 18:38:27', N'created a new workspace', 8, 1, 27);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-20 21:00:27', N'archived the workspace', 2, 1, 56);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-29 12:22:27', N'invited a user to the workspace', 8, 1, 13);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-25 01:32:27', N'archived the workspace', 3, 1, 92);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-03 04:02:27', N'updated workspace settings', 15, 1, 63);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-14 21:34:27', N'updated the board background', 7, 2, 59);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-27 08:28:27', N'renamed the workspace', 6, 1, 52);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-14 10:13:27', N'updated the board background', 8, 2, 32);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-01 04:57:27', N'archived the workspace', 6, 1, 43);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-05 00:41:27', N'created a card', 6, 3, 36);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-10 12:04:27', N'updated the board background', 14, 2, 86);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-04 17:17:27', N'moved the card to another list', 16, 3, 17);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-03 11:45:27', N'updated card details', 7, 3, 91);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-11 03:14:27', N'archived the workspace', 20, 1, 45);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-29 18:08:27', N'created a card', 3, 3, 59);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-30 04:28:27', N'updated the board background', 7, 2, 27);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-03 02:09:27', N'assigned a member to the card', 16, 3, 21);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-12 23:34:27', N'created a new workspace', 18, 1, 61);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-11 20:50:27', N'added a checklist to the card', 14, 3, 6);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-11 11:50:27', N'archived the workspace', 14, 1, 94);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-14 08:18:27', N'created a card', 4, 3, 47);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-15 17:09:27', N'created a new board', 17, 2, 50);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-02 23:35:27', N'created a card', 10, 3, 60);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-24 21:15:27', N'added a new member to the board', 7, 2, 80);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-03 15:16:27', N'archived the board', 15, 2, 71);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-10 20:00:27', N'invited a user to the workspace', 5, 1, 17);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-14 03:44:27', N'archived the board', 1, 2, 90);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-21 20:35:27', N'assigned a member to the card', 4, 3, 5);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-12 22:31:27', N'archived the workspace', 10, 1, 44);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-30 03:48:27', N'updated the board background', 8, 2, 85);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-08-01 22:25:27', N'added a checklist to the card', 7, 3, 8);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-23 19:36:27', N'updated workspace settings', 20, 1, 55);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-07 02:48:27', N'archived the workspace', 15, 1, 16);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-08 15:30:27', N'invited a user to the workspace', 19, 1, 100);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-17 08:05:27', N'created a new workspace', 4, 1, 44);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-19 23:11:27', N'changed board permissions', 19, 2, 63);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-16 15:16:27', N'updated workspace settings', 2, 1, 7);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-27 09:13:27', N'archived the board', 4, 2, 21);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-25 10:09:27', N'assigned a member to the card', 11, 3, 42);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-14 17:33:27', N'created a card', 19, 3, 44);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-05 15:08:27', N'added a checklist to the card', 11, 3, 58);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-02 23:19:27', N'created a new board', 6, 2, 36);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-23 09:38:27', N'set a due date for the card', 12, 3, 68);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-03 16:27:27', N'created a new board', 16, 2, 5);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-18 04:53:27', N'added a checklist to the card', 14, 3, 76);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-04 19:33:27', N'renamed the workspace', 17, 1, 34);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-19 22:14:27', N'changed board permissions', 10, 2, 87);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-02 07:57:27', N'added a checklist to the card', 4, 3, 7);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-15 11:43:27', N'updated the board background', 16, 2, 45);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-09 00:14:27', N'updated workspace settings', 3, 1, 67);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-16 07:55:27', N'updated card details', 5, 3, 34);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-10 02:32:27', N'added a checklist to the card', 2, 3, 13);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-30 13:00:27', N'archived the workspace', 13, 1, 71);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-14 23:50:27', N'assigned a member to the card', 20, 3, 47);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-08 17:29:27', N'archived the board', 4, 2, 68);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-04 10:21:27', N'changed board permissions', 19, 2, 93);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-18 19:07:27', N'added a new member to the board', 18, 2, 86);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-12 06:14:27', N'changed board permissions', 5, 2, 33);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-09 06:55:27', N'updated card details', 20, 3, 52);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-04 09:58:27', N'archived the workspace', 7, 1, 59);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-19 19:32:27', N'set a due date for the card', 15, 3, 38);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-12 18:20:27', N'renamed the workspace', 17, 1, 98);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-13 17:19:27', N'moved the card to another list', 17, 3, 98);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-10 04:39:27', N'set a due date for the card', 7, 3, 30);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-29 05:13:27', N'created a card', 13, 3, 61);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-15 03:26:27', N'added a new member to the board', 5, 2, 30);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-21 18:11:27', N'archived the workspace', 7, 1, 13);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-20 01:03:27', N'added a new member to the board', 10, 2, 12);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-14 17:06:27', N'created a new board', 13, 2, 64);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-21 05:49:27', N'renamed the workspace', 9, 1, 25);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-30 04:47:27', N'renamed the workspace', 2, 1, 90);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-31 21:47:27', N'changed board permissions', 2, 2, 21);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-26 03:20:27', N'assigned a member to the card', 4, 3, 3);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-18 09:17:27', N'assigned a member to the card', 17, 3, 72);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-30 04:33:27', N'updated the board background', 9, 2, 1);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-07 04:13:27', N'renamed the workspace', 10, 1, 12);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-16 23:30:27', N'updated workspace settings', 4, 1, 23);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-06 16:41:27', N'archived the board', 11, 2, 74);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-08-02 02:37:27', N'changed board permissions', 7, 2, 36);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-20 14:43:27', N'moved the card to another list', 3, 3, 63);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-18 23:07:27', N'renamed the workspace', 5, 1, 60);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-20 07:23:27', N'updated workspace settings', 15, 1, 30);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-12 05:18:27', N'invited a user to the workspace', 3, 1, 51);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-13 20:38:27', N'renamed the workspace', 17, 1, 71);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-10 03:43:27', N'added a new member to the board', 11, 2, 99);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-08-01 05:30:27', N'changed board permissions', 10, 2, 10);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-28 01:59:27', N'updated the board background', 14, 2, 88);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-10 10:06:27', N'created a new workspace', 4, 1, 94);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-20 08:25:27', N'assigned a member to the card', 1, 3, 28);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-16 18:22:27', N'assigned a member to the card', 1, 3, 3);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-22 12:38:27', N'created a new workspace', 8, 1, 91);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-10 14:17:27', N'added a new member to the board', 11, 2, 13);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-30 06:10:27', N'moved the card to another list', 15, 3, 77);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-30 08:11:27', N'created a new workspace', 15, 1, 56);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-10 21:21:27', N'archived the board', 2, 2, 62);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-08 09:08:27', N'archived the board', 13, 2, 83);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-08-01 08:55:27', N'set a due date for the card', 17, 3, 53);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-15 17:21:27', N'updated workspace settings', 1, 1, 52);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-08 01:59:27', N'added a new member to the board', 9, 2, 60);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-30 22:19:27', N'created a card', 14, 3, 1);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-12 17:23:27', N'updated card details', 13, 3, 97);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-29 15:31:27', N'set a due date for the card', 10, 3, 25);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-13 08:00:27', N'updated workspace settings', 15, 1, 76);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-14 15:38:27', N'renamed the workspace', 11, 1, 58);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-10 13:47:27', N'set a due date for the card', 12, 3, 63);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-22 18:01:27', N'added a checklist to the card', 11, 3, 24);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-30 08:26:27', N'created a new board', 20, 2, 35);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-10 11:34:27', N'added a new member to the board', 7, 2, 82);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-11 01:46:27', N'changed board permissions', 2, 2, 86);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-08-02 21:22:27', N'updated card details', 8, 3, 23);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-08 04:24:27', N'updated card details', 4, 3, 62);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-25 13:48:27', N'created a card', 1, 3, 93);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-23 17:11:27', N'updated workspace settings', 18, 1, 10);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-04 19:24:27', N'added a checklist to the card', 3, 3, 69);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-28 21:05:27', N'moved the card to another list', 7, 3, 79);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-08-01 14:41:27', N'updated the board background', 18, 2, 27);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-07 02:56:27', N'renamed the workspace', 6, 1, 84);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-06-10 09:21:27', N'updated workspace settings', 14, 1, 32);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-18 16:56:27', N'updated the board background', 9, 2, 13);
+INSERT INTO Activities (CreatedAt, ActivityDescription, UserId, CategoryId, OwnerId) VALUES ('2025-07-13 17:40:27', N'assigned a member to the card', 8, 3, 13);
+
+-- INSERT Notifications for each Activity
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (1, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (2, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (3, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (4, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (5, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (6, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (7, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (8, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (9, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (10, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (11, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (12, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (13, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (14, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (15, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (16, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (17, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (18, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (19, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (20, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (21, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (22, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (23, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (24, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (25, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (26, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (27, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (28, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (29, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (30, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (31, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (32, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (33, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (34, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (35, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (36, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (37, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (38, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (39, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (40, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (41, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (42, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (43, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (44, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (45, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (46, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (47, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (48, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (49, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (50, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (51, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (52, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (53, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (54, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (55, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (56, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (57, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (58, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (59, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (60, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (61, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (62, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (63, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (64, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (65, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (66, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (67, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (68, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (69, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (70, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (71, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (72, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (73, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (74, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (75, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (76, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (77, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (78, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (79, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (80, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (81, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (82, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (83, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (84, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (85, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (86, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (87, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (88, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (89, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (90, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (91, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (92, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (93, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (94, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (95, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (96, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (97, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (98, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (99, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (100, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (101, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (102, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (103, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (104, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (105, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (106, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (107, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (108, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (109, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (110, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (111, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (112, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (113, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (114, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (115, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (116, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (117, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (118, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (119, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (120, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (121, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (122, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (123, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (124, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (125, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (126, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (127, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (128, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (129, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (130, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (131, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (132, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (133, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (134, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (135, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (136, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (137, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (138, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (139, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (140, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (141, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (142, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (143, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (144, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (145, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (146, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (147, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (148, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (149, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (150, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (151, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (152, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (153, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (154, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (155, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (156, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (157, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (158, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (159, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (160, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (161, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (162, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (163, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (164, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (165, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (166, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (167, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (168, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (169, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (170, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (171, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (172, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (173, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (174, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (175, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (176, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (177, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (178, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (179, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (180, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (181, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (182, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (183, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (184, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (185, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (186, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (187, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (188, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (189, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (190, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (191, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (192, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (193, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (194, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (195, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (196, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (197, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (198, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (199, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (200, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (201, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (202, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (203, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (204, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (205, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (206, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (207, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (208, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (209, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (210, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (211, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (212, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (213, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (214, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (215, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (216, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (217, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (218, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (219, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (220, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (221, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (222, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (223, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (224, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (225, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (226, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (227, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (228, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (229, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (230, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (231, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (232, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (233, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (234, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (235, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (236, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (237, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (238, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (239, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (240, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (241, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (242, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (243, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (244, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (245, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (246, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (247, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (248, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (249, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (250, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (251, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (252, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (253, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (254, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (255, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (256, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (257, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (258, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (259, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (260, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (261, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (262, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (263, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (264, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (265, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (266, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (267, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (268, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (269, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (270, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (271, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (272, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (273, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (274, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (275, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (276, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (277, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (278, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (279, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (280, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (281, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (282, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (283, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (284, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (285, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (286, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (287, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (288, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (289, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (290, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (291, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (292, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (293, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (294, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (295, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (296, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (297, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (298, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (299, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (300, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (301, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (302, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (303, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (304, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (305, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (306, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (307, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (308, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (309, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (310, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (311, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (312, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (313, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (314, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (315, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (316, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (317, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (318, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (319, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (320, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (321, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (322, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (323, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (324, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (325, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (326, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (327, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (328, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (329, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (330, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (331, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (332, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (333, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (334, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (335, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (336, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (337, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (338, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (339, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (340, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (341, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (342, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (343, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (344, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (345, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (346, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (347, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (348, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (349, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (350, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (351, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (352, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (353, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (354, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (355, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (356, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (357, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (358, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (359, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (360, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (361, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (362, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (363, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (364, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (365, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (366, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (367, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (368, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (369, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (370, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (371, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (372, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (373, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (374, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (375, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (376, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (377, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (378, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (379, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (380, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (381, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (382, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (383, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (384, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (385, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (386, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (387, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (388, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (389, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (390, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (391, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (392, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (393, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (394, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (395, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (396, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (397, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (398, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (399, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (400, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (401, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (402, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (403, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (404, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (405, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (406, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (407, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (408, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (409, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (410, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (411, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (412, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (413, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (414, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (415, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (416, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (417, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (418, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (419, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (420, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (421, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (422, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (423, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (424, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (425, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (426, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (427, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (428, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (429, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (430, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (431, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (432, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (433, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (434, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (435, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (436, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (437, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (438, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (439, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (440, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (441, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (442, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (443, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (444, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (445, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (446, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (447, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (448, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (449, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (450, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (451, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (452, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (453, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (454, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (455, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (456, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (457, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (458, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (459, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (460, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (461, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (462, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (463, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (464, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (465, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (466, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (467, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (468, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (469, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (470, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (471, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (472, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (473, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (474, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (475, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (476, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (477, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (478, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (479, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (480, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (481, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (482, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (483, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (484, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (485, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (486, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (487, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (488, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (489, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (490, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (491, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (492, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (493, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (494, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (495, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (496, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (497, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (498, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (499, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (500, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (501, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (502, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (503, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (504, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (505, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (506, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (507, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (508, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (509, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (510, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (511, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (512, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (513, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (514, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (515, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (516, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (517, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (518, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (519, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (520, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (521, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (522, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (523, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (524, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (525, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (526, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (527, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (528, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (529, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (530, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (531, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (532, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (533, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (534, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (535, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (536, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (537, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (538, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (539, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (540, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (541, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (542, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (543, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (544, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (545, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (546, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (547, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (548, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (549, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (550, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (551, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (552, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (553, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (554, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (555, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (556, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (557, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (558, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (559, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (560, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (561, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (562, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (563, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (564, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (565, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (566, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (567, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (568, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (569, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (570, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (571, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (572, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (573, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (574, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (575, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (576, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (577, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (578, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (579, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (580, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (581, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (582, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (583, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (584, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (585, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (586, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (587, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (588, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (589, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (590, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (591, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (592, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (593, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (594, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (595, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (596, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (597, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (598, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (599, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (600, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (601, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (602, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (603, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (604, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (605, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (606, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (607, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (608, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (609, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (610, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (611, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (612, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (613, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (614, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (615, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (616, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (617, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (618, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (619, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (620, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (621, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (622, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (623, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (624, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (625, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (626, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (627, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (628, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (629, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (630, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (631, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (632, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (633, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (634, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (635, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (636, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (637, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (638, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (639, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (640, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (641, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (642, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (643, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (644, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (645, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (646, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (647, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (648, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (649, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (650, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (651, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (652, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (653, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (654, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (655, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (656, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (657, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (658, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (659, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (660, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (661, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (662, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (663, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (664, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (665, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (666, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (667, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (668, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (669, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (670, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (671, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (672, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (673, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (674, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (675, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (676, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (677, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (678, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (679, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (680, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (681, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (682, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (683, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (684, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (685, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (686, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (687, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (688, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (689, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (690, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (691, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (692, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (693, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (694, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (695, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (696, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (697, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (698, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (699, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (700, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (701, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (702, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (703, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (704, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (705, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (706, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (707, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (708, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (709, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (710, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (711, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (712, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (713, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (714, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (715, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (716, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (717, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (718, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (719, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (720, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (721, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (722, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (723, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (724, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (725, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (726, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (727, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (728, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (729, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (730, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (731, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (732, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (733, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (734, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (735, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (736, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (737, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (738, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (739, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (740, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (741, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (742, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (743, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (744, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (745, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (746, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (747, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (748, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (749, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (750, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (751, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (752, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (753, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (754, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (755, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (756, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (757, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (758, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (759, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (760, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (761, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (762, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (763, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (764, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (765, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (766, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (767, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (768, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (769, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (770, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (771, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (772, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (773, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (774, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (775, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (776, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (777, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (778, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (779, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (780, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (781, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (782, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (783, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (784, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (785, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (786, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (787, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (788, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (789, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (790, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (791, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (792, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (793, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (794, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (795, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (796, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (797, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (798, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (799, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (800, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (801, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (802, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (803, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (804, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (805, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (806, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (807, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (808, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (809, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (810, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (811, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (812, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (813, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (814, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (815, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (816, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (817, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (818, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (819, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (820, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (821, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (822, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (823, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (824, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (825, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (826, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (827, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (828, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (829, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (830, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (831, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (832, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (833, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (834, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (835, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (836, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (837, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (838, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (839, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (840, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (841, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (842, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (843, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (844, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (845, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (846, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (847, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (848, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (849, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (850, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (851, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (852, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (853, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (854, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (855, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (856, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (857, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (858, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (859, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (860, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (861, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (862, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (863, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (864, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (865, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (866, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (867, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (868, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (869, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (870, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (871, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (872, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (873, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (874, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (875, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (876, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (877, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (878, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (879, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (880, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (881, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (882, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (883, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (884, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (885, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (886, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (887, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (888, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (889, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (890, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (891, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (892, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (893, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (894, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (895, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (896, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (897, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (898, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (899, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (900, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (901, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (902, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (903, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (904, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (905, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (906, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (907, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (908, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (909, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (910, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (911, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (912, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (913, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (914, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (915, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (916, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (917, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (918, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (919, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (920, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (921, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (922, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (923, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (924, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (925, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (926, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (927, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (928, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (929, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (930, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (931, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (932, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (933, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (934, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (935, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (936, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (937, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (938, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (939, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (940, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (941, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (942, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (943, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (944, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (945, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (946, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (947, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (948, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (949, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (950, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (951, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (952, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (953, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (954, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (955, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (956, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (957, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (958, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (959, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (960, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (961, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (962, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (963, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (964, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (965, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (966, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (967, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (968, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (969, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (970, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (971, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (972, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (973, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (974, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (975, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (976, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (977, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (978, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (979, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (980, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (981, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (982, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (983, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (984, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (985, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (986, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (987, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (988, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (989, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (990, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (991, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (992, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (993, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (994, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (995, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (996, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (997, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (998, 0);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (999, 1);
+INSERT INTO Notifications (ActivityId, IsRead) VALUES (1000, 1);
