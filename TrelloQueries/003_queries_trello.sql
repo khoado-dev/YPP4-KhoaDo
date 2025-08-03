@@ -565,31 +565,34 @@ ORDER BY CategoryId DESC;
 
 --35. Slide 42. Select a board → Board page → in a stage → select a card → attachment section, show all attachment have LINK type in a specific card 
 SELECT 
-    Link AS [attachment_url],
+    AttachmentPath AS [attachment_path],
     AttachmentName AS attachment_name,
     CreatedAt,
-    IsCover
+    CategoryId,
+    IsCover,
+    CardId
 FROM Attachments
-WHERE CategoryId = 
-ORDER BY UploadAt DESC;
-
+WHERE CategoryId = 60 AND CardId = 2
+ORDER BY CreatedAt DESC;
 --36. Slide 42. Select a board → Board page → in a stage → select a card → attachment section, show all attachment have FILE type in a specific card 
 SELECT 
-    FilePath AS [attachment_url],
+    AttachmentPath AS [attachment_path],
     AttachmentName AS attachment_name,
-    UploadAt,
-    IsCover
+    CreatedAt,
+    CategoryId,
+    IsCover,
+    CardId
 FROM Attachments
-WHERE FileType IS NOT NULL
-ORDER BY UploadAt DESC;
+WHERE CategoryId = 61 AND CardId = 2
 
---37. Slide 43. Select a board → Board page → in a stage → select a card → comment section, show all comment in a specific card(123) 
+--37. Slide 43. Select a board → Board page → in a stage → select a card → comment section, show all comment in a specific card(2) 
 SELECT
     co.Id AS comment_id,
     us.PictureUrl AS user_picture,
     us.Username,
     co.CreatedAt,
-    co.Content
+    co.Content,
+    co.CardId
 FROM (
     SELECT 
         Id,
@@ -598,11 +601,11 @@ FROM (
         CreatedBy,
         CardId
     FROM Comments
-    WHERE CardId = 123
+    WHERE CardId = 2
 ) co
-JOIN Users us ON us.Id = co.CreatedBy;
+JOIN Users us ON us.Id = co.CreatedBy
 
---38. Slide 43. Select a board → Board page → in a stage → select a card → comment section, show all reactions in a comment(104) of a specific card 
+--38. Slide 43. Select a board → Board page → in a stage → select a card → comment section, show all reactions in a comment(1) of a specific card 
 SELECT
     re.Id AS reaction_id,
     re.icon,
@@ -612,7 +615,7 @@ FROM (
         CommentId,
         ReactionId
     FROM CommentReactions
-    WHERE CommentId = 104
+    WHERE CommentId = 1
 ) cr
 JOIN Reactions re ON re.Id = cr.ReactionId
 GROUP BY re.Id, re.icon;
@@ -654,7 +657,7 @@ WITH CustomFieldOfCard AS (
                 Id,
                 StageId
             FROM Cards
-            WHERE Id = 1
+            WHERE Id = 7
         ) ca
         JOIN Stages st ON st.Id = ca.StageId
     )
@@ -671,7 +674,7 @@ SELECT
     END AS field_item_value,
     fv.CardId AS card_id
 FROM CustomFieldOfCard cfoc
-JOIN FieldValues fv ON fv.CustomFieldId = cfoc.Id AND fv.CardId = 1
+JOIN FieldValues fv ON fv.CustomFieldId = cfoc.Id AND fv.CardId = 7
 LEFT JOIN FieldItems fi ON cfoc.CategoryId = 7 AND fi.Id = TRY_CAST(fv.FieldValue AS INT);
 
 --41. Slide 45. Select a board → Board page → in a stage → select a card → CustomField section, 
