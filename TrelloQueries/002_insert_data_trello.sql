@@ -17670,3 +17670,220 @@ INSERT INTO UserStarredBoards (UserId, BoardId, CreatedAt, StarredBoardsStatus) 
 INSERT INTO UserStarredBoards (UserId, BoardId, CreatedAt, StarredBoardsStatus) VALUES (20, 55, '2025-08-03 00:00:00', 1);
 INSERT INTO UserStarredBoards (UserId, BoardId, CreatedAt, StarredBoardsStatus) VALUES (15, 55, '2025-08-03 00:00:00', 1);
 INSERT INTO UserStarredBoards (UserId, BoardId, CreatedAt, StarredBoardsStatus) VALUES (15, 56, '2025-08-03 00:00:00', 1);
+
+
+-- SettingKeys
+INSERT [dbo].[SettingKeys] ([KeyName], [SettingKeyDescription], [CategoryId], [DefaultValue], [IsBoolean]) VALUES
+(N'accountsetting.language', N'Preferred language', 4, 3, 0),
+(N'accountsetting.emailnotification.emailfrequency', N'Email notifications can be sent "instantly", or as a "daily summary"', 4, 13, 0),
+(N'accountsetting.emailnotification.includecomment', N'New comments added on cards you watch', 4, 1, 1),
+(N'accountsetting.emailnotification.includeduedates', N'Due dates are added, changed, or removed', 4, 1, 1),
+(N'accountsetting.emailnotification.includeyoureremovedfromacard', N'Preferred language', 4, 1, 1),
+(N'accountsetting.emailnotification.includeattachmentsadded', N'New attachments added on cards you watch', 4, 1, 1),
+(N'accountsetting.emailnotification.includecardscreated', N'New cards created', 4, 1, 1),
+(N'accountsetting.emailnotification.includecardsmoved', N'Due dates are added, changed, or removed', 4, 1, 1),
+(N'accountsetting.emailnotification.includecardarchived', N'Preferred language', 4, 1, 1),
+(N'suggestions', N'Email notifications can be sent "instantly", or as a "daily summary"', 4, 1, 1),
+(N'cookiepreferences.allowfunctionalcookies', N'New comments added on cards you watch', 4, 1, 1),
+( N'cookiepreferences.allowanalyticalcookies', N'Due dates are added, changed, or removed', 4, 1, 1),
+(N'cookiepreferences.allowmarketingcookies', N'Preferred language', 4, 1, 1),
+( N'permissions.commenting', N'Email notifications can be sent "instantly", or as a "daily summary"', 2, 16, 0),
+( N'permissions.addingandremovingmember', N'New comments added on cards you watch', 2, 1, 1),
+( N'permissions.workspaceediting', N'Due dates are added, changed, or removed', 2, 20, 0),
+( N'completestatus.showcompletestatusoncardfront', N'Preferred language', 2, 1, 1),
+( N'covers.cardcoverenable', N'Email notifications can be sent "instantly", or as a "daily summary"', 2, 1, 1),
+( N'atlassianintelligence', N'New comments added on cards you watch', 1, 1, 1),
+( N'workspacevisibility', N'Due dates are added, changed, or removed', 1, 22, 0),
+( N'workspacemembershiprestriction', N'Preferred language', 1, 24, 0),
+( N'boardcreationrestrictions.whocancreatepublicboards', N'Email notifications can be sent "instantly", or as a "daily summary"', 1, 26, 0),
+( N'boardcreationrestrictions.whocancreateWorkspacevisibleboards', N'New comments added on cards you watch', 1, 26, 0),
+( N'boardcreationrestrictions.whocancreateprivateboards', N'Due dates are added, changed, or removed', 1, 26, 0),
+( N'boarddeletionrestrictions.whocandeletepublicboards', N'Preferred language', 1, 26, 0),
+( N'boarddeletionrestrictions.whocandeleteWorkspacevisibleboards', N'Email notifications can be sent "instantly", or as a "daily summary"', 1, 26, 0),
+( N'boarddeletionrestrictions.whocandeleteprivateboards', N'New comments added on cards you watch', 1, 26, 0),
+( N'sharingboardwithguests', N'Due dates are added, changed, or removed', 1, 24, 0),
+( N'slackworkspacesrestrictions', N'Preferred language', 1, 26, 0);
+
+-- SettingOptions
+INSERT INTO [dbo].[SettingOptions] ( [SettingOptionValue], [DisplayValue]) VALUES
+( 'vn', N'Vietnamese'),
+( 'cn', N'Chinese'),
+( 'en', N'English'),
+( 'da', N'Dansk'),
+( 'ne', N'Nederlands'),
+( 'ee', N'Eesti'),
+( 'su', N'Suomi'),
+( 'it', N'Italiano'),
+( 'ma', N'Magyar'),
+( 'po', N'Polski'),
+( 'never', N'Never'),
+( 'instantly', N'Instantly'),
+( 'periodically', N'Periodically'),
+( 'disabled', N'Disabled'),
+( 'members', N'Members'),
+( 'membersandobservers', N'Members And Observers'),
+( 'workspacemembers', N'Workspace Members'),
+( 'admins', N'Admins'),
+( 'allmembers', N'All Members'),
+( 'private', N'Private'),
+( 'public', N'Public'),
+( 'anybody', N'Anybody'),
+( 'onlyspecificemaildomains', N'Only Specific Email Domains'),
+( 'anyworkspacemember', N'Any Work Space Member'),
+( 'onlyworkspaceadmins', N'Only Workspace Admins'),
+( 'nobody', N'Nobody'),
+( 'onlyworkspacemembers', N'Only Workspace Members');
+
+-- SettingKeySettingOptions
+INSERT INTO SettingKeySettingOptions (SettingKeyId, SettingOptionId) VALUES (1, 1);
+INSERT INTO SettingKeySettingOptions (SettingKeyId, SettingOptionId) VALUES (1, 2);
+INSERT INTO SettingKeySettingOptions (SettingKeyId, SettingOptionId) VALUES (1, 3);
+INSERT INTO SettingKeySettingOptions (SettingKeyId, SettingOptionId) VALUES (2, 4);
+INSERT INTO SettingKeySettingOptions (SettingKeyId, SettingOptionId) VALUES (2, 5);
+INSERT INTO SettingKeySettingOptions (SettingKeyId, SettingOptionId) VALUES (2, 6);
+INSERT INTO SettingKeySettingOptions (SettingKeyId, SettingOptionId) VALUES (14, 16);
+INSERT INTO SettingKeySettingOptions (SettingKeyId, SettingOptionId) VALUES (14, 17);
+INSERT INTO SettingKeySettingOptions (SettingKeyId, SettingOptionId) VALUES (14, 18);
+INSERT INTO SettingKeySettingOptions (SettingKeyId, SettingOptionId) VALUES (14, 19);
+INSERT INTO SettingKeySettingOptions (SettingKeyId, SettingOptionId) VALUES (15, 20);
+INSERT INTO SettingKeySettingOptions (SettingKeyId, SettingOptionId) VALUES (15, 21);
+INSERT INTO SettingKeySettingOptions (SettingKeyId, SettingOptionId) VALUES (20, 22);
+INSERT INTO SettingKeySettingOptions (SettingKeyId, SettingOptionId) VALUES (20, 23);
+INSERT INTO SettingKeySettingOptions (SettingKeyId, SettingOptionId) VALUES (21, 24);
+INSERT INTO SettingKeySettingOptions (SettingKeyId, SettingOptionId) VALUES (21, 25);
+INSERT INTO SettingKeySettingOptions (SettingKeyId, SettingOptionId) VALUES (22, 26);
+INSERT INTO SettingKeySettingOptions (SettingKeyId, SettingOptionId) VALUES (22, 27);
+INSERT INTO SettingKeySettingOptions (SettingKeyId, SettingOptionId) VALUES (22, 28);
+INSERT INTO SettingKeySettingOptions (SettingKeyId, SettingOptionId) VALUES (23, 26);
+INSERT INTO SettingKeySettingOptions (SettingKeyId, SettingOptionId) VALUES (23, 27);
+INSERT INTO SettingKeySettingOptions (SettingKeyId, SettingOptionId) VALUES (23, 28);
+INSERT INTO SettingKeySettingOptions (SettingKeyId, SettingOptionId) VALUES (24, 26);
+INSERT INTO SettingKeySettingOptions (SettingKeyId, SettingOptionId) VALUES (24, 28);
+INSERT INTO SettingKeySettingOptions (SettingKeyId, SettingOptionId) VALUES (25, 27);
+INSERT INTO SettingKeySettingOptions (SettingKeyId, SettingOptionId) VALUES (25, 28);
+INSERT INTO SettingKeySettingOptions (SettingKeyId, SettingOptionId) VALUES (26, 26);
+INSERT INTO SettingKeySettingOptions (SettingKeyId, SettingOptionId) VALUES (26, 27);
+INSERT INTO SettingKeySettingOptions (SettingKeyId, SettingOptionId) VALUES (27, 27);
+INSERT INTO SettingKeySettingOptions (SettingKeyId, SettingOptionId) VALUES (27, 28);
+INSERT INTO SettingKeySettingOptions (SettingKeyId, SettingOptionId) VALUES (28, 24);
+INSERT INTO SettingKeySettingOptions (SettingKeyId, SettingOptionId) VALUES (28, 29);
+INSERT INTO SettingKeySettingOptions (SettingKeyId, SettingOptionId) VALUES (29, 27);
+INSERT INTO SettingKeySettingOptions (SettingKeyId, SettingOptionId) VALUES (29, 29);
+
+-- Seed data for SettingValues
+INSERT INTO SettingValues (SettingKeyId, SettingValue, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, OwnerId)
+VALUES (1, 1, '2025-08-03 16:45:33', 1, '2025-08-03 16:45:33', 1, 1);
+INSERT INTO SettingValues (SettingKeyId, SettingValue, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, OwnerId)
+VALUES (1, 1, '2025-08-03 16:45:33', 1, '2025-08-03 16:45:33', 1, 2);
+INSERT INTO SettingValues (SettingKeyId, SettingValue, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, OwnerId)
+VALUES (2, 4, '2025-08-03 16:45:33', 1, '2025-08-03 16:45:33', 1, 1);
+INSERT INTO SettingValues (SettingKeyId, SettingValue, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, OwnerId)
+VALUES (2, 6, '2025-08-03 16:45:33', 1, '2025-08-03 16:45:33', 1, 2);
+INSERT INTO SettingValues (SettingKeyId, SettingValue, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, OwnerId)
+VALUES (3, 0, '2025-08-03 16:45:33', 1, '2025-08-03 16:45:33', 1, 1);
+INSERT INTO SettingValues (SettingKeyId, SettingValue, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, OwnerId)
+VALUES (3, 0, '2025-08-03 16:45:33', 1, '2025-08-03 16:45:33', 1, 2);
+INSERT INTO SettingValues (SettingKeyId, SettingValue, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, OwnerId)
+VALUES (4, 1, '2025-08-03 16:45:33', 1, '2025-08-03 16:45:33', 1, 1);
+INSERT INTO SettingValues (SettingKeyId, SettingValue, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, OwnerId)
+VALUES (4, 0, '2025-08-03 16:45:33', 1, '2025-08-03 16:45:33', 1, 2);
+INSERT INTO SettingValues (SettingKeyId, SettingValue, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, OwnerId)
+VALUES (5, 1, '2025-08-03 16:45:33', 1, '2025-08-03 16:45:33', 1, 1);
+INSERT INTO SettingValues (SettingKeyId, SettingValue, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, OwnerId)
+VALUES (5, 0, '2025-08-03 16:45:33', 1, '2025-08-03 16:45:33', 1, 2);
+INSERT INTO SettingValues (SettingKeyId, SettingValue, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, OwnerId)
+VALUES (6, 1, '2025-08-03 16:45:33', 1, '2025-08-03 16:45:33', 1, 1);
+INSERT INTO SettingValues (SettingKeyId, SettingValue, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, OwnerId)
+VALUES (6, 1, '2025-08-03 16:45:33', 1, '2025-08-03 16:45:33', 1, 2);
+INSERT INTO SettingValues (SettingKeyId, SettingValue, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, OwnerId)
+VALUES (7, 1, '2025-08-03 16:45:33', 1, '2025-08-03 16:45:33', 1, 1);
+INSERT INTO SettingValues (SettingKeyId, SettingValue, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, OwnerId)
+VALUES (7, 0, '2025-08-03 16:45:33', 1, '2025-08-03 16:45:33', 1, 2);
+INSERT INTO SettingValues (SettingKeyId, SettingValue, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, OwnerId)
+VALUES (8, 0, '2025-08-03 16:45:33', 1, '2025-08-03 16:45:33', 1, 1);
+INSERT INTO SettingValues (SettingKeyId, SettingValue, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, OwnerId)
+VALUES (8, 0, '2025-08-03 16:45:33', 1, '2025-08-03 16:45:33', 1, 2);
+INSERT INTO SettingValues (SettingKeyId, SettingValue, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, OwnerId)
+VALUES (9, 0, '2025-08-03 16:45:33', 1, '2025-08-03 16:45:33', 1, 1);
+INSERT INTO SettingValues (SettingKeyId, SettingValue, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, OwnerId)
+VALUES (9, 0, '2025-08-03 16:45:33', 1, '2025-08-03 16:45:33', 1, 2);
+INSERT INTO SettingValues (SettingKeyId, SettingValue, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, OwnerId)
+VALUES (10, 0, '2025-08-03 16:45:33', 1, '2025-08-03 16:45:33', 1, 1);
+INSERT INTO SettingValues (SettingKeyId, SettingValue, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, OwnerId)
+VALUES (10, 0, '2025-08-03 16:45:33', 1, '2025-08-03 16:45:33', 1, 2);
+INSERT INTO SettingValues (SettingKeyId, SettingValue, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, OwnerId)
+VALUES (11, 1, '2025-08-03 16:45:33', 1, '2025-08-03 16:45:33', 1, 1);
+INSERT INTO SettingValues (SettingKeyId, SettingValue, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, OwnerId)
+VALUES (11, 1, '2025-08-03 16:45:33', 1, '2025-08-03 16:45:33', 1, 2);
+INSERT INTO SettingValues (SettingKeyId, SettingValue, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, OwnerId)
+VALUES (12, 1, '2025-08-03 16:45:33', 1, '2025-08-03 16:45:33', 1, 1);
+INSERT INTO SettingValues (SettingKeyId, SettingValue, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, OwnerId)
+VALUES (12, 1, '2025-08-03 16:45:33', 1, '2025-08-03 16:45:33', 1, 2);
+INSERT INTO SettingValues (SettingKeyId, SettingValue, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, OwnerId)
+VALUES (13, 0, '2025-08-03 16:45:33', 1, '2025-08-03 16:45:33', 1, 1);
+INSERT INTO SettingValues (SettingKeyId, SettingValue, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, OwnerId)
+VALUES (13, 0, '2025-08-03 16:45:33', 1, '2025-08-03 16:45:33', 1, 2);
+INSERT INTO SettingValues (SettingKeyId, SettingValue, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, OwnerId)
+VALUES (14, 19, '2025-08-03 16:45:33', 1, '2025-08-03 16:45:33', 1, 1);
+INSERT INTO SettingValues (SettingKeyId, SettingValue, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, OwnerId)
+VALUES (14, 16, '2025-08-03 16:45:33', 1, '2025-08-03 16:45:33', 1, 2);
+INSERT INTO SettingValues (SettingKeyId, SettingValue, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, OwnerId)
+VALUES (15, 0, '2025-08-03 16:45:33', 1, '2025-08-03 16:45:33', 1, 1);
+INSERT INTO SettingValues (SettingKeyId, SettingValue, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, OwnerId)
+VALUES (15, 0, '2025-08-03 16:45:33', 1, '2025-08-03 16:45:33', 1, 2);
+INSERT INTO SettingValues (SettingKeyId, SettingValue, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, OwnerId)
+VALUES (16, 1, '2025-08-03 16:45:33', 1, '2025-08-03 16:45:33', 1, 1);
+INSERT INTO SettingValues (SettingKeyId, SettingValue, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, OwnerId)
+VALUES (16, 1, '2025-08-03 16:45:33', 1, '2025-08-03 16:45:33', 1, 2);
+INSERT INTO SettingValues (SettingKeyId, SettingValue, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, OwnerId)
+VALUES (17, 0, '2025-08-03 16:45:33', 1, '2025-08-03 16:45:33', 1, 1);
+INSERT INTO SettingValues (SettingKeyId, SettingValue, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, OwnerId)
+VALUES (17, 0, '2025-08-03 16:45:33', 1, '2025-08-03 16:45:33', 1, 2);
+INSERT INTO SettingValues (SettingKeyId, SettingValue, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, OwnerId)
+VALUES (18, 1, '2025-08-03 16:45:33', 1, '2025-08-03 16:45:33', 1, 1);
+INSERT INTO SettingValues (SettingKeyId, SettingValue, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, OwnerId)
+VALUES (18, 0, '2025-08-03 16:45:33', 1, '2025-08-03 16:45:33', 1, 2);
+INSERT INTO SettingValues (SettingKeyId, SettingValue, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, OwnerId)
+VALUES (19, 1, '2025-08-03 16:45:33', 1, '2025-08-03 16:45:33', 1, 1);
+INSERT INTO SettingValues (SettingKeyId, SettingValue, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, OwnerId)
+VALUES (19, 1, '2025-08-03 16:45:33', 1, '2025-08-03 16:45:33', 1, 2);
+INSERT INTO SettingValues (SettingKeyId, SettingValue, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, OwnerId)
+VALUES (20, 22, '2025-08-03 16:45:33', 1, '2025-08-03 16:45:33', 1, 1);
+INSERT INTO SettingValues (SettingKeyId, SettingValue, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, OwnerId)
+VALUES (20, 22, '2025-08-03 16:45:33', 1, '2025-08-03 16:45:33', 1, 2);
+INSERT INTO SettingValues (SettingKeyId, SettingValue, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, OwnerId)
+VALUES (21, 24, '2025-08-03 16:45:33', 1, '2025-08-03 16:45:33', 1, 1);
+INSERT INTO SettingValues (SettingKeyId, SettingValue, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, OwnerId)
+VALUES (21, 24, '2025-08-03 16:45:33', 1, '2025-08-03 16:45:33', 1, 2);
+INSERT INTO SettingValues (SettingKeyId, SettingValue, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, OwnerId)
+VALUES (22, 27, '2025-08-03 16:45:33', 1, '2025-08-03 16:45:33', 1, 1);
+INSERT INTO SettingValues (SettingKeyId, SettingValue, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, OwnerId)
+VALUES (22, 27, '2025-08-03 16:45:33', 1, '2025-08-03 16:45:33', 1, 2);
+INSERT INTO SettingValues (SettingKeyId, SettingValue, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, OwnerId)
+VALUES (23, 26, '2025-08-03 16:45:33', 1, '2025-08-03 16:45:33', 1, 1);
+INSERT INTO SettingValues (SettingKeyId, SettingValue, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, OwnerId)
+VALUES (23, 28, '2025-08-03 16:45:33', 1, '2025-08-03 16:45:33', 1, 2);
+INSERT INTO SettingValues (SettingKeyId, SettingValue, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, OwnerId)
+VALUES (24, 26, '2025-08-03 16:45:33', 1, '2025-08-03 16:45:33', 1, 1);
+INSERT INTO SettingValues (SettingKeyId, SettingValue, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, OwnerId)
+VALUES (24, 28, '2025-08-03 16:45:33', 1, '2025-08-03 16:45:33', 1, 2);
+INSERT INTO SettingValues (SettingKeyId, SettingValue, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, OwnerId)
+VALUES (25, 27, '2025-08-03 16:45:33', 1, '2025-08-03 16:45:33', 1, 1);
+INSERT INTO SettingValues (SettingKeyId, SettingValue, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, OwnerId)
+VALUES (25, 27, '2025-08-03 16:45:33', 1, '2025-08-03 16:45:33', 1, 2);
+INSERT INTO SettingValues (SettingKeyId, SettingValue, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, OwnerId)
+VALUES (26, 26, '2025-08-03 16:45:33', 1, '2025-08-03 16:45:33', 1, 1);
+INSERT INTO SettingValues (SettingKeyId, SettingValue, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, OwnerId)
+VALUES (26, 27, '2025-08-03 16:45:33', 1, '2025-08-03 16:45:33', 1, 2);
+INSERT INTO SettingValues (SettingKeyId, SettingValue, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, OwnerId)
+VALUES (27, 27, '2025-08-03 16:45:33', 1, '2025-08-03 16:45:33', 1, 1);
+INSERT INTO SettingValues (SettingKeyId, SettingValue, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, OwnerId)
+VALUES (27, 28, '2025-08-03 16:45:33', 1, '2025-08-03 16:45:33', 1, 2);
+INSERT INTO SettingValues (SettingKeyId, SettingValue, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, OwnerId)
+VALUES (28, 29, '2025-08-03 16:45:33', 1, '2025-08-03 16:45:33', 1, 1);
+INSERT INTO SettingValues (SettingKeyId, SettingValue, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, OwnerId)
+VALUES (28, 24, '2025-08-03 16:45:33', 1, '2025-08-03 16:45:33', 1, 2);
+INSERT INTO SettingValues (SettingKeyId, SettingValue, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, OwnerId)
+VALUES (29, 27, '2025-08-03 16:45:33', 1, '2025-08-03 16:45:33', 1, 1);
+INSERT INTO SettingValues (SettingKeyId, SettingValue, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, OwnerId)
+VALUES (29, 29, '2025-08-03 16:45:33', 1, '2025-08-03 16:45:33', 1, 2);
