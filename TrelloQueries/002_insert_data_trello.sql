@@ -13534,6 +13534,64 @@ INSERT INTO Cards (
     60, '5', 16, '2025-07-23 00:00:00', 2
 );
 
+--Members
+-- Xóa dữ liệu cũ
+DELETE FROM Members;
+DBCC CHECKIDENT ('Members', RESEED, 0);
+
+-- Biến khai báo
+DECLARE @OwnerId INT = 1;
+DECLARE @CategoryId INT;
+DECLARE @i INT;
+DECLARE @UserId INT;
+DECLARE @RolePermissionId INT;
+DECLARE @InvitedBy INT;
+
+-- Sinh dữ liệu
+WHILE @OwnerId <= 50
+BEGIN
+    SET @CategoryId = 1;
+
+    WHILE @CategoryId <= 3
+    BEGIN
+        SET @i = 1;
+
+        WHILE @i <= 4
+        BEGIN
+            -- UserId, RolePermissionId, InvitedBy ngẫu nhiên
+            SET @UserId = FLOOR(RAND(CHECKSUM(NEWID())) * 50) + 1;
+            SET @RolePermissionId = FLOOR(RAND(CHECKSUM(NEWID())) * 3) + 1;
+            SET @InvitedBy = FLOOR(RAND(CHECKSUM(NEWID())) * 50) + 1;
+
+            -- Insert dữ liệu
+            INSERT INTO Members (
+                UserId,
+                RolePermissonId,
+                CategoryId,
+                OwnerId,
+                InvitedBy,
+                JoinedAt,
+                MemberStatus
+            ) 
+            VALUES (
+                @UserId,
+                @RolePermissionId,
+                @CategoryId,
+                @OwnerId,
+                @InvitedBy,
+                GETDATE(),
+                'ACTIVE'
+            );
+
+            SET @i = @i + 1;
+        END
+
+        SET @CategoryId = @CategoryId + 1;
+    END
+
+    SET @OwnerId = @OwnerId + 1;
+END
+
 -- CardLabels
 INSERT INTO CardLabels (CardId, LabelId) VALUES (5, 10);
 INSERT INTO CardLabels (CardId, LabelId) VALUES (8, 9);
@@ -14729,10 +14787,6 @@ INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, C
 INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('Done', 59, 3, '2025-10-07', 1, '2025-08-03 19:57:00', 59, '2025-08-03 19:58:00', 60, 8);
 INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('Bug', 60, 4, '2025-10-08', 0, '2025-08-03 19:59:00', 60, '2025-08-03 20:00:00', 61, 6);
 INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('Feature', 61, 4, '2025-10-09', 1, '2025-08-03 20:01:00', 61, '2025-08-03 20:02:00', 62, 7);
-
-
-
-
 
 -- BillingContact
 INSERT INTO BillingContacts (UserId, WorkspaceId, BillingContactName, BillingContactEmail, BillingLanguage, AdditionalInvoiceDetail)
