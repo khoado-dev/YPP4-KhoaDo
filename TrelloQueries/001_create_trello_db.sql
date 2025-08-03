@@ -66,8 +66,6 @@ CREATE TABLE Boards (
     BoardDescription [nvarchar](1000) NULL,
     CreatedAt [datetime] NULL,
     CreatedBy [int] NULL FOREIGN KEY REFERENCES Users(Id),
-    AccessedAt [datetime] NULL,
-    IsStar [bit] NULL,
     BackgroundUrl [varchar](2000) NULL,
     WorkspaceId [int] NULL FOREIGN KEY REFERENCES Workspaces(Id),
     BoardStatus [varchar](50) NULL,    
@@ -75,6 +73,15 @@ CREATE TABLE Boards (
     UpdatedBy [int] NULL FOREIGN KEY REFERENCES Users(Id)
 );
 GO
+
+CREATE TABLE UserStarredBoards (
+    UserId INT NOT NULL FOREIGN KEY REFERENCES Users(Id),
+    BoardId INT NOT NULL FOREIGN KEY REFERENCES Boards(Id),
+    CreatedAt DATETIME NOT NULL DEFAULT GETDATE(),
+    StarredBoardsStatus [bit] NOT NULL,
+);
+GO
+
 
 CREATE TABLE Colors (
     Id int IDENTITY(1,1) PRIMARY KEY,
@@ -196,7 +203,7 @@ CREATE TABLE BoardPowerUps (
 );
 GO
 
-CREATE TABLE UserViewHistory (
+CREATE TABLE UserViewHistories (
     UserId [int] NOT NULL FOREIGN KEY REFERENCES Users(Id),
     CategoryId [int] NULL FOREIGN KEY REFERENCES Categories(Id), --Workspace, Board, Card
     OwnerId [int] NOT NULL,
@@ -410,6 +417,7 @@ GO
 CREATE TABLE ShareLinks (
     Id int IDENTITY(1,1) PRIMARY KEY,
     CategoryId [int] NULL FOREIGN KEY REFERENCES Categories(Id), --workspace, board, card
+    RolePermissonId [int] NULL FOREIGN KEY REFERENCES RolePermissions(Id), --admin, member
     OwnerId [int] NULL,
     ShareLinkToken [varchar](255) NULL,
     ShareLinkStatus [bit] NOT NULL   
