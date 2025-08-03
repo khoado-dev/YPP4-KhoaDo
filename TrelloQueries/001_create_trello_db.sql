@@ -82,7 +82,6 @@ CREATE TABLE UserStarredBoards (
 );
 GO
 
-
 CREATE TABLE Colors (
     Id int IDENTITY(1,1) PRIMARY KEY,
     ColorName [varchar](50) NULL,
