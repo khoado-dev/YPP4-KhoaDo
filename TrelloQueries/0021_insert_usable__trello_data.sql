@@ -1,4 +1,4 @@
-USE [Trello];
+﻿USE [Trello];
 GO
 
 -- INSERT FOR TABLES DONT HAVE FOREIGN KEY
@@ -3632,3 +3632,10065 @@ INSERT INTO Boards (BoardName, BoardDescription, CreatedAt, CreatedBy, AccessedA
 INSERT INTO Boards (BoardName, BoardDescription, CreatedAt, CreatedBy, AccessedAt, IsStar, BackgroundUrl, WorkspaceId, BoardStatus, UpdatedAt, UpdatedBy) VALUES (N'Intuitive context-sensitive strategy', N'Really up skin development open compare fill read camera rock we we hot.', '2025-07-29 00:00:00', 5, '2025-08-01 00:00:00', 0, 'https://example.com/backgrounds/243.jpg', 99, 'active', '2025-08-01 00:00:00', 5);
 INSERT INTO Boards (BoardName, BoardDescription, CreatedAt, CreatedBy, AccessedAt, IsStar, BackgroundUrl, WorkspaceId, BoardStatus, UpdatedAt, UpdatedBy) VALUES (N'Visionary non-volatile alliance', N'Own TV whose determine not view cell seat.', '2025-07-14 00:00:00', 12, '2025-07-25 00:00:00', 0, 'https://example.com/backgrounds/244.jpg', 100, 'private', '2025-07-24 00:00:00', 12);
 INSERT INTO Boards (BoardName, BoardDescription, CreatedAt, CreatedBy, AccessedAt, IsStar, BackgroundUrl, WorkspaceId, BoardStatus, UpdatedAt, UpdatedBy) VALUES (N'Front-line grid-enabled functionalities', N'Player white start prove role from activity decide.', '2025-07-23 00:00:00', 3, '2025-07-31 00:00:00', 0, 'https://example.com/backgrounds/245.jpg', 100, 'active', '2025-07-30 00:00:00', 3);
+
+--Labels
+INSERT INTO Labels (Title, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, ColorId, IsDefault, BoardId) VALUES ('Urgent', '2025-08-03 20:01:00', 1, '2025-08-03 20:02:00', 2, 1, 0, 1);
+INSERT INTO Labels (Title, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, ColorId, IsDefault, BoardId) VALUES ('In Progress', '2025-08-03 20:03:00', 2, '2025-08-03 20:04:00', 3, 2, 0, 1);
+INSERT INTO Labels (Title, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, ColorId, IsDefault, BoardId) VALUES ('Done', '2025-08-03 20:05:00', 3, '2025-08-03 20:06:00', 4, 3, 1, 1);
+INSERT INTO Labels (Title, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, ColorId, IsDefault, BoardId) VALUES ('Review', '2025-08-03 20:07:00', 4, '2025-08-03 20:08:00', 5, 4, 0, 1);
+INSERT INTO Labels (Title, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, ColorId, IsDefault, BoardId) VALUES ('Bug', '2025-08-03 20:09:00', 5, '2025-08-03 20:10:00', 6, 5, 0, 1);
+INSERT INTO Labels (Title, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, ColorId, IsDefault, BoardId) VALUES ('Feature', '2025-08-03 20:11:00', 6, '2025-08-03 20:12:00', 7, 6, 0, 1);
+INSERT INTO Labels (Title, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, ColorId, IsDefault, BoardId) VALUES ('Low Priority', '2025-08-03 20:13:00', 7, '2025-08-03 20:14:00', 8, 7, 0, 1);
+INSERT INTO Labels (Title, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, ColorId, IsDefault, BoardId) VALUES ('High Priority', '2025-08-03 20:15:00', 8, '2025-08-03 20:16:00', 9, 8, 0, 1);
+INSERT INTO Labels (Title, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, ColorId, IsDefault, BoardId) VALUES ('Medium Priority', '2025-08-03 20:17:00', 9, '2025-08-03 20:18:00', 10, 9, 0, 1);
+INSERT INTO Labels (Title, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, ColorId, IsDefault, BoardId) VALUES ('Blocked', '2025-08-03 20:19:00', 10, '2025-08-03 20:20:00', 1, 10, 0, 1);
+INSERT INTO Labels (Title, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, ColorId, IsDefault, BoardId) VALUES ('QA', '2025-08-03 20:21:00', 1, '2025-08-03 20:22:00', 2, 1, 0, 2);
+INSERT INTO Labels (Title, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, ColorId, IsDefault, BoardId) VALUES ('UX', '2025-08-03 20:23:00', 2, '2025-08-03 20:24:00', 3, 2, 0, 2);
+INSERT INTO Labels (Title, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, ColorId, IsDefault, BoardId) VALUES ('Backend', '2025-08-03 20:25:00', 3, '2025-08-03 20:26:00', 4, 3, 0, 2);
+INSERT INTO Labels (Title, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, ColorId, IsDefault, BoardId) VALUES ('Frontend', '2025-08-03 20:27:00', 4, '2025-08-03 20:28:00', 5, 4, 0, 2);
+INSERT INTO Labels (Title, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, ColorId, IsDefault, BoardId) VALUES ('API', '2025-08-03 20:29:00', 5, '2025-08-03 20:30:00', 6, 5, 0, 2);
+INSERT INTO Labels (Title, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, ColorId, IsDefault, BoardId) VALUES ('Refactor', '2025-08-03 20:31:00', 6, '2025-08-03 20:32:00', 7, 6, 0, 2);
+INSERT INTO Labels (Title, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, ColorId, IsDefault, BoardId) VALUES ('Enhancement', '2025-08-03 20:33:00', 7, '2025-08-03 20:34:00', 8, 7, 0, 2);
+INSERT INTO Labels (Title, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, ColorId, IsDefault, BoardId) VALUES ('Documentation', '2025-08-03 20:35:00', 8, '2025-08-03 20:36:00', 9, 8, 0, 2);
+INSERT INTO Labels (Title, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, ColorId, IsDefault, BoardId) VALUES ('Research', '2025-08-03 20:37:00', 9, '2025-08-03 20:38:00', 10, 9, 0, 2);
+INSERT INTO Labels (Title, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, ColorId, IsDefault, BoardId) VALUES ('Design', '2025-08-03 20:39:00', 10, '2025-08-03 20:40:00', 1, 10, 0, 2);
+
+
+INSERT INTO Labels (Title, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, ColorId, IsDefault, BoardId) VALUES ('Sprint', '2025-08-03 20:41:00', 1, '2025-08-03 20:42:00', 2, 2, 0, 3);
+INSERT INTO Labels (Title, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, ColorId, IsDefault, BoardId) VALUES ('Epic', '2025-08-03 20:43:00', 2, '2025-08-03 20:44:00', 3, 3, 0, 3);
+INSERT INTO Labels (Title, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, ColorId, IsDefault, BoardId) VALUES ('Story', '2025-08-03 20:45:00', 3, '2025-08-03 20:46:00', 4, 4, 0, 3);
+INSERT INTO Labels (Title, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, ColorId, IsDefault, BoardId) VALUES ('Task', '2025-08-03 20:47:00', 4, '2025-08-03 20:48:00', 5, 5, 0, 3);
+INSERT INTO Labels (Title, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, ColorId, IsDefault, BoardId) VALUES ('Subtask', '2025-08-03 20:49:00', 5, '2025-08-03 20:50:00', 6, 6, 0, 3);
+INSERT INTO Labels (Title, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, ColorId, IsDefault, BoardId) VALUES ('Hotfix', '2025-08-03 20:51:00', 6, '2025-08-03 20:52:00', 7, 7, 0, 3);
+INSERT INTO Labels (Title, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, ColorId, IsDefault, BoardId) VALUES ('Patch', '2025-08-03 20:53:00', 7, '2025-08-03 20:54:00', 8, 8, 0, 3);
+INSERT INTO Labels (Title, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, ColorId, IsDefault, BoardId) VALUES ('Release', '2025-08-03 20:55:00', 8, '2025-08-03 20:56:00', 9, 9, 0,3);
+INSERT INTO Labels (Title, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, ColorId, IsDefault, BoardId) VALUES ('Milestone', '2025-08-03 20:57:00', 9, '2025-08-03 20:58:00', 10, 10, 0, 3);
+INSERT INTO Labels (Title, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, ColorId, IsDefault, BoardId) VALUES ('Idea', '2025-08-03 20:59:00', 10, '2025-08-03 21:00:00', 1, 1, 0, 3);
+
+
+INSERT INTO Labels (Title, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, ColorId, IsDefault, BoardId) VALUES ('Label 21', '2025-08-03 21:01:00', 1, '2025-08-03 21:02:00', 2, 2, 0, 4);
+INSERT INTO Labels (Title, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, ColorId, IsDefault, BoardId) VALUES ('Label 22', '2025-08-03 21:03:00', 2, '2025-08-03 21:04:00', 3, 3, 1, 4);
+INSERT INTO Labels (Title, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, ColorId, IsDefault, BoardId) VALUES ('Label 23', '2025-08-03 21:05:00', 3, '2025-08-03 21:06:00', 4, 4, 0, 4);
+INSERT INTO Labels (Title, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, ColorId, IsDefault, BoardId) VALUES ('Label 24', '2025-08-03 21:07:00', 4, '2025-08-03 21:08:00', 5, 5, 0, 4);
+INSERT INTO Labels (Title, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, ColorId, IsDefault, BoardId) VALUES ('Label 25', '2025-08-03 21:09:00', 5, '2025-08-03 21:10:00', 6, 6, 1, 4);
+INSERT INTO Labels (Title, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, ColorId, IsDefault, BoardId) VALUES ('Label 26', '2025-08-03 21:11:00', 6, '2025-08-03 21:12:00', 7, 7, 0, 4);
+INSERT INTO Labels (Title, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, ColorId, IsDefault, BoardId) VALUES ('Label 27', '2025-08-03 21:13:00', 7, '2025-08-03 21:14:00', 8, 8, 0, 4);
+INSERT INTO Labels (Title, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, ColorId, IsDefault, BoardId) VALUES ('Label 28', '2025-08-03 21:15:00', 8, '2025-08-03 21:16:00', 9, 9, 1, 4);
+INSERT INTO Labels (Title, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, ColorId, IsDefault, BoardId) VALUES ('Label 29', '2025-08-03 21:17:00', 9, '2025-08-03 21:18:00', 10, 10, 0, 4);
+INSERT INTO Labels (Title, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, ColorId, IsDefault, BoardId) VALUES ('Label 30', '2025-08-03 21:19:00', 10, '2025-08-03 21:20:00', 1, 1, 0, 4);
+
+
+INSERT INTO Labels (Title, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, ColorId, IsDefault, BoardId) VALUES ('Label 31', '2025-08-03 21:21:00', 1, '2025-08-03 21:22:00', 2, 2, 0, 5);
+INSERT INTO Labels (Title, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, ColorId, IsDefault, BoardId) VALUES ('Label 32', '2025-08-03 21:23:00', 2, '2025-08-03 21:24:00', 3, 3, 0, 5);
+INSERT INTO Labels (Title, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, ColorId, IsDefault, BoardId) VALUES ('Label 33', '2025-08-03 21:25:00', 3, '2025-08-03 21:26:00', 4, 4, 0, 5);
+INSERT INTO Labels (Title, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, ColorId, IsDefault, BoardId) VALUES ('Label 34', '2025-08-03 21:27:00', 4, '2025-08-03 21:28:00', 5, 5, 0, 5);
+INSERT INTO Labels (Title, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, ColorId, IsDefault, BoardId) VALUES ('Label 35', '2025-08-03 21:29:00', 5, '2025-08-03 21:30:00', 6, 6, 0, 5);
+
+-- PowerUps
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId) VALUES 
+('Calendar', 'https://example.com/icons/calendar.png', 'https://example.com/bg/calendar.jpg', 'Alice', N'Calendar integration for your board', 'alice@example.com', 'https://example.com/policy/calendar', 1, 1, 1),
+('Voting', 'https://example.com/icons/voting.png', 'https://example.com/bg/voting.jpg', 'Bob', N'Enable voting on cards', 'bob@example.com', 'https://example.com/policy/voting', 0, 1, 1),
+('Card Aging', 'https://example.com/icons/cardaging.png', 'https://example.com/bg/cardaging.jpg', 'Carol', N'Visualize inactive cards', 'carol@example.com', 'https://example.com/policy/cardaging', 0, 0, 1),
+('Custom Fields', 'https://example.com/icons/customfields.png', 'https://example.com/bg/customfields.jpg', 'Dave', N'Add custom fields to cards', 'dave@example.com', 'https://example.com/policy/customfields', 1, 1, 1),
+('Google Drive', 'https://example.com/icons/googledrive.png', 'https://example.com/bg/googledrive.jpg', 'Eve', N'Attach Google Drive files', 'eve@example.com', 'https://example.com/policy/googledrive', 1, 1, 1),
+
+('Slack', 'https://example.com/icons/slack.png', 'https://example.com/bg/slack.jpg', 'Frank', N'Slack integration', 'frank@example.com', 'https://example.com/policy/slack', 1, 1, 2),
+('Dropbox', 'https://example.com/icons/dropbox.png', 'https://example.com/bg/dropbox.jpg', 'Grace', N'Attach Dropbox files', 'grace@example.com', 'https://example.com/policy/dropbox', 0, 1, 2),
+('Card Repeater', 'https://example.com/icons/repeater.png', 'https://example.com/bg/repeater.jpg', 'Heidi', N'Repeat cards automatically', 'heidi@example.com', 'https://example.com/policy/repeater', 0, 0, 2),
+('Butler', 'https://example.com/icons/butler.png', 'https://example.com/bg/butler.jpg', 'Ivan', N'Automate your board', 'ivan@example.com', 'https://example.com/policy/butler', 1, 1, 2),
+('Twitter', 'https://example.com/icons/twitter.png', 'https://example.com/bg/twitter.jpg', 'Judy', N'Twitter integration', 'judy@example.com', 'https://example.com/policy/twitter', 1, 1, 2),
+
+('Evernote', 'https://example.com/icons/evernote.png', 'https://example.com/bg/evernote.jpg', 'Kate', N'Attach Evernote notes', 'kate@example.com', 'https://example.com/policy/evernote', 1, 1, 3),
+('Mailchimp', 'https://example.com/icons/mailchimp.png', 'https://example.com/bg/mailchimp.jpg', 'Leo', N'Mailchimp integration', 'leo@example.com', 'https://example.com/policy/mailchimp', 0, 1, 3),
+('SurveyMonkey', 'https://example.com/icons/surveymonkey.png', 'https://example.com/bg/surveymonkey.jpg', 'Mallory', N'SurveyMonkey integration', 'mallory@example.com', 'https://example.com/policy/surveymonkey', 0, 0, 3),
+('Zendesk', 'https://example.com/icons/zendesk.png', 'https://example.com/bg/zendesk.jpg', 'Niaj', N'Zendesk integration', 'niaj@example.com', 'https://example.com/policy/zendesk', 1, 1, 3),
+('Box', 'https://example.com/icons/box.png', 'https://example.com/bg/box.jpg', 'Olivia', N'Attach Box files', 'olivia@example.com', 'https://example.com/policy/box', 1, 1, 3),
+
+('OneDrive', 'https://example.com/icons/onedrive.png', 'https://example.com/bg/onedrive.jpg', 'Peggy', N'Attach OneDrive files', 'peggy@example.com', 'https://example.com/policy/onedrive', 1, 1, 4),
+('Microsoft Teams', 'https://example.com/icons/teams.png', 'https://example.com/bg/teams.jpg', 'Quentin', N'Microsoft Teams integration', 'quentin@example.com', 'https://example.com/policy/teams', 0, 1, 4),
+('Gmail', 'https://example.com/icons/gmail.png', 'https://example.com/bg/gmail.jpg', 'Rupert', N'Gmail integration', 'rupert@example.com', 'https://example.com/policy/gmail', 0, 0, 4),
+('Outlook', 'https://example.com/icons/outlook.png', 'https://example.com/bg/outlook.jpg', 'Sybil', N'Outlook integration', 'sybil@example.com', 'https://example.com/policy/outlook', 1, 1, 4),
+('Zapier', 'https://example.com/icons/zapier.png', 'https://example.com/bg/zapier.jpg', 'Trent', N'Zapier automation', 'trent@example.com', 'https://example.com/policy/zapier', 1, 1, 4),
+
+('GitHub', 'https://example.com/icons/github.png', 'https://example.com/bg/github.jpg', 'Uma', N'GitHub integration', 'uma@example.com', 'https://example.com/policy/github', 1, 1, 5),
+('GitLab', 'https://example.com/icons/gitlab.png', 'https://example.com/bg/gitlab.jpg', 'Victor', N'GitLab integration', 'victor@example.com', 'https://example.com/policy/gitlab', 0, 1, 5),
+('Bitbucket', 'https://example.com/icons/bitbucket.png', 'https://example.com/bg/bitbucket.jpg', 'Wendy', N'Bitbucket integration', 'wendy@example.com', 'https://example.com/policy/bitbucket', 0, 0, 5),
+('Jira', 'https://example.com/icons/jira.png', 'https://example.com/bg/jira.jpg', 'Xavier', N'Jira integration', 'xavier@example.com', 'https://example.com/policy/jira', 1, 1, 5),
+('Trello', 'https://example.com/icons/trello.png', 'https://example.com/bg/trello.jpg', 'Yvonne', N'Trello integration', 'yvonne@example.com', 'https://example.com/policy/trello', 1, 1, 5);
+
+INSERT INTO PowerUps (PowerUpName, IconUrl, BackgroundUrl, AuthorName, PowerUpDescription, EmailContact, PolicyUrl, IsStaffPick, IsIntegration, CategoryId) VALUES
+('Calendar Pro', 'https://example.com/icons/calendarpro.png', 'https://example.com/bg/calendarpro.jpg', 'Anna', N'Advanced calendar features', 'anna@example.com', 'https://example.com/policy/calendarpro', 1, 1, 6),
+('Checklist', 'https://example.com/icons/checklist.png', 'https://example.com/bg/checklist.jpg', 'Ben', N'Add checklists to cards', 'ben@example.com', 'https://example.com/policy/checklist', 0, 1, 6),
+('Map View', 'https://example.com/icons/mapview.png', 'https://example.com/bg/mapview.jpg', 'Cathy', N'Visualize cards on a map', 'cathy@example.com', 'https://example.com/policy/mapview', 0, 0, 6),
+('Repeater Pro', 'https://example.com/icons/repeaterpro.png', 'https://example.com/bg/repeaterpro.jpg', 'Dan', N'Advanced card repeating', 'dan@example.com', 'https://example.com/policy/repeaterpro', 1, 1, 6),
+('Dropbox Pro', 'https://example.com/icons/dropboxpro.png', 'https://example.com/bg/dropboxpro.jpg', 'Ella', N'Enhanced Dropbox integration', 'ella@example.com', 'https://example.com/policy/dropboxpro', 1, 1, 6),
+
+('Slack Pro', 'https://example.com/icons/slackpro.png', 'https://example.com/bg/slackpro.jpg', 'Finn', N'Advanced Slack features', 'finn@example.com', 'https://example.com/policy/slackpro', 1, 1, 7),
+('Drive Sync', 'https://example.com/icons/drivesync.png', 'https://example.com/bg/drivesync.jpg', 'Gina', N'Sync with Google Drive', 'gina@example.com', 'https://example.com/policy/drivesync', 0, 1, 7),
+('Card Mirror', 'https://example.com/icons/cardmirror.png', 'https://example.com/bg/cardmirror.jpg', 'Hank', N'Mirror cards across boards', 'hank@example.com', 'https://example.com/policy/cardmirror', 0, 0, 7),
+('Butler Pro', 'https://example.com/icons/butlerpro.png', 'https://example.com/bg/butlerpro.jpg', 'Ivy', N'Advanced automation', 'ivy@example.com', 'https://example.com/policy/butlerpro', 1, 1, 7),
+('Twitter Pro', 'https://example.com/icons/twitterpro.png', 'https://example.com/bg/twitterpro.jpg', 'Jack', N'Advanced Twitter integration', 'jack@example.com', 'https://example.com/policy/twitterpro', 1, 1, 7),
+
+('Evernote Pro', 'https://example.com/icons/evernotepro.png', 'https://example.com/bg/evernotepro.jpg', 'Kara', N'Advanced Evernote features', 'kara@example.com', 'https://example.com/policy/evernotepro', 1, 1, 8),
+('Mailchimp Pro', 'https://example.com/icons/mailchimppro.png', 'https://example.com/bg/mailchimppro.jpg', 'Liam', N'Advanced Mailchimp integration', 'liam@example.com', 'https://example.com/policy/mailchimppro', 0, 1, 8),
+('SurveyMonkey Pro', 'https://example.com/icons/surveymonkeypro.png', 'https://example.com/bg/surveymonkeypro.jpg', 'Mona', N'Advanced SurveyMonkey features', 'mona@example.com', 'https://example.com/policy/surveymonkeypro', 0, 0, 8),
+('Zendesk Pro', 'https://example.com/icons/zendeskpro.png', 'https://example.com/bg/zendeskpro.jpg', 'Ned', N'Advanced Zendesk integration', 'ned@example.com', 'https://example.com/policy/zendeskpro', 1, 1, 8),
+('Box Pro', 'https://example.com/icons/boxpro.png', 'https://example.com/bg/boxpro.jpg', 'Omar', N'Advanced Box integration', 'omar@example.com', 'https://example.com/policy/boxpro', 1, 1, 8),
+
+('OneDrive Pro', 'https://example.com/icons/onedrivepro.png', 'https://example.com/bg/onedrivepro.jpg', 'Paula', N'Advanced OneDrive features', 'paula@example.com', 'https://example.com/policy/onedrivepro', 1, 1, 9),
+('Teams Pro', 'https://example.com/icons/teamspro.png', 'https://example.com/bg/teamspro.jpg', 'Quinn', N'Advanced Teams integration', 'quinn@example.com', 'https://example.com/policy/teamspro', 0, 1, 9),
+('Gmail Pro', 'https://example.com/icons/gmailpro.png', 'https://example.com/bg/gmailpro.jpg', 'Rita', N'Advanced Gmail features', 'rita@example.com', 'https://example.com/policy/gmailpro', 0, 0, 9),
+('Outlook Pro', 'https://example.com/icons/outlookpro.png', 'https://example.com/bg/outlookpro.jpg', 'Sam', N'Advanced Outlook integration', 'sam@example.com', 'https://example.com/policy/outlookpro', 1, 1, 9),
+('Zapier Pro', 'https://example.com/icons/zapierpro.png', 'https://example.com/bg/zapierpro.jpg', 'Tina', N'Advanced Zapier automation', 'tina@example.com', 'https://example.com/policy/zapierpro', 1, 1, 9),
+
+('GitHub Pro', 'https://example.com/icons/githubpro.png', 'https://example.com/bg/githubpro.jpg', 'Uma', N'Advanced GitHub integration', 'uma@example.com', 'https://example.com/policy/githubpro', 1, 1, 10),
+('GitLab Pro', 'https://example.com/icons/gitlabpro.png', 'https://example.com/bg/gitlabpro.jpg', 'Vera', N'Advanced GitLab integration', 'vera@example.com', 'https://example.com/policy/gitlabpro', 0, 1, 10),
+('Bitbucket Pro', 'https://example.com/icons/bitbucketpro.png', 'https://example.com/bg/bitbucketpro.jpg', 'Will', N'Advanced Bitbucket features', 'will@example.com', 'https://example.com/policy/bitbucketpro', 0, 0, 10),
+('Jira Pro', 'https://example.com/icons/jirapro.png', 'https://example.com/bg/jirapro.jpg', 'Xena', N'Advanced Jira integration', 'xena@example.com', 'https://example.com/policy/jirapro', 1, 1, 10),
+('Trello Pro', 'https://example.com/icons/trellopro.png', 'https://example.com/bg/trellopro.jpg', 'Yuri', N'Advanced Trello integration', 'yuri@example.com', 'https://example.com/policy/trellopro', 1, 1, 10),
+
+('Calendar Plus', 'https://example.com/icons/calendarplus.png', 'https://example.com/bg/calendarplus.jpg', 'Zane', N'Calendar Plus features', 'zane@example.com', 'https://example.com/policy/calendarplus', 1, 1, 11),
+('Voting Plus', 'https://example.com/icons/votingplus.png', 'https://example.com/bg/votingplus.jpg', 'Amy', N'Voting Plus features', 'amy@example.com', 'https://example.com/policy/votingplus', 0, 1, 11),
+('Aging Plus', 'https://example.com/icons/agingplus.png', 'https://example.com/bg/agingplus.jpg', 'Brian', N'Aging Plus features', 'brian@example.com', 'https://example.com/policy/agingplus', 0, 0, 11),
+('Fields Plus', 'https://example.com/icons/fieldsplus.png', 'https://example.com/bg/fieldsplus.jpg', 'Clara', N'Fields Plus features', 'clara@example.com', 'https://example.com/policy/fieldsplus', 1, 1, 11),
+('Drive Plus', 'https://example.com/icons/driveplus.png', 'https://example.com/bg/driveplus.jpg', 'Derek', N'Drive Plus features', 'derek@example.com', 'https://example.com/policy/driveplus', 1, 1, 11),
+
+('Slack Plus', 'https://example.com/icons/slackplus.png', 'https://example.com/bg/slackplus.jpg', 'Ellen', N'Slack Plus features', 'ellen@example.com', 'https://example.com/policy/slackplus', 1, 1, 12),
+('Dropbox Plus', 'https://example.com/icons/dropboxplus.png', 'https://example.com/bg/dropboxplus.jpg', 'Fred', N'Dropbox Plus features', 'fred@example.com', 'https://example.com/policy/dropboxplus', 0, 1, 12),
+('Repeater Plus', 'https://example.com/icons/repeaterplus.png', 'https://example.com/bg/repeaterplus.jpg', 'Gwen', N'Repeater Plus features', 'gwen@example.com', 'https://example.com/policy/repeaterplus', 0, 0, 12),
+('Butler Plus', 'https://example.com/icons/butlerplus.png', 'https://example.com/bg/butlerplus.jpg', 'Hugo', N'Butler Plus features', 'hugo@example.com', 'https://example.com/policy/butlerplus', 1, 1, 12),
+('Twitter Plus', 'https://example.com/icons/twitterplus.png', 'https://example.com/bg/twitterplus.jpg', 'Iris', N'Twitter Plus features', 'iris@example.com', 'https://example.com/policy/twitterplus', 1, 1, 12),
+
+('Evernote Plus', 'https://example.com/icons/evernoteplus.png', 'https://example.com/bg/evernoteplus.jpg', 'Jake', N'Evernote Plus features', 'jake@example.com', 'https://example.com/policy/evernoteplus', 1, 1, 13),
+('Mailchimp Plus', 'https://example.com/icons/mailchimpplus.png', 'https://example.com/bg/mailchimpplus.jpg', 'Kira', N'Mailchimp Plus features', 'kira@example.com', 'https://example.com/policy/mailchimpplus', 0, 1, 13),
+('SurveyMonkey Plus', 'https://example.com/icons/surveymonkeyplus.png', 'https://example.com/bg/surveymonkeyplus.jpg', 'Lars', N'SurveyMonkey Plus features', 'lars@example.com', 'https://example.com/policy/surveymonkeyplus', 0, 0, 13),
+('Zendesk Plus', 'https://example.com/icons/zendeskplus.png', 'https://example.com/bg/zendeskplus.jpg', 'Mia', N'Zendesk Plus features', 'mia@example.com', 'https://example.com/policy/zendeskplus', 1, 1, 13),
+('Box Plus', 'https://example.com/icons/boxplus.png', 'https://example.com/bg/boxplus.jpg', 'Nate', N'Box Plus features', 'nate@example.com', 'https://example.com/policy/boxplus', 1, 1, 13),
+
+('OneDrive Plus', 'https://example.com/icons/onedriveplus.png', 'https://example.com/bg/onedriveplus.jpg', 'Olga', N'OneDrive Plus features', 'olga@example.com', 'https://example.com/policy/onedriveplus', 1, 1, 14),
+('Teams Plus', 'https://example.com/icons/teamsplus.png', 'https://example.com/bg/teamsplus.jpg', 'Paul', N'Teams Plus features', 'paul@example.com', 'https://example.com/policy/teamsplus', 0, 1, 14),
+('Gmail Plus', 'https://example.com/icons/gmailplus.png', 'https://example.com/bg/gmailplus.jpg', 'Quinn', N'Gmail Plus features', 'quinn@example.com', 'https://example.com/policy/gmailplus', 0, 0, 14),
+('Outlook Plus', 'https://example.com/icons/outlookplus.png', 'https://example.com/bg/outlookplus.jpg', 'Rosa', N'Outlook Plus features', 'rosa@example.com', 'https://example.com/policy/outlookplus', 1, 1, 14),
+('Zapier Plus', 'https://example.com/icons/zapierplus.png', 'https://example.com/bg/zapierplus.jpg', 'Steve', N'Zapier Plus features', 'steve@example.com', 'https://example.com/policy/zapierplus', 1, 1, 14),
+
+('GitHub Plus', 'https://example.com/icons/githubplus.png', 'https://example.com/bg/githubplus.jpg', 'Tina', N'GitHub Plus features', 'tina@example.com', 'https://example.com/policy/githubplus', 1, 1, 15),
+('GitLab Plus', 'https://example.com/icons/gitlabplus.png', 'https://example.com/bg/gitlabplus.jpg', 'Ursula', N'GitLab Plus features', 'ursula@example.com', 'https://example.com/policy/gitlabplus', 0, 1, 15),
+('Bitbucket Plus', 'https://example.com/icons/bitbucketplus.png', 'https://example.com/bg/bitbucketplus.jpg', 'Vince', N'Bitbucket Plus features', 'vince@example.com', 'https://example.com/policy/bitbucketplus', 0, 0, 15),
+('Jira Plus', 'https://example.com/icons/jiraplus.png', 'https://example.com/bg/jiraplus.jpg', 'Willa', N'Jira Plus features', 'willa@example.com', 'https://example.com/policy/jiraplus', 1, 1, 15),
+('Trello Plus', 'https://example.com/icons/trelloplus.png', 'https://example.com/bg/trelloplus.jpg', 'Xander', N'Trello Plus features', 'xander@example.com', 'https://example.com/policy/trelloplus', 1, 1, 15),
+
+('Calendar Max', 'https://example.com/icons/calendarmax.png', 'https://example.com/bg/calendarmax.jpg', 'Yara', N'Calendar Max features', 'yara@example.com', 'https://example.com/policy/calendarmax', 1, 1, 16),
+('Voting Max', 'https://example.com/icons/votingmax.png', 'https://example.com/bg/votingmax.jpg', 'Zack', N'Voting Max features', 'zack@example.com', 'https://example.com/policy/votingmax', 0, 1, 16),
+('Aging Max', 'https://example.com/icons/agingmax.png', 'https://example.com/bg/agingmax.jpg', 'Ava', N'Aging Max features', 'ava@example.com', 'https://example.com/policy/agingmax', 0, 0, 16),
+('Fields Max', 'https://example.com/icons/fieldsmax.png', 'https://example.com/bg/fieldsmax.jpg', 'Benji', N'Fields Max features', 'benji@example.com', 'https://example.com/policy/fieldsmax', 1, 1, 16),
+('Drive Max', 'https://example.com/icons/drivemax.png', 'https://example.com/bg/drivemax.jpg', 'Cleo', N'Drive Max features', 'cleo@example.com', 'https://example.com/policy/drivemax', 1, 1, 16),
+
+('Slack Max', 'https://example.com/icons/slackmax.png', 'https://example.com/bg/slackmax.jpg', 'Duke', N'Slack Max features', 'duke@example.com', 'https://example.com/policy/slackmax', 1, 1, 17),
+('Dropbox Max', 'https://example.com/icons/dropboxmax.png', 'https://example.com/bg/dropboxmax.jpg', 'Ella', N'Dropbox Max features', 'ella@example.com', 'https://example.com/policy/dropboxmax', 0, 1, 17),
+('Repeater Max', 'https://example.com/icons/repeatermax.png', 'https://example.com/bg/repeatermax.jpg', 'Finn', N'Repeater Max features', 'finn@example.com', 'https://example.com/policy/repeatermax', 0, 0, 17),
+('Butler Max', 'https://example.com/icons/butlermax.png', 'https://example.com/bg/butlermax.jpg', 'Gina', N'Butler Max features', 'gina@example.com', 'https://example.com/policy/butlermax', 1, 1, 17),
+('Twitter Max', 'https://example.com/icons/twittermax.png', 'https://example.com/bg/twittermax.jpg', 'Hank', N'Twitter Max features', 'hank@example.com', 'https://example.com/policy/twittermax', 1, 1, 17),
+
+('Evernote Max', 'https://example.com/icons/evernotemax.png', 'https://example.com/bg/evernotemax.jpg', 'Ivy', N'Evernote Max features', 'ivy@example.com', 'https://example.com/policy/evernotemax', 1, 1, 18),
+('Mailchimp Max', 'https://example.com/icons/mailchimpmax.png', 'https://example.com/bg/mailchimpmax.jpg', 'Jake', N'Mailchimp Max features', 'jake@example.com', 'https://example.com/policy/mailchimpmax', 0, 1, 18),
+('SurveyMonkey Max', 'https://example.com/icons/surveymonkeymax.png', 'https://example.com/bg/surveymonkeymax.jpg', 'Kara', N'SurveyMonkey Max features', 'kara@example.com', 'https://example.com/policy/surveymonkeymax', 0, 0, 18),
+('Zendesk Max', 'https://example.com/icons/zendeskmax.png', 'https://example.com/bg/zendeskmax.jpg', 'Liam', N'Zendesk Max features', 'liam@example.com', 'https://example.com/policy/zendeskmax', 1, 1, 18),
+('Box Max', 'https://example.com/icons/boxmax.png', 'https://example.com/bg/boxmax.jpg', 'Mona', N'Box Max features', 'mona@example.com', 'https://example.com/policy/boxmax', 1, 1, 18),
+
+('OneDrive Max', 'https://example.com/icons/onedrivemax.png', 'https://example.com/bg/onedrivemax.jpg', 'Ned', N'OneDrive Max features', 'ned@example.com', 'https://example.com/policy/onedrivemax', 1, 1, 19),
+('Teams Max', 'https://example.com/icons/teamsmax.png', 'https://example.com/bg/teamsmax.jpg', 'Olga', N'Teams Max features', 'olga@example.com', 'https://example.com/policy/teamsmax', 0, 1, 19),
+('Gmail Max', 'https://example.com/icons/gmailmax.png', 'https://example.com/bg/gmailmax.jpg', 'Paul', N'Gmail Max features', 'paul@example.com', 'https://example.com/policy/gmailmax', 0, 0, 19),
+('Outlook Max', 'https://example.com/icons/outlookmax.png', 'https://example.com/bg/outlookmax.jpg', 'Quinn', N'Outlook Max features', 'quinn@example.com', 'https://example.com/policy/outlookmax', 1, 1, 19),
+('Zapier Max', 'https://example.com/icons/zapiermax.png', 'https://example.com/bg/zapiermax.jpg', 'Rita', N'Zapier Max features', 'rita@example.com', 'https://example.com/policy/zapiermax', 1, 1, 19),
+
+('GitHub Max', 'https://example.com/icons/githubmax.png', 'https://example.com/bg/githubmax.jpg', 'Sam', N'GitHub Max features', 'sam@example.com', 'https://example.com/policy/githubmax', 1, 1, 20),
+('GitLab Max', 'https://example.com/icons/gitlabmax.png', 'https://example.com/bg/gitlabmax.jpg', 'Tina', N'GitLab Max features', 'tina@example.com', 'https://example.com/policy/gitlabmax', 0, 1, 20),
+('Bitbucket Max', 'https://example.com/icons/bitbucketmax.png', 'https://example.com/bg/bitbucketmax.jpg', 'Uma', N'Bitbucket Max features', 'uma@example.com', 'https://example.com/policy/bitbucketmax', 0, 0, 20),
+('Jira Max', 'https://example.com/icons/jiramax.png', 'https://example.com/bg/jiramax.jpg', 'Vera', N'Jira Max features', 'vera@example.com', 'https://example.com/policy/jiramax', 1, 1, 20);
+
+-- BoardPowerUps
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (1, 1, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (1, 2, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (1, 3, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (1, 4, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (1, 5, 1);
+
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (2, 6, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (2, 7, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (2, 8, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (2, 9, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (2, 10, 1);
+
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (3, 11, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (3, 12, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (3, 13, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (3, 14, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (3, 15, 1);
+
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (4, 16, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (4, 17, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (4, 18, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (4, 19, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (4, 20, 1);
+
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (5, 21, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (5, 22, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (5, 23, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (5, 24, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (5, 25, 1);
+
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (6, 26, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (6, 27, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (6, 28, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (6, 29, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (6, 30, 1);
+
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (7, 31, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (7, 32, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (7, 33, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (7, 34, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (7, 35, 1);
+
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (8, 36, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (8, 37, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (8, 38, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (8, 39, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (8, 40, 1);
+
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (9, 41, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (9, 42, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (9, 43, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (9, 44, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (9, 45, 1);
+
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (10, 46, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (10, 47, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (10, 48, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (10, 49, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (10, 50, 1);
+
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (11, 51, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (11, 52, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (11, 53, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (11, 54, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (11, 55, 1);
+
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (12, 56, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (12, 57, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (12, 58, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (12, 59, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (12, 60, 1);
+
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (13, 61, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (13, 62, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (13, 63, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (13, 64, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (13, 65, 1);
+
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (14, 66, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (14, 67, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (14, 68, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (14, 69, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (14, 70, 1);
+
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (15, 71, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (15, 72, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (15, 73, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (15, 74, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (15, 75, 1);
+
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (16, 76, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (16, 77, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (16, 78, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (16, 79, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (16, 80, 1);
+
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (17, 81, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (17, 82, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (17, 83, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (17, 84, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (17, 85, 1);
+
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (18, 86, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (18, 87, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (18, 88, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (18, 89, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (18, 90, 1);
+
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (19, 91, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (19, 92, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (19, 93, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (19, 94, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (19, 95, 1);
+
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (20, 96, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (20, 97, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (20, 98, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (20, 99, 1);
+INSERT INTO BoardPowerUps (BoardId, PowerUpId, BoardPowerUpStatus) VALUES (20, 100, 1);
+
+
+
+
+-- Stage 
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Their Stage', '2025-07-14 00:00:00', 4, 1, 'active', 6, 1, '2025-07-16 00:00:00', 4);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Focus Stage', '2025-07-18 00:00:00', 1, 1, 'active', 7, 2, '2025-07-23 00:00:00', 1);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Attention Stage', '2025-07-17 00:00:00', 8, 1, 'active', 1, 3, '2025-07-21 00:00:00', 8);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Tv Stage', '2025-07-13 00:00:00', 19, 1, 'archived', 5, 4, '2025-07-18 00:00:00', 19);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Agent Stage', '2025-07-16 00:00:00', 2, 2, 'active', 9, 1, '2025-07-21 00:00:00', 2);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Campaign Stage', '2025-07-12 00:00:00', 18, 2, 'archived', 2, 2, '2025-07-13 00:00:00', 18);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Strong Stage', '2025-07-30 00:00:00', 11, 2, 'archived', 5, 3, '2025-08-04 00:00:00', 11);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Outside Stage', '2025-07-15 00:00:00', 13, 2, 'archived', 7, 4, '2025-07-18 00:00:00', 13);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Indeed Stage', '2025-07-19 00:00:00', 18, 3, 'active', 8, 1, '2025-07-23 00:00:00', 18);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Exactly Stage', '2025-07-21 00:00:00', 15, 3, 'active', 6, 2, '2025-07-24 00:00:00', 15);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Outside Stage', '2025-07-21 00:00:00', 12, 3, 'active', 2, 3, '2025-07-25 00:00:00', 12);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Argue Stage', '2025-07-18 00:00:00', 16, 3, 'archived', 4, 4, '2025-07-19 00:00:00', 16);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Pull Stage', '2025-07-22 00:00:00', 8, 3, 'archived', 3, 5, '2025-07-26 00:00:00', 8);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Represent Stage', '2025-07-18 00:00:00', 8, 4, 'archived', 2, 1, '2025-07-20 00:00:00', 8);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Of Stage', '2025-07-19 00:00:00', 19, 4, 'archived', 6, 2, '2025-07-24 00:00:00', 19);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Send Stage', '2025-07-24 00:00:00', 15, 4, 'archived', 10, 3, '2025-07-28 00:00:00', 15);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Cup Stage', '2025-07-16 00:00:00', 10, 5, 'archived', 3, 1, '2025-07-16 00:00:00', 10);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Type Stage', '2025-07-20 00:00:00', 19, 5, 'active', 1, 2, '2025-07-24 00:00:00', 19);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Force Stage', '2025-07-26 00:00:00', 4, 5, 'archived', 10, 3, '2025-07-26 00:00:00', 4);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Foreign Stage', '2025-07-30 00:00:00', 7, 5, 'archived', 4, 4, '2025-07-30 00:00:00', 7);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Picture Stage', '2025-07-17 00:00:00', 14, 6, 'active', 1, 1, '2025-07-21 00:00:00', 14);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Officer Stage', '2025-07-21 00:00:00', 10, 6, 'active', 6, 2, '2025-07-21 00:00:00', 10);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Still Stage', '2025-07-29 00:00:00', 16, 6, 'archived', 5, 3, '2025-07-30 00:00:00', 16);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Recently Stage', '2025-07-21 00:00:00', 4, 6, 'active', 5, 4, '2025-07-23 00:00:00', 4);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Ground Stage', '2025-08-01 00:00:00', 19, 7, 'archived', 4, 1, '2025-08-06 00:00:00', 19);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Agency Stage', '2025-07-28 00:00:00', 18, 7, 'active', 2, 2, '2025-07-29 00:00:00', 18);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Reduce Stage', '2025-07-21 00:00:00', 6, 7, 'active', 3, 3, '2025-07-24 00:00:00', 6);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Check Stage', '2025-07-14 00:00:00', 17, 7, 'active', 9, 4, '2025-07-14 00:00:00', 17);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Foot Stage', '2025-07-20 00:00:00', 8, 7, 'active', 6, 5, '2025-07-21 00:00:00', 8);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Feel Stage', '2025-07-30 00:00:00', 7, 8, 'archived', 4, 1, '2025-08-02 00:00:00', 7);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Up Stage', '2025-07-13 00:00:00', 10, 8, 'active', 4, 2, '2025-07-18 00:00:00', 10);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Decision Stage', '2025-07-21 00:00:00', 19, 8, 'active', 9, 3, '2025-07-24 00:00:00', 19);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Late Stage', '2025-07-29 00:00:00', 19, 8, 'archived', 2, 4, '2025-07-31 00:00:00', 19);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Difference Stage', '2025-07-19 00:00:00', 10, 9, 'active', 7, 1, '2025-07-22 00:00:00', 10);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Modern Stage', '2025-07-27 00:00:00', 3, 9, 'archived', 2, 2, '2025-08-01 00:00:00', 3);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Answer Stage', '2025-07-17 00:00:00', 14, 9, 'active', 6, 3, '2025-07-20 00:00:00', 14);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Knowledge Stage', '2025-07-29 00:00:00', 17, 9, 'archived', 10, 4, '2025-08-02 00:00:00', 17);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Attorney Stage', '2025-07-25 00:00:00', 10, 9, 'archived', 8, 5, '2025-07-27 00:00:00', 10);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Tree Stage', '2025-07-27 00:00:00', 1, 10, 'archived', 5, 1, '2025-07-30 00:00:00', 1);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Successful Stage', '2025-07-15 00:00:00', 4, 10, 'active', 9, 2, '2025-07-19 00:00:00', 4);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Such Stage', '2025-07-27 00:00:00', 17, 10, 'archived', 9, 3, '2025-07-28 00:00:00', 17);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Class Stage', '2025-07-14 00:00:00', 19, 10, 'archived', 9, 4, '2025-07-19 00:00:00', 19);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Conference Stage', '2025-07-30 00:00:00', 11, 11, 'active', 9, 1, '2025-08-03 00:00:00', 11);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Reflect Stage', '2025-07-27 00:00:00', 20, 11, 'archived', 4, 2, '2025-07-31 00:00:00', 20);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Anyone Stage', '2025-07-28 00:00:00', 8, 11, 'archived', 8, 3, '2025-07-30 00:00:00', 8);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Oil Stage', '2025-07-28 00:00:00', 1, 12, 'archived', 4, 1, '2025-08-01 00:00:00', 1);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Doctor Stage', '2025-07-15 00:00:00', 15, 12, 'archived', 8, 2, '2025-07-19 00:00:00', 15);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Water Stage', '2025-07-29 00:00:00', 3, 12, 'active', 7, 3, '2025-08-02 00:00:00', 3);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Themselves Stage', '2025-07-31 00:00:00', 8, 12, 'archived', 1, 4, '2025-08-01 00:00:00', 8);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'At Stage', '2025-07-25 00:00:00', 12, 12, 'archived', 10, 5, '2025-07-28 00:00:00', 12);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'List Stage', '2025-07-17 00:00:00', 6, 13, 'archived', 4, 1, '2025-07-22 00:00:00', 6);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Particular Stage', '2025-07-15 00:00:00', 8, 13, 'active', 7, 2, '2025-07-17 00:00:00', 8);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Customer Stage', '2025-07-19 00:00:00', 15, 13, 'active', 2, 3, '2025-07-24 00:00:00', 15);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Institution Stage', '2025-07-31 00:00:00', 6, 13, 'archived', 7, 4, '2025-08-03 00:00:00', 6);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Over Stage', '2025-08-01 00:00:00', 3, 13, 'active', 8, 5, '2025-08-02 00:00:00', 3);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Serious Stage', '2025-07-31 00:00:00', 13, 14, 'active', 1, 1, '2025-08-02 00:00:00', 13);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Technology Stage', '2025-07-12 00:00:00', 1, 14, 'active', 10, 2, '2025-07-13 00:00:00', 1);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Training Stage', '2025-07-21 00:00:00', 10, 14, 'active', 6, 3, '2025-07-26 00:00:00', 10);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Leader Stage', '2025-07-13 00:00:00', 5, 15, 'archived', 9, 1, '2025-07-18 00:00:00', 5);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Seek Stage', '2025-07-15 00:00:00', 6, 15, 'archived', 1, 2, '2025-07-16 00:00:00', 6);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Nor Stage', '2025-08-01 00:00:00', 7, 15, 'archived', 6, 3, '2025-08-01 00:00:00', 7);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Wrong Stage', '2025-07-14 00:00:00', 10, 16, 'archived', 4, 1, '2025-07-19 00:00:00', 10);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'His Stage', '2025-07-21 00:00:00', 2, 16, 'active', 7, 2, '2025-07-22 00:00:00', 2);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Bad Stage', '2025-07-30 00:00:00', 1, 16, 'active', 9, 3, '2025-08-03 00:00:00', 1);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'You Stage', '2025-07-19 00:00:00', 7, 16, 'active', 6, 4, '2025-07-20 00:00:00', 7);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Then Stage', '2025-07-27 00:00:00', 4, 16, 'active', 1, 5, '2025-07-28 00:00:00', 4);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Travel Stage', '2025-07-12 00:00:00', 12, 17, 'archived', 2, 1, '2025-07-12 00:00:00', 12);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Direction Stage', '2025-07-18 00:00:00', 6, 17, 'active', 9, 2, '2025-07-20 00:00:00', 6);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Behind Stage', '2025-07-23 00:00:00', 2, 17, 'archived', 8, 3, '2025-07-26 00:00:00', 2);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Leg Stage', '2025-07-28 00:00:00', 15, 18, 'archived', 9, 1, '2025-07-29 00:00:00', 15);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'And Stage', '2025-07-23 00:00:00', 6, 18, 'archived', 6, 2, '2025-07-27 00:00:00', 6);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Wrong Stage', '2025-07-27 00:00:00', 19, 18, 'active', 8, 3, '2025-07-27 00:00:00', 19);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Nor Stage', '2025-07-21 00:00:00', 10, 19, 'active', 5, 1, '2025-07-24 00:00:00', 10);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'With Stage', '2025-07-22 00:00:00', 20, 19, 'active', 5, 2, '2025-07-26 00:00:00', 20);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Foreign Stage', '2025-07-18 00:00:00', 13, 19, 'archived', 5, 3, '2025-07-19 00:00:00', 13);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Science Stage', '2025-07-12 00:00:00', 19, 20, 'active', 9, 1, '2025-07-17 00:00:00', 19);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Allow Stage', '2025-07-12 00:00:00', 15, 20, 'active', 3, 2, '2025-07-17 00:00:00', 15);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Detail Stage', '2025-07-13 00:00:00', 19, 20, 'active', 9, 3, '2025-07-14 00:00:00', 19);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Republican Stage', '2025-07-30 00:00:00', 17, 20, 'archived', 10, 4, '2025-08-02 00:00:00', 17);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Also Stage', '2025-07-18 00:00:00', 6, 20, 'archived', 6, 5, '2025-07-20 00:00:00', 6);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Area Stage', '2025-07-18 00:00:00', 18, 1, 'archived', 7, 1, '2025-07-21 00:00:00', 18);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Executive Stage', '2025-07-16 00:00:00', 2, 2, 'active', 5, 1, '2025-07-17 00:00:00', 2);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Begin Stage', '2025-08-01 00:00:00', 3, 2, 'archived', 6, 2, '2025-08-03 00:00:00', 3);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Specific Stage', '2025-07-17 00:00:00', 16, 2, 'active', 6, 3, '2025-07-20 00:00:00', 16);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Involve Stage', '2025-07-28 00:00:00', 7, 3, 'active', 2, 1, '2025-07-30 00:00:00', 7);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Exactly Stage', '2025-07-24 00:00:00', 13, 3, 'archived', 9, 2, '2025-07-28 00:00:00', 13);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Box Stage', '2025-07-26 00:00:00', 15, 4, 'active', 6, 1, '2025-07-29 00:00:00', 15);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'This Stage', '2025-07-26 00:00:00', 20, 4, 'archived', 2, 2, '2025-07-29 00:00:00', 20);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Wear Stage', '2025-07-24 00:00:00', 14, 4, 'active', 7, 3, '2025-07-25 00:00:00', 14);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Two Stage', '2025-07-22 00:00:00', 10, 4, 'archived', 7, 4, '2025-07-26 00:00:00', 10);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'American Stage', '2025-07-27 00:00:00', 4, 5, 'active', 4, 1, '2025-07-28 00:00:00', 4);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Hundred Stage', '2025-07-28 00:00:00', 16, 5, 'archived', 8, 2, '2025-07-28 00:00:00', 16);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Not Stage', '2025-07-20 00:00:00', 19, 5, 'archived', 1, 3, '2025-07-22 00:00:00', 19);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Or Stage', '2025-08-01 00:00:00', 20, 6, 'active', 7, 1, '2025-08-05 00:00:00', 20);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Go Stage', '2025-07-18 00:00:00', 9, 6, 'active', 4, 2, '2025-07-22 00:00:00', 9);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Grow Stage', '2025-07-19 00:00:00', 15, 6, 'active', 4, 3, '2025-07-20 00:00:00', 15);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Together Stage', '2025-07-20 00:00:00', 13, 6, 'archived', 7, 4, '2025-07-21 00:00:00', 13);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Area Stage', '2025-07-15 00:00:00', 7, 6, 'active', 1, 5, '2025-07-17 00:00:00', 7);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Collection Stage', '2025-07-20 00:00:00', 7, 7, 'active', 8, 1, '2025-07-22 00:00:00', 7);
+INSERT INTO Stages (Title, CreatedAt, CreatedBy, BoardId, StageStatus, ColorId, Position, UpdatedAt, UpdatedBy) VALUES (N'Central Stage', '2025-07-27 00:00:00', 12, 7, 'active', 8, 2, '2025-08-01 00:00:00', 12);
+
+-- Card
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    1, N'Design landing page', N'Description: Design landing page', '2025-07-14 00:00:00', 4,
+    'active', N'23 Tan Binh District', '2025-07-16', '2025-07-31',
+    13, 'https://cdn.example.com/cover/1.png', 1, '2025-07-19 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    1, N'QA testing', N'Description: QA testing', '2025-07-26 00:00:00', 4,
+    'active', N'90 District 1', '2025-07-29', '2025-08-01',
+    13, 'https://cdn.example.com/cover/2.png', 2, '2025-07-27 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    1, N'Update user profile', N'Description: Update user profile', '2025-07-24 00:00:00', 5,
+    'active', N'119 Go Vap', '2025-07-26', '2025-08-13',
+    13, 'https://cdn.example.com/cover/3.png', 3, '2025-07-26 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    1, N'Implement authentication', N'Description: Implement authentication', '2025-07-09 00:00:00', 5,
+    'archived', N'180 District 3', '2025-07-11', '2025-07-19',
+    13, 'https://cdn.example.com/cover/4.png', 4, '2025-07-13 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    1, N'Design landing page', N'Description: Design landing page', '2025-07-16 00:00:00', 1,
+    'active', N'8 Go Vap', '2025-07-17', '2025-07-27',
+    13, 'https://cdn.example.com/cover/5.png', 5, '2025-07-19 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    1, N'Create database schema', N'Description: Create database schema', '2025-07-04 00:00:00', 2,
+    'archived', N'127 Go Vap', '2025-07-06', '2025-07-23',
+    13, 'https://cdn.example.com/cover/6.png', 6, '2025-07-06 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    1, N'Refactor codebase', N'Description: Refactor codebase', '2025-07-07 00:00:00', 5,
+    'active', N'123 Phu Nhuan', '2025-07-07', '2025-07-21',
+    13, 'https://cdn.example.com/cover/7.png', 7, '2025-07-11 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    1, N'UX improvements', N'Description: UX improvements', '2025-07-02 00:00:00', 3,
+    'archived', N'100 Phu Nhuan', '2025-07-03', '2025-07-23',
+    13, 'https://cdn.example.com/cover/8.png', 8, '2025-07-03 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    1, N'Payment gateway setup', N'Description: Payment gateway setup', '2025-07-26 00:00:00', 2,
+    'archived', N'64 Tan Binh District', '2025-07-29', '2025-08-16',
+    13, 'https://cdn.example.com/cover/9.png', 9, '2025-07-29 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    1, N'Fix login bug', N'Description: Fix login bug', '2025-07-28 00:00:00', 4,
+    'archived', N'159 Binh Thanh', '2025-07-29', '2025-08-12',
+    13, 'https://cdn.example.com/cover/10.png', 10, '2025-07-28 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    1, N'Refactor codebase', N'Description: Refactor codebase', '2025-07-02 00:00:00', 3,
+    'archived', N'117 District 1', '2025-07-04', '2025-07-20',
+    13, 'https://cdn.example.com/cover/11.png', 11, '2025-07-03 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    1, N'Optimize queries', N'Description: Optimize queries', '2025-07-25 00:00:00', 5,
+    'active', N'60 District 1', '2025-07-27', '2025-07-30',
+    13, 'https://cdn.example.com/cover/12.png', 12, '2025-07-29 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    1, N'Refactor codebase', N'Description: Refactor codebase', '2025-07-23 00:00:00', 2,
+    'active', N'17 Tan Binh District', '2025-07-25', '2025-07-28',
+    13, 'https://cdn.example.com/cover/13.png', 13, '2025-07-24 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    2, N'UX improvements', N'Description: UX improvements', '2025-07-26 00:00:00', 4,
+    'archived', N'169 District 1', '2025-07-29', '2025-08-09',
+    13, 'https://cdn.example.com/cover/14.png', 1, '2025-07-30 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    3, N'Payment gateway setup', N'Description: Payment gateway setup', '2025-07-24 00:00:00', 1,
+    'active', N'126 District 1', '2025-07-24', '2025-07-28',
+    13, 'https://cdn.example.com/cover/15.png', 1, '2025-07-24 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    3, N'Fix login bug', N'Description: Fix login bug', '2025-07-15 00:00:00', 3,
+    'active', N'25 Phu Nhuan', '2025-07-15', '2025-07-22',
+    13, 'https://cdn.example.com/cover/16.png', 2, '2025-07-20 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    3, N'Fix UI alignment', N'Description: Fix UI alignment', '2025-07-29 00:00:00', 2,
+    'active', N'74 District 1', '2025-07-31', '2025-08-09',
+    13, 'https://cdn.example.com/cover/17.png', 3, '2025-07-31 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    3, N'Email integration', N'Description: Email integration', '2025-07-24 00:00:00', 1,
+    'active', N'77 Tan Binh District', '2025-07-27', '2025-08-02',
+    13, 'https://cdn.example.com/cover/18.png', 4, '2025-07-28 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    3, N'Final deployment', N'Description: Final deployment', '2025-07-19 00:00:00', 5,
+    'archived', N'179 District 1', '2025-07-21', '2025-07-25',
+    13, 'https://cdn.example.com/cover/19.png', 5, '2025-07-21 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    3, N'Update user profile', N'Description: Update user profile', '2025-07-01 00:00:00', 2,
+    'archived', N'116 Tan Binh District', '2025-07-01', '2025-07-08',
+    13, 'https://cdn.example.com/cover/20.png', 6, '2025-07-06 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    3, N'Client feedback', N'Description: Client feedback', '2025-07-06 00:00:00', 4,
+    'archived', N'85 Binh Thanh', '2025-07-06', '2025-07-22',
+    13, 'https://cdn.example.com/cover/21.png', 7, '2025-07-06 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    3, N'Code review', N'Description: Code review', '2025-07-14 00:00:00', 4,
+    'active', N'40 District 1', '2025-07-16', '2025-07-21',
+    13, 'https://cdn.example.com/cover/22.png', 8, '2025-07-15 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    3, N'Sprint planning', N'Description: Sprint planning', '2025-07-18 00:00:00', 5,
+    'active', N'129 Binh Thanh', '2025-07-20', '2025-07-30',
+    13, 'https://cdn.example.com/cover/23.png', 9, '2025-07-19 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    3, N'Payment gateway setup', N'Description: Payment gateway setup', '2025-07-26 00:00:00', 3,
+    'active', N'63 District 3', '2025-07-28', '2025-08-07',
+    13, 'https://cdn.example.com/cover/24.png', 10, '2025-07-27 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    3, N'Update user profile', N'Description: Update user profile', '2025-07-18 00:00:00', 1,
+    'active', N'139 Tan Binh District', '2025-07-20', '2025-07-27',
+    13, 'https://cdn.example.com/cover/25.png', 11, '2025-07-21 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    3, N'Implement authentication', N'Description: Implement authentication', '2025-07-27 00:00:00', 3,
+    'active', N'180 Go Vap', '2025-07-29', '2025-08-11',
+    13, 'https://cdn.example.com/cover/26.png', 12, '2025-07-28 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    4, N'Write unit tests', N'Description: Write unit tests', '2025-07-26 00:00:00', 4,
+    'archived', N'21 Tan Binh District', '2025-07-26', '2025-08-11',
+    13, 'https://cdn.example.com/cover/27.png', 1, '2025-07-26 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    5, N'Client feedback', N'Description: Client feedback', '2025-07-03 00:00:00', 2,
+    'archived', N'33 District 1', '2025-07-03', '2025-07-15',
+    13, 'https://cdn.example.com/cover/28.png', 1, '2025-07-03 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    5, N'Code review', N'Description: Code review', '2025-07-19 00:00:00', 4,
+    'active', N'55 Binh Thanh', '2025-07-22', '2025-07-31',
+    13, 'https://cdn.example.com/cover/29.png', 2, '2025-07-22 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    5, N'Write unit tests', N'Description: Write unit tests', '2025-07-16 00:00:00', 3,
+    'active', N'159 District 3', '2025-07-19', '2025-07-25',
+    13, 'https://cdn.example.com/cover/30.png', 3, '2025-07-16 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    5, N'UX improvements', N'Description: UX improvements', '2025-07-12 00:00:00', 5,
+    'active', N'188 Tan Binh District', '2025-07-12', '2025-07-19',
+    13, 'https://cdn.example.com/cover/31.png', 4, '2025-07-16 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    6, N'Code review', N'Description: Code review', '2025-07-06 00:00:00', 2,
+    'active', N'29 Tan Binh District', '2025-07-08', '2025-07-21',
+    13, 'https://cdn.example.com/cover/32.png', 1, '2025-07-09 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    7, N'Design mockups', N'Description: Design mockups', '2025-07-28 00:00:00', 5,
+    'archived', N'32 District 1', '2025-07-28', '2025-08-06',
+    13, 'https://cdn.example.com/cover/33.png', 1, '2025-07-28 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    7, N'Release notes', N'Description: Release notes', '2025-07-28 00:00:00', 1,
+    'archived', N'40 Tan Binh District', '2025-07-29', '2025-08-06',
+    13, 'https://cdn.example.com/cover/34.png', 2, '2025-07-30 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    7, N'Sprint planning', N'Description: Sprint planning', '2025-07-05 00:00:00', 4,
+    'archived', N'56 Phu Nhuan', '2025-07-07', '2025-07-12',
+    13, 'https://cdn.example.com/cover/35.png', 3, '2025-07-08 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    7, N'Write API documentation', N'Description: Write API documentation', '2025-07-02 00:00:00', 4,
+    'archived', N'12 Phu Nhuan', '2025-07-02', '2025-07-21',
+    13, 'https://cdn.example.com/cover/36.png', 4, '2025-07-07 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    7, N'Refactor codebase', N'Description: Refactor codebase', '2025-07-12 00:00:00', 5,
+    'archived', N'117 District 3', '2025-07-12', '2025-07-30',
+    13, 'https://cdn.example.com/cover/37.png', 5, '2025-07-15 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    7, N'Update user profile', N'Description: Update user profile', '2025-07-02 00:00:00', 3,
+    'archived', N'30 Go Vap', '2025-07-03', '2025-07-06',
+    13, 'https://cdn.example.com/cover/38.png', 6, '2025-07-07 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    7, N'QA testing', N'Description: QA testing', '2025-07-30 00:00:00', 5,
+    'archived', N'32 Phu Nhuan', '2025-08-02', '2025-08-05',
+    13, 'https://cdn.example.com/cover/39.png', 7, '2025-08-03 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    7, N'Sprint planning', N'Description: Sprint planning', '2025-07-19 00:00:00', 4,
+    'archived', N'142 Go Vap', '2025-07-22', '2025-08-04',
+    13, 'https://cdn.example.com/cover/40.png', 8, '2025-07-22 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    7, N'Write API documentation', N'Description: Write API documentation', '2025-07-25 00:00:00', 1,
+    'archived', N'73 Tan Binh District', '2025-07-25', '2025-07-31',
+    13, 'https://cdn.example.com/cover/41.png', 9, '2025-07-28 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    7, N'Refactor codebase', N'Description: Refactor codebase', '2025-07-05 00:00:00', 3,
+    'archived', N'84 Go Vap', '2025-07-05', '2025-07-13',
+    13, 'https://cdn.example.com/cover/42.png', 10, '2025-07-07 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    7, N'Refactor codebase', N'Description: Refactor codebase', '2025-07-11 00:00:00', 1,
+    'archived', N'95 District 1', '2025-07-14', '2025-07-22',
+    13, 'https://cdn.example.com/cover/43.png', 11, '2025-07-12 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    7, N'Create database schema', N'Description: Create database schema', '2025-07-14 00:00:00', 4,
+    'archived', N'29 Phu Nhuan', '2025-07-17', '2025-07-30',
+    13, 'https://cdn.example.com/cover/44.png', 12, '2025-07-18 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    7, N'Sprint planning', N'Description: Sprint planning', '2025-07-03 00:00:00', 2,
+    'archived', N'192 Go Vap', '2025-07-06', '2025-07-19',
+    13, 'https://cdn.example.com/cover/45.png', 13, '2025-07-03 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    7, N'Client feedback', N'Description: Client feedback', '2025-07-18 00:00:00', 1,
+    'archived', N'152 Binh Thanh', '2025-07-21', '2025-07-30',
+    13, 'https://cdn.example.com/cover/46.png', 14, '2025-07-20 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    7, N'Email integration', N'Description: Email integration', '2025-07-13 00:00:00', 4,
+    'active', N'56 Binh Thanh', '2025-07-13', '2025-07-17',
+    13, 'https://cdn.example.com/cover/47.png', 15, '2025-07-18 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    8, N'Update user profile', N'Description: Update user profile', '2025-07-03 00:00:00', 1,
+    'active', N'152 Binh Thanh', '2025-07-03', '2025-07-18',
+    13, 'https://cdn.example.com/cover/48.png', 1, '2025-07-05 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    8, N'Sprint planning', N'Description: Sprint planning', '2025-07-17 00:00:00', 4,
+    'archived', N'111 District 1', '2025-07-17', '2025-07-24',
+    13, 'https://cdn.example.com/cover/49.png', 2, '2025-07-21 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    8, N'Update user profile', N'Description: Update user profile', '2025-07-22 00:00:00', 4,
+    'active', N'162 Binh Thanh', '2025-07-22', '2025-07-27',
+    13, 'https://cdn.example.com/cover/50.png', 3, '2025-07-26 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    9, N'UX improvements', N'Description: UX improvements', '2025-07-01 00:00:00', 3,
+    'active', N'31 Go Vap', '2025-07-03', '2025-07-09',
+    13, 'https://cdn.example.com/cover/51.png', 1, '2025-07-05 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    9, N'UX improvements', N'Description: UX improvements', '2025-07-12 00:00:00', 1,
+    'archived', N'101 Tan Binh District', '2025-07-13', '2025-07-21',
+    13, 'https://cdn.example.com/cover/52.png', 2, '2025-07-12 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    9, N'Refactor codebase', N'Description: Refactor codebase', '2025-07-07 00:00:00', 5,
+    'archived', N'196 District 1', '2025-07-10', '2025-07-21',
+    13, 'https://cdn.example.com/cover/53.png', 3, '2025-07-11 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    9, N'Release notes', N'Description: Release notes', '2025-07-21 00:00:00', 5,
+    'archived', N'122 Binh Thanh', '2025-07-21', '2025-08-04',
+    13, 'https://cdn.example.com/cover/54.png', 4, '2025-07-22 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    9, N'Create database schema', N'Description: Create database schema', '2025-07-05 00:00:00', 5,
+    'archived', N'52 Binh Thanh', '2025-07-06', '2025-07-25',
+    13, 'https://cdn.example.com/cover/55.png', 5, '2025-07-07 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    9, N'UX improvements', N'Description: UX improvements', '2025-07-01 00:00:00', 5,
+    'active', N'31 District 3', '2025-07-01', '2025-07-04',
+    13, 'https://cdn.example.com/cover/56.png', 6, '2025-07-06 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    9, N'Implement authentication', N'Description: Implement authentication', '2025-07-27 00:00:00', 1,
+    'archived', N'109 Phu Nhuan', '2025-07-28', '2025-08-09',
+    13, 'https://cdn.example.com/cover/57.png', 7, '2025-07-31 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    9, N'Optimize queries', N'Description: Optimize queries', '2025-07-27 00:00:00', 5,
+    'active', N'182 Phu Nhuan', '2025-07-28', '2025-08-13',
+    13, 'https://cdn.example.com/cover/58.png', 8, '2025-07-28 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    9, N'Fix UI alignment', N'Description: Fix UI alignment', '2025-07-18 00:00:00', 2,
+    'active', N'192 Binh Thanh', '2025-07-19', '2025-08-05',
+    13, 'https://cdn.example.com/cover/59.png', 9, '2025-07-19 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    10, N'Update user profile', N'Description: Update user profile', '2025-07-01 00:00:00', 2,
+    'archived', N'144 District 3', '2025-07-04', '2025-07-21',
+    13, 'https://cdn.example.com/cover/60.png', 1, '2025-07-01 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    10, N'Release notes', N'Description: Release notes', '2025-07-26 00:00:00', 4,
+    'active', N'163 Phu Nhuan', '2025-07-27', '2025-08-01',
+    13, 'https://cdn.example.com/cover/61.png', 2, '2025-07-28 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    10, N'Final deployment', N'Description: Final deployment', '2025-07-04 00:00:00', 1,
+    'active', N'93 Phu Nhuan', '2025-07-04', '2025-07-23',
+    13, 'https://cdn.example.com/cover/62.png', 3, '2025-07-09 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    10, N'Email integration', N'Description: Email integration', '2025-07-26 00:00:00', 1,
+    'active', N'47 Go Vap', '2025-07-26', '2025-08-06',
+    13, 'https://cdn.example.com/cover/63.png', 4, '2025-07-30 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    10, N'Release notes', N'Description: Release notes', '2025-07-25 00:00:00', 4,
+    'archived', N'97 Phu Nhuan', '2025-07-28', '2025-08-05',
+    13, 'https://cdn.example.com/cover/64.png', 5, '2025-07-29 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    10, N'Email integration', N'Description: Email integration', '2025-07-16 00:00:00', 4,
+    'active', N'104 Binh Thanh', '2025-07-17', '2025-07-27',
+    13, 'https://cdn.example.com/cover/65.png', 6, '2025-07-16 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    10, N'Write unit tests', N'Description: Write unit tests', '2025-07-16 00:00:00', 5,
+    'archived', N'67 District 1', '2025-07-16', '2025-08-01',
+    13, 'https://cdn.example.com/cover/66.png', 7, '2025-07-21 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    10, N'Release notes', N'Description: Release notes', '2025-07-09 00:00:00', 2,
+    'active', N'37 Phu Nhuan', '2025-07-09', '2025-07-23',
+    13, 'https://cdn.example.com/cover/67.png', 8, '2025-07-10 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    10, N'Sprint planning', N'Description: Sprint planning', '2025-07-21 00:00:00', 3,
+    'archived', N'98 Phu Nhuan', '2025-07-23', '2025-07-27',
+    13, 'https://cdn.example.com/cover/68.png', 9, '2025-07-25 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    10, N'Update user profile', N'Description: Update user profile', '2025-07-26 00:00:00', 3,
+    'archived', N'169 Go Vap', '2025-07-28', '2025-08-10',
+    13, 'https://cdn.example.com/cover/69.png', 10, '2025-07-29 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    11, N'Write unit tests', N'Description: Write unit tests', '2025-07-19 00:00:00', 2,
+    'active', N'144 Go Vap', '2025-07-19', '2025-07-31',
+    13, 'https://cdn.example.com/cover/70.png', 1, '2025-07-19 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    11, N'Design landing page', N'Description: Design landing page', '2025-07-18 00:00:00', 2,
+    'archived', N'96 Binh Thanh', '2025-07-20', '2025-07-30',
+    13, 'https://cdn.example.com/cover/71.png', 2, '2025-07-22 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    11, N'Release notes', N'Description: Release notes', '2025-07-31 00:00:00', 3,
+    'archived', N'31 Tan Binh District', '2025-08-03', '2025-08-19',
+    13, 'https://cdn.example.com/cover/72.png', 3, '2025-08-03 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    11, N'Optimize queries', N'Description: Optimize queries', '2025-07-04 00:00:00', 4,
+    'active', N'128 District 3', '2025-07-07', '2025-07-15',
+    13, 'https://cdn.example.com/cover/73.png', 4, '2025-07-09 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    11, N'Write unit tests', N'Description: Write unit tests', '2025-07-03 00:00:00', 4,
+    'archived', N'41 Go Vap', '2025-07-05', '2025-07-25',
+    13, 'https://cdn.example.com/cover/74.png', 5, '2025-07-08 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    11, N'Design mockups', N'Description: Design mockups', '2025-07-17 00:00:00', 2,
+    'archived', N'2 Go Vap', '2025-07-19', '2025-07-22',
+    13, 'https://cdn.example.com/cover/75.png', 6, '2025-07-21 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    11, N'UX improvements', N'Description: UX improvements', '2025-07-12 00:00:00', 4,
+    'archived', N'165 Binh Thanh', '2025-07-15', '2025-07-26',
+    13, 'https://cdn.example.com/cover/76.png', 7, '2025-07-14 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    11, N'Fix login bug', N'Description: Fix login bug', '2025-07-18 00:00:00', 5,
+    'archived', N'105 District 3', '2025-07-20', '2025-07-30',
+    13, 'https://cdn.example.com/cover/77.png', 8, '2025-07-20 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    11, N'Create database schema', N'Description: Create database schema', '2025-07-01 00:00:00', 1,
+    'active', N'187 Binh Thanh', '2025-07-02', '2025-07-10',
+    13, 'https://cdn.example.com/cover/78.png', 9, '2025-07-01 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    11, N'UX improvements', N'Description: UX improvements', '2025-07-06 00:00:00', 4,
+    'active', N'90 Go Vap', '2025-07-09', '2025-07-15',
+    13, 'https://cdn.example.com/cover/79.png', 10, '2025-07-09 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    11, N'Client feedback', N'Description: Client feedback', '2025-07-26 00:00:00', 4,
+    'archived', N'107 Go Vap', '2025-07-29', '2025-08-05',
+    13, 'https://cdn.example.com/cover/80.png', 11, '2025-07-29 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    11, N'Write unit tests', N'Description: Write unit tests', '2025-07-11 00:00:00', 4,
+    'archived', N'113 Go Vap', '2025-07-12', '2025-07-21',
+    13, 'https://cdn.example.com/cover/81.png', 12, '2025-07-12 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    12, N'Write unit tests', N'Description: Write unit tests', '2025-07-28 00:00:00', 5,
+    'active', N'143 District 1', '2025-07-30', '2025-08-15',
+    13, 'https://cdn.example.com/cover/82.png', 1, '2025-07-29 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    12, N'Update user profile', N'Description: Update user profile', '2025-07-17 00:00:00', 4,
+    'archived', N'117 Go Vap', '2025-07-19', '2025-08-07',
+    13, 'https://cdn.example.com/cover/83.png', 2, '2025-07-17 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    12, N'Create database schema', N'Description: Create database schema', '2025-07-04 00:00:00', 4,
+    'archived', N'103 District 1', '2025-07-04', '2025-07-07',
+    13, 'https://cdn.example.com/cover/84.png', 3, '2025-07-08 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    12, N'Fix login bug', N'Description: Fix login bug', '2025-07-28 00:00:00', 3,
+    'archived', N'70 Go Vap', '2025-07-28', '2025-08-05',
+    13, 'https://cdn.example.com/cover/85.png', 4, '2025-08-02 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    12, N'Write API documentation', N'Description: Write API documentation', '2025-07-23 00:00:00', 5,
+    'active', N'167 District 3', '2025-07-26', '2025-07-30',
+    13, 'https://cdn.example.com/cover/86.png', 5, '2025-07-27 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    12, N'Implement authentication', N'Description: Implement authentication', '2025-07-24 00:00:00', 1,
+    'active', N'57 Tan Binh District', '2025-07-24', '2025-08-08',
+    13, 'https://cdn.example.com/cover/87.png', 6, '2025-07-27 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    12, N'Release notes', N'Description: Release notes', '2025-07-14 00:00:00', 2,
+    'active', N'8 Binh Thanh', '2025-07-14', '2025-07-30',
+    13, 'https://cdn.example.com/cover/88.png', 7, '2025-07-15 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    12, N'Update user profile', N'Description: Update user profile', '2025-07-15 00:00:00', 1,
+    'active', N'187 Go Vap', '2025-07-16', '2025-07-27',
+    13, 'https://cdn.example.com/cover/89.png', 8, '2025-07-16 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    12, N'Fix login bug', N'Description: Fix login bug', '2025-07-05 00:00:00', 1,
+    'active', N'35 District 3', '2025-07-06', '2025-07-22',
+    13, 'https://cdn.example.com/cover/90.png', 9, '2025-07-10 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    12, N'Write API documentation', N'Description: Write API documentation', '2025-07-04 00:00:00', 1,
+    'archived', N'132 District 1', '2025-07-07', '2025-07-18',
+    13, 'https://cdn.example.com/cover/91.png', 10, '2025-07-04 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    12, N'Release notes', N'Description: Release notes', '2025-07-22 00:00:00', 4,
+    'active', N'114 Go Vap', '2025-07-25', '2025-08-14',
+    13, 'https://cdn.example.com/cover/92.png', 11, '2025-07-26 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    12, N'Sprint planning', N'Description: Sprint planning', '2025-07-26 00:00:00', 5,
+    'active', N'6 Binh Thanh', '2025-07-27', '2025-07-30',
+    13, 'https://cdn.example.com/cover/93.png', 12, '2025-07-26 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    12, N'Update user profile', N'Description: Update user profile', '2025-07-12 00:00:00', 2,
+    'active', N'58 Phu Nhuan', '2025-07-15', '2025-07-28',
+    13, 'https://cdn.example.com/cover/94.png', 13, '2025-07-17 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    12, N'Update user profile', N'Description: Update user profile', '2025-07-12 00:00:00', 4,
+    'active', N'154 Phu Nhuan', '2025-07-15', '2025-08-01',
+    13, 'https://cdn.example.com/cover/95.png', 14, '2025-07-14 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    13, N'Implement authentication', N'Description: Implement authentication', '2025-07-17 00:00:00', 4,
+    'active', N'25 Binh Thanh', '2025-07-19', '2025-08-02',
+    13, 'https://cdn.example.com/cover/96.png', 1, '2025-07-19 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    13, N'Optimize queries', N'Description: Optimize queries', '2025-07-10 00:00:00', 2,
+    'active', N'173 District 3', '2025-07-10', '2025-07-20',
+    13, 'https://cdn.example.com/cover/97.png', 2, '2025-07-10 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    13, N'Payment gateway setup', N'Description: Payment gateway setup', '2025-07-19 00:00:00', 5,
+    'archived', N'64 Tan Binh District', '2025-07-22', '2025-08-02',
+    13, 'https://cdn.example.com/cover/98.png', 3, '2025-07-23 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    13, N'Client feedback', N'Description: Client feedback', '2025-07-09 00:00:00', 1,
+    'archived', N'49 Go Vap', '2025-07-09', '2025-07-13',
+    13, 'https://cdn.example.com/cover/99.png', 4, '2025-07-14 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    13, N'Fix login bug', N'Description: Fix login bug', '2025-07-03 00:00:00', 3,
+    'archived', N'55 District 1', '2025-07-05', '2025-07-09',
+    13, 'https://cdn.example.com/cover/100.png', 5, '2025-07-05 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    13, N'Write unit tests', N'Description: Write unit tests', '2025-07-03 00:00:00', 5,
+    'archived', N'159 District 1', '2025-07-05', '2025-07-10',
+    13, 'https://cdn.example.com/cover/101.png', 6, '2025-07-07 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    13, N'Design mockups', N'Description: Design mockups', '2025-07-27 00:00:00', 2,
+    'active', N'152 District 3', '2025-07-28', '2025-08-07',
+    13, 'https://cdn.example.com/cover/102.png', 7, '2025-07-30 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    13, N'Refactor codebase', N'Description: Refactor codebase', '2025-07-27 00:00:00', 2,
+    'active', N'84 Phu Nhuan', '2025-07-30', '2025-08-07',
+    13, 'https://cdn.example.com/cover/103.png', 8, '2025-08-01 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    13, N'Email integration', N'Description: Email integration', '2025-07-29 00:00:00', 3,
+    'archived', N'87 Phu Nhuan', '2025-08-01', '2025-08-11',
+    13, 'https://cdn.example.com/cover/104.png', 9, '2025-07-31 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    13, N'QA testing', N'Description: QA testing', '2025-07-23 00:00:00', 4,
+    'archived', N'52 Binh Thanh', '2025-07-23', '2025-08-09',
+    13, 'https://cdn.example.com/cover/105.png', 10, '2025-07-28 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    13, N'Payment gateway setup', N'Description: Payment gateway setup', '2025-07-13 00:00:00', 1,
+    'active', N'75 Tan Binh District', '2025-07-16', '2025-07-21',
+    13, 'https://cdn.example.com/cover/106.png', 11, '2025-07-15 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    13, N'Client feedback', N'Description: Client feedback', '2025-07-31 00:00:00', 3,
+    'archived', N'19 District 1', '2025-08-03', '2025-08-22',
+    13, 'https://cdn.example.com/cover/107.png', 12, '2025-08-05 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    13, N'Write API documentation', N'Description: Write API documentation', '2025-07-28 00:00:00', 5,
+    'archived', N'100 District 1', '2025-07-28', '2025-08-14',
+    13, 'https://cdn.example.com/cover/108.png', 13, '2025-08-01 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    14, N'Client feedback', N'Description: Client feedback', '2025-07-21 00:00:00', 5,
+    'archived', N'35 Tan Binh District', '2025-07-22', '2025-07-30',
+    13, 'https://cdn.example.com/cover/109.png', 1, '2025-07-22 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    15, N'Design landing page', N'Description: Design landing page', '2025-07-29 00:00:00', 4,
+    'active', N'137 District 3', '2025-07-29', '2025-08-02',
+    13, 'https://cdn.example.com/cover/110.png', 1, '2025-08-03 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    15, N'Refactor codebase', N'Description: Refactor codebase', '2025-07-19 00:00:00', 3,
+    'archived', N'198 Phu Nhuan', '2025-07-19', '2025-07-28',
+    13, 'https://cdn.example.com/cover/111.png', 2, '2025-07-23 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    15, N'Implement authentication', N'Description: Implement authentication', '2025-07-01 00:00:00', 4,
+    'archived', N'117 District 1', '2025-07-04', '2025-07-19',
+    13, 'https://cdn.example.com/cover/112.png', 3, '2025-07-04 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    16, N'Code review', N'Description: Code review', '2025-07-02 00:00:00', 4,
+    'archived', N'194 District 1', '2025-07-03', '2025-07-19',
+    13, 'https://cdn.example.com/cover/113.png', 1, '2025-07-05 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    16, N'UX improvements', N'Description: UX improvements', '2025-07-01 00:00:00', 3,
+    'archived', N'184 District 1', '2025-07-04', '2025-07-20',
+    13, 'https://cdn.example.com/cover/114.png', 2, '2025-07-06 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    16, N'Create database schema', N'Description: Create database schema', '2025-07-21 00:00:00', 3,
+    'active', N'65 District 1', '2025-07-23', '2025-07-27',
+    13, 'https://cdn.example.com/cover/115.png', 3, '2025-07-22 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    16, N'Fix UI alignment', N'Description: Fix UI alignment', '2025-07-31 00:00:00', 3,
+    'archived', N'43 Tan Binh District', '2025-08-01', '2025-08-14',
+    13, 'https://cdn.example.com/cover/116.png', 4, '2025-08-05 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    16, N'Refactor codebase', N'Description: Refactor codebase', '2025-07-12 00:00:00', 1,
+    'archived', N'119 Binh Thanh', '2025-07-14', '2025-07-20',
+    13, 'https://cdn.example.com/cover/117.png', 5, '2025-07-14 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    16, N'Fix UI alignment', N'Description: Fix UI alignment', '2025-07-11 00:00:00', 1,
+    'archived', N'109 Binh Thanh', '2025-07-11', '2025-07-20',
+    13, 'https://cdn.example.com/cover/118.png', 6, '2025-07-16 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    16, N'Sprint planning', N'Description: Sprint planning', '2025-07-24 00:00:00', 2,
+    'archived', N'79 Binh Thanh', '2025-07-24', '2025-08-01',
+    13, 'https://cdn.example.com/cover/119.png', 7, '2025-07-26 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    16, N'QA testing', N'Description: QA testing', '2025-07-25 00:00:00', 1,
+    'archived', N'150 Binh Thanh', '2025-07-26', '2025-08-12',
+    13, 'https://cdn.example.com/cover/120.png', 8, '2025-07-29 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    16, N'Fix login bug', N'Description: Fix login bug', '2025-07-07 00:00:00', 4,
+    'active', N'115 Binh Thanh', '2025-07-08', '2025-07-16',
+    13, 'https://cdn.example.com/cover/121.png', 9, '2025-07-07 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    16, N'Design mockups', N'Description: Design mockups', '2025-07-25 00:00:00', 2,
+    'archived', N'108 District 3', '2025-07-26', '2025-08-13',
+    13, 'https://cdn.example.com/cover/122.png', 10, '2025-07-27 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    16, N'UX improvements', N'Description: UX improvements', '2025-07-05 00:00:00', 1,
+    'archived', N'76 Go Vap', '2025-07-06', '2025-07-22',
+    13, 'https://cdn.example.com/cover/123.png', 11, '2025-07-10 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    16, N'Write API documentation', N'Description: Write API documentation', '2025-07-05 00:00:00', 3,
+    'archived', N'173 Go Vap', '2025-07-06', '2025-07-19',
+    13, 'https://cdn.example.com/cover/124.png', 12, '2025-07-05 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    16, N'Create database schema', N'Description: Create database schema', '2025-07-16 00:00:00', 1,
+    'active', N'176 Phu Nhuan', '2025-07-16', '2025-07-26',
+    13, 'https://cdn.example.com/cover/125.png', 13, '2025-07-16 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    16, N'Release notes', N'Description: Release notes', '2025-07-19 00:00:00', 3,
+    'archived', N'11 Phu Nhuan', '2025-07-19', '2025-07-22',
+    13, 'https://cdn.example.com/cover/126.png', 14, '2025-07-23 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    16, N'Refactor codebase', N'Description: Refactor codebase', '2025-07-14 00:00:00', 1,
+    'archived', N'96 District 1', '2025-07-17', '2025-08-05',
+    13, 'https://cdn.example.com/cover/127.png', 15, '2025-07-15 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    16, N'Client feedback', N'Description: Client feedback', '2025-07-21 00:00:00', 4,
+    'active', N'79 District 3', '2025-07-24', '2025-08-11',
+    13, 'https://cdn.example.com/cover/128.png', 16, '2025-07-21 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    16, N'Fix login bug', N'Description: Fix login bug', '2025-07-04 00:00:00', 2,
+    'active', N'142 District 3', '2025-07-05', '2025-07-08',
+    13, 'https://cdn.example.com/cover/129.png', 17, '2025-07-06 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    16, N'Release notes', N'Description: Release notes', '2025-07-21 00:00:00', 3,
+    'active', N'104 Phu Nhuan', '2025-07-22', '2025-08-04',
+    13, 'https://cdn.example.com/cover/130.png', 18, '2025-07-24 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    16, N'Refactor codebase', N'Description: Refactor codebase', '2025-07-08 00:00:00', 3,
+    'active', N'73 Phu Nhuan', '2025-07-10', '2025-07-22',
+    13, 'https://cdn.example.com/cover/131.png', 19, '2025-07-13 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    16, N'Implement authentication', N'Description: Implement authentication', '2025-07-06 00:00:00', 2,
+    'active', N'163 Phu Nhuan', '2025-07-09', '2025-07-13',
+    13, 'https://cdn.example.com/cover/132.png', 20, '2025-07-08 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    17, N'Implement authentication', N'Description: Implement authentication', '2025-07-12 00:00:00', 3,
+    'archived', N'58 Binh Thanh', '2025-07-12', '2025-07-24',
+    13, 'https://cdn.example.com/cover/133.png', 1, '2025-07-16 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    17, N'Payment gateway setup', N'Description: Payment gateway setup', '2025-07-01 00:00:00', 1,
+    'archived', N'157 Binh Thanh', '2025-07-01', '2025-07-09',
+    13, 'https://cdn.example.com/cover/134.png', 2, '2025-07-04 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    17, N'Create database schema', N'Description: Create database schema', '2025-07-21 00:00:00', 5,
+    'archived', N'114 Go Vap', '2025-07-24', '2025-07-31',
+    13, 'https://cdn.example.com/cover/135.png', 3, '2025-07-21 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    17, N'Write API documentation', N'Description: Write API documentation', '2025-07-17 00:00:00', 4,
+    'archived', N'196 Tan Binh District', '2025-07-17', '2025-07-30',
+    13, 'https://cdn.example.com/cover/136.png', 4, '2025-07-20 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    18, N'Fix login bug', N'Description: Fix login bug', '2025-07-14 00:00:00', 2,
+    'active', N'154 Binh Thanh', '2025-07-17', '2025-08-01',
+    13, 'https://cdn.example.com/cover/137.png', 1, '2025-07-19 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    18, N'Design landing page', N'Description: Design landing page', '2025-07-28 00:00:00', 2,
+    'archived', N'126 Tan Binh District', '2025-07-30', '2025-08-14',
+    13, 'https://cdn.example.com/cover/138.png', 2, '2025-08-01 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    18, N'Design landing page', N'Description: Design landing page', '2025-07-06 00:00:00', 3,
+    'active', N'163 Binh Thanh', '2025-07-09', '2025-07-14',
+    13, 'https://cdn.example.com/cover/139.png', 3, '2025-07-08 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    18, N'Code review', N'Description: Code review', '2025-07-08 00:00:00', 1,
+    'archived', N'35 District 1', '2025-07-11', '2025-07-17',
+    13, 'https://cdn.example.com/cover/140.png', 4, '2025-07-09 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    18, N'Code review', N'Description: Code review', '2025-07-09 00:00:00', 3,
+    'archived', N'3 Phu Nhuan', '2025-07-12', '2025-07-25',
+    13, 'https://cdn.example.com/cover/141.png', 5, '2025-07-12 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    18, N'Fix login bug', N'Description: Fix login bug', '2025-07-11 00:00:00', 1,
+    'archived', N'69 Tan Binh District', '2025-07-13', '2025-07-28',
+    13, 'https://cdn.example.com/cover/142.png', 6, '2025-07-15 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    18, N'Create database schema', N'Description: Create database schema', '2025-07-25 00:00:00', 1,
+    'archived', N'49 Binh Thanh', '2025-07-25', '2025-08-01',
+    13, 'https://cdn.example.com/cover/143.png', 7, '2025-07-26 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    19, N'Final deployment', N'Description: Final deployment', '2025-07-05 00:00:00', 2,
+    'archived', N'116 District 1', '2025-07-07', '2025-07-15',
+    13, 'https://cdn.example.com/cover/144.png', 1, '2025-07-09 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    20, N'Write API documentation', N'Description: Write API documentation', '2025-07-03 00:00:00', 1,
+    'archived', N'188 Binh Thanh', '2025-07-06', '2025-07-10',
+    13, 'https://cdn.example.com/cover/145.png', 1, '2025-07-04 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    20, N'Write unit tests', N'Description: Write unit tests', '2025-07-11 00:00:00', 1,
+    'archived', N'191 Tan Binh District', '2025-07-12', '2025-07-27',
+    13, 'https://cdn.example.com/cover/146.png', 2, '2025-07-16 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    20, N'Payment gateway setup', N'Description: Payment gateway setup', '2025-07-27 00:00:00', 1,
+    'archived', N'60 Tan Binh District', '2025-07-28', '2025-08-09',
+    13, 'https://cdn.example.com/cover/147.png', 3, '2025-08-01 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    20, N'Update user profile', N'Description: Update user profile', '2025-07-01 00:00:00', 1,
+    'archived', N'64 District 1', '2025-07-01', '2025-07-15',
+    13, 'https://cdn.example.com/cover/148.png', 4, '2025-07-03 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    20, N'Optimize queries', N'Description: Optimize queries', '2025-07-04 00:00:00', 4,
+    'archived', N'145 Go Vap', '2025-07-07', '2025-07-24',
+    13, 'https://cdn.example.com/cover/149.png', 5, '2025-07-05 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    20, N'Refactor codebase', N'Description: Refactor codebase', '2025-07-28 00:00:00', 4,
+    'archived', N'25 District 3', '2025-07-31', '2025-08-15',
+    13, 'https://cdn.example.com/cover/150.png', 6, '2025-07-29 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    20, N'Fix login bug', N'Description: Fix login bug', '2025-07-09 00:00:00', 2,
+    'archived', N'65 District 1', '2025-07-10', '2025-07-22',
+    13, 'https://cdn.example.com/cover/151.png', 7, '2025-07-14 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    20, N'Final deployment', N'Description: Final deployment', '2025-07-01 00:00:00', 3,
+    'active', N'97 Go Vap', '2025-07-01', '2025-07-07',
+    13, 'https://cdn.example.com/cover/152.png', 8, '2025-07-05 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    20, N'QA testing', N'Description: QA testing', '2025-07-08 00:00:00', 2,
+    'active', N'127 District 3', '2025-07-09', '2025-07-22',
+    13, 'https://cdn.example.com/cover/153.png', 9, '2025-07-12 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    20, N'Design mockups', N'Description: Design mockups', '2025-07-07 00:00:00', 3,
+    'active', N'56 District 1', '2025-07-10', '2025-07-29',
+    13, 'https://cdn.example.com/cover/154.png', 10, '2025-07-07 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    20, N'Sprint planning', N'Description: Sprint planning', '2025-07-24 00:00:00', 4,
+    'active', N'42 District 3', '2025-07-26', '2025-08-04',
+    13, 'https://cdn.example.com/cover/155.png', 11, '2025-07-28 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    20, N'UX improvements', N'Description: UX improvements', '2025-07-14 00:00:00', 5,
+    'active', N'14 Go Vap', '2025-07-14', '2025-07-18',
+    13, 'https://cdn.example.com/cover/156.png', 12, '2025-07-16 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    20, N'Design mockups', N'Description: Design mockups', '2025-07-14 00:00:00', 5,
+    'archived', N'40 Tan Binh District', '2025-07-17', '2025-07-20',
+    13, 'https://cdn.example.com/cover/157.png', 13, '2025-07-18 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    20, N'Payment gateway setup', N'Description: Payment gateway setup', '2025-07-06 00:00:00', 3,
+    'archived', N'187 District 1', '2025-07-08', '2025-07-11',
+    13, 'https://cdn.example.com/cover/158.png', 14, '2025-07-10 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    20, N'QA testing', N'Description: QA testing', '2025-07-16 00:00:00', 3,
+    'active', N'28 Go Vap', '2025-07-17', '2025-07-27',
+    13, 'https://cdn.example.com/cover/159.png', 15, '2025-07-18 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    20, N'Update user profile', N'Description: Update user profile', '2025-07-15 00:00:00', 1,
+    'archived', N'116 Binh Thanh', '2025-07-18', '2025-07-27',
+    13, 'https://cdn.example.com/cover/160.png', 16, '2025-07-18 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    20, N'Design mockups', N'Description: Design mockups', '2025-07-15 00:00:00', 4,
+    'active', N'152 District 3', '2025-07-17', '2025-08-06',
+    13, 'https://cdn.example.com/cover/161.png', 17, '2025-07-19 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    20, N'Final deployment', N'Description: Final deployment', '2025-07-23 00:00:00', 2,
+    'archived', N'193 District 3', '2025-07-23', '2025-07-28',
+    13, 'https://cdn.example.com/cover/162.png', 18, '2025-07-27 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    20, N'Refactor codebase', N'Description: Refactor codebase', '2025-07-11 00:00:00', 5,
+    'archived', N'32 Tan Binh District', '2025-07-12', '2025-07-21',
+    13, 'https://cdn.example.com/cover/163.png', 19, '2025-07-12 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    21, N'Refactor codebase', N'Description: Refactor codebase', '2025-07-10 00:00:00', 5,
+    'active', N'122 Go Vap', '2025-07-10', '2025-07-21',
+    13, 'https://cdn.example.com/cover/164.png', 1, '2025-07-10 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    21, N'Fix login bug', N'Description: Fix login bug', '2025-07-06 00:00:00', 5,
+    'active', N'107 Go Vap', '2025-07-07', '2025-07-15',
+    13, 'https://cdn.example.com/cover/165.png', 2, '2025-07-07 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    22, N'Final deployment', N'Description: Final deployment', '2025-07-14 00:00:00', 2,
+    'archived', N'98 Go Vap', '2025-07-16', '2025-07-30',
+    13, 'https://cdn.example.com/cover/166.png', 1, '2025-07-14 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    23, N'Design landing page', N'Description: Design landing page', '2025-07-19 00:00:00', 5,
+    'active', N'58 District 3', '2025-07-20', '2025-08-01',
+    13, 'https://cdn.example.com/cover/167.png', 1, '2025-07-21 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    23, N'UX improvements', N'Description: UX improvements', '2025-07-07 00:00:00', 2,
+    'active', N'181 Go Vap', '2025-07-09', '2025-07-19',
+    13, 'https://cdn.example.com/cover/168.png', 2, '2025-07-08 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    23, N'Fix login bug', N'Description: Fix login bug', '2025-07-05 00:00:00', 5,
+    'archived', N'143 District 3', '2025-07-08', '2025-07-11',
+    13, 'https://cdn.example.com/cover/169.png', 3, '2025-07-10 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    23, N'Payment gateway setup', N'Description: Payment gateway setup', '2025-07-17 00:00:00', 1,
+    'active', N'46 Tan Binh District', '2025-07-17', '2025-07-31',
+    13, 'https://cdn.example.com/cover/170.png', 4, '2025-07-20 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    23, N'Create database schema', N'Description: Create database schema', '2025-07-15 00:00:00', 4,
+    'active', N'194 Go Vap', '2025-07-18', '2025-07-26',
+    13, 'https://cdn.example.com/cover/171.png', 5, '2025-07-19 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    23, N'Sprint planning', N'Description: Sprint planning', '2025-07-04 00:00:00', 2,
+    'archived', N'169 District 1', '2025-07-07', '2025-07-21',
+    13, 'https://cdn.example.com/cover/172.png', 6, '2025-07-08 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    23, N'Design landing page', N'Description: Design landing page', '2025-07-27 00:00:00', 2,
+    'archived', N'44 Phu Nhuan', '2025-07-28', '2025-08-04',
+    13, 'https://cdn.example.com/cover/173.png', 7, '2025-07-29 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    23, N'UX improvements', N'Description: UX improvements', '2025-07-27 00:00:00', 5,
+    'archived', N'118 Go Vap', '2025-07-27', '2025-08-14',
+    13, 'https://cdn.example.com/cover/174.png', 8, '2025-07-27 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    23, N'Fix login bug', N'Description: Fix login bug', '2025-07-20 00:00:00', 2,
+    'archived', N'175 Phu Nhuan', '2025-07-20', '2025-08-08',
+    13, 'https://cdn.example.com/cover/175.png', 9, '2025-07-25 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    24, N'Fix UI alignment', N'Description: Fix UI alignment', '2025-07-18 00:00:00', 4,
+    'archived', N'100 Go Vap', '2025-07-18', '2025-07-21',
+    13, 'https://cdn.example.com/cover/176.png', 1, '2025-07-23 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    24, N'QA testing', N'Description: QA testing', '2025-07-01 00:00:00', 4,
+    'archived', N'26 Tan Binh District', '2025-07-01', '2025-07-06',
+    13, 'https://cdn.example.com/cover/177.png', 2, '2025-07-02 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    24, N'Design mockups', N'Description: Design mockups', '2025-07-28 00:00:00', 2,
+    'archived', N'191 District 1', '2025-07-29', '2025-08-16',
+    13, 'https://cdn.example.com/cover/178.png', 3, '2025-07-31 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    24, N'Sprint planning', N'Description: Sprint planning', '2025-07-10 00:00:00', 1,
+    'active', N'100 Tan Binh District', '2025-07-11', '2025-07-19',
+    13, 'https://cdn.example.com/cover/179.png', 4, '2025-07-15 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    24, N'Design landing page', N'Description: Design landing page', '2025-07-06 00:00:00', 4,
+    'active', N'72 District 3', '2025-07-06', '2025-07-09',
+    13, 'https://cdn.example.com/cover/180.png', 5, '2025-07-10 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    24, N'Email integration', N'Description: Email integration', '2025-07-22 00:00:00', 5,
+    'archived', N'60 District 1', '2025-07-24', '2025-08-13',
+    13, 'https://cdn.example.com/cover/181.png', 6, '2025-07-23 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    24, N'Optimize queries', N'Description: Optimize queries', '2025-07-01 00:00:00', 5,
+    'active', N'76 Tan Binh District', '2025-07-03', '2025-07-23',
+    13, 'https://cdn.example.com/cover/182.png', 7, '2025-07-03 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    24, N'Write API documentation', N'Description: Write API documentation', '2025-07-04 00:00:00', 3,
+    'archived', N'63 District 3', '2025-07-07', '2025-07-12',
+    13, 'https://cdn.example.com/cover/183.png', 8, '2025-07-08 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    24, N'Create database schema', N'Description: Create database schema', '2025-07-04 00:00:00', 2,
+    'archived', N'178 Go Vap', '2025-07-06', '2025-07-22',
+    13, 'https://cdn.example.com/cover/184.png', 9, '2025-07-05 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    24, N'Refactor codebase', N'Description: Refactor codebase', '2025-07-07 00:00:00', 4,
+    'archived', N'5 District 1', '2025-07-10', '2025-07-29',
+    13, 'https://cdn.example.com/cover/185.png', 10, '2025-07-10 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    24, N'Design mockups', N'Description: Design mockups', '2025-07-23 00:00:00', 2,
+    'archived', N'117 District 1', '2025-07-24', '2025-08-04',
+    13, 'https://cdn.example.com/cover/186.png', 11, '2025-07-24 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    24, N'Release notes', N'Description: Release notes', '2025-07-20 00:00:00', 1,
+    'archived', N'56 Go Vap', '2025-07-21', '2025-08-04',
+    13, 'https://cdn.example.com/cover/187.png', 12, '2025-07-21 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    24, N'Design landing page', N'Description: Design landing page', '2025-07-12 00:00:00', 2,
+    'archived', N'27 District 1', '2025-07-14', '2025-07-31',
+    13, 'https://cdn.example.com/cover/188.png', 13, '2025-07-15 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    24, N'Release notes', N'Description: Release notes', '2025-07-17 00:00:00', 3,
+    'archived', N'183 Phu Nhuan', '2025-07-19', '2025-08-08',
+    13, 'https://cdn.example.com/cover/189.png', 14, '2025-07-20 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    25, N'QA testing', N'Description: QA testing', '2025-07-29 00:00:00', 1,
+    'archived', N'189 Go Vap', '2025-07-30', '2025-08-14',
+    13, 'https://cdn.example.com/cover/190.png', 1, '2025-08-03 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    25, N'Update user profile', N'Description: Update user profile', '2025-07-29 00:00:00', 5,
+    'active', N'62 Phu Nhuan', '2025-07-31', '2025-08-06',
+    13, 'https://cdn.example.com/cover/191.png', 2, '2025-08-02 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    25, N'Final deployment', N'Description: Final deployment', '2025-07-23 00:00:00', 4,
+    'archived', N'188 Phu Nhuan', '2025-07-26', '2025-08-10',
+    13, 'https://cdn.example.com/cover/192.png', 3, '2025-07-26 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    25, N'Email integration', N'Description: Email integration', '2025-07-18 00:00:00', 3,
+    'active', N'128 District 3', '2025-07-18', '2025-07-27',
+    13, 'https://cdn.example.com/cover/193.png', 4, '2025-07-22 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    25, N'Code review', N'Description: Code review', '2025-07-25 00:00:00', 2,
+    'active', N'178 Tan Binh District', '2025-07-27', '2025-08-15',
+    13, 'https://cdn.example.com/cover/194.png', 5, '2025-07-25 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    25, N'QA testing', N'Description: QA testing', '2025-07-11 00:00:00', 1,
+    'archived', N'177 District 1', '2025-07-14', '2025-08-03',
+    13, 'https://cdn.example.com/cover/195.png', 6, '2025-07-15 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    25, N'Write API documentation', N'Description: Write API documentation', '2025-07-25 00:00:00', 2,
+    'active', N'164 District 3', '2025-07-25', '2025-08-03',
+    13, 'https://cdn.example.com/cover/196.png', 7, '2025-07-26 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    25, N'Code review', N'Description: Code review', '2025-07-13 00:00:00', 3,
+    'archived', N'182 Go Vap', '2025-07-13', '2025-07-20',
+    13, 'https://cdn.example.com/cover/197.png', 8, '2025-07-18 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    25, N'Fix login bug', N'Description: Fix login bug', '2025-07-29 00:00:00', 4,
+    'active', N'167 District 1', '2025-07-29', '2025-08-10',
+    13, 'https://cdn.example.com/cover/198.png', 9, '2025-07-29 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    26, N'Fix UI alignment', N'Description: Fix UI alignment', '2025-07-19 00:00:00', 4,
+    'active', N'41 Tan Binh District', '2025-07-22', '2025-08-07',
+    13, 'https://cdn.example.com/cover/199.png', 1, '2025-07-22 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    26, N'Sprint planning', N'Description: Sprint planning', '2025-07-07 00:00:00', 2,
+    'archived', N'109 Tan Binh District', '2025-07-08', '2025-07-20',
+    13, 'https://cdn.example.com/cover/200.png', 2, '2025-07-07 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    26, N'Write API documentation', N'Description: Write API documentation', '2025-07-21 00:00:00', 3,
+    'archived', N'26 Binh Thanh', '2025-07-22', '2025-08-10',
+    13, 'https://cdn.example.com/cover/201.png', 3, '2025-07-21 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    26, N'Write unit tests', N'Description: Write unit tests', '2025-07-27 00:00:00', 3,
+    'active', N'74 Go Vap', '2025-07-28', '2025-08-09',
+    13, 'https://cdn.example.com/cover/202.png', 4, '2025-07-27 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    26, N'Final deployment', N'Description: Final deployment', '2025-07-19 00:00:00', 4,
+    'active', N'179 Phu Nhuan', '2025-07-19', '2025-07-30',
+    13, 'https://cdn.example.com/cover/203.png', 5, '2025-07-22 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    26, N'Code review', N'Description: Code review', '2025-07-22 00:00:00', 2,
+    'active', N'89 Tan Binh District', '2025-07-23', '2025-08-04',
+    13, 'https://cdn.example.com/cover/204.png', 6, '2025-07-25 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    26, N'UX improvements', N'Description: UX improvements', '2025-07-01 00:00:00', 3,
+    'archived', N'93 Binh Thanh', '2025-07-01', '2025-07-13',
+    13, 'https://cdn.example.com/cover/205.png', 7, '2025-07-02 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    26, N'Sprint planning', N'Description: Sprint planning', '2025-07-14 00:00:00', 3,
+    'archived', N'120 Go Vap', '2025-07-17', '2025-07-30',
+    13, 'https://cdn.example.com/cover/206.png', 8, '2025-07-18 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    27, N'Write unit tests', N'Description: Write unit tests', '2025-07-01 00:00:00', 3,
+    'archived', N'197 Go Vap', '2025-07-04', '2025-07-15',
+    13, 'https://cdn.example.com/cover/207.png', 1, '2025-07-01 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    27, N'Code review', N'Description: Code review', '2025-07-31 00:00:00', 1,
+    'active', N'12 Binh Thanh', '2025-08-02', '2025-08-13',
+    13, 'https://cdn.example.com/cover/208.png', 2, '2025-07-31 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    27, N'Optimize queries', N'Description: Optimize queries', '2025-07-09 00:00:00', 3,
+    'archived', N'97 Binh Thanh', '2025-07-10', '2025-07-22',
+    13, 'https://cdn.example.com/cover/209.png', 3, '2025-07-12 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    27, N'Fix login bug', N'Description: Fix login bug', '2025-07-28 00:00:00', 1,
+    'active', N'55 Go Vap', '2025-07-28', '2025-08-05',
+    13, 'https://cdn.example.com/cover/210.png', 4, '2025-07-28 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    27, N'Design landing page', N'Description: Design landing page', '2025-07-08 00:00:00', 1,
+    'archived', N'176 District 3', '2025-07-10', '2025-07-15',
+    13, 'https://cdn.example.com/cover/211.png', 5, '2025-07-12 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    27, N'Design landing page', N'Description: Design landing page', '2025-07-01 00:00:00', 5,
+    'active', N'167 District 3', '2025-07-02', '2025-07-06',
+    13, 'https://cdn.example.com/cover/212.png', 6, '2025-07-03 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    27, N'Final deployment', N'Description: Final deployment', '2025-07-18 00:00:00', 4,
+    'archived', N'193 District 3', '2025-07-20', '2025-07-23',
+    13, 'https://cdn.example.com/cover/213.png', 7, '2025-07-20 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    28, N'Update user profile', N'Description: Update user profile', '2025-07-28 00:00:00', 1,
+    'active', N'4 Binh Thanh', '2025-07-28', '2025-08-09',
+    13, 'https://cdn.example.com/cover/214.png', 1, '2025-08-02 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    28, N'Fix login bug', N'Description: Fix login bug', '2025-07-03 00:00:00', 1,
+    'active', N'87 Phu Nhuan', '2025-07-06', '2025-07-10',
+    13, 'https://cdn.example.com/cover/215.png', 2, '2025-07-07 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    28, N'Optimize queries', N'Description: Optimize queries', '2025-07-02 00:00:00', 2,
+    'active', N'19 District 3', '2025-07-05', '2025-07-19',
+    13, 'https://cdn.example.com/cover/216.png', 3, '2025-07-06 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    28, N'Client feedback', N'Description: Client feedback', '2025-07-17 00:00:00', 3,
+    'active', N'193 Go Vap', '2025-07-20', '2025-08-09',
+    13, 'https://cdn.example.com/cover/217.png', 4, '2025-07-17 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    28, N'Write unit tests', N'Description: Write unit tests', '2025-07-22 00:00:00', 1,
+    'active', N'91 Tan Binh District', '2025-07-25', '2025-08-01',
+    13, 'https://cdn.example.com/cover/218.png', 5, '2025-07-27 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    28, N'Optimize queries', N'Description: Optimize queries', '2025-07-16 00:00:00', 1,
+    'active', N'44 Tan Binh District', '2025-07-19', '2025-07-31',
+    13, 'https://cdn.example.com/cover/219.png', 6, '2025-07-21 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    28, N'Release notes', N'Description: Release notes', '2025-07-24 00:00:00', 4,
+    'active', N'75 Binh Thanh', '2025-07-26', '2025-08-01',
+    13, 'https://cdn.example.com/cover/220.png', 7, '2025-07-29 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    29, N'Fix login bug', N'Description: Fix login bug', '2025-07-18 00:00:00', 4,
+    'archived', N'34 District 3', '2025-07-19', '2025-07-23',
+    13, 'https://cdn.example.com/cover/221.png', 1, '2025-07-23 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    29, N'Release notes', N'Description: Release notes', '2025-07-06 00:00:00', 3,
+    'archived', N'156 Go Vap', '2025-07-09', '2025-07-24',
+    13, 'https://cdn.example.com/cover/222.png', 2, '2025-07-11 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    29, N'Update user profile', N'Description: Update user profile', '2025-07-17 00:00:00', 5,
+    'archived', N'7 Go Vap', '2025-07-17', '2025-07-24',
+    13, 'https://cdn.example.com/cover/223.png', 3, '2025-07-20 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    29, N'Write API documentation', N'Description: Write API documentation', '2025-07-04 00:00:00', 2,
+    'archived', N'155 Tan Binh District', '2025-07-07', '2025-07-16',
+    13, 'https://cdn.example.com/cover/224.png', 4, '2025-07-04 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    30, N'Optimize queries', N'Description: Optimize queries', '2025-07-01 00:00:00', 5,
+    'archived', N'69 District 3', '2025-07-04', '2025-07-12',
+    13, 'https://cdn.example.com/cover/225.png', 1, '2025-07-04 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    30, N'Create database schema', N'Description: Create database schema', '2025-07-05 00:00:00', 2,
+    'archived', N'19 District 1', '2025-07-05', '2025-07-21',
+    13, 'https://cdn.example.com/cover/226.png', 2, '2025-07-07 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    30, N'Final deployment', N'Description: Final deployment', '2025-07-12 00:00:00', 4,
+    'active', N'79 District 1', '2025-07-15', '2025-08-04',
+    13, 'https://cdn.example.com/cover/227.png', 3, '2025-07-12 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    30, N'Payment gateway setup', N'Description: Payment gateway setup', '2025-07-02 00:00:00', 1,
+    'archived', N'19 District 3', '2025-07-03', '2025-07-07',
+    13, 'https://cdn.example.com/cover/228.png', 4, '2025-07-06 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    30, N'Design landing page', N'Description: Design landing page', '2025-07-14 00:00:00', 4,
+    'active', N'159 Go Vap', '2025-07-15', '2025-07-20',
+    13, 'https://cdn.example.com/cover/229.png', 5, '2025-07-16 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    30, N'Write unit tests', N'Description: Write unit tests', '2025-07-31 00:00:00', 2,
+    'active', N'131 Go Vap', '2025-08-01', '2025-08-05',
+    13, 'https://cdn.example.com/cover/230.png', 6, '2025-08-05 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    30, N'Optimize queries', N'Description: Optimize queries', '2025-07-16 00:00:00', 4,
+    'archived', N'123 District 1', '2025-07-19', '2025-07-25',
+    13, 'https://cdn.example.com/cover/231.png', 7, '2025-07-21 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    30, N'Fix UI alignment', N'Description: Fix UI alignment', '2025-07-08 00:00:00', 1,
+    'archived', N'71 District 3', '2025-07-08', '2025-07-19',
+    13, 'https://cdn.example.com/cover/232.png', 8, '2025-07-09 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    30, N'Fix UI alignment', N'Description: Fix UI alignment', '2025-07-05 00:00:00', 3,
+    'active', N'165 District 3', '2025-07-07', '2025-07-23',
+    13, 'https://cdn.example.com/cover/233.png', 9, '2025-07-10 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    30, N'Design mockups', N'Description: Design mockups', '2025-07-08 00:00:00', 2,
+    'active', N'45 District 3', '2025-07-08', '2025-07-18',
+    13, 'https://cdn.example.com/cover/234.png', 10, '2025-07-11 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    30, N'Client feedback', N'Description: Client feedback', '2025-07-07 00:00:00', 2,
+    'active', N'108 Binh Thanh', '2025-07-09', '2025-07-19',
+    13, 'https://cdn.example.com/cover/235.png', 11, '2025-07-08 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    30, N'Create database schema', N'Description: Create database schema', '2025-07-29 00:00:00', 1,
+    'active', N'151 Go Vap', '2025-08-01', '2025-08-08',
+    13, 'https://cdn.example.com/cover/236.png', 12, '2025-07-30 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    30, N'Fix login bug', N'Description: Fix login bug', '2025-07-08 00:00:00', 4,
+    'active', N'150 Go Vap', '2025-07-09', '2025-07-19',
+    13, 'https://cdn.example.com/cover/237.png', 13, '2025-07-11 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    30, N'Create database schema', N'Description: Create database schema', '2025-07-11 00:00:00', 4,
+    'active', N'95 Binh Thanh', '2025-07-13', '2025-07-16',
+    13, 'https://cdn.example.com/cover/238.png', 14, '2025-07-12 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    30, N'Fix login bug', N'Description: Fix login bug', '2025-07-15 00:00:00', 3,
+    'active', N'199 Tan Binh District', '2025-07-15', '2025-07-26',
+    13, 'https://cdn.example.com/cover/239.png', 15, '2025-07-17 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    31, N'Update user profile', N'Description: Update user profile', '2025-07-20 00:00:00', 4,
+    'active', N'22 District 1', '2025-07-20', '2025-08-06',
+    13, 'https://cdn.example.com/cover/240.png', 1, '2025-07-22 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    31, N'Sprint planning', N'Description: Sprint planning', '2025-07-03 00:00:00', 3,
+    'archived', N'111 Tan Binh District', '2025-07-06', '2025-07-26',
+    13, 'https://cdn.example.com/cover/241.png', 2, '2025-07-05 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    31, N'UX improvements', N'Description: UX improvements', '2025-07-08 00:00:00', 4,
+    'active', N'33 Go Vap', '2025-07-08', '2025-07-13',
+    13, 'https://cdn.example.com/cover/242.png', 3, '2025-07-12 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    31, N'Update user profile', N'Description: Update user profile', '2025-07-16 00:00:00', 1,
+    'active', N'77 Go Vap', '2025-07-16', '2025-07-28',
+    13, 'https://cdn.example.com/cover/243.png', 4, '2025-07-21 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    31, N'Design landing page', N'Description: Design landing page', '2025-07-06 00:00:00', 4,
+    'archived', N'110 Phu Nhuan', '2025-07-08', '2025-07-25',
+    13, 'https://cdn.example.com/cover/244.png', 5, '2025-07-09 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    31, N'Email integration', N'Description: Email integration', '2025-07-20 00:00:00', 4,
+    'active', N'70 Tan Binh District', '2025-07-23', '2025-07-30',
+    13, 'https://cdn.example.com/cover/245.png', 6, '2025-07-23 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    31, N'Write API documentation', N'Description: Write API documentation', '2025-07-21 00:00:00', 1,
+    'active', N'142 Go Vap', '2025-07-23', '2025-08-11',
+    13, 'https://cdn.example.com/cover/246.png', 7, '2025-07-25 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    31, N'Design landing page', N'Description: Design landing page', '2025-07-29 00:00:00', 3,
+    'archived', N'5 District 1', '2025-07-30', '2025-08-13',
+    13, 'https://cdn.example.com/cover/247.png', 8, '2025-07-29 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    31, N'Write unit tests', N'Description: Write unit tests', '2025-07-19 00:00:00', 1,
+    'active', N'36 District 1', '2025-07-19', '2025-08-04',
+    13, 'https://cdn.example.com/cover/248.png', 9, '2025-07-23 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    31, N'Optimize queries', N'Description: Optimize queries', '2025-07-30 00:00:00', 5,
+    'active', N'82 District 3', '2025-08-01', '2025-08-15',
+    13, 'https://cdn.example.com/cover/249.png', 10, '2025-08-02 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    31, N'UX improvements', N'Description: UX improvements', '2025-07-14 00:00:00', 5,
+    'archived', N'27 District 3', '2025-07-16', '2025-07-28',
+    13, 'https://cdn.example.com/cover/250.png', 11, '2025-07-17 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    31, N'Write unit tests', N'Description: Write unit tests', '2025-07-16 00:00:00', 4,
+    'active', N'90 Go Vap', '2025-07-17', '2025-07-30',
+    13, 'https://cdn.example.com/cover/251.png', 12, '2025-07-20 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    31, N'Refactor codebase', N'Description: Refactor codebase', '2025-07-21 00:00:00', 5,
+    'archived', N'127 Binh Thanh', '2025-07-22', '2025-08-05',
+    13, 'https://cdn.example.com/cover/252.png', 13, '2025-07-25 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    31, N'Sprint planning', N'Description: Sprint planning', '2025-07-31 00:00:00', 3,
+    'archived', N'167 Tan Binh District', '2025-08-01', '2025-08-17',
+    13, 'https://cdn.example.com/cover/253.png', 14, '2025-08-04 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    31, N'Code review', N'Description: Code review', '2025-07-23 00:00:00', 5,
+    'active', N'92 District 1', '2025-07-25', '2025-08-03',
+    13, 'https://cdn.example.com/cover/254.png', 15, '2025-07-28 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    32, N'Final deployment', N'Description: Final deployment', '2025-07-06 00:00:00', 4,
+    'active', N'69 Binh Thanh', '2025-07-06', '2025-07-17',
+    13, 'https://cdn.example.com/cover/255.png', 1, '2025-07-09 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    32, N'Update user profile', N'Description: Update user profile', '2025-07-24 00:00:00', 2,
+    'active', N'55 District 3', '2025-07-24', '2025-07-27',
+    13, 'https://cdn.example.com/cover/256.png', 2, '2025-07-24 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    32, N'Sprint planning', N'Description: Sprint planning', '2025-07-13 00:00:00', 4,
+    'active', N'142 Binh Thanh', '2025-07-14', '2025-07-26',
+    13, 'https://cdn.example.com/cover/257.png', 3, '2025-07-16 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    32, N'Create database schema', N'Description: Create database schema', '2025-07-02 00:00:00', 2,
+    'active', N'6 Tan Binh District', '2025-07-02', '2025-07-06',
+    13, 'https://cdn.example.com/cover/258.png', 4, '2025-07-07 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    32, N'Fix login bug', N'Description: Fix login bug', '2025-07-28 00:00:00', 5,
+    'archived', N'58 Tan Binh District', '2025-07-29', '2025-08-18',
+    13, 'https://cdn.example.com/cover/259.png', 5, '2025-07-31 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    32, N'Fix login bug', N'Description: Fix login bug', '2025-07-09 00:00:00', 3,
+    'active', N'153 Go Vap', '2025-07-12', '2025-07-21',
+    13, 'https://cdn.example.com/cover/260.png', 6, '2025-07-12 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    32, N'Create database schema', N'Description: Create database schema', '2025-07-06 00:00:00', 4,
+    'active', N'113 District 3', '2025-07-07', '2025-07-23',
+    13, 'https://cdn.example.com/cover/261.png', 7, '2025-07-10 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    32, N'Update user profile', N'Description: Update user profile', '2025-07-02 00:00:00', 2,
+    'archived', N'155 District 1', '2025-07-03', '2025-07-15',
+    13, 'https://cdn.example.com/cover/262.png', 8, '2025-07-03 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    32, N'Client feedback', N'Description: Client feedback', '2025-07-10 00:00:00', 3,
+    'active', N'119 Go Vap', '2025-07-12', '2025-07-18',
+    13, 'https://cdn.example.com/cover/263.png', 9, '2025-07-14 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    32, N'Release notes', N'Description: Release notes', '2025-07-05 00:00:00', 4,
+    'archived', N'29 Binh Thanh', '2025-07-08', '2025-07-14',
+    13, 'https://cdn.example.com/cover/264.png', 10, '2025-07-09 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    32, N'Update user profile', N'Description: Update user profile', '2025-07-30 00:00:00', 1,
+    'archived', N'195 District 1', '2025-07-30', '2025-08-04',
+    13, 'https://cdn.example.com/cover/265.png', 11, '2025-08-02 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    32, N'Optimize queries', N'Description: Optimize queries', '2025-07-19 00:00:00', 4,
+    'active', N'114 District 3', '2025-07-19', '2025-07-26',
+    13, 'https://cdn.example.com/cover/266.png', 12, '2025-07-20 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    32, N'Write unit tests', N'Description: Write unit tests', '2025-07-29 00:00:00', 5,
+    'archived', N'43 Binh Thanh', '2025-08-01', '2025-08-16',
+    13, 'https://cdn.example.com/cover/267.png', 13, '2025-08-01 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    32, N'Write API documentation', N'Description: Write API documentation', '2025-07-18 00:00:00', 2,
+    'active', N'167 Go Vap', '2025-07-19', '2025-08-05',
+    13, 'https://cdn.example.com/cover/268.png', 14, '2025-07-21 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    32, N'Client feedback', N'Description: Client feedback', '2025-07-30 00:00:00', 2,
+    'archived', N'119 Go Vap', '2025-07-31', '2025-08-18',
+    13, 'https://cdn.example.com/cover/269.png', 15, '2025-07-30 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    32, N'Design mockups', N'Description: Design mockups', '2025-07-12 00:00:00', 3,
+    'active', N'51 District 3', '2025-07-15', '2025-07-26',
+    13, 'https://cdn.example.com/cover/270.png', 16, '2025-07-17 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    33, N'Create database schema', N'Description: Create database schema', '2025-07-15 00:00:00', 2,
+    'archived', N'37 Binh Thanh', '2025-07-15', '2025-07-24',
+    13, 'https://cdn.example.com/cover/271.png', 1, '2025-07-17 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    33, N'Write unit tests', N'Description: Write unit tests', '2025-07-23 00:00:00', 1,
+    'active', N'72 District 1', '2025-07-23', '2025-08-10',
+    13, 'https://cdn.example.com/cover/272.png', 2, '2025-07-28 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    33, N'Refactor codebase', N'Description: Refactor codebase', '2025-07-31 00:00:00', 5,
+    'active', N'40 District 1', '2025-07-31', '2025-08-17',
+    13, 'https://cdn.example.com/cover/273.png', 3, '2025-08-05 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    34, N'Update user profile', N'Description: Update user profile', '2025-07-23 00:00:00', 3,
+    'archived', N'157 District 1', '2025-07-26', '2025-08-12',
+    13, 'https://cdn.example.com/cover/274.png', 1, '2025-07-27 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    34, N'Final deployment', N'Description: Final deployment', '2025-07-22 00:00:00', 1,
+    'archived', N'32 District 1', '2025-07-24', '2025-07-29',
+    13, 'https://cdn.example.com/cover/275.png', 2, '2025-07-27 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    34, N'Implement authentication', N'Description: Implement authentication', '2025-07-03 00:00:00', 3,
+    'active', N'87 District 3', '2025-07-05', '2025-07-23',
+    13, 'https://cdn.example.com/cover/276.png', 3, '2025-07-04 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    34, N'Write unit tests', N'Description: Write unit tests', '2025-07-21 00:00:00', 5,
+    'active', N'91 Tan Binh District', '2025-07-24', '2025-07-31',
+    13, 'https://cdn.example.com/cover/277.png', 4, '2025-07-26 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    34, N'Payment gateway setup', N'Description: Payment gateway setup', '2025-07-25 00:00:00', 4,
+    'archived', N'87 District 1', '2025-07-25', '2025-08-11',
+    13, 'https://cdn.example.com/cover/278.png', 5, '2025-07-28 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    34, N'Implement authentication', N'Description: Implement authentication', '2025-07-21 00:00:00', 1,
+    'active', N'38 Tan Binh District', '2025-07-23', '2025-07-27',
+    13, 'https://cdn.example.com/cover/279.png', 6, '2025-07-23 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    34, N'Update user profile', N'Description: Update user profile', '2025-07-11 00:00:00', 5,
+    'active', N'191 Phu Nhuan', '2025-07-14', '2025-07-24',
+    13, 'https://cdn.example.com/cover/280.png', 7, '2025-07-11 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    34, N'Implement authentication', N'Description: Implement authentication', '2025-07-03 00:00:00', 3,
+    'archived', N'71 Phu Nhuan', '2025-07-05', '2025-07-12',
+    13, 'https://cdn.example.com/cover/281.png', 8, '2025-07-08 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    34, N'Client feedback', N'Description: Client feedback', '2025-07-02 00:00:00', 5,
+    'active', N'180 Go Vap', '2025-07-05', '2025-07-12',
+    13, 'https://cdn.example.com/cover/282.png', 9, '2025-07-05 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    34, N'Write API documentation', N'Description: Write API documentation', '2025-07-17 00:00:00', 1,
+    'active', N'172 Go Vap', '2025-07-17', '2025-08-04',
+    13, 'https://cdn.example.com/cover/283.png', 10, '2025-07-22 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    34, N'Refactor codebase', N'Description: Refactor codebase', '2025-07-27 00:00:00', 2,
+    'archived', N'100 District 1', '2025-07-30', '2025-08-06',
+    13, 'https://cdn.example.com/cover/284.png', 11, '2025-07-31 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    34, N'Write API documentation', N'Description: Write API documentation', '2025-07-04 00:00:00', 4,
+    'archived', N'60 District 1', '2025-07-05', '2025-07-19',
+    13, 'https://cdn.example.com/cover/285.png', 12, '2025-07-06 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    34, N'Client feedback', N'Description: Client feedback', '2025-07-14 00:00:00', 5,
+    'active', N'190 Phu Nhuan', '2025-07-15', '2025-07-30',
+    13, 'https://cdn.example.com/cover/286.png', 13, '2025-07-14 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    35, N'Update user profile', N'Description: Update user profile', '2025-07-17 00:00:00', 4,
+    'archived', N'131 Phu Nhuan', '2025-07-17', '2025-08-05',
+    13, 'https://cdn.example.com/cover/287.png', 1, '2025-07-20 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    35, N'Refactor codebase', N'Description: Refactor codebase', '2025-07-31 00:00:00', 3,
+    'archived', N'43 District 3', '2025-08-02', '2025-08-16',
+    13, 'https://cdn.example.com/cover/288.png', 2, '2025-08-04 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    35, N'Write unit tests', N'Description: Write unit tests', '2025-07-03 00:00:00', 1,
+    'active', N'54 Tan Binh District', '2025-07-04', '2025-07-08',
+    13, 'https://cdn.example.com/cover/289.png', 3, '2025-07-07 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    35, N'Implement authentication', N'Description: Implement authentication', '2025-07-05 00:00:00', 3,
+    'active', N'126 Go Vap', '2025-07-07', '2025-07-19',
+    13, 'https://cdn.example.com/cover/290.png', 4, '2025-07-07 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    35, N'Sprint planning', N'Description: Sprint planning', '2025-07-03 00:00:00', 1,
+    'archived', N'81 Go Vap', '2025-07-03', '2025-07-11',
+    13, 'https://cdn.example.com/cover/291.png', 5, '2025-07-07 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    35, N'Refactor codebase', N'Description: Refactor codebase', '2025-07-17 00:00:00', 1,
+    'archived', N'13 Phu Nhuan', '2025-07-19', '2025-07-31',
+    13, 'https://cdn.example.com/cover/292.png', 6, '2025-07-20 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    35, N'Write unit tests', N'Description: Write unit tests', '2025-07-18 00:00:00', 2,
+    'active', N'104 District 1', '2025-07-21', '2025-08-02',
+    13, 'https://cdn.example.com/cover/293.png', 7, '2025-07-18 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    35, N'Sprint planning', N'Description: Sprint planning', '2025-07-01 00:00:00', 5,
+    'active', N'168 District 3', '2025-07-04', '2025-07-11',
+    13, 'https://cdn.example.com/cover/294.png', 8, '2025-07-02 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    35, N'Optimize queries', N'Description: Optimize queries', '2025-07-28 00:00:00', 2,
+    'archived', N'88 Tan Binh District', '2025-07-28', '2025-08-07',
+    13, 'https://cdn.example.com/cover/295.png', 9, '2025-07-30 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    35, N'Write API documentation', N'Description: Write API documentation', '2025-07-02 00:00:00', 1,
+    'active', N'116 Binh Thanh', '2025-07-02', '2025-07-22',
+    13, 'https://cdn.example.com/cover/296.png', 10, '2025-07-06 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    35, N'Email integration', N'Description: Email integration', '2025-07-25 00:00:00', 1,
+    'archived', N'32 Binh Thanh', '2025-07-27', '2025-08-14',
+    13, 'https://cdn.example.com/cover/297.png', 11, '2025-07-26 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    36, N'Design mockups', N'Description: Design mockups', '2025-07-13 00:00:00', 2,
+    'archived', N'190 Go Vap', '2025-07-15', '2025-07-28',
+    13, 'https://cdn.example.com/cover/298.png', 1, '2025-07-16 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    36, N'Write API documentation', N'Description: Write API documentation', '2025-07-23 00:00:00', 3,
+    'active', N'59 Go Vap', '2025-07-26', '2025-07-30',
+    13, 'https://cdn.example.com/cover/299.png', 2, '2025-07-27 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    36, N'Fix UI alignment', N'Description: Fix UI alignment', '2025-07-25 00:00:00', 4,
+    'archived', N'60 District 1', '2025-07-28', '2025-07-31',
+    13, 'https://cdn.example.com/cover/300.png', 3, '2025-07-30 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    36, N'Payment gateway setup', N'Description: Payment gateway setup', '2025-07-05 00:00:00', 3,
+    'archived', N'195 Tan Binh District', '2025-07-08', '2025-07-26',
+    13, 'https://cdn.example.com/cover/301.png', 4, '2025-07-07 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    36, N'Release notes', N'Description: Release notes', '2025-07-02 00:00:00', 3,
+    'archived', N'96 District 3', '2025-07-05', '2025-07-09',
+    13, 'https://cdn.example.com/cover/302.png', 5, '2025-07-02 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    36, N'Fix login bug', N'Description: Fix login bug', '2025-07-01 00:00:00', 5,
+    'active', N'118 District 1', '2025-07-01', '2025-07-16',
+    13, 'https://cdn.example.com/cover/303.png', 6, '2025-07-04 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    36, N'Optimize queries', N'Description: Optimize queries', '2025-07-24 00:00:00', 3,
+    'active', N'42 Tan Binh District', '2025-07-27', '2025-08-10',
+    13, 'https://cdn.example.com/cover/304.png', 7, '2025-07-27 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    36, N'Fix login bug', N'Description: Fix login bug', '2025-07-10 00:00:00', 3,
+    'active', N'101 Tan Binh District', '2025-07-13', '2025-07-27',
+    13, 'https://cdn.example.com/cover/305.png', 8, '2025-07-15 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    36, N'Payment gateway setup', N'Description: Payment gateway setup', '2025-07-30 00:00:00', 3,
+    'archived', N'17 Tan Binh District', '2025-07-30', '2025-08-17',
+    13, 'https://cdn.example.com/cover/306.png', 9, '2025-08-04 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    36, N'Code review', N'Description: Code review', '2025-07-05 00:00:00', 5,
+    'archived', N'53 Phu Nhuan', '2025-07-06', '2025-07-13',
+    13, 'https://cdn.example.com/cover/307.png', 10, '2025-07-05 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    36, N'Client feedback', N'Description: Client feedback', '2025-07-26 00:00:00', 2,
+    'archived', N'132 Binh Thanh', '2025-07-27', '2025-08-11',
+    13, 'https://cdn.example.com/cover/308.png', 11, '2025-07-29 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    36, N'Optimize queries', N'Description: Optimize queries', '2025-07-09 00:00:00', 1,
+    'active', N'31 Phu Nhuan', '2025-07-10', '2025-07-25',
+    13, 'https://cdn.example.com/cover/309.png', 12, '2025-07-09 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    36, N'Release notes', N'Description: Release notes', '2025-07-28 00:00:00', 3,
+    'archived', N'40 Go Vap', '2025-07-28', '2025-08-01',
+    13, 'https://cdn.example.com/cover/310.png', 13, '2025-08-01 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    36, N'Code review', N'Description: Code review', '2025-07-18 00:00:00', 5,
+    'archived', N'30 District 3', '2025-07-19', '2025-07-26',
+    13, 'https://cdn.example.com/cover/311.png', 14, '2025-07-23 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    36, N'Write API documentation', N'Description: Write API documentation', '2025-07-17 00:00:00', 1,
+    'active', N'167 District 1', '2025-07-17', '2025-07-31',
+    13, 'https://cdn.example.com/cover/312.png', 15, '2025-07-18 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    36, N'Email integration', N'Description: Email integration', '2025-07-31 00:00:00', 5,
+    'active', N'109 Phu Nhuan', '2025-08-01', '2025-08-12',
+    13, 'https://cdn.example.com/cover/313.png', 16, '2025-08-03 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    36, N'Refactor codebase', N'Description: Refactor codebase', '2025-07-25 00:00:00', 1,
+    'archived', N'149 Tan Binh District', '2025-07-27', '2025-08-10',
+    13, 'https://cdn.example.com/cover/314.png', 17, '2025-07-29 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    36, N'Client feedback', N'Description: Client feedback', '2025-07-27 00:00:00', 1,
+    'active', N'24 Tan Binh District', '2025-07-28', '2025-08-01',
+    13, 'https://cdn.example.com/cover/315.png', 18, '2025-07-30 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    37, N'Fix login bug', N'Description: Fix login bug', '2025-07-20 00:00:00', 5,
+    'active', N'121 Phu Nhuan', '2025-07-23', '2025-07-29',
+    13, 'https://cdn.example.com/cover/316.png', 1, '2025-07-21 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    37, N'Implement authentication', N'Description: Implement authentication', '2025-07-05 00:00:00', 5,
+    'archived', N'105 Go Vap', '2025-07-07', '2025-07-12',
+    13, 'https://cdn.example.com/cover/317.png', 2, '2025-07-07 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    37, N'QA testing', N'Description: QA testing', '2025-07-28 00:00:00', 4,
+    'active', N'42 District 1', '2025-07-29', '2025-08-13',
+    13, 'https://cdn.example.com/cover/318.png', 3, '2025-07-31 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    37, N'Design mockups', N'Description: Design mockups', '2025-07-28 00:00:00', 2,
+    'active', N'160 Phu Nhuan', '2025-07-28', '2025-08-14',
+    13, 'https://cdn.example.com/cover/319.png', 4, '2025-08-02 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    37, N'Final deployment', N'Description: Final deployment', '2025-07-31 00:00:00', 2,
+    'archived', N'156 Go Vap', '2025-08-02', '2025-08-19',
+    13, 'https://cdn.example.com/cover/320.png', 5, '2025-08-05 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    37, N'Create database schema', N'Description: Create database schema', '2025-07-30 00:00:00', 3,
+    'archived', N'93 Tan Binh District', '2025-07-30', '2025-08-07',
+    13, 'https://cdn.example.com/cover/321.png', 6, '2025-07-30 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    37, N'QA testing', N'Description: QA testing', '2025-07-23 00:00:00', 2,
+    'archived', N'200 Phu Nhuan', '2025-07-26', '2025-08-07',
+    13, 'https://cdn.example.com/cover/322.png', 7, '2025-07-24 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    37, N'Write API documentation', N'Description: Write API documentation', '2025-07-30 00:00:00', 5,
+    'active', N'47 District 1', '2025-08-02', '2025-08-13',
+    13, 'https://cdn.example.com/cover/323.png', 8, '2025-08-03 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    37, N'Sprint planning', N'Description: Sprint planning', '2025-07-31 00:00:00', 3,
+    'archived', N'18 District 3', '2025-08-02', '2025-08-12',
+    13, 'https://cdn.example.com/cover/324.png', 9, '2025-08-03 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    37, N'Update user profile', N'Description: Update user profile', '2025-07-04 00:00:00', 4,
+    'active', N'60 District 3', '2025-07-06', '2025-07-24',
+    13, 'https://cdn.example.com/cover/325.png', 10, '2025-07-08 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    37, N'UX improvements', N'Description: UX improvements', '2025-07-12 00:00:00', 5,
+    'archived', N'195 Binh Thanh', '2025-07-12', '2025-08-01',
+    13, 'https://cdn.example.com/cover/326.png', 11, '2025-07-15 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    37, N'Fix login bug', N'Description: Fix login bug', '2025-07-06 00:00:00', 3,
+    'active', N'47 Go Vap', '2025-07-07', '2025-07-16',
+    13, 'https://cdn.example.com/cover/327.png', 12, '2025-07-10 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    37, N'Design landing page', N'Description: Design landing page', '2025-07-18 00:00:00', 2,
+    'archived', N'141 Tan Binh District', '2025-07-21', '2025-07-30',
+    13, 'https://cdn.example.com/cover/328.png', 13, '2025-07-18 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    37, N'Release notes', N'Description: Release notes', '2025-07-10 00:00:00', 4,
+    'archived', N'144 Tan Binh District', '2025-07-13', '2025-07-30',
+    13, 'https://cdn.example.com/cover/329.png', 14, '2025-07-13 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    37, N'Email integration', N'Description: Email integration', '2025-07-02 00:00:00', 3,
+    'active', N'93 Binh Thanh', '2025-07-04', '2025-07-19',
+    13, 'https://cdn.example.com/cover/330.png', 15, '2025-07-06 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    37, N'Optimize queries', N'Description: Optimize queries', '2025-07-11 00:00:00', 2,
+    'archived', N'48 District 1', '2025-07-14', '2025-07-17',
+    13, 'https://cdn.example.com/cover/331.png', 16, '2025-07-13 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    37, N'Code review', N'Description: Code review', '2025-07-31 00:00:00', 4,
+    'archived', N'161 Binh Thanh', '2025-08-01', '2025-08-06',
+    13, 'https://cdn.example.com/cover/332.png', 17, '2025-08-04 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    37, N'Design mockups', N'Description: Design mockups', '2025-07-06 00:00:00', 5,
+    'active', N'45 Tan Binh District', '2025-07-06', '2025-07-24',
+    13, 'https://cdn.example.com/cover/333.png', 18, '2025-07-10 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    37, N'Design landing page', N'Description: Design landing page', '2025-07-23 00:00:00', 5,
+    'archived', N'126 Go Vap', '2025-07-23', '2025-08-10',
+    13, 'https://cdn.example.com/cover/334.png', 19, '2025-07-24 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    38, N'Design mockups', N'Description: Design mockups', '2025-07-20 00:00:00', 4,
+    'archived', N'134 District 1', '2025-07-21', '2025-08-03',
+    13, 'https://cdn.example.com/cover/335.png', 1, '2025-07-23 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    38, N'Fix login bug', N'Description: Fix login bug', '2025-07-06 00:00:00', 1,
+    'active', N'69 Phu Nhuan', '2025-07-09', '2025-07-16',
+    13, 'https://cdn.example.com/cover/336.png', 2, '2025-07-07 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    39, N'Sprint planning', N'Description: Sprint planning', '2025-07-16 00:00:00', 1,
+    'active', N'197 Binh Thanh', '2025-07-18', '2025-07-29',
+    13, 'https://cdn.example.com/cover/337.png', 1, '2025-07-16 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    39, N'Code review', N'Description: Code review', '2025-07-21 00:00:00', 5,
+    'archived', N'167 Go Vap', '2025-07-23', '2025-08-10',
+    13, 'https://cdn.example.com/cover/338.png', 2, '2025-07-24 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    39, N'Design landing page', N'Description: Design landing page', '2025-07-31 00:00:00', 1,
+    'active', N'178 Phu Nhuan', '2025-07-31', '2025-08-17',
+    13, 'https://cdn.example.com/cover/339.png', 3, '2025-08-05 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    39, N'Sprint planning', N'Description: Sprint planning', '2025-07-03 00:00:00', 1,
+    'archived', N'23 Phu Nhuan', '2025-07-03', '2025-07-07',
+    13, 'https://cdn.example.com/cover/340.png', 4, '2025-07-06 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    39, N'Sprint planning', N'Description: Sprint planning', '2025-07-06 00:00:00', 1,
+    'active', N'42 District 1', '2025-07-09', '2025-07-21',
+    13, 'https://cdn.example.com/cover/341.png', 5, '2025-07-11 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    39, N'Create database schema', N'Description: Create database schema', '2025-07-09 00:00:00', 4,
+    'archived', N'182 Tan Binh District', '2025-07-12', '2025-07-19',
+    13, 'https://cdn.example.com/cover/342.png', 6, '2025-07-10 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    39, N'UX improvements', N'Description: UX improvements', '2025-07-08 00:00:00', 4,
+    'active', N'120 Binh Thanh', '2025-07-09', '2025-07-26',
+    13, 'https://cdn.example.com/cover/343.png', 7, '2025-07-09 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    39, N'Optimize queries', N'Description: Optimize queries', '2025-07-28 00:00:00', 5,
+    'archived', N'165 Tan Binh District', '2025-07-29', '2025-08-17',
+    13, 'https://cdn.example.com/cover/344.png', 8, '2025-07-31 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    39, N'Implement authentication', N'Description: Implement authentication', '2025-07-19 00:00:00', 1,
+    'archived', N'96 Phu Nhuan', '2025-07-22', '2025-08-03',
+    13, 'https://cdn.example.com/cover/345.png', 9, '2025-07-21 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    39, N'Code review', N'Description: Code review', '2025-07-25 00:00:00', 1,
+    'active', N'172 Tan Binh District', '2025-07-26', '2025-08-14',
+    13, 'https://cdn.example.com/cover/346.png', 10, '2025-07-28 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    39, N'UX improvements', N'Description: UX improvements', '2025-07-21 00:00:00', 4,
+    'archived', N'23 Go Vap', '2025-07-22', '2025-08-08',
+    13, 'https://cdn.example.com/cover/347.png', 11, '2025-07-24 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    39, N'QA testing', N'Description: QA testing', '2025-07-08 00:00:00', 4,
+    'active', N'82 Go Vap', '2025-07-08', '2025-07-16',
+    13, 'https://cdn.example.com/cover/348.png', 12, '2025-07-12 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    39, N'Write API documentation', N'Description: Write API documentation', '2025-07-19 00:00:00', 4,
+    'active', N'134 District 1', '2025-07-19', '2025-08-01',
+    13, 'https://cdn.example.com/cover/349.png', 13, '2025-07-20 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    39, N'UX improvements', N'Description: UX improvements', '2025-07-29 00:00:00', 2,
+    'active', N'113 Binh Thanh', '2025-08-01', '2025-08-20',
+    13, 'https://cdn.example.com/cover/350.png', 14, '2025-07-29 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    39, N'Sprint planning', N'Description: Sprint planning', '2025-07-09 00:00:00', 2,
+    'active', N'172 Binh Thanh', '2025-07-10', '2025-07-16',
+    13, 'https://cdn.example.com/cover/351.png', 15, '2025-07-14 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    39, N'Optimize queries', N'Description: Optimize queries', '2025-07-06 00:00:00', 4,
+    'active', N'106 District 1', '2025-07-08', '2025-07-19',
+    13, 'https://cdn.example.com/cover/352.png', 16, '2025-07-07 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    39, N'Write unit tests', N'Description: Write unit tests', '2025-07-02 00:00:00', 3,
+    'archived', N'57 District 3', '2025-07-05', '2025-07-24',
+    13, 'https://cdn.example.com/cover/353.png', 17, '2025-07-02 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    39, N'Release notes', N'Description: Release notes', '2025-07-16 00:00:00', 5,
+    'active', N'26 District 3', '2025-07-16', '2025-07-30',
+    13, 'https://cdn.example.com/cover/354.png', 18, '2025-07-17 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    39, N'Fix UI alignment', N'Description: Fix UI alignment', '2025-07-30 00:00:00', 2,
+    'active', N'131 Phu Nhuan', '2025-07-30', '2025-08-06',
+    13, 'https://cdn.example.com/cover/355.png', 19, '2025-08-01 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    39, N'Email integration', N'Description: Email integration', '2025-07-04 00:00:00', 1,
+    'active', N'85 Binh Thanh', '2025-07-06', '2025-07-19',
+    13, 'https://cdn.example.com/cover/356.png', 20, '2025-07-05 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    40, N'Fix login bug', N'Description: Fix login bug', '2025-07-05 00:00:00', 4,
+    'archived', N'166 Go Vap', '2025-07-07', '2025-07-12',
+    13, 'https://cdn.example.com/cover/357.png', 1, '2025-07-08 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    40, N'Implement authentication', N'Description: Implement authentication', '2025-07-25 00:00:00', 3,
+    'archived', N'21 District 1', '2025-07-26', '2025-08-05',
+    13, 'https://cdn.example.com/cover/358.png', 2, '2025-07-26 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    40, N'Payment gateway setup', N'Description: Payment gateway setup', '2025-07-23 00:00:00', 4,
+    'archived', N'2 Go Vap', '2025-07-25', '2025-08-01',
+    13, 'https://cdn.example.com/cover/359.png', 3, '2025-07-26 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    40, N'Email integration', N'Description: Email integration', '2025-07-07 00:00:00', 1,
+    'archived', N'2 Tan Binh District', '2025-07-10', '2025-07-19',
+    13, 'https://cdn.example.com/cover/360.png', 4, '2025-07-12 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    40, N'Client feedback', N'Description: Client feedback', '2025-07-01 00:00:00', 3,
+    'active', N'140 Tan Binh District', '2025-07-02', '2025-07-10',
+    13, 'https://cdn.example.com/cover/361.png', 5, '2025-07-05 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    41, N'Payment gateway setup', N'Description: Payment gateway setup', '2025-07-09 00:00:00', 2,
+    'archived', N'180 District 3', '2025-07-09', '2025-07-16',
+    13, 'https://cdn.example.com/cover/362.png', 1, '2025-07-11 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    41, N'Write API documentation', N'Description: Write API documentation', '2025-07-24 00:00:00', 3,
+    'active', N'33 Phu Nhuan', '2025-07-27', '2025-08-07',
+    13, 'https://cdn.example.com/cover/363.png', 2, '2025-07-27 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    41, N'Design landing page', N'Description: Design landing page', '2025-07-26 00:00:00', 1,
+    'active', N'118 Phu Nhuan', '2025-07-26', '2025-08-07',
+    13, 'https://cdn.example.com/cover/364.png', 3, '2025-07-31 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    41, N'Final deployment', N'Description: Final deployment', '2025-07-26 00:00:00', 1,
+    'archived', N'26 Tan Binh District', '2025-07-27', '2025-07-30',
+    13, 'https://cdn.example.com/cover/365.png', 4, '2025-07-26 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    41, N'Design mockups', N'Description: Design mockups', '2025-07-27 00:00:00', 4,
+    'archived', N'165 Binh Thanh', '2025-07-29', '2025-08-17',
+    13, 'https://cdn.example.com/cover/366.png', 5, '2025-07-27 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    41, N'Fix login bug', N'Description: Fix login bug', '2025-07-14 00:00:00', 5,
+    'active', N'179 Go Vap', '2025-07-16', '2025-07-28',
+    13, 'https://cdn.example.com/cover/367.png', 6, '2025-07-16 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    41, N'Fix UI alignment', N'Description: Fix UI alignment', '2025-07-08 00:00:00', 1,
+    'active', N'5 District 3', '2025-07-11', '2025-07-23',
+    13, 'https://cdn.example.com/cover/368.png', 7, '2025-07-09 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    41, N'Create database schema', N'Description: Create database schema', '2025-07-05 00:00:00', 4,
+    'archived', N'43 District 3', '2025-07-07', '2025-07-18',
+    13, 'https://cdn.example.com/cover/369.png', 8, '2025-07-09 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    41, N'Fix UI alignment', N'Description: Fix UI alignment', '2025-07-16 00:00:00', 1,
+    'active', N'156 Go Vap', '2025-07-16', '2025-07-31',
+    13, 'https://cdn.example.com/cover/370.png', 9, '2025-07-16 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    41, N'Design mockups', N'Description: Design mockups', '2025-07-29 00:00:00', 4,
+    'active', N'39 District 1', '2025-08-01', '2025-08-04',
+    13, 'https://cdn.example.com/cover/371.png', 10, '2025-08-02 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    41, N'Payment gateway setup', N'Description: Payment gateway setup', '2025-07-27 00:00:00', 2,
+    'archived', N'196 Binh Thanh', '2025-07-27', '2025-08-16',
+    13, 'https://cdn.example.com/cover/372.png', 11, '2025-07-31 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    41, N'Optimize queries', N'Description: Optimize queries', '2025-07-11 00:00:00', 4,
+    'archived', N'13 District 3', '2025-07-13', '2025-07-21',
+    13, 'https://cdn.example.com/cover/373.png', 12, '2025-07-15 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    42, N'Implement authentication', N'Description: Implement authentication', '2025-07-27 00:00:00', 4,
+    'archived', N'5 Tan Binh District', '2025-07-28', '2025-08-11',
+    13, 'https://cdn.example.com/cover/374.png', 1, '2025-07-28 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    42, N'QA testing', N'Description: QA testing', '2025-07-08 00:00:00', 1,
+    'archived', N'78 Go Vap', '2025-07-10', '2025-07-20',
+    13, 'https://cdn.example.com/cover/375.png', 2, '2025-07-12 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    42, N'UX improvements', N'Description: UX improvements', '2025-07-17 00:00:00', 2,
+    'archived', N'127 District 1', '2025-07-18', '2025-08-01',
+    13, 'https://cdn.example.com/cover/376.png', 3, '2025-07-18 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    42, N'Implement authentication', N'Description: Implement authentication', '2025-07-12 00:00:00', 1,
+    'active', N'193 District 3', '2025-07-15', '2025-07-31',
+    13, 'https://cdn.example.com/cover/377.png', 4, '2025-07-15 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    42, N'Code review', N'Description: Code review', '2025-07-28 00:00:00', 2,
+    'archived', N'148 District 1', '2025-07-30', '2025-08-06',
+    13, 'https://cdn.example.com/cover/378.png', 5, '2025-07-31 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    43, N'Fix UI alignment', N'Description: Fix UI alignment', '2025-07-12 00:00:00', 5,
+    'archived', N'75 District 3', '2025-07-13', '2025-07-28',
+    13, 'https://cdn.example.com/cover/379.png', 1, '2025-07-13 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    43, N'Fix UI alignment', N'Description: Fix UI alignment', '2025-07-24 00:00:00', 4,
+    'archived', N'158 Go Vap', '2025-07-26', '2025-08-11',
+    13, 'https://cdn.example.com/cover/380.png', 2, '2025-07-29 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    43, N'Write unit tests', N'Description: Write unit tests', '2025-07-24 00:00:00', 2,
+    'active', N'157 Binh Thanh', '2025-07-24', '2025-07-31',
+    13, 'https://cdn.example.com/cover/381.png', 3, '2025-07-26 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    43, N'Fix login bug', N'Description: Fix login bug', '2025-07-11 00:00:00', 2,
+    'archived', N'59 District 1', '2025-07-13', '2025-07-20',
+    13, 'https://cdn.example.com/cover/382.png', 4, '2025-07-15 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    43, N'Client feedback', N'Description: Client feedback', '2025-07-30 00:00:00', 2,
+    'active', N'80 District 3', '2025-08-02', '2025-08-18',
+    13, 'https://cdn.example.com/cover/383.png', 5, '2025-08-03 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    43, N'Release notes', N'Description: Release notes', '2025-07-26 00:00:00', 4,
+    'archived', N'165 District 3', '2025-07-27', '2025-08-12',
+    13, 'https://cdn.example.com/cover/384.png', 6, '2025-07-27 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    43, N'Optimize queries', N'Description: Optimize queries', '2025-07-07 00:00:00', 4,
+    'active', N'37 District 1', '2025-07-08', '2025-07-19',
+    13, 'https://cdn.example.com/cover/385.png', 7, '2025-07-12 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    43, N'Release notes', N'Description: Release notes', '2025-07-11 00:00:00', 4,
+    'archived', N'78 Binh Thanh', '2025-07-13', '2025-08-01',
+    13, 'https://cdn.example.com/cover/386.png', 8, '2025-07-16 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    43, N'Fix login bug', N'Description: Fix login bug', '2025-07-27 00:00:00', 4,
+    'active', N'14 District 3', '2025-07-29', '2025-08-11',
+    13, 'https://cdn.example.com/cover/387.png', 9, '2025-07-30 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    43, N'Fix UI alignment', N'Description: Fix UI alignment', '2025-07-01 00:00:00', 3,
+    'active', N'37 Tan Binh District', '2025-07-03', '2025-07-14',
+    13, 'https://cdn.example.com/cover/388.png', 10, '2025-07-04 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    43, N'UX improvements', N'Description: UX improvements', '2025-07-20 00:00:00', 4,
+    'active', N'168 Tan Binh District', '2025-07-20', '2025-07-27',
+    13, 'https://cdn.example.com/cover/389.png', 11, '2025-07-25 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    43, N'Design mockups', N'Description: Design mockups', '2025-07-20 00:00:00', 3,
+    'archived', N'186 Phu Nhuan', '2025-07-23', '2025-07-27',
+    13, 'https://cdn.example.com/cover/390.png', 12, '2025-07-23 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    43, N'Implement authentication', N'Description: Implement authentication', '2025-07-14 00:00:00', 5,
+    'active', N'183 Go Vap', '2025-07-14', '2025-07-27',
+    13, 'https://cdn.example.com/cover/391.png', 13, '2025-07-17 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    43, N'QA testing', N'Description: QA testing', '2025-07-28 00:00:00', 3,
+    'active', N'198 District 3', '2025-07-31', '2025-08-04',
+    13, 'https://cdn.example.com/cover/392.png', 14, '2025-08-02 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    43, N'Optimize queries', N'Description: Optimize queries', '2025-07-06 00:00:00', 5,
+    'archived', N'24 Phu Nhuan', '2025-07-08', '2025-07-25',
+    13, 'https://cdn.example.com/cover/393.png', 15, '2025-07-07 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    44, N'Design mockups', N'Description: Design mockups', '2025-07-01 00:00:00', 1,
+    'active', N'182 Binh Thanh', '2025-07-03', '2025-07-22',
+    13, 'https://cdn.example.com/cover/394.png', 1, '2025-07-06 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    44, N'Final deployment', N'Description: Final deployment', '2025-07-07 00:00:00', 3,
+    'active', N'27 Go Vap', '2025-07-09', '2025-07-22',
+    13, 'https://cdn.example.com/cover/395.png', 2, '2025-07-12 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    44, N'Design mockups', N'Description: Design mockups', '2025-07-23 00:00:00', 2,
+    'active', N'108 District 1', '2025-07-23', '2025-08-01',
+    13, 'https://cdn.example.com/cover/396.png', 3, '2025-07-28 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    44, N'Refactor codebase', N'Description: Refactor codebase', '2025-07-22 00:00:00', 3,
+    'active', N'100 District 1', '2025-07-22', '2025-08-09',
+    13, 'https://cdn.example.com/cover/397.png', 4, '2025-07-27 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    44, N'Implement authentication', N'Description: Implement authentication', '2025-07-04 00:00:00', 3,
+    'archived', N'197 District 1', '2025-07-06', '2025-07-25',
+    13, 'https://cdn.example.com/cover/398.png', 5, '2025-07-05 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    44, N'UX improvements', N'Description: UX improvements', '2025-07-10 00:00:00', 4,
+    'archived', N'179 District 3', '2025-07-11', '2025-07-26',
+    13, 'https://cdn.example.com/cover/399.png', 6, '2025-07-13 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    44, N'Code review', N'Description: Code review', '2025-07-13 00:00:00', 1,
+    'active', N'37 Go Vap', '2025-07-13', '2025-07-29',
+    13, 'https://cdn.example.com/cover/400.png', 7, '2025-07-18 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    44, N'Design mockups', N'Description: Design mockups', '2025-07-07 00:00:00', 3,
+    'active', N'107 Tan Binh District', '2025-07-10', '2025-07-29',
+    13, 'https://cdn.example.com/cover/401.png', 8, '2025-07-10 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    44, N'Design mockups', N'Description: Design mockups', '2025-07-07 00:00:00', 2,
+    'active', N'172 Binh Thanh', '2025-07-09', '2025-07-28',
+    13, 'https://cdn.example.com/cover/402.png', 9, '2025-07-07 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    44, N'Client feedback', N'Description: Client feedback', '2025-07-04 00:00:00', 2,
+    'archived', N'40 Tan Binh District', '2025-07-07', '2025-07-11',
+    13, 'https://cdn.example.com/cover/403.png', 10, '2025-07-09 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    44, N'Design mockups', N'Description: Design mockups', '2025-07-22 00:00:00', 1,
+    'active', N'94 Go Vap', '2025-07-23', '2025-07-30',
+    13, 'https://cdn.example.com/cover/404.png', 11, '2025-07-23 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    45, N'UX improvements', N'Description: UX improvements', '2025-07-01 00:00:00', 2,
+    'active', N'185 District 1', '2025-07-04', '2025-07-14',
+    13, 'https://cdn.example.com/cover/405.png', 1, '2025-07-01 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    45, N'Email integration', N'Description: Email integration', '2025-07-28 00:00:00', 3,
+    'active', N'137 District 3', '2025-07-31', '2025-08-11',
+    13, 'https://cdn.example.com/cover/406.png', 2, '2025-07-29 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    45, N'QA testing', N'Description: QA testing', '2025-07-12 00:00:00', 5,
+    'active', N'12 District 1', '2025-07-14', '2025-07-28',
+    13, 'https://cdn.example.com/cover/407.png', 3, '2025-07-15 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    45, N'Update user profile', N'Description: Update user profile', '2025-07-14 00:00:00', 4,
+    'active', N'70 Go Vap', '2025-07-16', '2025-07-20',
+    13, 'https://cdn.example.com/cover/408.png', 4, '2025-07-16 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    45, N'Design mockups', N'Description: Design mockups', '2025-07-09 00:00:00', 4,
+    'archived', N'120 Binh Thanh', '2025-07-11', '2025-07-21',
+    13, 'https://cdn.example.com/cover/409.png', 5, '2025-07-11 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    45, N'Update user profile', N'Description: Update user profile', '2025-07-17 00:00:00', 4,
+    'active', N'121 District 3', '2025-07-18', '2025-07-28',
+    13, 'https://cdn.example.com/cover/410.png', 6, '2025-07-20 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    45, N'Update user profile', N'Description: Update user profile', '2025-07-08 00:00:00', 3,
+    'active', N'162 District 1', '2025-07-10', '2025-07-25',
+    13, 'https://cdn.example.com/cover/411.png', 7, '2025-07-10 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    45, N'Sprint planning', N'Description: Sprint planning', '2025-07-11 00:00:00', 4,
+    'archived', N'186 Binh Thanh', '2025-07-12', '2025-07-29',
+    13, 'https://cdn.example.com/cover/412.png', 8, '2025-07-16 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    45, N'Fix login bug', N'Description: Fix login bug', '2025-07-22 00:00:00', 4,
+    'archived', N'148 Binh Thanh', '2025-07-24', '2025-08-06',
+    13, 'https://cdn.example.com/cover/413.png', 9, '2025-07-23 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    45, N'Code review', N'Description: Code review', '2025-07-14 00:00:00', 1,
+    'archived', N'70 District 3', '2025-07-16', '2025-07-31',
+    13, 'https://cdn.example.com/cover/414.png', 10, '2025-07-14 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    45, N'Payment gateway setup', N'Description: Payment gateway setup', '2025-07-06 00:00:00', 4,
+    'active', N'37 Tan Binh District', '2025-07-06', '2025-07-09',
+    13, 'https://cdn.example.com/cover/415.png', 11, '2025-07-07 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    45, N'Release notes', N'Description: Release notes', '2025-07-18 00:00:00', 4,
+    'archived', N'24 Tan Binh District', '2025-07-21', '2025-07-27',
+    13, 'https://cdn.example.com/cover/416.png', 12, '2025-07-18 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    45, N'Update user profile', N'Description: Update user profile', '2025-07-11 00:00:00', 5,
+    'active', N'4 Tan Binh District', '2025-07-12', '2025-07-30',
+    13, 'https://cdn.example.com/cover/417.png', 13, '2025-07-16 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    45, N'UX improvements', N'Description: UX improvements', '2025-07-28 00:00:00', 2,
+    'active', N'31 Phu Nhuan', '2025-07-29', '2025-08-04',
+    13, 'https://cdn.example.com/cover/418.png', 14, '2025-07-30 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    46, N'Design mockups', N'Description: Design mockups', '2025-07-01 00:00:00', 5,
+    'active', N'185 Tan Binh District', '2025-07-03', '2025-07-07',
+    13, 'https://cdn.example.com/cover/419.png', 1, '2025-07-06 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    46, N'Implement authentication', N'Description: Implement authentication', '2025-07-17 00:00:00', 1,
+    'active', N'188 District 1', '2025-07-20', '2025-07-26',
+    13, 'https://cdn.example.com/cover/420.png', 2, '2025-07-19 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    46, N'UX improvements', N'Description: UX improvements', '2025-07-18 00:00:00', 4,
+    'archived', N'112 Go Vap', '2025-07-21', '2025-07-27',
+    13, 'https://cdn.example.com/cover/421.png', 3, '2025-07-23 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    46, N'Final deployment', N'Description: Final deployment', '2025-07-31 00:00:00', 5,
+    'archived', N'116 Go Vap', '2025-07-31', '2025-08-12',
+    13, 'https://cdn.example.com/cover/422.png', 4, '2025-08-04 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    46, N'Email integration', N'Description: Email integration', '2025-07-10 00:00:00', 2,
+    'archived', N'27 District 3', '2025-07-12', '2025-07-15',
+    13, 'https://cdn.example.com/cover/423.png', 5, '2025-07-14 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    46, N'Email integration', N'Description: Email integration', '2025-07-21 00:00:00', 4,
+    'archived', N'36 Tan Binh District', '2025-07-22', '2025-07-31',
+    13, 'https://cdn.example.com/cover/424.png', 6, '2025-07-24 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    46, N'Write unit tests', N'Description: Write unit tests', '2025-07-17 00:00:00', 3,
+    'active', N'4 District 3', '2025-07-17', '2025-07-31',
+    13, 'https://cdn.example.com/cover/425.png', 7, '2025-07-17 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    46, N'Final deployment', N'Description: Final deployment', '2025-07-25 00:00:00', 5,
+    'active', N'35 Binh Thanh', '2025-07-26', '2025-07-30',
+    13, 'https://cdn.example.com/cover/426.png', 8, '2025-07-28 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    46, N'Client feedback', N'Description: Client feedback', '2025-07-27 00:00:00', 3,
+    'active', N'36 District 1', '2025-07-30', '2025-08-19',
+    13, 'https://cdn.example.com/cover/427.png', 9, '2025-07-27 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    46, N'Refactor codebase', N'Description: Refactor codebase', '2025-07-06 00:00:00', 5,
+    'archived', N'119 Go Vap', '2025-07-07', '2025-07-11',
+    13, 'https://cdn.example.com/cover/428.png', 10, '2025-07-06 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    47, N'Design landing page', N'Description: Design landing page', '2025-07-10 00:00:00', 4,
+    'active', N'125 Go Vap', '2025-07-10', '2025-07-21',
+    13, 'https://cdn.example.com/cover/429.png', 1, '2025-07-13 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    47, N'Design landing page', N'Description: Design landing page', '2025-07-07 00:00:00', 1,
+    'active', N'64 Phu Nhuan', '2025-07-07', '2025-07-11',
+    13, 'https://cdn.example.com/cover/430.png', 2, '2025-07-12 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    47, N'Implement authentication', N'Description: Implement authentication', '2025-07-22 00:00:00', 5,
+    'active', N'122 District 3', '2025-07-23', '2025-07-30',
+    13, 'https://cdn.example.com/cover/431.png', 3, '2025-07-26 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    47, N'Optimize queries', N'Description: Optimize queries', '2025-07-24 00:00:00', 1,
+    'archived', N'103 District 1', '2025-07-26', '2025-08-08',
+    13, 'https://cdn.example.com/cover/432.png', 4, '2025-07-27 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    48, N'Write API documentation', N'Description: Write API documentation', '2025-07-17 00:00:00', 5,
+    'active', N'23 Go Vap', '2025-07-19', '2025-07-28',
+    13, 'https://cdn.example.com/cover/433.png', 1, '2025-07-21 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    48, N'Implement authentication', N'Description: Implement authentication', '2025-07-23 00:00:00', 5,
+    'archived', N'97 District 3', '2025-07-24', '2025-08-11',
+    13, 'https://cdn.example.com/cover/434.png', 2, '2025-07-24 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    48, N'Write API documentation', N'Description: Write API documentation', '2025-07-12 00:00:00', 3,
+    'archived', N'136 Phu Nhuan', '2025-07-15', '2025-07-28',
+    13, 'https://cdn.example.com/cover/435.png', 3, '2025-07-16 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    48, N'Email integration', N'Description: Email integration', '2025-07-13 00:00:00', 5,
+    'active', N'23 District 1', '2025-07-16', '2025-07-22',
+    13, 'https://cdn.example.com/cover/436.png', 4, '2025-07-14 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    49, N'Payment gateway setup', N'Description: Payment gateway setup', '2025-07-19 00:00:00', 2,
+    'archived', N'33 Go Vap', '2025-07-19', '2025-07-25',
+    13, 'https://cdn.example.com/cover/437.png', 1, '2025-07-19 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    49, N'Release notes', N'Description: Release notes', '2025-07-18 00:00:00', 5,
+    'archived', N'57 Go Vap', '2025-07-20', '2025-07-26',
+    13, 'https://cdn.example.com/cover/438.png', 2, '2025-07-20 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    49, N'Write API documentation', N'Description: Write API documentation', '2025-07-22 00:00:00', 1,
+    'archived', N'91 Tan Binh District', '2025-07-23', '2025-07-30',
+    13, 'https://cdn.example.com/cover/439.png', 3, '2025-07-27 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    49, N'Sprint planning', N'Description: Sprint planning', '2025-07-05 00:00:00', 4,
+    'active', N'74 Binh Thanh', '2025-07-05', '2025-07-15',
+    13, 'https://cdn.example.com/cover/440.png', 4, '2025-07-06 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    49, N'Client feedback', N'Description: Client feedback', '2025-07-18 00:00:00', 2,
+    'archived', N'23 District 3', '2025-07-18', '2025-07-21',
+    13, 'https://cdn.example.com/cover/441.png', 5, '2025-07-21 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    49, N'Update user profile', N'Description: Update user profile', '2025-07-24 00:00:00', 2,
+    'archived', N'177 Binh Thanh', '2025-07-27', '2025-08-08',
+    13, 'https://cdn.example.com/cover/442.png', 6, '2025-07-26 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    49, N'Client feedback', N'Description: Client feedback', '2025-07-22 00:00:00', 2,
+    'active', N'185 Binh Thanh', '2025-07-23', '2025-07-28',
+    13, 'https://cdn.example.com/cover/443.png', 7, '2025-07-26 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    49, N'Client feedback', N'Description: Client feedback', '2025-07-07 00:00:00', 1,
+    'active', N'191 Go Vap', '2025-07-08', '2025-07-27',
+    13, 'https://cdn.example.com/cover/444.png', 8, '2025-07-12 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    49, N'Implement authentication', N'Description: Implement authentication', '2025-07-10 00:00:00', 4,
+    'archived', N'43 District 1', '2025-07-12', '2025-07-30',
+    13, 'https://cdn.example.com/cover/445.png', 9, '2025-07-10 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    50, N'Optimize queries', N'Description: Optimize queries', '2025-07-06 00:00:00', 4,
+    'archived', N'50 District 1', '2025-07-07', '2025-07-11',
+    13, 'https://cdn.example.com/cover/446.png', 1, '2025-07-11 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    51, N'Implement authentication', N'Description: Implement authentication', '2025-07-04 00:00:00', 2,
+    'active', N'183 District 1', '2025-07-04', '2025-07-24',
+    13, 'https://cdn.example.com/cover/447.png', 1, '2025-07-04 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    51, N'Implement authentication', N'Description: Implement authentication', '2025-07-04 00:00:00', 1,
+    'archived', N'145 District 3', '2025-07-04', '2025-07-20',
+    13, 'https://cdn.example.com/cover/448.png', 2, '2025-07-06 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    51, N'Refactor codebase', N'Description: Refactor codebase', '2025-07-31 00:00:00', 5,
+    'active', N'40 Tan Binh District', '2025-07-31', '2025-08-14',
+    13, 'https://cdn.example.com/cover/449.png', 3, '2025-08-03 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    52, N'Payment gateway setup', N'Description: Payment gateway setup', '2025-07-22 00:00:00', 1,
+    'archived', N'46 Phu Nhuan', '2025-07-25', '2025-08-08',
+    13, 'https://cdn.example.com/cover/450.png', 1, '2025-07-22 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    52, N'QA testing', N'Description: QA testing', '2025-07-16 00:00:00', 1,
+    'archived', N'113 District 1', '2025-07-16', '2025-07-20',
+    13, 'https://cdn.example.com/cover/451.png', 2, '2025-07-18 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    52, N'Optimize queries', N'Description: Optimize queries', '2025-07-08 00:00:00', 2,
+    'active', N'34 Phu Nhuan', '2025-07-09', '2025-07-22',
+    13, 'https://cdn.example.com/cover/452.png', 3, '2025-07-12 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    52, N'UX improvements', N'Description: UX improvements', '2025-07-03 00:00:00', 1,
+    'active', N'61 District 1', '2025-07-05', '2025-07-20',
+    13, 'https://cdn.example.com/cover/453.png', 4, '2025-07-06 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    52, N'Implement authentication', N'Description: Implement authentication', '2025-07-13 00:00:00', 2,
+    'active', N'36 Tan Binh District', '2025-07-13', '2025-07-28',
+    13, 'https://cdn.example.com/cover/454.png', 5, '2025-07-18 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    52, N'Final deployment', N'Description: Final deployment', '2025-07-01 00:00:00', 3,
+    'active', N'78 District 1', '2025-07-03', '2025-07-09',
+    13, 'https://cdn.example.com/cover/455.png', 6, '2025-07-06 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    52, N'UX improvements', N'Description: UX improvements', '2025-07-26 00:00:00', 1,
+    'active', N'163 Phu Nhuan', '2025-07-26', '2025-08-06',
+    13, 'https://cdn.example.com/cover/456.png', 7, '2025-07-29 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    52, N'Design landing page', N'Description: Design landing page', '2025-07-12 00:00:00', 3,
+    'archived', N'127 Go Vap', '2025-07-15', '2025-07-18',
+    13, 'https://cdn.example.com/cover/457.png', 8, '2025-07-15 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    52, N'Write API documentation', N'Description: Write API documentation', '2025-07-29 00:00:00', 2,
+    'archived', N'92 Go Vap', '2025-08-01', '2025-08-08',
+    13, 'https://cdn.example.com/cover/458.png', 9, '2025-08-02 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    52, N'Write unit tests', N'Description: Write unit tests', '2025-07-14 00:00:00', 3,
+    'archived', N'170 District 1', '2025-07-17', '2025-08-02',
+    13, 'https://cdn.example.com/cover/459.png', 10, '2025-07-17 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    52, N'UX improvements', N'Description: UX improvements', '2025-07-30 00:00:00', 2,
+    'active', N'121 Go Vap', '2025-08-01', '2025-08-15',
+    13, 'https://cdn.example.com/cover/460.png', 11, '2025-08-02 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    52, N'QA testing', N'Description: QA testing', '2025-07-05 00:00:00', 2,
+    'archived', N'117 Binh Thanh', '2025-07-06', '2025-07-11',
+    13, 'https://cdn.example.com/cover/461.png', 12, '2025-07-06 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    52, N'Email integration', N'Description: Email integration', '2025-07-11 00:00:00', 5,
+    'active', N'128 Tan Binh District', '2025-07-14', '2025-07-22',
+    13, 'https://cdn.example.com/cover/462.png', 13, '2025-07-15 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    52, N'Design landing page', N'Description: Design landing page', '2025-07-25 00:00:00', 2,
+    'active', N'129 District 3', '2025-07-27', '2025-08-10',
+    13, 'https://cdn.example.com/cover/463.png', 14, '2025-07-28 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    53, N'Write unit tests', N'Description: Write unit tests', '2025-07-08 00:00:00', 2,
+    'archived', N'174 Binh Thanh', '2025-07-10', '2025-07-14',
+    13, 'https://cdn.example.com/cover/464.png', 1, '2025-07-09 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    53, N'Implement authentication', N'Description: Implement authentication', '2025-07-05 00:00:00', 3,
+    'active', N'18 Go Vap', '2025-07-05', '2025-07-09',
+    13, 'https://cdn.example.com/cover/465.png', 2, '2025-07-10 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    53, N'Client feedback', N'Description: Client feedback', '2025-07-14 00:00:00', 4,
+    'active', N'137 Phu Nhuan', '2025-07-15', '2025-08-02',
+    13, 'https://cdn.example.com/cover/466.png', 3, '2025-07-18 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    53, N'Design landing page', N'Description: Design landing page', '2025-07-20 00:00:00', 3,
+    'active', N'14 Go Vap', '2025-07-22', '2025-08-03',
+    13, 'https://cdn.example.com/cover/467.png', 4, '2025-07-21 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    53, N'Fix login bug', N'Description: Fix login bug', '2025-07-24 00:00:00', 2,
+    'archived', N'70 Tan Binh District', '2025-07-27', '2025-07-30',
+    13, 'https://cdn.example.com/cover/468.png', 5, '2025-07-26 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    53, N'Write unit tests', N'Description: Write unit tests', '2025-07-09 00:00:00', 4,
+    'archived', N'192 Go Vap', '2025-07-10', '2025-07-17',
+    13, 'https://cdn.example.com/cover/469.png', 6, '2025-07-13 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    53, N'Update user profile', N'Description: Update user profile', '2025-07-27 00:00:00', 5,
+    'archived', N'171 Phu Nhuan', '2025-07-30', '2025-08-07',
+    13, 'https://cdn.example.com/cover/470.png', 7, '2025-07-28 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    53, N'Email integration', N'Description: Email integration', '2025-07-09 00:00:00', 2,
+    'archived', N'11 Binh Thanh', '2025-07-10', '2025-07-13',
+    13, 'https://cdn.example.com/cover/471.png', 8, '2025-07-13 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    53, N'Sprint planning', N'Description: Sprint planning', '2025-07-11 00:00:00', 2,
+    'active', N'53 Phu Nhuan', '2025-07-14', '2025-07-21',
+    13, 'https://cdn.example.com/cover/472.png', 9, '2025-07-14 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    53, N'Implement authentication', N'Description: Implement authentication', '2025-07-28 00:00:00', 4,
+    'archived', N'68 Go Vap', '2025-07-28', '2025-08-10',
+    13, 'https://cdn.example.com/cover/473.png', 10, '2025-07-29 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    53, N'Create database schema', N'Description: Create database schema', '2025-07-28 00:00:00', 2,
+    'active', N'141 District 3', '2025-07-31', '2025-08-15',
+    13, 'https://cdn.example.com/cover/474.png', 11, '2025-07-31 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    53, N'Sprint planning', N'Description: Sprint planning', '2025-07-25 00:00:00', 2,
+    'active', N'95 District 1', '2025-07-27', '2025-08-11',
+    13, 'https://cdn.example.com/cover/475.png', 12, '2025-07-29 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    53, N'Update user profile', N'Description: Update user profile', '2025-07-27 00:00:00', 4,
+    'active', N'86 Tan Binh District', '2025-07-27', '2025-08-07',
+    13, 'https://cdn.example.com/cover/476.png', 13, '2025-07-29 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    53, N'Create database schema', N'Description: Create database schema', '2025-07-29 00:00:00', 4,
+    'active', N'103 Tan Binh District', '2025-07-31', '2025-08-18',
+    13, 'https://cdn.example.com/cover/477.png', 14, '2025-07-31 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    54, N'Fix UI alignment', N'Description: Fix UI alignment', '2025-07-18 00:00:00', 1,
+    'archived', N'43 District 1', '2025-07-18', '2025-07-29',
+    13, 'https://cdn.example.com/cover/478.png', 1, '2025-07-19 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    54, N'Optimize queries', N'Description: Optimize queries', '2025-07-02 00:00:00', 5,
+    'active', N'150 District 3', '2025-07-04', '2025-07-18',
+    13, 'https://cdn.example.com/cover/479.png', 2, '2025-07-04 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    54, N'Update user profile', N'Description: Update user profile', '2025-07-12 00:00:00', 2,
+    'archived', N'147 Go Vap', '2025-07-15', '2025-07-20',
+    13, 'https://cdn.example.com/cover/480.png', 3, '2025-07-14 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    55, N'Payment gateway setup', N'Description: Payment gateway setup', '2025-07-11 00:00:00', 2,
+    'active', N'36 District 3', '2025-07-13', '2025-07-31',
+    13, 'https://cdn.example.com/cover/481.png', 1, '2025-07-12 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    55, N'Implement authentication', N'Description: Implement authentication', '2025-07-03 00:00:00', 3,
+    'archived', N'108 Binh Thanh', '2025-07-03', '2025-07-20',
+    13, 'https://cdn.example.com/cover/482.png', 2, '2025-07-05 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    55, N'Update user profile', N'Description: Update user profile', '2025-07-14 00:00:00', 2,
+    'archived', N'105 Phu Nhuan', '2025-07-16', '2025-07-30',
+    13, 'https://cdn.example.com/cover/483.png', 3, '2025-07-17 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    55, N'Sprint planning', N'Description: Sprint planning', '2025-07-05 00:00:00', 2,
+    'active', N'41 Go Vap', '2025-07-07', '2025-07-25',
+    13, 'https://cdn.example.com/cover/484.png', 4, '2025-07-05 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    55, N'Final deployment', N'Description: Final deployment', '2025-07-04 00:00:00', 1,
+    'archived', N'67 Binh Thanh', '2025-07-04', '2025-07-13',
+    13, 'https://cdn.example.com/cover/485.png', 5, '2025-07-08 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    55, N'Fix login bug', N'Description: Fix login bug', '2025-07-23 00:00:00', 5,
+    'archived', N'161 Phu Nhuan', '2025-07-25', '2025-07-30',
+    13, 'https://cdn.example.com/cover/486.png', 6, '2025-07-24 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    55, N'Write API documentation', N'Description: Write API documentation', '2025-07-06 00:00:00', 1,
+    'active', N'50 Phu Nhuan', '2025-07-08', '2025-07-15',
+    13, 'https://cdn.example.com/cover/487.png', 7, '2025-07-11 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    55, N'Email integration', N'Description: Email integration', '2025-07-22 00:00:00', 4,
+    'active', N'38 Phu Nhuan', '2025-07-22', '2025-08-04',
+    13, 'https://cdn.example.com/cover/488.png', 8, '2025-07-27 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    55, N'Code review', N'Description: Code review', '2025-07-15 00:00:00', 4,
+    'archived', N'165 Phu Nhuan', '2025-07-17', '2025-08-02',
+    13, 'https://cdn.example.com/cover/489.png', 9, '2025-07-20 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    56, N'Fix login bug', N'Description: Fix login bug', '2025-07-30 00:00:00', 1,
+    'active', N'20 Go Vap', '2025-08-02', '2025-08-16',
+    13, 'https://cdn.example.com/cover/490.png', 1, '2025-08-03 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    56, N'Final deployment', N'Description: Final deployment', '2025-07-14 00:00:00', 4,
+    'active', N'22 Tan Binh District', '2025-07-14', '2025-07-20',
+    13, 'https://cdn.example.com/cover/491.png', 2, '2025-07-15 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    56, N'Release notes', N'Description: Release notes', '2025-07-28 00:00:00', 5,
+    'archived', N'17 Go Vap', '2025-07-31', '2025-08-09',
+    13, 'https://cdn.example.com/cover/492.png', 3, '2025-08-02 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    56, N'Fix UI alignment', N'Description: Fix UI alignment', '2025-07-05 00:00:00', 2,
+    'archived', N'83 District 1', '2025-07-05', '2025-07-08',
+    13, 'https://cdn.example.com/cover/493.png', 4, '2025-07-08 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    56, N'UX improvements', N'Description: UX improvements', '2025-07-29 00:00:00', 4,
+    'archived', N'75 Binh Thanh', '2025-08-01', '2025-08-07',
+    13, 'https://cdn.example.com/cover/494.png', 5, '2025-08-02 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    56, N'QA testing', N'Description: QA testing', '2025-07-21 00:00:00', 3,
+    'active', N'88 Phu Nhuan', '2025-07-24', '2025-07-27',
+    13, 'https://cdn.example.com/cover/495.png', 6, '2025-07-24 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    56, N'Write unit tests', N'Description: Write unit tests', '2025-07-08 00:00:00', 4,
+    'active', N'104 Phu Nhuan', '2025-07-08', '2025-07-22',
+    13, 'https://cdn.example.com/cover/496.png', 7, '2025-07-11 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    56, N'Refactor codebase', N'Description: Refactor codebase', '2025-07-09 00:00:00', 1,
+    'active', N'130 Go Vap', '2025-07-10', '2025-07-16',
+    13, 'https://cdn.example.com/cover/497.png', 8, '2025-07-11 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    56, N'Release notes', N'Description: Release notes', '2025-07-17 00:00:00', 3,
+    'archived', N'139 Go Vap', '2025-07-17', '2025-08-03',
+    13, 'https://cdn.example.com/cover/498.png', 9, '2025-07-18 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    56, N'UX improvements', N'Description: UX improvements', '2025-07-28 00:00:00', 3,
+    'active', N'61 Phu Nhuan', '2025-07-29', '2025-08-09',
+    13, 'https://cdn.example.com/cover/499.png', 10, '2025-07-31 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    56, N'Write unit tests', N'Description: Write unit tests', '2025-07-04 00:00:00', 5,
+    'archived', N'110 Tan Binh District', '2025-07-05', '2025-07-25',
+    13, 'https://cdn.example.com/cover/500.png', 11, '2025-07-08 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    56, N'Design mockups', N'Description: Design mockups', '2025-07-20 00:00:00', 5,
+    'active', N'46 Phu Nhuan', '2025-07-22', '2025-08-06',
+    13, 'https://cdn.example.com/cover/501.png', 12, '2025-07-23 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    56, N'Implement authentication', N'Description: Implement authentication', '2025-07-26 00:00:00', 1,
+    'active', N'155 Binh Thanh', '2025-07-28', '2025-08-16',
+    13, 'https://cdn.example.com/cover/502.png', 13, '2025-07-30 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    57, N'Refactor codebase', N'Description: Refactor codebase', '2025-07-05 00:00:00', 2,
+    'active', N'149 District 3', '2025-07-07', '2025-07-27',
+    13, 'https://cdn.example.com/cover/503.png', 1, '2025-07-05 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    57, N'Payment gateway setup', N'Description: Payment gateway setup', '2025-07-03 00:00:00', 4,
+    'active', N'155 Phu Nhuan', '2025-07-05', '2025-07-18',
+    13, 'https://cdn.example.com/cover/504.png', 2, '2025-07-07 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    57, N'Code review', N'Description: Code review', '2025-07-25 00:00:00', 1,
+    'archived', N'73 Go Vap', '2025-07-25', '2025-08-08',
+    13, 'https://cdn.example.com/cover/505.png', 3, '2025-07-25 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    57, N'QA testing', N'Description: QA testing', '2025-07-10 00:00:00', 2,
+    'active', N'36 Binh Thanh', '2025-07-13', '2025-07-18',
+    13, 'https://cdn.example.com/cover/506.png', 4, '2025-07-13 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    57, N'Release notes', N'Description: Release notes', '2025-07-12 00:00:00', 2,
+    'active', N'79 Binh Thanh', '2025-07-12', '2025-07-24',
+    13, 'https://cdn.example.com/cover/507.png', 5, '2025-07-13 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    58, N'Payment gateway setup', N'Description: Payment gateway setup', '2025-07-16 00:00:00', 1,
+    'active', N'89 Go Vap', '2025-07-18', '2025-07-29',
+    13, 'https://cdn.example.com/cover/508.png', 1, '2025-07-19 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    58, N'Refactor codebase', N'Description: Refactor codebase', '2025-07-01 00:00:00', 1,
+    'active', N'14 District 1', '2025-07-01', '2025-07-11',
+    13, 'https://cdn.example.com/cover/509.png', 2, '2025-07-03 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    58, N'Final deployment', N'Description: Final deployment', '2025-07-21 00:00:00', 4,
+    'active', N'110 District 1', '2025-07-22', '2025-08-06',
+    13, 'https://cdn.example.com/cover/510.png', 3, '2025-07-26 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    58, N'Sprint planning', N'Description: Sprint planning', '2025-07-13 00:00:00', 5,
+    'archived', N'38 District 3', '2025-07-15', '2025-07-26',
+    13, 'https://cdn.example.com/cover/511.png', 4, '2025-07-18 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    58, N'Design landing page', N'Description: Design landing page', '2025-07-07 00:00:00', 3,
+    'active', N'136 Tan Binh District', '2025-07-09', '2025-07-26',
+    13, 'https://cdn.example.com/cover/512.png', 5, '2025-07-11 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    58, N'Email integration', N'Description: Email integration', '2025-07-15 00:00:00', 3,
+    'archived', N'198 District 1', '2025-07-18', '2025-07-27',
+    13, 'https://cdn.example.com/cover/513.png', 6, '2025-07-15 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    58, N'Implement authentication', N'Description: Implement authentication', '2025-07-04 00:00:00', 3,
+    'archived', N'107 Binh Thanh', '2025-07-04', '2025-07-20',
+    13, 'https://cdn.example.com/cover/514.png', 7, '2025-07-04 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    58, N'Write unit tests', N'Description: Write unit tests', '2025-07-18 00:00:00', 4,
+    'archived', N'178 Binh Thanh', '2025-07-21', '2025-08-01',
+    13, 'https://cdn.example.com/cover/515.png', 8, '2025-07-19 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    58, N'Implement authentication', N'Description: Implement authentication', '2025-07-09 00:00:00', 3,
+    'active', N'26 Binh Thanh', '2025-07-12', '2025-07-23',
+    13, 'https://cdn.example.com/cover/516.png', 9, '2025-07-11 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    58, N'Release notes', N'Description: Release notes', '2025-07-10 00:00:00', 1,
+    'archived', N'157 District 3', '2025-07-12', '2025-07-17',
+    13, 'https://cdn.example.com/cover/517.png', 10, '2025-07-12 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    58, N'Client feedback', N'Description: Client feedback', '2025-07-22 00:00:00', 5,
+    'active', N'152 Tan Binh District', '2025-07-25', '2025-08-01',
+    13, 'https://cdn.example.com/cover/518.png', 11, '2025-07-23 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    58, N'Email integration', N'Description: Email integration', '2025-07-16 00:00:00', 2,
+    'archived', N'39 District 3', '2025-07-16', '2025-07-26',
+    13, 'https://cdn.example.com/cover/519.png', 12, '2025-07-20 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    58, N'QA testing', N'Description: QA testing', '2025-07-28 00:00:00', 5,
+    'archived', N'178 District 3', '2025-07-31', '2025-08-03',
+    13, 'https://cdn.example.com/cover/520.png', 13, '2025-07-31 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    58, N'Write unit tests', N'Description: Write unit tests', '2025-07-07 00:00:00', 3,
+    'archived', N'133 Phu Nhuan', '2025-07-08', '2025-07-15',
+    13, 'https://cdn.example.com/cover/521.png', 14, '2025-07-07 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    58, N'Design mockups', N'Description: Design mockups', '2025-07-12 00:00:00', 5,
+    'active', N'157 Go Vap', '2025-07-12', '2025-07-24',
+    13, 'https://cdn.example.com/cover/522.png', 15, '2025-07-17 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    59, N'Write unit tests', N'Description: Write unit tests', '2025-07-29 00:00:00', 2,
+    'archived', N'106 Phu Nhuan', '2025-08-01', '2025-08-10',
+    13, 'https://cdn.example.com/cover/523.png', 1, '2025-07-29 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    60, N'Optimize queries', N'Description: Optimize queries', '2025-07-07 00:00:00', 5,
+    'archived', N'199 Tan Binh District', '2025-07-10', '2025-07-19',
+    13, 'https://cdn.example.com/cover/524.png', 1, '2025-07-10 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    60, N'Design mockups', N'Description: Design mockups', '2025-07-29 00:00:00', 2,
+    'archived', N'133 Binh Thanh', '2025-08-01', '2025-08-18',
+    13, 'https://cdn.example.com/cover/525.png', 2, '2025-07-29 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    60, N'Fix UI alignment', N'Description: Fix UI alignment', '2025-07-31 00:00:00', 2,
+    'archived', N'171 District 3', '2025-08-02', '2025-08-15',
+    13, 'https://cdn.example.com/cover/526.png', 3, '2025-08-01 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    60, N'Optimize queries', N'Description: Optimize queries', '2025-07-05 00:00:00', 4,
+    'active', N'84 District 1', '2025-07-06', '2025-07-15',
+    13, 'https://cdn.example.com/cover/527.png', 4, '2025-07-07 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    60, N'Refactor codebase', N'Description: Refactor codebase', '2025-07-30 00:00:00', 3,
+    'archived', N'113 Phu Nhuan', '2025-08-02', '2025-08-08',
+    13, 'https://cdn.example.com/cover/528.png', 5, '2025-08-04 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    60, N'Design landing page', N'Description: Design landing page', '2025-07-25 00:00:00', 1,
+    'archived', N'135 Phu Nhuan', '2025-07-25', '2025-08-06',
+    13, 'https://cdn.example.com/cover/529.png', 6, '2025-07-27 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    60, N'Fix login bug', N'Description: Fix login bug', '2025-07-01 00:00:00', 2,
+    'archived', N'10 Go Vap', '2025-07-03', '2025-07-19',
+    13, 'https://cdn.example.com/cover/530.png', 7, '2025-07-01 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    60, N'Email integration', N'Description: Email integration', '2025-07-03 00:00:00', 2,
+    'active', N'95 Tan Binh District', '2025-07-06', '2025-07-16',
+    13, 'https://cdn.example.com/cover/531.png', 8, '2025-07-07 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    60, N'Fix login bug', N'Description: Fix login bug', '2025-07-13 00:00:00', 1,
+    'active', N'62 Binh Thanh', '2025-07-14', '2025-07-22',
+    13, 'https://cdn.example.com/cover/532.png', 9, '2025-07-13 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    60, N'Final deployment', N'Description: Final deployment', '2025-07-23 00:00:00', 2,
+    'archived', N'131 Phu Nhuan', '2025-07-24', '2025-07-27',
+    13, 'https://cdn.example.com/cover/533.png', 10, '2025-07-26 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    60, N'Create database schema', N'Description: Create database schema', '2025-07-04 00:00:00', 2,
+    'archived', N'135 Go Vap', '2025-07-04', '2025-07-11',
+    13, 'https://cdn.example.com/cover/534.png', 11, '2025-07-08 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    60, N'Client feedback', N'Description: Client feedback', '2025-07-20 00:00:00', 3,
+    'archived', N'66 Phu Nhuan', '2025-07-22', '2025-07-29',
+    13, 'https://cdn.example.com/cover/535.png', 12, '2025-07-23 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    61, N'Payment gateway setup', N'Description: Payment gateway setup', '2025-07-19 00:00:00', 4,
+    'archived', N'56 Tan Binh District', '2025-07-19', '2025-07-22',
+    13, 'https://cdn.example.com/cover/536.png', 1, '2025-07-21 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    61, N'Payment gateway setup', N'Description: Payment gateway setup', '2025-07-20 00:00:00', 3,
+    'active', N'46 Tan Binh District', '2025-07-20', '2025-08-01',
+    13, 'https://cdn.example.com/cover/537.png', 2, '2025-07-20 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    61, N'Fix UI alignment', N'Description: Fix UI alignment', '2025-07-23 00:00:00', 1,
+    'archived', N'21 Go Vap', '2025-07-23', '2025-08-02',
+    13, 'https://cdn.example.com/cover/538.png', 3, '2025-07-28 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    62, N'Final deployment', N'Description: Final deployment', '2025-07-17 00:00:00', 3,
+    'active', N'50 District 1', '2025-07-20', '2025-08-09',
+    13, 'https://cdn.example.com/cover/539.png', 1, '2025-07-22 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    62, N'QA testing', N'Description: QA testing', '2025-07-01 00:00:00', 3,
+    'active', N'89 District 1', '2025-07-03', '2025-07-19',
+    13, 'https://cdn.example.com/cover/540.png', 2, '2025-07-06 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    62, N'Fix UI alignment', N'Description: Fix UI alignment', '2025-07-11 00:00:00', 1,
+    'archived', N'174 District 1', '2025-07-12', '2025-07-16',
+    13, 'https://cdn.example.com/cover/541.png', 3, '2025-07-16 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    62, N'Update user profile', N'Description: Update user profile', '2025-07-11 00:00:00', 2,
+    'active', N'41 District 3', '2025-07-14', '2025-07-23',
+    13, 'https://cdn.example.com/cover/542.png', 4, '2025-07-15 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    62, N'Refactor codebase', N'Description: Refactor codebase', '2025-07-03 00:00:00', 3,
+    'archived', N'123 Tan Binh District', '2025-07-05', '2025-07-08',
+    13, 'https://cdn.example.com/cover/543.png', 5, '2025-07-07 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    62, N'Optimize queries', N'Description: Optimize queries', '2025-07-31 00:00:00', 2,
+    'active', N'31 Tan Binh District', '2025-07-31', '2025-08-18',
+    13, 'https://cdn.example.com/cover/544.png', 6, '2025-08-02 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    62, N'Fix UI alignment', N'Description: Fix UI alignment', '2025-07-31 00:00:00', 5,
+    'active', N'109 Phu Nhuan', '2025-08-02', '2025-08-07',
+    13, 'https://cdn.example.com/cover/545.png', 7, '2025-08-03 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    62, N'Design mockups', N'Description: Design mockups', '2025-07-26 00:00:00', 3,
+    'archived', N'146 Tan Binh District', '2025-07-28', '2025-08-05',
+    13, 'https://cdn.example.com/cover/546.png', 8, '2025-07-27 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    62, N'Create database schema', N'Description: Create database schema', '2025-07-08 00:00:00', 1,
+    'active', N'103 Go Vap', '2025-07-11', '2025-07-22',
+    13, 'https://cdn.example.com/cover/547.png', 9, '2025-07-12 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    63, N'Create database schema', N'Description: Create database schema', '2025-07-07 00:00:00', 2,
+    'active', N'182 Binh Thanh', '2025-07-07', '2025-07-27',
+    13, 'https://cdn.example.com/cover/548.png', 1, '2025-07-11 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    63, N'Update user profile', N'Description: Update user profile', '2025-07-09 00:00:00', 1,
+    'active', N'65 Tan Binh District', '2025-07-12', '2025-07-22',
+    13, 'https://cdn.example.com/cover/549.png', 2, '2025-07-14 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    63, N'Sprint planning', N'Description: Sprint planning', '2025-07-11 00:00:00', 2,
+    'archived', N'76 Phu Nhuan', '2025-07-13', '2025-07-31',
+    13, 'https://cdn.example.com/cover/550.png', 3, '2025-07-11 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    63, N'Payment gateway setup', N'Description: Payment gateway setup', '2025-07-29 00:00:00', 2,
+    'archived', N'169 Binh Thanh', '2025-07-30', '2025-08-13',
+    13, 'https://cdn.example.com/cover/551.png', 4, '2025-07-29 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    63, N'UX improvements', N'Description: UX improvements', '2025-07-13 00:00:00', 1,
+    'active', N'73 Go Vap', '2025-07-13', '2025-07-24',
+    13, 'https://cdn.example.com/cover/552.png', 5, '2025-07-17 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    63, N'Refactor codebase', N'Description: Refactor codebase', '2025-07-06 00:00:00', 3,
+    'archived', N'85 Binh Thanh', '2025-07-06', '2025-07-18',
+    13, 'https://cdn.example.com/cover/553.png', 6, '2025-07-07 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    63, N'Design landing page', N'Description: Design landing page', '2025-07-14 00:00:00', 4,
+    'active', N'77 District 3', '2025-07-17', '2025-07-26',
+    13, 'https://cdn.example.com/cover/554.png', 7, '2025-07-15 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    63, N'Payment gateway setup', N'Description: Payment gateway setup', '2025-07-02 00:00:00', 4,
+    'active', N'41 Binh Thanh', '2025-07-04', '2025-07-22',
+    13, 'https://cdn.example.com/cover/555.png', 8, '2025-07-06 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    63, N'Code review', N'Description: Code review', '2025-07-09 00:00:00', 5,
+    'archived', N'189 Phu Nhuan', '2025-07-12', '2025-07-28',
+    13, 'https://cdn.example.com/cover/556.png', 9, '2025-07-11 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    63, N'QA testing', N'Description: QA testing', '2025-07-04 00:00:00', 3,
+    'active', N'188 District 3', '2025-07-04', '2025-07-07',
+    13, 'https://cdn.example.com/cover/557.png', 10, '2025-07-04 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    63, N'Implement authentication', N'Description: Implement authentication', '2025-07-23 00:00:00', 2,
+    'active', N'29 District 1', '2025-07-25', '2025-07-31',
+    13, 'https://cdn.example.com/cover/558.png', 11, '2025-07-23 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    64, N'Payment gateway setup', N'Description: Payment gateway setup', '2025-07-27 00:00:00', 3,
+    'archived', N'167 Tan Binh District', '2025-07-28', '2025-08-01',
+    13, 'https://cdn.example.com/cover/559.png', 1, '2025-07-28 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    64, N'Update user profile', N'Description: Update user profile', '2025-07-15 00:00:00', 2,
+    'active', N'16 District 1', '2025-07-15', '2025-08-01',
+    13, 'https://cdn.example.com/cover/560.png', 2, '2025-07-20 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    64, N'Write unit tests', N'Description: Write unit tests', '2025-07-08 00:00:00', 2,
+    'archived', N'127 Binh Thanh', '2025-07-11', '2025-07-21',
+    13, 'https://cdn.example.com/cover/561.png', 3, '2025-07-10 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    64, N'Write API documentation', N'Description: Write API documentation', '2025-07-05 00:00:00', 4,
+    'archived', N'183 Phu Nhuan', '2025-07-08', '2025-07-25',
+    13, 'https://cdn.example.com/cover/562.png', 4, '2025-07-09 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    64, N'Implement authentication', N'Description: Implement authentication', '2025-07-21 00:00:00', 1,
+    'active', N'199 Go Vap', '2025-07-23', '2025-07-31',
+    13, 'https://cdn.example.com/cover/563.png', 5, '2025-07-24 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    64, N'Sprint planning', N'Description: Sprint planning', '2025-07-30 00:00:00', 3,
+    'archived', N'151 Phu Nhuan', '2025-07-30', '2025-08-14',
+    13, 'https://cdn.example.com/cover/564.png', 6, '2025-07-30 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    64, N'Fix login bug', N'Description: Fix login bug', '2025-07-18 00:00:00', 5,
+    'archived', N'79 Tan Binh District', '2025-07-19', '2025-07-24',
+    13, 'https://cdn.example.com/cover/565.png', 7, '2025-07-22 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    64, N'Implement authentication', N'Description: Implement authentication', '2025-07-13 00:00:00', 4,
+    'archived', N'197 District 1', '2025-07-15', '2025-08-01',
+    13, 'https://cdn.example.com/cover/566.png', 8, '2025-07-16 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    64, N'Code review', N'Description: Code review', '2025-07-01 00:00:00', 2,
+    'archived', N'186 District 3', '2025-07-04', '2025-07-24',
+    13, 'https://cdn.example.com/cover/567.png', 9, '2025-07-06 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    65, N'Implement authentication', N'Description: Implement authentication', '2025-07-23 00:00:00', 3,
+    'archived', N'152 Go Vap', '2025-07-24', '2025-08-05',
+    13, 'https://cdn.example.com/cover/568.png', 1, '2025-07-25 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    65, N'Email integration', N'Description: Email integration', '2025-07-26 00:00:00', 4,
+    'active', N'122 Tan Binh District', '2025-07-26', '2025-07-31',
+    13, 'https://cdn.example.com/cover/569.png', 2, '2025-07-31 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    65, N'Design landing page', N'Description: Design landing page', '2025-07-08 00:00:00', 1,
+    'archived', N'185 Tan Binh District', '2025-07-11', '2025-07-27',
+    13, 'https://cdn.example.com/cover/570.png', 3, '2025-07-08 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    66, N'Sprint planning', N'Description: Sprint planning', '2025-07-17 00:00:00', 2,
+    'archived', N'24 Go Vap', '2025-07-17', '2025-08-01',
+    13, 'https://cdn.example.com/cover/571.png', 1, '2025-07-17 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    66, N'Code review', N'Description: Code review', '2025-07-07 00:00:00', 3,
+    'active', N'152 Phu Nhuan', '2025-07-09', '2025-07-18',
+    13, 'https://cdn.example.com/cover/572.png', 2, '2025-07-07 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    66, N'Write unit tests', N'Description: Write unit tests', '2025-07-20 00:00:00', 5,
+    'archived', N'107 District 1', '2025-07-20', '2025-08-01',
+    13, 'https://cdn.example.com/cover/573.png', 3, '2025-07-25 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    66, N'Code review', N'Description: Code review', '2025-07-02 00:00:00', 3,
+    'archived', N'58 Tan Binh District', '2025-07-05', '2025-07-18',
+    13, 'https://cdn.example.com/cover/574.png', 4, '2025-07-05 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    66, N'UX improvements', N'Description: UX improvements', '2025-07-09 00:00:00', 1,
+    'archived', N'57 Tan Binh District', '2025-07-09', '2025-07-18',
+    13, 'https://cdn.example.com/cover/575.png', 5, '2025-07-09 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    66, N'Write API documentation', N'Description: Write API documentation', '2025-07-27 00:00:00', 3,
+    'archived', N'185 District 1', '2025-07-29', '2025-08-13',
+    13, 'https://cdn.example.com/cover/576.png', 6, '2025-07-31 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    66, N'Design mockups', N'Description: Design mockups', '2025-07-16 00:00:00', 5,
+    'active', N'92 District 1', '2025-07-18', '2025-07-24',
+    13, 'https://cdn.example.com/cover/577.png', 7, '2025-07-19 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    66, N'Design mockups', N'Description: Design mockups', '2025-07-14 00:00:00', 1,
+    'active', N'8 District 3', '2025-07-15', '2025-07-24',
+    13, 'https://cdn.example.com/cover/578.png', 8, '2025-07-14 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    66, N'UX improvements', N'Description: UX improvements', '2025-07-25 00:00:00', 4,
+    'archived', N'180 District 3', '2025-07-27', '2025-08-06',
+    13, 'https://cdn.example.com/cover/579.png', 9, '2025-07-30 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    66, N'Payment gateway setup', N'Description: Payment gateway setup', '2025-07-02 00:00:00', 3,
+    'archived', N'6 Tan Binh District', '2025-07-02', '2025-07-13',
+    13, 'https://cdn.example.com/cover/580.png', 10, '2025-07-04 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    66, N'Create database schema', N'Description: Create database schema', '2025-07-11 00:00:00', 5,
+    'archived', N'180 Binh Thanh', '2025-07-14', '2025-07-28',
+    13, 'https://cdn.example.com/cover/581.png', 11, '2025-07-16 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    66, N'Optimize queries', N'Description: Optimize queries', '2025-07-22 00:00:00', 3,
+    'archived', N'181 District 1', '2025-07-22', '2025-07-30',
+    13, 'https://cdn.example.com/cover/582.png', 12, '2025-07-22 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    66, N'Write unit tests', N'Description: Write unit tests', '2025-07-20 00:00:00', 4,
+    'active', N'166 Binh Thanh', '2025-07-23', '2025-08-01',
+    13, 'https://cdn.example.com/cover/583.png', 13, '2025-07-20 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    66, N'Optimize queries', N'Description: Optimize queries', '2025-07-06 00:00:00', 2,
+    'archived', N'111 Binh Thanh', '2025-07-08', '2025-07-27',
+    13, 'https://cdn.example.com/cover/584.png', 14, '2025-07-08 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    66, N'Implement authentication', N'Description: Implement authentication', '2025-07-15 00:00:00', 2,
+    'archived', N'95 District 1', '2025-07-16', '2025-07-27',
+    13, 'https://cdn.example.com/cover/585.png', 15, '2025-07-18 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    67, N'Code review', N'Description: Code review', '2025-07-20 00:00:00', 4,
+    'archived', N'194 Binh Thanh', '2025-07-21', '2025-07-28',
+    13, 'https://cdn.example.com/cover/586.png', 1, '2025-07-20 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    67, N'Code review', N'Description: Code review', '2025-07-11 00:00:00', 1,
+    'active', N'26 Binh Thanh', '2025-07-12', '2025-08-01',
+    13, 'https://cdn.example.com/cover/587.png', 2, '2025-07-14 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    67, N'Optimize queries', N'Description: Optimize queries', '2025-07-01 00:00:00', 4,
+    'active', N'186 Go Vap', '2025-07-01', '2025-07-05',
+    13, 'https://cdn.example.com/cover/588.png', 3, '2025-07-06 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    67, N'Fix login bug', N'Description: Fix login bug', '2025-07-27 00:00:00', 2,
+    'archived', N'97 District 3', '2025-07-28', '2025-08-14',
+    13, 'https://cdn.example.com/cover/589.png', 4, '2025-07-31 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    68, N'Write unit tests', N'Description: Write unit tests', '2025-07-15 00:00:00', 1,
+    'active', N'93 Go Vap', '2025-07-17', '2025-07-24',
+    13, 'https://cdn.example.com/cover/590.png', 1, '2025-07-15 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    68, N'Design landing page', N'Description: Design landing page', '2025-07-31 00:00:00', 5,
+    'archived', N'182 Binh Thanh', '2025-08-02', '2025-08-22',
+    13, 'https://cdn.example.com/cover/591.png', 2, '2025-08-03 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    68, N'Fix UI alignment', N'Description: Fix UI alignment', '2025-07-08 00:00:00', 5,
+    'archived', N'136 District 3', '2025-07-11', '2025-07-20',
+    13, 'https://cdn.example.com/cover/592.png', 3, '2025-07-12 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    68, N'Optimize queries', N'Description: Optimize queries', '2025-07-11 00:00:00', 3,
+    'archived', N'83 Tan Binh District', '2025-07-12', '2025-07-18',
+    13, 'https://cdn.example.com/cover/593.png', 4, '2025-07-14 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    68, N'Update user profile', N'Description: Update user profile', '2025-07-05 00:00:00', 1,
+    'archived', N'83 Go Vap', '2025-07-05', '2025-07-08',
+    13, 'https://cdn.example.com/cover/594.png', 5, '2025-07-07 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    68, N'Fix login bug', N'Description: Fix login bug', '2025-07-03 00:00:00', 4,
+    'archived', N'91 Tan Binh District', '2025-07-05', '2025-07-14',
+    13, 'https://cdn.example.com/cover/595.png', 6, '2025-07-04 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    68, N'Update user profile', N'Description: Update user profile', '2025-07-21 00:00:00', 1,
+    'active', N'158 Binh Thanh', '2025-07-24', '2025-08-08',
+    13, 'https://cdn.example.com/cover/596.png', 7, '2025-07-26 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    68, N'Update user profile', N'Description: Update user profile', '2025-07-22 00:00:00', 5,
+    'archived', N'78 Binh Thanh', '2025-07-24', '2025-08-13',
+    13, 'https://cdn.example.com/cover/597.png', 8, '2025-07-26 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    68, N'Fix login bug', N'Description: Fix login bug', '2025-07-06 00:00:00', 3,
+    'archived', N'47 Binh Thanh', '2025-07-06', '2025-07-18',
+    13, 'https://cdn.example.com/cover/598.png', 9, '2025-07-07 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    68, N'Fix login bug', N'Description: Fix login bug', '2025-07-02 00:00:00', 1,
+    'active', N'76 District 1', '2025-07-04', '2025-07-15',
+    13, 'https://cdn.example.com/cover/599.png', 10, '2025-07-04 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    68, N'Client feedback', N'Description: Client feedback', '2025-07-28 00:00:00', 4,
+    'active', N'156 Go Vap', '2025-07-28', '2025-08-14',
+    13, 'https://cdn.example.com/cover/600.png', 11, '2025-08-02 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    68, N'Optimize queries', N'Description: Optimize queries', '2025-07-03 00:00:00', 2,
+    'archived', N'139 District 1', '2025-07-06', '2025-07-18',
+    13, 'https://cdn.example.com/cover/601.png', 12, '2025-07-03 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    68, N'Implement authentication', N'Description: Implement authentication', '2025-07-10 00:00:00', 3,
+    'active', N'30 Go Vap', '2025-07-10', '2025-07-26',
+    13, 'https://cdn.example.com/cover/602.png', 13, '2025-07-13 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    68, N'Fix login bug', N'Description: Fix login bug', '2025-07-26 00:00:00', 1,
+    'active', N'27 Go Vap', '2025-07-26', '2025-08-02',
+    13, 'https://cdn.example.com/cover/603.png', 14, '2025-07-31 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    68, N'Write API documentation', N'Description: Write API documentation', '2025-07-16 00:00:00', 2,
+    'archived', N'56 Tan Binh District', '2025-07-18', '2025-08-03',
+    13, 'https://cdn.example.com/cover/604.png', 15, '2025-07-18 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    69, N'Write API documentation', N'Description: Write API documentation', '2025-07-17 00:00:00', 3,
+    'archived', N'123 District 1', '2025-07-20', '2025-08-03',
+    13, 'https://cdn.example.com/cover/605.png', 1, '2025-07-18 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    69, N'UX improvements', N'Description: UX improvements', '2025-07-03 00:00:00', 5,
+    'archived', N'169 Go Vap', '2025-07-06', '2025-07-12',
+    13, 'https://cdn.example.com/cover/606.png', 2, '2025-07-03 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    69, N'Write unit tests', N'Description: Write unit tests', '2025-07-21 00:00:00', 4,
+    'archived', N'36 Go Vap', '2025-07-23', '2025-07-26',
+    13, 'https://cdn.example.com/cover/607.png', 3, '2025-07-22 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    69, N'Update user profile', N'Description: Update user profile', '2025-07-29 00:00:00', 5,
+    'archived', N'136 District 3', '2025-08-01', '2025-08-20',
+    13, 'https://cdn.example.com/cover/608.png', 4, '2025-08-03 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    69, N'Release notes', N'Description: Release notes', '2025-07-11 00:00:00', 3,
+    'archived', N'77 Tan Binh District', '2025-07-11', '2025-07-23',
+    13, 'https://cdn.example.com/cover/609.png', 5, '2025-07-11 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    69, N'Release notes', N'Description: Release notes', '2025-07-30 00:00:00', 2,
+    'archived', N'31 Binh Thanh', '2025-07-31', '2025-08-08',
+    13, 'https://cdn.example.com/cover/610.png', 6, '2025-08-02 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    69, N'Fix UI alignment', N'Description: Fix UI alignment', '2025-07-09 00:00:00', 2,
+    'archived', N'169 District 1', '2025-07-10', '2025-07-27',
+    13, 'https://cdn.example.com/cover/611.png', 7, '2025-07-12 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    69, N'Design landing page', N'Description: Design landing page', '2025-07-07 00:00:00', 2,
+    'active', N'154 Go Vap', '2025-07-08', '2025-07-23',
+    13, 'https://cdn.example.com/cover/612.png', 8, '2025-07-07 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    69, N'Optimize queries', N'Description: Optimize queries', '2025-07-02 00:00:00', 1,
+    'active', N'19 Tan Binh District', '2025-07-03', '2025-07-07',
+    13, 'https://cdn.example.com/cover/613.png', 9, '2025-07-02 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    69, N'Fix UI alignment', N'Description: Fix UI alignment', '2025-07-29 00:00:00', 5,
+    'archived', N'152 Go Vap', '2025-08-01', '2025-08-04',
+    13, 'https://cdn.example.com/cover/614.png', 10, '2025-07-29 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    69, N'Implement authentication', N'Description: Implement authentication', '2025-07-20 00:00:00', 5,
+    'active', N'189 Tan Binh District', '2025-07-21', '2025-07-25',
+    13, 'https://cdn.example.com/cover/615.png', 11, '2025-07-21 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    69, N'Create database schema', N'Description: Create database schema', '2025-07-28 00:00:00', 5,
+    'active', N'160 Tan Binh District', '2025-07-28', '2025-08-04',
+    13, 'https://cdn.example.com/cover/616.png', 12, '2025-07-30 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    69, N'Code review', N'Description: Code review', '2025-07-03 00:00:00', 3,
+    'active', N'82 Tan Binh District', '2025-07-06', '2025-07-17',
+    13, 'https://cdn.example.com/cover/617.png', 13, '2025-07-03 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    69, N'UX improvements', N'Description: UX improvements', '2025-07-13 00:00:00', 5,
+    'archived', N'41 Binh Thanh', '2025-07-15', '2025-07-24',
+    13, 'https://cdn.example.com/cover/618.png', 14, '2025-07-16 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    69, N'Design landing page', N'Description: Design landing page', '2025-07-22 00:00:00', 4,
+    'active', N'156 District 3', '2025-07-23', '2025-07-29',
+    13, 'https://cdn.example.com/cover/619.png', 15, '2025-07-23 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    69, N'Implement authentication', N'Description: Implement authentication', '2025-07-26 00:00:00', 1,
+    'active', N'28 District 3', '2025-07-28', '2025-08-14',
+    13, 'https://cdn.example.com/cover/620.png', 16, '2025-07-28 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    69, N'Write API documentation', N'Description: Write API documentation', '2025-07-23 00:00:00', 3,
+    'active', N'65 District 3', '2025-07-23', '2025-08-05',
+    13, 'https://cdn.example.com/cover/621.png', 17, '2025-07-23 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    70, N'Fix login bug', N'Description: Fix login bug', '2025-07-16 00:00:00', 2,
+    'active', N'122 Go Vap', '2025-07-17', '2025-07-22',
+    13, 'https://cdn.example.com/cover/622.png', 1, '2025-07-19 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    70, N'Write API documentation', N'Description: Write API documentation', '2025-07-07 00:00:00', 1,
+    'archived', N'121 Binh Thanh', '2025-07-10', '2025-07-15',
+    13, 'https://cdn.example.com/cover/623.png', 2, '2025-07-11 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    70, N'Optimize queries', N'Description: Optimize queries', '2025-07-29 00:00:00', 2,
+    'archived', N'33 Phu Nhuan', '2025-08-01', '2025-08-12',
+    13, 'https://cdn.example.com/cover/624.png', 3, '2025-07-31 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    70, N'Final deployment', N'Description: Final deployment', '2025-07-18 00:00:00', 2,
+    'active', N'75 Binh Thanh', '2025-07-18', '2025-07-29',
+    13, 'https://cdn.example.com/cover/625.png', 4, '2025-07-18 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    71, N'Refactor codebase', N'Description: Refactor codebase', '2025-07-28 00:00:00', 3,
+    'archived', N'135 District 3', '2025-07-28', '2025-08-13',
+    13, 'https://cdn.example.com/cover/626.png', 1, '2025-07-28 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    71, N'Design landing page', N'Description: Design landing page', '2025-07-18 00:00:00', 5,
+    'archived', N'148 Binh Thanh', '2025-07-20', '2025-07-24',
+    13, 'https://cdn.example.com/cover/627.png', 2, '2025-07-23 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    71, N'Write unit tests', N'Description: Write unit tests', '2025-07-06 00:00:00', 5,
+    'active', N'145 Binh Thanh', '2025-07-08', '2025-07-17',
+    13, 'https://cdn.example.com/cover/628.png', 3, '2025-07-06 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    71, N'Code review', N'Description: Code review', '2025-07-29 00:00:00', 1,
+    'active', N'72 Phu Nhuan', '2025-07-29', '2025-08-09',
+    13, 'https://cdn.example.com/cover/629.png', 4, '2025-08-01 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    71, N'QA testing', N'Description: QA testing', '2025-07-01 00:00:00', 5,
+    'archived', N'23 Phu Nhuan', '2025-07-01', '2025-07-05',
+    13, 'https://cdn.example.com/cover/630.png', 5, '2025-07-05 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    71, N'Design mockups', N'Description: Design mockups', '2025-07-31 00:00:00', 5,
+    'active', N'62 District 3', '2025-08-02', '2025-08-05',
+    13, 'https://cdn.example.com/cover/631.png', 6, '2025-08-01 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    71, N'Optimize queries', N'Description: Optimize queries', '2025-07-08 00:00:00', 5,
+    'active', N'14 Go Vap', '2025-07-10', '2025-07-25',
+    13, 'https://cdn.example.com/cover/632.png', 7, '2025-07-09 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    71, N'Update user profile', N'Description: Update user profile', '2025-07-08 00:00:00', 5,
+    'active', N'80 Go Vap', '2025-07-09', '2025-07-22',
+    13, 'https://cdn.example.com/cover/633.png', 8, '2025-07-12 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    71, N'Refactor codebase', N'Description: Refactor codebase', '2025-07-09 00:00:00', 2,
+    'active', N'134 Phu Nhuan', '2025-07-11', '2025-07-29',
+    13, 'https://cdn.example.com/cover/634.png', 9, '2025-07-11 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    71, N'Client feedback', N'Description: Client feedback', '2025-07-28 00:00:00', 1,
+    'active', N'118 Binh Thanh', '2025-07-31', '2025-08-06',
+    13, 'https://cdn.example.com/cover/635.png', 10, '2025-07-31 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    71, N'Fix UI alignment', N'Description: Fix UI alignment', '2025-07-29 00:00:00', 5,
+    'archived', N'8 Tan Binh District', '2025-07-31', '2025-08-06',
+    13, 'https://cdn.example.com/cover/636.png', 11, '2025-07-29 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    71, N'Fix UI alignment', N'Description: Fix UI alignment', '2025-07-05 00:00:00', 4,
+    'archived', N'139 Phu Nhuan', '2025-07-05', '2025-07-23',
+    13, 'https://cdn.example.com/cover/637.png', 12, '2025-07-05 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    72, N'QA testing', N'Description: QA testing', '2025-07-05 00:00:00', 2,
+    'active', N'41 Phu Nhuan', '2025-07-06', '2025-07-23',
+    13, 'https://cdn.example.com/cover/638.png', 1, '2025-07-10 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    73, N'Optimize queries', N'Description: Optimize queries', '2025-07-07 00:00:00', 2,
+    'active', N'45 Go Vap', '2025-07-09', '2025-07-19',
+    13, 'https://cdn.example.com/cover/639.png', 1, '2025-07-07 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    73, N'Email integration', N'Description: Email integration', '2025-07-24 00:00:00', 5,
+    'active', N'79 Go Vap', '2025-07-27', '2025-07-30',
+    13, 'https://cdn.example.com/cover/640.png', 2, '2025-07-27 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    73, N'UX improvements', N'Description: UX improvements', '2025-07-22 00:00:00', 1,
+    'archived', N'139 Go Vap', '2025-07-23', '2025-08-08',
+    13, 'https://cdn.example.com/cover/641.png', 3, '2025-07-22 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    73, N'Optimize queries', N'Description: Optimize queries', '2025-07-08 00:00:00', 1,
+    'active', N'55 Phu Nhuan', '2025-07-11', '2025-07-16',
+    13, 'https://cdn.example.com/cover/642.png', 4, '2025-07-13 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    73, N'Design landing page', N'Description: Design landing page', '2025-07-24 00:00:00', 2,
+    'active', N'36 District 3', '2025-07-27', '2025-08-07',
+    13, 'https://cdn.example.com/cover/643.png', 5, '2025-07-24 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    73, N'Client feedback', N'Description: Client feedback', '2025-07-16 00:00:00', 3,
+    'active', N'160 Go Vap', '2025-07-19', '2025-07-26',
+    13, 'https://cdn.example.com/cover/644.png', 6, '2025-07-20 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    73, N'Refactor codebase', N'Description: Refactor codebase', '2025-07-27 00:00:00', 1,
+    'active', N'169 Binh Thanh', '2025-07-28', '2025-08-16',
+    13, 'https://cdn.example.com/cover/645.png', 7, '2025-07-28 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    73, N'Optimize queries', N'Description: Optimize queries', '2025-07-14 00:00:00', 5,
+    'archived', N'49 District 3', '2025-07-14', '2025-07-18',
+    13, 'https://cdn.example.com/cover/646.png', 8, '2025-07-19 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    73, N'Write API documentation', N'Description: Write API documentation', '2025-07-27 00:00:00', 4,
+    'archived', N'106 Binh Thanh', '2025-07-27', '2025-08-07',
+    13, 'https://cdn.example.com/cover/647.png', 9, '2025-08-01 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    73, N'Design landing page', N'Description: Design landing page', '2025-07-07 00:00:00', 1,
+    'active', N'168 District 1', '2025-07-09', '2025-07-24',
+    13, 'https://cdn.example.com/cover/648.png', 10, '2025-07-07 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    73, N'Design mockups', N'Description: Design mockups', '2025-07-02 00:00:00', 1,
+    'archived', N'92 Tan Binh District', '2025-07-02', '2025-07-18',
+    13, 'https://cdn.example.com/cover/649.png', 11, '2025-07-02 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    73, N'Fix UI alignment', N'Description: Fix UI alignment', '2025-07-21 00:00:00', 4,
+    'archived', N'12 Binh Thanh', '2025-07-24', '2025-08-02',
+    13, 'https://cdn.example.com/cover/650.png', 12, '2025-07-26 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    73, N'Payment gateway setup', N'Description: Payment gateway setup', '2025-07-10 00:00:00', 3,
+    'archived', N'82 District 1', '2025-07-13', '2025-07-17',
+    13, 'https://cdn.example.com/cover/651.png', 13, '2025-07-13 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    73, N'Release notes', N'Description: Release notes', '2025-07-07 00:00:00', 3,
+    'active', N'132 District 1', '2025-07-10', '2025-07-30',
+    13, 'https://cdn.example.com/cover/652.png', 14, '2025-07-10 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    73, N'Design landing page', N'Description: Design landing page', '2025-07-04 00:00:00', 4,
+    'active', N'125 Phu Nhuan', '2025-07-06', '2025-07-14',
+    13, 'https://cdn.example.com/cover/653.png', 15, '2025-07-09 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    73, N'Write unit tests', N'Description: Write unit tests', '2025-07-19 00:00:00', 1,
+    'archived', N'58 Binh Thanh', '2025-07-21', '2025-07-28',
+    13, 'https://cdn.example.com/cover/654.png', 16, '2025-07-23 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    73, N'QA testing', N'Description: QA testing', '2025-07-09 00:00:00', 3,
+    'archived', N'70 Binh Thanh', '2025-07-12', '2025-07-20',
+    13, 'https://cdn.example.com/cover/655.png', 17, '2025-07-09 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    73, N'Email integration', N'Description: Email integration', '2025-07-19 00:00:00', 5,
+    'archived', N'76 Phu Nhuan', '2025-07-22', '2025-08-04',
+    13, 'https://cdn.example.com/cover/656.png', 18, '2025-07-22 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    74, N'Write API documentation', N'Description: Write API documentation', '2025-07-14 00:00:00', 1,
+    'archived', N'61 Binh Thanh', '2025-07-16', '2025-07-31',
+    13, 'https://cdn.example.com/cover/657.png', 1, '2025-07-19 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    74, N'UX improvements', N'Description: UX improvements', '2025-07-15 00:00:00', 2,
+    'active', N'37 Phu Nhuan', '2025-07-16', '2025-07-22',
+    13, 'https://cdn.example.com/cover/658.png', 2, '2025-07-18 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    74, N'Code review', N'Description: Code review', '2025-07-14 00:00:00', 1,
+    'archived', N'65 District 3', '2025-07-15', '2025-07-26',
+    13, 'https://cdn.example.com/cover/659.png', 3, '2025-07-16 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    74, N'Refactor codebase', N'Description: Refactor codebase', '2025-07-16 00:00:00', 5,
+    'active', N'192 District 1', '2025-07-16', '2025-08-02',
+    13, 'https://cdn.example.com/cover/660.png', 4, '2025-07-19 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    74, N'Create database schema', N'Description: Create database schema', '2025-07-04 00:00:00', 3,
+    'archived', N'82 Binh Thanh', '2025-07-06', '2025-07-17',
+    13, 'https://cdn.example.com/cover/661.png', 5, '2025-07-04 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    74, N'Implement authentication', N'Description: Implement authentication', '2025-07-02 00:00:00', 5,
+    'active', N'175 District 1', '2025-07-03', '2025-07-18',
+    13, 'https://cdn.example.com/cover/662.png', 6, '2025-07-07 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    74, N'Write unit tests', N'Description: Write unit tests', '2025-07-17 00:00:00', 3,
+    'active', N'177 District 3', '2025-07-17', '2025-07-26',
+    13, 'https://cdn.example.com/cover/663.png', 7, '2025-07-22 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    74, N'Implement authentication', N'Description: Implement authentication', '2025-07-27 00:00:00', 1,
+    'archived', N'144 Binh Thanh', '2025-07-28', '2025-07-31',
+    13, 'https://cdn.example.com/cover/664.png', 8, '2025-07-30 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    74, N'Design landing page', N'Description: Design landing page', '2025-07-29 00:00:00', 3,
+    'archived', N'102 District 3', '2025-08-01', '2025-08-16',
+    13, 'https://cdn.example.com/cover/665.png', 9, '2025-08-02 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    74, N'Design landing page', N'Description: Design landing page', '2025-07-14 00:00:00', 3,
+    'active', N'91 Binh Thanh', '2025-07-17', '2025-08-01',
+    13, 'https://cdn.example.com/cover/666.png', 10, '2025-07-19 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    74, N'QA testing', N'Description: QA testing', '2025-07-24 00:00:00', 5,
+    'archived', N'116 District 1', '2025-07-27', '2025-08-15',
+    13, 'https://cdn.example.com/cover/667.png', 11, '2025-07-29 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    74, N'Release notes', N'Description: Release notes', '2025-07-27 00:00:00', 3,
+    'archived', N'113 District 3', '2025-07-29', '2025-08-11',
+    13, 'https://cdn.example.com/cover/668.png', 12, '2025-08-01 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    74, N'Email integration', N'Description: Email integration', '2025-07-19 00:00:00', 3,
+    'archived', N'1 Phu Nhuan', '2025-07-21', '2025-08-10',
+    13, 'https://cdn.example.com/cover/669.png', 13, '2025-07-22 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    75, N'Write API documentation', N'Description: Write API documentation', '2025-07-07 00:00:00', 4,
+    'archived', N'119 Go Vap', '2025-07-09', '2025-07-17',
+    13, 'https://cdn.example.com/cover/670.png', 1, '2025-07-09 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    75, N'Design mockups', N'Description: Design mockups', '2025-07-29 00:00:00', 3,
+    'active', N'65 District 3', '2025-07-30', '2025-08-18',
+    13, 'https://cdn.example.com/cover/671.png', 2, '2025-07-31 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    75, N'Code review', N'Description: Code review', '2025-07-13 00:00:00', 3,
+    'archived', N'164 Phu Nhuan', '2025-07-15', '2025-07-31',
+    13, 'https://cdn.example.com/cover/672.png', 3, '2025-07-18 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    75, N'Create database schema', N'Description: Create database schema', '2025-07-18 00:00:00', 5,
+    'archived', N'128 Tan Binh District', '2025-07-19', '2025-07-27',
+    13, 'https://cdn.example.com/cover/673.png', 4, '2025-07-21 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    75, N'Optimize queries', N'Description: Optimize queries', '2025-07-07 00:00:00', 5,
+    'active', N'22 Tan Binh District', '2025-07-10', '2025-07-25',
+    13, 'https://cdn.example.com/cover/674.png', 5, '2025-07-09 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    75, N'Optimize queries', N'Description: Optimize queries', '2025-07-11 00:00:00', 1,
+    'active', N'178 Binh Thanh', '2025-07-14', '2025-07-26',
+    13, 'https://cdn.example.com/cover/675.png', 6, '2025-07-15 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    75, N'Refactor codebase', N'Description: Refactor codebase', '2025-07-02 00:00:00', 4,
+    'active', N'190 District 3', '2025-07-02', '2025-07-08',
+    13, 'https://cdn.example.com/cover/676.png', 7, '2025-07-02 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    75, N'Update user profile', N'Description: Update user profile', '2025-07-04 00:00:00', 5,
+    'active', N'5 Binh Thanh', '2025-07-06', '2025-07-17',
+    13, 'https://cdn.example.com/cover/677.png', 8, '2025-07-06 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    76, N'UX improvements', N'Description: UX improvements', '2025-07-01 00:00:00', 3,
+    'archived', N'11 District 3', '2025-07-02', '2025-07-08',
+    13, 'https://cdn.example.com/cover/678.png', 1, '2025-07-06 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    76, N'Design mockups', N'Description: Design mockups', '2025-07-30 00:00:00', 5,
+    'active', N'158 Go Vap', '2025-08-02', '2025-08-20',
+    13, 'https://cdn.example.com/cover/679.png', 2, '2025-08-03 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    76, N'Create database schema', N'Description: Create database schema', '2025-07-11 00:00:00', 3,
+    'archived', N'71 Binh Thanh', '2025-07-11', '2025-07-26',
+    13, 'https://cdn.example.com/cover/680.png', 3, '2025-07-15 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    76, N'Refactor codebase', N'Description: Refactor codebase', '2025-07-07 00:00:00', 1,
+    'archived', N'37 Phu Nhuan', '2025-07-10', '2025-07-28',
+    13, 'https://cdn.example.com/cover/681.png', 4, '2025-07-09 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    76, N'QA testing', N'Description: QA testing', '2025-07-22 00:00:00', 3,
+    'active', N'193 Binh Thanh', '2025-07-25', '2025-08-01',
+    13, 'https://cdn.example.com/cover/682.png', 5, '2025-07-24 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    76, N'QA testing', N'Description: QA testing', '2025-07-17 00:00:00', 2,
+    'archived', N'88 District 1', '2025-07-18', '2025-08-06',
+    13, 'https://cdn.example.com/cover/683.png', 6, '2025-07-19 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    76, N'Payment gateway setup', N'Description: Payment gateway setup', '2025-07-14 00:00:00', 4,
+    'active', N'104 District 3', '2025-07-14', '2025-07-29',
+    13, 'https://cdn.example.com/cover/684.png', 7, '2025-07-19 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    77, N'Fix UI alignment', N'Description: Fix UI alignment', '2025-07-15 00:00:00', 2,
+    'active', N'74 District 3', '2025-07-16', '2025-07-25',
+    13, 'https://cdn.example.com/cover/685.png', 1, '2025-07-18 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    77, N'QA testing', N'Description: QA testing', '2025-07-02 00:00:00', 4,
+    'archived', N'143 Binh Thanh', '2025-07-05', '2025-07-13',
+    13, 'https://cdn.example.com/cover/686.png', 2, '2025-07-06 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    78, N'Refactor codebase', N'Description: Refactor codebase', '2025-07-18 00:00:00', 3,
+    'active', N'19 Binh Thanh', '2025-07-21', '2025-08-07',
+    13, 'https://cdn.example.com/cover/687.png', 1, '2025-07-22 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    78, N'Email integration', N'Description: Email integration', '2025-07-19 00:00:00', 2,
+    'active', N'71 District 1', '2025-07-19', '2025-08-06',
+    13, 'https://cdn.example.com/cover/688.png', 2, '2025-07-24 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    78, N'QA testing', N'Description: QA testing', '2025-07-23 00:00:00', 4,
+    'active', N'173 Go Vap', '2025-07-26', '2025-08-05',
+    13, 'https://cdn.example.com/cover/689.png', 3, '2025-07-28 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    78, N'Write API documentation', N'Description: Write API documentation', '2025-07-17 00:00:00', 5,
+    'archived', N'34 Tan Binh District', '2025-07-20', '2025-08-04',
+    13, 'https://cdn.example.com/cover/690.png', 4, '2025-07-18 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    78, N'Refactor codebase', N'Description: Refactor codebase', '2025-07-27 00:00:00', 1,
+    'active', N'35 Tan Binh District', '2025-07-29', '2025-08-09',
+    13, 'https://cdn.example.com/cover/691.png', 5, '2025-07-30 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    78, N'Write unit tests', N'Description: Write unit tests', '2025-07-28 00:00:00', 5,
+    'archived', N'132 Binh Thanh', '2025-07-30', '2025-08-04',
+    13, 'https://cdn.example.com/cover/692.png', 6, '2025-07-28 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    78, N'Design landing page', N'Description: Design landing page', '2025-07-04 00:00:00', 5,
+    'active', N'66 District 1', '2025-07-05', '2025-07-23',
+    13, 'https://cdn.example.com/cover/693.png', 7, '2025-07-06 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    78, N'Update user profile', N'Description: Update user profile', '2025-07-31 00:00:00', 2,
+    'active', N'3 Go Vap', '2025-08-02', '2025-08-19',
+    13, 'https://cdn.example.com/cover/694.png', 8, '2025-07-31 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    78, N'Write API documentation', N'Description: Write API documentation', '2025-07-24 00:00:00', 1,
+    'archived', N'197 District 3', '2025-07-26', '2025-07-29',
+    13, 'https://cdn.example.com/cover/695.png', 9, '2025-07-25 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    78, N'Create database schema', N'Description: Create database schema', '2025-07-10 00:00:00', 5,
+    'archived', N'72 District 3', '2025-07-10', '2025-07-17',
+    13, 'https://cdn.example.com/cover/696.png', 10, '2025-07-14 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    78, N'Fix login bug', N'Description: Fix login bug', '2025-07-06 00:00:00', 5,
+    'active', N'89 Phu Nhuan', '2025-07-09', '2025-07-22',
+    13, 'https://cdn.example.com/cover/697.png', 11, '2025-07-08 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    78, N'Update user profile', N'Description: Update user profile', '2025-07-15 00:00:00', 1,
+    'active', N'83 District 3', '2025-07-16', '2025-07-19',
+    13, 'https://cdn.example.com/cover/698.png', 12, '2025-07-18 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    78, N'Fix UI alignment', N'Description: Fix UI alignment', '2025-07-21 00:00:00', 2,
+    'active', N'185 Go Vap', '2025-07-22', '2025-08-11',
+    13, 'https://cdn.example.com/cover/699.png', 13, '2025-07-22 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    78, N'Create database schema', N'Description: Create database schema', '2025-07-09 00:00:00', 2,
+    'active', N'22 District 1', '2025-07-11', '2025-07-21',
+    13, 'https://cdn.example.com/cover/700.png', 14, '2025-07-13 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    78, N'UX improvements', N'Description: UX improvements', '2025-07-01 00:00:00', 3,
+    'archived', N'115 District 1', '2025-07-04', '2025-07-07',
+    13, 'https://cdn.example.com/cover/701.png', 15, '2025-07-04 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    78, N'QA testing', N'Description: QA testing', '2025-07-29 00:00:00', 1,
+    'archived', N'95 District 1', '2025-07-30', '2025-08-16',
+    13, 'https://cdn.example.com/cover/702.png', 16, '2025-07-29 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    78, N'Payment gateway setup', N'Description: Payment gateway setup', '2025-07-20 00:00:00', 4,
+    'active', N'101 Phu Nhuan', '2025-07-20', '2025-08-07',
+    13, 'https://cdn.example.com/cover/703.png', 17, '2025-07-22 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    78, N'QA testing', N'Description: QA testing', '2025-07-24 00:00:00', 2,
+    'active', N'94 Phu Nhuan', '2025-07-25', '2025-08-09',
+    13, 'https://cdn.example.com/cover/704.png', 18, '2025-07-28 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    78, N'Design landing page', N'Description: Design landing page', '2025-07-14 00:00:00', 5,
+    'archived', N'62 Phu Nhuan', '2025-07-14', '2025-07-30',
+    13, 'https://cdn.example.com/cover/705.png', 19, '2025-07-19 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    78, N'Payment gateway setup', N'Description: Payment gateway setup', '2025-07-28 00:00:00', 4,
+    'active', N'9 District 1', '2025-07-28', '2025-08-01',
+    13, 'https://cdn.example.com/cover/706.png', 20, '2025-07-28 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    79, N'Email integration', N'Description: Email integration', '2025-07-04 00:00:00', 3,
+    'active', N'22 District 3', '2025-07-07', '2025-07-20',
+    13, 'https://cdn.example.com/cover/707.png', 1, '2025-07-06 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    79, N'Email integration', N'Description: Email integration', '2025-07-11 00:00:00', 1,
+    'archived', N'58 District 1', '2025-07-12', '2025-07-15',
+    13, 'https://cdn.example.com/cover/708.png', 2, '2025-07-13 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    79, N'Optimize queries', N'Description: Optimize queries', '2025-07-25 00:00:00', 2,
+    'archived', N'108 Binh Thanh', '2025-07-26', '2025-08-11',
+    13, 'https://cdn.example.com/cover/709.png', 3, '2025-07-30 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    79, N'Fix UI alignment', N'Description: Fix UI alignment', '2025-07-04 00:00:00', 5,
+    'archived', N'142 District 3', '2025-07-06', '2025-07-10',
+    13, 'https://cdn.example.com/cover/710.png', 4, '2025-07-06 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    79, N'Write unit tests', N'Description: Write unit tests', '2025-07-14 00:00:00', 2,
+    'archived', N'15 Go Vap', '2025-07-15', '2025-07-25',
+    13, 'https://cdn.example.com/cover/711.png', 5, '2025-07-16 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    79, N'Refactor codebase', N'Description: Refactor codebase', '2025-07-17 00:00:00', 4,
+    'active', N'61 Binh Thanh', '2025-07-20', '2025-07-25',
+    13, 'https://cdn.example.com/cover/712.png', 6, '2025-07-18 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    79, N'Sprint planning', N'Description: Sprint planning', '2025-07-13 00:00:00', 3,
+    'archived', N'12 District 3', '2025-07-15', '2025-07-31',
+    13, 'https://cdn.example.com/cover/713.png', 7, '2025-07-14 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    79, N'Payment gateway setup', N'Description: Payment gateway setup', '2025-07-16 00:00:00', 4,
+    'archived', N'94 District 3', '2025-07-19', '2025-07-25',
+    13, 'https://cdn.example.com/cover/714.png', 8, '2025-07-21 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    79, N'UX improvements', N'Description: UX improvements', '2025-07-09 00:00:00', 3,
+    'archived', N'125 District 1', '2025-07-11', '2025-07-20',
+    13, 'https://cdn.example.com/cover/715.png', 9, '2025-07-12 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    79, N'UX improvements', N'Description: UX improvements', '2025-07-12 00:00:00', 3,
+    'active', N'56 District 1', '2025-07-15', '2025-07-30',
+    13, 'https://cdn.example.com/cover/716.png', 10, '2025-07-16 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    79, N'Implement authentication', N'Description: Implement authentication', '2025-07-04 00:00:00', 5,
+    'archived', N'45 Tan Binh District', '2025-07-06', '2025-07-26',
+    13, 'https://cdn.example.com/cover/717.png', 11, '2025-07-09 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    79, N'Code review', N'Description: Code review', '2025-07-14 00:00:00', 1,
+    'active', N'54 Phu Nhuan', '2025-07-14', '2025-07-28',
+    13, 'https://cdn.example.com/cover/718.png', 12, '2025-07-15 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    79, N'Client feedback', N'Description: Client feedback', '2025-07-28 00:00:00', 4,
+    'archived', N'182 Go Vap', '2025-07-28', '2025-08-07',
+    13, 'https://cdn.example.com/cover/719.png', 13, '2025-08-02 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    79, N'Final deployment', N'Description: Final deployment', '2025-07-29 00:00:00', 1,
+    'active', N'166 Binh Thanh', '2025-07-30', '2025-08-06',
+    13, 'https://cdn.example.com/cover/720.png', 14, '2025-08-03 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    79, N'Design landing page', N'Description: Design landing page', '2025-07-18 00:00:00', 1,
+    'active', N'145 Binh Thanh', '2025-07-21', '2025-08-04',
+    13, 'https://cdn.example.com/cover/721.png', 15, '2025-07-21 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    79, N'Sprint planning', N'Description: Sprint planning', '2025-07-08 00:00:00', 3,
+    'active', N'40 Go Vap', '2025-07-08', '2025-07-15',
+    13, 'https://cdn.example.com/cover/722.png', 16, '2025-07-12 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    79, N'Email integration', N'Description: Email integration', '2025-07-18 00:00:00', 1,
+    'archived', N'122 Binh Thanh', '2025-07-19', '2025-07-31',
+    13, 'https://cdn.example.com/cover/723.png', 17, '2025-07-21 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    80, N'Update user profile', N'Description: Update user profile', '2025-07-19 00:00:00', 2,
+    'archived', N'100 Phu Nhuan', '2025-07-22', '2025-08-02',
+    13, 'https://cdn.example.com/cover/724.png', 1, '2025-07-22 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    80, N'Email integration', N'Description: Email integration', '2025-07-13 00:00:00', 1,
+    'archived', N'155 Go Vap', '2025-07-13', '2025-07-22',
+    13, 'https://cdn.example.com/cover/725.png', 2, '2025-07-16 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    80, N'Payment gateway setup', N'Description: Payment gateway setup', '2025-07-09 00:00:00', 1,
+    'archived', N'129 District 1', '2025-07-10', '2025-07-29',
+    13, 'https://cdn.example.com/cover/726.png', 3, '2025-07-14 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    80, N'Sprint planning', N'Description: Sprint planning', '2025-07-29 00:00:00', 1,
+    'archived', N'139 Go Vap', '2025-07-31', '2025-08-05',
+    13, 'https://cdn.example.com/cover/727.png', 4, '2025-07-29 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    81, N'Optimize queries', N'Description: Optimize queries', '2025-07-30 00:00:00', 1,
+    'archived', N'4 Go Vap', '2025-07-31', '2025-08-08',
+    13, 'https://cdn.example.com/cover/728.png', 1, '2025-08-03 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    81, N'Fix login bug', N'Description: Fix login bug', '2025-07-01 00:00:00', 5,
+    'active', N'81 District 3', '2025-07-01', '2025-07-14',
+    13, 'https://cdn.example.com/cover/729.png', 2, '2025-07-02 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    81, N'Optimize queries', N'Description: Optimize queries', '2025-07-26 00:00:00', 5,
+    'archived', N'115 Go Vap', '2025-07-27', '2025-08-12',
+    13, 'https://cdn.example.com/cover/730.png', 3, '2025-07-29 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    81, N'Design landing page', N'Description: Design landing page', '2025-07-11 00:00:00', 2,
+    'archived', N'54 District 3', '2025-07-12', '2025-07-21',
+    13, 'https://cdn.example.com/cover/731.png', 4, '2025-07-11 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    81, N'Client feedback', N'Description: Client feedback', '2025-07-22 00:00:00', 4,
+    'active', N'169 District 3', '2025-07-24', '2025-07-30',
+    13, 'https://cdn.example.com/cover/732.png', 5, '2025-07-24 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    81, N'Design mockups', N'Description: Design mockups', '2025-07-17 00:00:00', 2,
+    'archived', N'67 District 3', '2025-07-19', '2025-07-31',
+    13, 'https://cdn.example.com/cover/733.png', 6, '2025-07-22 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    81, N'Payment gateway setup', N'Description: Payment gateway setup', '2025-07-14 00:00:00', 5,
+    'active', N'161 Binh Thanh', '2025-07-16', '2025-07-21',
+    13, 'https://cdn.example.com/cover/734.png', 7, '2025-07-17 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    81, N'Email integration', N'Description: Email integration', '2025-07-06 00:00:00', 4,
+    'active', N'39 District 3', '2025-07-06', '2025-07-11',
+    13, 'https://cdn.example.com/cover/735.png', 8, '2025-07-09 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    81, N'Sprint planning', N'Description: Sprint planning', '2025-07-13 00:00:00', 5,
+    'archived', N'113 Binh Thanh', '2025-07-14', '2025-07-18',
+    13, 'https://cdn.example.com/cover/736.png', 9, '2025-07-18 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    82, N'Design mockups', N'Description: Design mockups', '2025-07-11 00:00:00', 5,
+    'archived', N'161 Tan Binh District', '2025-07-11', '2025-07-22',
+    13, 'https://cdn.example.com/cover/737.png', 1, '2025-07-15 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    82, N'Write unit tests', N'Description: Write unit tests', '2025-07-02 00:00:00', 1,
+    'archived', N'183 District 3', '2025-07-04', '2025-07-07',
+    13, 'https://cdn.example.com/cover/738.png', 2, '2025-07-04 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    82, N'Implement authentication', N'Description: Implement authentication', '2025-07-20 00:00:00', 2,
+    'active', N'10 Binh Thanh', '2025-07-23', '2025-08-04',
+    13, 'https://cdn.example.com/cover/739.png', 3, '2025-07-22 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    82, N'Write unit tests', N'Description: Write unit tests', '2025-07-27 00:00:00', 1,
+    'archived', N'18 Binh Thanh', '2025-07-29', '2025-08-02',
+    13, 'https://cdn.example.com/cover/740.png', 4, '2025-07-27 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    82, N'Write unit tests', N'Description: Write unit tests', '2025-07-03 00:00:00', 1,
+    'archived', N'55 Go Vap', '2025-07-03', '2025-07-12',
+    13, 'https://cdn.example.com/cover/741.png', 5, '2025-07-08 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    82, N'Refactor codebase', N'Description: Refactor codebase', '2025-07-28 00:00:00', 2,
+    'active', N'36 Go Vap', '2025-07-30', '2025-08-07',
+    13, 'https://cdn.example.com/cover/742.png', 6, '2025-08-02 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    82, N'Payment gateway setup', N'Description: Payment gateway setup', '2025-07-27 00:00:00', 4,
+    'active', N'105 Phu Nhuan', '2025-07-30', '2025-08-17',
+    13, 'https://cdn.example.com/cover/743.png', 7, '2025-07-28 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    82, N'Final deployment', N'Description: Final deployment', '2025-07-26 00:00:00', 2,
+    'active', N'29 District 3', '2025-07-29', '2025-08-08',
+    13, 'https://cdn.example.com/cover/744.png', 8, '2025-07-26 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    82, N'Client feedback', N'Description: Client feedback', '2025-07-18 00:00:00', 2,
+    'archived', N'151 Phu Nhuan', '2025-07-18', '2025-08-07',
+    13, 'https://cdn.example.com/cover/745.png', 9, '2025-07-18 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    82, N'Write API documentation', N'Description: Write API documentation', '2025-07-27 00:00:00', 4,
+    'active', N'92 Go Vap', '2025-07-28', '2025-08-16',
+    13, 'https://cdn.example.com/cover/746.png', 10, '2025-07-30 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    82, N'Sprint planning', N'Description: Sprint planning', '2025-07-07 00:00:00', 3,
+    'active', N'91 District 1', '2025-07-09', '2025-07-22',
+    13, 'https://cdn.example.com/cover/747.png', 11, '2025-07-08 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    82, N'Client feedback', N'Description: Client feedback', '2025-07-31 00:00:00', 1,
+    'active', N'13 District 3', '2025-08-02', '2025-08-20',
+    13, 'https://cdn.example.com/cover/748.png', 12, '2025-08-04 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    82, N'Fix login bug', N'Description: Fix login bug', '2025-07-10 00:00:00', 1,
+    'archived', N'30 District 1', '2025-07-10', '2025-07-29',
+    13, 'https://cdn.example.com/cover/749.png', 13, '2025-07-11 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    82, N'Create database schema', N'Description: Create database schema', '2025-07-16 00:00:00', 4,
+    'archived', N'167 District 1', '2025-07-18', '2025-07-29',
+    13, 'https://cdn.example.com/cover/750.png', 14, '2025-07-17 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    82, N'Payment gateway setup', N'Description: Payment gateway setup', '2025-07-09 00:00:00', 4,
+    'active', N'138 Go Vap', '2025-07-10', '2025-07-21',
+    13, 'https://cdn.example.com/cover/751.png', 15, '2025-07-12 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    82, N'Optimize queries', N'Description: Optimize queries', '2025-07-26 00:00:00', 4,
+    'active', N'185 Phu Nhuan', '2025-07-26', '2025-08-09',
+    13, 'https://cdn.example.com/cover/752.png', 16, '2025-07-31 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    82, N'Refactor codebase', N'Description: Refactor codebase', '2025-07-14 00:00:00', 1,
+    'active', N'5 Go Vap', '2025-07-16', '2025-07-27',
+    13, 'https://cdn.example.com/cover/753.png', 17, '2025-07-17 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    82, N'Final deployment', N'Description: Final deployment', '2025-07-13 00:00:00', 2,
+    'active', N'113 Go Vap', '2025-07-13', '2025-08-01',
+    13, 'https://cdn.example.com/cover/754.png', 18, '2025-07-18 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    82, N'Refactor codebase', N'Description: Refactor codebase', '2025-07-06 00:00:00', 2,
+    'active', N'83 Phu Nhuan', '2025-07-08', '2025-07-18',
+    13, 'https://cdn.example.com/cover/755.png', 19, '2025-07-10 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    83, N'Create database schema', N'Description: Create database schema', '2025-07-11 00:00:00', 2,
+    'archived', N'193 District 3', '2025-07-11', '2025-07-20',
+    13, 'https://cdn.example.com/cover/756.png', 1, '2025-07-13 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    83, N'Sprint planning', N'Description: Sprint planning', '2025-07-20 00:00:00', 4,
+    'active', N'123 Phu Nhuan', '2025-07-20', '2025-07-26',
+    13, 'https://cdn.example.com/cover/757.png', 2, '2025-07-20 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    83, N'Client feedback', N'Description: Client feedback', '2025-07-02 00:00:00', 5,
+    'archived', N'72 Tan Binh District', '2025-07-04', '2025-07-17',
+    13, 'https://cdn.example.com/cover/758.png', 3, '2025-07-06 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    83, N'QA testing', N'Description: QA testing', '2025-07-12 00:00:00', 3,
+    'active', N'34 Binh Thanh', '2025-07-14', '2025-07-26',
+    13, 'https://cdn.example.com/cover/759.png', 4, '2025-07-16 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    83, N'Design mockups', N'Description: Design mockups', '2025-07-28 00:00:00', 5,
+    'archived', N'118 Go Vap', '2025-07-28', '2025-08-01',
+    13, 'https://cdn.example.com/cover/760.png', 5, '2025-07-30 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    83, N'Create database schema', N'Description: Create database schema', '2025-07-28 00:00:00', 4,
+    'archived', N'56 District 3', '2025-07-30', '2025-08-18',
+    13, 'https://cdn.example.com/cover/761.png', 6, '2025-07-31 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    83, N'UX improvements', N'Description: UX improvements', '2025-07-30 00:00:00', 1,
+    'active', N'168 District 3', '2025-07-30', '2025-08-10',
+    13, 'https://cdn.example.com/cover/762.png', 7, '2025-08-03 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    83, N'Email integration', N'Description: Email integration', '2025-07-06 00:00:00', 1,
+    'archived', N'182 Tan Binh District', '2025-07-08', '2025-07-18',
+    13, 'https://cdn.example.com/cover/763.png', 8, '2025-07-07 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    83, N'Design mockups', N'Description: Design mockups', '2025-07-25 00:00:00', 3,
+    'archived', N'97 Binh Thanh', '2025-07-25', '2025-08-03',
+    13, 'https://cdn.example.com/cover/764.png', 9, '2025-07-26 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    83, N'Write unit tests', N'Description: Write unit tests', '2025-07-12 00:00:00', 3,
+    'active', N'176 Binh Thanh', '2025-07-13', '2025-07-18',
+    13, 'https://cdn.example.com/cover/765.png', 10, '2025-07-16 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    83, N'Release notes', N'Description: Release notes', '2025-07-17 00:00:00', 4,
+    'archived', N'153 Tan Binh District', '2025-07-17', '2025-08-06',
+    13, 'https://cdn.example.com/cover/766.png', 11, '2025-07-18 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    83, N'Optimize queries', N'Description: Optimize queries', '2025-07-19 00:00:00', 3,
+    'archived', N'25 Binh Thanh', '2025-07-22', '2025-08-11',
+    13, 'https://cdn.example.com/cover/767.png', 12, '2025-07-21 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    83, N'Design landing page', N'Description: Design landing page', '2025-07-12 00:00:00', 5,
+    'archived', N'5 Binh Thanh', '2025-07-15', '2025-08-02',
+    13, 'https://cdn.example.com/cover/768.png', 13, '2025-07-12 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    83, N'Sprint planning', N'Description: Sprint planning', '2025-07-17 00:00:00', 3,
+    'active', N'55 Binh Thanh', '2025-07-17', '2025-08-01',
+    13, 'https://cdn.example.com/cover/769.png', 14, '2025-07-20 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    83, N'Fix login bug', N'Description: Fix login bug', '2025-07-06 00:00:00', 4,
+    'archived', N'123 Phu Nhuan', '2025-07-09', '2025-07-15',
+    13, 'https://cdn.example.com/cover/770.png', 15, '2025-07-07 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    83, N'Code review', N'Description: Code review', '2025-07-02 00:00:00', 1,
+    'active', N'108 District 3', '2025-07-04', '2025-07-09',
+    13, 'https://cdn.example.com/cover/771.png', 16, '2025-07-02 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    83, N'UX improvements', N'Description: UX improvements', '2025-07-20 00:00:00', 5,
+    'archived', N'52 District 3', '2025-07-22', '2025-08-07',
+    13, 'https://cdn.example.com/cover/772.png', 17, '2025-07-24 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    83, N'Sprint planning', N'Description: Sprint planning', '2025-07-21 00:00:00', 5,
+    'archived', N'59 Go Vap', '2025-07-23', '2025-07-29',
+    13, 'https://cdn.example.com/cover/773.png', 18, '2025-07-23 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    84, N'Final deployment', N'Description: Final deployment', '2025-07-08 00:00:00', 5,
+    'active', N'170 Go Vap', '2025-07-10', '2025-07-22',
+    13, 'https://cdn.example.com/cover/774.png', 1, '2025-07-13 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    84, N'Update user profile', N'Description: Update user profile', '2025-07-14 00:00:00', 4,
+    'archived', N'181 Phu Nhuan', '2025-07-14', '2025-07-30',
+    13, 'https://cdn.example.com/cover/775.png', 2, '2025-07-14 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    84, N'Code review', N'Description: Code review', '2025-07-02 00:00:00', 5,
+    'active', N'68 District 1', '2025-07-05', '2025-07-11',
+    13, 'https://cdn.example.com/cover/776.png', 3, '2025-07-02 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    84, N'Release notes', N'Description: Release notes', '2025-07-15 00:00:00', 5,
+    'active', N'200 Binh Thanh', '2025-07-17', '2025-08-06',
+    13, 'https://cdn.example.com/cover/777.png', 4, '2025-07-16 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    84, N'Payment gateway setup', N'Description: Payment gateway setup', '2025-07-14 00:00:00', 3,
+    'active', N'167 Tan Binh District', '2025-07-15', '2025-07-27',
+    13, 'https://cdn.example.com/cover/778.png', 5, '2025-07-16 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    85, N'Sprint planning', N'Description: Sprint planning', '2025-07-12 00:00:00', 4,
+    'active', N'22 Phu Nhuan', '2025-07-15', '2025-07-22',
+    13, 'https://cdn.example.com/cover/779.png', 1, '2025-07-14 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    85, N'QA testing', N'Description: QA testing', '2025-07-19 00:00:00', 4,
+    'archived', N'60 Tan Binh District', '2025-07-21', '2025-08-05',
+    13, 'https://cdn.example.com/cover/780.png', 2, '2025-07-24 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    85, N'Final deployment', N'Description: Final deployment', '2025-07-30 00:00:00', 4,
+    'active', N'185 District 1', '2025-08-01', '2025-08-16',
+    13, 'https://cdn.example.com/cover/781.png', 3, '2025-08-02 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    85, N'Write unit tests', N'Description: Write unit tests', '2025-07-18 00:00:00', 5,
+    'active', N'150 Go Vap', '2025-07-20', '2025-07-29',
+    13, 'https://cdn.example.com/cover/782.png', 4, '2025-07-20 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    85, N'Fix login bug', N'Description: Fix login bug', '2025-07-11 00:00:00', 2,
+    'archived', N'156 Binh Thanh', '2025-07-13', '2025-08-01',
+    13, 'https://cdn.example.com/cover/783.png', 5, '2025-07-14 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    85, N'Code review', N'Description: Code review', '2025-07-22 00:00:00', 2,
+    'archived', N'112 Tan Binh District', '2025-07-23', '2025-07-30',
+    13, 'https://cdn.example.com/cover/784.png', 6, '2025-07-25 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    85, N'Optimize queries', N'Description: Optimize queries', '2025-07-17 00:00:00', 1,
+    'archived', N'83 District 1', '2025-07-19', '2025-08-01',
+    13, 'https://cdn.example.com/cover/785.png', 7, '2025-07-19 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    85, N'Refactor codebase', N'Description: Refactor codebase', '2025-07-26 00:00:00', 5,
+    'active', N'132 Phu Nhuan', '2025-07-28', '2025-08-15',
+    13, 'https://cdn.example.com/cover/786.png', 8, '2025-07-30 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    85, N'Implement authentication', N'Description: Implement authentication', '2025-07-20 00:00:00', 4,
+    'archived', N'138 District 3', '2025-07-21', '2025-08-06',
+    13, 'https://cdn.example.com/cover/787.png', 9, '2025-07-25 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    85, N'Write API documentation', N'Description: Write API documentation', '2025-07-02 00:00:00', 2,
+    'archived', N'124 District 1', '2025-07-02', '2025-07-08',
+    13, 'https://cdn.example.com/cover/788.png', 10, '2025-07-03 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    85, N'UX improvements', N'Description: UX improvements', '2025-07-10 00:00:00', 4,
+    'archived', N'67 Tan Binh District', '2025-07-12', '2025-07-18',
+    13, 'https://cdn.example.com/cover/789.png', 11, '2025-07-15 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    85, N'Design mockups', N'Description: Design mockups', '2025-07-28 00:00:00', 3,
+    'active', N'165 District 3', '2025-07-28', '2025-08-08',
+    13, 'https://cdn.example.com/cover/790.png', 12, '2025-07-31 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    85, N'Sprint planning', N'Description: Sprint planning', '2025-07-31 00:00:00', 4,
+    'archived', N'149 District 1', '2025-07-31', '2025-08-15',
+    13, 'https://cdn.example.com/cover/791.png', 13, '2025-07-31 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    85, N'Final deployment', N'Description: Final deployment', '2025-07-13 00:00:00', 1,
+    'active', N'114 District 3', '2025-07-13', '2025-07-16',
+    13, 'https://cdn.example.com/cover/792.png', 14, '2025-07-16 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    86, N'Update user profile', N'Description: Update user profile', '2025-07-09 00:00:00', 3,
+    'active', N'192 District 3', '2025-07-10', '2025-07-26',
+    13, 'https://cdn.example.com/cover/793.png', 1, '2025-07-12 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    86, N'Write unit tests', N'Description: Write unit tests', '2025-07-25 00:00:00', 2,
+    'archived', N'99 Phu Nhuan', '2025-07-27', '2025-08-10',
+    13, 'https://cdn.example.com/cover/794.png', 2, '2025-07-30 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    86, N'Final deployment', N'Description: Final deployment', '2025-07-09 00:00:00', 2,
+    'active', N'95 District 1', '2025-07-11', '2025-07-17',
+    13, 'https://cdn.example.com/cover/795.png', 3, '2025-07-10 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    86, N'Code review', N'Description: Code review', '2025-07-11 00:00:00', 1,
+    'active', N'2 District 1', '2025-07-12', '2025-07-26',
+    13, 'https://cdn.example.com/cover/796.png', 4, '2025-07-12 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    86, N'Update user profile', N'Description: Update user profile', '2025-07-19 00:00:00', 1,
+    'active', N'72 Binh Thanh', '2025-07-20', '2025-07-31',
+    13, 'https://cdn.example.com/cover/797.png', 5, '2025-07-23 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    86, N'Code review', N'Description: Code review', '2025-07-12 00:00:00', 3,
+    'archived', N'172 District 1', '2025-07-13', '2025-07-31',
+    13, 'https://cdn.example.com/cover/798.png', 6, '2025-07-12 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    87, N'Write API documentation', N'Description: Write API documentation', '2025-07-05 00:00:00', 5,
+    'active', N'3 Go Vap', '2025-07-07', '2025-07-22',
+    13, 'https://cdn.example.com/cover/799.png', 1, '2025-07-07 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    87, N'Create database schema', N'Description: Create database schema', '2025-07-08 00:00:00', 4,
+    'active', N'8 District 3', '2025-07-10', '2025-07-27',
+    13, 'https://cdn.example.com/cover/800.png', 2, '2025-07-08 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    87, N'Update user profile', N'Description: Update user profile', '2025-07-06 00:00:00', 1,
+    'active', N'199 Tan Binh District', '2025-07-06', '2025-07-22',
+    13, 'https://cdn.example.com/cover/801.png', 3, '2025-07-10 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    87, N'Fix login bug', N'Description: Fix login bug', '2025-07-26 00:00:00', 4,
+    'active', N'7 District 1', '2025-07-29', '2025-08-14',
+    13, 'https://cdn.example.com/cover/802.png', 4, '2025-07-28 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    87, N'Optimize queries', N'Description: Optimize queries', '2025-07-18 00:00:00', 1,
+    'active', N'31 District 1', '2025-07-19', '2025-08-05',
+    13, 'https://cdn.example.com/cover/803.png', 5, '2025-07-22 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    87, N'Email integration', N'Description: Email integration', '2025-07-31 00:00:00', 3,
+    'archived', N'100 Binh Thanh', '2025-08-03', '2025-08-13',
+    13, 'https://cdn.example.com/cover/804.png', 6, '2025-08-04 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    87, N'UX improvements', N'Description: UX improvements', '2025-07-07 00:00:00', 2,
+    'active', N'2 Binh Thanh', '2025-07-10', '2025-07-18',
+    13, 'https://cdn.example.com/cover/805.png', 7, '2025-07-10 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    87, N'Email integration', N'Description: Email integration', '2025-07-26 00:00:00', 1,
+    'archived', N'171 District 1', '2025-07-29', '2025-08-17',
+    13, 'https://cdn.example.com/cover/806.png', 8, '2025-07-26 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    87, N'Code review', N'Description: Code review', '2025-07-21 00:00:00', 1,
+    'active', N'54 Go Vap', '2025-07-21', '2025-07-30',
+    13, 'https://cdn.example.com/cover/807.png', 9, '2025-07-21 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    87, N'QA testing', N'Description: QA testing', '2025-07-31 00:00:00', 5,
+    'archived', N'79 Phu Nhuan', '2025-07-31', '2025-08-06',
+    13, 'https://cdn.example.com/cover/808.png', 10, '2025-08-01 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    87, N'Create database schema', N'Description: Create database schema', '2025-07-03 00:00:00', 1,
+    'archived', N'79 Binh Thanh', '2025-07-06', '2025-07-26',
+    13, 'https://cdn.example.com/cover/809.png', 11, '2025-07-07 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    88, N'UX improvements', N'Description: UX improvements', '2025-07-25 00:00:00', 1,
+    'active', N'83 Tan Binh District', '2025-07-25', '2025-08-06',
+    13, 'https://cdn.example.com/cover/810.png', 1, '2025-07-30 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    88, N'Write API documentation', N'Description: Write API documentation', '2025-07-07 00:00:00', 5,
+    'archived', N'114 District 1', '2025-07-07', '2025-07-19',
+    13, 'https://cdn.example.com/cover/811.png', 2, '2025-07-07 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    88, N'Design landing page', N'Description: Design landing page', '2025-07-08 00:00:00', 2,
+    'archived', N'151 District 1', '2025-07-08', '2025-07-26',
+    13, 'https://cdn.example.com/cover/812.png', 3, '2025-07-11 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    88, N'Update user profile', N'Description: Update user profile', '2025-07-26 00:00:00', 3,
+    'active', N'76 Phu Nhuan', '2025-07-29', '2025-08-03',
+    13, 'https://cdn.example.com/cover/813.png', 4, '2025-07-28 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    88, N'Payment gateway setup', N'Description: Payment gateway setup', '2025-07-09 00:00:00', 1,
+    'active', N'146 District 1', '2025-07-11', '2025-07-18',
+    13, 'https://cdn.example.com/cover/814.png', 5, '2025-07-09 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    88, N'Fix login bug', N'Description: Fix login bug', '2025-07-01 00:00:00', 1,
+    'archived', N'55 District 1', '2025-07-01', '2025-07-20',
+    13, 'https://cdn.example.com/cover/815.png', 6, '2025-07-01 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    88, N'Code review', N'Description: Code review', '2025-07-17 00:00:00', 4,
+    'archived', N'31 Phu Nhuan', '2025-07-17', '2025-07-28',
+    13, 'https://cdn.example.com/cover/816.png', 7, '2025-07-18 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    88, N'Email integration', N'Description: Email integration', '2025-07-04 00:00:00', 4,
+    'active', N'159 District 3', '2025-07-05', '2025-07-13',
+    13, 'https://cdn.example.com/cover/817.png', 8, '2025-07-09 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    88, N'Write unit tests', N'Description: Write unit tests', '2025-07-18 00:00:00', 1,
+    'active', N'51 Phu Nhuan', '2025-07-21', '2025-07-24',
+    13, 'https://cdn.example.com/cover/818.png', 9, '2025-07-22 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    88, N'Email integration', N'Description: Email integration', '2025-07-03 00:00:00', 4,
+    'archived', N'187 District 1', '2025-07-05', '2025-07-14',
+    13, 'https://cdn.example.com/cover/819.png', 10, '2025-07-06 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    88, N'Write unit tests', N'Description: Write unit tests', '2025-07-03 00:00:00', 1,
+    'archived', N'74 Phu Nhuan', '2025-07-04', '2025-07-12',
+    13, 'https://cdn.example.com/cover/820.png', 11, '2025-07-03 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    88, N'QA testing', N'Description: QA testing', '2025-07-01 00:00:00', 2,
+    'archived', N'60 Go Vap', '2025-07-01', '2025-07-07',
+    13, 'https://cdn.example.com/cover/821.png', 12, '2025-07-01 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    88, N'Optimize queries', N'Description: Optimize queries', '2025-07-06 00:00:00', 3,
+    'archived', N'116 Tan Binh District', '2025-07-08', '2025-07-17',
+    13, 'https://cdn.example.com/cover/822.png', 13, '2025-07-09 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    88, N'Final deployment', N'Description: Final deployment', '2025-07-16 00:00:00', 1,
+    'active', N'179 Binh Thanh', '2025-07-19', '2025-07-26',
+    13, 'https://cdn.example.com/cover/823.png', 14, '2025-07-21 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    88, N'Code review', N'Description: Code review', '2025-07-26 00:00:00', 3,
+    'active', N'80 Tan Binh District', '2025-07-27', '2025-07-31',
+    13, 'https://cdn.example.com/cover/824.png', 15, '2025-07-29 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    88, N'QA testing', N'Description: QA testing', '2025-07-11 00:00:00', 3,
+    'active', N'35 District 3', '2025-07-13', '2025-07-26',
+    13, 'https://cdn.example.com/cover/825.png', 16, '2025-07-15 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    88, N'Final deployment', N'Description: Final deployment', '2025-07-23 00:00:00', 5,
+    'archived', N'142 Tan Binh District', '2025-07-26', '2025-08-10',
+    13, 'https://cdn.example.com/cover/826.png', 17, '2025-07-24 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    89, N'QA testing', N'Description: QA testing', '2025-07-18 00:00:00', 4,
+    'active', N'179 Go Vap', '2025-07-19', '2025-07-22',
+    13, 'https://cdn.example.com/cover/827.png', 1, '2025-07-21 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    89, N'Create database schema', N'Description: Create database schema', '2025-07-20 00:00:00', 3,
+    'active', N'35 Phu Nhuan', '2025-07-22', '2025-07-30',
+    13, 'https://cdn.example.com/cover/828.png', 2, '2025-07-25 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    89, N'Write API documentation', N'Description: Write API documentation', '2025-07-19 00:00:00', 4,
+    'active', N'61 District 3', '2025-07-22', '2025-08-06',
+    13, 'https://cdn.example.com/cover/829.png', 3, '2025-07-24 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    89, N'Code review', N'Description: Code review', '2025-07-24 00:00:00', 1,
+    'active', N'124 District 1', '2025-07-25', '2025-08-02',
+    13, 'https://cdn.example.com/cover/830.png', 4, '2025-07-25 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    89, N'Write API documentation', N'Description: Write API documentation', '2025-07-30 00:00:00', 4,
+    'archived', N'7 Go Vap', '2025-08-01', '2025-08-13',
+    13, 'https://cdn.example.com/cover/831.png', 5, '2025-08-03 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    89, N'Refactor codebase', N'Description: Refactor codebase', '2025-07-25 00:00:00', 2,
+    'archived', N'41 District 3', '2025-07-26', '2025-08-02',
+    13, 'https://cdn.example.com/cover/832.png', 6, '2025-07-28 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    89, N'Implement authentication', N'Description: Implement authentication', '2025-07-07 00:00:00', 4,
+    'archived', N'17 Tan Binh District', '2025-07-09', '2025-07-24',
+    13, 'https://cdn.example.com/cover/833.png', 7, '2025-07-12 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    89, N'Code review', N'Description: Code review', '2025-07-23 00:00:00', 3,
+    'active', N'34 Phu Nhuan', '2025-07-26', '2025-08-08',
+    13, 'https://cdn.example.com/cover/834.png', 8, '2025-07-26 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    89, N'Create database schema', N'Description: Create database schema', '2025-07-16 00:00:00', 3,
+    'archived', N'198 Binh Thanh', '2025-07-17', '2025-08-01',
+    13, 'https://cdn.example.com/cover/835.png', 9, '2025-07-19 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    89, N'Refactor codebase', N'Description: Refactor codebase', '2025-07-22 00:00:00', 2,
+    'archived', N'65 District 1', '2025-07-23', '2025-08-08',
+    13, 'https://cdn.example.com/cover/836.png', 10, '2025-07-26 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    89, N'Release notes', N'Description: Release notes', '2025-07-03 00:00:00', 5,
+    'active', N'142 Go Vap', '2025-07-03', '2025-07-13',
+    13, 'https://cdn.example.com/cover/837.png', 11, '2025-07-08 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    89, N'Client feedback', N'Description: Client feedback', '2025-07-18 00:00:00', 4,
+    'active', N'48 Tan Binh District', '2025-07-19', '2025-07-24',
+    13, 'https://cdn.example.com/cover/838.png', 12, '2025-07-19 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    89, N'UX improvements', N'Description: UX improvements', '2025-07-11 00:00:00', 4,
+    'archived', N'169 District 1', '2025-07-11', '2025-07-15',
+    13, 'https://cdn.example.com/cover/839.png', 13, '2025-07-13 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    89, N'Fix login bug', N'Description: Fix login bug', '2025-07-24 00:00:00', 5,
+    'active', N'154 District 1', '2025-07-27', '2025-08-06',
+    13, 'https://cdn.example.com/cover/840.png', 14, '2025-07-28 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    90, N'Release notes', N'Description: Release notes', '2025-07-24 00:00:00', 2,
+    'archived', N'107 Phu Nhuan', '2025-07-26', '2025-08-08',
+    13, 'https://cdn.example.com/cover/841.png', 1, '2025-07-25 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    90, N'Update user profile', N'Description: Update user profile', '2025-07-13 00:00:00', 2,
+    'active', N'32 Binh Thanh', '2025-07-13', '2025-07-24',
+    13, 'https://cdn.example.com/cover/842.png', 2, '2025-07-18 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    90, N'UX improvements', N'Description: UX improvements', '2025-07-31 00:00:00', 3,
+    'active', N'187 Go Vap', '2025-07-31', '2025-08-08',
+    13, 'https://cdn.example.com/cover/843.png', 3, '2025-08-01 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    90, N'Write unit tests', N'Description: Write unit tests', '2025-07-22 00:00:00', 1,
+    'archived', N'41 Go Vap', '2025-07-23', '2025-08-02',
+    13, 'https://cdn.example.com/cover/844.png', 4, '2025-07-27 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    90, N'Client feedback', N'Description: Client feedback', '2025-07-07 00:00:00', 1,
+    'active', N'94 Tan Binh District', '2025-07-09', '2025-07-14',
+    13, 'https://cdn.example.com/cover/845.png', 5, '2025-07-07 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    90, N'Design mockups', N'Description: Design mockups', '2025-07-19 00:00:00', 5,
+    'archived', N'116 Tan Binh District', '2025-07-19', '2025-07-26',
+    13, 'https://cdn.example.com/cover/846.png', 6, '2025-07-22 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    90, N'Fix UI alignment', N'Description: Fix UI alignment', '2025-07-09 00:00:00', 3,
+    'archived', N'63 District 1', '2025-07-09', '2025-07-29',
+    13, 'https://cdn.example.com/cover/847.png', 7, '2025-07-12 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    90, N'Write unit tests', N'Description: Write unit tests', '2025-07-09 00:00:00', 2,
+    'archived', N'51 Tan Binh District', '2025-07-11', '2025-07-27',
+    13, 'https://cdn.example.com/cover/848.png', 8, '2025-07-10 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    90, N'Write API documentation', N'Description: Write API documentation', '2025-07-07 00:00:00', 3,
+    'active', N'87 District 1', '2025-07-08', '2025-07-18',
+    13, 'https://cdn.example.com/cover/849.png', 9, '2025-07-07 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    90, N'Design landing page', N'Description: Design landing page', '2025-07-08 00:00:00', 4,
+    'active', N'164 Tan Binh District', '2025-07-10', '2025-07-30',
+    13, 'https://cdn.example.com/cover/850.png', 10, '2025-07-09 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    90, N'Release notes', N'Description: Release notes', '2025-07-23 00:00:00', 1,
+    'active', N'149 Binh Thanh', '2025-07-24', '2025-07-28',
+    13, 'https://cdn.example.com/cover/851.png', 11, '2025-07-27 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    90, N'Release notes', N'Description: Release notes', '2025-07-11 00:00:00', 1,
+    'active', N'168 Tan Binh District', '2025-07-12', '2025-07-31',
+    13, 'https://cdn.example.com/cover/852.png', 12, '2025-07-16 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    90, N'Implement authentication', N'Description: Implement authentication', '2025-07-18 00:00:00', 1,
+    'archived', N'105 Tan Binh District', '2025-07-20', '2025-08-03',
+    13, 'https://cdn.example.com/cover/853.png', 13, '2025-07-23 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    90, N'Code review', N'Description: Code review', '2025-07-14 00:00:00', 4,
+    'active', N'171 District 3', '2025-07-14', '2025-07-17',
+    13, 'https://cdn.example.com/cover/854.png', 14, '2025-07-19 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    91, N'Write API documentation', N'Description: Write API documentation', '2025-07-06 00:00:00', 1,
+    'archived', N'85 Phu Nhuan', '2025-07-09', '2025-07-20',
+    13, 'https://cdn.example.com/cover/855.png', 1, '2025-07-06 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    92, N'Design landing page', N'Description: Design landing page', '2025-07-16 00:00:00', 2,
+    'archived', N'28 Phu Nhuan', '2025-07-16', '2025-08-01',
+    13, 'https://cdn.example.com/cover/856.png', 1, '2025-07-20 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    92, N'UX improvements', N'Description: UX improvements', '2025-07-20 00:00:00', 2,
+    'archived', N'61 Go Vap', '2025-07-22', '2025-07-29',
+    13, 'https://cdn.example.com/cover/857.png', 2, '2025-07-23 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    92, N'Refactor codebase', N'Description: Refactor codebase', '2025-07-06 00:00:00', 3,
+    'active', N'24 Go Vap', '2025-07-07', '2025-07-18',
+    13, 'https://cdn.example.com/cover/858.png', 3, '2025-07-08 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    92, N'Update user profile', N'Description: Update user profile', '2025-07-01 00:00:00', 5,
+    'active', N'119 District 1', '2025-07-03', '2025-07-09',
+    13, 'https://cdn.example.com/cover/859.png', 4, '2025-07-03 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    92, N'Code review', N'Description: Code review', '2025-07-05 00:00:00', 3,
+    'active', N'80 District 1', '2025-07-05', '2025-07-22',
+    13, 'https://cdn.example.com/cover/860.png', 5, '2025-07-09 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    92, N'Client feedback', N'Description: Client feedback', '2025-07-17 00:00:00', 4,
+    'active', N'57 District 1', '2025-07-17', '2025-07-21',
+    13, 'https://cdn.example.com/cover/861.png', 6, '2025-07-17 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    92, N'Payment gateway setup', N'Description: Payment gateway setup', '2025-07-12 00:00:00', 5,
+    'archived', N'64 District 1', '2025-07-13', '2025-08-02',
+    13, 'https://cdn.example.com/cover/862.png', 7, '2025-07-17 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    92, N'Implement authentication', N'Description: Implement authentication', '2025-07-22 00:00:00', 3,
+    'archived', N'145 Binh Thanh', '2025-07-24', '2025-07-27',
+    13, 'https://cdn.example.com/cover/863.png', 8, '2025-07-25 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    92, N'Implement authentication', N'Description: Implement authentication', '2025-07-25 00:00:00', 2,
+    'active', N'20 Phu Nhuan', '2025-07-26', '2025-08-05',
+    13, 'https://cdn.example.com/cover/864.png', 9, '2025-07-28 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    92, N'Final deployment', N'Description: Final deployment', '2025-07-11 00:00:00', 2,
+    'active', N'96 Binh Thanh', '2025-07-11', '2025-07-26',
+    13, 'https://cdn.example.com/cover/865.png', 10, '2025-07-16 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    93, N'Code review', N'Description: Code review', '2025-07-09 00:00:00', 3,
+    'active', N'196 Phu Nhuan', '2025-07-10', '2025-07-28',
+    13, 'https://cdn.example.com/cover/866.png', 1, '2025-07-10 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    93, N'Create database schema', N'Description: Create database schema', '2025-07-04 00:00:00', 1,
+    'archived', N'37 Tan Binh District', '2025-07-05', '2025-07-11',
+    13, 'https://cdn.example.com/cover/867.png', 2, '2025-07-05 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    93, N'QA testing', N'Description: QA testing', '2025-07-05 00:00:00', 5,
+    'archived', N'11 Go Vap', '2025-07-08', '2025-07-19',
+    13, 'https://cdn.example.com/cover/868.png', 3, '2025-07-10 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    93, N'Write API documentation', N'Description: Write API documentation', '2025-07-15 00:00:00', 4,
+    'active', N'95 Binh Thanh', '2025-07-15', '2025-07-30',
+    13, 'https://cdn.example.com/cover/869.png', 4, '2025-07-19 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    93, N'Refactor codebase', N'Description: Refactor codebase', '2025-07-11 00:00:00', 4,
+    'archived', N'55 District 3', '2025-07-12', '2025-07-25',
+    13, 'https://cdn.example.com/cover/870.png', 5, '2025-07-12 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    93, N'Release notes', N'Description: Release notes', '2025-07-21 00:00:00', 1,
+    'archived', N'146 Phu Nhuan', '2025-07-22', '2025-08-10',
+    13, 'https://cdn.example.com/cover/871.png', 6, '2025-07-22 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    93, N'Write API documentation', N'Description: Write API documentation', '2025-07-30 00:00:00', 1,
+    'active', N'133 District 3', '2025-08-01', '2025-08-10',
+    13, 'https://cdn.example.com/cover/872.png', 7, '2025-07-31 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    93, N'Refactor codebase', N'Description: Refactor codebase', '2025-07-01 00:00:00', 2,
+    'archived', N'80 District 3', '2025-07-01', '2025-07-05',
+    13, 'https://cdn.example.com/cover/873.png', 8, '2025-07-02 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    93, N'Payment gateway setup', N'Description: Payment gateway setup', '2025-07-07 00:00:00', 2,
+    'archived', N'44 District 3', '2025-07-07', '2025-07-11',
+    13, 'https://cdn.example.com/cover/874.png', 9, '2025-07-10 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    93, N'Code review', N'Description: Code review', '2025-07-02 00:00:00', 4,
+    'archived', N'155 Go Vap', '2025-07-05', '2025-07-20',
+    13, 'https://cdn.example.com/cover/875.png', 10, '2025-07-06 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    94, N'Code review', N'Description: Code review', '2025-07-23 00:00:00', 4,
+    'active', N'172 District 1', '2025-07-23', '2025-07-26',
+    13, 'https://cdn.example.com/cover/876.png', 1, '2025-07-26 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    94, N'Write API documentation', N'Description: Write API documentation', '2025-07-16 00:00:00', 3,
+    'active', N'169 Tan Binh District', '2025-07-19', '2025-07-29',
+    13, 'https://cdn.example.com/cover/877.png', 2, '2025-07-17 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    94, N'Design mockups', N'Description: Design mockups', '2025-07-20 00:00:00', 5,
+    'archived', N'132 District 3', '2025-07-22', '2025-08-08',
+    13, 'https://cdn.example.com/cover/878.png', 3, '2025-07-24 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    94, N'UX improvements', N'Description: UX improvements', '2025-07-20 00:00:00', 3,
+    'active', N'177 Phu Nhuan', '2025-07-21', '2025-08-04',
+    13, 'https://cdn.example.com/cover/879.png', 4, '2025-07-20 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    94, N'Email integration', N'Description: Email integration', '2025-07-24 00:00:00', 2,
+    'active', N'104 District 1', '2025-07-26', '2025-08-10',
+    13, 'https://cdn.example.com/cover/880.png', 5, '2025-07-24 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    94, N'Final deployment', N'Description: Final deployment', '2025-07-14 00:00:00', 4,
+    'archived', N'129 District 1', '2025-07-15', '2025-07-28',
+    13, 'https://cdn.example.com/cover/881.png', 6, '2025-07-18 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    94, N'Refactor codebase', N'Description: Refactor codebase', '2025-07-16 00:00:00', 5,
+    'active', N'64 Binh Thanh', '2025-07-16', '2025-07-19',
+    13, 'https://cdn.example.com/cover/882.png', 7, '2025-07-20 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    94, N'Design landing page', N'Description: Design landing page', '2025-07-14 00:00:00', 1,
+    'archived', N'39 Go Vap', '2025-07-16', '2025-07-22',
+    13, 'https://cdn.example.com/cover/883.png', 8, '2025-07-17 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    94, N'Release notes', N'Description: Release notes', '2025-07-24 00:00:00', 1,
+    'active', N'179 District 3', '2025-07-24', '2025-07-28',
+    13, 'https://cdn.example.com/cover/884.png', 9, '2025-07-25 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    95, N'Payment gateway setup', N'Description: Payment gateway setup', '2025-07-22 00:00:00', 1,
+    'active', N'194 Go Vap', '2025-07-22', '2025-08-01',
+    13, 'https://cdn.example.com/cover/885.png', 1, '2025-07-22 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    95, N'Client feedback', N'Description: Client feedback', '2025-07-25 00:00:00', 3,
+    'active', N'177 District 3', '2025-07-25', '2025-07-29',
+    13, 'https://cdn.example.com/cover/886.png', 2, '2025-07-27 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    95, N'Create database schema', N'Description: Create database schema', '2025-07-15 00:00:00', 1,
+    'active', N'110 Go Vap', '2025-07-18', '2025-07-25',
+    13, 'https://cdn.example.com/cover/887.png', 3, '2025-07-17 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    95, N'Client feedback', N'Description: Client feedback', '2025-07-15 00:00:00', 1,
+    'archived', N'16 District 1', '2025-07-16', '2025-07-27',
+    13, 'https://cdn.example.com/cover/888.png', 4, '2025-07-17 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    95, N'Design landing page', N'Description: Design landing page', '2025-07-22 00:00:00', 5,
+    'active', N'19 District 3', '2025-07-22', '2025-08-07',
+    13, 'https://cdn.example.com/cover/889.png', 5, '2025-07-25 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    95, N'Release notes', N'Description: Release notes', '2025-07-08 00:00:00', 4,
+    'archived', N'137 Binh Thanh', '2025-07-08', '2025-07-12',
+    13, 'https://cdn.example.com/cover/890.png', 6, '2025-07-11 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    95, N'Refactor codebase', N'Description: Refactor codebase', '2025-07-18 00:00:00', 2,
+    'active', N'108 Go Vap', '2025-07-18', '2025-07-24',
+    13, 'https://cdn.example.com/cover/891.png', 7, '2025-07-19 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    95, N'Payment gateway setup', N'Description: Payment gateway setup', '2025-07-25 00:00:00', 2,
+    'archived', N'103 Binh Thanh', '2025-07-27', '2025-08-05',
+    13, 'https://cdn.example.com/cover/892.png', 8, '2025-07-30 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    95, N'Write API documentation', N'Description: Write API documentation', '2025-07-02 00:00:00', 5,
+    'active', N'149 Phu Nhuan', '2025-07-05', '2025-07-25',
+    13, 'https://cdn.example.com/cover/893.png', 9, '2025-07-05 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    95, N'QA testing', N'Description: QA testing', '2025-07-28 00:00:00', 3,
+    'active', N'133 District 1', '2025-07-28', '2025-08-14',
+    13, 'https://cdn.example.com/cover/894.png', 10, '2025-07-29 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    95, N'Code review', N'Description: Code review', '2025-07-12 00:00:00', 5,
+    'archived', N'168 District 1', '2025-07-13', '2025-07-27',
+    13, 'https://cdn.example.com/cover/895.png', 11, '2025-07-15 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    95, N'UX improvements', N'Description: UX improvements', '2025-07-03 00:00:00', 1,
+    'archived', N'141 Go Vap', '2025-07-05', '2025-07-25',
+    13, 'https://cdn.example.com/cover/896.png', 12, '2025-07-07 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    95, N'Email integration', N'Description: Email integration', '2025-07-11 00:00:00', 5,
+    'archived', N'35 District 1', '2025-07-11', '2025-07-27',
+    13, 'https://cdn.example.com/cover/897.png', 13, '2025-07-13 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    95, N'Update user profile', N'Description: Update user profile', '2025-07-18 00:00:00', 2,
+    'archived', N'189 Phu Nhuan', '2025-07-20', '2025-08-08',
+    13, 'https://cdn.example.com/cover/898.png', 14, '2025-07-21 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    95, N'Client feedback', N'Description: Client feedback', '2025-07-29 00:00:00', 2,
+    'archived', N'79 Binh Thanh', '2025-07-29', '2025-08-04',
+    13, 'https://cdn.example.com/cover/899.png', 15, '2025-07-31 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    96, N'Email integration', N'Description: Email integration', '2025-07-27 00:00:00', 3,
+    'archived', N'111 District 1', '2025-07-27', '2025-08-07',
+    13, 'https://cdn.example.com/cover/900.png', 1, '2025-07-27 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    96, N'Payment gateway setup', N'Description: Payment gateway setup', '2025-07-17 00:00:00', 2,
+    'active', N'160 Phu Nhuan', '2025-07-20', '2025-07-23',
+    13, 'https://cdn.example.com/cover/901.png', 2, '2025-07-21 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    96, N'QA testing', N'Description: QA testing', '2025-07-15 00:00:00', 4,
+    'archived', N'189 District 3', '2025-07-15', '2025-07-27',
+    13, 'https://cdn.example.com/cover/902.png', 3, '2025-07-15 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    96, N'Payment gateway setup', N'Description: Payment gateway setup', '2025-07-10 00:00:00', 4,
+    'active', N'36 District 1', '2025-07-13', '2025-07-17',
+    13, 'https://cdn.example.com/cover/903.png', 4, '2025-07-10 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    96, N'Design mockups', N'Description: Design mockups', '2025-07-19 00:00:00', 1,
+    'archived', N'68 Go Vap', '2025-07-21', '2025-08-01',
+    13, 'https://cdn.example.com/cover/904.png', 5, '2025-07-22 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    96, N'Update user profile', N'Description: Update user profile', '2025-07-13 00:00:00', 2,
+    'archived', N'90 Tan Binh District', '2025-07-13', '2025-07-17',
+    13, 'https://cdn.example.com/cover/905.png', 6, '2025-07-16 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    96, N'Write unit tests', N'Description: Write unit tests', '2025-07-11 00:00:00', 4,
+    'active', N'174 Tan Binh District', '2025-07-11', '2025-07-28',
+    13, 'https://cdn.example.com/cover/906.png', 7, '2025-07-15 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    96, N'Payment gateway setup', N'Description: Payment gateway setup', '2025-07-15 00:00:00', 4,
+    'archived', N'32 Go Vap', '2025-07-17', '2025-07-29',
+    13, 'https://cdn.example.com/cover/907.png', 8, '2025-07-18 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    96, N'QA testing', N'Description: QA testing', '2025-07-01 00:00:00', 2,
+    'archived', N'168 Go Vap', '2025-07-02', '2025-07-08',
+    13, 'https://cdn.example.com/cover/908.png', 9, '2025-07-06 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    97, N'Update user profile', N'Description: Update user profile', '2025-07-02 00:00:00', 4,
+    'archived', N'24 Go Vap', '2025-07-05', '2025-07-08',
+    13, 'https://cdn.example.com/cover/909.png', 1, '2025-07-02 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    97, N'QA testing', N'Description: QA testing', '2025-07-11 00:00:00', 3,
+    'archived', N'129 Go Vap', '2025-07-14', '2025-07-17',
+    13, 'https://cdn.example.com/cover/910.png', 2, '2025-07-12 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    97, N'Email integration', N'Description: Email integration', '2025-07-10 00:00:00', 2,
+    'active', N'152 District 3', '2025-07-13', '2025-07-21',
+    13, 'https://cdn.example.com/cover/911.png', 3, '2025-07-15 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    97, N'Sprint planning', N'Description: Sprint planning', '2025-07-17 00:00:00', 3,
+    'archived', N'65 Phu Nhuan', '2025-07-19', '2025-08-01',
+    13, 'https://cdn.example.com/cover/912.png', 4, '2025-07-17 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    97, N'Optimize queries', N'Description: Optimize queries', '2025-07-24 00:00:00', 1,
+    'active', N'53 Go Vap', '2025-07-26', '2025-08-02',
+    13, 'https://cdn.example.com/cover/913.png', 5, '2025-07-24 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    97, N'Design landing page', N'Description: Design landing page', '2025-07-14 00:00:00', 3,
+    'active', N'109 Binh Thanh', '2025-07-14', '2025-08-02',
+    13, 'https://cdn.example.com/cover/914.png', 6, '2025-07-17 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    97, N'Write unit tests', N'Description: Write unit tests', '2025-07-02 00:00:00', 3,
+    'active', N'156 District 3', '2025-07-04', '2025-07-08',
+    13, 'https://cdn.example.com/cover/915.png', 7, '2025-07-05 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    97, N'Update user profile', N'Description: Update user profile', '2025-07-07 00:00:00', 4,
+    'active', N'69 District 1', '2025-07-07', '2025-07-12',
+    13, 'https://cdn.example.com/cover/916.png', 8, '2025-07-08 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    97, N'Create database schema', N'Description: Create database schema', '2025-07-26 00:00:00', 1,
+    'archived', N'32 Tan Binh District', '2025-07-28', '2025-08-10',
+    13, 'https://cdn.example.com/cover/917.png', 9, '2025-07-28 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    97, N'Write API documentation', N'Description: Write API documentation', '2025-07-28 00:00:00', 4,
+    'active', N'137 Binh Thanh', '2025-07-28', '2025-08-15',
+    13, 'https://cdn.example.com/cover/918.png', 10, '2025-08-02 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    97, N'Release notes', N'Description: Release notes', '2025-07-13 00:00:00', 5,
+    'active', N'115 Binh Thanh', '2025-07-14', '2025-07-22',
+    13, 'https://cdn.example.com/cover/919.png', 11, '2025-07-16 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    98, N'Write API documentation', N'Description: Write API documentation', '2025-07-19 00:00:00', 5,
+    'active', N'74 Phu Nhuan', '2025-07-21', '2025-07-31',
+    13, 'https://cdn.example.com/cover/920.png', 1, '2025-07-19 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    98, N'Write API documentation', N'Description: Write API documentation', '2025-07-14 00:00:00', 1,
+    'archived', N'1 Tan Binh District', '2025-07-14', '2025-07-23',
+    13, 'https://cdn.example.com/cover/921.png', 2, '2025-07-19 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    98, N'Code review', N'Description: Code review', '2025-07-05 00:00:00', 4,
+    'active', N'58 Tan Binh District', '2025-07-06', '2025-07-16',
+    13, 'https://cdn.example.com/cover/922.png', 3, '2025-07-06 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    98, N'Client feedback', N'Description: Client feedback', '2025-07-08 00:00:00', 3,
+    'archived', N'70 Phu Nhuan', '2025-07-08', '2025-07-11',
+    13, 'https://cdn.example.com/cover/923.png', 4, '2025-07-12 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    98, N'Final deployment', N'Description: Final deployment', '2025-07-19 00:00:00', 3,
+    'active', N'46 Go Vap', '2025-07-19', '2025-08-06',
+    13, 'https://cdn.example.com/cover/924.png', 5, '2025-07-19 00:00:00', 3
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    99, N'QA testing', N'Description: QA testing', '2025-07-31 00:00:00', 4,
+    'archived', N'188 District 1', '2025-08-03', '2025-08-20',
+    13, 'https://cdn.example.com/cover/925.png', 1, '2025-08-01 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    99, N'Create database schema', N'Description: Create database schema', '2025-07-30 00:00:00', 4,
+    'archived', N'6 Go Vap', '2025-07-30', '2025-08-12',
+    13, 'https://cdn.example.com/cover/926.png', 2, '2025-08-01 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    99, N'Create database schema', N'Description: Create database schema', '2025-07-12 00:00:00', 2,
+    'active', N'160 Tan Binh District', '2025-07-15', '2025-07-24',
+    13, 'https://cdn.example.com/cover/927.png', 3, '2025-07-17 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    99, N'Release notes', N'Description: Release notes', '2025-07-04 00:00:00', 5,
+    'active', N'58 Phu Nhuan', '2025-07-07', '2025-07-19',
+    13, 'https://cdn.example.com/cover/928.png', 4, '2025-07-09 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    99, N'Design mockups', N'Description: Design mockups', '2025-07-05 00:00:00', 4,
+    'active', N'9 Phu Nhuan', '2025-07-07', '2025-07-19',
+    13, 'https://cdn.example.com/cover/929.png', 5, '2025-07-06 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    99, N'Update user profile', N'Description: Update user profile', '2025-07-05 00:00:00', 4,
+    'archived', N'129 District 1', '2025-07-06', '2025-07-26',
+    13, 'https://cdn.example.com/cover/930.png', 6, '2025-07-08 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    99, N'UX improvements', N'Description: UX improvements', '2025-07-28 00:00:00', 5,
+    'archived', N'141 District 1', '2025-07-31', '2025-08-14',
+    13, 'https://cdn.example.com/cover/931.png', 7, '2025-07-29 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    99, N'Refactor codebase', N'Description: Refactor codebase', '2025-07-09 00:00:00', 2,
+    'archived', N'99 District 1', '2025-07-09', '2025-07-17',
+    13, 'https://cdn.example.com/cover/932.png', 8, '2025-07-14 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    99, N'Payment gateway setup', N'Description: Payment gateway setup', '2025-07-25 00:00:00', 2,
+    'archived', N'191 District 3', '2025-07-25', '2025-07-28',
+    13, 'https://cdn.example.com/cover/933.png', 9, '2025-07-25 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    100, N'Code review', N'Description: Code review', '2025-07-27 00:00:00', 2,
+    'archived', N'174 Binh Thanh', '2025-07-30', '2025-08-17',
+    13, 'https://cdn.example.com/cover/934.png', 1, '2025-07-29 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    100, N'Create database schema', N'Description: Create database schema', '2025-07-29 00:00:00', 2,
+    'archived', N'65 District 1', '2025-07-31', '2025-08-18',
+    13, 'https://cdn.example.com/cover/935.png', 2, '2025-08-02 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    100, N'Implement authentication', N'Description: Implement authentication', '2025-07-06 00:00:00', 5,
+    'archived', N'145 District 1', '2025-07-09', '2025-07-15',
+    13, 'https://cdn.example.com/cover/936.png', 3, '2025-07-06 00:00:00', 5
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    100, N'Design landing page', N'Description: Design landing page', '2025-07-05 00:00:00', 4,
+    'active', N'93 District 1', '2025-07-07', '2025-07-26',
+    13, 'https://cdn.example.com/cover/937.png', 4, '2025-07-09 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    100, N'Create database schema', N'Description: Create database schema', '2025-07-06 00:00:00', 2,
+    'archived', N'50 District 1', '2025-07-08', '2025-07-16',
+    13, 'https://cdn.example.com/cover/938.png', 5, '2025-07-10 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    100, N'Design landing page', N'Description: Design landing page', '2025-07-16 00:00:00', 1,
+    'archived', N'2 Binh Thanh', '2025-07-17', '2025-07-22',
+    13, 'https://cdn.example.com/cover/939.png', 6, '2025-07-21 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    100, N'Release notes', N'Description: Release notes', '2025-07-10 00:00:00', 2,
+    'active', N'28 Binh Thanh', '2025-07-10', '2025-07-29',
+    13, 'https://cdn.example.com/cover/940.png', 7, '2025-07-10 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    100, N'UX improvements', N'Description: UX improvements', '2025-07-20 00:00:00', 2,
+    'archived', N'36 Tan Binh District', '2025-07-22', '2025-08-10',
+    13, 'https://cdn.example.com/cover/941.png', 8, '2025-07-24 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    100, N'QA testing', N'Description: QA testing', '2025-07-24 00:00:00', 2,
+    'archived', N'126 District 1', '2025-07-27', '2025-08-14',
+    13, 'https://cdn.example.com/cover/942.png', 9, '2025-07-28 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    100, N'Refactor codebase', N'Description: Refactor codebase', '2025-07-12 00:00:00', 2,
+    'active', N'93 Go Vap', '2025-07-14', '2025-07-30',
+    13, 'https://cdn.example.com/cover/943.png', 10, '2025-07-13 00:00:00', 2
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    100, N'Client feedback', N'Description: Client feedback', '2025-07-05 00:00:00', 4,
+    'active', N'139 Binh Thanh', '2025-07-08', '2025-07-25',
+    13, 'https://cdn.example.com/cover/944.png', 11, '2025-07-06 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    100, N'Email integration', N'Description: Email integration', '2025-07-24 00:00:00', 1,
+    'active', N'144 Phu Nhuan', '2025-07-27', '2025-08-01',
+    13, 'https://cdn.example.com/cover/945.png', 12, '2025-07-24 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    100, N'Fix login bug', N'Description: Fix login bug', '2025-07-27 00:00:00', 1,
+    'archived', N'167 District 1', '2025-07-27', '2025-08-01',
+    13, 'https://cdn.example.com/cover/946.png', 13, '2025-07-27 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    100, N'QA testing', N'Description: QA testing', '2025-07-19 00:00:00', 4,
+    'archived', N'28 District 1', '2025-07-19', '2025-07-26',
+    13, 'https://cdn.example.com/cover/947.png', 14, '2025-07-23 00:00:00', 4
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    100, N'Create database schema', N'Description: Create database schema', '2025-07-27 00:00:00', 1,
+    'active', N'141 Go Vap', '2025-07-27', '2025-08-01',
+    13, 'https://cdn.example.com/cover/948.png', 15, '2025-07-28 00:00:00', 1
+);
+INSERT INTO Cards (
+    StageId, Title, CardDescription, CreatedAt, CreatedBy, 
+    CardStatus, CardLocation, StartDate, DueDate,
+    CategoryId, CoverValue, Position, UpdatedAt, UpdatedBy
+) VALUES (
+    100, N'Client feedback', N'Description: Client feedback', '2025-07-19 00:00:00', 2,
+    'archived', N'94 District 3', '2025-07-20', '2025-07-27',
+    13, 'https://cdn.example.com/cover/949.png', 16, '2025-07-23 00:00:00', 2
+);
+
+-- CardLabels
+INSERT INTO CardLabels (CardId, LabelId) VALUES (5, 10);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (8, 9);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (9, 8);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (11, 5);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (2, 2);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (13, 8);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (15, 5);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (18, 1);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (18, 10);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (3, 6);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (5, 3);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (17, 5);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (9, 1);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (11, 7);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (1, 8);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (15, 7);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (6, 4);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (5, 5);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (19, 4);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (17, 7);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (9, 3);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (1, 10);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (15, 9);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (16, 8);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (7, 5);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (20, 8);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (3, 1);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (14, 10);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (19, 6);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (9, 5);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (13, 5);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (15, 2);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (16, 1);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (16, 10);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (18, 7);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (20, 10);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (12, 6);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (10, 8);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (1, 5);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (6, 1);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (16, 3);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (18, 9);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (12, 8);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (14, 5);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (17, 4);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (4, 4);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (9, 9);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (10, 1);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (7, 2);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (12, 1);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (5, 4);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (8, 6);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (10, 3);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (13, 2);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (1, 9);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (2, 8);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (16, 7);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (6, 8);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (5, 6);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (4, 8);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (19, 8);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (8, 8);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (10, 5);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (16, 9);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (6, 10);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (20, 9);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (3, 2);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (4, 1);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (19, 1);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (8, 1);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (8, 10);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (1, 4);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (11, 6);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (2, 3);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (20, 2);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (12, 7);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (14, 4);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (3, 4);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (17, 6);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (19, 3);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (6, 5);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (12, 9);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (14, 6);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (8, 5);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (10, 2);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (9, 4);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (11, 1);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (11, 10);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (15, 1);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (15, 10);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (7, 6);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (12, 2);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (4, 7);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (5, 8);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (8, 7);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (1, 1);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (11, 3);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (2, 9);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (15, 3);
+INSERT INTO CardLabels (CardId, LabelId) VALUES (18, 8);
+
+-- CardStikers
+INSERT INTO CardStickers (CardId, StickerId, CreatedAt, CreatedBy, PositionX, PositionY, IndexZ) VALUES (1, 1, '2025-08-03 10:01:00', 1, 10.1, 20.1, 1);
+INSERT INTO CardStickers (CardId, StickerId, CreatedAt, CreatedBy, PositionX, PositionY, IndexZ) VALUES (1, 2, '2025-08-03 10:02:00', 2, 10.2, 20.2, 2);
+INSERT INTO CardStickers (CardId, StickerId, CreatedAt, CreatedBy, PositionX, PositionY, IndexZ) VALUES (1, 3, '2025-08-03 10:03:00', 3, 10.3, 20.3, 3);
+INSERT INTO CardStickers (CardId, StickerId, CreatedAt, CreatedBy, PositionX, PositionY, IndexZ) VALUES (1, 4, '2025-08-03 10:04:00', 4, 10.4, 20.4, 4);
+
+INSERT INTO CardStickers (CardId, StickerId, CreatedAt, CreatedBy, PositionX, PositionY, IndexZ) VALUES (2, 1, '2025-08-03 10:05:00', 5, 11.1, 21.1, 1);
+INSERT INTO CardStickers (CardId, StickerId, CreatedAt, CreatedBy, PositionX, PositionY, IndexZ) VALUES (2, 2, '2025-08-03 10:06:00', 6, 11.2, 21.2, 2);
+INSERT INTO CardStickers (CardId, StickerId, CreatedAt, CreatedBy, PositionX, PositionY, IndexZ) VALUES (2, 3, '2025-08-03 10:07:00', 7, 11.3, 21.3, 3);
+INSERT INTO CardStickers (CardId, StickerId, CreatedAt, CreatedBy, PositionX, PositionY, IndexZ) VALUES (2, 4, '2025-08-03 10:08:00', 8, 11.4, 21.4, 4);
+
+INSERT INTO CardStickers (CardId, StickerId, CreatedAt, CreatedBy, PositionX, PositionY, IndexZ) VALUES (3, 1, '2025-08-03 10:09:00', 9, 12.1, 22.1, 1);
+INSERT INTO CardStickers (CardId, StickerId, CreatedAt, CreatedBy, PositionX, PositionY, IndexZ) VALUES (3, 2, '2025-08-03 10:10:00', 10, 12.2, 22.2, 2);
+INSERT INTO CardStickers (CardId, StickerId, CreatedAt, CreatedBy, PositionX, PositionY, IndexZ) VALUES (3, 3, '2025-08-03 10:11:00', 11, 12.3, 22.3, 3);
+INSERT INTO CardStickers (CardId, StickerId, CreatedAt, CreatedBy, PositionX, PositionY, IndexZ) VALUES (3, 4, '2025-08-03 10:12:00', 12, 12.4, 22.4, 4);
+
+INSERT INTO CardStickers (CardId, StickerId, CreatedAt, CreatedBy, PositionX, PositionY, IndexZ) VALUES (4, 1, '2025-08-03 10:13:00', 13, 13.1, 23.1, 1);
+INSERT INTO CardStickers (CardId, StickerId, CreatedAt, CreatedBy, PositionX, PositionY, IndexZ) VALUES (4, 2, '2025-08-03 10:14:00', 14, 13.2, 23.2, 2);
+INSERT INTO CardStickers (CardId, StickerId, CreatedAt, CreatedBy, PositionX, PositionY, IndexZ) VALUES (4, 3, '2025-08-03 10:15:00', 15, 13.3, 23.3, 3);
+INSERT INTO CardStickers (CardId, StickerId, CreatedAt, CreatedBy, PositionX, PositionY, IndexZ) VALUES (4, 4, '2025-08-03 10:16:00', 16, 13.4, 23.4, 4);
+
+INSERT INTO CardStickers (CardId, StickerId, CreatedAt, CreatedBy, PositionX, PositionY, IndexZ) VALUES (5, 1, '2025-08-03 10:17:00', 17, 14.1, 24.1, 1);
+INSERT INTO CardStickers (CardId, StickerId, CreatedAt, CreatedBy, PositionX, PositionY, IndexZ) VALUES (5, 2, '2025-08-03 10:18:00', 18, 14.2, 24.2, 2);
+INSERT INTO CardStickers (CardId, StickerId, CreatedAt, CreatedBy, PositionX, PositionY, IndexZ) VALUES (5, 3, '2025-08-03 10:19:00', 19, 14.3, 24.3, 3);
+INSERT INTO CardStickers (CardId, StickerId, CreatedAt, CreatedBy, PositionX, PositionY, IndexZ) VALUES (5, 4, '2025-08-03 10:20:00', 20, 14.4, 24.4, 4);
+
+INSERT INTO CardStickers (CardId, StickerId, CreatedAt, CreatedBy, PositionX, PositionY, IndexZ) VALUES (6, 1, '2025-08-03 10:21:00', 21, 15.1, 25.1, 1);
+INSERT INTO CardStickers (CardId, StickerId, CreatedAt, CreatedBy, PositionX, PositionY, IndexZ) VALUES (6, 2, '2025-08-03 10:22:00', 22, 15.2, 25.2, 2);
+INSERT INTO CardStickers (CardId, StickerId, CreatedAt, CreatedBy, PositionX, PositionY, IndexZ) VALUES (6, 3, '2025-08-03 10:23:00', 23, 15.3, 25.3, 3);
+INSERT INTO CardStickers (CardId, StickerId, CreatedAt, CreatedBy, PositionX, PositionY, IndexZ) VALUES (6, 4, '2025-08-03 10:24:00', 24, 15.4, 25.4, 4);
+
+INSERT INTO CardStickers (CardId, StickerId, CreatedAt, CreatedBy, PositionX, PositionY, IndexZ) VALUES (7, 1, '2025-08-03 10:25:00', 25, 16.1, 26.1, 1);
+INSERT INTO CardStickers (CardId, StickerId, CreatedAt, CreatedBy, PositionX, PositionY, IndexZ) VALUES (7, 2, '2025-08-03 10:26:00', 26, 16.2, 26.2, 2);
+INSERT INTO CardStickers (CardId, StickerId, CreatedAt, CreatedBy, PositionX, PositionY, IndexZ) VALUES (7, 3, '2025-08-03 10:27:00', 27, 16.3, 26.3, 3);
+INSERT INTO CardStickers (CardId, StickerId, CreatedAt, CreatedBy, PositionX, PositionY, IndexZ) VALUES (7, 4, '2025-08-03 10:28:00', 28, 16.4, 26.4, 4);
+
+INSERT INTO CardStickers (CardId, StickerId, CreatedAt, CreatedBy, PositionX, PositionY, IndexZ) VALUES (8, 1, '2025-08-03 10:29:00', 29, 17.1, 27.1, 1);
+INSERT INTO CardStickers (CardId, StickerId, CreatedAt, CreatedBy, PositionX, PositionY, IndexZ) VALUES (8, 2, '2025-08-03 10:30:00', 30, 17.2, 27.2, 2);
+INSERT INTO CardStickers (CardId, StickerId, CreatedAt, CreatedBy, PositionX, PositionY, IndexZ) VALUES (8, 3, '2025-08-03 10:31:00', 31, 17.3, 27.3, 3);
+INSERT INTO CardStickers (CardId, StickerId, CreatedAt, CreatedBy, PositionX, PositionY, IndexZ) VALUES (8, 4, '2025-08-03 10:32:00', 32, 17.4, 27.4, 4);
+
+INSERT INTO CardStickers (CardId, StickerId, CreatedAt, CreatedBy, PositionX, PositionY, IndexZ) VALUES (9, 1, '2025-08-03 10:33:00', 33, 18.1, 28.1, 1);
+INSERT INTO CardStickers (CardId, StickerId, CreatedAt, CreatedBy, PositionX, PositionY, IndexZ) VALUES (9, 2, '2025-08-03 10:34:00', 34, 18.2, 28.2, 2);
+INSERT INTO CardStickers (CardId, StickerId, CreatedAt, CreatedBy, PositionX, PositionY, IndexZ) VALUES (9, 3, '2025-08-03 10:35:00', 35, 18.3, 28.3, 3);
+INSERT INTO CardStickers (CardId, StickerId, CreatedAt, CreatedBy, PositionX, PositionY, IndexZ) VALUES (9, 4, '2025-08-03 10:36:00', 36, 18.4, 28.4, 4);
+
+INSERT INTO CardStickers (CardId, StickerId, CreatedAt, CreatedBy, PositionX, PositionY, IndexZ) VALUES (10, 1, '2025-08-03 10:37:00', 37, 19.1, 29.1, 1);
+INSERT INTO CardStickers (CardId, StickerId, CreatedAt, CreatedBy, PositionX, PositionY, IndexZ) VALUES (10, 2, '2025-08-03 10:38:00', 38, 19.2, 29.2, 2);
+INSERT INTO CardStickers (CardId, StickerId, CreatedAt, CreatedBy, PositionX, PositionY, IndexZ) VALUES (10, 3, '2025-08-03 10:39:00', 39, 19.3, 29.3, 3);
+INSERT INTO CardStickers (CardId, StickerId, CreatedAt, CreatedBy, PositionX, PositionY, IndexZ) VALUES (10, 4, '2025-08-03 10:40:00', 40, 19.4, 29.4, 4);
+
+
+-- Comment
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Need to align with UI team.', 10, '2025-07-05 00:00:00',
+    3, '2025-07-05 12:40:00', 3
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Can we improve performance here?', 6, '2025-07-05 00:00:00',
+    1, '2025-07-05 07:17:00', 1
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Great job!', 5, '2025-07-31 00:00:00',
+    1, '2025-07-31 16:33:00', 1
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Can we improve performance here?', 1, '2025-07-30 00:00:00',
+    2, '2025-07-30 03:22:00', 2
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Need to align with UI team.', 9, '2025-07-11 00:00:00',
+    1, '2025-07-11 18:35:00', 1
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Fix typo in the third line.', 5, '2025-07-13 00:00:00',
+    2, '2025-07-13 14:18:00', 2
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Reviewed and approved.', 5, '2025-07-06 00:00:00',
+    5, '2025-07-06 09:31:00', 5
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Please update this section.', 8, '2025-07-13 00:00:00',
+    4, '2025-07-13 21:21:00', 4
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Great job!', 15, '2025-07-30 00:00:00',
+    1, '2025-07-30 06:36:00', 1
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Waiting on API response.', 9, '2025-07-01 00:00:00',
+    5, '2025-07-01 03:45:00', 5
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Let s discuss in the next meeting.', 7, '2025-07-26 00:00:00',
+    1, '2025-07-26 08:06:00', 1
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Fix typo in the third line.', 9, '2025-07-21 00:00:00',
+    5, '2025-07-21 13:56:00', 5
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Please update this section.', 4, '2025-07-29 00:00:00',
+    1, '2025-07-29 23:59:00', 1
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Fix typo in the third line.', 16, '2025-07-11 00:00:00',
+    1, '2025-07-11 12:10:00', 1
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Great job!', 4, '2025-07-22 00:00:00',
+    4, '2025-07-22 12:07:00', 4
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Can we improve performance here?', 17, '2025-07-14 00:00:00',
+    5, '2025-07-14 16:48:00', 5
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Waiting on API response.', 2, '2025-07-05 00:00:00',
+    2, '2025-07-05 09:05:00', 2
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Great job!', 6, '2025-07-30 00:00:00',
+    2, '2025-07-30 11:54:00', 2
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Check with the client before finalizing.', 2, '2025-07-17 00:00:00',
+    1, '2025-07-17 02:10:00', 1
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Let s discuss in the next meeting.', 19, '2025-07-05 00:00:00',
+    5, '2025-07-05 09:49:00', 5
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Reviewed and approved.', 20, '2025-07-27 00:00:00',
+    2, '2025-07-27 21:06:00', 2
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Check with the client before finalizing.', 2, '2025-07-07 00:00:00',
+    2, '2025-07-07 18:53:00', 2
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Let s discuss in the next meeting.', 6, '2025-07-22 00:00:00',
+    3, '2025-07-22 05:51:00', 3
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Looks good to me.', 9, '2025-07-18 00:00:00',
+    1, '2025-07-18 09:55:00', 1
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Need to align with UI team.', 3, '2025-07-12 00:00:00',
+    1, '2025-07-12 10:00:00', 1
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Fix typo in the third line.', 4, '2025-07-07 00:00:00',
+    1, '2025-07-07 07:30:00', 1
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Can we improve performance here?', 6, '2025-07-13 00:00:00',
+    1, '2025-07-13 02:19:00', 1
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Check with the client before finalizing.', 2, '2025-07-26 00:00:00',
+    2, '2025-07-26 08:23:00', 2
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Reviewed and approved.', 3, '2025-07-20 00:00:00',
+    5, '2025-07-20 15:57:00', 5
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Looks good to me.', 6, '2025-07-21 00:00:00',
+    4, '2025-07-21 15:19:00', 4
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Check with the client before finalizing.', 10, '2025-07-02 00:00:00',
+    2, '2025-07-02 10:09:00', 2
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Can we improve performance here?', 5, '2025-07-18 00:00:00',
+    1, '2025-07-18 21:12:00', 1
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Need to align with UI team.', 17, '2025-07-15 00:00:00',
+    1, '2025-07-15 04:32:00', 1
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Check with the client before finalizing.', 3, '2025-07-16 00:00:00',
+    2, '2025-07-16 12:07:00', 2
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Looks good to me.', 17, '2025-07-21 00:00:00',
+    5, '2025-07-21 05:41:00', 5
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Reviewed and approved.', 20, '2025-07-06 00:00:00',
+    3, '2025-07-06 05:45:00', 3
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Let s discuss in the next meeting.', 12, '2025-07-02 00:00:00',
+    4, '2025-07-02 15:52:00', 4
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Great job!', 14, '2025-07-25 00:00:00',
+    3, '2025-07-25 03:50:00', 3
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Can we improve performance here?', 13, '2025-07-05 00:00:00',
+    1, '2025-07-05 11:10:00', 1
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Can we improve performance here?', 7, '2025-07-07 00:00:00',
+    5, '2025-07-07 13:06:00', 5
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Looks good to me.', 13, '2025-07-29 00:00:00',
+    2, '2025-07-29 02:25:00', 2
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Please update this section.', 10, '2025-07-06 00:00:00',
+    2, '2025-07-06 11:22:00', 2
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Need to align with UI team.', 5, '2025-07-12 00:00:00',
+    1, '2025-07-12 07:02:00', 1
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Can we improve performance here?', 16, '2025-07-10 00:00:00',
+    3, '2025-07-10 20:06:00', 3
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Please update this section.', 20, '2025-07-19 00:00:00',
+    4, '2025-07-19 23:42:00', 4
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Waiting on API response.', 14, '2025-07-25 00:00:00',
+    2, '2025-07-25 06:13:00', 2
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Looks good to me.', 19, '2025-07-10 00:00:00',
+    3, '2025-07-10 06:04:00', 3
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Check with the client before finalizing.', 18, '2025-07-07 00:00:00',
+    4, '2025-07-07 04:41:00', 4
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Need to align with UI team.', 16, '2025-07-22 00:00:00',
+    5, '2025-07-22 14:36:00', 5
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Let s discuss in the next meeting.', 5, '2025-07-16 00:00:00',
+    5, '2025-07-16 07:07:00', 5
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Waiting on API response.', 17, '2025-07-27 00:00:00',
+    5, '2025-07-27 21:22:00', 5
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Reviewed and approved.', 15, '2025-07-20 00:00:00',
+    4, '2025-07-20 22:51:00', 4
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Reviewed and approved.', 20, '2025-07-27 00:00:00',
+    4, '2025-07-27 07:37:00', 4
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Fix typo in the third line.', 7, '2025-07-15 00:00:00',
+    2, '2025-07-15 23:57:00', 2
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Fix typo in the third line.', 2, '2025-07-06 00:00:00',
+    5, '2025-07-06 02:34:00', 5
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Looks good to me.', 3, '2025-07-05 00:00:00',
+    2, '2025-07-05 17:00:00', 2
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Reviewed and approved.', 7, '2025-07-27 00:00:00',
+    1, '2025-07-27 14:52:00', 1
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Great job!', 19, '2025-07-18 00:00:00',
+    2, '2025-07-18 03:13:00', 2
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Please update this section.', 11, '2025-07-10 00:00:00',
+    2, '2025-07-10 07:26:00', 2
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Need to align with UI team.', 14, '2025-07-25 00:00:00',
+    2, '2025-07-25 18:14:00', 2
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Reviewed and approved.', 11, '2025-07-27 00:00:00',
+    5, '2025-07-27 23:30:00', 5
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Please update this section.', 10, '2025-07-29 00:00:00',
+    2, '2025-07-29 03:37:00', 2
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Let s discuss in the next meeting.', 9, '2025-07-30 00:00:00',
+    2, '2025-07-30 13:09:00', 2
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Let s discuss in the next meeting.', 11, '2025-07-27 00:00:00',
+    3, '2025-07-27 02:58:00', 3
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Please update this section.', 10, '2025-07-13 00:00:00',
+    3, '2025-07-13 19:43:00', 3
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Waiting on API response.', 13, '2025-07-31 00:00:00',
+    5, '2025-07-31 08:56:00', 5
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Please update this section.', 11, '2025-07-24 00:00:00',
+    4, '2025-07-24 02:26:00', 4
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Let s discuss in the next meeting.', 12, '2025-07-23 00:00:00',
+    2, '2025-07-23 16:07:00', 2
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Need to align with UI team.', 1, '2025-07-07 00:00:00',
+    1, '2025-07-07 00:07:00', 1
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Fix typo in the third line.', 10, '2025-07-27 00:00:00',
+    1, '2025-07-27 18:08:00', 1
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Fix typo in the third line.', 11, '2025-07-22 00:00:00',
+    3, '2025-07-22 19:21:00', 3
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Reviewed and approved.', 9, '2025-07-15 00:00:00',
+    3, '2025-07-15 19:58:00', 3
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Looks good to me.', 14, '2025-07-08 00:00:00',
+    3, '2025-07-08 00:27:00', 3
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Fix typo in the third line.', 9, '2025-07-27 00:00:00',
+    4, '2025-07-27 16:22:00', 4
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Check with the client before finalizing.', 9, '2025-07-20 00:00:00',
+    4, '2025-07-20 07:05:00', 4
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Please update this section.', 11, '2025-07-19 00:00:00',
+    4, '2025-07-19 23:43:00', 4
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Please update this section.', 2, '2025-07-14 00:00:00',
+    2, '2025-07-14 03:15:00', 2
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Looks good to me.', 15, '2025-07-20 00:00:00',
+    3, '2025-07-20 20:29:00', 3
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Great job!', 18, '2025-07-27 00:00:00',
+    4, '2025-07-27 17:34:00', 4
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Fix typo in the third line.', 10, '2025-07-02 00:00:00',
+    2, '2025-07-02 03:05:00', 2
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Need to align with UI team.', 3, '2025-07-14 00:00:00',
+    1, '2025-07-14 22:22:00', 1
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Reviewed and approved.', 13, '2025-07-24 00:00:00',
+    1, '2025-07-24 14:25:00', 1
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Reviewed and approved.', 18, '2025-07-12 00:00:00',
+    1, '2025-07-12 17:44:00', 1
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Looks good to me.', 3, '2025-07-20 00:00:00',
+    5, '2025-07-20 04:34:00', 5
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Check with the client before finalizing.', 12, '2025-07-22 00:00:00',
+    3, '2025-07-22 09:28:00', 3
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Waiting on API response.', 8, '2025-07-25 00:00:00',
+    3, '2025-07-25 10:16:00', 3
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Looks good to me.', 9, '2025-07-02 00:00:00',
+    1, '2025-07-02 12:46:00', 1
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Need to align with UI team.', 15, '2025-07-03 00:00:00',
+    2, '2025-07-03 22:38:00', 2
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Please update this section.', 16, '2025-07-14 00:00:00',
+    2, '2025-07-14 19:46:00', 2
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Need to align with UI team.', 12, '2025-07-25 00:00:00',
+    5, '2025-07-25 16:41:00', 5
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Reviewed and approved.', 9, '2025-07-18 00:00:00',
+    3, '2025-07-18 11:19:00', 3
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Need to align with UI team.', 6, '2025-07-14 00:00:00',
+    2, '2025-07-14 06:28:00', 2
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Need to align with UI team.', 7, '2025-07-26 00:00:00',
+    2, '2025-07-26 11:43:00', 2
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Reviewed and approved.', 17, '2025-07-13 00:00:00',
+    5, '2025-07-13 09:22:00', 5
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Waiting on API response.', 4, '2025-07-21 00:00:00',
+    1, '2025-07-21 16:00:00', 1
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Please update this section.', 17, '2025-07-19 00:00:00',
+    4, '2025-07-19 13:29:00', 4
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Need to align with UI team.', 17, '2025-07-08 00:00:00',
+    4, '2025-07-08 14:31:00', 4
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Can we improve performance here?', 16, '2025-07-30 00:00:00',
+    2, '2025-07-30 17:16:00', 2
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Check with the client before finalizing.', 10, '2025-07-20 00:00:00',
+    3, '2025-07-20 09:48:00', 3
+);
+INSERT INTO Comments (
+    Content, CardId, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy
+) VALUES (
+    N'Reviewed and approved.', 5, '2025-07-30 00:00:00',
+    5, '2025-07-30 00:48:00', 5
+);
+
+-- CommentReactions
+INSERT INTO CommentReactions (CommentId, ReactionId, CreatedBy, CreatedAt) VALUES (1, 1, 1, '2025-08-03 11:01:00');
+INSERT INTO CommentReactions (CommentId, ReactionId, CreatedBy, CreatedAt) VALUES (1, 1, 2, '2025-02-03 11:01:01');
+INSERT INTO CommentReactions (CommentId, ReactionId, CreatedBy, CreatedAt) VALUES (1, 2, 3, '2025-05-03 11:01:02');
+INSERT INTO CommentReactions (CommentId, ReactionId, CreatedBy, CreatedAt) VALUES (1, 2, 4, '2025-08-03 11:01:03');
+INSERT INTO CommentReactions (CommentId, ReactionId, CreatedBy, CreatedAt) VALUES (1, 3, 5, '2025-08-03 11:01:04');
+INSERT INTO CommentReactions (CommentId, ReactionId, CreatedBy, CreatedAt) VALUES (1, 3, 6, '2025-08-03 11:01:05');
+INSERT INTO CommentReactions (CommentId, ReactionId, CreatedBy, CreatedAt) VALUES (1, 4, 7, '2025-08-03 11:01:06');
+INSERT INTO CommentReactions (CommentId, ReactionId, CreatedBy, CreatedAt) VALUES (1, 4, 8, '2025-08-03 11:01:07');
+INSERT INTO CommentReactions (CommentId, ReactionId, CreatedBy, CreatedAt) VALUES (1, 5, 9, '2025-01-03 11:01:08');
+INSERT INTO CommentReactions (CommentId, ReactionId, CreatedBy, CreatedAt) VALUES (1, 5, 10, '2025-02-03 11:01:09');
+
+INSERT INTO CommentReactions (CommentId, ReactionId, CreatedBy, CreatedAt) VALUES (2, 1, 11, '2025-08-03 11:02:00');
+INSERT INTO CommentReactions (CommentId, ReactionId, CreatedBy, CreatedAt) VALUES (2, 1, 12, '2025-08-03 11:02:01');
+INSERT INTO CommentReactions (CommentId, ReactionId, CreatedBy, CreatedAt) VALUES (2, 2, 13, '2025-08-03 11:02:02');
+INSERT INTO CommentReactions (CommentId, ReactionId, CreatedBy, CreatedAt) VALUES (2, 2, 14, '2025-08-03 11:02:03');
+INSERT INTO CommentReactions (CommentId, ReactionId, CreatedBy, CreatedAt) VALUES (2, 3, 15, '2025-08-03 11:02:04');
+INSERT INTO CommentReactions (CommentId, ReactionId, CreatedBy, CreatedAt) VALUES (2, 3, 16, '2025-08-03 11:02:05');
+INSERT INTO CommentReactions (CommentId, ReactionId, CreatedBy, CreatedAt) VALUES (2, 4, 17, '2025-08-03 11:02:06');
+INSERT INTO CommentReactions (CommentId, ReactionId, CreatedBy, CreatedAt) VALUES (2, 4, 18, '2025-08-03 11:02:07');
+INSERT INTO CommentReactions (CommentId, ReactionId, CreatedBy, CreatedAt) VALUES (2, 5, 19, '2025-08-03 11:02:08');
+INSERT INTO CommentReactions (CommentId, ReactionId, CreatedBy, CreatedAt) VALUES (2, 5, 20, '2025-08-03 11:02:09');
+
+INSERT INTO CommentReactions (CommentId, ReactionId, CreatedBy, CreatedAt) VALUES (3, 1, 1, '2025-08-03 11:03:00');
+INSERT INTO CommentReactions (CommentId, ReactionId, CreatedBy, CreatedAt) VALUES (3, 1, 2, '2025-08-03 11:03:01');
+INSERT INTO CommentReactions (CommentId, ReactionId, CreatedBy, CreatedAt) VALUES (3, 2, 3, '2025-08-03 11:03:02');
+INSERT INTO CommentReactions (CommentId, ReactionId, CreatedBy, CreatedAt) VALUES (3, 2, 4, '2025-08-03 11:03:03');
+INSERT INTO CommentReactions (CommentId, ReactionId, CreatedBy, CreatedAt) VALUES (3, 3, 5, '2025-08-03 11:03:04');
+INSERT INTO CommentReactions (CommentId, ReactionId, CreatedBy, CreatedAt) VALUES (3, 3, 6, '2025-08-03 11:03:05');
+INSERT INTO CommentReactions (CommentId, ReactionId, CreatedBy, CreatedAt) VALUES (3, 4, 7, '2025-08-03 11:03:06');
+INSERT INTO CommentReactions (CommentId, ReactionId, CreatedBy, CreatedAt) VALUES (3, 4, 8, '2025-08-03 11:03:07');
+INSERT INTO CommentReactions (CommentId, ReactionId, CreatedBy, CreatedAt) VALUES (3, 5, 9, '2025-08-03 11:03:08');
+INSERT INTO CommentReactions (CommentId, ReactionId, CreatedBy, CreatedAt) VALUES (3, 5, 10, '2025-08-03 11:03:09');
+
+INSERT INTO CommentReactions (CommentId, ReactionId, CreatedBy, CreatedAt) VALUES (4, 1, 1, '2025-08-04 11:04:00');
+INSERT INTO CommentReactions (CommentId, ReactionId, CreatedBy, CreatedAt) VALUES (4, 1, 2, '2025-07-04 11:04:01');
+INSERT INTO CommentReactions (CommentId, ReactionId, CreatedBy, CreatedAt) VALUES (4, 2, 3, '2025-08-03 11:03:02');
+INSERT INTO CommentReactions (CommentId, ReactionId, CreatedBy, CreatedAt) VALUES (4, 2, 4, '2025-08-04 11:04:04');
+INSERT INTO CommentReactions (CommentId, ReactionId, CreatedBy, CreatedAt) VALUES (4, 3, 5, '2025-08-03 11:03:04');
+INSERT INTO CommentReactions (CommentId, ReactionId, CreatedBy, CreatedAt) VALUES (4, 3, 6, '2025-08-03 11:03:05');
+INSERT INTO CommentReactions (CommentId, ReactionId, CreatedBy, CreatedAt) VALUES (4, 4, 7, '2025-08-03 11:03:06');
+INSERT INTO CommentReactions (CommentId, ReactionId, CreatedBy, CreatedAt) VALUES (4, 4, 8, '2025-08-03 11:03:07');
+INSERT INTO CommentReactions (CommentId, ReactionId, CreatedBy, CreatedAt) VALUES (4, 5, 9, '2025-08-03 11:03:08');
+INSERT INTO CommentReactions (CommentId, ReactionId, CreatedBy, CreatedAt) VALUES (4, 5, 10, '2025-08-03 11:03:09');
+
+INSERT INTO CommentReactions (CommentId, ReactionId, CreatedBy, CreatedAt) VALUES (5, 1, 1, '2025-07-03 11:03:00');
+INSERT INTO CommentReactions (CommentId, ReactionId, CreatedBy, CreatedAt) VALUES (5, 1, 2, '2025-08-03 11:03:01');
+INSERT INTO CommentReactions (CommentId, ReactionId, CreatedBy, CreatedAt) VALUES (5, 2, 3, '2025-05-03 11:03:02');
+INSERT INTO CommentReactions (CommentId, ReactionId, CreatedBy, CreatedAt) VALUES (5, 2, 4, '2025-08-03 11:03:03');
+INSERT INTO CommentReactions (CommentId, ReactionId, CreatedBy, CreatedAt) VALUES (5, 3, 5, '2025-06-03 11:03:04');
+INSERT INTO CommentReactions (CommentId, ReactionId, CreatedBy, CreatedAt) VALUES (5, 3, 6, '2025-05-03 11:03:05');
+INSERT INTO CommentReactions (CommentId, ReactionId, CreatedBy, CreatedAt) VALUES (5, 4, 7, '2025-08-03 11:03:06');
+INSERT INTO CommentReactions (CommentId, ReactionId, CreatedBy, CreatedAt) VALUES (5, 4, 8, '2025-05-03 11:03:07');
+INSERT INTO CommentReactions (CommentId, ReactionId, CreatedBy, CreatedAt) VALUES (5, 5, 9, '2025-08-03 11:03:08');
+INSERT INTO CommentReactions (CommentId, ReactionId, CreatedBy, CreatedAt) VALUES (5, 5, 10, '2025-08-03 11:03:09');
+
+--Attachments
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (1, 18, 'files/doc1.pdf', 'Document 1', '2025-08-03 12:01:00', 1, '1MB', 0);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (2, 18, 'images/img2.jpg', 'Image 2', '2025-08-03 12:02:00', 2, '2MB', 1);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (1, 18, 'links/link3', 'Link 3', '2025-08-03 12:03:00', 3, '500KB', 0);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (2, 18, 'files/doc4.docx', 'Document 4', '2025-08-03 12:04:00', 4, '3MB', 0);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (1, 18, 'videos/video5.mp4', 'Video 5', '2025-08-03 12:05:00', 5, '10MB', 1);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (5,18, 'files/doc6.pdf', 'Document 6', '2025-08-03 12:06:00', 6, '1.2MB', 0);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (2, 18, 'images/img7.jpg', 'Image 7', '2025-08-03 12:07:00', 7, '2.1MB', 0);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (1, 17, 'links/link8', 'Link 8', '2025-08-03 12:08:00', 8, '600KB', 1);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (4, 17, 'files/doc9.docx', 'Document 9', '2025-08-03 12:09:00', 9, '2.8MB', 0);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (10, 18, 'videos/video10.mp4', 'Video 10', '2025-08-03 12:10:00', 10, '12MB', 0);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (18, 18, 'files/doc11.pdf', 'Document 11', '2025-08-03 12:11:00', 11, '1.1MB', 1);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (1, 19, 'https://trello.com/c/9Ixg9dG6/1-sdasdasd', 'Image 12', '2025-08-03 12:12:00', 12, '2.2MB', 0);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (2, 17, 'links/link13', 'Link 13', '2025-08-03 12:13:00', 13, '700KB', 0);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (2, 19, 'https://trello.com/c/2cxg9dG6/1-sdasdasdx', 'Document 14', '2025-08-03 12:14:00', 14, '3.2MB', 1);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (15, 18, 'videos/video15.mp4', 'Video 15', '2025-08-03 12:15:00', 15, '11MB', 0);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (1,18, 'images/img51.jpg', 'Image 51', '2025-08-03 13:01:00', 16, '2.5MB', 0);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (2, 18, 'links/link52', 'Link 52', '2025-08-03 13:02:00', 17, '800KB', 1);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (3, 18, 'files/doc53.docx', 'Document 53', '2025-08-03 13:03:00', 18, '3.5MB', 0);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (4, 18, 'videos/video54.mp4', 'Video 54', '2025-08-03 13:04:00', 19, '13MB', 0);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (5, 18, 'files/doc55.pdf', 'Document 55', '2025-08-03 13:05:00', 20, '1.3MB', 1);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (2, 17, 'links/link56', 'Link 56', '2025-08-03 13:06:00', 21, '900KB', 0);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (2, 18, 'files/doc57.pdf', 'Document 57', '2025-08-03 13:07:00', 22, '1.4MB', 1);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (2, 19, 'https://trello.com/c/abc123/1-card', 'Trello Card 58', '2025-08-03 13:08:00', 23, '0.5MB', 0);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (2, 17, 'links/link59', 'Link 59', '2025-08-03 13:09:00', 24, '1.1MB', 0);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (3, 18, 'files/doc60.docx', 'Document 60', '2025-08-03 13:10:00', 25, '2.0MB', 1);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (2, 19, 'https://trello.com/c/def456/1-card', 'Trello Card 61', '2025-08-03 13:11:00', 26, '0.7MB', 0);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (3, 17, 'links/link62', 'Link 62', '2025-08-03 13:12:00', 27, '1.2MB', 0);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (3, 18, 'files/doc63.pdf', 'Document 63', '2025-08-03 13:13:00', 28, '1.6MB', 1);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (4, 19, 'https://trello.com/c/ghi789/1-card', 'Trello Card 64', '2025-08-03 13:14:00', 29, '0.8MB', 0);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (3, 17, 'links/link65', 'Link 65', '2025-08-03 13:15:00', 30, '1.3MB', 0);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (4, 18, 'files/doc66.docx', 'Document 66', '2025-08-03 13:16:00', 31, '2.2MB', 1);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (5, 19, 'https://trello.com/c/jkl012/1-card', 'Trello Card 67', '2025-08-03 13:17:00', 32, '0.6MB', 0);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (4, 17, 'links/link68', 'Link 68', '2025-08-03 13:18:00', 33, '1.4MB', 0);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (5, 18, 'files/doc69.pdf', 'Document 69', '2025-08-03 13:19:00', 34, '1.7MB', 1);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (5, 19, 'https://trello.com/c/mno345/1-card', 'Trello Card 70', '2025-08-03 13:20:00', 35, '0.9MB', 0);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (4, 17, 'links/link71', 'Link 71', '2025-08-03 13:21:00', 36, '1.5MB', 0);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (5, 18, 'files/doc72.docx', 'Document 72', '2025-08-03 13:22:00', 37, '2.3MB', 1);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (3, 19, 'https://trello.com/c/pqr678/1-card', 'Trello Card 73', '2025-08-03 13:23:00', 38, '1.0MB', 0);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (4, 17, 'links/link74', 'Link 74', '2025-08-03 13:24:00', 39, '1.6MB', 0);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (5, 18, 'files/doc75.pdf', 'Document 75', '2025-08-03 13:25:00', 40, '1.8MB', 1);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (2, 19, 'https://trello.com/c/stu901/1-card', 'Trello Card 76', '2025-08-03 13:26:00', 41, '1.1MB', 0);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (2, 17, 'links/link77', 'Link 77', '2025-08-03 13:27:00', 42, '1.7MB', 0);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (5, 18, 'files/doc78.docx', 'Document 78', '2025-08-03 13:28:00', 43, '2.4MB', 1);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES 5, 19, 'https://trello.com/c/vwx234/1-card', 'Trello Card 79', '2025-08-03 13:29:00', 44, '1.2MB', 0);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (4, 17, 'links/link80', 'Link 80', '2025-08-03 13:30:00', 45, '1.8MB', 0);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (5, 18, 'files/doc81.pdf', 'Document 81', '2025-08-03 13:31:00', 46, '1.9MB', 1);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (5, 19, 'https://trello.com/c/yz1234/1-card', 'Trello Card 82', '2025-08-03 13:32:00', 47, '1.3MB', 0);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (4, 17, 'links/link83', 'Link 83', '2025-08-03 13:33:00', 48, '1.9MB', 0);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (5, 18, 'files/doc84.docx', 'Document 84', '2025-08-03 13:34:00', 49, '2.5MB', 1);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (4, 19, 'https://trello.com/c/abc567/1-card', 'Trello Card 85', '2025-08-03 13:35:00', 50, '1.4MB', 0);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (3, 17, 'links/link86', 'Link 86', '2025-08-03 13:36:00', 51, '2.0MB', 0);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (3, 18, 'files/doc87.pdf', 'Document 87', '2025-08-03 13:37:00', 52, '2.1MB', 1);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (3, 19, 'https://trello.com/c/def890/1-card', 'Trello Card 88', '2025-08-03 13:38:00', 53, '1.5MB', 0);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (3, 17, 'links/link89', 'Link 89', '2025-08-03 13:39:00', 54, '2.1MB', 0);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (4, 18, 'files/doc90.docx', 'Document 90', '2025-08-03 13:40:00', 55, '2.6MB', 1);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (4, 19, 'https://trello.com/c/ghi123/1-card', 'Trello Card 91', '2025-08-03 13:41:00', 56, '1.6MB', 0);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (4, 17, 'links/link92', 'Link 92', '2025-08-03 13:42:00', 57, '2.2MB', 0);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (4, 18, 'files/doc93.pdf', 'Document 93', '2025-08-03 13:43:00', 58, '2.3MB', 1);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (4, 19, 'https://trello.com/c/jkl456/1-card', 'Trello Card 94', '2025-08-03 13:44:00', 59, '1.7MB', 0);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (4, 17, 'links/link95', 'Link 95', '2025-08-03 13:45:00', 60, '2.3MB', 0);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (5, 18, 'files/doc96.docx', 'Document 96', '2025-08-03 13:46:00', 61, '2.7MB', 1);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (5, 19, 'https://trello.com/c/mno789/1-card', 'Trello Card 97', '2025-08-03 13:47:00', 62, '1.8MB', 0);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (5, 17, 'links/link98', 'Link 98', '2025-08-03 13:48:00', 63, '2.4MB', 0);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (2, 18, 'files/doc99.pdf', 'Document 99', '2025-08-03 13:49:00', 64, '2.8MB', 1);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (6, 17, 'links/link101', 'Link 101', '2025-08-03 13:51:00', 66, '2.0MB', 0);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (6, 18, 'files/doc102.pdf', 'Document 102', '2025-08-03 13:52:00', 67, '2.1MB', 1);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (6, 19, 'https://trello.com/c/abc101/1-card', 'Trello Card 103', '2025-08-03 13:53:00', 68, '1.5MB', 0);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (7, 17, 'links/link104', 'Link 104', '2025-08-03 13:54:00', 69, '2.1MB', 0);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (7, 18, 'files/doc105.docx', 'Document 105', '2025-08-03 13:55:00', 70, '2.6MB', 1);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (7, 19, 'https://trello.com/c/ghi104/1-card', 'Trello Card 106', '2025-08-03 13:56:00', 71, '1.6MB', 0);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (8, 17, 'links/link107', 'Link 107', '2025-08-03 13:57:00', 72, '2.2MB', 0);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (8, 18, 'files/doc108.pdf', 'Document 108', '2025-08-03 13:58:00', 73, '2.3MB', 1);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (8, 19, 'https://trello.com/c/jkl107/1-card', 'Trello Card 109', '2025-08-03 13:59:00', 74, '1.7MB', 0);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (9, 17, 'links/link110', 'Link 110', '2025-08-03 14:00:00', 75, '2.3MB', 0);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (9, 18, 'files/doc111.docx', 'Document 111', '2025-08-03 14:01:00', 76, '2.7MB', 1);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (9, 19, 'https://trello.com/c/mno110/1-card', 'Trello Card 112', '2025-08-03 14:02:00', 77, '1.8MB', 0);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (10, 17, 'links/link113', 'Link 113', '2025-08-03 14:03:00', 78, '2.4MB', 0);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (10, 18, 'files/doc114.pdf', 'Document 114', '2025-08-03 14:04:00', 79, '2.8MB', 1);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (10, 19, 'https://trello.com/c/pqr113/1-card', 'Trello Card 115', '2025-08-03 14:05:00', 80, '1.9MB', 0);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (11, 17, 'links/link116', 'Link 116', '2025-08-03 14:06:00', 81, '2.5MB', 0);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (11, 18, 'files/doc117.docx', 'Document 117', '2025-08-03 14:07:00', 82, '2.9MB', 1);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (11, 19, 'https://trello.com/c/stu116/1-card', 'Trello Card 118', '2025-08-03 14:08:00', 83, '2.0MB', 0);
+INSERT INTO Attachments (CardId, CategoryId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover) VALUES (12, 17, 'links/link119', 'Link 119', '2025-08-03 14:09:00', 84, '2.6MB', 0);
+
+-- CheckLists
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 1-1', 1, 1, '2025-08-03 14:11:00', 1, '2025-08-03 14:12:00', 2);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 1-2', 1, 2, '2025-08-03 14:13:00', 2, '2025-08-03 14:14:00', 3);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 1-3', 1, 3, '2025-08-03 14:15:00', 3, '2025-08-03 14:16:00', 4);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 2-1', 2, 1, '2025-08-03 14:17:00', 4, '2025-08-03 14:18:00', 5);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 2-2', 2, 2, '2025-08-03 14:19:00', 5, '2025-08-03 14:20:00', 6);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 2-3', 2, 3, '2025-08-03 14:21:00', 6, '2025-08-03 14:22:00', 7);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 3-1', 3, 1, '2025-08-03 14:23:00', 7, '2025-08-03 14:24:00', 8);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 3-2', 3, 2, '2025-08-03 14:25:00', 8, '2025-08-03 14:26:00', 9);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 3-3', 3, 3, '2025-08-03 14:27:00', 9, '2025-08-03 14:28:00', 10);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 4-1', 4, 1, '2025-08-03 14:29:00', 10, '2025-08-03 14:30:00', 11);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 4-2', 4, 2, '2025-08-03 14:31:00', 11, '2025-08-03 14:32:00', 12);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 4-3', 4, 3, '2025-08-03 14:33:00', 12, '2025-08-03 14:34:00', 13);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 5-1', 5, 1, '2025-08-03 14:35:00', 13, '2025-08-03 14:36:00', 14);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 5-2', 5, 2, '2025-08-03 14:37:00', 14, '2025-08-03 14:38:00', 15);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 5-3', 5, 3, '2025-08-03 14:39:00', 15, '2025-08-03 14:40:00', 16);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 6-1', 6, 1, '2025-08-03 14:41:00', 16, '2025-08-03 14:42:00', 17);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 6-2', 6, 2, '2025-08-03 14:43:00', 17, '2025-08-03 14:44:00', 18);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 6-3', 6, 3, '2025-08-03 14:45:00', 18, '2025-08-03 14:46:00', 19);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 7-1', 7, 1, '2025-08-03 14:47:00', 19, '2025-08-03 14:48:00', 20);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 7-2', 7, 2, '2025-08-03 14:49:00', 20, '2025-08-03 14:50:00', 21);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 7-3', 7, 3, '2025-08-03 14:51:00', 21, '2025-08-03 14:52:00', 22);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 8-1', 8, 1, '2025-08-03 14:53:00', 22, '2025-08-03 14:54:00', 23);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 8-2', 8, 2, '2025-08-03 14:55:00', 23, '2025-08-03 14:56:00', 24);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 8-3', 8, 3, '2025-08-03 14:57:00', 24, '2025-08-03 14:58:00', 25);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 9-1', 9, 1, '2025-08-03 14:59:00', 25, '2025-08-03 15:00:00', 26);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 9-2', 9, 2, '2025-08-03 15:01:00', 26, '2025-08-03 15:02:00', 27);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 9-3', 9, 3, '2025-08-03 15:03:00', 27, '2025-08-03 15:04:00', 28);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 10-1', 10, 1, '2025-08-03 15:05:00', 28, '2025-08-03 15:06:00', 29);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 10-2', 10, 2, '2025-08-03 15:07:00', 29, '2025-08-03 15:08:00', 30);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 10-3', 10, 3, '2025-08-03 15:09:00', 30, '2025-08-03 15:10:00', 31);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 11-1', 11, 1, '2025-08-03 15:11:00', 31, '2025-08-03 15:12:00', 32);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 11-2', 11, 2, '2025-08-03 15:13:00', 32, '2025-08-03 15:14:00', 33);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 11-3', 11, 3, '2025-08-03 15:15:00', 33, '2025-08-03 15:16:00', 34);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 12-1', 12, 1, '2025-08-03 15:17:00', 34, '2025-08-03 15:18:00', 35);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 12-2', 12, 2, '2025-08-03 15:19:00', 35, '2025-08-03 15:20:00', 36);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 12-3', 12, 3, '2025-08-03 15:21:00', 36, '2025-08-03 15:22:00', 37);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 13-1', 13, 1, '2025-08-03 15:23:00', 37, '2025-08-03 15:24:00', 38);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 13-2', 13, 2, '2025-08-03 15:25:00', 38, '2025-08-03 15:26:00', 39);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 13-3', 13, 3, '2025-08-03 15:27:00', 39, '2025-08-03 15:28:00', 40);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 14-1', 14, 1, '2025-08-03 15:29:00', 40, '2025-08-03 15:30:00', 41);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 14-2', 14, 2, '2025-08-03 15:31:00', 41, '2025-08-03 15:32:00', 42);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 14-3', 14, 3, '2025-08-03 15:33:00', 42, '2025-08-03 15:34:00', 43);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 15-1', 15, 1, '2025-08-03 15:35:00', 43, '2025-08-03 15:36:00', 44);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 15-2', 15, 2, '2025-08-03 15:37:00', 44, '2025-08-03 15:38:00', 45);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 15-3', 15, 3, '2025-08-03 15:39:00', 45, '2025-08-03 15:40:00', 46);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 16-1', 16, 1, '2025-08-03 15:41:00', 46, '2025-08-03 15:42:00', 47);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 16-2', 16, 2, '2025-08-03 15:43:00', 47, '2025-08-03 15:44:00', 48);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 16-3', 16, 3, '2025-08-03 15:45:00', 48, '2025-08-03 15:46:00', 49);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 17-1', 17, 1, '2025-08-03 15:47:00', 49, '2025-08-03 15:48:00', 50);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 17-2', 17, 2, '2025-08-03 15:49:00', 50, '2025-08-03 15:50:00', 51);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 17-3', 17, 3, '2025-08-03 15:51:00', 51, '2025-08-03 15:52:00', 52);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 18-1', 18, 1, '2025-08-03 15:53:00', 52, '2025-08-03 15:54:00', 53);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 18-2', 18, 2, '2025-08-03 15:55:00', 53, '2025-08-03 15:56:00', 54);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 18-3', 18, 3, '2025-08-03 15:57:00', 54, '2025-08-03 15:58:00', 55);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 19-1', 19, 1, '2025-08-03 15:59:00', 55, '2025-08-03 16:00:00', 56);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 19-2', 19, 2, '2025-08-03 16:01:00', 56, '2025-08-03 16:02:00', 57);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 19-3', 19, 3, '2025-08-03 16:03:00', 57, '2025-08-03 16:04:00', 58);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 20-1', 20, 1, '2025-08-03 16:05:00', 58, '2025-08-03 16:06:00', 59);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 20-2', 20, 2, '2025-08-03 16:07:00', 59, '2025-08-03 16:08:00', 60);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 6-1', 6, 1, '2025-08-03 14:41:00', 16, '2025-08-03 14:42:00', 17);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 6-2', 6, 2, '2025-08-03 14:43:00', 17, '2025-08-03 14:44:00', 18);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 6-3', 6, 3, '2025-08-03 14:45:00', 18, '2025-08-03 14:46:00', 19);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 7-1', 7, 1, '2025-08-03 14:47:00', 19, '2025-08-03 14:48:00', 20);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 7-2', 7, 2, '2025-08-03 14:49:00', 20, '2025-08-03 14:50:00', 21);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 7-3', 7, 3, '2025-08-03 14:51:00', 21, '2025-08-03 14:52:00', 22);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 8-1', 8, 1, '2025-08-03 14:53:00', 22, '2025-08-03 14:54:00', 23);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 8-2', 8, 2, '2025-08-03 14:55:00', 23, '2025-08-03 14:56:00', 24);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 8-3', 8, 3, '2025-08-03 14:57:00', 24, '2025-08-03 14:58:00', 25);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 9-1', 9, 1, '2025-08-03 14:59:00', 25, '2025-08-03 15:00:00', 26);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 9-2', 9, 2, '2025-08-03 15:01:00', 26, '2025-08-03 15:02:00', 27);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 9-3', 9, 3, '2025-08-03 15:03:00', 27, '2025-08-03 15:04:00', 28);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 10-1', 10, 1, '2025-08-03 15:05:00', 28, '2025-08-03 15:06:00', 29);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 10-2', 10, 2, '2025-08-03 15:07:00', 29, '2025-08-03 15:08:00', 30);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 10-3', 10, 3, '2025-08-03 15:09:00', 30, '2025-08-03 15:10:00', 31);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 11-1', 11, 1, '2025-08-03 15:11:00', 31, '2025-08-03 15:12:00', 32);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 11-2', 11, 2, '2025-08-03 15:13:00', 32, '2025-08-03 15:14:00', 33);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 11-3', 11, 3, '2025-08-03 15:15:00', 33, '2025-08-03 15:16:00', 34);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 12-1', 12, 1, '2025-08-03 15:17:00', 34, '2025-08-03 15:18:00', 35);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 12-2', 12, 2, '2025-08-03 15:19:00', 35, '2025-08-03 15:20:00', 36);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 12-3', 12, 3, '2025-08-03 15:21:00', 36, '2025-08-03 15:22:00', 37);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 13-1', 13, 1, '2025-08-03 15:23:00', 37, '2025-08-03 15:24:00', 38);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 13-2', 13, 2, '2025-08-03 15:25:00', 38, '2025-08-03 15:26:00', 39);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 13-3', 13, 3, '2025-08-03 15:27:00', 39, '2025-08-03 15:28:00', 40);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 14-1', 14, 1, '2025-08-03 15:29:00', 40, '2025-08-03 15:30:00', 41);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 14-2', 14, 2, '2025-08-03 15:31:00', 41, '2025-08-03 15:32:00', 42);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 14-3', 14, 3, '2025-08-03 15:33:00', 42, '2025-08-03 15:34:00', 43);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 15-1', 15, 1, '2025-08-03 15:35:00', 43, '2025-08-03 15:36:00', 44);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 15-2', 15, 2, '2025-08-03 15:37:00', 44, '2025-08-03 15:38:00', 45);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 15-3', 15, 3, '2025-08-03 15:39:00', 45, '2025-08-03 15:40:00', 46);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 16-1', 16, 1, '2025-08-03 15:41:00', 46, '2025-08-03 15:42:00', 47);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 16-2', 16, 2, '2025-08-03 15:43:00', 47, '2025-08-03 15:44:00', 48);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 16-3', 16, 3, '2025-08-03 15:45:00', 48, '2025-08-03 15:46:00', 49);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 17-1', 17, 1, '2025-08-03 15:47:00', 49, '2025-08-03 15:48:00', 50);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 17-2', 17, 2, '2025-08-03 15:49:00', 50, '2025-08-03 15:50:00', 51);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 17-3', 17, 3, '2025-08-03 15:51:00', 51, '2025-08-03 15:52:00', 52);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 18-1', 18, 1, '2025-08-03 15:53:00', 52, '2025-08-03 15:54:00', 53);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 18-2', 18, 2, '2025-08-03 15:55:00', 53, '2025-08-03 15:56:00', 54);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 18-3', 18, 3, '2025-08-03 15:57:00', 54, '2025-08-03 15:58:00', 55);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 19-1', 19, 1, '2025-08-03 15:59:00', 55, '2025-08-03 16:00:00', 56);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 19-2', 19, 2, '2025-08-03 16:01:00', 56, '2025-08-03 16:02:00', 57);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 19-3', 19, 3, '2025-08-03 16:03:00', 57, '2025-08-03 16:04:00', 58);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 20-1', 20, 1, '2025-08-03 16:05:00', 58, '2025-08-03 16:06:00', 59);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 20-2', 20, 2, '2025-08-03 16:07:00', 59, '2025-08-03 16:08:00', 60);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 20-3', 20, 3, '2025-08-03 16:09:00', 60, '2025-08-03 16:10:00', 61);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 1-4', 1, 4, '2025-08-03 16:11:00', 62, '2025-08-03 16:12:00', 63);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 1-5', 1, 5, '2025-08-03 16:13:00', 63, '2025-08-03 16:14:00', 64);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 2-4', 2, 4, '2025-08-03 16:15:00', 64, '2025-08-03 16:16:00', 65);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 2-5', 2, 5, '2025-08-03 16:17:00', 65, '2025-08-03 16:18:00', 66);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 3-4', 3, 4, '2025-08-03 16:19:00', 66, '2025-08-03 16:20:00', 67);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 3-5', 3, 5, '2025-08-03 16:21:00', 67, '2025-08-03 16:22:00', 68);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 4-4', 4, 4, '2025-08-03 16:23:00', 68, '2025-08-03 16:24:00', 69);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 4-5', 4, 5, '2025-08-03 16:25:00', 69, '2025-08-03 16:26:00', 70);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 5-4', 5, 4, '2025-08-03 16:27:00', 70, '2025-08-03 16:28:00', 71);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 5-5', 5, 5, '2025-08-03 16:29:00', 71, '2025-08-03 16:30:00', 72);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 6-4', 6, 4, '2025-08-03 16:31:00', 72, '2025-08-03 16:32:00', 73);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 6-5', 6, 5, '2025-08-03 16:33:00', 73, '2025-08-03 16:34:00', 74);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 7-4', 7, 4, '2025-08-03 16:35:00', 74, '2025-08-03 16:36:00', 75);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 7-5', 7, 5, '2025-08-03 16:37:00', 75, '2025-08-03 16:38:00', 76);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 8-4', 8, 4, '2025-08-03 16:39:00', 76, '2025-08-03 16:40:00', 77);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 8-5', 8, 5, '2025-08-03 16:41:00', 77, '2025-08-03 16:42:00', 78);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 9-4', 9, 4, '2025-08-03 16:43:00', 78, '2025-08-03 16:44:00', 79);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 9-5', 9, 5, '2025-08-03 16:45:00', 79, '2025-08-03 16:46:00', 80);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 10-4', 10, 4, '2025-08-03 16:47:00', 80, '2025-08-03 16:48:00', 81);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 10-5', 10, 5, '2025-08-03 16:49:00', 81, '2025-08-03 16:50:00', 82);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 11-4', 11, 4, '2025-08-03 16:51:00', 82, '2025-08-03 16:52:00', 83);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 11-5', 11, 5, '2025-08-03 16:53:00', 83, '2025-08-03 16:54:00', 84);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 12-4', 12, 4, '2025-08-03 16:55:00', 84, '2025-08-03 16:56:00', 85);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 12-5', 12, 5, '2025-08-03 16:57:00', 85, '2025-08-03 16:58:00', 86);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 13-4', 13, 4, '2025-08-03 16:59:00', 86, '2025-08-03 17:00:00', 87);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 13-5', 13, 5, '2025-08-03 17:01:00', 87, '2025-08-03 17:02:00', 88);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 14-4', 14, 4, '2025-08-03 17:03:00', 88, '2025-08-03 17:04:00', 89);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 14-5', 14, 5, '2025-08-03 17:05:00', 89, '2025-08-03 17:06:00', 90);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 15-4', 15, 4, '2025-08-03 17:07:00', 90, '2025-08-03 17:08:00', 91);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 15-5', 15, 5, '2025-08-03 17:09:00', 91, '2025-08-03 17:10:00', 92);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 16-4', 16, 4, '2025-08-03 17:11:00', 92, '2025-08-03 17:12:00', 93);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 16-5', 16, 5, '2025-08-03 17:13:00', 93, '2025-08-03 17:14:00', 94);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 17-4', 17, 4, '2025-08-03 17:15:00', 94, '2025-08-03 17:16:00', 95);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 17-5', 17, 5, '2025-08-03 17:17:00', 95, '2025-08-03 17:18:00', 96);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 18-4', 18, 4, '2025-08-03 17:19:00', 96, '2025-08-03 17:20:00', 97);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 18-5', 18, 5, '2025-08-03 17:21:00', 97, '2025-08-03 17:22:00', 98);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 19-4', 19, 4, '2025-08-03 17:23:00', 98, '2025-08-03 17:24:00', 99);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 19-5', 19, 5, '2025-08-03 17:25:00', 99, '2025-08-03 17:26:00', 100);
+INSERT INTO CheckLists (CheckListName, CardId, Position, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy) VALUES ('Checklist 20-4', 20, 4, '2025-08-03 17:27:00', 100, '2025-08-03 17:28:00', 1);
+
+--CheckListItems
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('Open', 1, 1, '2025-08-10', 0, '2025-08-03 18:01:00', 1, '2025-08-03 18:02:00', 2, 1);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('Closed', 2, 1, '2025-08-11', 1, '2025-08-03 18:03:00', 2, '2025-08-03 18:04:00', 3, 2);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('Pending', 3, 1, '2025-08-12', 0, '2025-08-03 18:05:00', 3, '2025-08-03 18:06:00', 4, 3);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('In Review', 4, 1, '2025-08-13', 0, '2025-08-03 18:07:00', 4, '2025-08-03 18:08:00', 5, 4);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('High', 5, 2, '2025-08-14', 1, '2025-08-03 18:09:00', 5, '2025-08-03 18:10:00', 6, 1);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('Medium', 6, 2, '2025-08-15', 0, '2025-08-03 18:11:00', 6, '2025-08-03 18:12:00', 7, 2);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('Low', 7, 2, '2025-08-16', 0, '2025-08-03 18:13:00', 7, '2025-08-03 18:14:00', 8, 3);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('Todo', 8, 3, '2025-08-17', 0, '2025-08-03 18:15:00', 8, '2025-08-03 18:16:00', 9, 1);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('Doing', 9, 3, '2025-08-18', 0, '2025-08-03 18:17:00', 9, '2025-08-03 18:18:00', 10, 2);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('Done', 10, 3, '2025-08-19', 1, '2025-08-03 18:19:00', 10, '2025-08-03 18:20:00', 11, 3);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('Bug', 11, 4, '2025-08-20', 0, '2025-08-03 18:21:00', 11, '2025-08-03 18:22:00', 12, 1);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('Feature', 12, 4, '2025-08-21', 1, '2025-08-03 18:23:00', 12, '2025-08-03 18:24:00', 13, 2);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('Task', 13, 4, '2025-08-22', 0, '2025-08-03 18:25:00', 13, '2025-08-03 18:26:00', 14, 3);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('Critical', 14, 5, '2025-08-23', 1, '2025-08-03 18:27:00', 14, '2025-08-03 18:28:00', 15, 1);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('Major', 15, 5, '2025-08-24', 0, '2025-08-03 18:29:00', 15, '2025-08-03 18:30:00', 16, 2);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('Minor', 16, 5, '2025-08-25', 0, '2025-08-03 18:31:00', 16, '2025-08-03 18:32:00', 17, 3);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('Approved', 17, 6, '2025-08-26', 1, '2025-08-03 18:33:00', 17, '2025-08-03 18:34:00', 18, 1);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('Rejected', 18, 6, '2025-08-27', 0, '2025-08-03 18:35:00', 18, '2025-08-03 18:36:00', 19, 2);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('Pending', 19, 6, '2025-08-28', 0, '2025-08-03 18:37:00', 19, '2025-08-03 18:38:00', 20, 3);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('High', 20, 7, '2025-08-29', 1, '2025-08-03 18:39:00', 20, '2025-08-03 18:40:00', 21, 1);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('Medium', 21, 7, '2025-08-30', 0, '2025-08-03 18:41:00', 21, '2025-08-03 18:42:00', 22, 2);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('Low', 22, 7, '2025-08-31', 0, '2025-08-03 18:43:00', 22, '2025-08-03 18:44:00', 23, 3);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('1h', 23, 8, '2025-09-01', 0, '2025-08-03 18:45:00', 23, '2025-08-03 18:46:00', 24, 1);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('2h', 24, 8, '2025-09-02', 1, '2025-08-03 18:47:00', 24, '2025-08-03 18:48:00', 25, 2);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('4h', 25, 8, '2025-09-03', 0, '2025-08-03 18:49:00', 25, '2025-08-03 18:50:00', 26, 3);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('Sprint 1', 26, 9, '2025-09-04', 1, '2025-08-03 18:51:00', 26, '2025-08-03 18:52:00', 27, 1);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('Sprint 2', 27, 9, '2025-09-05', 0, '2025-08-03 18:53:00', 27, '2025-08-03 18:54:00', 28, 2);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('Sprint 3', 28, 9, '2025-09-06', 0, '2025-08-03 18:55:00', 28, '2025-08-03 18:56:00', 29, 3);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('Frontend', 29, 10, '2025-09-07', 1, '2025-08-03 18:57:00', 29, '2025-08-03 18:58:00', 30, 1);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('Backend', 30, 10, '2025-09-08', 0, '2025-08-03 18:59:00', 30, '2025-08-03 19:00:00', 31, 2);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('API', 31, 10, '2025-09-09', 0, '2025-08-03 19:01:00', 31, '2025-08-03 19:02:00', 32, 3);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('Low', 22, 7, '2025-08-31', 0, '2025-08-03 18:43:00', 22, '2025-08-03 18:44:00', 23, 3);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('1h', 23, 8, '2025-09-01', 0, '2025-08-03 18:45:00', 23, '2025-08-03 18:46:00', 24, 1);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('2h', 24, 8, '2025-09-02', 1, '2025-08-03 18:47:00', 24, '2025-08-03 18:48:00', 25, 2);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('4h', 25, 8, '2025-09-03', 0, '2025-08-03 18:49:00', 25, '2025-08-03 18:50:00', 26, 3);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('Sprint 1', 26, 9, '2025-09-04', 1, '2025-08-03 18:51:00', 26, '2025-08-03 18:52:00', 27, 1);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('Sprint 2', 27, 9, '2025-09-05', 0, '2025-08-03 18:53:00', 27, '2025-08-03 18:54:00', 28, 2);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('Sprint 3', 28, 9, '2025-09-06', 0, '2025-08-03 18:55:00', 28, '2025-08-03 18:56:00', 29, 3);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('Frontend', 29, 10, '2025-09-07', 1, '2025-08-03 18:57:00', 29, '2025-08-03 18:58:00', 30, 1);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('Backend', 30, 10, '2025-09-08', 0, '2025-08-03 18:59:00', 30, '2025-08-03 19:00:00', 31, 2);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('API', 31, 10, '2025-09-09', 0, '2025-08-03 19:01:00', 31, '2025-08-03 19:02:00', 32, 3);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('Blocked', 32, 1, '2025-09-10', 0, '2025-08-03 19:03:00', 32, '2025-08-03 19:04:00', 33, 5);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('Urgent', 33, 2, '2025-09-11', 1, '2025-08-03 19:05:00', 33, '2025-08-03 19:06:00', 34, 4);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('Reviewing', 34, 3, '2025-09-12', 0, '2025-08-03 19:07:00', 34, '2025-08-03 19:08:00', 35, 4);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('Enhancement', 35, 4, '2025-09-13', 1, '2025-08-03 19:09:00', 35, '2025-08-03 19:10:00', 36, 4);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('Trivial', 36, 5, '2025-09-14', 0, '2025-08-03 19:11:00', 36, '2025-08-03 19:12:00', 37, 4);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('Waiting', 37, 6, '2025-09-15', 0, '2025-08-03 19:13:00', 37, '2025-08-03 19:14:00', 38, 4);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('Very High', 38, 7, '2025-09-16', 1, '2025-08-03 19:15:00', 38, '2025-08-03 19:16:00', 39, 4);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('8h', 39, 8, '2025-09-17', 0, '2025-08-03 19:17:00', 39, '2025-08-03 19:18:00', 40, 4);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('Sprint 4', 40, 9, '2025-09-18', 1, '2025-08-03 19:19:00', 40, '2025-08-03 19:20:00', 41, 4);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('Mobile', 41, 10, '2025-09-19', 0, '2025-08-03 19:21:00', 41, '2025-08-03 19:22:00', 42, 4);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('Reopened', 42, 1, '2025-09-20', 1, '2025-08-03 19:23:00', 42, '2025-08-03 19:24:00', 43, 6);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('Normal', 43, 2, '2025-09-21', 0, '2025-08-03 19:25:00', 43, '2025-08-03 19:26:00', 44, 5);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('Blocked', 44, 3, '2025-09-22', 0, '2025-08-03 19:27:00', 44, '2025-08-03 19:28:00', 45, 5);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('Refactor', 45, 4, '2025-09-23', 1, '2025-08-03 19:29:00', 45, '2025-08-03 19:30:00', 46, 5);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('Cosmetic', 46, 5, '2025-09-24', 0, '2025-08-03 19:31:00', 46, '2025-08-03 19:32:00', 47, 5);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('Escalated', 47, 6, '2025-09-25', 0, '2025-08-03 19:33:00', 47, '2025-08-03 19:34:00', 48, 5);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('Extreme', 48, 7, '2025-09-26', 1, '2025-08-03 19:35:00', 48, '2025-08-03 19:36:00', 49, 5);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('16h', 49, 8, '2025-09-27', 0, '2025-08-03 19:37:00', 49, '2025-08-03 19:38:00', 50, 5);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('Sprint 5', 50, 9, '2025-09-28', 1, '2025-08-03 19:39:00', 50, '2025-08-03 19:40:00', 51, 5);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('QA', 51, 10, '2025-09-29', 0, '2025-08-03 19:41:00', 51, '2025-08-03 19:42:00', 52, 5);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('Open', 52, 1, '2025-09-30', 0, '2025-08-03 19:43:00', 52, '2025-08-03 19:44:00', 53, 7);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('Closed', 53, 1, '2025-10-01', 1, '2025-08-03 19:45:00', 53, '2025-08-03 19:46:00', 54, 8);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('High', 54, 2, '2025-10-02', 1, '2025-08-03 19:47:00', 54, '2025-08-03 19:48:00', 55, 6);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('Medium', 55, 2, '2025-10-03', 0, '2025-08-03 19:49:00', 55, '2025-08-03 19:50:00', 56, 7);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('Low', 56, 2, '2025-10-04', 0, '2025-08-03 19:51:00', 56, '2025-08-03 19:52:00', 57, 8);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('Todo', 57, 3, '2025-10-05', 0, '2025-08-03 19:53:00', 57, '2025-08-03 19:54:00', 58, 6);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('Doing', 58, 3, '2025-10-06', 0, '2025-08-03 19:55:00', 58, '2025-08-03 19:56:00', 59, 7);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('Done', 59, 3, '2025-10-07', 1, '2025-08-03 19:57:00', 59, '2025-08-03 19:58:00', 60, 8);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('Bug', 60, 4, '2025-10-08', 0, '2025-08-03 19:59:00', 60, '2025-08-03 20:00:00', 61, 6);
+INSERT INTO CheckListItems (CheckListItemName, MemberId, CheckListId, DueDate, CheckListItemStatus, CreatedAt, CreatedBy, UpdatedAt, UpdatedBy, Position) VALUES ('Feature', 61, 4, '2025-10-09', 1, '2025-08-03 20:01:00', 61, '2025-08-03 20:02:00', 62, 7);
+
+
+
