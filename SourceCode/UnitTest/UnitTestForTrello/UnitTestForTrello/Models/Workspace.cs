@@ -3,11 +3,9 @@ namespace UnitTestForTrello.Models
 {
     public class Workspace
     {
-        public string Title { get; set; }
-        public Workspace(string title)
-        {
-            if (String.IsNullOrEmpty(title)) throw new ArgumentNullException("title");
-            Title = title;
-        }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public WorkspaceTypeEnum Type { get; set; }
     }
 }

@@ -167,3 +167,14 @@ D:\bbv\YPP4-KhoaDo\SourceCode\UnitTest\UnitTestForTrello\UnitTestForTrello\obj\D
 D:\bbv\YPP4-KhoaDo\SourceCode\UnitTest\UnitTestForTrello\UnitTestForTrello\obj\Debug\net8.0\UnitTestForTrello.pdb
 D:\bbv\YPP4-KhoaDo\SourceCode\UnitTest\UnitTestForTrello\UnitTestForTrello\obj\Debug\net8.0\UnitTestForTrello.genruntimeconfig.cache
 D:\bbv\YPP4-KhoaDo\SourceCode\UnitTest\UnitTestForTrello\UnitTestForTrello\obj\Debug\net8.0\ref\UnitTestForTrello.dll
+D:\bbv\YPP4-KhoaDo\SourceCode\UnitTest\UnitTestForTrello\UnitTestForTrello\bin\Debug\net8.0\System.Data.SqlClient.dll
+D:\bbv\YPP4-KhoaDo\SourceCode\UnitTest\UnitTestForTrello\UnitTestForTrello\bin\Debug\net8.0\runtimes\win-arm64\native\sni.dll
+D:\bbv\YPP4-KhoaDo\SourceCode\UnitTest\UnitTestForTrello\UnitTestForTrello\bin\Debug\net8.0\runtimes\win-x64\native\sni.dll
+D:\bbv\YPP4-KhoaDo\SourceCode\UnitTest\UnitTestForTrello\UnitTestForTrello\bin\Debug\net8.0\runtimes\win-x86\native\sni.dll
+D:\bbv\YPP4-KhoaDo\SourceCode\UnitTest\UnitTestForTrello\UnitTestForTrello\bin\Debug\net8.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\bbv\YPP4-KhoaDo\SourceCode\UnitTest\UnitTestForTrello\UnitTestForTrello\bin\Debug\net8.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\bbv\YPP4-KhoaDo\SourceCode\UnitTest\UnitTestForTrello\UnitTestForTrello\bin\Debug\net8.0\Castle.Core.dll
+D:\bbv\YPP4-KhoaDo\SourceCode\UnitTest\UnitTestForTrello\UnitTestForTrello\bin\Debug\net8.0\Moq.dll
+D:\bbv\YPP4-KhoaDo\SourceCode\UnitTest\UnitTestForTrello\UnitTestForTrello\bin\Debug\net8.0\System.Diagnostics.EventLog.dll
+D:\bbv\YPP4-KhoaDo\SourceCode\UnitTest\UnitTestForTrello\UnitTestForTrello\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Diagnostics.EventLog.Messages.dll
+D:\bbv\YPP4-KhoaDo\SourceCode\UnitTest\UnitTestForTrello\UnitTestForTrello\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Diagnostics.EventLog.dll

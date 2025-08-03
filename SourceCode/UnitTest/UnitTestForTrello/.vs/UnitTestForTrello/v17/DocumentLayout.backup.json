@@ -3,8 +3,12 @@
   "WorkspaceRootPath": "D:\\bbv\\YPP4-KhoaDo\\SourceCode\\UnitTest\\UnitTestForTrello\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AD772643-FF79-450A-9E4F-D4915460ADEC}|UnitTestForTrello\\UnitTestForTrello.csproj|d:\\bbv\\ypp4-khoado\\sourcecode\\unittest\\unittestfortrello\\unittestfortrello\\tests\\workspacetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AD772643-FF79-450A-9E4F-D4915460ADEC}|UnitTestForTrello\\UnitTestForTrello.csproj|solutionrelative:unittestfortrello\\tests\\workspacetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AD772643-FF79-450A-9E4F-D4915460ADEC}|UnitTestForTrello\\UnitTestForTrello.csproj|d:\\bbv\\ypp4-khoado\\sourcecode\\unittest\\unittestfortrello\\unittestfortrello\\services\\workspaceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AD772643-FF79-450A-9E4F-D4915460ADEC}|UnitTestForTrello\\UnitTestForTrello.csproj|solutionrelative:unittestfortrello\\services\\workspaceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AD772643-FF79-450A-9E4F-D4915460ADEC}|UnitTestForTrello\\UnitTestForTrello.csproj|d:\\bbv\\ypp4-khoado\\sourcecode\\unittest\\unittestfortrello\\unittestfortrello\\tests\\workspaceservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AD772643-FF79-450A-9E4F-D4915460ADEC}|UnitTestForTrello\\UnitTestForTrello.csproj|solutionrelative:unittestfortrello\\tests\\workspaceservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AD772643-FF79-450A-9E4F-D4915460ADEC}|UnitTestForTrello\\UnitTestForTrello.csproj|d:\\bbv\\ypp4-khoado\\sourcecode\\unittest\\unittestfortrello\\unittestfortrello\\models\\workspace.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -18,32 +22,45 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "WorkspaceService.cs",
+              "DocumentMoniker": "D:\\bbv\\YPP4-KhoaDo\\SourceCode\\UnitTest\\UnitTestForTrello\\UnitTestForTrello\\Services\\WorkspaceService.cs",
+              "RelativeDocumentMoniker": "UnitTestForTrello\\Services\\WorkspaceService.cs",
+              "ToolTip": "D:\\bbv\\YPP4-KhoaDo\\SourceCode\\UnitTest\\UnitTestForTrello\\UnitTestForTrello\\Services\\WorkspaceService.cs",
+              "RelativeToolTip": "UnitTestForTrello\\Services\\WorkspaceService.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAwwDkAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-03T17:50:32.174Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "WorkspaceServiceTests.cs",
+              "DocumentMoniker": "D:\\bbv\\YPP4-KhoaDo\\SourceCode\\UnitTest\\UnitTestForTrello\\UnitTestForTrello\\Tests\\WorkspaceServiceTests.cs",
+              "RelativeDocumentMoniker": "UnitTestForTrello\\Tests\\WorkspaceServiceTests.cs",
+              "ToolTip": "D:\\bbv\\YPP4-KhoaDo\\SourceCode\\UnitTest\\UnitTestForTrello\\UnitTestForTrello\\Tests\\WorkspaceServiceTests.cs",
+              "RelativeToolTip": "UnitTestForTrello\\Tests\\WorkspaceServiceTests.cs",
+              "ViewState": "AgIAAE8AAAAAAAAAAAAcwFwAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-03T17:48:21.806Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Workspace.cs",
               "DocumentMoniker": "D:\\bbv\\YPP4-KhoaDo\\SourceCode\\UnitTest\\UnitTestForTrello\\UnitTestForTrello\\Models\\Workspace.cs",
               "RelativeDocumentMoniker": "UnitTestForTrello\\Models\\Workspace.cs",
               "ToolTip": "D:\\bbv\\YPP4-KhoaDo\\SourceCode\\UnitTest\\UnitTestForTrello\\UnitTestForTrello\\Models\\Workspace.cs",
               "RelativeToolTip": "UnitTestForTrello\\Models\\Workspace.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABMAAAAAAAAAA==",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAQwAoAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-28T16:25:37.276Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "WorkspaceTest.cs",
-              "DocumentMoniker": "D:\\bbv\\YPP4-KhoaDo\\SourceCode\\UnitTest\\UnitTestForTrello\\UnitTestForTrello\\Tests\\WorkspaceTest.cs",
-              "RelativeDocumentMoniker": "UnitTestForTrello\\Tests\\WorkspaceTest.cs",
-              "ToolTip": "D:\\bbv\\YPP4-KhoaDo\\SourceCode\\UnitTest\\UnitTestForTrello\\UnitTestForTrello\\Tests\\WorkspaceTest.cs",
-              "RelativeToolTip": "UnitTestForTrello\\Tests\\WorkspaceTest.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAswBUAAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-28T16:22:16.974Z",
+              "WhenOpened": "2025-08-03T17:46:47.375Z",
               "EditorCaption": ""
             }
           ]
