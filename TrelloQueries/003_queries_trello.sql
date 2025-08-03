@@ -565,14 +565,14 @@ ORDER BY CategoryId DESC;
 
 --35. Slide 42. Select a board → Board page → in a stage → select a card → attachment section, show all attachment have LINK type in a specific card 
 SELECT 
-    Link AS [attachment_url],
+    AttachmentPath AS [attachment_path],
     AttachmentName AS attachment_name,
     CreatedAt,
     IsCover
 FROM Attachments
-WHERE CategoryId = 
-ORDER BY UploadAt DESC;
-
+WHERE IsFile = 3
+ORDER BY CreatedAt DESC;
+select * from Categories where CategoryName like '%ink%'
 --36. Slide 42. Select a board → Board page → in a stage → select a card → attachment section, show all attachment have FILE type in a specific card 
 SELECT 
     FilePath AS [attachment_url],
