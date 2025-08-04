@@ -3,8 +3,8 @@ SELECT
         bo.Id board_id,
         bo.BoardName board_name, 
         bo.BackgroundUrl,
-        bo.AccessedAt
-FROM UserViewHistory bu
+        bu.AccessedAt
+FROM UserViewHistories bu
 JOIN Boards bo ON bo.Id = bu.OwnerId AND bu.CategoryId = 2
 WHERE bu.UserId = 1
 ORDER BY bu.AccessedAt DESC;
@@ -29,6 +29,7 @@ WHERE me.UserId = 1 AND me.CategoryId = 2; --2:Board
 
 --4.Slide 4 | Home Page on the Header (top right corner), query boards have name that contains the keyword 'app'
 SELECT 
+    bo.Id board_id,
     bo.BoardName, 
     wo.WorkspaceName, 
     bo.BoardStatus
@@ -45,9 +46,10 @@ WHERE ac.UserId = 1 AND no.IsRead = 0;
 
 --6.Slide 5 | Home Page on the Templates tab → Main area, list all available public or user-created templates.
 SELECT 
+    te.Id template_id,
     us.PictureUrl AS user_picture, 
     us.Username AS author, 
-    bo.BackgroundUrl AS board_background, 
+    bo.BackgroundUrl AS board_background,
     te.Title AS template_title, 
     te.TemplateDescription AS tempalte_description, 
     te.Viewed, 
@@ -216,7 +218,7 @@ FROM RolePermissions;
 --18.Slide 17 Home Page on the Workspace page → Settings section, list all workspace setting keys with the current user's selected values.
 SELECT 
     sk.KeyName, 
-    COALESCE(sv.SettingContent, sk.DefaultValue) AS Value
+    COALESCE(sv.SettingValue, sk.DefaultValue) AS Value
 FROM SettingKeys sk 
 LEFT JOIN SettingValues sv ON sv.SettingKeyId = sk.Id AND sk.CategoryId = 4 AND sv.OwnerId = 1;
 
@@ -227,7 +229,7 @@ WITH sk AS (
     SettingKeyDescription,
     Id
     FROM SettingKeys
-    WHERE CategoryId = 1 AND Id = 1
+    WHERE CategoryId = 1 --workspace
 )
 
 SELECT 
@@ -242,7 +244,7 @@ JOIN SettingOptions so ON so.Id = sso.SettingOptionId;
 --20.Slide 19 Board Page on the Setting pop-up, list all board's setting key and user's choice of a specific user
 SELECT 
     sk.KeyName, 
-    COALESCE(sv.SettingContent, sk.DefaultValue) as setting_value
+    COALESCE(sv.SettingValue, sk.DefaultValue) as setting_value
 FROM (
     SELECT
         Id,

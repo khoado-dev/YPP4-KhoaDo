@@ -23,7 +23,6 @@ CREATE TABLE CategoryTypes (
 );
 GO
 
-
 CREATE TABLE Categories (
     Id int IDENTITY(1,1) PRIMARY KEY,
     CategoryName [varchar](50) NULL,
