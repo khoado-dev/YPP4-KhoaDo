@@ -34,6 +34,7 @@ public class WorkspaceTest : DatabaseTestBase
 
         int id = _workspaceRepository.CreateWorkspace(workspace);
         var newWorkspace = _workspaceRepository.GetWorkspaceById(id);
+        Assert.IsNotNull(newWorkspace);
         Assert.IsTrue(newWorkspace?.WorkspaceName?.Equals(workspace.WorkspaceName));
     }
 
@@ -54,7 +55,7 @@ public class WorkspaceTest : DatabaseTestBase
         int id = _workspaceRepository.CreateWorkspace(workspace);
 
         var result = _workspaceRepository.GetWorkspaceById(id);
-
+        Assert.IsNotNull(result);
         Assert.AreEqual(workspace.WorkspaceName, result?.WorkspaceName);
     }
 
