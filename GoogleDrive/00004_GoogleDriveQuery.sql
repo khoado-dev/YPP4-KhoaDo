@@ -8,7 +8,7 @@ GO
 	a.UserName as UserName,
 	a.Email as Email
  from Account a
- where a.UserId =@userId 
+ where a.Email = 'aaron85@thompson.com' 
 
 
 -- 2.select User Setting
