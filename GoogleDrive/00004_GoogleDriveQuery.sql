@@ -230,7 +230,8 @@ select
 	a.UserName,
 	p.PermissionName,
 	f.FileId,
-	f.UserFileName
+	f.UserFileName,
+	su.SharedUserId,
 from SharedUser su
 join Account a on su.SharedUserId = a.UserId
 join Share s on su.ShareId = s.ShareId
@@ -476,42 +477,23 @@ join Account a on uf.OwnerId = a.UserId
 where uf.FileTypeId = @FileType and uf.OwnerId = @OwnerId
 
 ---Sort by Action recent---
-WITH RecentObjects AS (
-
-    SELECT 
-        ar.ObjectId,
-        ar.ObjectTypeId,
-        ar.ActionDateTime,
-		ar.ActionLog,
-        CASE 
-            WHEN ar.ObjectTypeId = 1 THEN 'Folder'
-            WHEN ar.ObjectTypeId = 2 THEN 'File'
-            ELSE 'Unknown'
-        END AS ObjectType,
-        uf.OwnerId AS FileOwnerId,
-        f.OwnerId AS FolderOwnerId
-    FROM ActionRecent ar
-    LEFT JOIN UserFile uf ON ar.ObjectId = uf.FileId AND ar.ObjectTypeId = 2
-    LEFT JOIN Folder f ON ar.ObjectId = f.FolderId AND ar.ObjectTypeId = 1
-    WHERE (uf.OwnerId = 11 OR f.OwnerId = 11)
-)
 SELECT 
-    ro.ObjectId,
-    ro.ObjectTypeId,
-    ro.ObjectType,
+    ar.ObjectId,
+    ar.ObjectTypeId,
+    ar.ActionDateTime,
+	ar.ActionLog,
     CASE 
-        WHEN ro.ObjectType = N'File' THEN uf.UserFileName
-        WHEN ro.ObjectType = N'Folder' THEN f.FolderName
-        ELSE NULL
+        WHEN ar.ObjectTypeId = 1 THEN f.FolderName
+        WHEN ar.ObjectTypeId = 2 THEN uf.UserFileName
+        ELSE 'Unknown'
     END AS ObjectName,
-	ro.ActionLog,
-    ro.ActionDateTime
-FROM RecentObjects ro
-LEFT JOIN UserFile uf ON ro.ObjectId = uf.FileId AND ro.ObjectTypeId = 2
-LEFT JOIN Folder f ON ro.ObjectId = f.FolderId AND ro.ObjectTypeId = 1
-WHERE ro.FileOwnerId =11 OR ro.FolderOwnerId = 11
-ORDER BY ro.ActionDateTime DESC;
-
+    uf.OwnerId AS FileOwnerId,
+    f.OwnerId AS FolderOwnerId
+FROM ActionRecent ar
+LEFT JOIN UserFile uf ON ar.ObjectId = uf.FileId AND ar.ObjectTypeId = 2
+LEFT JOIN Folder f ON ar.ObjectId = f.FolderId AND ar.ObjectTypeId = 1
+WHERE (uf.OwnerId = 11 OR f.OwnerId = 11)
+ORDER BY ar.ActionDateTime DESC;
 select * from ActionRecent
 select * from UserFile
 select * from Folder where OwnerId = 11 and FolderId= 37
