@@ -30,8 +30,8 @@ public class UserTest : DatabaseTestBase
             PictureUrl = "http://picture"
         };
 
-        int id = _userRepository.CreateUser(user);
-        var newUser = _userRepository.GetUserById(id);
+        int id = _userRepository.Create(user);
+        var newUser = _userRepository.GetById(id);
         Assert.IsNotNull(newUser);
         Assert.AreEqual(user.Username, newUser?.Username);
     }
@@ -49,9 +49,9 @@ public class UserTest : DatabaseTestBase
             UpdatedAt = DateTime.UtcNow,
             PictureUrl = "http://picture"
         };
-        int id = _userRepository.CreateUser(user);
+        int id = _userRepository.Create(user);
 
-        var result = _userRepository.GetUserById(id);
+        var result = _userRepository.GetById(id);
         Assert.IsNotNull(result);
         Assert.AreEqual(user.Username, result?.Username);
     }
@@ -59,7 +59,7 @@ public class UserTest : DatabaseTestBase
     [TestMethod]
     public void GetAllUsersTest()
     {
-        var before = _userRepository.GetAllUsers().Count;
+        var before = _userRepository.GetAll().Count;
 
         var user = new User
         {
@@ -71,9 +71,9 @@ public class UserTest : DatabaseTestBase
             UpdatedAt = DateTime.UtcNow,
             PictureUrl = "http://picture"
         };
-        _userRepository.CreateUser(user);
+        _userRepository.Create(user);
 
-        var after = _userRepository.GetAllUsers().Count;
+        var after = _userRepository.GetAll().Count;
 
         Assert.IsTrue(after == before + 1);
     }
@@ -91,19 +91,19 @@ public class UserTest : DatabaseTestBase
             UpdatedAt = DateTime.UtcNow,
             PictureUrl = "http://picture"
         };
-        int id = _userRepository.CreateUser(user);
+        int id = _userRepository.Create(user);
 
-        var toUpdate = _userRepository.GetUserById(id);
+        var toUpdate = _userRepository.GetById(id);
         Assert.IsNotNull(toUpdate);
 
         toUpdate.Username = "updateduser";
         toUpdate.UpdatedAt = DateTime.UtcNow;
 
-        var updated = _userRepository.UpdateUser(toUpdate);
+        var updated = _userRepository.Update(toUpdate);
 
         Assert.IsTrue(updated);
 
-        var afterUpdate = _userRepository.GetUserById(id);
+        var afterUpdate = _userRepository.GetById(id);
         Assert.AreEqual(toUpdate.Username, afterUpdate?.Username);
     }
 
@@ -120,13 +120,13 @@ public class UserTest : DatabaseTestBase
             UpdatedAt = DateTime.UtcNow,
             PictureUrl = "http://picture"
         };
-        int id = _userRepository.CreateUser(user);
+        int id = _userRepository.Create(user);
 
-        var deleted = _userRepository.DeleteUser(id);
+        var deleted = _userRepository.Delete(id);
 
         Assert.IsTrue(deleted);
 
-        var afterDelete = _userRepository.GetUserById(id);
+        var afterDelete = _userRepository.GetById(id);
         Assert.IsNull(afterDelete);
     }
 }

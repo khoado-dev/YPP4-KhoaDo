@@ -8,18 +8,11 @@ using UnitTestForTrello.Models;
 
 namespace UnitTestForTrello.Repositories
 {
-    public class UserRepository
+    public class UserRepository : RepositoryBase<User>
     {
-        private readonly SqlConnection _con;
-        private readonly SqlTransaction _tran;
+        public UserRepository(SqlConnection con, SqlTransaction tran) : base(con, tran) { }
 
-        public UserRepository(SqlConnection con, SqlTransaction tran)
-        {
-            _con = con;
-            _tran = tran;
-        }
-
-        public int CreateUser(User user)
+        public override int Create(User entity)
         {
             using var cmd = new SqlCommand(@"
                     INSERT INTO Users 
@@ -28,18 +21,18 @@ namespace UnitTestForTrello.Repositories
                         (@Username, @Bio, @Email, @LastActive, @CreatedAt, @UpdatedAt, @PictureUrl);
                     SELECT SCOPE_IDENTITY();", _con, _tran);
 
-            cmd.Parameters.AddWithValue("@Username", (object?)user.Username ?? DBNull.Value);
-            cmd.Parameters.AddWithValue("@Bio", (object?)user.Bio ?? DBNull.Value);
-            cmd.Parameters.AddWithValue("@Email", (object?)user.Email ?? DBNull.Value);
-            cmd.Parameters.AddWithValue("@LastActive", (object?)user.LastActive ?? DBNull.Value);
-            cmd.Parameters.AddWithValue("@CreatedAt", (object?)user.CreatedAt ?? DBNull.Value);
-            cmd.Parameters.AddWithValue("@UpdatedAt", (object?)user.UpdatedAt ?? DBNull.Value);
-            cmd.Parameters.AddWithValue("@PictureUrl", (object?)user.PictureUrl ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@Username", (object?)entity.Username ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@Bio", (object?)entity.Bio ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@Email", (object?)entity.Email ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@LastActive", (object?)entity.LastActive ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@CreatedAt", (object?)entity.CreatedAt ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@UpdatedAt", (object?)entity.UpdatedAt ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@PictureUrl", (object?)entity.PictureUrl ?? DBNull.Value);
 
             return Convert.ToInt32(cmd.ExecuteScalar());
         }
 
-        public User? GetUserById(int id)
+        public override User? GetById(int id)
         {
             using var cmd = new SqlCommand("SELECT * FROM Users WHERE Id = @Id", _con, _tran);
             cmd.Parameters.AddWithValue("@Id", id);
@@ -47,12 +40,12 @@ namespace UnitTestForTrello.Repositories
             using var reader = cmd.ExecuteReader();
             if (reader.Read())
             {
-                return MapReaderToUser(reader);
+                return MapReaderToEntity(reader);
             }
             return null;
         }
 
-        public List<User> GetAllUsers()
+        public override List<User> GetAll()
         {
             var users = new List<User>();
             using var cmd = new SqlCommand("SELECT * FROM Users", _con, _tran);
@@ -60,12 +53,12 @@ namespace UnitTestForTrello.Repositories
             using var reader = cmd.ExecuteReader();
             while (reader.Read())
             {
-                users.Add(MapReaderToUser(reader));
+                users.Add(MapReaderToEntity(reader));
             }
             return users;
         }
 
-        public bool UpdateUser(User user)
+        public override bool Update(User entity)
         {
             using var cmd = new SqlCommand(@"
                     UPDATE Users SET
@@ -74,23 +67,23 @@ namespace UnitTestForTrello.Repositories
                         Email = @Email,
                         LastActive = @LastActive,
                         CreatedAt = @CreatedAt,
-                        UpdatedAt = @UpdatedAt,
+                        UpdatedAt = @UpdatedAt, 
                         PictureUrl = @PictureUrl
                     WHERE Id = @Id", _con, _tran);
 
-            cmd.Parameters.AddWithValue("@Id", user.Id);
-            cmd.Parameters.AddWithValue("@Username", (object?)user.Username ?? DBNull.Value);
-            cmd.Parameters.AddWithValue("@Bio", (object?)user.Bio ?? DBNull.Value);
-            cmd.Parameters.AddWithValue("@Email", (object?)user.Email ?? DBNull.Value);
-            cmd.Parameters.AddWithValue("@LastActive", (object?)user.LastActive ?? DBNull.Value);
-            cmd.Parameters.AddWithValue("@CreatedAt", (object?)user.CreatedAt ?? DBNull.Value);
-            cmd.Parameters.AddWithValue("@UpdatedAt", (object?)user.UpdatedAt ?? DBNull.Value);
-            cmd.Parameters.AddWithValue("@PictureUrl", (object?)user.PictureUrl ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@Id", entity.Id);
+            cmd.Parameters.AddWithValue("@Username", (object?)entity.Username ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@Bio", (object?)entity.Bio ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@Email", (object?)entity.Email ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@LastActive", (object?)entity.LastActive ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@CreatedAt", (object?)entity.CreatedAt ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@UpdatedAt", (object?)entity.UpdatedAt ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@PictureUrl", (object?)entity.PictureUrl ?? DBNull.Value);
 
             return cmd.ExecuteNonQuery() > 0;
         }
 
-        public bool DeleteUser(int id)
+        public override bool Delete(int id)
         {
             using var cmd = new SqlCommand("DELETE FROM Users WHERE Id = @Id", _con, _tran);
             cmd.Parameters.AddWithValue("@Id", id);
@@ -98,7 +91,7 @@ namespace UnitTestForTrello.Repositories
             return cmd.ExecuteNonQuery() > 0;
         }
 
-        private User MapReaderToUser(SqlDataReader reader)
+        protected override User MapReaderToEntity(SqlDataReader reader)
         {
             return new User
             {
