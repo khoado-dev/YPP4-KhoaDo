@@ -57,7 +57,7 @@ DECLARE @ShareLinkId INT;
         acc.AccountStatus
     FROM 
 	    Account AS acc
-    WHERE acc.Id = @AccountId
+    WHERE acc.Email = 'user1@example.com'
 
     -- Get lists created by a user
     
@@ -92,7 +92,7 @@ DECLARE @ShareLinkId INT;
     INNER JOIN 
         FavoriteList AS fl ON l.Id = fl.ListId
     WHERE 
-        fl.AccountId = @AccountId
+        fl.AccountId = 3
     ORDER BY 
         l.UpdatedAt ASC;
 
@@ -125,7 +125,7 @@ DECLARE @ShareLinkId INT;
     INNER JOIN 
         ListTemplate lt ON tp.Id = lt.ProviderId
     WHERE 
-        tp.Id = @ProviderId; 
+        tp.Id =4; 
 
 -- Create List From List Type
 
@@ -159,7 +159,7 @@ DECLARE @ShareLinkId INT;
     FROM 
         ListTemplate lt
     WHERE 
-        lt.Id = @TemplateId
+        lt.Id = 1
 
     -- Get sample data of a template
     
@@ -181,7 +181,7 @@ DECLARE @ShareLinkId INT;
             ON tcol.Id = tcell.TemplateColumnId 
             AND trow.Id = tcell.TemplateSampleRowId
     WHERE 
-        tcol.ListTemplateId = @TemplateId
+        tcol.ListTemplateId = 1
     ORDER BY
         tcol.DisplayOrder ASC,
         trow.DisplayOrder ASC;
@@ -208,7 +208,7 @@ DECLARE @ShareLinkId INT;
     LEFT JOIN
         ViewSettingKey vs ON vts.ViewSettingKeyId = vs.Id
     WHERE
-        tv.ListTemplateId = @TemplateId
+        tv.ListTemplateId = 2
     ORDER BY
         tv.DisplayOrder ASC
 
@@ -229,7 +229,7 @@ DECLARE @ShareLinkId INT;
     LEFT JOIN 
         KeySetting ks ON dtsk.KeySettingId =  ks.Id
     WHERE 
-        tc.ListTemplateId = @TemplateId
+        tc.ListTemplateId = 1
     ORDER BY
         tc.DisplayOrder ASC
     
@@ -246,7 +246,7 @@ DECLARE @ShareLinkId INT;
     INNER JOIN 
         TemplateColumn tc ON lcso.ColumnId = tc.Id AND lcso.Context = 'TEMPLATE'
     WHERE 
-        tc.ListTemplateId = @TemplateId
+        tc.ListTemplateId = 1
     ORDER BY
         lcso.DisplayOrder ASC
 
