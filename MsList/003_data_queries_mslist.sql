@@ -1,4 +1,4 @@
-USE MsList
+﻿USE MsList
 
 -- Dashboard Screen
 DECLARE @AccountId INT;
@@ -14,15 +14,36 @@ DECLARE @ShareLinkId INT;
 
 
     -- Get matrix of list with value cell
-    SELECT 
-        lr.Id list_row_id,
-        ldc.Id list_column_id,
-        lcl.CellValue cell_value
-    FROM ListRow lr
-    CROSS JOIN ListDynamicColumn ldc
-    LEFT JOIN ListCellValue lcl ON lcl.ListRowId = lr.Id AND lcl.ListColumnId = ldc.Id
-    WHERE lr.ListId = ldc.ListId AND lr.ListId = 1
-    ORDER BY lr.Id, ldc.Id
+    DECLARE @columns NVARCHAR(MAX);
+    DECLARE @sql NVARCHAR(MAX);
+
+    SELECT @columns = STRING_AGG(QUOTENAME(Id), ',')
+    FROM ListDynamicColumn 
+    WHERE ListId = 1;
+
+    SET @sql = '
+    SELECT *
+    FROM (
+        SELECT 
+            lr.Id AS list_row_id,
+            ldc.Id AS list_column_id,
+            lcl.CellValue AS cell_value
+        FROM ListRow lr
+        CROSS JOIN ListDynamicColumn ldc
+        LEFT JOIN ListCellValue lcl 
+            ON lcl.ListRowId = lr.Id AND lcl.ListColumnId = ldc.Id
+        WHERE lr.ListId = ldc.ListId AND lr.ListId = 1
+    ) AS SourceTable
+    PIVOT
+    (
+        MAX(cell_value)
+        FOR list_column_id IN (' + @columns + ')
+    ) AS PivotTable
+    ORDER BY list_row_id;
+    ';
+
+    EXEC sp_executesql @sql;
+
     -- Get information of a user
     
     SET @AccountId = 1;

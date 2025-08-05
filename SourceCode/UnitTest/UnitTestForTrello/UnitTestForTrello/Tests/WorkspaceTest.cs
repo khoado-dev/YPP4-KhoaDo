@@ -32,8 +32,8 @@ public class WorkspaceTest : DatabaseTestBase
             LogoUrl = "http://logo"
         };
 
-        int id = _workspaceRepository.CreateWorkspace(workspace);
-        var newWorkspace = _workspaceRepository.GetWorkspaceById(id);
+        int id = _workspaceRepository.Create(workspace);
+        var newWorkspace = _workspaceRepository.GetById(id);
         Assert.IsNotNull(newWorkspace);
         Assert.IsTrue(newWorkspace?.WorkspaceName?.Equals(workspace.WorkspaceName));
     }
@@ -52,9 +52,9 @@ public class WorkspaceTest : DatabaseTestBase
             UpdatedBy = 1,
             LogoUrl = "http://logo"
         };
-        int id = _workspaceRepository.CreateWorkspace(workspace);
+        int id = _workspaceRepository.Create(workspace);
 
-        var result = _workspaceRepository.GetWorkspaceById(id);
+        var result = _workspaceRepository.GetById(id);
         Assert.IsNotNull(result);
         Assert.AreEqual(workspace.WorkspaceName, result?.WorkspaceName);
     }
@@ -62,7 +62,7 @@ public class WorkspaceTest : DatabaseTestBase
     [TestMethod]
     public void GetAllWorkspacesTest()
     {
-        var before = _workspaceRepository.GetAllWorkspaces().Count;
+        var before = _workspaceRepository.GetAll().Count;
 
         var workspace = new Workspace
         {
@@ -75,9 +75,9 @@ public class WorkspaceTest : DatabaseTestBase
             UpdatedBy = 1,
             LogoUrl = "http://logo"
         };
-        _workspaceRepository.CreateWorkspace(workspace);
+        _workspaceRepository.Create(workspace);
 
-        var after = _workspaceRepository.GetAllWorkspaces().Count;
+        var after = _workspaceRepository.GetAll().Count;
 
         Assert.IsTrue(after == before + 1);
 
@@ -97,20 +97,20 @@ public class WorkspaceTest : DatabaseTestBase
             UpdatedBy = 1,
             LogoUrl = "http://logo"
         };
-        int id = _workspaceRepository.CreateWorkspace(workspace);
+        int id = _workspaceRepository.Create(workspace);
 
-        var toUpdate = _workspaceRepository.GetWorkspaceById(id);
+        var toUpdate = _workspaceRepository.GetById(id);
         Assert.IsNotNull(toUpdate);
 
         toUpdate.WorkspaceName = "Updated Name";
         toUpdate.UpdatedAt = DateTime.UtcNow;
         toUpdate.UpdatedBy = 2;
 
-        var updated = _workspaceRepository.UpdateWorkspace(toUpdate);
+        var updated = _workspaceRepository.Update(toUpdate);
 
         Assert.IsTrue(updated);
 
-        var afterUpdate = _workspaceRepository.GetWorkspaceById(id);
+        var afterUpdate = _workspaceRepository.GetById(id);
         Assert.AreEqual(toUpdate.WorkspaceName, afterUpdate?.WorkspaceName);
         Assert.AreEqual(toUpdate.UpdatedBy, afterUpdate?.UpdatedBy);
     }
@@ -129,13 +129,13 @@ public class WorkspaceTest : DatabaseTestBase
             UpdatedBy = 1,
             LogoUrl = "http://logo"
         };
-        int id = _workspaceRepository.CreateWorkspace(workspace);
+        int id = _workspaceRepository.Create(workspace);
 
-        var deleted = _workspaceRepository.DeleteWorkspace(id);
+        var deleted = _workspaceRepository.Delete(id);
 
         Assert.IsTrue(deleted);
 
-        var afterDelete = _workspaceRepository.GetWorkspaceById(id);
+        var afterDelete = _workspaceRepository.GetById(id);
         Assert.IsNull(afterDelete);
     }
 }
