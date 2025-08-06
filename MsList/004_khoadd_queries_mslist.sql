@@ -49,29 +49,21 @@ WHERE CONTAINS(CellValue, '"asset*" OR "row*"');
 -- Paging List in MSList by row(limit the number of display row)
 DECLARE @PageSize INT = 2;
 DECLARE @PageIndex INT = 2;
-
-WITH PagedRows AS (
-    SELECT 
-        tsr.Id AS template_row_id,
-        tsr.DisplayOrder,
-        ROW_NUMBER() OVER (ORDER BY tsr.DisplayOrder) AS RowNum
-    FROM TemplateSampleRow tsr
-    WHERE tsr.ListTemplateId = 1
-)
 SELECT 
     tc.Id AS template_column_id,
     tc.ColumnName,
-    pr.template_row_id,
-    pr.DisplayOrder,
+    tsr.Id template_row_id,
+    tsr.DisplayOrder,
     tsc.CellValue
-FROM PagedRows pr
+FROM TemplateSampleRow tsr
 CROSS JOIN TemplateColumn tc
 LEFT JOIN TemplateSampleCell tsc 
     ON tsc.TemplateColumnId = tc.Id 
-    AND tsc.TemplateSampleRowId = pr.template_row_id
-WHERE tc.ListTemplateId = 1
-  AND pr.RowNum BETWEEN (@PageIndex - 1) * @PageSize + 1 AND @PageIndex * @PageSize
-ORDER BY pr.DisplayOrder;
+    AND tsc.TemplateSampleRowId = tsr.Id
+WHERE tc.ListTemplateId = 1 AND tsr.ListTemplateId = 1
+  AND tsr.DisplayOrder BETWEEN (@PageIndex - 1) * @PageSize + 1 AND @PageIndex * @PageSize
+ORDER BY tsr.DisplayOrder;
+
 
 -- PITVOT
 DECLARE @columns NVARCHAR(1000); 
