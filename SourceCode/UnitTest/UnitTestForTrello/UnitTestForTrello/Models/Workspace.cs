@@ -17,5 +17,6 @@ namespace UnitTestForTrello.Models
         public DateTime? UpdatedAt { get; set; }
         public int? UpdatedBy { get; set; }
         public string? LogoUrl { get; set; }
+        public List<Board> Boards { get; set; } = new List<Board>();
     }
 }
