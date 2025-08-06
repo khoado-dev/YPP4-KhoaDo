@@ -66,36 +66,31 @@ ORDER BY tsr.DisplayOrder;
 
 
 -- PITVOT
-DECLARE @columns NVARCHAR(1000); 
-SELECT @columns = STRING_AGG(QUOTENAME(ColumnName), ',') --create a string to store all column name
+DECLARE @PageSize INT = 2;
+DECLARE @PageIndex INT = 2;
+
+DECLARE @columns NVARCHAR(MAX);
+SELECT @columns = STRING_AGG(QUOTENAME(ColumnName), ',')
 FROM TemplateColumn
 WHERE ListTemplateId = 1;
 
-DECLARE @sql NVARCHAR(1000) = '
-WITH PagedRows AS (
-    SELECT 
-        tsr.Id AS template_row_id,
-        tsr.DisplayOrder,
-        ROW_NUMBER() OVER (ORDER BY tsr.DisplayOrder) AS RowNum
-    FROM TemplateSampleRow tsr
-    WHERE tsr.ListTemplateId = 1
-),
-Source AS (
+DECLARE @sql NVARCHAR(MAX) = '
+SELECT *
+FROM (
     SELECT 
         tc.ColumnName,
-        pr.template_row_id,
-        pr.DisplayOrder,
-        tsc.CellValue
-    FROM PagedRows pr
+        tsr.Id AS template_row_id,
+        tsc.CellValue,
+        tsr.DisplayOrder
+    FROM TemplateSampleRow tsr
     CROSS JOIN TemplateColumn tc
     LEFT JOIN TemplateSampleCell tsc 
         ON tsc.TemplateColumnId = tc.Id 
-        AND tsc.TemplateSampleRowId = pr.template_row_id
-    WHERE tc.ListTemplateId = 1
-      AND pr.RowNum BETWEEN (@PageIndex - 1) * @PageSize + 1 AND @PageIndex * @PageSize
-)
-SELECT *
-FROM Source
+        AND tsc.TemplateSampleRowId = tsr.Id
+    WHERE tsr.ListTemplateId = 1
+      AND tc.ListTemplateId = 1
+      AND tsr.DisplayOrder BETWEEN (@PageIndex - 1) * @PageSize + 1 AND @PageIndex * @PageSize
+) AS Source
 PIVOT (
     MAX(CellValue)
     FOR ColumnName IN (' + @columns + ')
@@ -103,7 +98,11 @@ PIVOT (
 ORDER BY DisplayOrder;
 ';
 
-EXEC sp_executesql @sql, N'@PageSize INT, @PageIndex INT', @PageSize = 2, @PageIndex = 2;
+EXEC sp_executesql @sql, 
+    N'@PageSize INT, @PageIndex INT', 
+    @PageSize = @PageSize, 
+    @PageIndex = @PageIndex;
+
 -- Paging List in MSList by column(limit the number of display column)
 
 --CACHING
