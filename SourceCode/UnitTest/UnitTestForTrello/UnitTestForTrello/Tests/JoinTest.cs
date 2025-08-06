@@ -81,7 +81,7 @@ public class JoinTest : DatabaseTestBase
             new Workspace { Id = 4, WorkspaceName = "Workspace4" }
         };
 
-        var result = _joinRepository.WorkspaceRightJoinBoard(boards, workspaces);
+        var result = _joinRepository.BoardRightJoinWorkspace(boards, workspaces);
 
         Assert.AreEqual(3, result.Count);
         Assert.AreEqual(2, result[0].Boards.Count); // Workspace1 has Board1, Board4

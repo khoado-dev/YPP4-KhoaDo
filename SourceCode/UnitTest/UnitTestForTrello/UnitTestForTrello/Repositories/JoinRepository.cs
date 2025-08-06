@@ -58,7 +58,7 @@ namespace UnitTestForTrello.Repositories
             }
             return result;
         }
-        public List<Workspace> WorkspaceRightJoinBoard(List<Board> boards, List<Workspace> workspaces)
+        public List<Workspace> BoardRightJoinWorkspace(List<Board> boards, List<Workspace> workspaces)
         {
             var result = new List<Workspace>();
             for (int i = 0; i < workspaces.Count; i++)

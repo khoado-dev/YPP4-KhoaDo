@@ -641,60 +641,80 @@ FROM (
 ) ac
 JOIN Users us ON us.Id = ac.UserId;
 
---40. Slide 45. Select a board → Board page → in a stage → select a card → CustomField section, 
---          show all CustomField and Selection of a specific card
-WITH CustomFieldOfCard AS (
+-- xx0. Show all custom field of specific card
+SELECT 
+    csf.Id CustomFieldId,
+    csf.Title CustomFieldName,
+    cgr.CategoryName,
+    csf.Position CustomFieldPosition,
+    crd.Id CardId,
+    brd.Id BoardId
+FROM CustomFields csf 
+JOIN Categories cgr ON cgr.Id = csf.CategoryId 
+JOIN Boards brd ON brd.Id = csf.BoardId
+JOIN Stages stg ON stg.BoardId = brd.Id
+JOIN Cards crd ON crd.StageId = stg.Id
+WHERE crd.Id = 1
+ORDER BY csf.Position
+
+-- xx1. Show custom field WITH DROPDOWN TYPE and their field value of specific card
+WITH FieldValuesWithCast AS(
     SELECT 
         Id,
-        Title,
-        CategoryId, --DataTypeId
-        Position,
-        BoardId
-    FROM CustomFields cf
-    WHERE BoardId = (
-        SELECT 
-            st.BoardId
-        FROM (
-            SELECT 
-                Id,
-                StageId
-            FROM Cards
-            WHERE Id = 7
-        ) ca
-        JOIN Stages st ON st.Id = ca.StageId
-    )
+        TRY_CAST(FieldValue AS INT) FieldValue,
+        CustomFieldId,
+        CardId
+    FROM FieldValues
 )
-SELECT
-    cfoc.Id AS custom_field_id,
-    cfoc.Title AS custom_field_title,
-    cfoc.CategoryId AS custom_field_type,
-    cfoc.Position AS custom_field_position,
-    fv.FieldValue AS field_value,
-    CASE 
-        WHEN cfoc.CategoryId = 1 THEN fi.FieldItemValue
-        ELSE fv.FieldValue 
-    END AS field_item_value,
-    fv.CardId AS card_id
-FROM CustomFieldOfCard cfoc
-JOIN FieldValues fv ON fv.CustomFieldId = cfoc.Id AND fv.CardId = 7
-LEFT JOIN FieldItems fi ON cfoc.CategoryId = 7 AND fi.Id = TRY_CAST(fv.FieldValue AS INT);
-
---41. Slide 45. Select a board → Board page → in a stage → select a card → CustomField section, 
---          show all options of a custom field with DROPDOWN type with Id = 21
-
 SELECT 
-    cf.Id AS custom_field_id,
-    cf.Title AS custom_field_title,
-    cf.CategoryId AS custom_field_type, --DataTypeId
-    fi.FieldItemValue AS field_item_value,
-    fi.Position AS field_item_position,
-    co.ColorName AS color_name,
-    co.Icon AS color_icon
-FROM CustomFields cf
-JOIN FieldItems fi ON fi.CustomFieldId = cf.Id
-JOIN Colors co ON co.Id = fi.ColorId
-WHERE cf.Id = 21
-ORDER BY cf.Id, fi.Position;
+    ctf.Id CustomFieldId,
+    ctf.Title CustomFieldTitle,
+    ftm.FieldItemValue,
+    ctf.Position CustomFieldPosition,
+    cgr.CategoryName,
+    fvl.CardId
+FROM CustomFields ctf
+JOIN FieldValuesWithCast fvl ON fvl.CustomFieldId = ctf.Id
+JOIN FieldItems ftm ON ftm.Id = fvl.FieldValue
+JOIN Categories cgr ON cgr.Id = ctf.CategoryId
+WHERE CategoryName = 'DROPDOWN'
+ORDER BY ctf.Position
+
+
+-- xx2. Show custom field without dropdown type and their field value of specific card (only show custom field have value)
+SELECT 
+    ctf.Id CustomFieldId,
+    ctf.Title CustomFieldTitle,
+    fvl.FieldValue,
+    cgr.CategoryName,
+    ctf.Position CustomFieldPosition,
+    crd.Id CardId,
+    brd.Id BoardId
+FROM CustomFields ctf
+LEFT JOIN FieldValues fvl ON fvl.CustomFieldId = ctf.Id
+LEFT JOIN Cards crd ON crd.Id = fvl.CardId
+JOIN Categories cgr ON cgr.Id = ctf.CategoryId
+JOIN CategoryTypes ctt ON ctt.Id = cgr.CategoryTypeId
+JOIN Stages stg ON stg.Id = crd.StageId
+JOIN Boards brd ON brd.Id = stg.BoardId
+WHERE CategoryName != 'DROPDOWN' AND ctt.CategoryTypeValue = 'DataTypes' 
+--AND brd.Id = 1 AND crd.Id = 1
+ORDER BY ctf.Position
+
+-- xx3. Show options of custom field with dropdown type of specific board
+SELECT 
+    ctf.Id,
+    ctf.Title,
+    ftm.Id,
+    ftm.FieldItemValue,
+    cgr.CategoryName,
+    ctf.Position,
+    ctf.BoardId
+FROM CustomFields ctf
+JOIN FieldItems ftm ON ftm.CustomFieldId = ctf.Id
+JOIN Categories cgr ON cgr.Id = ctf.CategoryId
+WHERE ctf.BoardId = 2 AND cgr.CategoryName = 'DROPDOWN'
+ORDER BY ctf.Position
 
 --42. Slide 47. Select a board → Board page → Setting section → Click stickers, show list of sticker can select
 SELECT 
