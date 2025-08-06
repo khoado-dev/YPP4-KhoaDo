@@ -18,5 +18,6 @@ namespace UnitTestForTrello.Models
         public string? BoardStatus { get; set; }
         public DateTime? UpdatedAt { get; set; }
         public int? UpdatedBy { get; set; }
+        public Workspace? Workspace { get; set; }
     }
 }
