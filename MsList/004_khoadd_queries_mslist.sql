@@ -1,4 +1,4 @@
--- Query list of template based on specific Provider 
+﻿-- Query list of template based on specific Provider 
 SELECT 
 	lt.Id template_id,
 	lt.HeaderImage,
@@ -32,3 +32,17 @@ SELECT
 FROM ListRowComment lrc
 JOIN Account ac ON ac.Id = lrc.CreatedBy
 WHERE ListRowId = 1
+
+--Full Text Search in MS List
+--SELECT FULLTEXTSERVICEPROPERTY('IsFullTextInstalled') AS IsFullTextInstalled; -- check wheather fultext search installed
+--EXEC sp_helpindex 'TemplateSampleCell'; -- view pk name
+--CREATE FULLTEXT CATALOG ftCatalog AS DEFAULT;
+
+CREATE FULLTEXT INDEX ON TemplateSampleCell(CellValue)
+KEY INDEX PK__Template__3214EC076D753957  -- tên PK hoặc unique index
+ON ftCatalog;
+
+SELECT *
+FROM TemplateSampleCell
+WHERE CONTAINS(CellValue, '"asset*" OR "row*"');
+
