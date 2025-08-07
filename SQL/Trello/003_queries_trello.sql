@@ -654,8 +654,52 @@ JOIN Categories cgr ON cgr.Id = csf.CategoryId
 JOIN Boards brd ON brd.Id = csf.BoardId
 JOIN Stages stg ON stg.BoardId = brd.Id
 JOIN Cards crd ON crd.StageId = stg.Id
-WHERE crd.Id = 1
+WHERE crd.Id = 7
 ORDER BY csf.Position
+
+-- PIVOT Show all custom field of specific card
+DECLARE @CardId INT = 7;
+DECLARE @columns NVARCHAR(1000);
+DECLARE @sql NVARCHAR(MAX);
+
+SELECT @columns = STRING_AGG(QUOTENAME(csf.Title), ',')
+FROM CustomFields csf
+JOIN Boards brd ON brd.Id = csf.BoardId
+JOIN Stages stg ON stg.BoardId = brd.Id
+JOIN Cards crd ON crd.StageId = stg.Id
+WHERE crd.Id = @CardId;
+
+SET @sql = '
+WITH CardInfo AS (
+    SELECT 
+        crd.Id AS CardId,
+        brd.Id AS BoardId
+    FROM Cards crd
+    JOIN Stages stg ON stg.Id = crd.StageId
+    JOIN Boards brd ON brd.Id = stg.BoardId
+    WHERE crd.Id = ' + CAST(@CardId AS NVARCHAR) + '
+),
+RawData AS (
+    SELECT 
+        ci.CardId,
+        ci.BoardId,
+        csf.Title AS CustomFieldName,
+        fvl.FieldValue
+    FROM CardInfo ci
+    JOIN CustomFields csf ON csf.BoardId = ci.BoardId
+    LEFT JOIN FieldValues fvl 
+        ON fvl.CustomFieldId = csf.Id 
+        AND fvl.CardId = ci.CardId
+)
+SELECT CardId, BoardId, ' + @columns + '
+FROM RawData
+PIVOT (
+    MAX(FieldValue)
+    FOR CustomFieldName IN (' + @columns + ')
+) AS PivotResult;
+';
+
+EXEC sp_executesql @sql;
 
 -- xx1. Show custom field WITH DROPDOWN TYPE and their field value of specific card
 WITH FieldValuesWithCast AS(
@@ -674,37 +718,136 @@ SELECT
     cgr.CategoryName,
     fvl.CardId
 FROM CustomFields ctf
-JOIN FieldValuesWithCast fvl ON fvl.CustomFieldId = ctf.Id
-JOIN FieldItems ftm ON ftm.Id = fvl.FieldValue
 JOIN Categories cgr ON cgr.Id = ctf.CategoryId
+LEFT JOIN FieldValuesWithCast fvl ON fvl.CustomFieldId = ctf.Id
+JOIN FieldItems ftm ON ftm.Id = fvl.FieldValue
 WHERE CategoryName = 'DROPDOWN'
 ORDER BY ctf.Position
 
+-- PIVOT. Show custom field WITH DROPDOWN TYPE and their field value of specific card
+DECLARE @columns NVARCHAR(1000);
+DECLARE @sql NVARCHAR(1000);
 
--- xx2. Show custom field without dropdown type and their field value of specific card (only show custom field have value)
-SELECT 
+SELECT @columns = STRING_AGG(QUOTENAME(csf.Title + '_' + CAST(csf.Id AS NVARCHAR)), ',')
+FROM CustomFields csf
+JOIN Categories cgr ON cgr.Id = csf.CategoryId
+WHERE cgr.CategoryName = 'DROPDOWN';
+
+SET @sql = '
+WITH FieldValuesWithCast AS (
+    SELECT 
+        Id,
+        TRY_CAST(FieldValue AS INT) AS FieldValue,
+        CustomFieldId,
+        CardId
+    FROM FieldValues
+),
+RawData AS (
+    SELECT 
+        csf.Title + ''_'' + CAST(csf.Id AS NVARCHAR) AS CustomFieldTitle,
+        fvl.CardId,
+        ftm.FieldItemValue
+    FROM CustomFields csf
+    JOIN Categories cgr ON cgr.Id = csf.CategoryId
+    LEFT JOIN FieldValuesWithCast fvl ON fvl.CustomFieldId = csf.Id
+    LEFT JOIN FieldItems ftm ON ftm.Id = fvl.FieldValue
+    WHERE cgr.CategoryName = ''DROPDOWN''
+)
+
+SELECT CardId, ' + @columns + '
+FROM RawData
+PIVOT (
+    MAX(FieldItemValue)
+    FOR CustomFieldTitle IN (' + @columns + ')
+) AS PivotResult;
+';
+
+EXEC sp_executesql @sql;
+
+-- xx2. Show custom field without dropdown type and their field value of specific card
+WITH CardInfo AS (
+    SELECT
+        crd.Id CardId,
+        brd.Id BoardId,
+        crd.Id CustomFieldId
+    FROM Cards crd
+    JOIN Stages stg ON stg.Id = crd.StageId
+    JOIN Boards brd ON brd.Id = stg.BoardId
+    WHERE crd.Id = 7
+)
+
+SELECT
     ctf.Id CustomFieldId,
     ctf.Title CustomFieldTitle,
-    fvl.FieldValue,
     cgr.CategoryName,
     ctf.Position CustomFieldPosition,
-    crd.Id CardId,
-    brd.Id BoardId
+    fvl.FieldValue,
+    cif.CardId,
+    cif.BoardId
 FROM CustomFields ctf
-LEFT JOIN FieldValues fvl ON fvl.CustomFieldId = ctf.Id
-LEFT JOIN Cards crd ON crd.Id = fvl.CardId
 JOIN Categories cgr ON cgr.Id = ctf.CategoryId
-JOIN CategoryTypes ctt ON ctt.Id = cgr.CategoryTypeId
-JOIN Stages stg ON stg.Id = crd.StageId
-JOIN Boards brd ON brd.Id = stg.BoardId
-WHERE CategoryName != 'DROPDOWN' AND ctt.CategoryTypeValue = 'DataTypes' 
---AND brd.Id = 1 AND crd.Id = 1
+JOIN CardInfo cif ON cif.BoardId = ctf.BoardId
+LEFT JOIN FieldValues fvl ON fvl.CustomFieldId = ctf.Id 
+                            AND fvl.CardId = cif.CardId
+WHERE cgr.CategoryName != 'DROPDOWN'
 ORDER BY ctf.Position
+
+-- PIVOT. Show custom field without dropdown type and their field value of specific card
+DECLARE @CardId INT = 7;
+DECLARE @columns NVARCHAR(1000);
+DECLARE @sql NVARCHAR(1000);
+
+SELECT @columns = STRING_AGG(QUOTENAME(ctf.Title), ',')
+FROM CustomFields ctf
+JOIN Categories cgr ON cgr.Id = ctf.CategoryId
+JOIN Boards brd ON brd.Id = ctf.BoardId
+JOIN Stages stg ON stg.BoardId = brd.Id
+JOIN Cards crd ON crd.StageId = stg.Id
+WHERE cgr.CategoryName != 'DROPDOWN'
+  AND crd.Id = @CardId;
+
+SET @sql = '
+WITH CardInfo AS (
+    SELECT
+        crd.Id AS CardId,
+        brd.Id AS BoardId
+    FROM Cards crd
+    JOIN Stages stg ON stg.Id = crd.StageId
+    JOIN Boards brd ON brd.Id = stg.BoardId
+    WHERE crd.Id = ' + CAST(@CardId AS NVARCHAR) + '
+),
+RawData AS (
+    SELECT
+        ctf.Title AS CustomFieldTitle,
+        cgr.CategoryName,
+        ctf.Position,
+        fvl.FieldValue,
+        cif.CardId,
+        cif.BoardId
+    FROM CustomFields ctf
+    JOIN Categories cgr ON cgr.Id = ctf.CategoryId
+    JOIN CardInfo cif ON cif.BoardId = ctf.BoardId
+    LEFT JOIN FieldValues fvl ON fvl.CustomFieldId = ctf.Id 
+                              AND fvl.CardId = cif.CardId
+    WHERE cgr.CategoryName != ''DROPDOWN''
+)
+
+SELECT CardId, BoardId, ' + @columns + '
+FROM RawData
+PIVOT (
+    MAX(FieldValue)
+    FOR CustomFieldTitle IN (' + @columns + ')
+) AS PivotResult
+ORDER BY CardId;
+';
+
+EXEC sp_executesql @sql;
+
 
 -- xx3. Show options of custom field with dropdown type of specific board
 SELECT 
     ctf.Id,
-    ctf.Title,
+    ctf.Title CustomFieldTitle,
     ftm.Id,
     ftm.FieldItemValue,
     cgr.CategoryName,
