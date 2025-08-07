@@ -832,12 +832,13 @@ RawData AS (
     WHERE cgr.CategoryName != ''DROPDOWN''
 )
 
-SELECT CardId, BoardId, ' + @columns + '
+SELECT CardId, ' + @columns + '
 FROM RawData
 PIVOT (
     MAX(FieldValue)
     FOR CustomFieldTitle IN (' + @columns + ')
 ) AS PivotResult
+WHERE ' + REPLACE(@columns, ',', ' IS NOT NULL OR ') + ' IS NOT NULL
 ORDER BY CardId;
 ';
 
