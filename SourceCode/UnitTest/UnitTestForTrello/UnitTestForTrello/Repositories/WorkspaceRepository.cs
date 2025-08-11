@@ -3,11 +3,11 @@ using UnitTestForTrello.Models;
 
 namespace UnitTestForTrello.Repositories
 {
-    public class WorkspaceRepository : RepositoryBase<Workspace>
+    public class WorkspaceRepository : RepositoryBase
     {
         public WorkspaceRepository(SqlConnection con, SqlTransaction tran) : base(con, tran) { }
 
-        public override int Create(Workspace entity)
+        public int Create(Workspace entity)
         {
             using var cmd = new SqlCommand(@"
                     INSERT INTO Workspaces 
@@ -28,7 +28,7 @@ namespace UnitTestForTrello.Repositories
             return Convert.ToInt32(cmd.ExecuteScalar());
         }
 
-        public override Workspace? GetById(int id)
+        public Workspace? GetById(int id)
         {
             using var cmd = new SqlCommand("SELECT * FROM Workspaces WHERE Id = @Id", _con, _tran);
             cmd.Parameters.AddWithValue("@Id", id);
@@ -41,7 +41,7 @@ namespace UnitTestForTrello.Repositories
             return null;
         }
 
-        public override List<Workspace> GetAll()
+        public List<Workspace> GetAll()
         {
             var workspaces = new List<Workspace>();
             using var cmd = new SqlCommand("SELECT * FROM Workspaces", _con, _tran);
@@ -54,7 +54,7 @@ namespace UnitTestForTrello.Repositories
             return workspaces;
         }
 
-        public override bool Update(Workspace entity)
+        public bool Update(Workspace entity)
         {
             using var cmd = new SqlCommand(@"
                     UPDATE Workspaces SET
@@ -81,7 +81,7 @@ namespace UnitTestForTrello.Repositories
             return cmd.ExecuteNonQuery() > 0;
         }
 
-        public override bool Delete(int id)
+        public bool Delete(int id)
         {
             using var cmd = new SqlCommand("DELETE FROM Workspaces WHERE Id = @Id", _con, _tran);
             cmd.Parameters.AddWithValue("@Id", id);
@@ -89,7 +89,7 @@ namespace UnitTestForTrello.Repositories
             return cmd.ExecuteNonQuery() > 0;
         }
 
-        protected override Workspace MapReaderToEntity(SqlDataReader reader)
+        protected Workspace MapReaderToEntity(SqlDataReader reader)
         {
             return new Workspace
             {

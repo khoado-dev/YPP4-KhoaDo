@@ -3,11 +3,11 @@ using UnitTestForTrello.Models;
 
 namespace UnitTestForTrello.Repositories
 {
-    public class BoardRepository : RepositoryBase<Board>
+    public class BoardRepository : RepositoryBase
     {
         public BoardRepository(SqlConnection con, SqlTransaction tran) : base(con, tran) { }
 
-        public override int Create(Board entity)
+        public int Create(Board entity)
         {
             using var cmd = new SqlCommand(@"
                     INSERT INTO Boards 
@@ -28,7 +28,7 @@ namespace UnitTestForTrello.Repositories
             return Convert.ToInt32(cmd.ExecuteScalar());
         }
 
-        public override Board? GetById(int id)
+        public Board? GetById(int id)
         {
             using var cmd = new SqlCommand("SELECT * FROM Boards WHERE Id = @Id", _con, _tran);
             cmd.Parameters.AddWithValue("@Id", id);
@@ -41,7 +41,7 @@ namespace UnitTestForTrello.Repositories
             return null;
         }
 
-        public override List<Board> GetAll()
+        public List<Board> GetAll()
         {
             var boards = new List<Board>();
             using var cmd = new SqlCommand("SELECT * FROM Boards", _con, _tran);
@@ -54,7 +54,7 @@ namespace UnitTestForTrello.Repositories
             return boards;
         }
 
-        public override bool Update(Board entity)
+        public bool Update(Board entity)
         {
             using var cmd = new SqlCommand(@"
                     UPDATE Boards SET
@@ -81,7 +81,7 @@ namespace UnitTestForTrello.Repositories
             return cmd.ExecuteNonQuery() > 0;
         }
 
-        public override bool Delete(int id)
+        public bool Delete(int id)
         {
             using var cmd = new SqlCommand("DELETE FROM Boards WHERE Id = @Id", _con, _tran);
             cmd.Parameters.AddWithValue("@Id", id);
@@ -89,7 +89,7 @@ namespace UnitTestForTrello.Repositories
             return cmd.ExecuteNonQuery() > 0;
         }
 
-        protected override Board MapReaderToEntity(SqlDataReader reader)
+        protected Board MapReaderToEntity(SqlDataReader reader)
         {
             return new Board
             {
