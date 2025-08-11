@@ -1,7 +1,7 @@
 using System.Data.SqlClient;
 namespace UnitTestForTrello.Repositories
 {
-    public abstract class RepositoryBase<T> : IRepository<T>
+    public abstract class RepositoryBase
     {
         protected readonly SqlConnection _con;
         protected readonly SqlTransaction _tran;
@@ -12,12 +12,12 @@ namespace UnitTestForTrello.Repositories
             _tran = tran;
         }
 
-        public abstract int Create(T entity);
-        public abstract T? GetById(int id);
-        public abstract List<T> GetAll();
-        public abstract bool Update(T entity);
-        public abstract bool Delete(int id);
+        //public abstract int Create(T entity);
+        //public abstract T? GetById(int id);
+        //public abstract List<T> GetAll();
+        //public abstract bool Update(T entity);
+        //public abstract bool Delete(int id);
 
-        protected abstract T MapReaderToEntity(SqlDataReader reader);
+        //protected abstract T MapReaderToEntity(SqlDataReader reader);
     }
 }

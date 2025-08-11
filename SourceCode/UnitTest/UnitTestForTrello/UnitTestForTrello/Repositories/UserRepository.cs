@@ -8,11 +8,11 @@ using UnitTestForTrello.Models;
 
 namespace UnitTestForTrello.Repositories
 {
-    public class UserRepository : RepositoryBase<User>
+    public class UserRepository : RepositoryBase
     {
         public UserRepository(SqlConnection con, SqlTransaction tran) : base(con, tran) { }
 
-        public override int Create(User entity)
+        public int Create(User entity)
         {
             using var cmd = new SqlCommand(@"
                     INSERT INTO Users 
@@ -32,7 +32,7 @@ namespace UnitTestForTrello.Repositories
             return Convert.ToInt32(cmd.ExecuteScalar());
         }
 
-        public override User? GetById(int id)
+        public User? GetById(int id)
         {
             using var cmd = new SqlCommand("SELECT * FROM Users WHERE Id = @Id", _con, _tran);
             cmd.Parameters.AddWithValue("@Id", id);
@@ -45,7 +45,7 @@ namespace UnitTestForTrello.Repositories
             return null;
         }
 
-        public override List<User> GetAll()
+        public List<User> GetAll()
         {
             var users = new List<User>();
             using var cmd = new SqlCommand("SELECT * FROM Users", _con, _tran);
@@ -58,7 +58,7 @@ namespace UnitTestForTrello.Repositories
             return users;
         }
 
-        public override bool Update(User entity)
+        public bool Update(User entity)
         {
             using var cmd = new SqlCommand(@"
                     UPDATE Users SET
@@ -83,7 +83,7 @@ namespace UnitTestForTrello.Repositories
             return cmd.ExecuteNonQuery() > 0;
         }
 
-        public override bool Delete(int id)
+        public bool Delete(int id)
         {
             using var cmd = new SqlCommand("DELETE FROM Users WHERE Id = @Id", _con, _tran);
             cmd.Parameters.AddWithValue("@Id", id);
@@ -91,7 +91,7 @@ namespace UnitTestForTrello.Repositories
             return cmd.ExecuteNonQuery() > 0;
         }
 
-        protected override User MapReaderToEntity(SqlDataReader reader)
+        protected User MapReaderToEntity(SqlDataReader reader)
         {
             return new User
             {
