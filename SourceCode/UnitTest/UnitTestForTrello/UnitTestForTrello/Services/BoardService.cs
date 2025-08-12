@@ -1,8 +1,7 @@
 ﻿using UnitTestForTrello.Models.DTOs;
 using UnitTestForTrello.Repositories.IRepositories;
-using UnitTestForTrello.Services.IServices;
 
-namespace UnitTestForTrello.Repositories
+namespace UnitTestForTrello.Services.IServices
 {
     public class BoardService : IBoardService
     {
@@ -21,6 +20,11 @@ namespace UnitTestForTrello.Repositories
         public IEnumerable<RecentlyBoardDTO> GetRecentlyBoards(int userId)
         {
             return _boardRepository.GetRecentlyBoardsByUser(userId);
+        }
+
+        public IEnumerable<BoardWithWorkspaceDTO> GetBoardsWithWorkspaceByUser(int userId)
+        {
+            return _boardRepository.GetBoardsWithWorkspaceByUser(userId);
         }
     }
 }

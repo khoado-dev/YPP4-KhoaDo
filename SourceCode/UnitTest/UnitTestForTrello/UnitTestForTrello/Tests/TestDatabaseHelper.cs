@@ -54,6 +54,24 @@ namespace UnitTestForTrello.Tests
                 );
             ", transaction: transaction);
 
+            connection.Execute(@"
+                CREATE TABLE Workspace (
+                    Id INTEGER PRIMARY KEY,
+                    WorkspaceName TEXT,
+                    LogoUrl TEXT,
+                    CreatedAt TEXT
+                );
+            ", transaction: transaction);
+
+            connection.Execute(@"
+                CREATE TABLE Members (
+                    UserId INTEGER,
+                    OwnerId INTEGER,
+                    OwnerTypeId INTEGER
+                );
+            ", transaction: transaction);
+
+
             return (connection, transaction);
         }
 
@@ -98,6 +116,37 @@ namespace UnitTestForTrello.Tests
                 (3, 2, 1, 1, datetime('now', '-3 day'));
         ", transaction: transaction);
         }
+        public static void SeedWorkspaces(IDbConnection connection, IDbTransaction transaction)
+        {
+            connection.Execute(@"
+                INSERT INTO Workspace (Id, WorkspaceName, LogoUrl, CreatedAt)
+                VALUES 
+                    (1, 'Workspace 1', 'logo1.png', datetime('now', '-5 day')),
+                    (2, 'Workspace 2', 'logo2.png', datetime('now', '-10 day'));
+            ", transaction: transaction);
+        }
+
+        public static void SeedMembersOfWorkspace(IDbConnection connection, IDbTransaction transaction)
+        {
+            connection.Execute(@"
+                INSERT INTO Members (UserId, OwnerId, OwnerTypeId)
+                VALUES
+                    (1, 1, 2), -- User 1 thuộc Workspace 1
+                    (1, 2, 2), -- User 1 thuộc Workspace 2
+                    (2, 1, 2); -- User 2 thuộc Workspace 1
+            ", transaction: transaction);
+        }
+
+        public static void SeedMembersOfBoard(IDbConnection connection, IDbTransaction transaction)
+        {
+            connection.Execute(@"
+                INSERT INTO Members (UserId, OwnerId, OwnerTypeId)
+                VALUES
+                    (1, 1, 1),  -- User 1 là thành viên của Board 1 (OwnerTypeId = 1 => BOARD)
+                    (1, 2, 1),  -- User 1 là thành viên của Board 2
+                    (2, 3, 1);  -- User 2 là thành viên của Board 3
+            ", transaction: transaction);
+        }
 
         public static void SeedAllData(IDbConnection connection, IDbTransaction transaction)
         {
@@ -105,6 +154,9 @@ namespace UnitTestForTrello.Tests
             SeedUserStarredBoards(connection, transaction);
             SeedOwnerTypes(connection, transaction);
             SeedUserViewHistories(connection, transaction);
+            SeedWorkspaces(connection, transaction);
+            SeedMembersOfWorkspace(connection, transaction);
+            SeedMembersOfBoard(connection, transaction);
         }
     }
 }

@@ -53,5 +53,24 @@ namespace UnitTestForTrello.Repositories
 
             return _con.Query<RecentlyBoardDTO>(sql, new { UserId = userId }, _tran);
         }
+
+        public IEnumerable<BoardWithWorkspaceDTO> GetBoardsWithWorkspaceByUser(int userId)
+        {
+            const string sql = @"
+            SELECT 
+                brd.Id BoardId,
+                brd.BoardName AS BoardName, 
+                brd.BackgroundUrl AS BoardBackground,
+                wo.WorkspaceName AS WorkspaceName,
+                brd.CreatedAt
+            FROM Board brd
+            JOIN Members me ON me.OwnerId = brd.Id
+            JOIN Workspace wo ON wo.Id = brd.WorkspaceId
+            JOIN OwnerType owt ON owt.Id = me.OwnerTypeId
+            WHERE me.UserId = @UserId AND owt.OwnerTypeValue = 'BOARD'
+            ORDER BY brd.CreatedAt;";
+
+            return _con.Query<BoardWithWorkspaceDTO>(sql, new { UserId = userId }, _tran);
+        }
     }
 }
