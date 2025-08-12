@@ -37,10 +37,5 @@ namespace UnitTestForTrello.Repositories
 
             return _con.Query<BoardDTO>(sql, new { UserId = userId }, _tran);
         }
-
-        internal object GetStarredBoards(int loggedIngInUserId)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
