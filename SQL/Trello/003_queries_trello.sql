@@ -6,7 +6,8 @@ SELECT
     brd.BackgroundUrl,
     brd.BoardName,
     brd.BoardStatus,
-    usb.StarredBoardsStatus
+    usb.StarredBoardsStatus,
+    usb.CreatedAt
 FROM UserStarredBoard usb
 JOIN Board brd ON brd.Id = usb.BoardId
 WHERE UserId = 1 AND brd.BoardStatus = 'active' AND usb.StarredBoardsStatus = 1
@@ -14,11 +15,12 @@ ORDER BY usb.CreatedAt DESC
 
 --List all Board that the user has accessed recently 
 SELECT 
-        brd.Id board_id,
-        brd.BoardName board_name, 
-        brd.BackgroundUrl,
-        uvh.AccessedAt,
-        brd.BoardStatus
+    uvh.UserId,
+    brd.Id BoardId,
+    brd.BoardName, 
+    brd.BackgroundUrl,
+    uvh.AccessedAt,
+    brd.BoardStatus
 FROM UserViewHistory uvh
 JOIN Board brd ON brd.Id = uvh.OwnerId
 JOIN OwnerType owt ON owt.Id = uvh.OwnerTypeId

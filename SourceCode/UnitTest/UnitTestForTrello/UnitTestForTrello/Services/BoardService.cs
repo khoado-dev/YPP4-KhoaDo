@@ -13,10 +13,14 @@ namespace UnitTestForTrello.Repositories
             _boardRepository = boardRepository;
         }
 
-        public IEnumerable<BoardDTO> GetStarredBoards(int userId)
+        public IEnumerable<StarredBoardDTO> GetStarredBoards(int userId)
         {
             return _boardRepository.GetStarredBoardsByUser(userId);
         }
 
+        public IEnumerable<RecentlyBoardDTO> GetRecentlyBoards(int userId)
+        {
+            return _boardRepository.GetRecentlyBoardsByUser(userId);
+        }
     }
 }

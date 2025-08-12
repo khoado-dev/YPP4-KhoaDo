@@ -24,7 +24,7 @@ namespace UnitTestForTrello.Tests
         }
 
         [TestMethod]
-        public void GetStarredActiveBoards()
+        public void GetStarredBoardsTest()
         {
             int loggedIngInUserId = 1;
 
@@ -33,6 +33,17 @@ namespace UnitTestForTrello.Tests
             Assert.IsNotNull(result);
             Assert.AreEqual(1, result.Count);
             Assert.IsTrue(result.All(b => b.BoardStatus == "active"));
+        }
+
+        [TestMethod]
+        public void GetRecentlyBoardsTest()
+        {
+            int loggedIngInUserId = 1;
+
+            var result = _boardService.GetRecentlyBoards(loggedIngInUserId).ToList();
+
+            Assert.IsNotNull(result);
+            Assert.AreEqual(2, result.Count);
         }
 
         [TestCleanup]
