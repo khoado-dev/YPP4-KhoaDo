@@ -25,7 +25,7 @@ namespace UnitTestForTrello.Tests
                 );
             ", transaction: transaction);
 
-            // UserStarredBoard table (giữ nguyên)
+            // UserStarredBoard table
             connection.Execute(@"
                 CREATE TABLE UserStarredBoard (
                     UserId INTEGER,
@@ -57,37 +57,54 @@ namespace UnitTestForTrello.Tests
             return (connection, transaction);
         }
 
-        public static void AddSeedTestData(IDbConnection connection, IDbTransaction transaction)
+        public static void SeedBoards(IDbConnection connection, IDbTransaction transaction)
         {
-            // Seed Board
             connection.Execute(@"
-                INSERT INTO Board (Id, BoardName, BoardDescription, CreatedAt, BackgroundUrl, BoardStatus, WorkspaceId)
-                VALUES (1, 'Test Board 1', 'Description', datetime('now'), 'url1', 'active', 1),
-                       (2, 'Inactive Board', 'Description', datetime('now'), 'url2', 'archived', 1);
-            ", transaction: transaction);
+            INSERT INTO Board (Id, BoardName, BoardDescription, CreatedAt, BackgroundUrl, BoardStatus, WorkspaceId)
+            VALUES 
+                (1, 'Test Board 1', 'Description', datetime('now'), 'url1', 'active', 1),
+                (2, 'Test Board 2', 'Description', datetime('now'), 'url2', 'active', 1),
+                (3, 'Inactive Board', 'Description', datetime('now'), 'url3', 'archived', 1);
+        ", transaction: transaction);
+        }
 
-            // Seed UserStarredBoard (giữ nguyên)
+        public static void SeedUserStarredBoards(IDbConnection connection, IDbTransaction transaction)
+        {
             connection.Execute(@"
-                INSERT INTO UserStarredBoard (UserId, BoardId, CreatedAt, StarredBoardsStatus)
-                VALUES (1, 1, datetime('now'), 1),
-                       (1, 2, datetime('now'), 1);
-            ", transaction: transaction);
+            INSERT INTO UserStarredBoard (UserId, BoardId, CreatedAt, StarredBoardsStatus)
+            VALUES 
+                (1, 1, datetime('now'), 1),
+                (1, 2, datetime('now'), 1);
+        ", transaction: transaction);
+        }
 
-            // Seed OwnerType
+        public static void SeedOwnerTypes(IDbConnection connection, IDbTransaction transaction)
+        {
             connection.Execute(@"
-                INSERT INTO OwnerType (Id, OwnerTypeValue)
-                VALUES (1, 'BOARD'),
-                       (2, 'WORKSPACE');
-            ", transaction: transaction);
+            INSERT INTO OwnerType (Id, OwnerTypeValue)
+            VALUES 
+                (1, 'BOARD'),
+                (2, 'WORKSPACE');
+        ", transaction: transaction);
+        }
 
-            // Seed UserViewHistory
+        public static void SeedUserViewHistories(IDbConnection connection, IDbTransaction transaction)
+        {
             connection.Execute(@"
-                INSERT INTO UserViewHistory (Id, UserId, OwnerId, OwnerTypeId, AccessedAt)
-                VALUES 
-                    (1, 1, 1, 1, datetime('now', '-1 day')),
-                    (2, 1, 2, 1, datetime('now', '-2 day')),
-                    (3, 2, 1, 1, datetime('now', '-3 day')); -- user khác để test lọc
-            ", transaction: transaction);
+            INSERT INTO UserViewHistory (Id, UserId, OwnerId, OwnerTypeId, AccessedAt)
+            VALUES 
+                (1, 1, 1, 1, datetime('now', '-1 day')),
+                (2, 1, 2, 1, datetime('now', '-2 day')),
+                (3, 2, 1, 1, datetime('now', '-3 day'));
+        ", transaction: transaction);
+        }
+
+        public static void SeedAllData(IDbConnection connection, IDbTransaction transaction)
+        {
+            SeedBoards(connection, transaction);
+            SeedUserStarredBoards(connection, transaction);
+            SeedOwnerTypes(connection, transaction);
+            SeedUserViewHistories(connection, transaction);
         }
     }
 }
