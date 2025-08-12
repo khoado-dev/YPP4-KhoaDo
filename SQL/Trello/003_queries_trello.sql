@@ -5,10 +5,11 @@ SELECT
     brd.Id BoardId,
     brd.BackgroundUrl,
     brd.BoardName,
-    brd.BoardStatus
+    brd.BoardStatus,
+    usb.StarredBoardsStatus
 FROM UserStarredBoard usb
 JOIN Board brd ON brd.Id = usb.BoardId
-WHERE UserId = 1 AND brd.BoardStatus = 'active'
+WHERE UserId = 1 AND brd.BoardStatus = 'active' AND usb.StarredBoardsStatus = 1
 ORDER BY usb.CreatedAt DESC
 
 --List all Board that the user has accessed recently 
