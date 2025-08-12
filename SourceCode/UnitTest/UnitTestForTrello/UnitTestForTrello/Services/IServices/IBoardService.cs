@@ -11,5 +11,6 @@ namespace UnitTestForTrello.Services.IServices
     {
         public IEnumerable<StarredBoardDTO> GetStarredBoards(int userId);
         public IEnumerable<RecentlyBoardDTO> GetRecentlyBoards(int userId);
+        public IEnumerable<BoardWithWorkspaceDTO> GetBoardsWithWorkspaceByUser(int userId);
     }
 }

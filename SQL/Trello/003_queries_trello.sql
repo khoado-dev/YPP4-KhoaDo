@@ -31,7 +31,9 @@ ORDER BY uvh.AccessedAt DESC;
 SELECT 
     wsp.Id WorkspaceId,
     wsp.WorkspaceName, 
-    wsp.LogoUrl
+    wsp.LogoUrl,
+    me.UserId,
+    wsp.CreatedAt
 FROM Workspace wsp
 JOIN Members me ON me.OwnerId = wsp.Id
 JOIN OwnerType owt ON owt.Id = me.OwnerTypeId
@@ -41,9 +43,10 @@ ORDER BY wsp.CreatedAt;
 --List all Board  that the current user is a member of belonging to a specific workspace.
 SELECT 
     brd.Id BoardId,
-    brd.BoardName AS board_name, 
-    brd.BackgroundUrl AS board_background,
-    wo.WorkspaceName AS workspace_name
+    brd.BoardName AS BoardName, 
+    brd.BackgroundUrl AS BoardBackground,
+    wo.WorkspaceName AS WorkspaceName,
+    brd.CreatedAt
 FROM Board brd
 JOIN Members me ON me.OwnerId = brd.Id
 JOIN Workspace wo ON wo.Id = brd.WorkspaceId

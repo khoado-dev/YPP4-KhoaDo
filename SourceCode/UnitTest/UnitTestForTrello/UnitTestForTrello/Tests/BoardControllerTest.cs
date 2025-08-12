@@ -27,13 +27,16 @@ namespace UnitTestForTrello.Tests
             TestDatabaseHelper.SeedUserStarredBoards(_connection, _transaction);
             TestDatabaseHelper.SeedUserViewHistories(_connection, _transaction);
 
+            TestDatabaseHelper.SeedWorkspaces(_connection, _transaction);
+            TestDatabaseHelper.SeedMembersOfBoard(_connection, _transaction);
+
             IBoardRepository boardRepository = new BoardRepository(_connection, _transaction);
             IBoardService boardService = new BoardService(boardRepository);
             _boardController = new BoardController(boardService);
         }
 
         [TestMethod]
-        public void GetStarredBoards()
+        public void GetStarredBoardsTest()
         {
             var result = _boardController?.GetStarredBoards(loggeddInUserId).ToList();
 
@@ -43,13 +46,22 @@ namespace UnitTestForTrello.Tests
         }
 
         [TestMethod]
-        public void GetRecentlyBoards()
+        public void GetRecentlyBoardsTest()
         {
             var result = _boardController?.GetRecentlyBoards(loggeddInUserId).ToList();
 
             Assert.IsNotNull(result);
             Assert.AreEqual(2, result.Count);
             Assert.IsTrue(result.All(b => b.BoardStatus == ACTIVE_BOARD_STATUS));
+        }
+
+        [TestMethod]
+        public void GetBoardsWithWorkspaceByUserTest()
+        {
+            var result = _boardController?.GetBoardsWithWorkspaceByUser(loggeddInUserId).ToList();
+
+            Assert.IsNotNull(result);
+            Assert.AreEqual(2, result.Count);
         }
 
         [TestCleanup]

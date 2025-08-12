@@ -8,6 +8,6 @@
         public string BackgroundUrl { get; set; }
         public string BoardStatus { get; set; }
         public bool StarredBoardsStatus { get; set; }
-        public DateTime CreatedAt { get; set; } = DateTime.Now;
+        public DateTime CreatedAt { get; set; }
     }
 }
