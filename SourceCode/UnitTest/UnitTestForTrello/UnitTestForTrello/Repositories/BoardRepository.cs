@@ -20,7 +20,7 @@ namespace UnitTestForTrello.Repositories
             _tran = tran;
         }
 
-        public IEnumerable<BoardDTO> GetStarredBoardsByUser(int userId)
+        public IEnumerable<StarredBoardDTO> GetStarredBoardsByUser(int userId)
         {
             const string sql = @"
             SELECT
@@ -33,9 +33,28 @@ namespace UnitTestForTrello.Repositories
             JOIN Board brd ON brd.Id = usb.BoardId
             WHERE usb.UserId = @UserId
               AND brd.BoardStatus = 'active'
-            ORDER BY usb.CreatedAt DESC";
+            ORDER BY usb.CreatedAt DESC;";
 
-            return _con.Query<BoardDTO>(sql, new { UserId = userId }, _tran);
+            return _con.Query<StarredBoardDTO>(sql, new { UserId = userId }, _tran);
+        }
+
+        public IEnumerable<RecentlyBoardDTO> GetRecentlyBoardsByUser(int userId)
+        {
+            const string sql = @"
+            SELECT 
+                uvh.UserId,
+                brd.Id BoardId,
+                brd.BoardName, 
+                brd.BackgroundUrl,
+                uvh.AccessedAt,
+                brd.BoardStatus
+            FROM UserViewHistory uvh
+            JOIN Board brd ON brd.Id = uvh.OwnerId
+            JOIN OwnerType owt ON owt.Id = uvh.OwnerTypeId
+            WHERE uvh.UserId = @UserId AND owt.OwnerTypeValue = 'BOARD'
+            ORDER BY uvh.AccessedAt DESC;";
+
+            return _con.Query<RecentlyBoardDTO>(sql, new { UserId = userId }, _tran);
         }
     }
 }
