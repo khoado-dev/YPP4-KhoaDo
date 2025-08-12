@@ -24,7 +24,7 @@ SELECT
 FROM UserViewHistory uvh
 JOIN Board brd ON brd.Id = uvh.OwnerId
 JOIN OwnerType owt ON owt.Id = uvh.OwnerTypeId
-WHERE uvh.UserId = 5 AND owt.OwnerTypeValue = 'BOARD'
+WHERE uvh.UserId = 5 AND owt.OwnerTypeValue = 'BOARD' AND brd.BoardStatus = 'active'
 ORDER BY uvh.AccessedAt DESC;
 
 --List all Workspace that the current user is a member of.

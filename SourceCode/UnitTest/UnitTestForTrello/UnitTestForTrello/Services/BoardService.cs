@@ -1,14 +1,14 @@
-﻿using Dapper;
-using System.Data;
-using UnitTestForTrello.Models.DTOs;
+﻿using UnitTestForTrello.Models.DTOs;
+using UnitTestForTrello.Repositories.IRepositories;
+using UnitTestForTrello.Services.IServices;
 
 namespace UnitTestForTrello.Repositories
 {
-    public class BoardService
+    public class BoardService : IBoardService
     {
-        private readonly BoardRepository _boardRepository;
+        private readonly IBoardRepository _boardRepository;
 
-        public BoardService(BoardRepository boardRepository)
+        public BoardService(IBoardRepository boardRepository)
         {
             _boardRepository = boardRepository;
         }
