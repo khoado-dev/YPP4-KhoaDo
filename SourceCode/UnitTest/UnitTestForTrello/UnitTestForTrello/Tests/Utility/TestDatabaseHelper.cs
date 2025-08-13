@@ -93,6 +93,72 @@ namespace UnitTestForTrello.Tests.Utility
             );
             ", transaction: transaction);
 
+            connection.Execute(@"
+            CREATE TABLE Color (
+                Id INTEGER PRIMARY KEY,
+                ColorName TEXT
+            );
+            ", transaction: transaction);
+
+            // Stage
+            connection.Execute(@"
+            CREATE TABLE Stage (
+                Id INTEGER PRIMARY KEY,
+                Title TEXT,
+                Position INTEGER,
+                BoardId INTEGER,
+                ColorId INTEGER
+            );
+            ", transaction: transaction);
+
+            // Cards
+            connection.Execute(@"
+            CREATE TABLE Cards (
+                Id INTEGER PRIMARY KEY,
+                Title TEXT,
+                Position INTEGER,
+                StageId INTEGER,
+                CardLocation TEXT,
+                CoverValue TEXT
+            );
+            ", transaction: transaction);
+
+            // Comment
+            connection.Execute(@"
+            CREATE TABLE Comment (
+                Id INTEGER PRIMARY KEY,
+                CardId INTEGER,
+                Content TEXT
+            );
+            ", transaction: transaction);
+
+            // CheckList
+            connection.Execute(@"
+            CREATE TABLE CheckList (
+                Id INTEGER PRIMARY KEY,
+                CardId INTEGER,
+                Title TEXT
+            );
+            ", transaction: transaction);
+
+            // CheckListItem
+            connection.Execute(@"
+            CREATE TABLE CheckListItem (
+                Id INTEGER PRIMARY KEY,
+                CheckListId INTEGER,
+                Title TEXT
+            );
+            ", transaction: transaction);
+
+            // Attachment
+            connection.Execute(@"
+            CREATE TABLE Attachment (
+                Id INTEGER PRIMARY KEY,
+                CardId INTEGER,
+                FileUrl TEXT
+            );
+            ", transaction: transaction);
+
 
             return (connection, transaction);
         }
@@ -198,16 +264,73 @@ namespace UnitTestForTrello.Tests.Utility
             ", transaction: transaction);
         }
 
+        public static void SeedCardRelatedData(IDbConnection connection, IDbTransaction transaction)
+        {
+            // Color
+            connection.Execute(@"
+            INSERT INTO Color (Id, ColorName) VALUES
+            (1, 'Red'),
+            (2, 'Blue');
+            ", transaction: transaction);
+
+            // Stage
+            connection.Execute(@"
+            INSERT INTO Stage (Id, Title, Position, BoardId, ColorId) VALUES
+            (1, 'To Do', 1, 1, 1),
+            (2, 'In Progress', 2, 1, 2);
+            ", transaction: transaction);
+
+            // Cards
+            connection.Execute(@"
+            INSERT INTO Cards (Id, Title, Position, StageId, CardLocation, CoverValue) VALUES
+            (1, 'Card 1', 1, 1, 'List 1', 'Cover1'),
+            (2, 'Card 2', 2, 1, 'List 1', 'Cover2'),
+            (3, 'Card 3', 1, 2, 'List 2', 'Cover3');
+            ", transaction: transaction);
+
+            // Comment
+            connection.Execute(@"
+            INSERT INTO Comment (Id, CardId, Content) VALUES
+            (1, 1, 'First comment'),
+            (2, 1, 'Second comment'),
+            (3, 2, 'Only comment');
+            ", transaction: transaction);
+
+            // CheckList + CheckListItem
+            connection.Execute(@"
+            INSERT INTO CheckList (Id, CardId, Title) VALUES
+            (1, 1, 'Checklist 1'),
+            (2, 2, 'Checklist 2');
+
+            INSERT INTO CheckListItem (Id, CheckListId, Title) VALUES
+            (1, 1, 'Item 1'),
+            (2, 1, 'Item 2'),
+            (3, 2, 'Item 3');
+            ", transaction: transaction);
+
+            // Attachment
+            connection.Execute(@"
+            INSERT INTO Attachment (Id, CardId, FileUrl) VALUES
+            (1, 1, 'file1.jpg'),
+            (2, 1, 'file2.png'),
+            (3, 3, 'file3.docx');
+            ", transaction: transaction);
+        }
         public static void SeedAllData(IDbConnection connection, IDbTransaction transaction)
         {
+            SeedUsers(connection, transaction);
+            SeedWorkspaceTypes(connection, transaction);
+            SeedWorkspaces(connection, transaction);
+            SeedOwnerTypes(connection, transaction);
+
             SeedBoards(connection, transaction);
             SeedUserStarredBoards(connection, transaction);
-            SeedOwnerTypes(connection, transaction);
-            SeedUserViewHistories(connection, transaction);
-            SeedWorkspaces(connection, transaction);
             SeedMembersOfWorkspace(connection, transaction);
             SeedMembersOfBoard(connection, transaction);
-            SeedUsers(connection, transaction);
+
+            SeedUserViewHistories(connection, transaction);
+
+            SeedCardRelatedData(connection, transaction);
         }
     }
 }

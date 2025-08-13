@@ -10,32 +10,33 @@ using UnitTestForTrello.Tests.Utility;
 namespace UnitTestForTrello.Tests
 {
     [TestClass]
-    public class UserControllerTest
+    public class CardControllerTest
     {
         private SqliteConnection? _connection;
         private IDbTransaction? _transaction;
-        private UserController? _userController;
+        private CardController? _cardController;
 
-        private const string loggeddInUserEmail = "james85@booth-daniels.net";
+        private const int boardId = 1;
 
         [TestInitialize]
         public void Setup()
         {
             (_connection, _transaction) = TestDatabaseHelper.CreateInMemoryDatabaseAndSchema();
-            TestDatabaseHelper.SeedUsers(_connection, _transaction);
+            TestDatabaseHelper.SeedAllData(_connection, _transaction);
 
-            IUserRepository userRepository = new UserRepository(_connection, _transaction);
-            IUserService userService = new UserService(userRepository);
-            _userController = new UserController(userService);
+            ICardRepository cardRepository = new CardRepository(_connection, _transaction);
+            ICardService cardService = new CardService(cardRepository);
+            _cardController = new CardController(cardService);
         }
 
         [TestMethod]
-        public void GetUserByEmailTest()
+        public void GetCardSummariesByBoardIdTest()
         {
-            var result = _userController?.GetUserByEmail(loggeddInUserEmail);
+            int expectedNumberOfCards = 3;
+            var actualResult = _cardController?.GetCardSummariesByBoardId(boardId).ToList();
 
-            Assert.IsNotNull(result);
-            Assert.AreEqual(loggeddInUserEmail, result.Email);
+            Assert.IsNotNull(actualResult);
+            Assert.AreEqual(expectedNumberOfCards, actualResult.Count);
         }
 
         [TestCleanup]

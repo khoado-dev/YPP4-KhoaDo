@@ -76,8 +76,6 @@ namespace UnitTestForTrello.Tests
             Assert.AreEqual(expectedDTO.WorkspaceDescription, actualResult.WorkspaceDescription);
         }
 
-
-
         [TestCleanup]
         public void Cleanup()
         {
