@@ -1,5 +1,4 @@
 ﻿using Microsoft.Data.Sqlite;
-using System;
 using System.Data;
 using UnitTestForTrello.Controllers;
 using UnitTestForTrello.Repositories;
@@ -24,13 +23,7 @@ namespace UnitTestForTrello.Tests
         public void Setup()
         {
             (_connection, _transaction) = TestDatabaseHelper.CreateInMemoryDatabaseAndSchema();
-            TestDatabaseHelper.SeedBoards(_connection, _transaction);
-            TestDatabaseHelper.SeedOwnerTypes(_connection, _transaction);
-            TestDatabaseHelper.SeedUserStarredBoards(_connection, _transaction);
-            TestDatabaseHelper.SeedUserViewHistories(_connection, _transaction);
-
-            TestDatabaseHelper.SeedWorkspaces(_connection, _transaction);
-            TestDatabaseHelper.SeedMembersOfBoard(_connection, _transaction);
+            TestDatabaseHelper.SeedAllData(_connection, _transaction);
 
             IBoardRepository boardRepository = new BoardRepository(_connection, _transaction);
             IBoardService boardService = new BoardService(boardRepository);

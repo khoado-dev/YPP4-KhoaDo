@@ -235,7 +235,9 @@ namespace UnitTestForTrello.Tests.Utility
                 VALUES
                     (1, 1, 2),  -- User 1 là thành viên của Board 1 (OwnerTypeId = 2 => BOARD)
                     (1, 2, 2),  -- User 1 là thành viên của Board 2
-                    (2, 3, 2);  -- User 2 là thành viên của Board 3
+                    (2, 3, 2),  -- User 2 là thành viên của Board 3
+                    (2, 1, 2),  -- thêm User 2 vào Board 1
+                    (3, 1, 2);  -- thêm User 3 vào Board 1
             ", transaction: transaction);
         }
 

@@ -10,13 +10,13 @@ using UnitTestForTrello.Tests.Utility;
 namespace UnitTestForTrello.Tests
 {
     [TestClass]
-    public class UserControllerTest
+    public class MemberControllerTest
     {
         private SqliteConnection? _connection;
         private IDbTransaction? _transaction;
-        private UserController? _userController;
+        private MemberController? _memberController;
 
-        private const string loggeddInUserEmail = "james85@booth-daniels.net";
+        private const int boardId = 1;
 
         [TestInitialize]
         public void Setup()
@@ -24,18 +24,19 @@ namespace UnitTestForTrello.Tests
             (_connection, _transaction) = TestDatabaseHelper.CreateInMemoryDatabaseAndSchema();
             TestDatabaseHelper.SeedAllData(_connection, _transaction);
 
-            IUserRepository userRepository = new UserRepository(_connection, _transaction);
-            IUserService userService = new UserService(userRepository);
-            _userController = new UserController(userService);
+            IMemberRepository memberRepository = new MemberRepository(_connection, _transaction);
+            IMemberService memberService = new MemberService(memberRepository);
+            _memberController = new MemberController(memberService);
         }
 
         [TestMethod]
-        public void GetUserByEmailTest()
+        public void GetMemberByBoardIdTest()
         {
-            var result = _userController?.GetUserByEmail(loggeddInUserEmail);
+            int expectedNumberOfMembersInBoard = 3;
+            var result = _memberController?.GetMembersByBoardId(boardId).ToList();
 
             Assert.IsNotNull(result);
-            Assert.AreEqual(loggeddInUserEmail, result.Email);
+            Assert.IsTrue(result.Count == expectedNumberOfMembersInBoard);
         }
 
         [TestCleanup]
