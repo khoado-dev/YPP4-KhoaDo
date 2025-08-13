@@ -5,6 +5,7 @@ using UnitTestForTrello.Controllers;
 using UnitTestForTrello.Repositories;
 using UnitTestForTrello.Repositories.IRepositories;
 using UnitTestForTrello.Services.IServices;
+using UnitTestForTrello.Tests.Utility;
 
 namespace UnitTestForTrello.Tests
 {
@@ -59,6 +60,16 @@ namespace UnitTestForTrello.Tests
         public void GetBoardsWithWorkspaceByUserTest()
         {
             var result = _boardController?.GetBoardsWithWorkspaceByUser(loggeddInUserId).ToList();
+
+            Assert.IsNotNull(result);
+            Assert.AreEqual(2, result.Count);
+        }
+
+        [TestMethod]
+        public void GetOwnedMemberBoardsInWorkspaceTest()
+        {
+            int workspaceId = 1;
+            var result = _boardController?.GetOwnedMemberBoardsInWorkspace(loggeddInUserId, workspaceId).ToList();
 
             Assert.IsNotNull(result);
             Assert.AreEqual(2, result.Count);

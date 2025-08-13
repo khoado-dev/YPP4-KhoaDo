@@ -24,5 +24,10 @@ namespace UnitTestForTrello.Controllers
         {
             return _boardService.GetBoardsWithWorkspaceByUser(userId);
         }
+
+        public IEnumerable<BoardWithWorkspaceDTO> GetOwnedMemberBoardsInWorkspace(int loggeddInUserId, int workspaceId)
+        {
+            return _boardService.GetBoardsByUserIdAndWorkspaceId(loggeddInUserId, workspaceId);
+        }
     }
 }

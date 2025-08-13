@@ -26,5 +26,10 @@ namespace UnitTestForTrello.Services.IServices
         {
             return _boardRepository.GetBoardsWithWorkspaceByUser(userId);
         }
+
+        public IEnumerable<BoardWithWorkspaceDTO> GetBoardsByUserIdAndWorkspaceId(int loggeddInUserId, int workspaceId)
+        {
+            return _boardRepository.GetBoardsByUserIdAndWorkspaceId(loggeddInUserId, workspaceId);
+        }
     }
 }

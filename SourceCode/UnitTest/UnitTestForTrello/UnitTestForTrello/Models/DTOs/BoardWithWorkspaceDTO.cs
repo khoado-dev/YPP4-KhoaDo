@@ -7,7 +7,8 @@
         public string BackgroundUrl { get; set; }       
         public string WorkspaceName { get; set; }
         public int WorkspaceId { get; set; }
-        public DateTime CreatedAt { get; set; }
+        public DateTime? CreatedAt { get; set; }
+        public int? CreatedBy { get; set; }
     }
 
 }
