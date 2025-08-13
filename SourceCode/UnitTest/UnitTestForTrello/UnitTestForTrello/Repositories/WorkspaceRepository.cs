@@ -17,6 +17,22 @@ namespace UnitTestForTrello.Tests
             _tran = tran;
         }
 
+        public WorkspaceDetailDTO? GetWorkspaceDetailById(int workspaceId)
+        {
+            const string sql = @"
+            SELECT 
+                Id WorkspaceId,
+                LogoUrl,
+                WorkspaceName,
+                ShortName,
+                Website,
+                WorkspaceDescription
+            FROM Workspace
+            WHERE Id = @WorkspaceId";
+
+            return _con.QueryFirstOrDefault<WorkspaceDetailDTO>(sql, new { WorkspaceId = workspaceId }, _tran);
+        }
+
         public IEnumerable<WorkspaceMemberDTO> GetWorkspacesByUserId(int userId)
         {
             const string sql = @"

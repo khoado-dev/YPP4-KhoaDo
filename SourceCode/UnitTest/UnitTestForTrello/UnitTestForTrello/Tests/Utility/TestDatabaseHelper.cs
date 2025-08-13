@@ -70,9 +70,12 @@ namespace UnitTestForTrello.Tests.Utility
                     WorkspaceName TEXT,
                     LogoUrl TEXT,
                     CreatedAt TEXT,
-                    WorkspaceTypeId INTEGER
+                    ShortName TEXT,
+                    Website TEXT,
+                    WorkspaceDescription TEXT
                 );
             ", transaction: transaction);
+
 
             connection.Execute(@"
                 CREATE TABLE Members (
@@ -141,10 +144,10 @@ namespace UnitTestForTrello.Tests.Utility
         public static void SeedWorkspaces(IDbConnection connection, IDbTransaction transaction)
         {
             connection.Execute(@"
-            INSERT INTO Workspace (Id, WorkspaceName, LogoUrl, CreatedAt, WorkspaceTypeId)
+            INSERT INTO Workspace (Id, WorkspaceName, LogoUrl, CreatedAt, ShortName, Website, WorkspaceDescription)
             VALUES 
-                (1, 'Workspace 1', 'logo1.png', datetime('now', '-5 day'), 1),
-                (2, 'Workspace 2', 'logo2.png', datetime('now', '-10 day'), 3);
+                (1, 'Workspace 1', 'logo1.png', datetime('now', '-5 day'), 'WS1', 'https://workspace1.com', 'Description for Workspace 1'),
+                (2, 'Workspace 2', 'logo2.png', datetime('now', '-10 day'), 'WS2', 'https://workspace2.com', 'Description for Workspace 2');
             ", transaction: transaction);
         }
 
