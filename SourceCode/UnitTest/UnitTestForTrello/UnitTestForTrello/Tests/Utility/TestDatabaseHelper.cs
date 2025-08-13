@@ -115,6 +115,7 @@ namespace UnitTestForTrello.Tests.Utility
             CREATE TABLE Cards (
                 Id INTEGER PRIMARY KEY,
                 Title TEXT,
+                CardDescription TEXT, -- thêm cột này
                 Position INTEGER,
                 StageId INTEGER,
                 CardLocation TEXT,
@@ -281,10 +282,10 @@ namespace UnitTestForTrello.Tests.Utility
 
             // Cards
             connection.Execute(@"
-            INSERT INTO Cards (Id, Title, Position, StageId, CardLocation, CoverValue) VALUES
-            (1, 'Card 1', 1, 1, 'List 1', 'Cover1'),
-            (2, 'Card 2', 2, 1, 'List 1', 'Cover2'),
-            (3, 'Card 3', 1, 2, 'List 2', 'Cover3');
+            INSERT INTO Cards (Id, Title, CardDescription, Position, StageId, CardLocation, CoverValue) VALUES
+            (1, 'Card 1', 'Description for Card 1', 1, 1, 'List 1', 'Cover1'),
+            (2, 'Card 2', 'Description for Card 2', 2, 1, 'List 1', 'Cover2'),
+            (3, 'Card 3', 'Description for Card 3', 1, 2, 'List 2', 'Cover3');
             ");
 
             // Comment
