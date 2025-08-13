@@ -72,7 +72,7 @@ SELECT
     TypeValue,
     DisplayValue
 FROM 
-    WorkspaceType
+    WorkspaceType;
 
 --List all boards in a specific workspace, created by a specific user, where the current user is a member.
 SELECT 

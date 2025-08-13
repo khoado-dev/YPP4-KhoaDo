@@ -17,5 +17,10 @@ namespace UnitTestForTrello.Tests
         {
             return _workspaceRepository.GetWorkspacesByUserId(userId);
         }
+
+        public IEnumerable<WorkspaceTypeDTO> GetWorkspaceTypes()
+        {
+            return _workspaceRepository.GetWorkspaceTypes();
+        }
     }
 }
