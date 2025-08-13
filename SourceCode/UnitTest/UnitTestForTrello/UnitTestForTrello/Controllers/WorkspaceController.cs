@@ -20,5 +20,10 @@ namespace UnitTestForTrello.Controllers
         {
             return _workspaceService.GetWorkspaceTypes();
         }
+
+        public WorkspaceDetailDTO GetWorkspaceDetailById(int workspaceId)
+        {
+            return _workspaceService.GetWorkspaceDetailById(workspaceId);
+        }
     }
 }
