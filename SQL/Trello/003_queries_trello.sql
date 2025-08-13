@@ -77,17 +77,18 @@ FROM
 --List all boards in a specific workspace, created by a specific user, where the current user is a member.
 SELECT 
     brd.Id BoardId,
-    brd.BoardName AS board_name, 
-    brd.BackgroundUrl AS board_background,
-    wo.WorkspaceName AS workspace_name,
+    brd.BoardName AS BoardName, 
+    brd.BackgroundUrl AS BoardBackground,
+    wo.Id WorkspaceId,
+    wo.WorkspaceName AS WorkspaceName,
     brd.CreatedBy,
-    me.UserId
+    brd.CreatedAt
 FROM Board brd
 JOIN Members me ON me.OwnerId = brd.Id
 JOIN Workspace wo ON wo.Id = brd.WorkspaceId
 JOIN OwnerType owt ON owt.Id = me.OwnerTypeId
 WHERE 
-me.UserId = 4 AND owt.OwnerTypeValue = 'BOARD' AND brd.CreatedBy = me.UserId
+me.UserId = 4  AND brd.CreatedBy = me.UserId AND owt.OwnerTypeValue = 'BOARD' AND wo.Id = 13
 ORDER BY brd.CreatedAt;
 
 --List all Board  that the current user is a member of belonging to a specific workspace.

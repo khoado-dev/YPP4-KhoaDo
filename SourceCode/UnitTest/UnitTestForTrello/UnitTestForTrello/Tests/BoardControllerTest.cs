@@ -65,6 +65,16 @@ namespace UnitTestForTrello.Tests
             Assert.AreEqual(2, result.Count);
         }
 
+        [TestMethod]
+        public void GetOwnedMemberBoardsInWorkspaceTest()
+        {
+            int workspaceId = 1;
+            var result = _boardController?.GetOwnedMemberBoardsInWorkspace(loggeddInUserId, workspaceId).ToList();
+
+            Assert.IsNotNull(result);
+            Assert.AreEqual(2, result.Count);
+        }
+
         [TestCleanup]
         public void Cleanup()
         {

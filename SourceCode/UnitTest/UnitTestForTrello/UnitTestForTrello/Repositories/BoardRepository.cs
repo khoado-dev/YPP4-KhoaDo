@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using System.Data;
+using UnitTestForTrello.Models;
 using UnitTestForTrello.Models.DTOs;
 using UnitTestForTrello.Repositories.IRepositories;
 
@@ -72,6 +73,27 @@ namespace UnitTestForTrello.Repositories
             ORDER BY brd.CreatedAt;";
 
             return _con.Query<BoardWithWorkspaceDTO>(sql, new { UserId = userId }, _tran);
+        }
+
+        public IEnumerable<BoardWithWorkspaceDTO> GetBoardsByUserIdAndWorkspaceId(int loggeddInUserId, int workspaceId)
+        {
+            const string sql = @"
+            SELECT 
+                brd.Id BoardId,
+                brd.BoardName AS BoardName, 
+                brd.BackgroundUrl AS BoardBackground,
+                wo.Id WorkspaceId,
+                wo.WorkspaceName AS WorkspaceName,
+                brd.CreatedBy,
+                brd.CreatedAt
+            FROM Board brd
+            JOIN Members me ON me.OwnerId = brd.Id
+            JOIN Workspace wo ON wo.Id = brd.WorkspaceId
+            JOIN OwnerType owt ON owt.Id = me.OwnerTypeId
+            WHERE me.UserId = @UserId  AND brd.CreatedBy = me.UserId AND owt.OwnerTypeValue = 'BOARD' AND wo.Id = @WorkspaceId
+            ORDER BY brd.CreatedAt;";
+
+            return _con.Query<BoardWithWorkspaceDTO>(sql, new { UserId = loggeddInUserId, WorkspaceId = workspaceId }, _tran);
         }
     }
 }

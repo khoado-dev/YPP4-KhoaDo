@@ -28,6 +28,7 @@ namespace UnitTestForTrello.Tests.Utility
                     BoardName TEXT,
                     BoardDescription TEXT,
                     CreatedAt TEXT,
+                    CreatedBy INTEGER,
                     BackgroundUrl TEXT,
                     BoardStatus TEXT,
                     WorkspaceId INTEGER
@@ -68,7 +69,8 @@ namespace UnitTestForTrello.Tests.Utility
                     Id INTEGER PRIMARY KEY,
                     WorkspaceName TEXT,
                     LogoUrl TEXT,
-                    CreatedAt TEXT
+                    CreatedAt TEXT,
+                    WorkspaceTypeId INTEGER
                 );
             ", transaction: transaction);
 
@@ -96,11 +98,11 @@ namespace UnitTestForTrello.Tests.Utility
         {
             connection.Execute(@"
 
-           INSERT INTO Board (Id, BoardName, BoardDescription, CreatedAt, BackgroundUrl, BoardStatus, WorkspaceId)
+           INSERT INTO Board (Id, BoardName, BoardDescription, CreatedAt, CreatedBy, BackgroundUrl, BoardStatus, WorkspaceId)
             VALUES 
-                (1, 'Test Board 1', 'Description', datetime('now'), 'url1', 'active', 1),
-                (2, 'Test Board 2', 'Description', datetime('now'), 'url2', 'active', 1),
-                (3, 'Inactive Board', 'Description', datetime('now'), 'url3', 'archived', 1);
+                (1, 'Test Board 1', 'Description', datetime('now'), 1, 'url1', 'active', 1),
+                (2, 'Test Board 2', 'Description', datetime('now'), 1, 'url2', 'active', 1),
+                (3, 'Inactive Board', 'Description', datetime('now'), 1, 'url3', 'archived', 1);
         ", transaction: transaction);
         }
 
@@ -139,10 +141,10 @@ namespace UnitTestForTrello.Tests.Utility
         public static void SeedWorkspaces(IDbConnection connection, IDbTransaction transaction)
         {
             connection.Execute(@"
-                INSERT INTO Workspace (Id, WorkspaceName, LogoUrl, CreatedAt)
-                VALUES 
-                    (1, 'Workspace 1', 'logo1.png', datetime('now', '-5 day')),
-                    (2, 'Workspace 2', 'logo2.png', datetime('now', '-10 day'));
+            INSERT INTO Workspace (Id, WorkspaceName, LogoUrl, CreatedAt, WorkspaceTypeId)
+            VALUES 
+                (1, 'Workspace 1', 'logo1.png', datetime('now', '-5 day'), 1),
+                (2, 'Workspace 2', 'logo2.png', datetime('now', '-10 day'), 3);
             ", transaction: transaction);
         }
 
