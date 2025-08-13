@@ -266,7 +266,102 @@ SELECT
 FROM Activity atv
 JOIN OwnerType owt ON owt.Id = atv.CategoryId
 JOIN [User] usr ON usr.Id = atv.UserId
-WHERE owt.OwnerTypeValue = 'CARD' AND atv.OwnerId = 1 
+WHERE owt.OwnerTypeValue = 'CARD' AND atv.OwnerId = 1;
+
+--query retrieves all custom fields for a specific board, 
+--  along with their possible options if the field type is dropdown
+SELECT
+    crd.Id CardId,
+    brd.Id BoardId,
+    ctf.Id CustomFieldId,
+    ctf.Title CustomFieldTitle,
+    dtt.DataTypeValue,
+    ftm.Id FieldItemId,
+    ftm.FieldItemValue,
+    ctf.Position
+FROM Cards crd
+JOIN Stage stg ON stg.Id = crd.StageId
+JOIN Board brd ON brd.Id = stg.BoardId
+JOIN CustomField ctf ON ctf.BoardId = brd.Id
+JOIN DataType dtt ON dtt.Id = ctf.DataTypeId
+LEFT JOIN FieldItem ftm ON ftm.CustomFieldId = ctf.Id
+WHERE crd.Id = 1
+ORDER BY ctf.Position;
+
+--query retrieves all custom fields for a specific board, 
+--  along with their value
+WITH FieldValueCast AS (
+    SELECT
+        fvl.Id,
+        fvl.CardId,
+        fvl.CustomFieldId,
+        dtt.DataTypeValue,
+        CASE
+            WHEN dtt.DataTypeValue = 'DROPDOWN' 
+                AND ISNUMERIC(fvl.FieldValue) = 1
+            THEN CAST(fvl.FieldValue AS INT)
+            ELSE NULL
+        END AS ItemId,
+        fvl.FieldValue
+    FROM FieldValue fvl
+    JOIN CustomField ctf ON ctf.Id = fvl.CustomFieldId
+    JOIN DataType dtt ON dtt.Id = ctf.DataTypeId 
+)
+SELECT
+    crd.Id CardId,
+    brd.Id BoardId,
+    ctf.Id CustomFieldId,
+    ctf.Title CustomFieldTitle,
+    fvc.DataTypeValue,
+    fvc.FieldValue,
+    ftm.FieldItemValue,
+    ctf.Position
+FROM Cards crd
+JOIN Stage stg ON stg.Id = crd.StageId
+JOIN Board brd ON brd.Id = stg.BoardId
+JOIN CustomField ctf ON ctf.BoardId = brd.Id
+LEFT JOIN FieldValueCast fvc ON fvc.CardId = crd.Id AND fvc.CustomFieldId = ctf.Id
+LEFT JOIN FieldItem ftm ON ftm.Id = fvc.ItemId
+WHERE crd.Id = 1
+ORDER BY ctf.Position;
+
+--List all attachments belonging to a specific card, including their file details and upload information
+
+SELECT 
+    atm.Id AttachmentId,
+    att.DisplayValue AttachmentType,
+    atm.AttachmentName,
+    atm.AttachmentPath,
+    atm.Size,
+    atm.CreatedAt,
+    atm.CreatedBy,
+    atm.IsCover,
+    atm.CardId
+FROM Attachment atm
+JOIN AttachmentType att ON att.Id = atm.AttachmentTypeId
+WHERE atm.CardId = 1
+
+--Retrieve all checklists and their items for a specific card, 
+-- including item details such as status, assigned members, and due dates
+SELECT 
+    clt.Id AS ChecklistId, 
+    clt.ChecklistName,
+    cli.Id AS ChecklistItemId, 
+    cli.CheckListItemName, 
+    cli.CheckListItemStatus,
+    cli.Position CheckListItemPosition,
+    cli.DueDate,
+    cli.MemberId,
+    usr.PictureUrl
+
+FROM Checklist clt
+JOIN ChecklistItem cli ON cli.ChecklistId = clt.Id
+LEFT JOIN Members mmb ON mmb.Id = cli.MemberId
+LEFT JOIN [User] usr ON usr.Id = mmb.UserId
+WHERE clt.CardId =1
+ORDER BY clt.Id, cli.Position;
+
+
 --MEMBER
 --List all members in the workspace along with their permission on roles.
 WITH BoardCountByEachUser AS(
