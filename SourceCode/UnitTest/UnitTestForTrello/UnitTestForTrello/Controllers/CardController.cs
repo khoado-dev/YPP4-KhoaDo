@@ -1,4 +1,5 @@
-﻿using UnitTestForTrello.Models.DTOs;
+﻿using UnitTestForTrello.Models;
+using UnitTestForTrello.Models.DTOs;
 using UnitTestForTrello.Services.IServices;
 
 namespace UnitTestForTrello.Controllers
@@ -14,6 +15,11 @@ namespace UnitTestForTrello.Controllers
         public IEnumerable<CardSummaryDTO> GetCardSummariesByBoardId(int boardId)
         {
             return _cardService.GetCardSummariesByBoardId(boardId);
+        }
+
+        public CardDetailDTO GetCardDetailByCardId(int cardId)
+        {
+            return _cardService.GetCardDetailByCardId(cardId);
         }
     }
 }
