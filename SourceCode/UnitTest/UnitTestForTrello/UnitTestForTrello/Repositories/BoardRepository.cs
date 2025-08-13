@@ -62,12 +62,13 @@ namespace UnitTestForTrello.Repositories
                 brd.BoardName AS BoardName, 
                 brd.BackgroundUrl AS BoardBackground,
                 wo.WorkspaceName AS WorkspaceName,
+                wo.Id WorkspaceId,
                 brd.CreatedAt
             FROM Board brd
             JOIN Members me ON me.OwnerId = brd.Id
             JOIN Workspace wo ON wo.Id = brd.WorkspaceId
             JOIN OwnerType owt ON owt.Id = me.OwnerTypeId
-            WHERE me.UserId = @UserId AND owt.OwnerTypeValue = 'BOARD'
+            WHERE me.UserId = @UserId AND owt.OwnerTypeValue = 'BOARD' AND wo.Id = 1
             ORDER BY brd.CreatedAt;";
 
             return _con.Query<BoardWithWorkspaceDTO>(sql, new { UserId = userId }, _tran);
