@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using Microsoft.Data.Sqlite;
 using System.Data;
+using System.Data.Common;
 
 namespace UnitTestForTrello.Tests
 {
@@ -11,6 +12,15 @@ namespace UnitTestForTrello.Tests
             var connection = new SqliteConnection("Data Source=:memory:");
             connection.Open();
             var transaction = connection.BeginTransaction();
+
+            connection.Execute(@"
+            CREATE TABLE [User] (
+                Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                PictureUrl TEXT,
+                Email TEXT NOT NULL UNIQUE,
+                Username TEXT NOT NULL,
+                Bio TEXT
+            );");
 
             // Board table
             connection.Execute(@"
@@ -101,8 +111,10 @@ namespace UnitTestForTrello.Tests
             connection.Execute(@"
             INSERT INTO OwnerType (Id, OwnerTypeValue)
             VALUES 
-                (1, 'BOARD'),
-                (2, 'WORKSPACE');
+                (1, 'WORKSPACE'),
+                (2, 'BOARD'),
+                (3, 'USER'),
+                (4, 'CARD'),
         ", transaction: transaction);
         }
 
@@ -131,9 +143,9 @@ namespace UnitTestForTrello.Tests
             connection.Execute(@"
                 INSERT INTO Members (UserId, OwnerId, OwnerTypeId)
                 VALUES
-                    (1, 1, 2), -- User 1 thuộc Workspace 1
-                    (1, 2, 2), -- User 1 thuộc Workspace 2
-                    (2, 1, 2); -- User 2 thuộc Workspace 1
+                    (1, 1, 1), -- User 1 thuộc Workspace 1
+                    (1, 2, 1), -- User 1 thuộc Workspace 2
+                    (2, 1, 1); -- User 2 thuộc Workspace 1
             ", transaction: transaction);
         }
 
@@ -142,9 +154,19 @@ namespace UnitTestForTrello.Tests
             connection.Execute(@"
                 INSERT INTO Members (UserId, OwnerId, OwnerTypeId)
                 VALUES
-                    (1, 1, 1),  -- User 1 là thành viên của Board 1 (OwnerTypeId = 1 => BOARD)
-                    (1, 2, 1),  -- User 1 là thành viên của Board 2
-                    (2, 3, 1);  -- User 2 là thành viên của Board 3
+                    (1, 1, 2),  -- User 1 là thành viên của Board 1 (OwnerTypeId = 2 => BOARD)
+                    (1, 2, 2),  -- User 1 là thành viên của Board 2
+                    (2, 3, 2);  -- User 2 là thành viên của Board 3
+            ", transaction: transaction);
+        }
+
+        public static void SeedUsers(IDbConnection connection, IDbTransaction transaction)
+        {
+            connection.Execute(@"
+                INSERT INTO [User] (Id, PictureUrl, Email, Username, Bio) VALUES
+                (1, 'https://example.com/images/james85.png', 'james85@booth-daniels.net', 'james85', 'Software engineer and coffee lover.'),
+                (2, 'https://example.com/images/alice99.png', 'alice99@example.com', 'alice99', 'UI/UX designer with a passion for art.'),
+                (3, 'https://example.com/images/bob77.png', 'bob77@example.com', 'bob77', 'Backend developer and open-source enthusiast.');
             ", transaction: transaction);
         }
 
@@ -157,6 +179,7 @@ namespace UnitTestForTrello.Tests
             SeedWorkspaces(connection, transaction);
             SeedMembersOfWorkspace(connection, transaction);
             SeedMembersOfBoard(connection, transaction);
+            SeedUsers(connection, transaction);
         }
     }
 }
