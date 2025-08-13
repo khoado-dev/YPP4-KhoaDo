@@ -1,0 +1,48 @@
+﻿using Microsoft.Data.Sqlite;
+using System;
+using System.Data;
+using UnitTestForTrello.Controllers;
+using UnitTestForTrello.Repositories;
+using UnitTestForTrello.Repositories.IRepositories;
+using UnitTestForTrello.Services.IServices;
+
+namespace UnitTestForTrello.Tests
+{
+    [TestClass]
+    public class UserControllerTest
+    {
+        private SqliteConnection? _connection;
+        private IDbTransaction? _transaction;
+        private UserController? _userController;
+
+        private const string loggeddInUserEmail = "james85@booth-daniels.net";
+
+        [TestInitialize]
+        public void Setup()
+        {
+            (_connection, _transaction) = TestDatabaseHelper.CreateInMemoryDatabaseAndSchema();
+            TestDatabaseHelper.SeedUsers(_connection, _transaction);
+
+            IUserRepository userRepository = new UserRepository(_connection, _transaction);
+            IUserService userService = new UserService(userRepository);
+            _userController = new UserController(userService);
+        }
+
+        [TestMethod]
+        public void GetStarredBoardsTest()
+        {
+            var result = _userController?.GetUserByEmail(loggeddInUserEmail);
+
+            Assert.IsNotNull(result);
+            Assert.AreEqual(loggeddInUserEmail, result.Email);
+        }
+
+        [TestCleanup]
+        public void Cleanup()
+        {
+            _transaction?.Rollback();
+            _transaction?.Dispose();
+            _connection?.Close();
+        }
+    }
+}
