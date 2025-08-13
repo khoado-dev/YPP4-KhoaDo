@@ -13,7 +13,6 @@ namespace UnitTestForTrello.Tests
     public class MemberControllerTest
     {
         private SqliteConnection? _connection;
-        private IDbTransaction? _transaction;
         private MemberController? _memberController;
 
         private const int boardId = 1;
@@ -21,10 +20,10 @@ namespace UnitTestForTrello.Tests
         [TestInitialize]
         public void Setup()
         {
-            (_connection, _transaction) = TestDatabaseHelper.CreateInMemoryDatabaseAndSchema();
-            TestDatabaseHelper.SeedAllData(_connection, _transaction);
+            _connection = TestDatabaseHelper.CreateInMemoryDatabaseAndSchema();
+            TestDatabaseHelper.SeedAllData(_connection);
 
-            IMemberRepository memberRepository = new MemberRepository(_connection, _transaction);
+            IMemberRepository memberRepository = new MemberRepository(_connection);
             IMemberService memberService = new MemberService(memberRepository);
             _memberController = new MemberController(memberService);
         }
@@ -42,8 +41,6 @@ namespace UnitTestForTrello.Tests
         [TestCleanup]
         public void Cleanup()
         {
-            _transaction?.Rollback();
-            _transaction?.Dispose();
             _connection?.Close();
         }
     }

@@ -8,12 +8,10 @@ namespace UnitTestForTrello.Repositories
     public class CardRepository : ICardRepository
     {
         private readonly IDbConnection _con;
-        private readonly IDbTransaction _tran;
 
-        public CardRepository(IDbConnection con, IDbTransaction tran)
+        public CardRepository(IDbConnection con)
         {
             _con = con;
-            _tran = tran;
         }
 
         public IEnumerable<CardSummaryDTO> GetCardSummariesByBoardId(int boardId)
@@ -70,7 +68,7 @@ namespace UnitTestForTrello.Repositories
             ORDER BY stg.Position, crd.Position;
             ";
 
-            return _con.Query<CardSummaryDTO>(sql, new { BoardId = boardId }, _tran);
+            return _con.Query<CardSummaryDTO>(sql, new { BoardId = boardId });
         }
     }
 }

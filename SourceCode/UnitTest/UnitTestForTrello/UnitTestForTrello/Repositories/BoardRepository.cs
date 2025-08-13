@@ -9,12 +9,10 @@ namespace UnitTestForTrello.Repositories
     public class BoardRepository : IBoardRepository
     {
         private readonly IDbConnection _con;
-        private readonly IDbTransaction _tran;
 
-        public BoardRepository(IDbConnection con, IDbTransaction tran)
+        public BoardRepository(IDbConnection con)
         {
             _con = con;
-            _tran = tran;
         }
 
         public IEnumerable<StarredBoardDTO> GetStarredBoardsByUser(int userId)
@@ -33,7 +31,7 @@ namespace UnitTestForTrello.Repositories
             WHERE UserId = @UserId AND brd.BoardStatus = 'active' AND usb.StarredBoardsStatus = 1
             ORDER BY usb.CreatedAt DESC";
 
-            return _con.Query<StarredBoardDTO>(sql, new { UserId = userId }, _tran);
+            return _con.Query<StarredBoardDTO>(sql, new { UserId = userId });
         }
 
         public IEnumerable<RecentlyBoardDTO> GetRecentlyBoardsByUser(int userId)
@@ -52,7 +50,7 @@ namespace UnitTestForTrello.Repositories
             WHERE uvh.UserId = @UserId AND owt.OwnerTypeValue = 'BOARD' AND brd.BoardStatus = 'active'
             ORDER BY uvh.AccessedAt DESC;";
 
-            return _con.Query<RecentlyBoardDTO>(sql, new { UserId = userId }, _tran);
+            return _con.Query<RecentlyBoardDTO>(sql, new { UserId = userId });
         }
 
         public IEnumerable<BoardWithWorkspaceDTO> GetBoardsWhereUserIsMemberInWorkspace(int userId, int workspaceId)
@@ -72,7 +70,7 @@ namespace UnitTestForTrello.Repositories
             WHERE me.UserId = @UserId AND owt.OwnerTypeValue = 'BOARD' AND wo.Id = @WorkspaceId
             ORDER BY brd.CreatedAt;";
 
-            return _con.Query<BoardWithWorkspaceDTO>(sql, new { UserId = userId, WorkspaceId = workspaceId }, _tran);
+            return _con.Query<BoardWithWorkspaceDTO>(sql, new { UserId = userId, WorkspaceId = workspaceId });
         }
 
         public IEnumerable<BoardWithWorkspaceDTO> GetBoardsWhereUserIsOwnerInWorkspace(int userId, int workspaceId)
@@ -93,7 +91,7 @@ namespace UnitTestForTrello.Repositories
             WHERE me.UserId = @UserId  AND brd.CreatedBy = me.UserId AND owt.OwnerTypeValue = 'BOARD' AND wo.Id = @WorkspaceId
             ORDER BY brd.CreatedAt;";
 
-            return _con.Query<BoardWithWorkspaceDTO>(sql, new { UserId = userId, WorkspaceId = workspaceId }, _tran);
+            return _con.Query<BoardWithWorkspaceDTO>(sql, new { UserId = userId, WorkspaceId = workspaceId });
         }
     }
 }

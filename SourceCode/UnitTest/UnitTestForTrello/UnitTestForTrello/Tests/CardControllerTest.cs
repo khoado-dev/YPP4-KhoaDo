@@ -13,7 +13,6 @@ namespace UnitTestForTrello.Tests
     public class CardControllerTest
     {
         private SqliteConnection? _connection;
-        private IDbTransaction? _transaction;
         private CardController? _cardController;
 
         private const int boardId = 1;
@@ -21,10 +20,10 @@ namespace UnitTestForTrello.Tests
         [TestInitialize]
         public void Setup()
         {
-            (_connection, _transaction) = TestDatabaseHelper.CreateInMemoryDatabaseAndSchema();
-            TestDatabaseHelper.SeedAllData(_connection, _transaction);
+            _connection = TestDatabaseHelper.CreateInMemoryDatabaseAndSchema();
+            TestDatabaseHelper.SeedAllData(_connection);
 
-            ICardRepository cardRepository = new CardRepository(_connection, _transaction);
+            ICardRepository cardRepository = new CardRepository(_connection);
             ICardService cardService = new CardService(cardRepository);
             _cardController = new CardController(cardService);
         }
@@ -42,8 +41,6 @@ namespace UnitTestForTrello.Tests
         [TestCleanup]
         public void Cleanup()
         {
-            _transaction?.Rollback();
-            _transaction?.Dispose();
             _connection?.Close();
         }
     }

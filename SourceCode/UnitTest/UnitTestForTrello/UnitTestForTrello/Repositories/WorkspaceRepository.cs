@@ -9,12 +9,10 @@ namespace UnitTestForTrello.Tests
     public class WorkspaceRepository : IWorkspaceRepository
     {
         private readonly IDbConnection _con;
-        private readonly IDbTransaction _tran;
         
-        public WorkspaceRepository(IDbConnection con, IDbTransaction tran)
+        public WorkspaceRepository(IDbConnection con)
         {
             _con = con;
-            _tran = tran;
         }
 
         public WorkspaceDetailDTO? GetWorkspaceDetailById(int workspaceId)
@@ -30,7 +28,7 @@ namespace UnitTestForTrello.Tests
             FROM Workspace
             WHERE Id = @WorkspaceId";
 
-            return _con.QueryFirstOrDefault<WorkspaceDetailDTO>(sql, new { WorkspaceId = workspaceId }, _tran);
+            return _con.QueryFirstOrDefault<WorkspaceDetailDTO>(sql, new { WorkspaceId = workspaceId });
         }
 
         public IEnumerable<WorkspaceMemberDTO> GetWorkspacesByUserId(int userId)
@@ -48,7 +46,7 @@ namespace UnitTestForTrello.Tests
             WHERE owt.OwnerTypeValue = 'WORKSPACE' AND me.UserId = @UserId
             ORDER BY wsp.CreatedAt;";
 
-            return _con.Query<WorkspaceMemberDTO>(sql, new { UserId = userId }, _tran);
+            return _con.Query<WorkspaceMemberDTO>(sql, new { UserId = userId });
         }
 
         public IEnumerable<WorkspaceTypeDTO> GetWorkspaceTypes()
@@ -61,7 +59,7 @@ namespace UnitTestForTrello.Tests
             FROM 
                 WorkspaceType;";
 
-            return _con.Query<WorkspaceTypeDTO>(sql, null, _tran);
+            return _con.Query<WorkspaceTypeDTO>(sql, null);
         }
     }
 }

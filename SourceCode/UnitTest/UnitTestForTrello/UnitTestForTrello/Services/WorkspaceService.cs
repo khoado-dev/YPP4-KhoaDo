@@ -13,7 +13,7 @@ namespace UnitTestForTrello.Tests
             _workspaceRepository = workspaceRepository;
         }
 
-        public WorkspaceDetailDTO GetWorkspaceDetailById(int workspaceId)
+        public WorkspaceDetailDTO? GetWorkspaceDetailById(int workspaceId)
         {
             return _workspaceRepository.GetWorkspaceDetailById(workspaceId);
         }

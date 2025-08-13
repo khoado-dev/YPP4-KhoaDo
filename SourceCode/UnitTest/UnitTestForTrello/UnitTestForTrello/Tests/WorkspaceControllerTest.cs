@@ -14,7 +14,6 @@ namespace UnitTestForTrello.Tests
     public class WorkspaceControllerTest
     {
         private SqliteConnection? _connection;
-        private IDbTransaction? _transaction;
         private WorkspaceController? _workspaceController;
 
         private const int loggeddInUserId = 1;
@@ -23,13 +22,13 @@ namespace UnitTestForTrello.Tests
         [TestInitialize]
         public void Setup()
         {
-            (_connection, _transaction) = TestDatabaseHelper.CreateInMemoryDatabaseAndSchema();
-            TestDatabaseHelper.SeedWorkspaces(_connection, _transaction);
-            TestDatabaseHelper.SeedOwnerTypes(_connection, _transaction);
-            TestDatabaseHelper.SeedMembersOfWorkspace(_connection, _transaction);
-            TestDatabaseHelper.SeedWorkspaceTypes(_connection, _transaction);
+            _connection = TestDatabaseHelper.CreateInMemoryDatabaseAndSchema();
+            TestDatabaseHelper.SeedWorkspaces(_connection);
+            TestDatabaseHelper.SeedOwnerTypes(_connection);
+            TestDatabaseHelper.SeedMembersOfWorkspace(_connection);
+            TestDatabaseHelper.SeedWorkspaceTypes(_connection);
 
-            IWorkspaceRepository workspaceRepository = new WorkspaceRepository(_connection, _transaction);
+            IWorkspaceRepository workspaceRepository = new WorkspaceRepository(_connection);
             IWorkspaceService workspaceService = new WorkspaceService(workspaceRepository);
             _workspaceController = new WorkspaceController(workspaceService);
         }
@@ -79,8 +78,6 @@ namespace UnitTestForTrello.Tests
         [TestCleanup]
         public void Cleanup()
         {
-            _transaction?.Rollback();
-            _transaction?.Dispose();
             _connection?.Close();
         }
     }
