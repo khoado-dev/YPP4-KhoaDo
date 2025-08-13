@@ -22,14 +22,14 @@ namespace UnitTestForTrello.Services.IServices
             return _boardRepository.GetRecentlyBoardsByUser(userId);
         }
 
-        public IEnumerable<BoardWithWorkspaceDTO> GetBoardsWithWorkspaceByUser(int userId)
+        public IEnumerable<BoardWithWorkspaceDTO> GetBoardsWhereUserIsMemberInWorkspace(int userId, int workspaceId)
         {
-            return _boardRepository.GetBoardsWithWorkspaceByUser(userId);
+            return _boardRepository.GetBoardsWhereUserIsMemberInWorkspace(userId, workspaceId);
         }
 
-        public IEnumerable<BoardWithWorkspaceDTO> GetBoardsByUserIdAndWorkspaceId(int loggeddInUserId, int workspaceId)
+        public IEnumerable<BoardWithWorkspaceDTO> GetBoardsWhereUserIsOwnerInWorkspace(int userId, int workspaceId)
         {
-            return _boardRepository.GetBoardsByUserIdAndWorkspaceId(loggeddInUserId, workspaceId);
+            return _boardRepository.GetBoardsWhereUserIsOwnerInWorkspace(userId, workspaceId);
         }
     }
 }

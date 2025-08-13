@@ -55,7 +55,7 @@ namespace UnitTestForTrello.Repositories
             return _con.Query<RecentlyBoardDTO>(sql, new { UserId = userId }, _tran);
         }
 
-        public IEnumerable<BoardWithWorkspaceDTO> GetBoardsWithWorkspaceByUser(int userId)
+        public IEnumerable<BoardWithWorkspaceDTO> GetBoardsWhereUserIsMemberInWorkspace(int userId, int workspaceId)
         {
             const string sql = @"
             SELECT 
@@ -69,13 +69,13 @@ namespace UnitTestForTrello.Repositories
             JOIN Members me ON me.OwnerId = brd.Id
             JOIN Workspace wo ON wo.Id = brd.WorkspaceId
             JOIN OwnerType owt ON owt.Id = me.OwnerTypeId
-            WHERE me.UserId = @UserId AND owt.OwnerTypeValue = 'BOARD' AND wo.Id = 1
+            WHERE me.UserId = @UserId AND owt.OwnerTypeValue = 'BOARD' AND wo.Id = @WorkspaceId
             ORDER BY brd.CreatedAt;";
 
-            return _con.Query<BoardWithWorkspaceDTO>(sql, new { UserId = userId }, _tran);
+            return _con.Query<BoardWithWorkspaceDTO>(sql, new { UserId = userId, WorkspaceId = workspaceId }, _tran);
         }
 
-        public IEnumerable<BoardWithWorkspaceDTO> GetBoardsByUserIdAndWorkspaceId(int loggeddInUserId, int workspaceId)
+        public IEnumerable<BoardWithWorkspaceDTO> GetBoardsWhereUserIsOwnerInWorkspace(int userId, int workspaceId)
         {
             const string sql = @"
             SELECT 
@@ -93,7 +93,7 @@ namespace UnitTestForTrello.Repositories
             WHERE me.UserId = @UserId  AND brd.CreatedBy = me.UserId AND owt.OwnerTypeValue = 'BOARD' AND wo.Id = @WorkspaceId
             ORDER BY brd.CreatedAt;";
 
-            return _con.Query<BoardWithWorkspaceDTO>(sql, new { UserId = loggeddInUserId, WorkspaceId = workspaceId }, _tran);
+            return _con.Query<BoardWithWorkspaceDTO>(sql, new { UserId = userId, WorkspaceId = workspaceId }, _tran);
         }
     }
 }
