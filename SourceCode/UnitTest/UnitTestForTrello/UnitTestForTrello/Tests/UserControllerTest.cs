@@ -13,7 +13,6 @@ namespace UnitTestForTrello.Tests
     public class UserControllerTest
     {
         private SqliteConnection? _connection;
-        private IDbTransaction? _transaction;
         private UserController? _userController;
 
         private const string loggeddInUserEmail = "james85@booth-daniels.net";
@@ -21,10 +20,10 @@ namespace UnitTestForTrello.Tests
         [TestInitialize]
         public void Setup()
         {
-            (_connection, _transaction) = TestDatabaseHelper.CreateInMemoryDatabaseAndSchema();
-            TestDatabaseHelper.SeedAllData(_connection, _transaction);
+            _connection = TestDatabaseHelper.CreateInMemoryDatabaseAndSchema();
+            TestDatabaseHelper.SeedAllData(_connection);
 
-            IUserRepository userRepository = new UserRepository(_connection, _transaction);
+            IUserRepository userRepository = new UserRepository(_connection);
             IUserService userService = new UserService(userRepository);
             _userController = new UserController(userService);
         }
@@ -41,8 +40,6 @@ namespace UnitTestForTrello.Tests
         [TestCleanup]
         public void Cleanup()
         {
-            _transaction?.Rollback();
-            _transaction?.Dispose();
             _connection?.Close();
         }
     }

@@ -8,12 +8,10 @@ namespace UnitTestForTrello.Repositories
     public class MemberRepository : IMemberRepository
     {
         private readonly IDbConnection _con;
-        private readonly IDbTransaction _tran;
 
-        public MemberRepository(IDbConnection con, IDbTransaction tran)
+        public MemberRepository(IDbConnection con)
         {
             _con = con;
-            _tran = tran;
         }
 
         public IEnumerable<BoardMemberDTO> GetMembersByBoardId(int boardId)
@@ -29,7 +27,7 @@ namespace UnitTestForTrello.Repositories
             JOIN [User] usr ON usr.Id = mmb.UserId
             WHERE owt.OwnerTypeValue = 'BOARD' AND mmb.OwnerId = @BoardId;
             ";
-            return _con.Query<BoardMemberDTO>(sql, new { BoardId = boardId }, _tran);
+            return _con.Query<BoardMemberDTO>(sql, new { BoardId = boardId });
         }
     }
 }
