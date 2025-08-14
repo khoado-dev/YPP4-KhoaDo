@@ -654,24 +654,33 @@ namespace UnitTestForTrello.Tests.Utility
             // Comments on Card 1
             _connection?.Execute(@"
             INSERT INTO Comment (Id, CardId, Content, CreatedAt, UpdatedAt, CreatedBy) VALUES
-            (100, 1, 'First comment', datetime('now','-1 day'), datetime('now'), 1),
-            (101, 1, 'Second comment', datetime('now','-2 day'), datetime('now'), 2);
+                (100, 1, 'First comment', datetime('now','-1 day'), datetime('now'), 1),
+                (101, 1, 'Second comment', datetime('now','-2 day'), datetime('now'), 2);
             ");
 
             // Reactions
             _connection?.Execute(@"
             INSERT INTO Reaction (Id, ReactionName, ShortCode) VALUES
-            (1, 'Like', ':like:'),
-            (2, 'Love', ':love:');
+                (1, 'Like', ':like:'),
+                (2, 'Love', ':love:');
             ");
 
             // CommentReaction (link comments to reactions)
             _connection?.Execute(@"
             INSERT INTO CommentReaction (CommentId, ReactionId, CreatedBy, CreatedAt) VALUES
-            (100, 1, 2, datetime('now')),
-            (100, 1, 3, datetime('now')),
-            (100, 2, 2, datetime('now')),
-            (101, 1, 3, datetime('now')); -- second comment has only one reaction
+                (100, 1, 2, datetime('now')),
+                (100, 1, 3, datetime('now')),
+                (100, 2, 2, datetime('now')),
+                (101, 1, 3, datetime('now')); -- second comment has only one reaction
+            ");
+        }
+        public static void SeedCardActivities()
+        {
+            _connection?.Execute(@"
+            INSERT INTO Activity (Id, CreatedAt, ActivityDescription, UserId, OwnerTypeId, OwnerId) VALUES
+                (1, datetime('now', '-1 day'), 'Added new checklist', 1, 4, 1),
+                (2, datetime('now', '-2 day'), 'Changed card title', 2, 4, 1),
+                (3, datetime('now', '-3 day'), 'Other workspace activity', 1, 1, 1); -- không match vì OwnerType != CARD
             ");
         }
 
@@ -693,6 +702,7 @@ namespace UnitTestForTrello.Tests.Utility
             SeedCardRelatedData();
             SeedMembersOfCard();
             SeedCommentsWithReactionsForCard();
+            SeedCardActivities();
         }
 
         public static void ClearData()

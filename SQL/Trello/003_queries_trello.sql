@@ -276,7 +276,7 @@ SELECT
 FROM 
   Cards crd 
   JOIN Comment cmt ON cmt.CardId = crd.Id 
-  JOIN [Users] usr ON usr.Id = cmt.CreatedBy 
+  JOIN Users usr ON usr.Id = cmt.CreatedBy 
   JOIN CommentReaction cmr ON cmr.CommentId = cmt.Id 
   JOIN Reaction rct ON rct.Id = cmr.ReactionId 
 WHERE 
