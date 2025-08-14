@@ -34,7 +34,7 @@ namespace UnitTestForTrello.Tests
         }
 
         [TestMethod]
-        public void GetWorkspaceByUserIdTest()
+        public void GetWorkspacesByUserIdTest()
         {
             int expectedNumberOfWorkspaces = 2;
 
