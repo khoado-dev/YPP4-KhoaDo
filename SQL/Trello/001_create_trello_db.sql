@@ -9,460 +9,637 @@ GO
 CREATE DATABASE Trello;
 GO
 
-USE [Trello];
+USE [Trello]
 GO
 
+-- Users table
+CREATE TABLE [dbo].[Users](
+    [Id] [int] IDENTITY(1,1) NOT NULL,
+    [Username] [varchar](255) NULL,
+    [Bio] [nvarchar](1000) NULL,
+    [Email] [varchar](255) NULL,
+    [LastActive] [datetime] NULL,
+    [CreatedAt] [datetime] NULL,
+    [UpdatedAt] [datetime] NULL,
+    [PictureUrl] [varchar](255) NULL,
+    [FullName] [nchar](100) NULL,
+    PRIMARY KEY ([Id])
+)
 
-CREATE TABLE Users (
-    Id int IDENTITY(1,1) PRIMARY KEY,
-    Username [varchar](255) NULL,
-    Bio [nvarchar](1000) NULL,
-    Email [varchar](255) NULL,
-    LastActive [datetime] NULL,
-    CreatedAt [datetime] NULL,
-    UpdatedAt [datetime] NULL,
-    PictureUrl [varchar](255) NULL    
-);
-GO
+-- WorkspaceType table
+CREATE TABLE [dbo].[WorkspaceType](
+    [Id] [int] IDENTITY(1,1) NOT NULL,
+    [TypeValue] [varchar](50) NOT NULL,
+    [DisplayValue] [varchar](50) NOT NULL,
+    PRIMARY KEY ([Id])
+)
 
-CREATE TABLE CategoryTypes (
-    Id int IDENTITY(1,1) PRIMARY KEY,
-    CategoryTypeValue [varchar](50) NULL   
-);
-GO
+-- Workspace table
+CREATE TABLE [dbo].[Workspace](
+    [Id] [int] IDENTITY(1,1) NOT NULL,
+    [WorkspaceName] [varchar](255) NULL,
+    [WorkspaceDescription] [nvarchar](1000) NULL,
+    [ShortName] [varchar](100) NULL,
+    [Website] [varchar](255) NULL,
+    [TypeId] [int] NULL,
+    [CreatedAt] [datetime] NULL,
+    [CreatedBy] [int] NULL,
+    [UpdatedAt] [datetime] NULL,
+    [UpdatedBy] [int] NULL,
+    [LogoUrl] [varchar](500) NULL,
+    PRIMARY KEY ([Id]),
+    FOREIGN KEY([TypeId]) REFERENCES [dbo].[WorkspaceType]([Id]),
+    FOREIGN KEY([CreatedBy]) REFERENCES [dbo].[Users]([Id]),
+    FOREIGN KEY([UpdatedBy]) REFERENCES [dbo].[Users]([Id])
+)
 
-CREATE TABLE Categories (
-    Id int IDENTITY(1,1) PRIMARY KEY,
-    CategoryName [varchar](50) NULL,
-    CategoryDescription [varchar](1000) NULL,
-    CategoryTypeId [int] NULL FOREIGN KEY REFERENCES CategoryTypes(Id), --all category of entities,
-    CreatedAt [datetime] NULL,
-    CreatedBy [int] NULL FOREIGN KEY REFERENCES Users(Id),
-    Icon [varchar](255) NULL,  
-    Position [int] NULL,
-    IsActive [bit] NOT NULL,
-);
-GO
+-- Board table
+CREATE TABLE [dbo].[Board](
+    [Id] [int] IDENTITY(1,1) NOT NULL,
+    [BoardName] [varchar](255) NULL,
+    [BoardDescription] [nvarchar](1000) NULL,
+    [CreatedAt] [datetime] NULL,
+    [CreatedBy] [int] NULL,
+    [BackgroundUrl] [varchar](2000) NULL,
+    [WorkspaceId] [int] NULL,
+    [BoardStatus] [varchar](50) NULL,
+    [UpdatedAt] [datetime] NULL,
+    [UpdatedBy] [int] NULL,
+    [IsTemplate] [bit] NULL,
+    PRIMARY KEY ([Id]),
+    FOREIGN KEY([WorkspaceId]) REFERENCES [dbo].[Workspace]([Id]),
+    FOREIGN KEY([CreatedBy]) REFERENCES [dbo].[Users]([Id]),
+    FOREIGN KEY([UpdatedBy]) REFERENCES [dbo].[Users]([Id])
+)
 
-CREATE TABLE Activities (
-    Id int IDENTITY(1,1) PRIMARY KEY,
-    CreatedAt [datetime] NULL,
-    ActivityDescription [nvarchar](1000) NULL,
-    UserId [int] NULL FOREIGN KEY REFERENCES Users(Id),
-    CategoryId [int] NULL FOREIGN KEY REFERENCES Categories(Id), --workspace,board,card,user
-    OwnerId [int] NULL    
-);
-GO
+-- Color table
+CREATE TABLE [dbo].[Color](
+    [Id] [int] IDENTITY(1,1) NOT NULL,
+    [ColorName] [varchar](50) NULL,
+    [ColorHex] [varchar](7) NULL,
+    [Icon] [varchar](255) NULL,
+    PRIMARY KEY ([Id])
+)
 
-CREATE TABLE Workspaces (
-    Id int IDENTITY(1,1) PRIMARY KEY,
-    WorkspaceName [varchar](255) NULL,
-    WorkspaceDescription [nvarchar](1000) NULL,
-    CategoryId [int] NULL FOREIGN KEY REFERENCES Categories(Id), --category of workspace
-    CreatedAt [datetime] NULL,
-    CreatedBy [int] NULL FOREIGN KEY REFERENCES Users(Id),
-    UpdatedAt [datetime] NULL,
-    UpdatedBy [int] NULL FOREIGN KEY REFERENCES Users(Id),
-    LogoUrl [varchar](500) NULL
-);
-GO
+-- Stage table
+CREATE TABLE [dbo].[Stage](
+    [Id] [int] IDENTITY(1,1) NOT NULL,
+    [Title] [varchar](255) NULL,
+    [CreatedAt] [datetime] NULL,
+    [CreatedBy] [int] NULL,
+    [BoardId] [int] NULL,
+    [StageStatus] [varchar](20) NULL,
+    [ColorId] [int] NULL,
+    [Position] [int] NULL,
+    [UpdatedAt] [datetime] NULL,
+    [UpdatedBy] [int] NULL,
+    PRIMARY KEY ([Id]),
+    FOREIGN KEY([BoardId]) REFERENCES [dbo].[Board]([Id]),
+    FOREIGN KEY([ColorId]) REFERENCES [dbo].[Color]([Id]),
+    FOREIGN KEY([CreatedBy]) REFERENCES [dbo].[Users]([Id]),
+    FOREIGN KEY([UpdatedBy]) REFERENCES [dbo].[Users]([Id])
+)
 
-CREATE TABLE Boards (
-    Id int IDENTITY(1,1) PRIMARY KEY,
-    BoardName [varchar](255) NULL,
-    BoardDescription [nvarchar](1000) NULL,
-    CreatedAt [datetime] NULL,
-    CreatedBy [int] NULL FOREIGN KEY REFERENCES Users(Id),
-    BackgroundUrl [varchar](2000) NULL,
-    WorkspaceId [int] NULL FOREIGN KEY REFERENCES Workspaces(Id),
-    BoardStatus [varchar](50) NULL,    
-    UpdatedAt [datetime] NULL,
-    UpdatedBy [int] NULL FOREIGN KEY REFERENCES Users(Id)
-);
-GO
+-- CardCoverType table
+CREATE TABLE [dbo].[CardCoverType](
+    [Id] [int] IDENTITY(1,1) NOT NULL,
+    [TypeValue] [varchar](50) NOT NULL,
+    [DisplayValue] [varchar](50) NOT NULL,
+    PRIMARY KEY ([Id])
+)
 
-CREATE TABLE UserStarredBoards (
-    UserId INT NOT NULL FOREIGN KEY REFERENCES Users(Id),
-    BoardId INT NOT NULL FOREIGN KEY REFERENCES Boards(Id),
-    CreatedAt DATETIME NOT NULL DEFAULT GETDATE(),
-    StarredBoardsStatus [bit] NOT NULL,
-);
-GO
+-- Cards table
+CREATE TABLE [dbo].[Cards](
+    [Id] [int] IDENTITY(1,1) NOT NULL,
+    [StageId] [int] NULL,
+    [Title] [varchar](255) NULL,
+    [CardDescription] [nvarchar](1000) NULL,
+    [CreatedAt] [datetime] NULL,
+    [CreatedBy] [int] NULL,
+    [CardStatus] [varchar](20) NULL,
+    [CardLocation] [varchar](255) NULL,
+    [StartDate] [date] NULL,
+    [DueDate] [date] NULL,
+    [CardCoverTypeId] [int] NULL,
+    [CoverValue] [varchar](300) NULL,
+    [Position] [int] NULL,
+    [UpdatedAt] [datetime] NULL,
+    [UpdatedBy] [int] NULL,
+    [IsTemplate] [bit] NULL,
+    [IsCompleted] [bit] NULL,
+    PRIMARY KEY ([Id]),
+    FOREIGN KEY([StageId]) REFERENCES [dbo].[Stage]([Id]),
+    FOREIGN KEY([CardCoverTypeId]) REFERENCES [dbo].[CardCoverType]([Id]),
+    FOREIGN KEY([CreatedBy]) REFERENCES [dbo].[Users]([Id]),
+    FOREIGN KEY([UpdatedBy]) REFERENCES [dbo].[Users]([Id])
+)
 
-CREATE TABLE Colors (
-    Id int IDENTITY(1,1) PRIMARY KEY,
-    ColorName [varchar](50) NULL,
-    ColorHex [varchar](7) NULL,
-    Icon [varchar](255) NULL   
-);
-GO
+-- Labels table
+CREATE TABLE [dbo].[Labels](
+    [Id] [int] IDENTITY(1,1) NOT NULL,
+    [Title] [varchar](100) NULL,
+    [CreatedAt] [datetime] NULL,
+    [CreatedBy] [int] NULL,
+    [UpdatedAt] [datetime] NULL,
+    [UpdatedBy] [int] NULL,
+    [ColorId] [int] NULL,
+    [IsDefault] [bit] NOT NULL,
+    [BoardId] [int] NULL,
+    PRIMARY KEY ([Id]),
+    FOREIGN KEY([BoardId]) REFERENCES [dbo].[Board]([Id]),
+    FOREIGN KEY([ColorId]) REFERENCES [dbo].[Color]([Id]),
+    FOREIGN KEY([CreatedBy]) REFERENCES [dbo].[Users]([Id]),
+    FOREIGN KEY([UpdatedBy]) REFERENCES [dbo].[Users]([Id])
+)
 
-CREATE TABLE Stages (
-    Id int IDENTITY(1,1) PRIMARY KEY,
-    Title [varchar](255) NULL,
-    CreatedAt [datetime] NULL,
-    CreatedBy [int] NULL FOREIGN KEY REFERENCES Users(Id),
-    BoardId [int] NULL FOREIGN KEY REFERENCES Boards(Id),
-    StageStatus [varchar](20) NULL,
-    ColorId [int] NULL FOREIGN KEY REFERENCES Colors(Id),
-    Position [int] NULL,   
-    UpdatedAt [datetime] NULL,
-    UpdatedBy [int] NULL FOREIGN KEY REFERENCES Users(Id)
-);
-GO
+-- CardLabel junction table
+CREATE TABLE [dbo].[CardLabel](
+    [CardId] [int] NOT NULL,
+    [LabelId] [int] NOT NULL,
+    FOREIGN KEY([CardId]) REFERENCES [dbo].[Cards]([Id]),
+    FOREIGN KEY([LabelId]) REFERENCES [dbo].[Labels]([Id])
+)
 
-CREATE TABLE Cards (
-    Id int IDENTITY(1,1) PRIMARY KEY,
-    StageId [int] NULL FOREIGN KEY REFERENCES Stages(Id),
-    Title [varchar](255) NULL,
-    CardDescription [nvarchar](1000) NULL,
-    CreatedAt [datetime] NULL,
-    CreatedBy [int] NULL FOREIGN KEY REFERENCES Users(Id),
-    CardStatus [varchar](20) NULL,
-    CardLocation [varchar](255) NULL,
-    StartDate [date] NULL,
-    DueDate [date] NULL,
-    CategoryId [int] NULL FOREIGN KEY REFERENCES Categories(Id), --cover type
-    CoverValue [varchar](2000) NULL,
-    Position [int] NULL,    
-    UpdatedAt [datetime] NULL,
-    UpdatedBy [int] NULL FOREIGN KEY REFERENCES Users(Id)
-);
-GO
+-- AttachmentType table
+CREATE TABLE [dbo].[AttachmentType](
+    [Id] [int] IDENTITY(1,1) NOT NULL,
+    [TypeValue] [varchar](50) NOT NULL,
+    [DisplayValue] [varchar](50) NOT NULL,
+    PRIMARY KEY ([Id])
+)
 
-CREATE TABLE Attachments (
-    Id int IDENTITY(1,1) PRIMARY KEY,
-    CardId [int] NULL FOREIGN KEY REFERENCES Cards(Id),
-    CategoryId [int] NULL FOREIGN KEY REFERENCES Categories(Id), --attachment type
-    AttachmentPath [varchar](255) NULL, --both link and file path store here
-    AttachmentName [varchar](255) NULL,
-    CreatedAt [datetime] NULL,
-    CreatedBy [int] NULL FOREIGN KEY REFERENCES Users(Id),
-    Size [varchar](255) NULL,
-    IsCover [bit] NULL    
-);
-GO
+-- Attachment table
+CREATE TABLE [dbo].[Attachment](
+    [Id] [int] IDENTITY(1,1) NOT NULL,
+    [CardId] [int] NULL,
+    [AttachmentTypeId] [int] NULL,
+    [AttachmentPath] [varchar](255) NULL,
+    [AttachmentName] [varchar](255) NULL,
+    [CreatedAt] [datetime] NULL,
+    [CreatedBy] [int] NULL,
+    [Size] [varchar](255) NULL,
+    [IsCover] [bit] NULL,
+    [Thumbnail] [varchar](350) NULL,
+    PRIMARY KEY ([Id]),
+    FOREIGN KEY([CardId]) REFERENCES [dbo].[Cards]([Id]),
+    FOREIGN KEY([AttachmentTypeId]) REFERENCES [dbo].[AttachmentType]([Id]),
+    FOREIGN KEY([CreatedBy]) REFERENCES [dbo].[Users]([Id])
+)
 
-CREATE TABLE SettingOptions (
-    Id int IDENTITY(1,1) PRIMARY KEY,
-    DisplayValue [varchar](255) NULL,
-    SettingOptionValue [varchar](50) NULL   
-);
-GO
+-- CheckList table
+CREATE TABLE [dbo].[CheckList](
+    [Id] [int] IDENTITY(1,1) NOT NULL,
+    [CheckListName] [varchar](255) NULL,
+    [CardId] [int] NULL,
+    [Position] [int] NULL,
+    [CreatedAt] [datetime] NULL,
+    [CreatedBy] [int] NULL,
+    [UpdatedAt] [datetime] NULL,
+    [UpdatedBy] [int] NULL,
+    PRIMARY KEY ([Id]),
+    FOREIGN KEY([CardId]) REFERENCES [dbo].[Cards]([Id]),
+    FOREIGN KEY([CreatedBy]) REFERENCES [dbo].[Users]([Id]),
+    FOREIGN KEY([UpdatedBy]) REFERENCES [dbo].[Users]([Id])
+)
 
-CREATE TABLE BillingContacts (
-    Id int IDENTITY(1,1) PRIMARY KEY,
-    UserId [int] NULL FOREIGN KEY REFERENCES Users(Id),
-    WorkspaceId [int] NULL FOREIGN KEY REFERENCES Workspaces(Id),
-    BillingContactName [varchar](50) NULL,
-    BillingContactEmail [varchar](100) NULL,
-    BillingLanguage [int] NULL FOREIGN KEY REFERENCES SettingOptions(Id),
-    AdditionalInvoiceDetail [varchar](250) NULL 
-);
-GO
+-- RolePermission table
+CREATE TABLE [dbo].[RolePermission](
+    [Id] [int] IDENTITY(1,1) NOT NULL,
+    [PermissionName] [varchar](50) NULL,
+    [PermissionCode] [varchar](50) NULL,
+    PRIMARY KEY ([Id])
+)
 
-CREATE TABLE BillingPlans (
-    Id int IDENTITY(1,1) PRIMARY KEY,
-    PlanName [varchar](100) NULL,
-    BillingPlanDescription [varchar](1000) NULL,
-    PricePerUser [decimal](10, 2) NULL,
-    IsActive [bit] NOT NULL
-);
-GO
+-- OwnerType table
+CREATE TABLE [dbo].[OwnerType](
+    [Id] [int] IDENTITY(1,1) NOT NULL,
+    [OwnerTypeValue] [varchar](50) NOT NULL,
+    PRIMARY KEY ([Id])
+)
 
-CREATE TABLE Collections (
-    Id int IDENTITY(1,1) PRIMARY KEY,
-    CollectionName [varchar](255) NULL,
-    CreatedAt [datetime] NULL,
-    CreatedBy [int] NULL FOREIGN KEY REFERENCES Users(Id),
-    UpdatedAt [datetime] NULL,
-    UpdatedBy [int] NULL FOREIGN KEY REFERENCES Users(Id),
-    WorkspaceId [int] NULL FOREIGN KEY REFERENCES Workspaces(Id),    
-);
-GO
+-- Members table
+CREATE TABLE [dbo].[Members](
+    [Id] [int] IDENTITY(1,1) NOT NULL,
+    [UserId] [int] NULL,
+    [RolePermissonId] [int] NULL,
+    [OwnerTypeId] [int] NULL,
+    [OwnerId] [int] NULL,
+    [InvitedBy] [int] NULL,
+    [JoinedAt] [datetime] NULL,
+    [MemberStatus] [varchar](50) NULL,
+    PRIMARY KEY ([Id]),
+    FOREIGN KEY([UserId]) REFERENCES [dbo].[Users]([Id]),
+    FOREIGN KEY([RolePermissonId]) REFERENCES [dbo].[RolePermission]([Id]),
+    FOREIGN KEY([OwnerTypeId]) REFERENCES [dbo].[OwnerType]([Id])
+)
 
-CREATE TABLE BoardCollections (
-    BoardId [int] NOT NULL FOREIGN KEY REFERENCES Boards(Id),
-    CollectionId [int] NOT NULL FOREIGN KEY REFERENCES Collections(Id)
-);
-GO
+-- CheckListItem table
+CREATE TABLE [dbo].[CheckListItem](
+    [Id] [int] IDENTITY(1,1) NOT NULL,
+    [CheckListItemName] [varchar](255) NULL,
+    [MemberId] [int] NULL,
+    [CheckListId] [int] NULL,
+    [DueDate] [date] NULL,
+    [CheckListItemStatus] [bit] NULL,
+    [CreatedAt] [datetime] NULL,
+    [CreatedBy] [int] NULL,
+    [UpdatedAt] [datetime] NULL,
+    [UpdatedBy] [int] NULL,
+    [Position] [int] NULL,
+    PRIMARY KEY ([Id]),
+    FOREIGN KEY([CheckListId]) REFERENCES [dbo].[CheckList]([Id]),
+    FOREIGN KEY([MemberId]) REFERENCES [dbo].[Members]([Id]),
+    FOREIGN KEY([CreatedBy]) REFERENCES [dbo].[Users]([Id]),
+    FOREIGN KEY([UpdatedBy]) REFERENCES [dbo].[Users]([Id])
+)
 
-CREATE TABLE PowerUps (
-    Id int IDENTITY(1,1) PRIMARY KEY,
-    PowerUpName [varchar](50) NULL,
-    IconUrl [varchar](2000) NULL,
-    BackgroundUrl [varchar](2000) NULL,
-    AuthorName [varchar](50) NULL,
-    PowerUpDescription [nvarchar](1000) NULL,
-    EmailContact [varchar](50) NULL,
-    PolicyUrl [varchar](2000) NULL,
-    IsStaffPick [bit] NULL,
-    IsIntegration [bit] NULL,
-    CategoryId [int] NULL FOREIGN KEY REFERENCES Categories(Id), --PowerUps type  
-);
-GO
+-- Comment table
+CREATE TABLE [dbo].[Comment](
+    [Id] [int] IDENTITY(1,1) NOT NULL,
+    [Content] [nvarchar](1000) NULL,
+    [CardId] [int] NULL,
+    [CreatedAt] [datetime] NULL,
+    [CreatedBy] [int] NULL,
+    [UpdatedAt] [datetime] NULL,
+    [UpdatedBy] [int] NULL,
+    PRIMARY KEY ([Id]),
+    FOREIGN KEY([CardId]) REFERENCES [dbo].[Cards]([Id]),
+    FOREIGN KEY([CreatedBy]) REFERENCES [dbo].[Users]([Id]),
+    FOREIGN KEY([UpdatedBy]) REFERENCES [dbo].[Users]([Id])
+)
 
-CREATE TABLE BoardPowerUps (
-    BoardId [int] NOT NULL FOREIGN KEY REFERENCES Boards(Id),
-    PowerUpId [int] NOT NULL FOREIGN KEY REFERENCES PowerUps(Id),
-    BoardPowerUpStatus [bit] NOT NULL
-);
-GO
+-- DataType table
+CREATE TABLE [dbo].[DataType](
+    [Id] [int] IDENTITY(1,1) NOT NULL,
+    [DataTypeValue] [varchar](50) NOT NULL,
+    PRIMARY KEY ([Id])
+)
 
-CREATE TABLE UserViewHistories (
-    UserId [int] NOT NULL FOREIGN KEY REFERENCES Users(Id),
-    CategoryId [int] NULL FOREIGN KEY REFERENCES Categories(Id), --Workspace, Board, Card
-    OwnerId [int] NOT NULL,
-    AccessedAt [datetime] NULL
-);
-GO
+-- CustomField table
+CREATE TABLE [dbo].[CustomField](
+    [Id] [int] IDENTITY(1,1) NOT NULL,
+    [Title] [varchar](255) NULL,
+    [DataTypeId] [int] NULL,
+    [BoardId] [int] NULL,
+    [CreatedAt] [datetime] NULL,
+    [CreatedBy] [int] NULL,
+    [UpdatedAt] [datetime] NULL,
+    [UpdatedBy] [int] NULL,
+    [Position] [int] NULL,
+    [IsFrontCardShowed] [bit] NOT NULL,
+    PRIMARY KEY ([Id]),
+    FOREIGN KEY([DataTypeId]) REFERENCES [dbo].[DataType]([Id]),
+    FOREIGN KEY([BoardId]) REFERENCES [dbo].[Board]([Id]),
+    FOREIGN KEY([CreatedBy]) REFERENCES [dbo].[Users]([Id]),
+    FOREIGN KEY([UpdatedBy]) REFERENCES [dbo].[Users]([Id])
+)
 
-CREATE TABLE Labels (
-    Id int IDENTITY(1,1) PRIMARY KEY,
-    Title [varchar](100) NULL,
-    CreatedAt [datetime] NULL,
-    CreatedBy [int] NULL FOREIGN KEY REFERENCES Users(Id),
-    UpdatedAt [datetime] NULL,
-    UpdatedBy [int] NULL FOREIGN KEY REFERENCES Users(Id),
-    ColorId [int] NULL FOREIGN KEY REFERENCES Colors(Id),
-    IsDefault [bit] NOT NULL,
-    BoardId [int] FOREIGN KEY REFERENCES Boards(Id)
-);
-GO
+-- FieldItem table
+CREATE TABLE [dbo].[FieldItem](
+    [Id] [int] IDENTITY(1,1) NOT NULL,
+    [ColorId] [int] NULL,
+    [FieldItemValue] [varchar](50) NULL,
+    [Position] [int] NULL,
+    [CustomFieldId] [int] NULL,
+    PRIMARY KEY ([Id]),
+    FOREIGN KEY([ColorId]) REFERENCES [dbo].[Color]([Id]),
+    FOREIGN KEY([CustomFieldId]) REFERENCES [dbo].[CustomField]([Id])
+)
 
-CREATE TABLE CardLabels (
-    CardId [int] NOT NULL FOREIGN KEY REFERENCES Cards(Id),
-    LabelId [int] NOT NULL FOREIGN KEY REFERENCES Labels(Id)
-);
-GO
+-- FieldValue table
+CREATE TABLE [dbo].[FieldValue](
+    [Id] [int] IDENTITY(1,1) NOT NULL,
+    [CardId] [int] NULL,
+    [FieldValue] [varchar](255) NULL,
+    [CustomFieldId] [int] NULL,
+    PRIMARY KEY ([Id]),
+    FOREIGN KEY([CardId]) REFERENCES [dbo].[Cards]([Id]),
+    FOREIGN KEY([CustomFieldId]) REFERENCES [dbo].[CustomField]([Id])
+)
 
-CREATE TABLE Stickers (
-    Id int IDENTITY(1,1) PRIMARY KEY,
-    CategoryId [int] NULL FOREIGN KEY REFERENCES Categories(Id), --Sticker Category 
-    StickerName [varchar](50) NULL,
-    StickerUrl [varchar](2000) NULL,
-    CreatedAt [datetime] NULL,
-    CreatedBy [int] NULL FOREIGN KEY REFERENCES Users(Id)
-);
-GO
+-- Collections table
+CREATE TABLE [dbo].[Collections](
+    [Id] [int] IDENTITY(1,1) NOT NULL,
+    [CollectionName] [varchar](255) NULL,
+    [CreatedAt] [datetime] NULL,
+    [CreatedBy] [int] NULL,
+    [UpdatedAt] [datetime] NULL,
+    [UpdatedBy] [int] NULL,
+    [WorkspaceId] [int] NULL,
+    PRIMARY KEY ([Id]),
+    FOREIGN KEY([WorkspaceId]) REFERENCES [dbo].[Workspace]([Id]),
+    FOREIGN KEY([CreatedBy]) REFERENCES [dbo].[Users]([Id]),
+    FOREIGN KEY([UpdatedBy]) REFERENCES [dbo].[Users]([Id])
+)
 
-CREATE TABLE CardStickers (
-    CardId [int] NOT NULL FOREIGN KEY REFERENCES Cards(Id),
-    StickerId [int] NOT NULL FOREIGN KEY REFERENCES Stickers(Id),
-    CreatedAt [datetime] NULL,
-    CreatedBy [int] NULL FOREIGN KEY REFERENCES Users(Id),
-    PositionX [float] NULL,
-    PositionY [float] NULL,
-    IndexZ [int] NULL
-);
-GO
+-- BoardCollection junction table
+CREATE TABLE [dbo].[BoardCollection](
+    [BoardId] [int] NOT NULL,
+    [CollectionId] [int] NOT NULL,
+    FOREIGN KEY([BoardId]) REFERENCES [dbo].[Board]([Id]),
+    FOREIGN KEY([CollectionId]) REFERENCES [dbo].[Collections]([Id])
+)
 
-CREATE TABLE CheckLists (
-    Id int IDENTITY(1,1) PRIMARY KEY,
-    CheckListName [varchar](255) NULL,
-    CardId [int] NULL FOREIGN KEY REFERENCES Cards(Id),
-    Position [int] NULL,
-    CreatedAt [datetime] NULL,
-    CreatedBy [int] NULL FOREIGN KEY REFERENCES Users(Id),
-    UpdatedAt [datetime] NULL,
-    UpdatedBy [int] NULL FOREIGN KEY REFERENCES Users(Id),
-);
-GO
+-- PowerUpCategory table
+CREATE TABLE [dbo].[PowerUpCategory](
+    [Id] [int] IDENTITY(1,1) NOT NULL,
+    [CategoryValue] [varchar](50) NOT NULL,
+    [DisplayValue] [varchar](50) NOT NULL,
+    PRIMARY KEY ([Id])
+)
 
-CREATE TABLE RolePermissions (
-    Id int IDENTITY(1,1) PRIMARY KEY,
-    PermissionName [varchar](50) NULL,
-    PermissionCode [varchar](50) NULL    
-);
-GO
+-- PowerUp table
+CREATE TABLE [dbo].[PowerUp](
+    [Id] [int] IDENTITY(1,1) NOT NULL,
+    [PowerUpName] [varchar](50) NULL,
+    [IconUrl] [varchar](2000) NULL,
+    [BackgroundUrl] [varchar](2000) NULL,
+    [AuthorName] [varchar](50) NULL,
+    [PowerUpDescription] [nvarchar](1000) NULL,
+    [EmailContact] [varchar](50) NULL,
+    [PolicyUrl] [varchar](2000) NULL,
+    [IsStaffPick] [bit] NULL,
+    [IsIntegration] [bit] NULL,
+    [CategoryId] [int] NULL,
+    PRIMARY KEY ([Id]),
+    FOREIGN KEY([CategoryId]) REFERENCES [dbo].[PowerUpCategory]([Id])
+)
 
-CREATE TABLE Members (
-    Id int IDENTITY(1,1) PRIMARY KEY,
-    UserId [int] NULL FOREIGN KEY REFERENCES Users(Id),
-    RolePermissonId [int] NULL FOREIGN KEY REFERENCES RolePermissions(Id), --Admin, Member, Observer
-    CategoryId [int] NULL FOREIGN KEY REFERENCES Categories(Id), --Workspace, Board, Card
-    OwnerId [int] NULL,
-    InvitedBy [int] NULL,
-    JoinedAt [datetime] NULL,
-    MemberStatus [varchar](50) NULL    
-);
-GO
+-- BoardPowerUp junction table
+CREATE TABLE [dbo].[BoardPowerUp](
+    [BoardId] [int] NOT NULL,
+    [PowerUpId] [int] NOT NULL,
+    [BoardPowerUpStatus] [bit] NOT NULL,
+    FOREIGN KEY([BoardId]) REFERENCES [dbo].[Board]([Id]),
+    FOREIGN KEY([PowerUpId]) REFERENCES [dbo].[PowerUp]([Id])
+)
 
+-- StickerCategory table
+CREATE TABLE [dbo].[StickerCategory](
+    [Id] [int] IDENTITY(1,1) NOT NULL,
+    [CategoryValue] [varchar](50) NOT NULL,
+    [DisplayValue] [varchar](50) NOT NULL,
+    PRIMARY KEY ([Id])
+)
 
-CREATE TABLE CheckListItems (
-    Id int IDENTITY(1,1) PRIMARY KEY,
-    CheckListItemName [varchar](255) NULL,
-    MemberId [int] NULL FOREIGN KEY REFERENCES Members(Id),
-    CheckListId [int] NULL FOREIGN KEY REFERENCES CheckLists(Id),
-    DueDate [date] NULL,
-    CheckListItemStatus [bit] NULL,
-    CreatedAt [datetime] NULL,
-    CreatedBy [int] NULL FOREIGN KEY REFERENCES Users(Id),
-    UpdatedAt [datetime] NULL,
-    UpdatedBy [int] NULL FOREIGN KEY REFERENCES Users(Id),
-    Position [int] NULL,    
-);
-GO
+-- Sticker table
+CREATE TABLE [dbo].[Sticker](
+    [Id] [int] IDENTITY(1,1) NOT NULL,
+    [CategoryId] [int] NULL,
+    [StickerName] [varchar](50) NULL,
+    [StickerUrl] [varchar](2000) NULL,
+    [CreatedAt] [datetime] NULL,
+    [CreatedBy] [int] NULL,
+    PRIMARY KEY ([Id]),
+    FOREIGN KEY([CategoryId]) REFERENCES [dbo].[StickerCategory]([Id]),
+    FOREIGN KEY([CreatedBy]) REFERENCES [dbo].[Users]([Id])
+)
 
-CREATE TABLE Comments (
-    Id int IDENTITY(1,1) PRIMARY KEY,
-    Content [nvarchar](1000) NULL,
-    CardId [int] NULL FOREIGN KEY REFERENCES Cards(Id),
-    CreatedAt [datetime] NULL,
-    CreatedBy [int] NULL FOREIGN KEY REFERENCES Users(Id),
-    UpdatedAt [datetime] NULL,
-    UpdatedBy [int] NULL FOREIGN KEY REFERENCES Users(Id),
-);
-GO
+-- CardSticker junction table
+CREATE TABLE [dbo].[CardSticker](
+    [CardId] [int] NOT NULL,
+    [StickerId] [int] NOT NULL,
+    [CreatedAt] [datetime] NULL,
+    [CreatedBy] [int] NULL,
+    [PositionX] [float] NULL,
+    [PositionY] [float] NULL,
+    [IndexZ] [int] NULL,
+    FOREIGN KEY([CardId]) REFERENCES [dbo].[Cards]([Id]),
+    FOREIGN KEY([StickerId]) REFERENCES [dbo].[Sticker]([Id]),
+    FOREIGN KEY([CreatedBy]) REFERENCES [dbo].[Users]([Id])
+)
 
+-- ReactionCategory table
+CREATE TABLE [dbo].[ReactionCategory](
+    [Id] [int] IDENTITY(1,1) NOT NULL,
+    [CategoryValue] [varchar](50) NOT NULL,
+    [DisplayValue] [varchar](50) NOT NULL,
+    PRIMARY KEY ([Id])
+)
 
-CREATE TABLE Reactions (
-    Id int IDENTITY(1,1) PRIMARY KEY,
-    ReactionsName [varchar](255) NULL, 
-    ShortCode [varchar](50) NOT NULL, -- e.g. :neutral_face:
-    CategoryId [int] NULL FOREIGN KEY REFERENCES Categories(Id), --Reaction Category
-    Icon [varchar](255) NULL    
-);
-GO
+-- Reaction table
+CREATE TABLE [dbo].[Reaction](
+    [Id] [int] IDENTITY(1,1) NOT NULL,
+    [ReactionsName] [varchar](255) NULL,
+    [ShortCode] [varchar](50) NOT NULL,
+    [CategoryId] [int] NULL,
+    [Icon] [varchar](255) NULL,
+    PRIMARY KEY ([Id]),
+    FOREIGN KEY([CategoryId]) REFERENCES [dbo].[ReactionCategory]([Id])
+)
 
-CREATE TABLE CommentReactions (
-    CommentId [int] NOT NULL FOREIGN KEY REFERENCES Comments(Id),
-    ReactionId [int] NOT NULL FOREIGN KEY REFERENCES Reactions(Id),
-    CreatedBy [int] NOT NULL FOREIGN KEY REFERENCES Users(Id),
-    CreatedAt [datetime] NULL
-);
-GO
+-- CommentReaction junction table
+CREATE TABLE [dbo].[CommentReaction](
+    [CommentId] [int] NOT NULL,
+    [ReactionId] [int] NOT NULL,
+    [CreatedBy] [int] NOT NULL,
+    [CreatedAt] [datetime] NULL,
+    FOREIGN KEY([CommentId]) REFERENCES [dbo].[Comment]([Id]),
+    FOREIGN KEY([ReactionId]) REFERENCES [dbo].[Reaction]([Id]),
+    FOREIGN KEY([CreatedBy]) REFERENCES [dbo].[Users]([Id])
+)
 
-CREATE TABLE CustomFields (
-    Id int IDENTITY(1,1) PRIMARY KEY,
-    Title [varchar](255) NULL,
-    CategoryId [int] NULL FOREIGN KEY REFERENCES Categories(Id), --CustomFields Category
-    BoardId [int] NULL FOREIGN KEY REFERENCES Boards(Id),
-    CreatedAt [datetime] NULL,
-    CreatedBy [int] NULL FOREIGN KEY REFERENCES Users(Id),
-    UpdatedAt [datetime] NULL,
-    UpdatedBy [int] NULL FOREIGN KEY REFERENCES Users(Id),
-    Position [int] NULL,
-    IsFrontCardShowed [bit] NOT NULL
-);
-GO
+-- Activity table
+CREATE TABLE [dbo].[Activity](
+    [Id] [int] IDENTITY(1,1) NOT NULL,
+    [CreatedAt] [datetime] NULL,
+    [ActivityDescription] [nvarchar](1000) NULL,
+    [UserId] [int] NULL,
+    [OwnerTypeId] [int] NULL,
+    [OwnerId] [int] NULL,
+    PRIMARY KEY ([Id]),
+    FOREIGN KEY([UserId]) REFERENCES [dbo].[Users]([Id])
+)
 
-CREATE TABLE Exports (
-    Id int IDENTITY(1,1) PRIMARY KEY,
-    WorkspaceId [int] NULL FOREIGN KEY REFERENCES Workspaces(Id),
-    CreatedBy [int] NULL FOREIGN KEY REFERENCES Users(Id),
-    CreatedAt [datetime] NULL,
-    Size [int] NULL    
-);
-GO
+-- Notification table
+CREATE TABLE [dbo].[Notification](
+    [Id] [int] IDENTITY(1,1) NOT NULL,
+    [ActivityId] [int] NULL,
+    [IsRead] [bit] NOT NULL,
+    PRIMARY KEY ([Id]),
+    FOREIGN KEY([ActivityId]) REFERENCES [dbo].[Activity]([Id])
+)
 
-CREATE TABLE FieldItems (
-    Id int IDENTITY(1,1) PRIMARY KEY,
-    ColorId [int] NULL FOREIGN KEY REFERENCES Colors(Id),
-    FieldItemValue [varchar](50) NULL,
-    Position [int] NULL,
-    CustomFieldId [int] NULL FOREIGN KEY REFERENCES CustomFields(Id)    
-);
-GO
+-- ShareLink table
+CREATE TABLE [dbo].[ShareLink](
+    [Id] [int] IDENTITY(1,1) NOT NULL,
+    [OwnerTypeId] [int] NULL,
+    [RolePermissonId] [int] NULL,
+    [OwnerId] [int] NULL,
+    [ShareLinkToken] [varchar](255) NULL,
+    [ShareLinkStatus] [bit] NOT NULL,
+    PRIMARY KEY ([Id]),
+    FOREIGN KEY([OwnerTypeId]) REFERENCES [dbo].[OwnerType]([Id]),
+    FOREIGN KEY([RolePermissonId]) REFERENCES [dbo].[RolePermission]([Id])
+)
 
-CREATE TABLE FieldValues (
-    Id int IDENTITY(1,1) PRIMARY KEY,
-    CardId [int] NULL FOREIGN KEY REFERENCES Cards(Id),
-    FieldValue [varchar](255) NULL,
-    CustomFieldId [int] NULL FOREIGN KEY REFERENCES CustomFields(Id)    
-);
-GO
+-- UserStarredBoard junction table
+CREATE TABLE [dbo].[UserStarredBoard](
+    [UserId] [int] NOT NULL,
+    [BoardId] [int] NOT NULL,
+    [CreatedAt] [datetime] NOT NULL DEFAULT (getdate()),
+    [StarredBoardsStatus] [bit] NOT NULL,
+    FOREIGN KEY([UserId]) REFERENCES [dbo].[Users]([Id]),
+    FOREIGN KEY([BoardId]) REFERENCES [dbo].[Board]([Id])
+)
 
-CREATE TABLE Notifications (
-    Id int IDENTITY(1,1) PRIMARY KEY,
-    ActivityId [int] NULL FOREIGN KEY REFERENCES Activities(Id),
-    IsRead [bit] NOT NULL  
-);
-GO
+-- UserViewHistory table
+CREATE TABLE [dbo].[UserViewHistory](
+    [UserId] [int] NOT NULL,
+    [OwnerTypeId] [int] NULL,
+    [OwnerId] [int] NOT NULL,
+    [AccessedAt] [datetime] NULL,
+    FOREIGN KEY([UserId]) REFERENCES [dbo].[Users]([Id]),
+    FOREIGN KEY([OwnerTypeId]) REFERENCES [dbo].[OwnerType]([Id])
+)
 
-CREATE TABLE PaymentInformations (
-    Id int IDENTITY(1,1) PRIMARY KEY,
-    BillingContactId [int] NULL FOREIGN KEY REFERENCES BillingContacts(Id),
-    CardNumber [varchar](20) NULL,
-    CardBrand [varchar](50) NULL,
-    ExpirationDate [date] NULL,
-    Cvv [varchar](10) NULL,
-    Country [varchar](100) NULL,
-    PostalCode [varchar](20) NULL   
-);
-GO
+-- WorkspaceMembershipDomain table
+CREATE TABLE [dbo].[WorkspaceMembershipDomain](
+    [Id] [int] IDENTITY(1,1) NOT NULL,
+    [WorkspaceId] [int] NOT NULL,
+    [Domain] [nvarchar](1000) NOT NULL,
+    [CreatedAt] [datetime] NULL,
+    PRIMARY KEY ([Id]),
+    FOREIGN KEY([WorkspaceId]) REFERENCES [dbo].[Workspace]([Id])
+)
 
-CREATE TABLE SettingKeys (
-    Id int IDENTITY(1,1) PRIMARY KEY,
-    KeyName [varchar](100) NULL,
-    SettingKeyDescription [nvarchar](1000) NULL,
-    CategoryId [int] NULL FOREIGN KEY REFERENCES CategoryTypes(Id), --workspace, board, card
-    DefaultValue [int] NULL,
-    IsBoolean [bit] NOT NULL
-);
-GO
-                
-CREATE TABLE SettingKeySettingOptions (
-    SettingKeyId [int] NOT NULL FOREIGN KEY REFERENCES SettingKeys(Id),
-    SettingOptionId [int] NOT NULL FOREIGN KEY REFERENCES SettingOptions(Id)
-);
-GO
+-- TemplateCategory table
+CREATE TABLE [dbo].[TemplateCategory](
+    [Id] [int] IDENTITY(1,1) NOT NULL,
+    [CategoryValue] [varchar](50) NOT NULL,
+    [DisplayValue] [varchar](50) NOT NULL,
+    [IconUrl] [varchar](255) NULL,
+    PRIMARY KEY ([Id])
+)
 
-CREATE TABLE SettingValues (
-    Id int IDENTITY(1,1) PRIMARY KEY,
-    SettingKeyId [int] NULL FOREIGN KEY REFERENCES SettingKeys(Id),
-    SettingValue [int] NULL,
-    CreatedAt [datetime] NULL,
-    CreatedBy [int] NULL FOREIGN KEY REFERENCES Users(Id),
-    UpdatedAt [datetime] NULL,
-    UpdatedBy [int] NULL FOREIGN KEY REFERENCES Users(Id),
-    OwnerId [int] NULL    
-);
-GO
+-- Template table
+CREATE TABLE [dbo].[Template](
+    [Id] [int] IDENTITY(1,1) NOT NULL,
+    [Title] [varchar](255) NULL,
+    [TemplateDescription] [nvarchar](1000) NULL,
+    [CategoryId] [int] NULL,
+    [Viewed] [int] NULL,
+    [Copied] [int] NULL,
+    [CreatedBy] [int] NULL,
+    [CreatedAt] [datetime] NULL,
+    [UpdatedAt] [datetime] NULL,
+    [UpdatedBy] [int] NULL,
+    [BoardId] [int] NULL,
+    [BackgroundUrl] [varchar](255) NULL,
+    PRIMARY KEY ([Id]),
+    FOREIGN KEY([CategoryId]) REFERENCES [dbo].[TemplateCategory]([Id]),
+    FOREIGN KEY([BoardId]) REFERENCES [dbo].[Board]([Id]),
+    FOREIGN KEY([CreatedBy]) REFERENCES [dbo].[Users]([Id]),
+    FOREIGN KEY([UpdatedBy]) REFERENCES [dbo].[Users]([Id])
+)
 
-CREATE TABLE ShareLinks (
-    Id int IDENTITY(1,1) PRIMARY KEY,
-    CategoryId [int] NULL FOREIGN KEY REFERENCES Categories(Id), --workspace, board, card
-    RolePermissonId [int] NULL FOREIGN KEY REFERENCES RolePermissions(Id), --admin, member
-    OwnerId [int] NULL,
-    ShareLinkToken [varchar](255) NULL,
-    ShareLinkStatus [bit] NOT NULL   
-);
-GO
+-- SettingOption table
+CREATE TABLE [dbo].[SettingOption](
+    [Id] [int] IDENTITY(1,1) NOT NULL,
+    [DisplayValue] [varchar](255) NULL,
+    [SettingOptionValue] [varchar](50) NULL,
+    PRIMARY KEY ([Id])
+)
 
-CREATE TABLE Subscriptions (
-    Id int IDENTITY(1,1) PRIMARY KEY,
-    BillingContactId [int] NULL FOREIGN KEY REFERENCES BillingContacts(Id),
-    BillingPlanId [int] NULL FOREIGN KEY REFERENCES BillingPlans(Id),
-    StartDate [date] NULL,
-    EndDate [date] NULL,
-    IsMonthly [bit] NOT NULL, --Monthly/Annually
-    SubscriptionStatus [bit] NOT NULL,
-    AutoRenew [bit] NULL,
-    MemberCountBilled [int] NULL    
-);
-GO
+-- SettingKey table
+CREATE TABLE [dbo].[SettingKey](
+    [Id] [int] IDENTITY(1,1) NOT NULL,
+    [KeyName] [varchar](100) NULL,
+    [SettingKeyDescription] [nvarchar](1000) NULL,
+    [OwnerTypeId] [int] NULL,
+    [DefaultValue] [int] NULL,
+    [IsBoolean] [bit] NOT NULL,
+    PRIMARY KEY ([Id]),
+    FOREIGN KEY([OwnerTypeId]) REFERENCES [dbo].[OwnerType]([Id])
+)
 
-CREATE TABLE Templates (
-    Id int IDENTITY(1,1) PRIMARY KEY,
-    Title [varchar](255) NULL,
-    TemplateDescription [nvarchar](1000) NULL,
-    CategoryId [int] NULL FOREIGN KEY REFERENCES Categories(Id), --Template Categories
-    Viewed [int] NULL,
-    Copied [int] NULL,
-    CreatedBy [int] NULL FOREIGN KEY REFERENCES Users(Id),
-    CreatedAt [datetime] NULL,
-    UpdatedAt [datetime] NULL,
-    UpdatedBy [int] NULL FOREIGN KEY REFERENCES Users(Id),
-    BoardId [int] NULL FOREIGN KEY REFERENCES Boards(Id),
-    BackgroundUrl [varchar](255) NULL    
-);
-GO
+-- SettingKeySettingOption junction table
+CREATE TABLE [dbo].[SettingKeySettingOption](
+    [SettingKeyId] [int] NOT NULL,
+    [SettingOptionId] [int] NOT NULL,
+    FOREIGN KEY([SettingKeyId]) REFERENCES [dbo].[SettingKey]([Id]),
+    FOREIGN KEY([SettingOptionId]) REFERENCES [dbo].[SettingOption]([Id])
+)
 
-CREATE TABLE WorkspaceMembershipDomains (
-    Id int IDENTITY(1,1) PRIMARY KEY,
-    WorkspaceId [int] NOT NULL FOREIGN KEY REFERENCES Workspaces(Id),
-    Domain [nvarchar](1000) NOT NULL,
-    CreatedAt [datetime] NULL    
-);
-GO
+-- SettingValue table
+CREATE TABLE [dbo].[SettingValue](
+    [Id] [int] IDENTITY(1,1) NOT NULL,
+    [SettingKeyId] [int] NULL,
+    [SettingContent] [int] NULL,
+    [CreatedAt] [datetime] NULL,
+    [CreatedBy] [int] NULL,
+    [UpdatedAt] [datetime] NULL,
+    [UpdatedBy] [int] NULL,
+    [OwnerId] [int] NULL,
+    PRIMARY KEY ([Id]),
+    FOREIGN KEY([SettingKeyId]) REFERENCES [dbo].[SettingKey]([Id]),
+    FOREIGN KEY([CreatedBy]) REFERENCES [dbo].[Users]([Id]),
+    FOREIGN KEY([UpdatedBy]) REFERENCES [dbo].[Users]([Id])
+)
+
+-- BillingPlan table
+CREATE TABLE [dbo].[BillingPlan](
+    [Id] [int] IDENTITY(1,1) NOT NULL,
+    [PlanName] [varchar](100) NULL,
+    [BillingPlanDescription] [varchar](1000) NULL,
+    [PricePerUser] [decimal](10, 2) NULL,
+    [IsActive] [bit] NOT NULL,
+    PRIMARY KEY ([Id])
+)
+
+-- BillingContact table
+CREATE TABLE [dbo].[BillingContact](
+    [Id] [int] IDENTITY(1,1) NOT NULL,
+    [UserId] [int] NULL,
+    [WorkspaceId] [int] NULL,
+    [BillingContactName] [varchar](50) NULL,
+    [BillingContactEmail] [varchar](100) NULL,
+    [BillingLanguage] [int] NULL,
+    [AdditionalInvoiceDetail] [varchar](250) NULL,
+    PRIMARY KEY ([Id]),
+    FOREIGN KEY([UserId]) REFERENCES [dbo].[Users]([Id]),
+    FOREIGN KEY([WorkspaceId]) REFERENCES [dbo].[Workspace]([Id]),
+    FOREIGN KEY([BillingLanguage]) REFERENCES [dbo].[SettingOption]([Id])
+)
+
+-- PaymentInformation table
+CREATE TABLE [dbo].[PaymentInformation](
+    [Id] [int] IDENTITY(1,1) NOT NULL,
+    [BillingContactId] [int] NULL,
+    [CardNumber] [varchar](20) NULL,
+    [CardBrand] [varchar](50) NULL,
+    [ExpirationDate] [date] NULL,
+    [Cvv] [varchar](10) NULL,
+    [Country] [varchar](100) NULL,
+    [PostalCode] [varchar](20) NULL,
+    PRIMARY KEY ([Id]),
+    FOREIGN KEY([BillingContactId]) REFERENCES [dbo].[BillingContact]([Id])
+)
+
+-- Subscription table
+CREATE TABLE [dbo].[Subscription](
+    [Id] [int] IDENTITY(1,1) NOT NULL,
+    [BillingContactId] [int] NULL,
+    [BillingPlanId] [int] NULL,
+    [StartDate] [date] NULL,
+    [EndDate] [date] NULL,
+    [IsMonthly] [bit] NOT NULL,
+    [SubscriptionStatus] [bit] NOT NULL,
+    [AutoRenew] [bit] NULL,
+    [MemberCountBilled] [int] NULL,
+    PRIMARY KEY ([Id]),
+    FOREIGN KEY([BillingContactId]) REFERENCES [dbo].[BillingContact]([Id]),
+    FOREIGN KEY([BillingPlanId]) REFERENCES [dbo].[BillingPlan]([Id])
+)
+
+-- Export table
+CREATE TABLE [dbo].[Export](
+    [Id] [int] IDENTITY(1,1) NOT NULL,
+    [WorkspaceId] [int] NULL,
+    [CreatedBy] [int] NULL,
+    [CreatedAt] [datetime] NULL,
+    [Size] [int] NULL,
+    PRIMARY KEY ([Id]),
+    FOREIGN KEY([WorkspaceId]) REFERENCES [dbo].[Workspace]([Id]),
+    FOREIGN KEY([CreatedBy]) REFERENCES [dbo].[Users]([Id])
+)

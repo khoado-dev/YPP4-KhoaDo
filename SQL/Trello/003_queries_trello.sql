@@ -63,7 +63,7 @@ SELECT
     Email,
     Username,
     Bio
-FROM [User]
+FROM [Users]
 WHERE Email = 'james85@booth-daniels.net'
 
 --3. WORKSPACE CREATE SCREEN
@@ -190,7 +190,7 @@ SELECT
     mmb.OwnerId BoardId
 FROM Members mmb
 JOIN OwnerType owt ON owt.Id = mmb.OwnerTypeId
-JOIN [User] usr ON usr.Id = mmb.UserId
+JOIN [Users] usr ON usr.Id = mmb.UserId
 WHERE owt.OwnerTypeValue = 'BOARD' AND mmb.OwnerId = 1
 
 --CARD SCREEN
@@ -222,7 +222,7 @@ JOIN CardWithBoardWorkspace cwbw ON
                                 (OwnerTypeValue = 'CARD' AND cwbw.CardId = mmb.OwnerId) OR
                                 (OwnerTypeValue = 'BOARD' AND cwbw.BoardId = mmb.OwnerId) OR
                                 (OwnerTypeValue = 'WORKSPACE' AND cwbw.WorkspaceId = mmb.OwnerId)
-JOIN [User] usr ON usr.Id = mmb.UserId
+JOIN [Users] usr ON usr.Id = mmb.UserId
 ORDER BY owt.Id DESC, JoinedAt DESC;
 
 --query information of specific card
@@ -244,7 +244,7 @@ SELECT
 FROM Cards crd
 JOIN Members mmb ON mmb.OwnerId = crd.Id
 JOIN OwnerType owt ON owt.Id = mmb.OwnerTypeId
-JOIN [User] usr ON usr.Id = mmb.UserId
+JOIN [Users] usr ON usr.Id = mmb.UserId
 WHERE owt.OwnerTypeValue = 'CARD' AND crd.Id = 1;
 
 --query labels in a specific card
@@ -256,7 +256,7 @@ SELECT
     clr.Icon LabelIcon
 FROM Cards crd
 JOIN CardLabel clb ON clb.CardId = crd.Id
-JOIN [Label] lbl ON lbl.Id = clb.LabelId
+JOIN Labels lbl ON lbl.Id = clb.LabelId
 JOIN Color clr ON clr.Id = lbl.ColorId
 WHERE crd.Id = 16
 
@@ -272,7 +272,7 @@ SELECT
     crd.Id CardId
 FROM Cards crd
 JOIN Comment cmt ON cmt.CardId = crd.Id
-JOIN [User] usr ON usr.Id = cmt.CreatedBy
+JOIN [Users] usr ON usr.Id = cmt.CreatedBy
 WHERE crd.Id = 1;
 
 --query reaction of comments in specific card
@@ -299,8 +299,8 @@ SELECT
     owt.OwnerTypeValue Category,
     atv.OwnerId CardId
 FROM Activity atv
-JOIN OwnerType owt ON owt.Id = atv.CategoryId
-JOIN [User] usr ON usr.Id = atv.UserId
+JOIN OwnerType owt ON owt.Id = atv.OwnerTypeId
+JOIN [Users] usr ON usr.Id = atv.UserId
 WHERE owt.OwnerTypeValue = 'CARD' AND atv.OwnerId = 1;
 
 --query retrieves all custom fields for a specific board, 
@@ -392,7 +392,7 @@ SELECT
 FROM Checklist clt
 JOIN ChecklistItem cli ON cli.ChecklistId = clt.Id
 LEFT JOIN Members mmb ON mmb.Id = cli.MemberId
-LEFT JOIN [User] usr ON usr.Id = mmb.UserId
+LEFT JOIN [Users] usr ON usr.Id = mmb.UserId
 WHERE clt.CardId =1
 ORDER BY clt.Id, cli.Position;
 
@@ -420,7 +420,7 @@ SELECT
 FROM Members mmb
 JOIN OwnerType owt ON owt.Id = mmb.OwnerTypeId
 JOIN RolePermission pe ON pe.Id = mmb.RolePermissonId
-JOIN [User] us ON us.Id = mmb.UserId
+JOIN [Users] us ON us.Id = mmb.UserId
 JOIN BoardCountByEachUser bcb ON bcb.UserId = mmb.UserId
 WHERE owt.OwnerTypeValue = 'WORKSPACE' AND mmb.OwnerId = 11
 ORDER BY mmb.JoinedAt;
@@ -444,7 +444,7 @@ FROM Members mmb
 JOIN OwnerType owt ON owt.Id = mmb.OwnerTypeId
 JOIN RolePermission pe ON pe.Id = mmb.RolePermissonId
 JOIN Board bo ON bo.Id = mmb.OwnerId
-JOIN [User] us ON us.Id = mmb.UserId
+JOIN [Users] us ON us.Id = mmb.UserId
 WHERE OwnerTypeValue = 'BOARD' AND mmb.OwnerId = 1;
 
 
@@ -550,7 +550,7 @@ SELECT
     tpl.Viewed AS viewed_number,
     tpl.BoardId
 FROM Template tpl
-JOIN [User] us ON us.Id = tpl.CreatedBy
+JOIN [Users] us ON us.Id = tpl.CreatedBy
 WHERE tpl.Id = 1;
 
 --13. BOARD COLLECTION SCREEN
@@ -628,8 +628,8 @@ SELECT
     ac.OwnerId
 FROM [Notification] noti
 JOIN Activity ac ON ac.Id = noti.ActivityId
-JOIN OwnerType owt ON owt.Id = ac.CategoryId
-JOIN [User] us ON us.Id = ac.UserId
+JOIN OwnerType owt ON owt.Id = ac.OwnerTypeId
+JOIN [Users] us ON us.Id = ac.UserId
 WHERE ac.UserId = 2 AND noti.IsRead = 0;
 
 --Show all notification are read
@@ -644,7 +644,7 @@ SELECT
     ac.OwnerId
 FROM [Notification] noti
 JOIN Activity ac ON ac.Id = noti.ActivityId
-JOIN OwnerType owt ON owt.Id = ac.CategoryId
-JOIN [User] us ON us.Id = ac.UserId
+JOIN OwnerType owt ON owt.Id = ac.OwnerTypeId
+JOIN [Users] us ON us.Id = ac.UserId
 WHERE ac.UserId = 2 AND noti.IsRead = 1;
 
