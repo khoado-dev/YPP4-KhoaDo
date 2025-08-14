@@ -13,32 +13,34 @@ public class TestStartUp
 {
     private static Dictionary<Type, object> _singletons = new();
 
-    public static SqliteConnection? Connection;
+    public static SqliteConnection? _connection;
 
     #region Setup DI & DB
     [AssemblyInitialize]
     public static void AssemblyInit(TestContext context)
     {
-        Connection = TestDatabaseHelper.CreateInMemoryDatabaseAndSchema();
-        TestDatabaseHelper.SeedAllData(Connection);
+        TestDatabaseHelper.CreateInMemoryDatabaseAndSchema();
+        TestDatabaseHelper.SeedAllData();
 
-        RegisterSingleton<IUserRepository>(new UserRepository(Connection));
+        _connection = TestDatabaseHelper.GetInMemoryDatabaseConnection();
+
+        RegisterSingleton<IUserRepository>(new UserRepository(_connection!));
         RegisterSingleton<IUserService>(new UserService(ResolveSingleton<IUserRepository>()));
         RegisterSingleton<UserController>(new UserController(ResolveSingleton<IUserService>()));
 
-        RegisterSingleton<ICardRepository>(new CardRepository(Connection));
+        RegisterSingleton<ICardRepository>(new CardRepository(_connection!));
         RegisterSingleton<ICardService>(new CardService(ResolveSingleton<ICardRepository>()));
         RegisterSingleton<CardController>(new CardController(ResolveSingleton<ICardService>()));
 
-        RegisterSingleton<IBoardRepository>(new BoardRepository(Connection));
+        RegisterSingleton<IBoardRepository>(new BoardRepository(_connection!));
         RegisterSingleton<IBoardService>(new BoardService(ResolveSingleton<IBoardRepository>()));
         RegisterSingleton<BoardController>(new BoardController(ResolveSingleton<IBoardService>()));
 
-        RegisterSingleton<IWorkspaceRepository>(new WorkspaceRepository(Connection));
+        RegisterSingleton<IWorkspaceRepository>(new WorkspaceRepository(_connection!));
         RegisterSingleton<IWorkspaceService>(new WorkspaceService(ResolveSingleton<IWorkspaceRepository>()));
         RegisterSingleton<WorkspaceController>(new WorkspaceController(ResolveSingleton<IWorkspaceService>()));
 
-        RegisterSingleton<IMemberRepository>(new MemberRepository(Connection));
+        RegisterSingleton<IMemberRepository>(new MemberRepository(_connection!));
         RegisterSingleton<IMemberService>(new MemberService(ResolveSingleton<IMemberRepository>()));
         RegisterSingleton<MemberController>(new MemberController(ResolveSingleton<IMemberService>()));
 
@@ -68,17 +70,15 @@ public class TestStartUp
 
     public static void ResetDatabase()
     {
-        if (Connection == null)
-            throw new InvalidOperationException("Database connection is not initialized.");
-        TestDatabaseHelper.ClearData(Connection);
-        TestDatabaseHelper.SeedAllData(Connection);
+        TestDatabaseHelper.ClearData();
+        TestDatabaseHelper.SeedAllData();
     }
 
     [AssemblyCleanup]
     public static void AssemblyCleanup()
     {
-        Connection?.Close();
-        Connection?.Dispose();
+        _connection?.Close();
+        _connection?.Dispose();
     }
     #endregion
 }

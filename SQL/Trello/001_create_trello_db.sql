@@ -420,7 +420,7 @@ CREATE TABLE [dbo].[ReactionCategory](
 -- Reaction table
 CREATE TABLE [dbo].[Reaction](
     [Id] [int] IDENTITY(1,1) NOT NULL,
-    [ReactionsName] [varchar](255) NULL,
+    [ReactionName] [varchar](255) NULL,
     [ShortCode] [varchar](50) NOT NULL,
     [CategoryId] [int] NULL,
     [Icon] [varchar](255) NULL,
