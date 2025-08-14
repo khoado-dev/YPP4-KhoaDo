@@ -24,7 +24,7 @@ namespace UnitTestForTrello.Repositories
                 mmb.OwnerId BoardId
             FROM Members mmb
             JOIN OwnerType owt ON owt.Id = mmb.OwnerTypeId
-            JOIN [User] usr ON usr.Id = mmb.UserId
+            JOIN Users usr ON usr.Id = mmb.UserId
             WHERE owt.OwnerTypeValue = 'BOARD' AND mmb.OwnerId = @BoardId;
             ";
             return _con.Query<BoardMemberDTO>(sql, new { BoardId = boardId });
@@ -40,7 +40,7 @@ namespace UnitTestForTrello.Repositories
             FROM Cards crd
             JOIN Members mmb ON mmb.OwnerId = crd.Id
             JOIN OwnerType owt ON owt.Id = mmb.OwnerTypeId
-            JOIN [User] usr ON usr.Id = mmb.UserId
+            JOIN Users usr ON usr.Id = mmb.UserId
             WHERE owt.OwnerTypeValue = 'CARD' AND crd.Id = @CardId;
             ";
             return _con.Query<CardMemberDTO>(sql, new { CardId = cardId });
@@ -75,7 +75,7 @@ namespace UnitTestForTrello.Repositories
                                             (OwnerTypeValue = 'CARD' AND cwbw.CardId = mmb.OwnerId) OR
                                             (OwnerTypeValue = 'BOARD' AND cwbw.BoardId = mmb.OwnerId) OR
                                             (OwnerTypeValue = 'WORKSPACE' AND cwbw.WorkspaceId = mmb.OwnerId)
-            JOIN [User] usr ON usr.Id = mmb.UserId
+            JOIN Users usr ON usr.Id = mmb.UserId
             ORDER BY owt.Id DESC, JoinedAt DESC;
             ";
             return _con.Query<CardSelectableMemberDTO>(sql, new { CardId = cardId });

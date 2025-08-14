@@ -23,7 +23,7 @@ namespace UnitTestForTrello.Repositories
                 Email,
                 Username,
                 Bio
-            FROM [User]
+            FROM Users
             WHERE Email = @Email;
             ";
             return _con.QueryFirstOrDefault<UserDTO>(sql, new { Email = email });
