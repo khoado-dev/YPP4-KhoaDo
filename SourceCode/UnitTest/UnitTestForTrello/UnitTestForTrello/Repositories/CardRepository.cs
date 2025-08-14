@@ -14,6 +14,26 @@ namespace UnitTestForTrello.Repositories
             _con = con;
         }
 
+        public IEnumerable<CardActivityDTO> GetActivitiesByCardId(int cardId)
+        {
+            const string sql = @"
+            SELECT 
+                usr.Id UserId,
+                usr.PictureUrl UserPicture,
+                usr.Username,
+                atv.Id ActivityId,
+                atv.ActivityDescription,
+                atv.CreatedAt,
+                owt.OwnerTypeValue Category,
+                atv.OwnerId CardId
+            FROM Activity atv
+            JOIN OwnerType owt ON owt.Id = atv.OwnerTypeId
+            JOIN Users usr ON usr.Id = atv.UserId
+            WHERE owt.OwnerTypeValue = 'CARD' AND atv.OwnerId = @CardId;
+            ";
+            return _con.Query<CardActivityDTO>(sql, new { CardId = cardId });
+        }
+
         public IEnumerable<CardCommentWithReactionCountDTO> GetCardCommentsAndReactionsCountByCardId(int cardId)
         {
             const string sql = @"
@@ -32,7 +52,7 @@ namespace UnitTestForTrello.Repositories
             FROM 
               Cards crd 
               JOIN Comment cmt ON cmt.CardId = crd.Id 
-              JOIN [Users] usr ON usr.Id = cmt.CreatedBy 
+              JOIN Users usr ON usr.Id = cmt.CreatedBy 
               JOIN CommentReaction cmr ON cmr.CommentId = cmt.Id 
               JOIN Reaction rct ON rct.Id = cmr.ReactionId 
             WHERE 

@@ -65,23 +65,34 @@ namespace UnitTestForTrello.Tests
         [TestMethod]
         public void GetCardLabelsByCardIdTest()
         {
-            int expctedNumberOfCards = 2;
+            int expctedNumberOfLabelInCard = 2;
 
             var actualResult = _cardController?.GetCardLabelsByCardId(cardId).ToList();
 
             Assert.IsNotNull(actualResult);
-            Assert.AreEqual(expctedNumberOfCards, actualResult.Count);
+            Assert.AreEqual(expctedNumberOfLabelInCard, actualResult.Count);
         }
 
         [TestMethod]
         public void GetCardCommentsAndReactionsCountByCardIdTest()
         {
-            int expctedNumberOfCards = 3;
+            int expctedNumberOfReactionEachCommentInCard = 3;
 
             var actualResult = _cardController?.GetCardCommentsAndReactionsCountByCardId(cardId).ToList();
 
             Assert.IsNotNull(actualResult);
-            Assert.AreEqual(expctedNumberOfCards, actualResult.Count);
+            Assert.AreEqual(expctedNumberOfReactionEachCommentInCard, actualResult.Count);
+        }
+
+        [TestMethod]
+        public void GetActivitiesByCardIdTest()
+        {
+            int expctedNumberOfActivityInCard = 2;
+
+            var actualResult = _cardController?.GetActivitiesByCardId(cardId).ToList();
+
+            Assert.IsNotNull(actualResult);
+            Assert.AreEqual(expctedNumberOfActivityInCard, actualResult.Count);
         }
 
         [TestCleanup]
