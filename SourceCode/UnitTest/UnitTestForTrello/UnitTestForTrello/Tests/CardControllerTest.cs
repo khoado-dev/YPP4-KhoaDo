@@ -95,6 +95,28 @@ namespace UnitTestForTrello.Tests
             Assert.AreEqual(expctedNumberOfActivityInCard, actualResult.Count);
         }
 
+        [TestMethod]
+        public void GetCustomFieldsByCardIdTest()
+        {
+            int expctedNumberOfCustomFieldsInCard = 4;
+
+            var actualResult = _cardController?.GetCustomFieldsByCardId(cardId).ToList();
+
+            Assert.IsNotNull(actualResult);
+            Assert.AreEqual(expctedNumberOfCustomFieldsInCard, actualResult.Count);
+        }
+
+        [TestMethod]
+        public void GetCustomFieldValuesByCardIdTest()
+        {
+            int expctedNumberOfCustomFieldsWithValuesInCard = 3;
+
+            var actualResult = _cardController?.GetCustomFieldValuesByCardId(cardId).ToList();
+
+            Assert.IsNotNull(actualResult);
+            Assert.AreEqual(expctedNumberOfCustomFieldsWithValuesInCard, actualResult.Count);
+        }
+
         [TestCleanup]
         public void Cleanup()
         {

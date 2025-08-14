@@ -684,6 +684,42 @@ namespace UnitTestForTrello.Tests.Utility
             ");
         }
 
+        public static void SeedCardCustomFieldAndValues()
+        {
+            // DataType
+            _connection?.Execute(@"
+                INSERT INTO DataType (Id, DataTypeValue) VALUES
+                (1, 'date'),
+                (2, 'dropdown'),
+                (3, 'number'),
+                (4, 'text'),
+                (5, 'boolean');
+            ");
+
+            // CustomField
+            _connection?.Execute(@"
+                INSERT INTO CustomField (Id, Title, DataTypeId, BoardId, Position, IsFrontCardShowed) VALUES
+                (1, 'Priority', 2, 1, 1, 1),     -- dropdown
+                (2, 'Estimate', 3, 1, 2, 1),     -- number
+                (3, 'Description', 4, 1, 3, 1);  -- text
+            ");
+
+            // FieldItem (Dropdown for Priority)
+            _connection?.Execute(@"
+                INSERT INTO FieldItem (Id, FieldItemValue, CustomFieldId, Position) VALUES
+                (1, 'High', 1, 1),
+                (2, 'Low', 1, 2);
+            ");
+
+            // FieldValue
+            _connection?.Execute(@"
+                INSERT INTO FieldValue (Id, CardId, FieldValue, CustomFieldId) VALUES
+                (1, 1, '1', 1),               -- Dropdown (maps to FieldItem.Id = 1 => High)
+                (2, 1, '5', 2),               -- Number
+                (3, 1, 'Some details', 3);    -- Text
+            ");
+        }
+
 
         public static void SeedAllData()
         {
@@ -703,6 +739,7 @@ namespace UnitTestForTrello.Tests.Utility
             SeedMembersOfCard();
             SeedCommentsWithReactionsForCard();
             SeedCardActivities();
+            SeedCardCustomFieldAndValues();
         }
 
         public static void ClearData()

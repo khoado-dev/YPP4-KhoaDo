@@ -10,5 +10,7 @@ namespace UnitTestForTrello.Services.IServices
         CardDetailDTO? GetCardDetailByCardId(int cardId);
         IEnumerable<CardLabelDTO> GetCardLabelsByCardId(int cardId);
         IEnumerable<CardSummaryDTO> GetCardSummariesByBoardId(int boardId);
+        IEnumerable<CardCustomFieldDTO> GetCustomFieldsByCardId(int cardId);
+        IEnumerable<CardCustomFieldValueDTO> GetCustomFieldValuesByCardId(int cardId);
     }
 }
