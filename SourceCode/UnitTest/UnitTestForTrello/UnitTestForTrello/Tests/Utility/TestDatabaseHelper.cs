@@ -12,174 +12,461 @@ namespace UnitTestForTrello.Tests.Utility
             connection.Open();
 
             connection.Execute(@"
-            CREATE TABLE [User] (
-                Id INTEGER PRIMARY KEY AUTOINCREMENT,
+            CREATE TABLE Users(
+                Id INTEGER PRIMARY KEY,
+                Username TEXT,
+                Bio TEXT,
+                Email TEXT,
+                LastActive TEXT,
+                CreatedAt TEXT,
+                UpdatedAt TEXT,
                 PictureUrl TEXT,
-                Email TEXT NOT NULL UNIQUE,
-                Username TEXT NOT NULL,
-                Bio TEXT
-            );");
+                FullName TEXT
+            );
 
-            // Board table
-            connection.Execute(@"
-                CREATE TABLE Board (
-                    Id INTEGER PRIMARY KEY,
-                    BoardName TEXT,
-                    BoardDescription TEXT,
-                    CreatedAt TEXT,
-                    CreatedBy INTEGER,
-                    BackgroundUrl TEXT,
-                    BoardStatus TEXT,
-                    WorkspaceId INTEGER
-                );
-            ");
-
-            // UserStarredBoard table
-            connection.Execute(@"
-                CREATE TABLE UserStarredBoard (
-                    UserId INTEGER,
-                    BoardId INTEGER,
-                    CreatedAt TEXT,
-                    StarredBoardsStatus INTEGER
-                );
-            ");
-
-            // OwnerType table
-            connection.Execute(@"
-                CREATE TABLE OwnerType (
-                    Id INTEGER PRIMARY KEY,
-                    OwnerTypeValue TEXT
-                );
-            ");
-
-            // UserViewHistory table
-            connection.Execute(@"
-                CREATE TABLE UserViewHistory (
-                    Id INTEGER PRIMARY KEY,
-                    UserId INTEGER,
-                    OwnerId INTEGER,
-                    OwnerTypeId INTEGER,
-                    AccessedAt TEXT
-                );
-            ");
-
-            connection.Execute(@"
-                CREATE TABLE Workspace (
-                    Id INTEGER PRIMARY KEY,
-                    WorkspaceName TEXT,
-                    LogoUrl TEXT,
-                    CreatedAt TEXT,
-                    ShortName TEXT,
-                    Website TEXT,
-                    WorkspaceDescription TEXT
-                );
-            ");
-
-
-            connection.Execute(@"
-                CREATE TABLE Members (
-                    UserId INTEGER,
-                    OwnerId INTEGER,
-                    OwnerTypeId INTEGER,
-                    JoinedAt TEXT
-                );
-            ");
-
-
-            connection.Execute(@"
-            CREATE TABLE WorkspaceType (
+            CREATE TABLE WorkspaceType(
                 Id INTEGER PRIMARY KEY,
                 TypeValue TEXT NOT NULL,
                 DisplayValue TEXT NOT NULL
             );
-            ");
 
-            connection.Execute(@"
-                CREATE TABLE Color (
-                    Id INTEGER PRIMARY KEY,
-                    ColorName TEXT,
-                    Icon TEXT
-                );
-            ");
+            CREATE TABLE Workspace(
+                Id INTEGER PRIMARY KEY,
+                WorkspaceName TEXT,
+                WorkspaceDescription TEXT,
+                ShortName TEXT,
+                Website TEXT,
+                TypeId INTEGER,
+                CreatedAt TEXT,
+                CreatedBy INTEGER,
+                UpdatedAt TEXT,
+                UpdatedBy INTEGER,
+                LogoUrl TEXT
+            );
 
-            // Stage
-            connection.Execute(@"
-            CREATE TABLE Stage (
+            CREATE TABLE Board(
+                Id INTEGER PRIMARY KEY,
+                BoardName TEXT,
+                BoardDescription TEXT,
+                CreatedAt TEXT,
+                CreatedBy INTEGER,
+                BackgroundUrl TEXT,
+                WorkspaceId INTEGER,
+                BoardStatus TEXT,
+                UpdatedAt TEXT,
+                UpdatedBy INTEGER,
+                IsTemplate INTEGER
+            );
+
+            CREATE TABLE Color(
+                Id INTEGER PRIMARY KEY,
+                ColorName TEXT,
+                ColorHex TEXT,
+                Icon TEXT
+            );
+
+            CREATE TABLE Stage(
                 Id INTEGER PRIMARY KEY,
                 Title TEXT,
-                Position INTEGER,
+                CreatedAt TEXT,
+                CreatedBy INTEGER,
                 BoardId INTEGER,
-                ColorId INTEGER
+                StageStatus TEXT,
+                ColorId INTEGER,
+                Position INTEGER,
+                UpdatedAt TEXT,
+                UpdatedBy INTEGER
             );
-            ");
 
-            // Cards
-            connection.Execute(@"
-            CREATE TABLE Cards (
+            CREATE TABLE CardCoverType(
+                Id INTEGER PRIMARY KEY,
+                TypeValue TEXT NOT NULL,
+                DisplayValue TEXT NOT NULL
+            );
+
+            CREATE TABLE Cards(
+                Id INTEGER PRIMARY KEY,
+                StageId INTEGER,
+                Title TEXT,
+                CardDescription TEXT,
+                CreatedAt TEXT,
+                CreatedBy INTEGER,
+                CardStatus TEXT,
+                CardLocation TEXT,
+                StartDate TEXT,
+                DueDate TEXT,
+                CardCoverTypeId INTEGER,
+                CoverValue TEXT,
+                Position INTEGER,
+                UpdatedAt TEXT,
+                UpdatedBy INTEGER,
+                IsTemplate INTEGER,
+                IsCompleted INTEGER
+            );
+
+            CREATE TABLE Labels(
                 Id INTEGER PRIMARY KEY,
                 Title TEXT,
-                CardDescription TEXT, -- thêm cột này
+                CreatedAt TEXT,
+                CreatedBy INTEGER,
+                UpdatedAt TEXT,
+                UpdatedBy INTEGER,
+                ColorId INTEGER,
+                IsDefault INTEGER NOT NULL,
+                BoardId INTEGER
+            );
+
+            CREATE TABLE CardLabel(
+                CardId INTEGER,
+                LabelId INTEGER
+            );
+
+            CREATE TABLE AttachmentType(
+                Id INTEGER PRIMARY KEY,
+                TypeValue TEXT NOT NULL,
+                DisplayValue TEXT NOT NULL
+            );
+
+            CREATE TABLE Attachment(
+                Id INTEGER PRIMARY KEY,
+                CardId INTEGER,
+                AttachmentTypeId INTEGER,
+                AttachmentPath TEXT,
+                AttachmentName TEXT,
+                CreatedAt TEXT,
+                CreatedBy INTEGER,
+                Size TEXT,
+                IsCover INTEGER,
+                Thumbnail TEXT
+            );
+
+            CREATE TABLE CheckList(
+                Id INTEGER PRIMARY KEY,
+                CheckListName TEXT,
+                CardId INTEGER,
                 Position INTEGER,
-                StageId INTEGER,
-                CardLocation TEXT,
-                CoverValue TEXT
+                CreatedAt TEXT,
+                CreatedBy INTEGER,
+                UpdatedAt TEXT,
+                UpdatedBy INTEGER
             );
-            ");
 
-            // Comment
-            connection.Execute(@"
-            CREATE TABLE Comment (
+            CREATE TABLE RolePermission(
                 Id INTEGER PRIMARY KEY,
-                CardId INTEGER,
-                Content TEXT
+                PermissionName TEXT,
+                PermissionCode TEXT
             );
-            ");
 
-            // CheckList
-            connection.Execute(@"
-            CREATE TABLE CheckList (
+            CREATE TABLE OwnerType(
                 Id INTEGER PRIMARY KEY,
-                CardId INTEGER,
-                Title TEXT
+                OwnerTypeValue TEXT NOT NULL
             );
-            ");
 
-            // CheckListItem
-            connection.Execute(@"
-            CREATE TABLE CheckListItem (
+            CREATE TABLE Members(
                 Id INTEGER PRIMARY KEY,
+                UserId INTEGER,
+                RolePermissonId INTEGER,
+                OwnerTypeId INTEGER,
+                OwnerId INTEGER,
+                InvitedBy INTEGER,
+                JoinedAt TEXT,
+                MemberStatus TEXT
+            );
+
+            CREATE TABLE CheckListItem(
+                Id INTEGER PRIMARY KEY,
+                CheckListItemName TEXT,
+                MemberId INTEGER,
                 CheckListId INTEGER,
-                Title TEXT
+                DueDate TEXT,
+                CheckListItemStatus INTEGER,
+                CreatedAt TEXT,
+                CreatedBy INTEGER,
+                UpdatedAt TEXT,
+                UpdatedBy INTEGER,
+                Position INTEGER
             );
-            ");
 
-            // Attachment
-            connection.Execute(@"
-            CREATE TABLE Attachment (
+            CREATE TABLE Comment(
+                Id INTEGER PRIMARY KEY,
+                Content TEXT,
+                CardId INTEGER,
+                CreatedAt TEXT,
+                CreatedBy INTEGER,
+                UpdatedAt TEXT,
+                UpdatedBy INTEGER
+            );
+
+            CREATE TABLE DataType(
+                Id INTEGER PRIMARY KEY,
+                DataTypeValue TEXT NOT NULL
+            );
+
+            CREATE TABLE CustomField(
+                Id INTEGER PRIMARY KEY,
+                Title TEXT,
+                DataTypeId INTEGER,
+                BoardId INTEGER,
+                CreatedAt TEXT,
+                CreatedBy INTEGER,
+                UpdatedAt TEXT,
+                UpdatedBy INTEGER,
+                Position INTEGER,
+                IsFrontCardShowed INTEGER NOT NULL
+            );
+
+            CREATE TABLE FieldItem(
+                Id INTEGER PRIMARY KEY,
+                ColorId INTEGER,
+                FieldItemValue TEXT,
+                Position INTEGER,
+                CustomFieldId INTEGER
+            );
+
+            CREATE TABLE FieldValue(
                 Id INTEGER PRIMARY KEY,
                 CardId INTEGER,
-                FileUrl TEXT
+                FieldValue TEXT,
+                CustomFieldId INTEGER
             );
-            ");
 
-            connection.Execute(@"
-                CREATE TABLE [Label] (
-                    Id INTEGER PRIMARY KEY,
-                    Title TEXT,
-                    ColorId INTEGER
-                );
-            ");
+            CREATE TABLE Collections(
+                Id INTEGER PRIMARY KEY,
+                CollectionName TEXT,
+                CreatedAt TEXT,
+                CreatedBy INTEGER,
+                UpdatedAt TEXT,
+                UpdatedBy INTEGER,
+                WorkspaceId INTEGER
+            );
 
-            connection.Execute(@"
-                CREATE TABLE CardLabel (
-                    CardId INTEGER,
-                    LabelId INTEGER
-                );
+            CREATE TABLE BoardCollection(
+                BoardId INTEGER,
+                CollectionId INTEGER
+            );
+
+            CREATE TABLE PowerUpCategory(
+                Id INTEGER PRIMARY KEY,
+                CategoryValue TEXT NOT NULL,
+                DisplayValue TEXT NOT NULL
+            );
+
+            CREATE TABLE PowerUp(
+                Id INTEGER PRIMARY KEY,
+                PowerUpName TEXT,
+                IconUrl TEXT,
+                BackgroundUrl TEXT,
+                AuthorName TEXT,
+                PowerUpDescription TEXT,
+                EmailContact TEXT,
+                PolicyUrl TEXT,
+                IsStaffPick INTEGER,
+                IsIntegration INTEGER,
+                CategoryId INTEGER
+            );
+
+            CREATE TABLE BoardPowerUp(
+                BoardId INTEGER,
+                PowerUpId INTEGER,
+                BoardPowerUpStatus INTEGER NOT NULL
+            );
+
+            CREATE TABLE StickerCategory(
+                Id INTEGER PRIMARY KEY,
+                CategoryValue TEXT NOT NULL,
+                DisplayValue TEXT NOT NULL
+            );
+
+            CREATE TABLE Sticker(
+                Id INTEGER PRIMARY KEY,
+                CategoryId INTEGER,
+                StickerName TEXT,
+                StickerUrl TEXT,
+                CreatedAt TEXT,
+                CreatedBy INTEGER
+            );
+
+            CREATE TABLE CardSticker(
+                CardId INTEGER,
+                StickerId INTEGER,
+                CreatedAt TEXT,
+                CreatedBy INTEGER,
+                PositionX REAL,
+                PositionY REAL,
+                IndexZ INTEGER
+            );
+
+            CREATE TABLE ReactionCategory(
+                Id INTEGER PRIMARY KEY,
+                CategoryValue TEXT NOT NULL,
+                DisplayValue TEXT NOT NULL
+            );
+
+            CREATE TABLE Reaction(
+                Id INTEGER PRIMARY KEY,
+                ReactionsName TEXT,
+                ShortCode TEXT NOT NULL,
+                CategoryId INTEGER,
+                Icon TEXT
+            );
+
+            CREATE TABLE CommentReaction(
+                CommentId INTEGER,
+                ReactionId INTEGER,
+                CreatedBy INTEGER,
+                CreatedAt TEXT
+            );
+
+            CREATE TABLE Activity(
+                Id INTEGER PRIMARY KEY,
+                CreatedAt TEXT,
+                ActivityDescription TEXT,
+                UserId INTEGER,
+                OwnerTypeId INTEGER,
+                OwnerId INTEGER
+            );
+
+            CREATE TABLE Notification(
+                Id INTEGER PRIMARY KEY,
+                ActivityId INTEGER,
+                IsRead INTEGER NOT NULL
+            );
+
+            CREATE TABLE ShareLink(
+                Id INTEGER PRIMARY KEY,
+                OwnerTypeId INTEGER,
+                RolePermissonId INTEGER,
+                OwnerId INTEGER,
+                ShareLinkToken TEXT,
+                ShareLinkStatus INTEGER NOT NULL
+            );
+
+            CREATE TABLE UserStarredBoard(
+                UserId INTEGER,
+                BoardId INTEGER,
+                CreatedAt TEXT,
+                StarredBoardsStatus INTEGER NOT NULL
+            );
+
+            CREATE TABLE UserViewHistory(
+                UserId INTEGER,
+                OwnerTypeId INTEGER,
+                OwnerId INTEGER,
+                AccessedAt TEXT
+            );
+
+            CREATE TABLE WorkspaceMembershipDomain(
+                Id INTEGER PRIMARY KEY,
+                WorkspaceId INTEGER,
+                Domain TEXT,
+                CreatedAt TEXT
+            );
+
+            CREATE TABLE TemplateCategory(
+                Id INTEGER PRIMARY KEY,
+                CategoryValue TEXT NOT NULL,
+                DisplayValue TEXT NOT NULL,
+                IconUrl TEXT
+            );
+
+            CREATE TABLE Template(
+                Id INTEGER PRIMARY KEY,
+                Title TEXT,
+                TemplateDescription TEXT,
+                CategoryId INTEGER,
+                Viewed INTEGER,
+                Copied INTEGER,
+                CreatedBy INTEGER,
+                CreatedAt TEXT,
+                UpdatedAt TEXT,
+                UpdatedBy INTEGER,
+                BoardId INTEGER,
+                BackgroundUrl TEXT
+            );
+
+            CREATE TABLE SettingOption(
+                Id INTEGER PRIMARY KEY,
+                DisplayValue TEXT,
+                SettingOptionValue TEXT
+            );
+
+            CREATE TABLE SettingKey(
+                Id INTEGER PRIMARY KEY,
+                KeyName TEXT,
+                SettingKeyDescription TEXT,
+                OwnerTypeId INTEGER,
+                DefaultValue INTEGER,
+                IsBoolean INTEGER NOT NULL
+            );
+
+            CREATE TABLE SettingKeySettingOption(
+                SettingKeyId INTEGER,
+                SettingOptionId INTEGER
+            );
+
+            CREATE TABLE SettingValue(
+                Id INTEGER PRIMARY KEY,
+                SettingKeyId INTEGER,
+                SettingContent INTEGER,
+                CreatedAt TEXT,
+                CreatedBy INTEGER,
+                UpdatedAt TEXT,
+                UpdatedBy INTEGER,
+                OwnerId INTEGER
+            );
+
+            CREATE TABLE BillingPlan(
+                Id INTEGER PRIMARY KEY,
+                PlanName TEXT,
+                BillingPlanDescription TEXT,
+                PricePerUser REAL,
+                IsActive INTEGER NOT NULL
+            );
+
+            CREATE TABLE BillingContact(
+                Id INTEGER PRIMARY KEY,
+                UserId INTEGER,
+                WorkspaceId INTEGER,
+                BillingContactName TEXT,
+                BillingContactEmail TEXT,
+                BillingLanguage INTEGER,
+                AdditionalInvoiceDetail TEXT
+            );
+
+            CREATE TABLE PaymentInformation(
+                Id INTEGER PRIMARY KEY,
+                BillingContactId INTEGER,
+                CardNumber TEXT,
+                CardBrand TEXT,
+                ExpirationDate TEXT,
+                Cvv TEXT,
+                Country TEXT,
+                PostalCode TEXT
+            );
+
+            CREATE TABLE Subscription(
+                Id INTEGER PRIMARY KEY,
+                BillingContactId INTEGER,
+                BillingPlanId INTEGER,
+                StartDate TEXT,
+                EndDate TEXT,
+                IsMonthly INTEGER NOT NULL,
+                SubscriptionStatus INTEGER NOT NULL,
+                AutoRenew INTEGER,
+                MemberCountBilled INTEGER
+            );
+
+            CREATE TABLE Export(
+                Id INTEGER PRIMARY KEY,
+                WorkspaceId INTEGER,
+                CreatedBy INTEGER,
+                CreatedAt TEXT,
+                Size INTEGER
+            );
             ");
 
             return connection;
         }
-
         public static void SeedBoards(IDbConnection connection)
         {
             connection.Execute(@"
@@ -216,13 +503,14 @@ namespace UnitTestForTrello.Tests.Utility
         public static void SeedUserViewHistories(IDbConnection connection)
         {
             connection.Execute(@"
-            INSERT INTO UserViewHistory (Id, UserId, OwnerId, OwnerTypeId, AccessedAt)
+            INSERT INTO UserViewHistory (UserId, OwnerId, OwnerTypeId, AccessedAt)
             VALUES 
-                (1, 1, 1, 2, datetime('now', '-1 day')),
-                (2, 1, 2, 2, datetime('now', '-2 day')),
-                (3, 2, 1, 2, datetime('now', '-3 day'));
+                (1, 1, 2, datetime('now', '-1 day')),
+                (1, 2, 2, datetime('now', '-2 day')),
+                (2, 1, 2, datetime('now', '-3 day'));
             ");
         }
+
         public static void SeedWorkspaces(IDbConnection connection)
         {
             connection.Execute(@"
@@ -236,15 +524,14 @@ namespace UnitTestForTrello.Tests.Utility
         public static void SeedMembersOfWorkspace(IDbConnection connection)
         {
             connection.Execute(@"
-                INSERT INTO Members (UserId, OwnerId, OwnerTypeId, JoinedAt)
-                VALUES
-                    (1, 1, 1, datetime('now', '-6 day')), -- User 1 thuộc Workspace 1
-                    (1, 2, 1, datetime('now', '-7 day')), -- User 1 thuộc Workspace 2
-                    (2, 1, 1, datetime('now', '-8 day')), -- User 2 thuộc Workspace 1
-                    (3, 1, 1, datetime('now', '-8 day')); -- User 3 thuộc Workspace 1
-            ");
+            INSERT INTO Members (UserId, OwnerId, OwnerTypeId, JoinedAt)
+            VALUES
+                (1, 1, 1, datetime('now', '-6 day')), -- User 1 thuộc Workspace 1
+                (1, 2, 1, datetime('now', '-7 day')), -- User 1 thuộc Workspace 2
+                (2, 1, 1, datetime('now', '-8 day')), -- User 2 thuộc Workspace 1
+                (3, 1, 1, datetime('now', '-8 day')); -- User 3 thuộc Workspace 1
+        ");
         }
-
 
         public static void SeedMembersOfBoard(IDbConnection connection)
         {
@@ -259,16 +546,16 @@ namespace UnitTestForTrello.Tests.Utility
             ");
         }
 
-
         public static void SeedUsers(IDbConnection connection)
         {
             connection.Execute(@"
-            INSERT INTO [User] (Id, PictureUrl, Email, Username, Bio) VALUES
+            INSERT INTO Users (Id, PictureUrl, Email, Username, Bio) VALUES
             (1, 'https://example.com/images/james85.png', 'james85@booth-daniels.net', 'james85', 'Software engineer and coffee lover.'),
             (2, 'https://example.com/images/alice99.png', 'alice99@example.com', 'alice99', 'UI/UX designer with a passion for art.'),
             (3, 'https://example.com/images/bob77.png', 'bob77@example.com', 'bob77', 'Backend developer and open-source enthusiast.');
             ");
         }
+
         public static void SeedWorkspaceTypes(IDbConnection connection)
         {
             connection.Execute(@"
@@ -287,6 +574,7 @@ namespace UnitTestForTrello.Tests.Utility
 
         public static void SeedCardRelatedData(IDbConnection connection)
         {
+            // Color
             connection.Execute(@"
             INSERT INTO Color (Id, ColorName, Icon) VALUES
             (1, 'Red', 'https://example.com/icons/red-icon.png'),
@@ -319,11 +607,11 @@ namespace UnitTestForTrello.Tests.Utility
 
             // CheckList + CheckListItem
             connection.Execute(@"
-            INSERT INTO CheckList (Id, CardId, Title) VALUES
+            INSERT INTO CheckList (Id, CardId, CheckListName) VALUES
             (1, 1, 'Checklist 1'),
             (2, 2, 'Checklist 2');
 
-            INSERT INTO CheckListItem (Id, CheckListId, Title) VALUES
+            INSERT INTO CheckListItem (Id, CheckListId, CheckListItemName) VALUES
             (1, 1, 'Item 1'),
             (2, 1, 'Item 2'),
             (3, 2, 'Item 3');
@@ -331,17 +619,17 @@ namespace UnitTestForTrello.Tests.Utility
 
             // Attachment
             connection.Execute(@"
-            INSERT INTO Attachment (Id, CardId, FileUrl) VALUES
+            INSERT INTO Attachment (Id, CardId, AttachmentPath) VALUES
             (1, 1, 'file1.jpg'),
             (2, 1, 'file2.png'),
             (3, 3, 'file3.docx');
             ");
 
-            // Label
+            // Label → Labels
             connection.Execute(@"
-            INSERT INTO [Label] (Id, Title, ColorId) VALUES
-            (1, 'Urgent', 1),
-            (2, 'Low Priority', 2);
+            INSERT INTO Labels (Id, Title, ColorId, IsDefault) VALUES
+            (1, 'Urgent', 1, 0),
+            (2, 'Low Priority', 2, 0);
             ");
 
             // CardLabel
@@ -351,15 +639,15 @@ namespace UnitTestForTrello.Tests.Utility
             (1, 2),
             (2, 1);
             ");
-
         }
+
         public static void SeedMembersOfCard(IDbConnection connection)
         {
             connection.Execute(@"
-                INSERT INTO Members (UserId, OwnerId, OwnerTypeId, JoinedAt)
-                VALUES
-                    (1, 1, 4, datetime('now', '-1 day')),  -- CARD
-                    (2, 1, 4, datetime('now', '-2 day'));
+            INSERT INTO Members (UserId, OwnerId, OwnerTypeId, JoinedAt)
+            VALUES
+                (1, 1, 4, datetime('now', '-1 day')),  -- CARD
+                (2, 1, 4, datetime('now', '-2 day'));
             ");
         }
 

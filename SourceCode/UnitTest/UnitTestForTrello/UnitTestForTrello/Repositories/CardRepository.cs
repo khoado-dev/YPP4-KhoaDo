@@ -97,7 +97,7 @@ namespace UnitTestForTrello.Repositories
                 clr.Icon LabelIcon
             FROM Cards crd
             JOIN CardLabel clb ON clb.CardId = crd.Id
-            JOIN [Label] lbl ON lbl.Id = clb.LabelId
+            JOIN Labels lbl ON lbl.Id = clb.LabelId
             JOIN Color clr ON clr.Id = lbl.ColorId
             WHERE crd.Id = @CardId
             ";
