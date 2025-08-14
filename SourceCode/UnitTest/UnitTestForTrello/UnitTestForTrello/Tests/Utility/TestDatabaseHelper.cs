@@ -332,5 +332,30 @@ namespace UnitTestForTrello.Tests.Utility
 
             SeedCardRelatedData(connection);
         }
+
+        internal static void ClearData(SqliteConnection connection)
+        {
+            using var cmd = connection.CreateCommand();
+
+            // Delete all data in table 
+            cmd.CommandText = @"
+                DELETE FROM Attachment;
+                DELETE FROM CheckListItem;
+                DELETE FROM CheckList;
+                DELETE FROM Comment;
+                DELETE FROM Cards;
+                DELETE FROM Stage;
+                DELETE FROM Color;
+                DELETE FROM UserViewHistory;
+                DELETE FROM UserStarredBoard;
+                DELETE FROM Members;
+                DELETE FROM Board;
+                DELETE FROM Workspace;
+                DELETE FROM WorkspaceType;
+                DELETE FROM OwnerType;
+                DELETE FROM [User];
+            ";
+            cmd.ExecuteNonQuery();
+        }
     }
 }
