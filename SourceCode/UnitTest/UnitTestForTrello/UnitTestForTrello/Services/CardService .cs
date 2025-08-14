@@ -23,6 +23,11 @@ namespace UnitTestForTrello.Services.IServices
             return _cardRepository.GetCardDetailByCardId(cardId);
         }
 
+        public IEnumerable<CardLabelDTO> GetCardLabelsByCardId(int cardId)
+        {
+            return _cardRepository.GetCardLabelsByCardId(cardId);
+        }
+
         public IEnumerable<CardSummaryDTO> GetCardSummariesByBoardId(int boardId)
         {
             return _cardRepository.GetCardSummariesByBoardId(boardId);

@@ -26,5 +26,10 @@ namespace UnitTestForTrello.Controllers
         {
             return _cardService.GetCardDetailByBoardId(boardId);
         }
+
+        public IEnumerable<CardLabelDTO> GetCardLabelsByCardId(int cardId)
+        {
+            return _cardService.GetCardLabelsByCardId(cardId);
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using System.Data;
+using UnitTestForTrello.Models;
 using UnitTestForTrello.Models.DTOs;
 using UnitTestForTrello.Repositories.IRepositories;
 
@@ -28,6 +29,22 @@ namespace UnitTestForTrello.Repositories
             WHERE owt.OwnerTypeValue = 'BOARD' AND mmb.OwnerId = @BoardId;
             ";
             return _con.Query<BoardMemberDTO>(sql, new { BoardId = boardId });
+        }
+
+        public IEnumerable<CardMemberDTO> GetMembersByCardId(int cardId)
+        {
+            const string sql = @"
+            SELECT 
+                usr.Id UserId,
+                usr.PictureUrl UserPicture,
+                crd.Id CardId
+            FROM Cards crd
+            JOIN Members mmb ON mmb.OwnerId = crd.Id
+            JOIN OwnerType owt ON owt.Id = mmb.OwnerTypeId
+            JOIN [User] usr ON usr.Id = mmb.UserId
+            WHERE owt.OwnerTypeValue = 'CARD' AND crd.Id = @CardId;
+            ";
+            return _con.Query<CardMemberDTO>(sql, new { CardId = cardId });
         }
     }
 }

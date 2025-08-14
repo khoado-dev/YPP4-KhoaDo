@@ -87,6 +87,24 @@ namespace UnitTestForTrello.Repositories
             return _con.QueryFirstOrDefault<CardDetailDTO>(sql, new { CardId = cardId });
         }
 
+        public IEnumerable<CardLabelDTO> GetCardLabelsByCardId(int cardId)
+        {
+            const string sql = @"
+            SELECT
+                crd.Id CardId,
+                lbl.Id LabelId,
+                lbl.Title LabelTitle,
+                clr.ColorName,
+                clr.Icon LabelIcon
+            FROM Cards crd
+            JOIN CardLabel clb ON clb.CardId = crd.Id
+            JOIN [Label] lbl ON lbl.Id = clb.LabelId
+            JOIN Color clr ON clr.Id = lbl.ColorId
+            WHERE crd.Id = @CardId
+            ";
+            return _con.Query<CardLabelDTO>(sql, new { CardId = cardId });
+        }
+
         public IEnumerable<CardSummaryDTO> GetCardSummariesByBoardId(int boardId)
         {
             const string sql = @"
