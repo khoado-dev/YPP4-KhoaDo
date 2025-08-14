@@ -6,12 +6,13 @@ namespace UnitTestForTrello.Tests.Utility
 {
     public static class TestDatabaseHelper
     {
-        public static SqliteConnection CreateInMemoryDatabaseAndSchema()
+        private static SqliteConnection? _connection;
+        public static void CreateInMemoryDatabaseAndSchema()
         {
-            var connection = new SqliteConnection("Data Source=:memory:");
-            connection.Open();
+            _connection = new SqliteConnection("Data Source=:memory:");
+            _connection.Open();
 
-            connection.Execute(@"
+            _connection?.Execute(@"
             CREATE TABLE Users(
                 Id INTEGER PRIMARY KEY,
                 Username TEXT,
@@ -304,7 +305,7 @@ namespace UnitTestForTrello.Tests.Utility
 
             CREATE TABLE Reaction(
                 Id INTEGER PRIMARY KEY,
-                ReactionsName TEXT,
+                ReactionName TEXT,
                 ShortCode TEXT NOT NULL,
                 CategoryId INTEGER,
                 Icon TEXT
@@ -464,12 +465,10 @@ namespace UnitTestForTrello.Tests.Utility
                 Size INTEGER
             );
             ");
-
-            return connection;
         }
-        public static void SeedBoards(IDbConnection connection)
+        public static void SeedBoards()
         {
-            connection.Execute(@"
+            _connection?.Execute(@"
             INSERT INTO Board (Id, BoardName, BoardDescription, CreatedAt, CreatedBy, BackgroundUrl, BoardStatus, WorkspaceId)
             VALUES 
                 (1, 'Test Board 1', 'Description', datetime('now'), 1, 'url1', 'active', 1),
@@ -478,9 +477,9 @@ namespace UnitTestForTrello.Tests.Utility
             ");
         }
 
-        public static void SeedUserStarredBoards(IDbConnection connection)
+        public static void SeedUserStarredBoards()
         {
-            connection.Execute(@"
+            _connection?.Execute(@"
             INSERT INTO UserStarredBoard (UserId, BoardId, CreatedAt, StarredBoardsStatus)
             VALUES 
                 (1, 1, datetime('now'), 1),
@@ -488,9 +487,9 @@ namespace UnitTestForTrello.Tests.Utility
             ");
         }
 
-        public static void SeedOwnerTypes(IDbConnection connection)
+        public static void SeedOwnerTypes()
         {
-            connection.Execute(@"
+            _connection?.Execute(@"
             INSERT INTO OwnerType (Id, OwnerTypeValue)
             VALUES 
                 (1, 'WORKSPACE'),
@@ -500,9 +499,9 @@ namespace UnitTestForTrello.Tests.Utility
             ");
         }
 
-        public static void SeedUserViewHistories(IDbConnection connection)
+        public static void SeedUserViewHistories()
         {
-            connection.Execute(@"
+            _connection?.Execute(@"
             INSERT INTO UserViewHistory (UserId, OwnerId, OwnerTypeId, AccessedAt)
             VALUES 
                 (1, 1, 2, datetime('now', '-1 day')),
@@ -511,9 +510,9 @@ namespace UnitTestForTrello.Tests.Utility
             ");
         }
 
-        public static void SeedWorkspaces(IDbConnection connection)
+        public static void SeedWorkspaces()
         {
-            connection.Execute(@"
+            _connection?.Execute(@"
             INSERT INTO Workspace (Id, WorkspaceName, LogoUrl, CreatedAt, ShortName, Website, WorkspaceDescription)
             VALUES 
                 (1, 'Workspace 1', 'logo1.png', datetime('now', '-5 day'), 'WS1', 'https://workspace1.com', 'Description for Workspace 1'),
@@ -521,9 +520,9 @@ namespace UnitTestForTrello.Tests.Utility
             ");
         }
 
-        public static void SeedMembersOfWorkspace(IDbConnection connection)
+        public static void SeedMembersOfWorkspace()
         {
-            connection.Execute(@"
+            _connection?.Execute(@"
             INSERT INTO Members (UserId, OwnerId, OwnerTypeId, JoinedAt)
             VALUES
                 (1, 1, 1, datetime('now', '-6 day')), -- User 1 thuộc Workspace 1
@@ -533,9 +532,9 @@ namespace UnitTestForTrello.Tests.Utility
         ");
         }
 
-        public static void SeedMembersOfBoard(IDbConnection connection)
+        public static void SeedMembersOfBoard()
         {
-            connection.Execute(@"
+            _connection?.Execute(@"
             INSERT INTO Members (UserId, OwnerId, OwnerTypeId, JoinedAt)
             VALUES
                 (1, 1, 2, datetime('now', '-1 day')),  -- User 1 là thành viên của Board 1 (BOARD)
@@ -546,9 +545,9 @@ namespace UnitTestForTrello.Tests.Utility
             ");
         }
 
-        public static void SeedUsers(IDbConnection connection)
+        public static void SeedUsers()
         {
-            connection.Execute(@"
+            _connection?.Execute(@"
             INSERT INTO Users (Id, PictureUrl, Email, Username, Bio) VALUES
             (1, 'https://example.com/images/james85.png', 'james85@booth-daniels.net', 'james85', 'Software engineer and coffee lover.'),
             (2, 'https://example.com/images/alice99.png', 'alice99@example.com', 'alice99', 'UI/UX designer with a passion for art.'),
@@ -556,9 +555,9 @@ namespace UnitTestForTrello.Tests.Utility
             ");
         }
 
-        public static void SeedWorkspaceTypes(IDbConnection connection)
+        public static void SeedWorkspaceTypes()
         {
-            connection.Execute(@"
+            _connection?.Execute(@"
             INSERT INTO WorkspaceType (Id, TypeValue, DisplayValue) VALUES
             (1, 'business', 'Business'),
             (2, 'sales_crm', 'Sales CRM'),
@@ -572,10 +571,10 @@ namespace UnitTestForTrello.Tests.Utility
             ");
         }
 
-        public static void SeedCardRelatedData(IDbConnection connection)
+        public static void SeedCardRelatedData()
         {
             // Color
-            connection.Execute(@"
+            _connection?.Execute(@"
             INSERT INTO Color (Id, ColorName, Icon) VALUES
             (1, 'Red', 'https://example.com/icons/red-icon.png'),
             (2, 'Blue', 'https://example.com/icons/blue-icon.png'),
@@ -583,14 +582,14 @@ namespace UnitTestForTrello.Tests.Utility
             ");
 
             // Stage
-            connection.Execute(@"
+            _connection?.Execute(@"
             INSERT INTO Stage (Id, Title, Position, BoardId, ColorId) VALUES
             (1, 'To Do', 1, 1, 1),
             (2, 'In Progress', 2, 1, 2);
             ");
 
             // Cards
-            connection.Execute(@"
+            _connection?.Execute(@"
             INSERT INTO Cards (Id, Title, CardDescription, Position, StageId, CardLocation, CoverValue) VALUES
             (1, 'Card 1', 'Description for Card 1', 1, 1, 'List 1', 'Cover1'),
             (2, 'Card 2', 'Description for Card 2', 2, 1, 'List 1', 'Cover2'),
@@ -598,7 +597,7 @@ namespace UnitTestForTrello.Tests.Utility
             ");
 
             // Comment
-            connection.Execute(@"
+            _connection?.Execute(@"
             INSERT INTO Comment (Id, CardId, Content) VALUES
             (1, 1, 'First comment'),
             (2, 1, 'Second comment'),
@@ -606,7 +605,7 @@ namespace UnitTestForTrello.Tests.Utility
             ");
 
             // CheckList + CheckListItem
-            connection.Execute(@"
+            _connection?.Execute(@"
             INSERT INTO CheckList (Id, CardId, CheckListName) VALUES
             (1, 1, 'Checklist 1'),
             (2, 2, 'Checklist 2');
@@ -618,7 +617,7 @@ namespace UnitTestForTrello.Tests.Utility
             ");
 
             // Attachment
-            connection.Execute(@"
+            _connection?.Execute(@"
             INSERT INTO Attachment (Id, CardId, AttachmentPath) VALUES
             (1, 1, 'file1.jpg'),
             (2, 1, 'file2.png'),
@@ -626,14 +625,14 @@ namespace UnitTestForTrello.Tests.Utility
             ");
 
             // Label → Labels
-            connection.Execute(@"
+            _connection?.Execute(@"
             INSERT INTO Labels (Id, Title, ColorId, IsDefault) VALUES
             (1, 'Urgent', 1, 0),
             (2, 'Low Priority', 2, 0);
             ");
 
             // CardLabel
-            connection.Execute(@"
+            _connection?.Execute(@"
             INSERT INTO CardLabel (CardId, LabelId) VALUES
             (1, 1),
             (1, 2),
@@ -641,39 +640,67 @@ namespace UnitTestForTrello.Tests.Utility
             ");
         }
 
-        public static void SeedMembersOfCard(IDbConnection connection)
+        public static void SeedMembersOfCard()
         {
-            connection.Execute(@"
+            _connection?.Execute(@"
             INSERT INTO Members (UserId, OwnerId, OwnerTypeId, JoinedAt)
             VALUES
                 (1, 1, 4, datetime('now', '-1 day')),  -- CARD
                 (2, 1, 4, datetime('now', '-2 day'));
             ");
         }
-
-        public static void SeedAllData(IDbConnection connection)
+        public static void SeedCommentsWithReactionsForCard()
         {
-            SeedUsers(connection);
-            SeedWorkspaceTypes(connection);
-            SeedWorkspaces(connection);
-            SeedOwnerTypes(connection);
+            // Comments on Card 1
+            _connection?.Execute(@"
+            INSERT INTO Comment (Id, CardId, Content, CreatedAt, UpdatedAt, CreatedBy) VALUES
+            (100, 1, 'First comment', datetime('now','-1 day'), datetime('now'), 1),
+            (101, 1, 'Second comment', datetime('now','-2 day'), datetime('now'), 2);
+            ");
 
-            SeedBoards(connection);
-            SeedUserStarredBoards(connection);
-            SeedMembersOfWorkspace(connection);
-            SeedMembersOfBoard(connection);
+            // Reactions
+            _connection?.Execute(@"
+            INSERT INTO Reaction (Id, ReactionName, ShortCode) VALUES
+            (1, 'Like', ':like:'),
+            (2, 'Love', ':love:');
+            ");
 
-            SeedUserViewHistories(connection);
-
-            SeedCardRelatedData(connection);
-            SeedMembersOfCard(connection);
+            // CommentReaction (link comments to reactions)
+            _connection?.Execute(@"
+            INSERT INTO CommentReaction (CommentId, ReactionId, CreatedBy, CreatedAt) VALUES
+            (100, 1, 2, datetime('now')),
+            (100, 1, 3, datetime('now')),
+            (100, 2, 2, datetime('now')),
+            (101, 1, 3, datetime('now')); -- second comment has only one reaction
+            ");
         }
 
-        internal static void ClearData(SqliteConnection connection)
+
+        public static void SeedAllData()
         {
-            using var cmd = connection.CreateCommand();
+            SeedUsers();
+            SeedWorkspaceTypes();
+            SeedWorkspaces();
+            SeedOwnerTypes();
+
+            SeedBoards();
+            SeedUserStarredBoards();
+            SeedMembersOfWorkspace();
+            SeedMembersOfBoard();
+
+            SeedUserViewHistories();
+
+            SeedCardRelatedData();
+            SeedMembersOfCard();
+            SeedCommentsWithReactionsForCard();
+        }
+
+        public static void ClearData()
+        {
+            using var cmd = _connection?.CreateCommand();
 
             // Delete all data in table 
+            if (cmd == null) return;
             cmd.CommandText = @"
                 DELETE FROM Attachment;
                 DELETE FROM CheckListItem;
@@ -692,6 +719,11 @@ namespace UnitTestForTrello.Tests.Utility
                 DELETE FROM [User];
             ";
             cmd.ExecuteNonQuery();
+        }
+
+        public static SqliteConnection? GetInMemoryDatabaseConnection()
+        {
+            return _connection;
         }
     }
 }

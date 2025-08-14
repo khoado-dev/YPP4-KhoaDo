@@ -73,6 +73,17 @@ namespace UnitTestForTrello.Tests
             Assert.AreEqual(expctedNumberOfCards, actualResult.Count);
         }
 
+        [TestMethod]
+        public void GetCardCommentsAndReactionsCountByCardIdTest()
+        {
+            int expctedNumberOfCards = 3;
+
+            var actualResult = _cardController?.GetCardCommentsAndReactionsCountByCardId(cardId).ToList();
+
+            Assert.IsNotNull(actualResult);
+            Assert.AreEqual(expctedNumberOfCards, actualResult.Count);
+        }
+
         [TestCleanup]
         public void Cleanup()
         {

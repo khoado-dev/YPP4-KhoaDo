@@ -31,5 +31,10 @@ namespace UnitTestForTrello.Controllers
         {
             return _cardService.GetCardLabelsByCardId(cardId);
         }
+
+        public IEnumerable<CardCommentWithReactionCountDTO> GetCardCommentsAndReactionsCountByCardId(int cardId)
+        {
+            return _cardService.GetCardCommentsAndReactionsCountByCardId(cardId);
+        }
     }
 }

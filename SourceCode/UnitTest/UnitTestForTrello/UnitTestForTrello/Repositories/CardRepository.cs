@@ -14,6 +14,46 @@ namespace UnitTestForTrello.Repositories
             _con = con;
         }
 
+        public IEnumerable<CardCommentWithReactionCountDTO> GetCardCommentsAndReactionsCountByCardId(int cardId)
+        {
+            const string sql = @"
+            SELECT 
+              usr.Id UserId, 
+              usr.PictureUrl UserPicture, 
+              usr.Username, 
+              cmt.Content, 
+              cmt.Id CommentId, 
+              cmt.CreatedAt, 
+              cmt.UpdatedAt, 
+              crd.Id CardId, 
+              rct.Id ReactionId, 
+              rct.ReactionName, 
+              COUNT(rct.Id) ReactionCount 
+            FROM 
+              Cards crd 
+              JOIN Comment cmt ON cmt.CardId = crd.Id 
+              JOIN [Users] usr ON usr.Id = cmt.CreatedBy 
+              JOIN CommentReaction cmr ON cmr.CommentId = cmt.Id 
+              JOIN Reaction rct ON rct.Id = cmr.ReactionId 
+            WHERE 
+              crd.Id = @CardId 
+            GROUP BY 
+              usr.Id, 
+              usr.PictureUrl, 
+              usr.Username, 
+              cmt.Content, 
+              cmt.Id, 
+              cmt.CreatedAt, 
+              cmt.UpdatedAt, 
+              crd.Id, 
+              cmt.Id, 
+              rct.Id, 
+              rct.ReactionName;
+            ";
+            return _con.Query<CardCommentWithReactionCountDTO>(sql, new { CardId = cardId });
+
+        }
+
         public IEnumerable<CardDetailDTO> GetCardDetailByBoardId(int boardId)
         {
             const string sql = @"

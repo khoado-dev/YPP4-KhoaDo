@@ -260,34 +260,40 @@ JOIN Labels lbl ON lbl.Id = clb.LabelId
 JOIN Color clr ON clr.Id = lbl.ColorId
 WHERE crd.Id = 16
 
---query comments in a specific card
+--query comments and reactions in a specific card
 SELECT 
-    usr.Id UserId,
-    usr.PictureUrl UserPicture,
-    usr.Username,
-    cmt.Content,
-    cmt.Id CommentId,
-    cmt.CreatedAt,
-    cmt.UpdatedAt,
-    crd.Id CardId
-FROM Cards crd
-JOIN Comment cmt ON cmt.CardId = crd.Id
-JOIN [Users] usr ON usr.Id = cmt.CreatedBy
-WHERE crd.Id = 1;
-
---query reaction of comments in specific card
-SELECT 
-    cmt.Id CommentId,
-    rct.Id ReactionId,
-    rct.ReactionsName,
-    COUNT(rct.Id) ReactionCount
-FROM Cards crd
-JOIN Comment cmt ON cmt.CardId = crd.Id
-JOIN CommentReaction cmr ON cmr.CommentId = cmt.Id
-JOIN Reaction rct ON rct.Id = cmr.ReactionId
-WHERE crd.Id = 1
-GROUP BY cmt.Id, rct.Id, rct.ReactionsName;
-     
+  usr.Id UserId, 
+  usr.PictureUrl UserPicture, 
+  usr.Username, 
+  cmt.Content, 
+  cmt.Id CommentId, 
+  cmt.CreatedAt, 
+  cmt.UpdatedAt, 
+  crd.Id CardId, 
+  rct.Id ReactionId, 
+  rct.ReactionName, 
+  COUNT(rct.Id) ReactionCount 
+FROM 
+  Cards crd 
+  JOIN Comment cmt ON cmt.CardId = crd.Id 
+  JOIN [Users] usr ON usr.Id = cmt.CreatedBy 
+  JOIN CommentReaction cmr ON cmr.CommentId = cmt.Id 
+  JOIN Reaction rct ON rct.Id = cmr.ReactionId 
+WHERE 
+  crd.Id = 1 
+GROUP BY 
+  usr.Id, 
+  usr.PictureUrl, 
+  usr.Username, 
+  cmt.Content, 
+  cmt.Id, 
+  cmt.CreatedAt, 
+  cmt.UpdatedAt, 
+  crd.Id, 
+  cmt.Id, 
+  rct.Id, 
+  rct.ReactionName;
+ 
 --query activity in specific card
 SELECT 
     usr.Id UserId,
