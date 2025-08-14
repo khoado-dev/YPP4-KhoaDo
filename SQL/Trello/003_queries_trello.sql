@@ -308,7 +308,6 @@ FROM Activity atv
 JOIN OwnerType owt ON owt.Id = atv.OwnerTypeId
 JOIN [Users] usr ON usr.Id = atv.UserId
 WHERE owt.OwnerTypeValue = 'CARD' AND atv.OwnerId = 1;
-
 --query retrieves all custom fields for a specific board, 
 --  along with their possible options if the field type is dropdown
 SELECT
@@ -328,6 +327,51 @@ JOIN DataType dtt ON dtt.Id = ctf.DataTypeId
 LEFT JOIN FieldItem ftm ON ftm.CustomFieldId = ctf.Id
 WHERE crd.Id = 1
 ORDER BY ctf.Position;
+
+-- DYNAMIC PIVOT: Query retrieves all custom fields for a specific board
+DECLARE @CardId INT = 1;
+DECLARE @cols NVARCHAR(MAX);
+DECLARE @sql  NVARCHAR(MAX);
+
+-- 1) Lấy danh sách cột = Title của các CustomField trong board chứa card
+SELECT @cols = STRING_AGG(QUOTENAME(ctf.Title), ',')
+FROM Cards crd
+JOIN Stage stg ON stg.Id = crd.StageId
+JOIN Board brd ON brd.Id = stg.BoardId
+JOIN CustomField ctf ON ctf.BoardId = brd.Id
+WHERE crd.Id = @CardId;
+
+-- 2) Dynamic PIVOT
+SET @sql = N'
+WITH Base AS (
+    SELECT
+        crd.Id            AS CardId,
+        brd.Id            AS BoardId,
+        ctf.Title         AS CustomFieldTitle,
+        ctf.Position,
+        ROW_NUMBER() OVER (
+            PARTITION BY crd.Id, ctf.Title
+            ORDER BY ctf.Position
+        ) AS rn
+    FROM Cards crd
+    JOIN Stage stg ON stg.Id = crd.StageId
+    JOIN Board brd ON brd.Id = stg.BoardId
+    JOIN CustomField ctf ON ctf.BoardId = brd.Id
+    JOIN DataType dtt ON dtt.Id = ctf.DataTypeId
+    WHERE crd.Id = @CardId
+)
+SELECT CardId, ' + @cols + N'
+FROM (
+    SELECT CardId, CustomFieldTitle, Position
+    FROM Base
+    WHERE rn = 1
+) AS src
+PIVOT (
+    MAX(Position) FOR CustomFieldTitle IN (' + @cols + N')
+) AS p
+ORDER BY CardId;';
+
+EXEC sp_executesql @sql, N'@CardId INT', @CardId=@CardId;
 
 --query retrieves all custom fields for a specific board, 
 --  along with their value
@@ -365,6 +409,69 @@ LEFT JOIN FieldValueCast fvc ON fvc.CardId = crd.Id AND fvc.CustomFieldId = ctf.
 LEFT JOIN FieldItem ftm ON ftm.Id = fvc.ItemId
 WHERE crd.Id = 1
 ORDER BY ctf.Position;
+
+-- PIVOT: query retrieves all custom fields for a specific board, 
+--  along with their value
+DECLARE @CardId INT = 1;
+DECLARE @cols NVARCHAR(MAX);
+DECLARE @sql  NVARCHAR(MAX);
+
+-- 1) Lấy danh sách cột = Title của các CustomField trong board chứa card
+SELECT @cols = STRING_AGG(QUOTENAME(ctf.Title), ',')
+FROM Cards crd
+JOIN Stage stg  ON stg.Id  = crd.StageId
+JOIN Board brd  ON brd.Id  = stg.BoardId
+JOIN CustomField ctf ON ctf.BoardId = brd.Id
+WHERE crd.Id = @CardId;
+
+-- 2) Dynamic PIVOT
+SET @sql = N'
+WITH FieldValueCast AS (
+    SELECT
+        fvl.Id,
+        fvl.CardId,
+        fvl.CustomFieldId,
+        dtt.DataTypeValue,
+        CASE
+            WHEN dtt.DataTypeValue = ''DROPDOWN'' AND ISNUMERIC(fvl.FieldValue) = 1
+                 THEN CAST(fvl.FieldValue AS INT)
+            ELSE NULL
+        END AS ItemId,
+        fvl.FieldValue
+    FROM FieldValue fvl
+    JOIN CustomField ctf ON ctf.Id = fvl.CustomFieldId
+    JOIN DataType dtt ON dtt.Id = ctf.DataTypeId
+),
+Base AS (
+    SELECT
+        crd.Id                           AS CardId,
+        ctf.Title                        AS CustomFieldTitle,
+        COALESCE(ftm.FieldItemValue, fvc.FieldValue) AS ValueToPivot,
+        ROW_NUMBER() OVER (PARTITION BY crd.Id, ctf.Id ORDER BY fvc.Id DESC) AS rn
+    FROM Cards crd
+    JOIN Stage stg  ON stg.Id  = crd.StageId
+    JOIN Board brd  ON brd.Id  = stg.BoardId
+    JOIN CustomField ctf ON ctf.BoardId = brd.Id
+    LEFT JOIN FieldValueCast fvc 
+        ON fvc.CardId = crd.Id AND fvc.CustomFieldId = ctf.Id
+    LEFT JOIN FieldItem ftm 
+        ON ftm.Id = fvc.ItemId
+    WHERE crd.Id = @CardId
+),
+OneVal AS (
+    SELECT CardId, CustomFieldTitle, ValueToPivot
+    FROM Base
+    WHERE rn = 1
+)
+SELECT CardId, ' + @cols + '
+FROM OneVal
+PIVOT (
+    MAX(ValueToPivot) FOR CustomFieldTitle IN (' + @cols + ')
+) p
+ORDER BY CardId;';
+
+EXEC sp_executesql @sql, N'@CardId INT', @CardId=@CardId;
+
 
 --List all attachments belonging to a specific card, including their file details and upload information
 
