@@ -1,17 +1,10 @@
-﻿using Microsoft.Data.Sqlite;
-using System.Data;
-using UnitTestForTrello.Controllers;
-using UnitTestForTrello.Repositories;
-using UnitTestForTrello.Repositories.IRepositories;
-using UnitTestForTrello.Services.IServices;
-using UnitTestForTrello.Tests.Utility;
+﻿using UnitTestForTrello.Controllers;
 
 namespace UnitTestForTrello.Tests
 {
     [TestClass]
     public class BoardControllerTest
     {
-        private SqliteConnection? _connection;
         private BoardController? _boardController;
 
         private const int loggeddInUserId = 1;
@@ -21,12 +14,7 @@ namespace UnitTestForTrello.Tests
         [TestInitialize]
         public void Setup()
         {
-            _connection= TestDatabaseHelper.CreateInMemoryDatabaseAndSchema();
-            TestDatabaseHelper.SeedAllData(_connection);
-
-            IBoardRepository boardRepository = new BoardRepository(_connection);
-            IBoardService boardService = new BoardService(boardRepository);
-            _boardController = new BoardController(boardService);
+            _boardController = TestStartUp.ResolveSingleton<BoardController>();
         }
 
         [TestMethod]
@@ -70,7 +58,7 @@ namespace UnitTestForTrello.Tests
         [TestCleanup]
         public void Cleanup()
         {
-            _connection?.Close();
+            //TestStartUp.ResetDatabase();
         }
     }
 }

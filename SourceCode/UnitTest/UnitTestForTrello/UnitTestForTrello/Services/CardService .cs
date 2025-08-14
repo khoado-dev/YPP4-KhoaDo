@@ -1,5 +1,4 @@
-﻿using UnitTestForTrello.Models;
-using UnitTestForTrello.Models.DTOs;
+﻿using UnitTestForTrello.Models.DTOs;
 using UnitTestForTrello.Repositories.IRepositories;
 
 namespace UnitTestForTrello.Services.IServices
