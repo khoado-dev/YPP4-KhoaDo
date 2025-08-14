@@ -80,9 +80,11 @@ namespace UnitTestForTrello.Tests.Utility
                 CREATE TABLE Members (
                     UserId INTEGER,
                     OwnerId INTEGER,
-                    OwnerTypeId INTEGER
+                    OwnerTypeId INTEGER,
+                    JoinedAt TEXT
                 );
             ");
+
 
             connection.Execute(@"
             CREATE TABLE WorkspaceType (
@@ -234,26 +236,29 @@ namespace UnitTestForTrello.Tests.Utility
         public static void SeedMembersOfWorkspace(IDbConnection connection)
         {
             connection.Execute(@"
-                INSERT INTO Members (UserId, OwnerId, OwnerTypeId)
+                INSERT INTO Members (UserId, OwnerId, OwnerTypeId, JoinedAt)
                 VALUES
-                    (1, 1, 1), -- User 1 thuộc Workspace 1
-                    (1, 2, 1), -- User 1 thuộc Workspace 2
-                    (2, 1, 1); -- User 2 thuộc Workspace 1
+                    (1, 1, 1, datetime('now', '-6 day')), -- User 1 thuộc Workspace 1
+                    (1, 2, 1, datetime('now', '-7 day')), -- User 1 thuộc Workspace 2
+                    (2, 1, 1, datetime('now', '-8 day')), -- User 2 thuộc Workspace 1
+                    (3, 1, 1, datetime('now', '-8 day')); -- User 3 thuộc Workspace 1
             ");
         }
+
 
         public static void SeedMembersOfBoard(IDbConnection connection)
         {
             connection.Execute(@"
-            INSERT INTO Members (UserId, OwnerId, OwnerTypeId)
+            INSERT INTO Members (UserId, OwnerId, OwnerTypeId, JoinedAt)
             VALUES
-                (1, 1, 2),  -- User 1 là thành viên của Board 1 (OwnerTypeId = 2 => BOARD)
-                (1, 2, 2),  -- User 1 là thành viên của Board 2
-                (2, 3, 2),  -- User 2 là thành viên của Board 3
-                (2, 1, 2),  -- thêm User 2 vào Board 1
-                (3, 1, 2);  -- thêm User 3 vào Board 1
+                (1, 1, 2, datetime('now', '-1 day')),  -- User 1 là thành viên của Board 1 (BOARD)
+                (1, 2, 2, datetime('now', '-2 day')),  -- User 1 là thành viên của Board 2
+                (2, 3, 2, datetime('now', '-3 day')),  -- User 2 là thành viên của Board 3
+                (2, 1, 2, datetime('now', '-4 day')),  -- Thêm User 2 vào Board 1
+                (3, 1, 2, datetime('now', '-5 day'));  -- Thêm User 3 vào Board 1
             ");
         }
+
 
         public static void SeedUsers(IDbConnection connection)
         {
@@ -351,10 +356,10 @@ namespace UnitTestForTrello.Tests.Utility
         public static void SeedMembersOfCard(IDbConnection connection)
         {
             connection.Execute(@"
-                INSERT INTO Members (UserId, OwnerId, OwnerTypeId)
+                INSERT INTO Members (UserId, OwnerId, OwnerTypeId, JoinedAt)
                 VALUES
-                    (1, 1, 4),  -- User 1 là member của Card 1
-                    (2, 1, 4);  -- User 2 là member của Card 1
+                    (1, 1, 4, datetime('now', '-1 day')),  -- CARD
+                    (2, 1, 4, datetime('now', '-2 day'));
             ");
         }
 

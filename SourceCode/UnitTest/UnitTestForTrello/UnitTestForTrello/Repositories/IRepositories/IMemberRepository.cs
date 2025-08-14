@@ -6,5 +6,6 @@ namespace UnitTestForTrello.Repositories.IRepositories
     {
         IEnumerable<BoardMemberDTO> GetMembersByBoardId(int boardId);
         IEnumerable<CardMemberDTO> GetMembersByCardId(int cardId);
+        IEnumerable<CardSelectableMemberDTO> GetSelectableMembersByCardId(int cardId);
     }
 }

@@ -1,4 +1,4 @@
-﻿--BOARD TAB
+﻿--1. BOARD TAB SCREEN
 --List all Board that the user has starred.
 SELECT
     usb.UserId,
@@ -55,6 +55,7 @@ JOIN OwnerType owt ON owt.Id = me.OwnerTypeId
 WHERE me.UserId = 1 AND owt.OwnerTypeValue = 'BOARD' AND wo.Id = 1
 ORDER BY brd.CreatedAt;
 
+--2. USER TAB SCREEN
 --Query information of a user
 SELECT 
     Id,
@@ -65,7 +66,7 @@ SELECT
 FROM [User]
 WHERE Email = 'james85@booth-daniels.net'
 
---WORKSPACE
+--3. WORKSPACE CREATE SCREEN
 --Retrieve all workspace types
 SELECT
     Id WorkspaceTypeId,
@@ -74,7 +75,19 @@ SELECT
 FROM 
     WorkspaceType;
 
---List all boards in a specific workspace, created by a specific user, where the current user is a member.
+--Retrieve workspace information.
+SELECT 
+    Id WorkspaceId,
+    LogoUrl,
+    WorkspaceName,
+    ShortName,
+    Website,
+    WorkspaceDescription
+FROM Workspace
+WHERE Id = 1
+
+--4. SELECT A WORKSPACE SCREEN
+--List all boards in a specific workspace, where the current user is member and owner.
 SELECT 
     brd.Id BoardId,
     brd.BoardName AS BoardName, 
@@ -106,17 +119,6 @@ JOIN OwnerType owt ON owt.Id = me.OwnerTypeId
 WHERE me.UserId = 1 AND owt.OwnerTypeValue = 'BOARD' AND wo.Id = 1
 ORDER BY brd.CreatedAt;
 
---Retrieve workspace information.
-SELECT 
-    Id WorkspaceId,
-    LogoUrl,
-    WorkspaceName,
-    ShortName,
-    Website,
-    WorkspaceDescription
-FROM Workspace
-WHERE Id = 1
-
 --List all Workspace that the current user is a member of.
 SELECT 
     wsp.Id WorkspaceId,
@@ -128,7 +130,7 @@ JOIN OwnerType owt ON owt.Id = me.OwnerTypeId
 WHERE owt.OwnerTypeValue = 'WORKSPACE' AND me.UserId = 1
 ORDER BY wsp.CreatedAt;
 
---BOARD SCREEN
+--5. BOARD SCREEN
 --query all stage in a specific board and all card in each stage
 WITH CardComment AS (
     SELECT
@@ -190,7 +192,39 @@ FROM Members mmb
 JOIN OwnerType owt ON owt.Id = mmb.OwnerTypeId
 JOIN [User] usr ON usr.Id = mmb.UserId
 WHERE owt.OwnerTypeValue = 'BOARD' AND mmb.OwnerId = 1
---CARD
+
+--CARD SCREEN
+--List all members available for selection on the card, including members from the workspace and from the board containing that card.
+WITH CardWithBoardWorkspace AS (
+    SELECT 
+        crd.Id CardId,
+        crd.Title CardTitle,
+        brd.Id BoardId,
+        brd.BoardName,
+        wsp.Id WorkspaceId,
+        wsp.WorkspaceName
+    FROM Cards crd
+    JOIN Stage stg ON stg.Id = crd.StageId
+    JOIN Board brd ON brd.Id = stg.BoardId
+    JOIN Workspace wsp ON wsp.Id = brd.WorkspaceId
+    WHERE crd.Id = 1
+
+)
+SELECT 
+    usr.Id UserId,
+    usr.PictureUrl UserPicture,
+    usr.Username,
+    OwnerTypeValue,
+    JoinedAt
+FROM Members mmb
+JOIN OwnerType owt ON owt.Id = mmb.OwnerTypeId
+JOIN CardWithBoardWorkspace cwbw ON 
+                                (OwnerTypeValue = 'CARD' AND cwbw.CardId = mmb.OwnerId) OR
+                                (OwnerTypeValue = 'BOARD' AND cwbw.BoardId = mmb.OwnerId) OR
+                                (OwnerTypeValue = 'WORKSPACE' AND cwbw.WorkspaceId = mmb.OwnerId)
+JOIN [User] usr ON usr.Id = mmb.UserId
+ORDER BY owt.Id DESC, JoinedAt DESC;
+
 --query information of specific card
 SELECT 
     crd.Id CardId,
@@ -363,7 +397,7 @@ WHERE clt.CardId =1
 ORDER BY clt.Id, cli.Position;
 
 
---MEMBER
+--6. WORKSPACE MEMBER SCREEN
 --List all members in the workspace along with their permission on roles.
 WITH BoardCountByEachUser AS(
     SELECT 
@@ -398,6 +432,7 @@ SELECT
     PermissionCode
 FROM RolePermission
 
+--7. BOARD MEMBER SCREEN
 --List all members in the board along with their permission on roles.
 SELECT
     us.Id UserId,
@@ -412,38 +447,8 @@ JOIN Board bo ON bo.Id = mmb.OwnerId
 JOIN [User] us ON us.Id = mmb.UserId
 WHERE OwnerTypeValue = 'BOARD' AND mmb.OwnerId = 1;
 
---List all members available for selection on the card, including members from the workspace and from the board containing that card.
-WITH CardWithBoardWorkspace AS (
-    SELECT 
-        crd.Id CardId,
-        crd.Title CardTitle,
-        brd.Id BoardId,
-        brd.BoardName,
-        wsp.Id WorkspaceId,
-        wsp.WorkspaceName
-    FROM Cards crd
-    JOIN Stage stg ON stg.Id = crd.StageId
-    JOIN Board brd ON brd.Id = stg.BoardId
-    JOIN Workspace wsp ON wsp.Id = brd.WorkspaceId
-    WHERE crd.Id = 1
 
-)
-SELECT 
-    usr.Id UserId,
-    usr.PictureUrl UserPicture,
-    usr.Username,
-    OwnerTypeValue,
-    JoinedAt
-FROM Members mmb
-JOIN OwnerType owt ON owt.Id = mmb.OwnerTypeId
-JOIN CardWithBoardWorkspace cwbw ON 
-                                (OwnerTypeValue = 'CARD' AND cwbw.CardId = mmb.OwnerId) OR
-                                (OwnerTypeValue = 'BOARD' AND cwbw.BoardId = mmb.OwnerId) OR
-                                (OwnerTypeValue = 'WORKSPACE' AND cwbw.WorkspaceId = mmb.OwnerId)
-JOIN [User] usr ON usr.Id = mmb.UserId
-ORDER BY owt.Id DESC, JoinedAt DESC;
-
---SETTING
+--8. WORKSPACE SETTING SCREEN
 --List all workspace setting keys with the current user's selected values.
 SELECT 
     sk.KeyName, 
@@ -465,6 +470,7 @@ JOIN SettingOption so ON so.Id = sso.SettingOptionId
 WHERE OwnerTypeValue = 'WORKSPACE'
 ORDER BY sk.KeyName;
 
+--9. BOARD SETTING SCREEN
 --List all board's setting key and user's choice of a specific user
 SELECT 
     sk.KeyName, 
@@ -486,7 +492,8 @@ JOIN SettingOption so ON so.Id = sso.SettingOptionId
 WHERE OwnerTypeValue = 'BOARD'
 ORDER BY sk.KeyName;
 
---List all workspace setting keys with the current user's selected values.
+--10. USER SETTING SCREEN
+--List all user setting keys with the current user's selected values.
 SELECT 
     sk.KeyName, 
     COALESCE(sv.SettingContent, sk.DefaultValue) AS Value
@@ -495,7 +502,7 @@ JOIN OwnerType owt ON owt.Id = sk.OwnerTypeId
 LEFT JOIN SettingValue sv ON sv.SettingKeyId = sk.Id 
 WHERE OwnerTypeValue = 'USER' AND sv.OwnerId = 1;
 
---List all options of setting is not boolean in board setting.
+--List all options of setting is not boolean in user setting.
 SELECT 
     sk.KeyName AS setting_key,
     sk.SettingKeyDescription,
@@ -507,13 +514,14 @@ JOIN SettingOption so ON so.Id = sso.SettingOptionId
 WHERE OwnerTypeValue = 'USER'
 ORDER BY sk.KeyName;
 
---TEMPLATE
+--11. TEMPLATE TYPE SCREEN
 --List all template categories available for filtering.
 SELECT
     tpc.Id TemplateCategoryId,
     tpc.IconUrl,
     tpc.DisplayValue
 FROM TemplateCategory tpc;
+
 
 -- Select a template category to display all templates within that category.
 SELECT
@@ -530,6 +538,7 @@ JOIN TemplateCategory tpc ON tpc.Id = tpl.CategoryId
 WHERE tpc.Id = 1
 ORDER BY tpl.UpdatedAt DESC;
 
+--12. TEMPLATE SCREEN
 --Select specific template, show information of a specific template.
 SELECT
     tpl.Id TemplateId,
@@ -544,7 +553,7 @@ FROM Template tpl
 JOIN [User] us ON us.Id = tpl.CreatedBy
 WHERE tpl.Id = 1;
 
---BOARD COLLECTION
+--13. BOARD COLLECTION SCREEN
 --Show board and collection its belong with in a specific workspace
 SELECT 
     bo.Id board_id,
@@ -569,7 +578,7 @@ FROM Collections clt
 WHERE WorkspaceId = 2
 ORDER BY clt.CreatedAt
 
---CARD STICKER
+--14. CARD STICKER SCREEN
 --Show list of general sticker can select
 SELECT 
     stk.Id StickerId,
@@ -606,7 +615,7 @@ FROM CardSticker cs
 JOIN Sticker st ON st.Id = cs.StickerId
 WHERE CardId = 1;
 
---Notification
+--15. Notification SCREEN
 --Show all notification are unread
 SELECT 
     noti.Id AS notification_id,

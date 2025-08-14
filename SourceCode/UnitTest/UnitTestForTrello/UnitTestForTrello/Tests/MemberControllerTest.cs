@@ -30,7 +30,7 @@ namespace UnitTestForTrello.Tests
         }
 
         [TestMethod]
-        public void GetMemberByBoardIdTest()
+        public void GetMembersByBoardIdTest()
         {
             int expectedNumberOfMembersInBoard = 3;
             var result = _memberController?.GetMembersByBoardId(boardId).ToList();
@@ -40,13 +40,23 @@ namespace UnitTestForTrello.Tests
         }
 
         [TestMethod]
-        public void GetMemberByCardIdTest()
+        public void GetMembersByCardIdTest()
         {
             int expectedNumberOfMembersInCard = 2;
             var result = _memberController?.GetMembersByCardId(cardId).ToList();
 
             Assert.IsNotNull(result);
             Assert.IsTrue(result.Count == expectedNumberOfMembersInCard);
+        }
+
+        [TestMethod]
+        public void GetSelectableMembersByCardIdTest()
+        {
+            int expectedNumberOfSelectableMembersInCard = 8;
+            var result = _memberController?.GetSelectableMembersByCardId(cardId).ToList();
+
+            Assert.IsNotNull(result);
+            Assert.IsTrue(result.Count == expectedNumberOfSelectableMembersInCard);
         }
 
         [TestCleanup]
