@@ -24,7 +24,7 @@ namespace UnitTestForTrello.Tests
             var result = _boardController?.GetStarredBoards(loggeddInUserId).ToList();
 
             Assert.IsNotNull(result);
-            Assert.AreEqual(numberOfStarredBoards, result.Count);
+            Assert.AreEqual(expectedNumberOfStarredBoards, result.Count);
             Assert.IsTrue(result.All(b => b.BoardStatus == ACTIVE_BOARD_STATUS & b.StarredBoardsStatus==true));
         }
 

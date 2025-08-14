@@ -220,5 +220,72 @@ namespace UnitTestForTrello.Repositories
 
             return _con.Query<CardSummaryDTO>(sql, new { BoardId = boardId });
         }
+
+        public IEnumerable<CardCustomFieldDTO> GetCustomFieldsByCardId(int cardId)
+        {
+            const string sql = @"
+            SELECT
+                crd.Id CardId,
+                brd.Id BoardId,
+                ctf.Id CustomFieldId,
+                ctf.Title CustomFieldTitle,
+                dtt.DataTypeValue,
+                ftm.Id FieldItemId,
+                ftm.FieldItemValue,
+                ctf.Position
+            FROM Cards crd
+            JOIN Stage stg ON stg.Id = crd.StageId
+            JOIN Board brd ON brd.Id = stg.BoardId
+            JOIN CustomField ctf ON ctf.BoardId = brd.Id
+            JOIN DataType dtt ON dtt.Id = ctf.DataTypeId
+            LEFT JOIN FieldItem ftm ON ftm.CustomFieldId = ctf.Id
+            WHERE crd.Id = @CardId
+            ORDER BY ctf.Position;
+            ";
+            return _con.Query<CardCustomFieldDTO>(sql, new { CardId = cardId });
+        }
+
+        public IEnumerable<CardCustomFieldValueDTO> GetCustomFieldValuesByCardId(int cardId)
+        {
+            const string sql = @"
+            WITH FieldValueCast AS (
+                SELECT
+                    fvl.Id,
+                    fvl.CardId,
+                    fvl.CustomFieldId,
+                    dtt.DataTypeValue,
+                    CASE
+                        WHEN dtt.DataTypeValue = 'DROPDOWN'
+                             AND FieldValue GLOB '[0-9]*' -- Check if value contains only digits before casting to INTEGER
+                        THEN CAST(fvl.FieldValue AS INTEGER)
+                        ELSE NULL
+                    END AS ItemId,
+                    fvl.FieldValue
+                FROM FieldValue fvl
+                JOIN CustomField ctf ON ctf.Id = fvl.CustomFieldId
+                JOIN DataType dtt ON dtt.Id = ctf.DataTypeId
+            )
+            SELECT
+                crd.Id AS CardId,
+                brd.Id AS BoardId,
+                ctf.Id AS CustomFieldId,
+                ctf.Title AS CustomFieldTitle,
+                fvc.DataTypeValue,
+                fvc.FieldValue,
+                ftm.FieldItemValue,
+                ctf.Position
+            FROM Cards crd
+            JOIN Stage stg ON stg.Id = crd.StageId
+            JOIN Board brd ON brd.Id = stg.BoardId
+            JOIN CustomField ctf ON ctf.BoardId = brd.Id
+            LEFT JOIN FieldValueCast fvc 
+                ON fvc.CardId = crd.Id AND fvc.CustomFieldId = ctf.Id
+            LEFT JOIN FieldItem ftm ON ftm.Id = fvc.ItemId
+            WHERE crd.Id = @CardId
+            ORDER BY ctf.Position;
+
+            ";
+            return _con.Query<CardCustomFieldValueDTO>(sql, new { CardId = cardId });
+        }
     }
 }

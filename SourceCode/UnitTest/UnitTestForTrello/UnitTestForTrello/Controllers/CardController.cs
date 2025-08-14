@@ -41,5 +41,15 @@ namespace UnitTestForTrello.Controllers
         {
             return _cardService.GetActivitiesByCardId(cardId);
         }
+
+        public IEnumerable<CardCustomFieldDTO> GetCustomFieldsByCardId(int cardId)
+        {
+            return _cardService.GetCustomFieldsByCardId(cardId);
+        }
+
+        public IEnumerable<CardCustomFieldValueDTO> GetCustomFieldValuesByCardId(int cardId)
+        {
+            return _cardService.GetCustomFieldValuesByCardId(cardId);
+        }
     }
 }
