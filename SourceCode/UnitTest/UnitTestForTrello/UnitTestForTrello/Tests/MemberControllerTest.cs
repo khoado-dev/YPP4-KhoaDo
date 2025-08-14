@@ -16,6 +16,7 @@ namespace UnitTestForTrello.Tests
         private MemberController? _memberController;
 
         private const int boardId = 1;
+        private const int cardId = 1;
 
         [TestInitialize]
         public void Setup()
@@ -36,6 +37,16 @@ namespace UnitTestForTrello.Tests
 
             Assert.IsNotNull(result);
             Assert.IsTrue(result.Count == expectedNumberOfMembersInBoard);
+        }
+
+        [TestMethod]
+        public void GetMemberByCardIdTest()
+        {
+            int expectedNumberOfMembersInCard = 2;
+            var result = _memberController?.GetMembersByCardId(cardId).ToList();
+
+            Assert.IsNotNull(result);
+            Assert.IsTrue(result.Count == expectedNumberOfMembersInCard);
         }
 
         [TestCleanup]

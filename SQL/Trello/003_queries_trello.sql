@@ -211,7 +211,7 @@ FROM Cards crd
 JOIN Members mmb ON mmb.OwnerId = crd.Id
 JOIN OwnerType owt ON owt.Id = mmb.OwnerTypeId
 JOIN [User] usr ON usr.Id = mmb.UserId
-WHERE owt.OwnerTypeValue = 'CARD' AND crd.Id = 1
+WHERE owt.OwnerTypeValue = 'CARD' AND crd.Id = 1;
 
 --query labels in a specific card
 SELECT
@@ -219,11 +219,12 @@ SELECT
     lbl.Id LabelId,
     lbl.Title LabelTitle,
     clr.ColorName,
-    clr.Icon
+    clr.Icon LabelIcon
 FROM Cards crd
 JOIN CardLabel clb ON clb.CardId = crd.Id
 JOIN [Label] lbl ON lbl.Id = clb.LabelId
 JOIN Color clr ON clr.Id = lbl.ColorId
+WHERE crd.Id = 16
 
 --query comments in a specific card
 SELECT 

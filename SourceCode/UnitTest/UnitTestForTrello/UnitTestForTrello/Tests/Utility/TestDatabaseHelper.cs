@@ -93,10 +93,11 @@ namespace UnitTestForTrello.Tests.Utility
             ");
 
             connection.Execute(@"
-            CREATE TABLE Color (
-                Id INTEGER PRIMARY KEY,
-                ColorName TEXT
-            );
+                CREATE TABLE Color (
+                    Id INTEGER PRIMARY KEY,
+                    ColorName TEXT,
+                    Icon TEXT
+                );
             ");
 
             // Stage
@@ -157,6 +158,21 @@ namespace UnitTestForTrello.Tests.Utility
                 CardId INTEGER,
                 FileUrl TEXT
             );
+            ");
+
+            connection.Execute(@"
+                CREATE TABLE [Label] (
+                    Id INTEGER PRIMARY KEY,
+                    Title TEXT,
+                    ColorId INTEGER
+                );
+            ");
+
+            connection.Execute(@"
+                CREATE TABLE CardLabel (
+                    CardId INTEGER,
+                    LabelId INTEGER
+                );
             ");
 
             return connection;
@@ -266,11 +282,11 @@ namespace UnitTestForTrello.Tests.Utility
 
         public static void SeedCardRelatedData(IDbConnection connection)
         {
-            // Color
             connection.Execute(@"
-            INSERT INTO Color (Id, ColorName) VALUES
-            (1, 'Red'),
-            (2, 'Blue');
+            INSERT INTO Color (Id, ColorName, Icon) VALUES
+            (1, 'Red', 'https://example.com/icons/red-icon.png'),
+            (2, 'Blue', 'https://example.com/icons/blue-icon.png'),
+            (3, 'Green', 'https://example.com/icons/green-icon.png');
             ");
 
             // Stage
@@ -315,7 +331,33 @@ namespace UnitTestForTrello.Tests.Utility
             (2, 1, 'file2.png'),
             (3, 3, 'file3.docx');
             ");
+
+            // Label
+            connection.Execute(@"
+            INSERT INTO [Label] (Id, Title, ColorId) VALUES
+            (1, 'Urgent', 1),
+            (2, 'Low Priority', 2);
+            ");
+
+            // CardLabel
+            connection.Execute(@"
+            INSERT INTO CardLabel (CardId, LabelId) VALUES
+            (1, 1),
+            (1, 2),
+            (2, 1);
+            ");
+
         }
+        public static void SeedMembersOfCard(IDbConnection connection)
+        {
+            connection.Execute(@"
+                INSERT INTO Members (UserId, OwnerId, OwnerTypeId)
+                VALUES
+                    (1, 1, 4),  -- User 1 là member của Card 1
+                    (2, 1, 4);  -- User 2 là member của Card 1
+            ");
+        }
+
         public static void SeedAllData(IDbConnection connection)
         {
             SeedUsers(connection);
@@ -331,6 +373,7 @@ namespace UnitTestForTrello.Tests.Utility
             SeedUserViewHistories(connection);
 
             SeedCardRelatedData(connection);
+            SeedMembersOfCard(connection);
         }
 
         internal static void ClearData(SqliteConnection connection)

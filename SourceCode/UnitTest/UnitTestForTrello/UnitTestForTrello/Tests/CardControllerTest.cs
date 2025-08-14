@@ -75,6 +75,17 @@ namespace UnitTestForTrello.Tests
             Assert.IsTrue(actualResult.All(c => c.BoardId == boardId));
         }
 
+        [TestMethod]
+        public void GetCardLabelsByCardIdTest()
+        {
+            int expctedNumberOfCards = 2;
+
+            var actualResult = _cardController?.GetCardLabelsByCardId(cardId).ToList();
+
+            Assert.IsNotNull(actualResult);
+            Assert.AreEqual(expctedNumberOfCards, actualResult.Count);
+        }
+
         [TestCleanup]
         public void Cleanup()
         {
