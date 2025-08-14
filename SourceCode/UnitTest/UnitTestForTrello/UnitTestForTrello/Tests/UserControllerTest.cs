@@ -20,12 +20,8 @@ namespace UnitTestForTrello.Tests
         [TestInitialize]
         public void Setup()
         {
-            _connection = TestDatabaseHelper.CreateInMemoryDatabaseAndSchema();
-            TestDatabaseHelper.SeedAllData(_connection);
-
-            IUserRepository userRepository = new UserRepository(_connection);
-            IUserService userService = new UserService(userRepository);
-            _userController = new UserController(userService);
+            // 1. Lấy controller singleton từ TestStartUp
+            _userController = TestStartUp.ResolveSingleton<UserController>();
         }
 
         [TestMethod]
@@ -40,7 +36,7 @@ namespace UnitTestForTrello.Tests
         [TestCleanup]
         public void Cleanup()
         {
-            _connection?.Close();
+            TestStartUp.ResetDatabase();
         }
     }
 }
