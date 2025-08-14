@@ -63,6 +63,18 @@ namespace UnitTestForTrello.Tests
             Assert.AreEqual(expectedCard.StageTitle, actualResult.StageTitle);
         }
 
+        [TestMethod]
+        public void GetCardDetailByBoardIdTest()
+        {
+            int expctedNumberOfCards = 3;
+
+            var actualResult = _cardController?.GetCardDetailByBoardId(boardId).ToList();
+
+            Assert.IsNotNull(actualResult);
+            Assert.AreEqual(expctedNumberOfCards, actualResult.Count);
+            Assert.IsTrue(actualResult.All(c => c.BoardId == boardId));
+        }
+
         [TestCleanup]
         public void Cleanup()
         {
