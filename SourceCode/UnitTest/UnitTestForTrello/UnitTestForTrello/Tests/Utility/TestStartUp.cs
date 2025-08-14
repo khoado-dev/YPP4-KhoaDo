@@ -13,7 +13,7 @@ public class TestStartUp
 {
     private static Dictionary<Type, object> _singletons = new();
 
-    public static SqliteConnection Connection;
+    public static SqliteConnection? Connection;
 
     #region Setup DI & DB
     [AssemblyInitialize]
@@ -49,6 +49,8 @@ public class TestStartUp
 
     public static void RegisterSingleton<T>(T instance)
     {
+        if (instance == null)
+            throw new ArgumentNullException(nameof(instance), "Instance cannot be null.");
         _singletons[typeof(T)] = instance;
     }
 
@@ -66,6 +68,8 @@ public class TestStartUp
 
     public static void ResetDatabase()
     {
+        if (Connection == null)
+            throw new InvalidOperationException("Database connection is not initialized.");
         TestDatabaseHelper.ClearData(Connection);
         TestDatabaseHelper.SeedAllData(Connection);
     }

@@ -1,18 +1,10 @@
-﻿using Microsoft.Data.Sqlite;
-using System;
-using System.Data;
-using UnitTestForTrello.Controllers;
-using UnitTestForTrello.Repositories;
-using UnitTestForTrello.Repositories.IRepositories;
-using UnitTestForTrello.Services.IServices;
-using UnitTestForTrello.Tests.Utility;
+﻿using UnitTestForTrello.Controllers;
 
 namespace UnitTestForTrello.Tests
 {
     [TestClass]
     public class UserControllerTest
     {
-        private SqliteConnection? _connection;
         private UserController? _userController;
 
         private const string loggeddInUserEmail = "james85@booth-daniels.net";
@@ -20,7 +12,6 @@ namespace UnitTestForTrello.Tests
         [TestInitialize]
         public void Setup()
         {
-            // 1. Lấy controller singleton từ TestStartUp
             _userController = TestStartUp.ResolveSingleton<UserController>();
         }
 
@@ -36,7 +27,7 @@ namespace UnitTestForTrello.Tests
         [TestCleanup]
         public void Cleanup()
         {
-            TestStartUp.ResetDatabase();
+            //TestStartUp.ResetDatabase();
         }
     }
 }

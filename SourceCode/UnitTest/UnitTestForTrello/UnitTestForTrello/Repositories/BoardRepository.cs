@@ -1,6 +1,5 @@
 ﻿using Dapper;
 using System.Data;
-using UnitTestForTrello.Models;
 using UnitTestForTrello.Models.DTOs;
 using UnitTestForTrello.Repositories.IRepositories;
 
