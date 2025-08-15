@@ -17,6 +17,11 @@ namespace UnitTestForTrello.Services.IServices
             return _cardRepository.GetActivitiesByCardId(cardId);
         }
 
+        public IEnumerable<CardAttachmentDTO> GetAttachmentsByCardId(int cardId)
+        {
+            return _cardRepository.GetAttachmentsByCardId(cardId);
+        }
+
         public IEnumerable<CardCommentWithReactionCountDTO> GetCardCommentsAndReactionsCountByCardId(int cardId)
         {
             return _cardRepository.GetCardCommentsAndReactionsCountByCardId(cardId);

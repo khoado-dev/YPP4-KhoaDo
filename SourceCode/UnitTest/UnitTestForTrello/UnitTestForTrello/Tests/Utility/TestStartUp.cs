@@ -24,39 +24,39 @@ public class TestStartUp
 
         _connection = TestDatabaseHelper.GetInMemoryDatabaseConnection();
 
-        RegisterSingleton<IUserRepository>(new UserRepository(_connection!));
-        RegisterSingleton<IUserService>(new UserService(ResolveSingleton<IUserRepository>()));
-        RegisterSingleton<UserController>(new UserController(ResolveSingleton<IUserService>()));
+        AddSingleton<IUserRepository>(new UserRepository(_connection!));
+        AddSingleton<IUserService>(new UserService(GetSingleton<IUserRepository>()));
+        AddSingleton<UserController>(new UserController(GetSingleton<IUserService>()));
 
-        RegisterSingleton<ICardRepository>(new CardRepository(_connection!));
-        RegisterSingleton<ICardService>(new CardService(ResolveSingleton<ICardRepository>()));
-        RegisterSingleton<CardController>(new CardController(ResolveSingleton<ICardService>()));
+        AddSingleton<ICardRepository>(new CardRepository(_connection!));
+        AddSingleton<ICardService>(new CardService(GetSingleton<ICardRepository>()));
+        AddSingleton<CardController>(new CardController(GetSingleton<ICardService>()));
 
-        RegisterSingleton<IBoardRepository>(new BoardRepository(_connection!));
-        RegisterSingleton<IBoardService>(new BoardService(ResolveSingleton<IBoardRepository>()));
-        RegisterSingleton<BoardController>(new BoardController(ResolveSingleton<IBoardService>()));
+        AddSingleton<IBoardRepository>(new BoardRepository(_connection!));
+        AddSingleton<IBoardService>(new BoardService(GetSingleton<IBoardRepository>()));
+        AddSingleton<BoardController>(new BoardController(GetSingleton<IBoardService>()));
 
-        RegisterSingleton<IWorkspaceRepository>(new WorkspaceRepository(_connection!));
-        RegisterSingleton<IWorkspaceService>(new WorkspaceService(ResolveSingleton<IWorkspaceRepository>()));
-        RegisterSingleton<WorkspaceController>(new WorkspaceController(ResolveSingleton<IWorkspaceService>()));
+        AddSingleton<IWorkspaceRepository>(new WorkspaceRepository(_connection!));
+        AddSingleton<IWorkspaceService>(new WorkspaceService(GetSingleton<IWorkspaceRepository>()));
+        AddSingleton<WorkspaceController>(new WorkspaceController(GetSingleton<IWorkspaceService>()));
 
-        RegisterSingleton<IMemberRepository>(new MemberRepository(_connection!));
-        RegisterSingleton<IMemberService>(new MemberService(ResolveSingleton<IMemberRepository>()));
-        RegisterSingleton<MemberController>(new MemberController(ResolveSingleton<IMemberService>()));
+        AddSingleton<IMemberRepository>(new MemberRepository(_connection!));
+        AddSingleton<IMemberService>(new MemberService(GetSingleton<IMemberRepository>()));
+        AddSingleton<MemberController>(new MemberController(GetSingleton<IMemberService>()));
 
     }
     #endregion
 
     #region Register & Resolve Singleton
 
-    public static void RegisterSingleton<T>(T instance)
+    public static void AddSingleton<T>(T instance)
     {
         if (instance == null)
             throw new ArgumentNullException(nameof(instance), "Instance cannot be null.");
         _singletons[typeof(T)] = instance;
     }
 
-    public static T ResolveSingleton<T>()
+    public static T GetSingleton<T>()
     {
         if (_singletons.TryGetValue(typeof(T), out var instance))
             return (T)instance;

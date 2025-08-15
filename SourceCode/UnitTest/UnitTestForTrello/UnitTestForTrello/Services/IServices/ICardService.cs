@@ -5,6 +5,7 @@ namespace UnitTestForTrello.Services.IServices
     public interface ICardService
     {
         IEnumerable<CardActivityDTO> GetActivitiesByCardId(int cardId);
+        IEnumerable<CardAttachmentDTO> GetAttachmentsByCardId(int cardId);
         IEnumerable<CardCommentWithReactionCountDTO> GetCardCommentsAndReactionsCountByCardId(int cardId);
         IEnumerable<CardDetailDTO> GetCardDetailByBoardId(int boardId);
         CardDetailDTO? GetCardDetailByCardId(int cardId);
