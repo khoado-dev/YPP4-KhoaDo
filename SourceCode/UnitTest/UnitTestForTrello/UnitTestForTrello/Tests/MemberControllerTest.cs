@@ -13,7 +13,7 @@ namespace UnitTestForTrello.Tests
         [TestInitialize]
         public void Setup()
         {
-            _memberController = TestStartUp.ResolveSingleton<MemberController>();
+            _memberController = TestStartUp.GetSingleton<MemberController>();
         }
 
         [TestMethod]

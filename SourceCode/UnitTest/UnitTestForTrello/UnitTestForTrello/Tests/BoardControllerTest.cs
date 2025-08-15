@@ -14,7 +14,7 @@ namespace UnitTestForTrello.Tests
         [TestInitialize]
         public void Setup()
         {
-            _boardController = TestStartUp.ResolveSingleton<BoardController>();
+            _boardController = TestStartUp.GetSingleton<BoardController>();
         }
 
         [TestMethod]

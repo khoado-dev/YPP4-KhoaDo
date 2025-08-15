@@ -14,7 +14,7 @@ namespace UnitTestForTrello.Tests
         [TestInitialize]
         public void Setup()
         {
-            _workspaceController = TestStartUp.ResolveSingleton<WorkspaceController>();
+            _workspaceController = TestStartUp.GetSingleton<WorkspaceController>();
         }
 
         [TestMethod]

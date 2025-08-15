@@ -616,14 +616,6 @@ namespace UnitTestForTrello.Tests.Utility
             (3, 2, 'Item 3');
             ");
 
-            // Attachment
-            _connection?.Execute(@"
-            INSERT INTO Attachment (Id, CardId, AttachmentPath) VALUES
-            (1, 1, 'file1.jpg'),
-            (2, 1, 'file2.png'),
-            (3, 3, 'file3.docx');
-            ");
-
             // Label → Labels
             _connection?.Execute(@"
             INSERT INTO Labels (Id, Title, ColorId, IsDefault) VALUES
@@ -720,6 +712,27 @@ namespace UnitTestForTrello.Tests.Utility
             ");
         }
 
+        public static void SeedAttachmentTypes()
+        {
+            _connection?.Execute(@"
+            INSERT INTO AttachmentType (Id, TypeValue, DisplayValue) VALUES
+            (1, 'card', 'Trello cards'),
+            (2, 'link', 'Links'),
+            (3, 'file', 'Files');
+            ");
+        }
+
+        public static void SeedAttachments()
+        {
+            _connection?.Execute(@"
+            INSERT INTO Attachment (Id, CardId, AttachmentTypeId, AttachmentPath, AttachmentName, CreatedAt, CreatedBy, Size, IsCover, Thumbnail) VALUES
+            (1, 1, 3, 'uploads/docs/file1.pdf', 'Project Plan', datetime('now', '-1 day'), 1, '200KB', 0, 'thumb1.png'),
+            (2, 1, 2, 'https://example.com', 'Reference Link', datetime('now', '-2 day'), 2, NULL, 0, NULL),
+            (3, 1, 1, NULL, 'Trello Card Ref', datetime('now', '-3 day'), 3, NULL, 1, NULL);
+            ");
+        }
+
+
 
         public static void SeedAllData()
         {
@@ -740,6 +753,9 @@ namespace UnitTestForTrello.Tests.Utility
             SeedCommentsWithReactionsForCard();
             SeedCardActivities();
             SeedCardCustomFieldAndValues();
+
+            SeedAttachmentTypes();
+            SeedAttachments();
         }
 
         public static void ClearData()

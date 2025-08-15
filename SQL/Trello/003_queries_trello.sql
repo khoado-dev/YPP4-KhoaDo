@@ -474,7 +474,6 @@ EXEC sp_executesql @sql, N'@CardId INT', @CardId=@CardId;
 
 
 --List all attachments belonging to a specific card, including their file details and upload information
-
 SELECT 
     atm.Id AttachmentId,
     att.DisplayValue AttachmentType,

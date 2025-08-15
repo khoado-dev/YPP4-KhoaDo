@@ -34,6 +34,26 @@ namespace UnitTestForTrello.Repositories
             return _con.Query<CardActivityDTO>(sql, new { CardId = cardId });
         }
 
+        public IEnumerable<CardAttachmentDTO> GetAttachmentsByCardId(int cardId)
+        {
+            const string sql = @"
+            SELECT 
+                atm.Id AttachmentId,
+                att.DisplayValue AttachmentType,
+                atm.AttachmentName,
+                atm.AttachmentPath,
+                atm.Size,
+                atm.CreatedAt,
+                atm.CreatedBy,
+                atm.IsCover,
+                atm.CardId
+            FROM Attachment atm
+            JOIN AttachmentType att ON att.Id = atm.AttachmentTypeId
+            WHERE atm.CardId = @CardId;
+            ";
+            return _con.Query<CardAttachmentDTO>(sql, new { CardId = cardId });
+        }
+
         public IEnumerable<CardCommentWithReactionCountDTO> GetCardCommentsAndReactionsCountByCardId(int cardId)
         {
             const string sql = @"

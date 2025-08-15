@@ -14,7 +14,7 @@ namespace UnitTestForTrello.Tests
         [TestInitialize]
         public void Setup()
         {
-            _cardController = TestStartUp.ResolveSingleton<CardController>();
+            _cardController = TestStartUp.GetSingleton<CardController>();
         }
 
         [TestMethod]
@@ -115,6 +115,17 @@ namespace UnitTestForTrello.Tests
 
             Assert.IsNotNull(actualResult);
             Assert.AreEqual(expctedNumberOfCustomFieldsWithValuesInCard, actualResult.Count);
+        }
+
+        [TestMethod]
+        public void GetAttachmentsByCardIdTest()
+        {
+            int expctedNumberOfAttachmentsInCard = 3;
+
+            var actualResult = _cardController?.GetAttachmentsByCardId(cardId).ToList();
+
+            Assert.IsNotNull(actualResult);
+            Assert.AreEqual(expctedNumberOfAttachmentsInCard, actualResult.Count);
         }
 
         [TestCleanup]
