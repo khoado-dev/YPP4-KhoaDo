@@ -1,12 +1,15 @@
-﻿using UnitTestForTrello.Controllers;
+﻿using PureDI;
+using UnitTestForTrello.Controllers;
 using UnitTestForTrello.Models.DTOs;
+using static System.Formats.Asn1.AsnWriter;
 
 namespace UnitTestForTrello.Tests
 {
     [TestClass]
     public class CardControllerTest
     {
-        private CardController? _cardController;
+        private IServiceScope _scope = null!;
+        private CardController _controller = null!;
 
         private const int boardId = 1;
         private const int cardId = 1;
@@ -14,14 +17,15 @@ namespace UnitTestForTrello.Tests
         [TestInitialize]
         public void Setup()
         {
-            _cardController = TestStartUp.GetSingleton<CardController>();
+            _scope = TestStartUp.CreateScope();
+            _controller = (CardController)_scope.ServiceProvider.GetService(typeof(CardController))!;
         }
 
         [TestMethod]
         public void GetCardSummariesByBoardIdTest()
         {
             int expectedNumberOfCards = 3;
-            var actualResult = _cardController?.GetCardSummariesByBoardId(boardId).ToList();
+            var actualResult = _controller?.GetCardSummariesByBoardId(boardId).ToList();
 
             Assert.IsNotNull(actualResult);
             Assert.AreEqual(expectedNumberOfCards, actualResult.Count);
@@ -40,7 +44,7 @@ namespace UnitTestForTrello.Tests
                 StageTitle = "To Do"
             };
 
-            var actualResult = _cardController?.GetCardDetailByCardId(expectedCard.CardId);
+            var actualResult = _controller?.GetCardDetailByCardId(expectedCard.CardId);
 
             Assert.IsNotNull(actualResult);
             Assert.AreEqual(expectedCard.CardId, actualResult.CardId);
@@ -55,7 +59,7 @@ namespace UnitTestForTrello.Tests
         {
             int expctedNumberOfCards = 3;
 
-            var actualResult = _cardController?.GetCardDetailByBoardId(boardId).ToList();
+            var actualResult = _controller?.GetCardDetailByBoardId(boardId).ToList();
 
             Assert.IsNotNull(actualResult);
             Assert.AreEqual(expctedNumberOfCards, actualResult.Count);
@@ -67,7 +71,7 @@ namespace UnitTestForTrello.Tests
         {
             int expctedNumberOfLabelInCard = 2;
 
-            var actualResult = _cardController?.GetCardLabelsByCardId(cardId).ToList();
+            var actualResult = _controller?.GetCardLabelsByCardId(cardId).ToList();
 
             Assert.IsNotNull(actualResult);
             Assert.AreEqual(expctedNumberOfLabelInCard, actualResult.Count);
@@ -78,7 +82,7 @@ namespace UnitTestForTrello.Tests
         {
             int expctedNumberOfReactionEachCommentInCard = 3;
 
-            var actualResult = _cardController?.GetCardCommentsAndReactionsCountByCardId(cardId).ToList();
+            var actualResult = _controller?.GetCardCommentsAndReactionsCountByCardId(cardId).ToList();
 
             Assert.IsNotNull(actualResult);
             Assert.AreEqual(expctedNumberOfReactionEachCommentInCard, actualResult.Count);
@@ -89,7 +93,7 @@ namespace UnitTestForTrello.Tests
         {
             int expctedNumberOfActivityInCard = 2;
 
-            var actualResult = _cardController?.GetActivitiesByCardId(cardId).ToList();
+            var actualResult = _controller?.GetActivitiesByCardId(cardId).ToList();
 
             Assert.IsNotNull(actualResult);
             Assert.AreEqual(expctedNumberOfActivityInCard, actualResult.Count);
@@ -100,7 +104,7 @@ namespace UnitTestForTrello.Tests
         {
             int expctedNumberOfCustomFieldsInCard = 4;
 
-            var actualResult = _cardController?.GetCustomFieldsByCardId(cardId).ToList();
+            var actualResult = _controller?.GetCustomFieldsByCardId(cardId).ToList();
 
             Assert.IsNotNull(actualResult);
             Assert.AreEqual(expctedNumberOfCustomFieldsInCard, actualResult.Count);
@@ -111,7 +115,7 @@ namespace UnitTestForTrello.Tests
         {
             int expctedNumberOfCustomFieldsWithValuesInCard = 3;
 
-            var actualResult = _cardController?.GetCustomFieldValuesByCardId(cardId).ToList();
+            var actualResult = _controller?.GetCustomFieldValuesByCardId(cardId).ToList();
 
             Assert.IsNotNull(actualResult);
             Assert.AreEqual(expctedNumberOfCustomFieldsWithValuesInCard, actualResult.Count);
@@ -122,7 +126,7 @@ namespace UnitTestForTrello.Tests
         {
             int expctedNumberOfAttachmentsInCard = 3;
 
-            var actualResult = _cardController?.GetAttachmentsByCardId(cardId).ToList();
+            var actualResult = _controller?.GetAttachmentsByCardId(cardId).ToList();
 
             Assert.IsNotNull(actualResult);
             Assert.AreEqual(expctedNumberOfAttachmentsInCard, actualResult.Count);

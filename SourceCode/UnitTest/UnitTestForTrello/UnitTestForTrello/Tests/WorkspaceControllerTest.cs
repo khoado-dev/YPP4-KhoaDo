@@ -1,12 +1,15 @@
-﻿using UnitTestForTrello.Controllers;
+﻿using PureDI;
+using UnitTestForTrello.Controllers;
 using UnitTestForTrello.Models.DTOs;
+using static System.Formats.Asn1.AsnWriter;
 
 namespace UnitTestForTrello.Tests
 {
     [TestClass]
     public class WorkspaceControllerTest
     {
-        private WorkspaceController? _workspaceController;
+        private IServiceScope _scope = null!;
+        private WorkspaceController _controller = null!;
 
         private const int loggeddInUserId = 1;
         private const int workspaceId = 1;
@@ -14,7 +17,8 @@ namespace UnitTestForTrello.Tests
         [TestInitialize]
         public void Setup()
         {
-            _workspaceController = TestStartUp.GetSingleton<WorkspaceController>();
+            _scope = TestStartUp.CreateScope();
+            _controller = (WorkspaceController)_scope.ServiceProvider.GetService(typeof(WorkspaceController))!;
         }
 
         [TestMethod]
@@ -22,7 +26,7 @@ namespace UnitTestForTrello.Tests
         {
             int expectedNumberOfWorkspaces = 2;
 
-            var actualResult = _workspaceController?.GetWorkspacesByUserId(loggeddInUserId).ToList();
+            var actualResult = _controller?.GetWorkspacesByUserId(loggeddInUserId).ToList();
             Assert.IsNotNull(actualResult);
             Assert.AreEqual(expectedNumberOfWorkspaces, actualResult.Count);
         }
@@ -31,7 +35,7 @@ namespace UnitTestForTrello.Tests
         public void GetWorkspaceTypesTest()
         {
             int expectedNumberOfWorkspaceTypes = 9;
-            var actualResult = _workspaceController?.GetWorkspaceTypes().ToList();
+            var actualResult = _controller?.GetWorkspaceTypes().ToList();
             Assert.IsNotNull(actualResult);
             Assert.AreEqual(expectedNumberOfWorkspaceTypes, actualResult.Count);
         }
@@ -49,7 +53,7 @@ namespace UnitTestForTrello.Tests
                 WorkspaceDescription = "Description for Workspace 1"
             };
 
-            var actualResult = _workspaceController?.GetWorkspaceDetailById(workspaceId);
+            var actualResult = _controller?.GetWorkspaceDetailById(workspaceId);
             Assert.IsNotNull(actualResult);
             Assert.AreEqual(expectedDTO.WorkspaceId, actualResult.WorkspaceId);
             Assert.AreEqual(expectedDTO.WorkspaceName, actualResult.WorkspaceName);

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.Sqlite;
+using PureDI;
 using UnitTestForTrello.Controllers;
 using UnitTestForTrello.Repositories;
 using UnitTestForTrello.Repositories.IRepositories;
@@ -9,62 +10,45 @@ using UnitTestForTrello.Tests.Utility;
 namespace UnitTestForTrello;
 
 [TestClass]
-public class TestStartUp
+public static class TestStartUp
 {
-    private static Dictionary<Type, object> _singletons = new();
-
-    public static SqliteConnection? _connection;
+    private static ServiceCollection? _services;
+    private static ServiceProvider? _root;
+    private static SqliteConnection? _conn;
 
     #region Setup DI & DB
     [AssemblyInitialize]
     public static void AssemblyInit(TestContext context)
     {
+        _services = new ServiceCollection();
+
+        _conn = TestDatabaseHelper.GetInMemoryDatabaseConnection();
+        if (_conn?.State != System.Data.ConnectionState.Open) _conn?.Open();
+        _services.AddSingleton<SqliteConnection>(_conn!);
+
         TestDatabaseHelper.CreateInMemoryDatabaseAndSchema();
         TestDatabaseHelper.SeedAllData();
 
-        _connection = TestDatabaseHelper.GetInMemoryDatabaseConnection();
+        // 2) Repositories — Scoped
+        _services.AddScoped<IBoardRepository>(sp => new BoardRepository(
+            (SqliteConnection)sp.GetService(typeof(SqliteConnection))!
+        ));
 
-        AddSingleton<IUserRepository>(new UserRepository(_connection!));
-        AddSingleton<IUserService>(new UserService(GetSingleton<IUserRepository>()));
-        AddSingleton<UserController>(new UserController(GetSingleton<IUserService>()));
+        // 3) Services — Scoped
+        _services.AddScoped<IBoardService>(sp => new BoardService(
+            (IBoardRepository)sp.GetService(typeof(IBoardRepository))!)
+        );
 
-        AddSingleton<ICardRepository>(new CardRepository(_connection!));
-        AddSingleton<ICardService>(new CardService(GetSingleton<ICardRepository>()));
-        AddSingleton<CardController>(new CardController(GetSingleton<ICardService>()));
+        // 4) Controllers — Transient (hoặc Scoped nếu bạn muốn 1 controller/test)
+        _services.AddTransient<BoardController>(sp => new BoardController(
+            (IBoardService)sp.GetService(typeof(IBoardService))!)
+        );
 
-        AddSingleton<IBoardRepository>(new BoardRepository(_connection!));
-        AddSingleton<IBoardService>(new BoardService(GetSingleton<IBoardRepository>()));
-        AddSingleton<BoardController>(new BoardController(GetSingleton<IBoardService>()));
-
-        AddSingleton<IWorkspaceRepository>(new WorkspaceRepository(_connection!));
-        AddSingleton<IWorkspaceService>(new WorkspaceService(GetSingleton<IWorkspaceRepository>()));
-        AddSingleton<WorkspaceController>(new WorkspaceController(GetSingleton<IWorkspaceService>()));
-
-        AddSingleton<IMemberRepository>(new MemberRepository(_connection!));
-        AddSingleton<IMemberService>(new MemberService(GetSingleton<IMemberRepository>()));
-        AddSingleton<MemberController>(new MemberController(GetSingleton<IMemberService>()));
-
+        _root = new ServiceProvider(_services);
     }
     #endregion
 
-    #region Register & Resolve Singleton
-
-    public static void AddSingleton<T>(T instance)
-    {
-        if (instance == null)
-            throw new ArgumentNullException(nameof(instance), "Instance cannot be null.");
-        _singletons[typeof(T)] = instance;
-    }
-
-    public static T GetSingleton<T>()
-    {
-        if (_singletons.TryGetValue(typeof(T), out var instance))
-            return (T)instance;
-
-        throw new InvalidOperationException($"Service {typeof(T).Name} not registered.");
-    }
-
-    #endregion
+    public static IServiceScope CreateScope() => _root!.CreateScope();
 
     #region Reset & Closse DB
 
@@ -77,8 +61,13 @@ public class TestStartUp
     [AssemblyCleanup]
     public static void AssemblyCleanup()
     {
-        _connection?.Close();
-        _connection?.Dispose();
+        (_root as IDisposable)?.Dispose();
+        _root = null;
+        _services = null;
+
+        _conn?.Close();
+        _conn?.Dispose();
+        _conn = null;
     }
     #endregion
 }

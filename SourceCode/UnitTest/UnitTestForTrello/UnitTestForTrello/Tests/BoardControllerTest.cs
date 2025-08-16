@@ -1,11 +1,14 @@
-﻿using UnitTestForTrello.Controllers;
+﻿using PureDI;
+using UnitTestForTrello.Controllers;
+using static System.Formats.Asn1.AsnWriter;
 
 namespace UnitTestForTrello.Tests
 {
     [TestClass]
     public class BoardControllerTest
     {
-        private BoardController? _boardController;
+        private IServiceScope _scope = null!;
+        private BoardController _controller = null!;
 
         private const int loggeddInUserId = 1;
         private const int workspaceId = 1;
@@ -14,14 +17,15 @@ namespace UnitTestForTrello.Tests
         [TestInitialize]
         public void Setup()
         {
-            _boardController = TestStartUp.GetSingleton<BoardController>();
+            _scope = TestStartUp.CreateScope();
+            _controller = (BoardController)_scope.ServiceProvider.GetService(typeof(BoardController))!;
         }
 
         [TestMethod]
         public void GetStarredBoardsTest()
         {
             int expectedNumberOfStarredBoards = 2;
-            var result = _boardController?.GetStarredBoards(loggeddInUserId).ToList();
+            var result = _controller?.GetStarredBoards(loggeddInUserId).ToList();
 
             Assert.IsNotNull(result);
             Assert.AreEqual(expectedNumberOfStarredBoards, result.Count);
@@ -32,7 +36,7 @@ namespace UnitTestForTrello.Tests
         public void GetRecentlyBoardsTest()
         {
             int expectedNumberOfRecentlyBoards = 2;
-            var result = _boardController?.GetRecentlyBoards(loggeddInUserId).ToList();
+            var result = _controller?.GetRecentlyBoards(loggeddInUserId).ToList();
 
             Assert.IsNotNull(result);
             Assert.AreEqual(expectedNumberOfRecentlyBoards, result.Count);
@@ -43,7 +47,7 @@ namespace UnitTestForTrello.Tests
         public void GetBoardsWhereUserIsMemberInWorkspaceTest()
         {
             int expectedNumberOfBoards = 2;
-            var result = _boardController?.GetBoardsWhereUserIsMemberInWorkspace(loggeddInUserId, workspaceId).ToList();
+            var result = _controller?.GetBoardsWhereUserIsMemberInWorkspace(loggeddInUserId, workspaceId).ToList();
             
             Assert.IsNotNull(result);
             Assert.AreEqual(expectedNumberOfBoards, result.Count);
@@ -53,7 +57,7 @@ namespace UnitTestForTrello.Tests
         public void GetBoardsWhereUserIsOwnerInWorkspaceTest()
         {
             int expectedNumberOfBoards = 2;
-            var result = _boardController?.GetBoardsWhereUserIsOwnerInWorkspace(loggeddInUserId, workspaceId).ToList();
+            var result = _controller?.GetBoardsWhereUserIsOwnerInWorkspace(loggeddInUserId, workspaceId).ToList();
 
             Assert.IsNotNull(result);
             Assert.AreEqual(expectedNumberOfBoards, result.Count);
