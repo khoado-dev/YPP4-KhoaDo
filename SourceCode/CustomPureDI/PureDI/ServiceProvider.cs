@@ -57,7 +57,7 @@ namespace PureDI
         {
             return d.Lifetime switch
             {
-                ServiceLifetime.Singleton => _singletons.GetOrAdd(d.ServiceType, _ => CreateInstance(d, scopeCache)),
+                ServiceLifetime.Singleton => ResolveSingleton(d),
                 ServiceLifetime.Scoped => scopeCache.TryGetValue(d.ServiceType, out var existing)
                                                 ? existing
                                                 : (scopeCache[d.ServiceType] = CreateInstance(d, scopeCache)),
@@ -124,9 +124,14 @@ namespace PureDI
             if (scopeCache is null)
             {
                 // From root
-                return d.Lifetime == ServiceLifetime.Scoped
-                    ? throw new InvalidOperationException($"Scoped service {d.ServiceType} can't be resolved from root.")
-                    : ResolveInScope(d, new Dictionary<Type, object>()); // transient or singleton ok
+                return d.Lifetime switch
+                {
+                    ServiceLifetime.Singleton => ResolveSingleton(d),     // ✔ root
+                    ServiceLifetime.Transient => CreateInstance(d, null), // ✔ root
+                    ServiceLifetime.Scoped => throw new InvalidOperationException(
+                        $"Scoped service {d.ServiceType} can't be resolved from root."),
+                    _ => throw new NotSupportedException()
+                };
             }
 
             return ResolveInScope(d, scopeCache);
