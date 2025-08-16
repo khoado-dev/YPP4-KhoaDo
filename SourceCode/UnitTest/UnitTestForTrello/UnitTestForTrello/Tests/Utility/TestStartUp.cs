@@ -1,5 +1,6 @@
 ﻿using Microsoft.Data.Sqlite;
 using PureDI;
+using System.Data;
 using UnitTestForTrello.Controllers;
 using UnitTestForTrello.Repositories;
 using UnitTestForTrello.Repositories.IRepositories;
@@ -23,25 +24,34 @@ public static class TestStartUp
         _services = new ServiceCollection();
 
         _conn = TestDatabaseHelper.GetInMemoryDatabaseConnection();
-        if (_conn?.State != System.Data.ConnectionState.Open) _conn?.Open();
-        _services.AddSingleton<SqliteConnection>(_conn!);
+        if (_conn?.State != ConnectionState.Open) _conn?.Open();
+        _services.AddSingleton<IDbConnection>(_conn!);
 
         TestDatabaseHelper.CreateInMemoryDatabaseAndSchema();
         TestDatabaseHelper.SeedAllData();
 
         // 2) Repositories — Scoped
         _services.AddScoped<IBoardRepository>(sp => new BoardRepository(
-            (SqliteConnection)sp.GetService(typeof(SqliteConnection))!
+            (IDbConnection)sp.GetService(typeof(IDbConnection))!
+        ));
+        _services.AddScoped<ICardRepository>(sp => new CardRepository(
+            (IDbConnection)sp.GetService(typeof(IDbConnection))!
         ));
 
         // 3) Services — Scoped
         _services.AddScoped<IBoardService>(sp => new BoardService(
             (IBoardRepository)sp.GetService(typeof(IBoardRepository))!)
         );
+        _services.AddScoped<ICardService>(sp => new CardService(
+            (ICardRepository)sp.GetService(typeof(ICardRepository))!)
+        );
 
         // 4) Controllers — Transient (hoặc Scoped nếu bạn muốn 1 controller/test)
         _services.AddTransient<BoardController>(sp => new BoardController(
             (IBoardService)sp.GetService(typeof(IBoardService))!)
+        );
+        _services.AddTransient<CardController>(sp => new CardController(
+            (ICardService)sp.GetService(typeof(ICardService))!)
         );
 
         _root = new ServiceProvider(_services);

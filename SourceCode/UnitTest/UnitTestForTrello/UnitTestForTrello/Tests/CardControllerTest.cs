@@ -135,7 +135,7 @@ namespace UnitTestForTrello.Tests
         [TestCleanup]
         public void Cleanup()
         {
-            //TestStartUp.ResetDatabase();
+            _scope.Dispose();
         }
     }
 }
