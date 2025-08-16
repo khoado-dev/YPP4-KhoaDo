@@ -1,11 +1,13 @@
-﻿using UnitTestForTrello.Controllers;
+﻿using PureDI;
+using UnitTestForTrello.Controllers;
 
 namespace UnitTestForTrello.Tests
 {
     [TestClass]
     public class MemberControllerTest
     {
-        private MemberController? _memberController;
+        private IServiceScope _scope = null!;
+        private MemberController _controller = null!;
 
         private const int boardId = 1;
         private const int cardId = 1;
@@ -13,14 +15,15 @@ namespace UnitTestForTrello.Tests
         [TestInitialize]
         public void Setup()
         {
-            _memberController = TestStartUp.GetSingleton<MemberController>();
+            _scope = TestStartUp.CreateScope();
+            _controller = (MemberController)_scope.ServiceProvider.GetService(typeof(MemberController))!;
         }
 
         [TestMethod]
         public void GetMembersByBoardIdTest()
         {
             int expectedNumberOfMembersInBoard = 3;
-            var result = _memberController?.GetMembersByBoardId(boardId).ToList();
+            var result = _controller?.GetMembersByBoardId(boardId).ToList();
 
             Assert.IsNotNull(result);
             Assert.IsTrue(result.Count == expectedNumberOfMembersInBoard);
@@ -30,7 +33,7 @@ namespace UnitTestForTrello.Tests
         public void GetMembersByCardIdTest()
         {
             int expectedNumberOfMembersInCard = 2;
-            var result = _memberController?.GetMembersByCardId(cardId).ToList();
+            var result = _controller?.GetMembersByCardId(cardId).ToList();
 
             Assert.IsNotNull(result);
             Assert.IsTrue(result.Count == expectedNumberOfMembersInCard);
@@ -40,7 +43,7 @@ namespace UnitTestForTrello.Tests
         public void GetSelectableMembersByCardIdTest()
         {
             int expectedNumberOfSelectableMembersInCard = 8;
-            var result = _memberController?.GetSelectableMembersByCardId(cardId).ToList();
+            var result = _controller?.GetSelectableMembersByCardId(cardId).ToList();
 
             Assert.IsNotNull(result);
             Assert.IsTrue(result.Count == expectedNumberOfSelectableMembersInCard);

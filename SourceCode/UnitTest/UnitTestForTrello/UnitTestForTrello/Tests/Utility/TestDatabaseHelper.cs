@@ -786,6 +786,8 @@ namespace UnitTestForTrello.Tests.Utility
 
         public static SqliteConnection? GetInMemoryDatabaseConnection()
         {
+            CreateInMemoryDatabaseAndSchema();
+            SeedAllData();
             return _connection;
         }
     }
