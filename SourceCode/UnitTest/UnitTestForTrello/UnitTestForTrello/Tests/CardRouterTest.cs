@@ -18,27 +18,6 @@ namespace UnitTestForTrello.Tests
         {
             _router = TestStartUp.CreateRouter();
         }
-
-        [TestMethod]
-        public void GetCardSummariesByBoardId()
-        {
-            int expectedNumberOfCards = 3;
-
-            var req = new Request
-            {
-                Method = HttpMethod.GET,
-                Path = $"/boards/{boardId}/cards/summaries"
-                // or: Path = "/boards/cards/summaries?boardId=1"
-            };
-
-            var res = _router.Handle(req);
-
-            Assert.AreEqual(HttpStatus.OK, res.StatusCode);
-            var result = ((IEnumerable<CardSummaryDTO>)res.Body!).ToList();
-            Assert.AreEqual(expectedNumberOfCards, result.Count);
-            Assert.IsTrue(result.All(c => c.BoardId == boardId));
-        }
-
         [TestMethod]
         public void GetCardDetailByCardId()
         {

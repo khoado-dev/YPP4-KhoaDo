@@ -52,12 +52,6 @@ namespace UnitTestForTrello.Routers
         }
         private static void MapCardRoutes(Router r)
         {
-            r.Map(HttpMethod.GET, "/boards/{boardId?}/cards/summaries", (rv, sp) =>
-            {
-                var c = (CardController)sp.GetService(typeof(CardController))!;
-                return c.GetCardSummariesByBoardId(int.Parse(rv["boardId"]));
-            });
-
             r.Map(HttpMethod.GET, "/cards/{cardId?}/detail", (rv, sp) =>
             {
                 var c = (CardController)sp.GetService(typeof(CardController))!;
@@ -67,7 +61,7 @@ namespace UnitTestForTrello.Routers
             r.Map(HttpMethod.GET, "/boards/{boardId?}/cards/detail", (rv, sp) =>
             {
                 var c = (CardController)sp.GetService(typeof(CardController))!;
-                return c.GetCardDetailByBoardId(int.Parse(rv["boardId"]));
+                return c.GetCardDetailsByBoardId(int.Parse(rv["boardId"]));
             });
 
             r.Map(HttpMethod.GET, "/cards/{cardId?}/labels", (rv, sp) =>
