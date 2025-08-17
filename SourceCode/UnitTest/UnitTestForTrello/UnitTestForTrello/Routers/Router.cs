@@ -1,4 +1,6 @@
-﻿using PureDI;
+﻿using System;
+using System.Collections.Generic;
+using PureDI;
 using UnitTestForTrello.Models;
 using HttpMethod = UnitTestForTrello.Models.HttpMethod;
 
@@ -13,7 +15,7 @@ namespace UnitTestForTrello.Routers
         private readonly Func<IServiceScope> _scopeFactory;
         public Router(Func<IServiceScope> scopeFactory) => _scopeFactory = scopeFactory;
 
-        // Map bằng string (giữ nguyên)
+        // Map by string (kept)
         public void Map(string method, string template,
             Func<IDictionary<string, string>, IServiceProvider, object?> handler)
         {
@@ -21,49 +23,123 @@ namespace UnitTestForTrello.Routers
             _routes.Add((method.ToUpperInvariant(), segs, handler));
         }
 
-        // Map bằng enum (tiện lợi)
+        // Map by enum (convenience)
         public void Map(HttpMethod method, string template,
             Func<IDictionary<string, string>, IServiceProvider, object?> handler)
             => Map(method.ToString(), template, handler);
 
-        // Overload nhận Request (enum), trả về Response
         public Response Handle(Request request)
         {
-            var method = request.Method.ToString();                 // enum -> "GET"
-            var path = string.IsNullOrWhiteSpace(request.Path) ? "/" : request.Path;
-            if (!path.StartsWith("/")) path = "/" + path;
-            return Handle(method, path);
-        }
+            if (request is null) throw new ArgumentNullException(nameof(request));
 
-        // Core: trả về Response với HttpStatus enum
-        public Response Handle(string method, string path)
-        {
-            var parts = path.Split('/', StringSplitOptions.RemoveEmptyEntries);
+            var method = request.Method.ToString();
+            var raw = string.IsNullOrWhiteSpace(request.Path) ? "/" : request.Path.Trim();
+            if (!raw.StartsWith("/")) raw = "/" + raw;
+
+            // 1) Split path & query
+            string pathOnly = raw;
+            var query = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+            int qIdx = raw.IndexOf('?', StringComparison.Ordinal);
+            if (qIdx >= 0)
+            {
+                pathOnly = raw[..qIdx];
+                var qs = raw[(qIdx + 1)..];
+                foreach (var pair in qs.Split('&', StringSplitOptions.RemoveEmptyEntries))
+                {
+                    var kv = pair.Split('=', 2);
+                    var k = Uri.UnescapeDataString(kv[0]);
+                    var v = kv.Length > 1 ? Uri.UnescapeDataString(kv[1]) : "";
+                    query[k] = v;
+                }
+            }
+
+            // NEW: lấy params từ Request.Params
+            var reqParams = request.Params ?? new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+
+            var parts = pathOnly.Split('/', StringSplitOptions.RemoveEmptyEntries);
 
             foreach (var (m, segs, handler) in _routes)
             {
-                if (!string.Equals(m, method, StringComparison.OrdinalIgnoreCase)) continue; // if method not match then ignore
-                if (segs.Length != parts.Length) continue; // if number of segments not match then ignore
+                if (!string.Equals(m, method, StringComparison.OrdinalIgnoreCase)) continue;
+                if (parts.Length > segs.Length) continue;
 
                 var vals = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
                 bool ok = true;
 
-                for (int i = 0; i < segs.Length; i++) // go through each segment
+                int j = 0;
+                for (int i = 0; i < segs.Length; i++)
                 {
-                    var t = segs[i]; //setment in registed routes 
-                    var p = parts[i]; //segment in path of request
+                    var t = segs[i];
+                    bool isParam = t.StartsWith("{") && t.EndsWith("}");
 
-                    if (t.StartsWith("{") && t.EndsWith("}")) 
-                        vals[t[1..^1]] = p; // => vals["userId"] = "123";
-                    else if (!t.Equals(p, StringComparison.OrdinalIgnoreCase)) // if segment is not a variable and not match then ignore
-                    { ok = false; break; }
+                    if (!isParam)
+                    {
+                        if (j >= parts.Length || !t.Equals(parts[j], StringComparison.OrdinalIgnoreCase))
+                        { ok = false; break; }
+                        j++;
+                        continue;
+                    }
+
+                    // param / optional param
+                    var nameRaw = t[1..^1];
+                    bool optional = nameRaw.EndsWith("?");
+                    var name = optional ? nameRaw[..^1] : nameRaw;
+
+                    if (j < parts.Length)
+                    {
+                        if (optional)
+                        {
+                            // Lookahead: nếu segment tiếp theo trong template là literal
+                            // và đúng bằng parts[j], thì KHÔNG ăn parts[j] cho param optional
+                            bool nextIsLiteralMatch =
+                                (i + 1 < segs.Length) &&
+                                !(segs[i + 1].StartsWith("{") && segs[i + 1].EndsWith("}")) &&
+                                segs[i + 1].Equals(parts[j], StringComparison.OrdinalIgnoreCase);
+
+                            if (!nextIsLiteralMatch)
+                            {
+                                vals[name] = parts[j++]; // lấy từ path
+                            }
+                            else if (query.TryGetValue(name, out var qv) || reqParams.TryGetValue(name, out qv))
+                            {
+                                vals[name] = qv;         // lấy từ query hoặc Request.Params
+                            }
+                            else
+                            {
+                                ok = false; break;        // thiếu giá trị
+                            }
+                        }
+                        else
+                        {
+                            vals[name] = parts[j++];      // required param phải lấy từ path
+                        }
+                    }
+                    else
+                    {
+                        // path hết segment: thử lấy từ query hoặc Request.Params nếu optional
+                        if (optional && (query.TryGetValue(name, out var qv) || reqParams.TryGetValue(name, out qv)))
+                        {
+                            vals[name] = qv;
+                        }
+                        else
+                        {
+                            ok = false; break;            // thiếu required
+                        }
+                    }
                 }
+
                 if (!ok) continue;
+
+                // Merge các query/params còn lại: không ghi đè các key đã có từ path
+                foreach (var kv in query)
+                    if (!vals.ContainsKey(kv.Key)) vals[kv.Key] = kv.Value;
+                foreach (var kv in reqParams)
+                    if (!vals.ContainsKey(kv.Key)) vals[kv.Key] = kv.Value;
 
                 try
                 {
-                    using var scope = _scopeFactory(); // dispose scope per request
-                    var data = handler(vals, scope.ServiceProvider); // call the handler/method with the matched segments
+                    using var scope = _scopeFactory();
+                    var data = handler(vals, scope.ServiceProvider);
 
                     return new Response
                     {
@@ -81,11 +157,8 @@ namespace UnitTestForTrello.Routers
                 }
             }
 
-            return new Response
-            {
-                StatusCode = HttpStatus.NotFound,
-                Body = null
-            };
+            return new Response { StatusCode = HttpStatus.NotFound, Body = null };
         }
+
     }
 }

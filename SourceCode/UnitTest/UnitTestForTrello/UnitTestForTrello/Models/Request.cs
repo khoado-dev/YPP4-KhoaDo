@@ -5,6 +5,8 @@
         public HttpMethod Method { set; get; }
         public string Path { set; get; } = string.Empty;
         public object? Body { get; set; }
+        public Dictionary<string, string> Params { get; set; } =
+            new(StringComparer.OrdinalIgnoreCase);
     }
     public enum HttpMethod
     {
