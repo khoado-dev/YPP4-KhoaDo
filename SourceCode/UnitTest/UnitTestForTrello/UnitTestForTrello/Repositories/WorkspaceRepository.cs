@@ -2,16 +2,18 @@
 using System.Data;
 using UnitTestForTrello.Models.DTOs;
 using UnitTestForTrello.Repositories.IRepositories;
+using UnitTestForTrello.Tests.Utility;
 
 namespace UnitTestForTrello.Tests
 {
     public class WorkspaceRepository : IWorkspaceRepository
     {
         private readonly IDbConnection _con;
-        
-        public WorkspaceRepository(IDbConnection con)
+        private readonly ICustomCache _cache;
+        public WorkspaceRepository(IDbConnection con, ICustomCache cache)
         {
             _con = con;
+            _cache = cache;
         }
 
         public WorkspaceDetailDTO? GetWorkspaceDetailById(int workspaceId)
@@ -50,6 +52,10 @@ namespace UnitTestForTrello.Tests
 
         public IEnumerable<WorkspaceTypeDTO> GetWorkspaceTypes()
         {
+            var cacheKey = $"workspacetypes";
+
+            if (_cache.TryGetValue(cacheKey, out IEnumerable<WorkspaceTypeDTO>? cached))
+                return cached!;
             const string sql = @"
             SELECT
                 Id WorkspaceTypeId,
@@ -58,7 +64,9 @@ namespace UnitTestForTrello.Tests
             FROM 
                 WorkspaceType;";
 
-            return _con.Query<WorkspaceTypeDTO>(sql, null);
+            var data = _con.Query<WorkspaceTypeDTO>(sql, null);
+            _cache.Set(cacheKey, data, TimeSpan.FromMinutes(5));
+            return data;
         }
     }
 }

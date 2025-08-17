@@ -25,6 +25,8 @@ public static class TestStartUp
     {
         _services = new ServiceCollection();
 
+        _services.AddSingleton<ICustomCache>(new CustomCache(TimeSpan.FromMinutes(1))); //Add custom cache with 1 minute Time To Live(TTL).
+
         _conn = TestDatabaseHelper.GetInMemoryDatabaseConnection();
         if (_conn?.State != ConnectionState.Open) _conn?.Open();
         if (_conn is SqliteConnection) //Add No Lock for SQLite because SQLite does not support it in query.

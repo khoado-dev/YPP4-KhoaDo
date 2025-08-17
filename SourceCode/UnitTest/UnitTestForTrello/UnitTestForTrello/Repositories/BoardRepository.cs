@@ -2,20 +2,24 @@
 using System.Data;
 using UnitTestForTrello.Models.DTOs;
 using UnitTestForTrello.Repositories.IRepositories;
+using UnitTestForTrello.Tests.Utility;
 
 namespace UnitTestForTrello.Repositories
 {
     public class BoardRepository : IBoardRepository
     {
         private readonly IDbConnection _con;
+        private readonly ICustomCache _cache;
 
-        public BoardRepository(IDbConnection con)
+        public BoardRepository(IDbConnection con, ICustomCache cache)
         {
             _con = con;
+            _cache = cache;
         }
 
         public IEnumerable<StarredBoardDTO> GetStarredBoardsByUser(int userId)
         {
+            var cacheKey = $"user:{userId}:starredboards";
             const string sql = @"
             SELECT
                 usb.UserId,
@@ -30,7 +34,9 @@ namespace UnitTestForTrello.Repositories
             WHERE UserId = @UserId AND brd.BoardStatus = 'active' AND usb.StarredBoardsStatus = 1
             ORDER BY usb.CreatedAt DESC";
 
-            return _con.Query<StarredBoardDTO>(sql, new { UserId = userId });
+            var data = _con.Query<StarredBoardDTO>(sql, new { UserId = userId });
+            _cache.Set(cacheKey, data, TimeSpan.FromMinutes(5));
+            return data;
         }
 
         public IEnumerable<RecentlyBoardDTO> GetRecentlyBoardsByUser(int userId)
