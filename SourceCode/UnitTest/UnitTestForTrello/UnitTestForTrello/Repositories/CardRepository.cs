@@ -2,16 +2,19 @@
 using System.Data;
 using UnitTestForTrello.Models.DTOs;
 using UnitTestForTrello.Repositories.IRepositories;
+using UnitTestForTrello.Tests.Utility;
 
 namespace UnitTestForTrello.Repositories
 {
     public class CardRepository : ICardRepository
     {
         private readonly IDbConnection _con;
+        private readonly ICustomCache _cache;
 
-        public CardRepository(IDbConnection con)
+        public CardRepository(IDbConnection con, ICustomCache cache)
         {
             _con = con;
+            _cache = cache;
         }
 
         public IEnumerable<CardActivityDTO> GetActivitiesByCardId(int cardId)
@@ -243,6 +246,10 @@ namespace UnitTestForTrello.Repositories
 
         public IEnumerable<CardCustomFieldDTO> GetCustomFieldsByCardId(int cardId)
         {
+            var cacheKey = $"card:{cardId}:custom_fields";
+
+            if (_cache.TryGetValue(cacheKey, out IEnumerable<CardCustomFieldDTO>? cached))
+                return cached!;
             const string sql = @"
             SELECT
                 crd.Id CardId,
@@ -262,7 +269,9 @@ namespace UnitTestForTrello.Repositories
             WHERE crd.Id = @CardId
             ORDER BY ctf.Position;
             ";
-            return _con.Query<CardCustomFieldDTO>(sql, new { CardId = cardId });
+            var data = _con.Query<CardCustomFieldDTO>(sql, new { CardId = cardId }).ToList();
+            _cache.Set(cacheKey, data, TimeSpan.FromMinutes(5));
+            return data;
         }
 
         public IEnumerable<CardCustomFieldValueDTO> GetCustomFieldValuesByCardId(int cardId)
