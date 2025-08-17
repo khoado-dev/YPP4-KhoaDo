@@ -28,13 +28,14 @@ namespace UnitTestForTrello.Routers
                 return c.GetRecentlyBoards(int.Parse(rv["userId"])); // userId from path
             });
 
-            r.Map("GET", "/workspaces/{workspaceId}/users/{userId}/boards/member", (rv, sp) =>
+            r.Map("GET", "/workspaces/{workspaceId?}/users/{userId?}/boards/member", (rv, sp) =>
             {
-                var c = (BoardController)sp.GetService(typeof(BoardController))!; // c = controller
-                return c.GetBoardsWhereUserIsMemberInWorkspace(
-                    int.Parse(rv["userId"]),           // userId from path
-                    int.Parse(rv["workspaceId"]));     // workspaceId from path
+                var c = (BoardController)sp.GetService(typeof(BoardController))!;
+                var ws = int.Parse(rv["workspaceId"]);
+                var u = int.Parse(rv["userId"]); // có thể đến từ path HOẶC params query
+                return c.GetBoardsWhereUserIsMemberInWorkspace(u, ws);
             });
+
 
             r.Map("GET", "/workspaces/{workspaceId}/users/{userId}/boards/owner", (rv, sp) =>
             {
