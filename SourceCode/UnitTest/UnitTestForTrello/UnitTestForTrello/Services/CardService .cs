@@ -27,24 +27,19 @@ namespace UnitTestForTrello.Services.IServices
             return _cardRepository.GetCardCommentsAndReactionsCountByCardId(cardId);
         }
 
-        public IEnumerable<CardDetailDTO> GetCardDetailByBoardId(int boardId)
+        public IEnumerable<CardDetailDTO> GetCardDetailsByBoardId(int boardId)
         {
-            return _cardRepository.GetCardDetailByBoardId(boardId);
+            return _cardRepository.GetCardDetailsByBoardId(boardId);
         }
 
         public CardDetailDTO? GetCardDetailByCardId(int cardId)
         {
-            return _cardRepository.GetCardDetailByCardId(cardId);
+            return _cardRepository.GetCardDetailsByCardId(cardId);
         }
 
         public IEnumerable<CardLabelDTO> GetCardLabelsByCardId(int cardId)
         {
             return _cardRepository.GetCardLabelsByCardId(cardId);
-        }
-
-        public IEnumerable<CardSummaryDTO> GetCardSummariesByBoardId(int boardId)
-        {
-            return _cardRepository.GetCardSummariesByBoardId(boardId);
         }
 
         public IEnumerable<CardCustomFieldDTO> GetCustomFieldsByCardId(int cardId)
