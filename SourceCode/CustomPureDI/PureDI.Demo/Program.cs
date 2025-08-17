@@ -10,10 +10,7 @@ var services = new ServiceCollection()
     // Transient: new instance every resolution
     .AddTransient<IGreetingService, GreetingService>()
     // Controllers can be registered explicit, or resolved as a concrete type later
-    .AddTransient<HomeController>(sp => new HomeController(
-        (IGreetingService)sp.GetService(typeof(IGreetingService))!,
-        (IRequestContext)sp.GetService(typeof(IRequestContext))!
-    ));
+    .AddTransient<HomeController>();
 
 // Build root provider
 using var provider = new ServiceProvider(services);

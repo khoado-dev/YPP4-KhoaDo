@@ -1,6 +1,6 @@
 ﻿using PureDI;
 using UnitTestForTrello.Controllers;
-using static System.Formats.Asn1.AsnWriter;
+using UnitTestForTrello.Services.IServices;
 
 namespace UnitTestForTrello.Tests
 {
@@ -29,7 +29,7 @@ namespace UnitTestForTrello.Tests
 
             Assert.IsNotNull(result);
             Assert.AreEqual(expectedNumberOfStarredBoards, result.Count);
-            Assert.IsTrue(result.All(b => b.BoardStatus == ACTIVE_BOARD_STATUS & b.StarredBoardsStatus==true));
+            Assert.IsTrue(result.All(b => b.BoardStatus == ACTIVE_BOARD_STATUS && b.StarredBoardsStatus==true));
         }
 
         [TestMethod]

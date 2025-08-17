@@ -1,63 +1,87 @@
 ﻿using System.Collections.Concurrent;
 using System.Reflection;
+using System.Threading;
 
 namespace PureDI
 {
-    // Minimal DI container supporting Singleton/Scoped/Transient + constructor injection.
+    // Minimal DI container: Singleton / Scoped / Transient + constructor injection
     public sealed class ServiceProvider : IServiceProvider, IServiceScopeFactory, IDisposable, IAsyncDisposable
     {
         private readonly IReadOnlyList<ServiceDescriptor> _descriptors;
-        private readonly ConcurrentDictionary<Type, object> _singletons = new();      // root singletons
-        private readonly HashSet<Type> _callStackGuard = new();                       // circular dep guard
-        private bool _disposed;                                                       // disposed flag 
+        private readonly ConcurrentDictionary<Type, object> _singletons = new(); // root singletons
+        private static readonly AsyncLocal<ResolutionState?> _state = new(); // per-flow resolution state (an toàn khi chạy song song)
+        private bool _disposed;
 
-        // Root provider
+        private static ResolutionState S => _state.Value ??= new ResolutionState();
+
         public ServiceProvider(IEnumerable<ServiceDescriptor> descriptors)
         {
             _descriptors = descriptors.ToList();
-            // Pre-store instance singletons
+
+            // preload instance singletons
             foreach (var d in _descriptors.Where(d => d.ImplementationInstance is not null))
-                //if the type already has instance, store it in the singletons dictionary.
                 _singletons[d.ServiceType] = d.ImplementationInstance!;
         }
 
+        // ===== IServiceProvider =====
         public object? GetService(Type serviceType)
         {
             ThrowIfDisposed();
 
-            var descriptor = _descriptors.LastOrDefault(d => d.ServiceType == serviceType);
+            var descriptor = FindDescriptorFor(serviceType);
             if (descriptor is null)
             {
-                // Support resolving non-registered concrete types (optional).
+                // self-binding for concretes
                 if (!serviceType.IsAbstract && !serviceType.IsInterface)
                     return CreateByType(serviceType, scopeCache: null);
 
-                return null; // not found
+                return null;
             }
 
             return descriptor.Lifetime switch
             {
                 ServiceLifetime.Singleton => ResolveSingleton(descriptor),
                 ServiceLifetime.Scoped => throw new InvalidOperationException(
-                     "Scoped service requested from root provider. Use a scope: CreateScope()."),
+                    "Scoped service requested from root provider. Use a scope: CreateScope()."),
                 ServiceLifetime.Transient => CreateInstance(descriptor, scopeCache: null),
                 _ => null
             };
         }
 
-        // IServiceScopeFactory
-        public IServiceScope CreateScope() => new ServiceScope(this, _descriptors);
+        // ===== IServiceScopeFactory =====
+        public IServiceScope CreateScope() => new ServiceScope(this);
 
-        private object ResolveSingleton(ServiceDescriptor d)
+        // ---------- descriptor lookup (supports assignable) ----------
+        private ServiceDescriptor? FindDescriptorFor(Type serviceType)
         {
-            return _singletons.GetOrAdd(d.ServiceType, _ => CreateInstance(d, scopeCache: null));
+            // exact
+            var d = _descriptors.LastOrDefault(x => x.ServiceType == serviceType);
+            if (d is not null) return d;
+
+            // implementation assignable to requested service
+            d = _descriptors.LastOrDefault(x =>
+                x.ImplementationType is not null && serviceType.IsAssignableFrom(x.ImplementationType));
+            if (d is not null) return d;
+
+            // instance compatible with requested service
+            d = _descriptors.LastOrDefault(x =>
+                x.ImplementationInstance is not null && serviceType.IsInstanceOfType(x.ImplementationInstance));
+            if (d is not null) return d;
+
+            // broader service type
+            //d = _descriptors.LastOrDefault(x => serviceType.IsAssignableFrom(x.ServiceType));
+            return d;
         }
+
+        // ---------- resolution core ----------
+        private object ResolveSingleton(ServiceDescriptor d)
+            => _singletons.GetOrAdd(d.ServiceType, _ => CreateInstance(d, scopeCache: null));
 
         internal object ResolveInScope(ServiceDescriptor d, Dictionary<Type, object> scopeCache)
         {
             return d.Lifetime switch
             {
-                ServiceLifetime.Singleton => ResolveSingleton(d),
+                ServiceLifetime.Singleton => ResolveSingleton(d), // always from root
                 ServiceLifetime.Scoped => scopeCache.TryGetValue(d.ServiceType, out var existing)
                                                 ? existing
                                                 : (scopeCache[d.ServiceType] = CreateInstance(d, scopeCache)),
@@ -70,7 +94,6 @@ namespace PureDI
         {
             if (d.ImplementationInstance is not null) return d.ImplementationInstance!;
             if (d.ImplementationFactory is not null) return d.ImplementationFactory(SelectProvider(scopeCache));
-
             if (d.ImplementationType is null)
                 throw new InvalidOperationException($"Descriptor for {d.ServiceType} is incomplete.");
 
@@ -79,55 +102,96 @@ namespace PureDI
 
         private object CreateByType(Type implType, Dictionary<Type, object>? scopeCache)
         {
-            // Choose the “greediest” public constructor.
-            var ctor = implType
-                .GetConstructors(BindingFlags.Public | BindingFlags.Instance)
-                .OrderByDescending(c => c.GetParameters().Length)
-                .FirstOrDefault();
-
-            if (ctor is null)
-                throw new InvalidOperationException($"Type {implType} has no public constructor.");
-
-            // Circular dependency guard
-            if (!_callStackGuard.Add(implType))
-                throw new InvalidOperationException($"Circular dependency detected around {implType}.");
+            // circular guard per-flow
+            if (!S.Constructing.Add(implType))
+            {
+                var path = S.Trace.Count > 0
+                    ? string.Join(" -> ", S.Trace.Reverse().Select(t => t.FullName)) + " -> " + implType.FullName
+                    : implType.FullName!;
+                throw new InvalidOperationException($"Circular dependency detected: {path}");
+            }
+            S.Trace.Push(implType);
 
             try
             {
-                var args = ctor.GetParameters()
-                               .Select(p => ResolveParameter(p.ParameterType, scopeCache))
-                               .ToArray();
-                var instance = Activator.CreateInstance(implType, args)!;
-                return instance;
+                var ctors = implType
+                    .GetConstructors(BindingFlags.Public | BindingFlags.Instance)
+                    .OrderByDescending(c => c.GetParameters().Length)
+                    .ToArray();
+
+                if (ctors.Length == 0)
+                    throw new InvalidOperationException($"Type {implType} has no public constructor.");
+
+                // thử lần lượt các ctor (greedy -> less greedy), nhưng bỏ qua ctor "tự kiểu mình"
+                foreach (var ctor in ctors)
+                {
+                    var ps = ctor.GetParameters();
+
+                    // tránh self-injection qua chính kiểu mình
+                    if (ps.Any(p => p.ParameterType.IsAssignableFrom(implType)))
+                        continue;
+
+                    var args = new object?[ps.Length];
+                    var ok = true;
+
+                    for (int i = 0; i < ps.Length; i++)
+                    {
+                        try
+                        {
+                            args[i] = ResolveParameter(ps[i].ParameterType, scopeCache);
+                        }
+                        catch
+                        {
+                            ok = false;
+                            break;
+                        }
+                    }
+
+                    if (ok) return ctor.Invoke(args!);
+                }
+
+                throw new InvalidOperationException($"No satisfiable public constructor found for {implType}.");
             }
             finally
             {
-                _callStackGuard.Remove(implType);
+                S.Trace.Pop();
+                S.Constructing.Remove(implType);
             }
         }
 
+
         private object ResolveParameter(Type parameterType, Dictionary<Type, object>? scopeCache)
         {
-            // Find matching descriptor (last registration wins)
-            var d = _descriptors.LastOrDefault(x => x.ServiceType == parameterType);
+            // chặn self-injection (kiểu hiện tại yêu cầu chính nó)
+            if (S.Trace.Count > 0)
+            {
+                var current = S.Trace.Peek();
+                if (parameterType.IsAssignableFrom(current))
+                    throw new InvalidOperationException($"Self injection: {current} requires {parameterType}");
+            }
+
+            // cho phép inject IServiceProvider
+            if (parameterType == typeof(IServiceProvider))
+                return SelectProvider(scopeCache);
+
+            var d = FindDescriptorFor(parameterType);
 
             if (d is null)
             {
-                // Allow resolving concrete types that aren't registered
+                // self-bind concrete
                 if (!parameterType.IsAbstract && !parameterType.IsInterface)
                     return CreateByType(parameterType, scopeCache);
 
-                throw new InvalidOperationException(
-                    $"No service registered for type {parameterType}.");
+                throw new InvalidOperationException($"No service registered for type {parameterType}.");
             }
 
             if (scopeCache is null)
             {
-                // From root
+                // resolving at root
                 return d.Lifetime switch
                 {
-                    ServiceLifetime.Singleton => ResolveSingleton(d),     // ✔ root
-                    ServiceLifetime.Transient => CreateInstance(d, null), // ✔ root
+                    ServiceLifetime.Singleton => ResolveSingleton(d),
+                    ServiceLifetime.Transient => CreateInstance(d, null),
                     ServiceLifetime.Scoped => throw new InvalidOperationException(
                         $"Scoped service {d.ServiceType} can't be resolved from root."),
                     _ => throw new NotSupportedException()
@@ -140,19 +204,40 @@ namespace PureDI
         private IServiceProvider SelectProvider(Dictionary<Type, object>? scopeCache)
             => scopeCache is null ? this : new ScopedServiceProvider(this, scopeCache);
 
-        public void Dispose() => _disposed = true;
-        public ValueTask DisposeAsync() { _disposed = true; return ValueTask.CompletedTask; }
+        // ---------- disposal ----------
+        public void Dispose()
+        {
+            if (_disposed) return;
+            _disposed = true;
+
+            foreach (var obj in _singletons.Values)
+            {
+                try
+                {
+                    if (obj is IAsyncDisposable ad) ad.DisposeAsync().AsTask().GetAwaiter().GetResult();
+                    if (obj is IDisposable d) d.Dispose();
+                }
+                catch { /* ignore on dispose */ }
+            }
+            _singletons.Clear();
+        }
+
+        public ValueTask DisposeAsync()
+        {
+            Dispose();
+            return ValueTask.CompletedTask;
+        }
 
         private void ThrowIfDisposed()
         {
             if (_disposed) throw new ObjectDisposedException(nameof(ServiceProvider));
         }
 
-        // Internal helper provider that resolves within a given scope cache
+        // ---------- nested providers/scopes ----------
         private sealed class ScopedServiceProvider : IServiceProvider
         {
             private readonly ServiceProvider _root;
-            private readonly Dictionary<Type, object> _scopeCache;
+            internal readonly Dictionary<Type, object> _scopeCache;
 
             public ScopedServiceProvider(ServiceProvider root, Dictionary<Type, object> scopeCache)
             {
@@ -161,50 +246,55 @@ namespace PureDI
 
             public object? GetService(Type serviceType)
             {
-                var d = _root._descriptors.LastOrDefault(x => x.ServiceType == serviceType);
+                _root.ThrowIfDisposed();
+
+                var d = _root.FindDescriptorFor(serviceType);
                 if (d is null)
                 {
                     if (!serviceType.IsAbstract && !serviceType.IsInterface)
                         return _root.CreateByType(serviceType, _scopeCache);
                     return null;
                 }
+
                 return _root.ResolveInScope(d, _scopeCache);
             }
         }
 
-        // Concrete scope type
         private sealed class ServiceScope : IServiceScope
         {
             private readonly ServiceProvider _root;
-            private readonly Dictionary<Type, object> _scopedCache = new();
             private bool _disposed;
+            private readonly Dictionary<Type, object> _scopedCache = new();
 
-            public ServiceScope(ServiceProvider root, IReadOnlyList<ServiceDescriptor> _)
-            { _root = root; ServiceProvider = new ScopedServiceProvider(root, _scopedCache); }
+            public ServiceScope(ServiceProvider root)
+            {
+                _root = root;
+                ServiceProvider = new ScopedServiceProvider(root, _scopedCache);
+            }
 
             public IServiceProvider ServiceProvider { get; }
 
             public void Dispose()
             {
                 if (_disposed) return;
-                // Dispose scoped instances if IDisposable/IAsyncDisposable
+
                 foreach (var obj in _scopedCache.Values)
                 {
-                    if (obj is IAsyncDisposable ad) ad.DisposeAsync().AsTask().GetAwaiter().GetResult();
-                    if (obj is IDisposable d) d.Dispose();
+                    try
+                    {
+                        if (obj is IAsyncDisposable ad) ad.DisposeAsync().AsTask().GetAwaiter().GetResult();
+                        if (obj is IDisposable d) d.Dispose();
+                    }
+                    catch { /* ignore */ }
                 }
+
+                _scopedCache.Clear();
                 _disposed = true;
             }
 
             public ValueTask DisposeAsync()
             {
-                if (_disposed) return ValueTask.CompletedTask;
-                foreach (var obj in _scopedCache.Values)
-                {
-                    if (obj is IAsyncDisposable ad) ad.DisposeAsync().AsTask().GetAwaiter().GetResult();
-                    if (obj is IDisposable d) d.Dispose();
-                }
-                _disposed = true;
+                Dispose();
                 return ValueTask.CompletedTask;
             }
         }
