@@ -3,7 +3,7 @@ using UnitTestForTrello.Models.DTOs;
 using UnitTestForTrello.Routers;
 using HttpMethod = UnitTestForTrello.Models.HttpMethod;
 
-namespace UnitTestForTrello;
+namespace UnitTestForTrello.Tests;
 
 [TestClass]
 public class BoardRouterTest
