@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+
 namespace PureDI
 {
     // Stores and adds service metadata into the collection.
@@ -9,6 +10,10 @@ namespace PureDI
             Add(ServiceDescriptor.Transient<TService, TImpl>()); 
             return this; 
         }
+        // Convenience for concretes: AddTransient<HomeController>()
+        public ServiceCollection AddTransient<TImpl>() where TImpl : class
+        { Add(ServiceDescriptor.Transient<TImpl, TImpl>()); return this; }
+
 
         public ServiceCollection AddScoped<TService, TImpl>() where TImpl : TService
         { 
