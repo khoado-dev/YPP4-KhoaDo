@@ -48,7 +48,7 @@ public class BoardRouterTest
         var req = new Request
         {
             Method = HttpMethod.GET,
-            Path = $"/boards/recent/{userId}"
+            Path = $"/boards/recent?userId={userId}"
         };
 
         var res = _router.Handle(req);
@@ -58,43 +58,6 @@ public class BoardRouterTest
         Assert.AreEqual(expectedCount, result.Count);
         Assert.IsTrue(result.All(b => b.BoardStatus == ACTIVE_STATUS));
     }
-
-    [TestMethod]
-    public void GetBoardsWhereUserIsMemberInWorkspace()
-    {
-        int expectedCount = 2;
-
-        var req = new Request
-        {
-            Method = HttpMethod.GET,
-            Path = $"/workspaces/{workspaceId}/users/{userId}/boards/member"
-        };
-
-        var res = _router.Handle(req);
-
-        Assert.AreEqual(HttpStatus.OK, res.StatusCode);
-        var result = ((IEnumerable<BoardWithWorkspaceDTO>)res.Body!).ToList();
-        Assert.AreEqual(expectedCount, result.Count);
-    }
-
-    [TestMethod]
-    public void GetBoardsWhereUserIsMemberInWorkspace_WithParamsInPath()
-    {
-        int expectedCount = 2;
-
-        var req = new Request
-        {
-            Method = HttpMethod.GET,
-            Path = $"/workspaces/users/boards/member?workspaceId={workspaceId}&userId={userId}"
-        };
-
-        var res = _router.Handle(req);
-
-        Assert.AreEqual(HttpStatus.OK, res.StatusCode);
-        var result = ((IEnumerable<BoardWithWorkspaceDTO>)res.Body!).ToList();
-        Assert.AreEqual(expectedCount, result.Count);
-    }
-
     [TestMethod]
     public void GetBoardsWhereUserIsMemberInWorkspace_WithParamsInRequest()
     {
