@@ -4,6 +4,7 @@ using System.Data;
 using UnitTestForTrello.Controllers;
 using UnitTestForTrello.Repositories;
 using UnitTestForTrello.Repositories.IRepositories;
+using UnitTestForTrello.Routers;
 using UnitTestForTrello.Services.IServices;
 using UnitTestForTrello.Tests.Utility;
 
@@ -42,6 +43,7 @@ public static class TestStartUp
     #endregion
 
     public static IServiceScope CreateScope() => _root!.CreateScope();
+    public static Router CreateRouter() => RouteConfig.Create(CreateScope);   
 
     #region Reset & Closse DB
 
