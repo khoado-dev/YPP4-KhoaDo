@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace PureDI
+﻿namespace PureDI
 {
     // Minimal service collection interface: stores metadata + registration methods
     public interface IServiceCollection : IList<ServiceDescriptor>

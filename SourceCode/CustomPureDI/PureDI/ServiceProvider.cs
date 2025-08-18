@@ -16,7 +16,7 @@ namespace PureDI
 
         public ServiceProvider(IEnumerable<ServiceDescriptor> descriptors)
         {
-            _descriptors = descriptors.ToList();
+            _descriptors = descriptors.ToList(); // copy descriptors into readonly list
 
             // preload instance singletons
             foreach (var d in _descriptors.Where(d => d.ImplementationInstance is not null))
@@ -40,21 +40,27 @@ namespace PureDI
 
             return descriptor.Lifetime switch
             {
+                //get from cache root singletons
                 ServiceLifetime.Singleton => ResolveSingleton(descriptor),
+                //not allow to resolve
                 ServiceLifetime.Scoped => throw new InvalidOperationException(
                     "Scoped service requested from root provider. Use a scope: CreateScope()."),
+                //create new instance
                 ServiceLifetime.Transient => CreateInstance(descriptor, scopeCache: null),
                 _ => null
             };
         }
 
         // ===== IServiceScopeFactory =====
+        //each scope has its own cache and provider
         public IServiceScope CreateScope() => new ServiceScope(this);
 
         // ---------- descriptor lookup (supports assignable) ----------
         private ServiceDescriptor? FindDescriptorFor(Type serviceType)
         {
-            // exact
+            //LastOrDefault to get the latest descriptor.
+
+            // exact service type
             var d = _descriptors.LastOrDefault(x => x.ServiceType == serviceType);
             if (d is not null) return d;
 
@@ -68,23 +74,25 @@ namespace PureDI
                 x.ImplementationInstance is not null && serviceType.IsInstanceOfType(x.ImplementationInstance));
             if (d is not null) return d;
 
-            // broader service type
-            //d = _descriptors.LastOrDefault(x => serviceType.IsAssignableFrom(x.ServiceType));
             return d;
         }
 
         // ---------- resolution core ----------
         private object ResolveSingleton(ServiceDescriptor d)
+            //get or create new instance into singleton dictionary
             => _singletons.GetOrAdd(d.ServiceType, _ => CreateInstance(d, scopeCache: null));
 
         internal object ResolveInScope(ServiceDescriptor d, Dictionary<Type, object> scopeCache)
         {
             return d.Lifetime switch
             {
-                ServiceLifetime.Singleton => ResolveSingleton(d), // always from root
+                //singleton get from root
+                ServiceLifetime.Singleton => ResolveSingleton(d),
+                //scope get from cache of scope, if not found, create new instance
                 ServiceLifetime.Scoped => scopeCache.TryGetValue(d.ServiceType, out var existing)
                                                 ? existing
                                                 : (scopeCache[d.ServiceType] = CreateInstance(d, scopeCache)),
+                //transient create new instance
                 ServiceLifetime.Transient => CreateInstance(d, scopeCache),
                 _ => throw new NotSupportedException()
             };
@@ -92,7 +100,9 @@ namespace PureDI
 
         private object CreateInstance(ServiceDescriptor d, Dictionary<Type, object>? scopeCache)
         {
+            // return intance if available
             if (d.ImplementationInstance is not null) return d.ImplementationInstance!;
+            // return factory result if available
             if (d.ImplementationFactory is not null) return d.ImplementationFactory(SelectProvider(scopeCache));
             if (d.ImplementationType is null)
                 throw new InvalidOperationException($"Descriptor for {d.ServiceType} is incomplete.");
