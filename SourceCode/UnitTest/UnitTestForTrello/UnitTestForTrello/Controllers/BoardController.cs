@@ -15,19 +15,19 @@ namespace UnitTestForTrello.Controllers
             return _boardService.GetStarredBoards(userId);
         }
 
-        public IEnumerable<RecentlyBoardDTO> GetRecentlyBoards(int userId)
+        public IEnumerable<RecentBoardDTO> GetRecentBoards(int userId)
         {
-            return _boardService.GetRecentlyBoards(userId);
+            return _boardService.GetRecentBoards(userId);
         }
 
         public IEnumerable<BoardWithWorkspaceDTO> GetBoardsWhereUserIsMemberInWorkspace(int userId, int workspaceId)
         {
-            return _boardService.GetBoardsWhereUserIsMemberInWorkspace(userId, workspaceId);
+            return _boardService.GetBoardsAsMember(userId, workspaceId);
         }
 
         public IEnumerable<BoardWithWorkspaceDTO> GetBoardsWhereUserIsOwnerInWorkspace(int userId, int workspaceId)
         {
-            return _boardService.GetBoardsWhereUserIsOwnerInWorkspace(userId, workspaceId);
+            return _boardService.GetBoardsAsOwner(userId, workspaceId);
         }
     }
 }

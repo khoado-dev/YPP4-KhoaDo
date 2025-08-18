@@ -534,7 +534,7 @@ JOIN OwnerType owt ON owt.Id = mmb.OwnerTypeId
 JOIN RolePermission pe ON pe.Id = mmb.RolePermissonId
 JOIN [Users] us ON us.Id = mmb.UserId
 JOIN BoardCountByEachUser bcb ON bcb.UserId = mmb.UserId
-WHERE owt.OwnerTypeValue = 'WORKSPACE' AND mmb.OwnerId = 11
+WHERE owt.OwnerTypeValue = 'WORKSPACE' AND mmb.OwnerId = 1
 ORDER BY mmb.JoinedAt;
 
 --List All Role Permission

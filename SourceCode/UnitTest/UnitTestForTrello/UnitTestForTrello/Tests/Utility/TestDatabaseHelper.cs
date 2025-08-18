@@ -471,9 +471,9 @@ namespace UnitTestForTrello.Tests.Utility
             _connection?.Execute(@"
             INSERT INTO Board (Id, BoardName, BoardDescription, CreatedAt, CreatedBy, BackgroundUrl, BoardStatus, WorkspaceId)
             VALUES 
-                (1, 'Test Board 1', 'Description', datetime('now'), 1, 'url1', 'active', 1),
-                (2, 'Test Board 2', 'Description', datetime('now'), 1, 'url2', 'active', 1),
-                (3, 'Inactive Board', 'Description', datetime('now'), 1, 'url3', 'archived', 1);
+                (1, 'Test Board 1', 'Description', datetime('now'), 1, 'url1', 'ACTIVE', 1),
+                (2, 'Test Board 2', 'Description', datetime('now'), 1, 'url2', 'ACTIVE', 1),
+                (3, 'Inactive Board', 'Description', datetime('now'), 1, 'url3', 'ARCHIVED', 1);
             ");
         }
 
@@ -741,7 +741,7 @@ namespace UnitTestForTrello.Tests.Utility
             (1, 'Admin', 'ADMIN'),
             (2, 'Member', 'MEMBER'),
             (3, 'Viewer', 'VIEWER');
-             ");
+            ");
         }
 
         public static void SeedAllData()
