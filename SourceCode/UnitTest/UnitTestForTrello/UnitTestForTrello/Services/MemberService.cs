@@ -27,6 +27,11 @@ namespace UnitTestForTrello.Services.IServices
             return _memberRepository.GetMembersByWorkspaceId(workspaceId);
         }
 
+        public IEnumerable<RolePermissionDTO> GetRolePermissions()
+        {
+            return _memberRepository.GetRolePermissions();
+        }
+
         public IEnumerable<CardSelectableMemberDTO> GetSelectableMembersByCardId(int cardId)
         {
             return _memberRepository.GetSelectableMembersByCardId(cardId);

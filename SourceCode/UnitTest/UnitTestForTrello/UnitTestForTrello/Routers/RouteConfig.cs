@@ -30,7 +30,7 @@ namespace UnitTestForTrello.Routers
             r.Map(HttpMethod.GET, "/boards/recent/{userId?}", (rv, sp) => // rv = route values, sp = service provider
             {
                 var c = (BoardController)sp.GetService(typeof(BoardController))!; // c = controller
-                return c.GetRecentlyBoards(int.Parse(rv["userId"])); // userId from path
+                return c.GetRecentBoards(int.Parse(rv["userId"])); // userId from path
             });
 
             r.Map(HttpMethod.GET, "/workspaces/{workspaceId?}/users/{userId?}/boards/member", (rv, sp) =>
@@ -128,6 +128,14 @@ namespace UnitTestForTrello.Routers
                 var c = (MemberController)sp.GetService(typeof(MemberController))!;
                 return c.GetSelectableMembersByCardId(int.Parse(rv["cardId"]));
             });
+
+            // Lấy tất cả role-permissions
+            r.Map(HttpMethod.GET, "/rolepermissions", (rv, sp) =>
+            {
+                var c = (MemberController)sp.GetService(typeof(MemberController))!;
+                return c.GetRolePermissions();
+            });
+
         }
         private static void MapWorkspaceRoutes(Router r)
         {

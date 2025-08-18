@@ -79,6 +79,17 @@ namespace UnitTestForTrello.Repositories
             return _con.Query<WorkspaceMemberDTO>(sql, new { WorkspaceId = workspaceId });
         }
 
+        public IEnumerable<RolePermissionDTO> GetRolePermissions()
+        {
+            const string sql = @"
+            SELECT
+                Id AS RolePermissionId,
+                PermissionName,
+                PermissionCode
+            FROM RolePermission;";
+
+            return _con.Query<RolePermissionDTO>(sql);
+        }
 
         public IEnumerable<CardSelectableMemberDTO> GetSelectableMembersByCardId(int cardId)
         {

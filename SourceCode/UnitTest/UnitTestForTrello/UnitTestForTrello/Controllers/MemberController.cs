@@ -30,5 +30,10 @@ namespace UnitTestForTrello.Controllers
         {
             return _memberService.GetMembersByWorkspaceId(workspaceId);
         }
+
+        public IEnumerable<RolePermissionDTO> GetRolePermissions()
+        {
+            return _memberService.GetRolePermissions();
+        }
     }
 }

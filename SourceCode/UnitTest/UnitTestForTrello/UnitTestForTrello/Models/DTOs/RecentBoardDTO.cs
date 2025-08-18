@@ -1,6 +1,6 @@
 ﻿namespace UnitTestForTrello.Models.DTOs
 {
-    public class RecentlyBoardDTO
+    public class RecentBoardDTO
     {
         public int BoardId { get; set; }
         public string? BoardName { get; set; }

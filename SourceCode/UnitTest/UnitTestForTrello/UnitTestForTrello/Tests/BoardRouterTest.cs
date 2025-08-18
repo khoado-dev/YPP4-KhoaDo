@@ -1,6 +1,7 @@
 ﻿using UnitTestForTrello.Models;
 using UnitTestForTrello.Models.DTOs;
 using UnitTestForTrello.Routers;
+using UnitTestForTrello.Tests.Utility;
 using HttpMethod = UnitTestForTrello.Models.HttpMethod;
 
 namespace UnitTestForTrello.Tests;
@@ -12,7 +13,6 @@ public class BoardRouterTest
 
     private const int userId = 1;
     private const int workspaceId = 1;
-    private const string ACTIVE_STATUS = "active";
 
     [TestInitialize]
     public void Setup()
@@ -22,7 +22,7 @@ public class BoardRouterTest
 
 
     [TestMethod]
-    public void GetStarredBoards()
+    public void GetStarredBoardsTest()
     {
         int expectedCount = 2;
 
@@ -37,11 +37,11 @@ public class BoardRouterTest
         Assert.AreEqual(HttpStatus.OK, res.StatusCode);
         var result = ((IEnumerable<StarredBoardDTO>)res.Body!).ToList();
         Assert.AreEqual(expectedCount, result.Count);
-        Assert.IsTrue(result.All(b => b.BoardStatus == ACTIVE_STATUS && b.StarredBoardsStatus));
+        Assert.IsTrue(result.All(b => b.BoardStatus == BoardStatus.ACTIVE.ToString() && b.StarredBoardsStatus));
     }
 
     [TestMethod]
-    public void GetRecentlyBoards()
+    public void GetRecentBoardsTest()
     {
         int expectedCount = 2;
 
@@ -54,12 +54,12 @@ public class BoardRouterTest
         var res = _router.Handle(req);
 
         Assert.AreEqual(HttpStatus.OK, res.StatusCode);
-        var result = ((IEnumerable<RecentlyBoardDTO>)res.Body!).ToList();
+        var result = ((IEnumerable<RecentBoardDTO>)res.Body!).ToList();
         Assert.AreEqual(expectedCount, result.Count);
-        Assert.IsTrue(result.All(b => b.BoardStatus == ACTIVE_STATUS));
+        Assert.IsTrue(result.All(b => string.Equals(b.BoardStatus, BoardStatus.ACTIVE.ToString())));
     }
     [TestMethod]
-    public void GetBoardsWhereUserIsMemberInWorkspace_WithParamsInRequest()
+    public void GetBoardsAsMemberTest()
     {
         int expectedCount = 2;
 
@@ -81,7 +81,7 @@ public class BoardRouterTest
     }
 
     [TestMethod]
-    public void GetBoardsWhereUserIsOwnerInWorkspace()
+    public void GetBoardsAsOwnerTest()
     {
         int expectedCount = 2;
 
