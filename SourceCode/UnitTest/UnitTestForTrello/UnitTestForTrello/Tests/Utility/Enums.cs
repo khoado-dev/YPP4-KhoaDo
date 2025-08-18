@@ -18,4 +18,8 @@
         CARD,
         USER
     }
+    public enum DataType
+    {
+        DROPDOWN
+    }
 }

@@ -18,13 +18,15 @@ namespace UnitTestForTrello.Repositories
         {
             const string sql = @"
             SELECT 
-                Id,
-                PictureUrl,
-                Email,
-                Username,
-                Bio
-            FROM Users
-            WHERE Email = @Email;
+              Id, 
+              PictureUrl, 
+              Email, 
+              Username, 
+              Bio 
+            FROM 
+              Users 
+            WHERE 
+              Email = @Email;
             ";
             return _con.QueryFirstOrDefault<UserDTO>(sql, new { Email = email });
         }

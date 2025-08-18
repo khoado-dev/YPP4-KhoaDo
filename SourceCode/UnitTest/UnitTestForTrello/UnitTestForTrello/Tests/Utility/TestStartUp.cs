@@ -2,12 +2,7 @@
 using Microsoft.Data.Sqlite;
 using PureDI;
 using System.Data;
-using UnitTestForTrello.Controllers;
-using UnitTestForTrello.Repositories;
-using UnitTestForTrello.Repositories.IRepositories;
 using UnitTestForTrello.Routers;
-using UnitTestForTrello.Services.IServices;
-using UnitTestForTrello.Tests;
 using UnitTestForTrello.Tests.Utility;
 
 namespace UnitTestForTrello;
@@ -43,6 +38,7 @@ public static class TestStartUp
         {
             conn.Execute("PRAGMA journal_mode=WAL;");
             conn.Execute("PRAGMA synchronous=NORMAL;");
+            conn.Execute("PRAGMA read_uncommitted = ON;");
             conn.Execute("PRAGMA busy_timeout=5000;");
         }
         TestDatabaseHelper.CreateInMemoryDatabaseAndSchema();

@@ -38,14 +38,14 @@ namespace UnitTestForTrello.Routers
                 var c = (BoardController)sp.GetService(typeof(BoardController))!;
                 var ws = int.Parse(rv["workspaceId"]);
                 var u = int.Parse(rv["userId"]); // có thể đến từ path HOẶC params query
-                return c.GetBoardsWhereUserIsMemberInWorkspace(u, ws);
+                return c.GetBoardsAsMember(u, ws);
             });
 
 
             r.Map(HttpMethod.GET, "/workspaces/{workspaceId?}/users/{userId?}/boards/owner", (rv, sp) =>
             {
                 var c = (BoardController)sp.GetService(typeof(BoardController))!; // c = controller
-                return c.GetBoardsWhereUserIsOwnerInWorkspace(
+                return c.GetBoardsAsOwner(
                     int.Parse(rv["userId"]),           // userId from path
                     int.Parse(rv["workspaceId"]));     // workspaceId from path
             });
@@ -162,8 +162,6 @@ namespace UnitTestForTrello.Routers
         }
         private static void MapUserRoutes(Router r)
         {
-            // Lấy user theo email (email có thể đến từ path hoặc query)
-            // Ví dụ: /users/by-email/james@abc.com  hoặc  /users/by-email?email=james@abc.com
             r.Map(HttpMethod.GET, "/users/{email?}", (rv, sp) =>
             {
                 var c = (UserController)sp.GetService(typeof(UserController))!;
