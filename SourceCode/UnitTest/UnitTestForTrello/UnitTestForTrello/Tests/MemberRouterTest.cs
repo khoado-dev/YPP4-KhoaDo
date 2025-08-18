@@ -9,6 +9,7 @@ namespace UnitTestForTrello.Tests
     {
         private Router _router = null!;
 
+        private const int workspaceId = 1;
         private const int boardId = 1;
         private const int cardId = 1;
 
@@ -16,6 +17,24 @@ namespace UnitTestForTrello.Tests
         public void Setup()
         {
             _router = TestStartUp.CreateRouter();
+        }
+
+        [TestMethod]
+        public void GetMembersByWorkspaceId()
+        {
+            int expectedNumberOfMembersInBoard = 3;
+
+            var req = new Request
+            {
+                Method = HttpMethod.GET,
+                Path = $"/workspaces/{workspaceId}/members"
+            };
+
+            var res = _router.Handle(req);
+
+            Assert.AreEqual(HttpStatus.OK, res.StatusCode);
+            var result = ((IEnumerable<object>)res.Body!).ToList();
+            Assert.AreEqual(expectedNumberOfMembersInBoard, result.Count);
         }
 
         [TestMethod]

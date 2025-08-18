@@ -22,6 +22,11 @@ namespace UnitTestForTrello.Services.IServices
             return _memberRepository.GetMembersByCardId(cardId);
         }
 
+        public IEnumerable<WorkspaceMemberDTO> GetMembersByWorkspaceId(int workspaceId)
+        {
+            return _memberRepository.GetMembersByWorkspaceId(workspaceId);
+        }
+
         public IEnumerable<CardSelectableMemberDTO> GetSelectableMembersByCardId(int cardId)
         {
             return _memberRepository.GetSelectableMembersByCardId(cardId);

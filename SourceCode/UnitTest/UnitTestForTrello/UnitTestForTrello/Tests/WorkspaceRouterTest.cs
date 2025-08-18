@@ -34,7 +34,7 @@ namespace UnitTestForTrello.Tests
             var res = _router.Handle(req);
 
             Assert.AreEqual(HttpStatus.OK, res.StatusCode);
-            var result = ((IEnumerable<WorkspaceMemberDTO>)res.Body!).ToList();
+            var result = ((IEnumerable<WorkspaceDTO>)res.Body!).ToList();
             Assert.AreEqual(expectedNumberOfWorkspaces, result.Count);
         }
 

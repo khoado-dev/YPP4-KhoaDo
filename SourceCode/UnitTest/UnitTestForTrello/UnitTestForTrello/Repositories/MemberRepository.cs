@@ -46,6 +46,40 @@ namespace UnitTestForTrello.Repositories
             return _con.Query<CardMemberDTO>(sql, new { CardId = cardId });
         }
 
+        public IEnumerable<WorkspaceMemberDTO> GetMembersByWorkspaceId(int workspaceId)
+        {
+            const string sql = @"
+            WITH BoardCountByEachUser AS (
+                SELECT 
+                    mmb.UserId,
+                    COUNT(*) AS BoardCount
+                FROM Members mmb
+                JOIN OwnerType owt ON owt.Id = mmb.OwnerTypeId
+                JOIN Board brd ON brd.Id = mmb.OwnerId
+                WHERE owt.OwnerTypeValue = 'BOARD'
+                  AND brd.WorkspaceId = @WorkspaceId
+                GROUP BY mmb.UserId
+            )
+            SELECT 
+                us.PictureUrl         AS UserPicture,
+                us.Username,
+                us.Email              AS UserEmail,
+                us.LastActive         AS UserLastActive,
+                pe.PermissionName,
+                COALESCE(bcb.BoardCount, 0) AS BoardCount 
+            FROM Members mmb
+            JOIN OwnerType owt      ON owt.Id = mmb.OwnerTypeId
+            JOIN RolePermission pe  ON pe.Id = mmb.RolePermissonId
+            JOIN [Users] us         ON us.Id = mmb.UserId
+            LEFT JOIN BoardCountByEachUser bcb ON bcb.UserId = mmb.UserId
+            WHERE owt.OwnerTypeValue = 'WORKSPACE'
+              AND mmb.OwnerId = @WorkspaceId
+            ORDER BY mmb.JoinedAt;";
+
+            return _con.Query<WorkspaceMemberDTO>(sql, new { WorkspaceId = workspaceId });
+        }
+
+
         public IEnumerable<CardSelectableMemberDTO> GetSelectableMembersByCardId(int cardId)
         {
             const string sql = @"

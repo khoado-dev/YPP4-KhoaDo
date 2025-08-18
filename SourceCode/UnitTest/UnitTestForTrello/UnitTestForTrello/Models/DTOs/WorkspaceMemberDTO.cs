@@ -2,11 +2,16 @@
 {
     public class WorkspaceMemberDTO
     {
-        public int WorkspaceId { get; set; }
-        public string WorkspaceName { get; set; }
-        public string LogoUrl { get; set; }
-        public int UserId { get; set; }
-        public DateTime CreatedAt { get; set; }
-    }
+        // User info
+        public string UserPicture { get; set; } = string.Empty;
+        public string Username { get; set; } = string.Empty;
+        public string UserEmail { get; set; } = string.Empty;
+        public DateTime? UserLastActive { get; set; }
 
+        // Permission info
+        public string PermissionName { get; set; } = string.Empty;
+
+        // Aggregate info
+        public int BoardCount { get; set; }
+    }
 }

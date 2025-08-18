@@ -523,27 +523,29 @@ namespace UnitTestForTrello.Tests.Utility
         public static void SeedMembersOfWorkspace()
         {
             _connection?.Execute(@"
-            INSERT INTO Members (UserId, OwnerId, OwnerTypeId, JoinedAt)
+            INSERT INTO Members (UserId, OwnerId, OwnerTypeId, RolePermissonId, JoinedAt)
             VALUES
-                (1, 1, 1, datetime('now', '-6 day')), -- User 1 thuộc Workspace 1
-                (1, 2, 1, datetime('now', '-7 day')), -- User 1 thuộc Workspace 2
-                (2, 1, 1, datetime('now', '-8 day')), -- User 2 thuộc Workspace 1
-                (3, 1, 1, datetime('now', '-8 day')); -- User 3 thuộc Workspace 1
-        ");
+                (1, 1, 1, 1, datetime('now', '-6 day')), -- User 1 là Admin của Workspace 1
+                (1, 2, 1, 2, datetime('now', '-7 day')), -- User 1 là Member của Workspace 2
+                (2, 1, 1, 2, datetime('now', '-8 day')), -- User 2 là Member của Workspace 1
+                (3, 1, 1, 3, datetime('now', '-8 day')); -- User 3 là Viewer của Workspace 1
+            ");
         }
+
 
         public static void SeedMembersOfBoard()
         {
             _connection?.Execute(@"
-            INSERT INTO Members (UserId, OwnerId, OwnerTypeId, JoinedAt)
+            INSERT INTO Members (UserId, OwnerId, OwnerTypeId, RolePermissonId, JoinedAt)
             VALUES
-                (1, 1, 2, datetime('now', '-1 day')),  -- User 1 là thành viên của Board 1 (BOARD)
-                (1, 2, 2, datetime('now', '-2 day')),  -- User 1 là thành viên của Board 2
-                (2, 3, 2, datetime('now', '-3 day')),  -- User 2 là thành viên của Board 3
-                (2, 1, 2, datetime('now', '-4 day')),  -- Thêm User 2 vào Board 1
-                (3, 1, 2, datetime('now', '-5 day'));  -- Thêm User 3 vào Board 1
+                (1, 1, 2, 1, datetime('now', '-1 day')),  -- User 1 là Admin của Board 1
+                (1, 2, 2, 2, datetime('now', '-2 day')),  -- User 1 là Member của Board 2
+                (2, 3, 2, 2, datetime('now', '-3 day')),  -- User 2 là Member của Board 3
+                (2, 1, 2, 2, datetime('now', '-4 day')),  -- User 2 cũng trong Board 1
+                (3, 1, 2, 3, datetime('now', '-5 day'));  -- User 3 là Viewer trong Board 1
             ");
         }
+
 
         public static void SeedUsers()
         {
@@ -732,7 +734,15 @@ namespace UnitTestForTrello.Tests.Utility
             ");
         }
 
-
+        public static void SeedRolePermissions()
+        {
+            _connection?.Execute(@"
+            INSERT INTO RolePermission (Id, PermissionName, PermissionCode) VALUES
+            (1, 'Admin', 'ADMIN'),
+            (2, 'Member', 'MEMBER'),
+            (3, 'Viewer', 'VIEWER');
+             ");
+        }
 
         public static void SeedAllData()
         {
@@ -743,6 +753,7 @@ namespace UnitTestForTrello.Tests.Utility
 
             SeedBoards();
             SeedUserStarredBoards();
+            SeedRolePermissions();
             SeedMembersOfWorkspace();
             SeedMembersOfBoard();
 

@@ -11,7 +11,7 @@ namespace UnitTestForTrello.Controllers
             _workspaceService = workspaceService;
         }
 
-        public IEnumerable<WorkspaceMemberDTO> GetWorkspacesByUserId(int userId)
+        public IEnumerable<WorkspaceDTO> GetWorkspacesByUserId(int userId)
         {
             return _workspaceService.GetWorkspacesByUserId(userId);
         }
