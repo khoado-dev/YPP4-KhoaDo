@@ -102,6 +102,12 @@ namespace UnitTestForTrello.Routers
         }
         private static void MapMemberRoutes(Router r)
         {
+            // Lấy tất cả member trong một workspace
+            r.Map(HttpMethod.GET, "/workspaces/{workspaceId?}/members", (rv, sp) =>
+            {
+                var c = (MemberController)sp.GetService(typeof(MemberController))!;
+                return c.GetMembersByWorkspaceId(int.Parse(rv["workspaceId"]));
+            });
             // Lấy tất cả member trong một board
             r.Map(HttpMethod.GET, "/boards/{boardId?}/members", (rv, sp) =>
             {

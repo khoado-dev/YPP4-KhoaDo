@@ -1,4 +1,5 @@
-﻿using UnitTestForTrello.Models.DTOs;
+﻿using UnitTestForTrello.Models;
+using UnitTestForTrello.Models.DTOs;
 using UnitTestForTrello.Services.IServices;
 
 namespace UnitTestForTrello.Controllers
@@ -23,6 +24,11 @@ namespace UnitTestForTrello.Controllers
         public IEnumerable<CardSelectableMemberDTO> GetSelectableMembersByCardId(int cardId)
         {
             return _memberService.GetSelectableMembersByCardId(cardId);
+        }
+
+        public IEnumerable<WorkspaceMemberDTO> GetMembersByWorkspaceId(int workspaceId)
+        {
+            return _memberService.GetMembersByWorkspaceId(workspaceId);
         }
     }
 }

@@ -32,7 +32,7 @@ namespace UnitTestForTrello.Tests
             return _con.QueryFirstOrDefault<WorkspaceDetailDTO>(sql, new { WorkspaceId = workspaceId });
         }
 
-        public IEnumerable<WorkspaceMemberDTO> GetWorkspacesByUserId(int userId)
+        public IEnumerable<WorkspaceDTO> GetWorkspacesByUserId(int userId)
         {
             const string sql = @"
             SELECT 
@@ -47,7 +47,7 @@ namespace UnitTestForTrello.Tests
             WHERE owt.OwnerTypeValue = 'WORKSPACE' AND me.UserId = @UserId
             ORDER BY wsp.CreatedAt;";
 
-            return _con.Query<WorkspaceMemberDTO>(sql, new { UserId = userId });
+            return _con.Query<WorkspaceDTO>(sql, new { UserId = userId });
         }
 
         public IEnumerable<WorkspaceTypeDTO> GetWorkspaceTypes()
