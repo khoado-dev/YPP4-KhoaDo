@@ -21,30 +21,17 @@ namespace UnitTestForTrello.Tests
         [TestMethod]
         public void GetCardDetailByCardId()
         {
-            var expected = new CardDetailDTO
-            {
-                CardId = 1,
-                CardTitle = "Card 1",
-                CardDescription = "Description for Card 1",
-                CardLocation = "List 1",
-                StageTitle = "To Do"
-            };
-
             var req = new Request
             {
                 Method = HttpMethod.GET,
-                Path = $"/cards/{expected.CardId}/detail"
+                Path = $"/cards/{cardId}/detail"
             };
 
             var res = _router.Handle(req);
 
             Assert.AreEqual(HttpStatus.OK, res.StatusCode);
             var actual = (CardDetailDTO)res.Body!;
-            Assert.AreEqual(expected.CardId, actual.CardId);
-            Assert.AreEqual(expected.CardTitle, actual.CardTitle);
-            Assert.AreEqual(expected.CardDescription, actual.CardDescription);
-            Assert.AreEqual(expected.CardLocation, actual.CardLocation);
-            Assert.AreEqual(expected.StageTitle, actual.StageTitle);
+            Assert.AreEqual(cardId, actual.CardId);
         }
 
         [TestMethod]

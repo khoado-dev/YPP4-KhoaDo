@@ -20,14 +20,17 @@ namespace UnitTestForTrello.Tests
         {
             const string sql = @"
             SELECT 
-                Id WorkspaceId,
-                LogoUrl,
-                WorkspaceName,
-                ShortName,
-                Website,
-                WorkspaceDescription
-            FROM Workspace
-            WHERE Id = @WorkspaceId";
+              Id WorkspaceId, 
+              LogoUrl, 
+              WorkspaceName, 
+              ShortName, 
+              Website, 
+              WorkspaceDescription 
+            FROM 
+              Workspace 
+            WHERE 
+              Id = @WorkspaceId
+            ";
 
             return _con.QueryFirstOrDefault<WorkspaceDetailDTO>(sql, new { WorkspaceId = workspaceId });
         }
@@ -36,18 +39,27 @@ namespace UnitTestForTrello.Tests
         {
             const string sql = @"
             SELECT 
-                wsp.Id WorkspaceId,
-                wsp.WorkspaceName, 
-                wsp.LogoUrl,
-                me.UserId,
-                wsp.CreatedAt
-            FROM Workspace wsp
-            JOIN Members me ON me.OwnerId = wsp.Id
-            JOIN OwnerType owt ON owt.Id = me.OwnerTypeId
-            WHERE owt.OwnerTypeValue = 'WORKSPACE' AND me.UserId = @UserId
-            ORDER BY wsp.CreatedAt;";
+              wsp.Id WorkspaceId, 
+              wsp.WorkspaceName, 
+              wsp.LogoUrl, 
+              me.UserId, 
+              wsp.CreatedAt 
+            FROM 
+              Workspace wsp 
+              JOIN Members me ON me.OwnerId = wsp.Id 
+              JOIN OwnerType owt ON owt.Id = me.OwnerTypeId 
+            WHERE 
+              owt.OwnerTypeValue = @WorkspaceType 
+              AND me.UserId = @UserId 
+            ORDER BY 
+              wsp.CreatedAt;
+            ";
 
-            return _con.Query<WorkspaceDTO>(sql, new { UserId = userId });
+            return _con.Query<WorkspaceDTO>(sql, new 
+            { 
+                UserId = userId,
+                WorkspaceType = OwnerType.WORKSPACE.ToString()
+            });
         }
 
         public IEnumerable<WorkspaceTypeDTO> GetWorkspaceTypes()
@@ -57,12 +69,13 @@ namespace UnitTestForTrello.Tests
             if (_cache.TryGetValue(cacheKey, out IEnumerable<WorkspaceTypeDTO>? cached))
                 return cached!;
             const string sql = @"
-            SELECT
-                Id WorkspaceTypeId,
-                TypeValue,
-                DisplayValue
+            SELECT 
+              Id WorkspaceTypeId, 
+              TypeValue, 
+              DisplayValue 
             FROM 
-                WorkspaceType;";
+              WorkspaceType;
+            ";
 
             var data = _con.Query<WorkspaceTypeDTO>(sql, null);
             _cache.Set(cacheKey, data, TimeSpan.FromMinutes(5));
