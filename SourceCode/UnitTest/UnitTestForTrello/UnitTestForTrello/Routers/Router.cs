@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using PureDI;
 using UnitTestForTrello.Models;
 using HttpMethod = UnitTestForTrello.Models.HttpMethod;
@@ -33,134 +34,125 @@ namespace UnitTestForTrello.Routers
             if (request is null) throw new ArgumentNullException(nameof(request));
 
             var method = request.Method.ToString();
-            var raw = string.IsNullOrWhiteSpace(request.Path) ? "/" : request.Path.Trim(); // Ensure path is not null or empty
-            if (!raw.StartsWith("/")) raw = "/" + raw; // Ensure path starts with '/'
-
-            // 1) Split path & query
-            string pathOnly = raw;
-            var query = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
-            int qIdx = raw.IndexOf('?', StringComparison.Ordinal); //get index of '?'
-            if (qIdx >= 0)
-            {
-                pathOnly = raw[..qIdx]; //raw.Substring(0, qIdx);
-                var qs = raw[(qIdx + 1)..]; //raw.Substring(qIdx + 1);
-                foreach (var pair in qs.Split('&', StringSplitOptions.RemoveEmptyEntries))
-                {
-                    var kv = pair.Split('=', 2); // Split at first '=' only
-                    var k = Uri.UnescapeDataString(kv[0]); //"first%20name" → "first name"
-                    var v = kv.Length > 1 ? Uri.UnescapeDataString(kv[1]) : "";
-                    query[k] = v; //add to query dictionary
-                }
-            }
-
-            // NEW: lấy params từ Request.Params
-            var reqParams = request.Params ?? new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase); // create dictionary when have params
-
+            var (pathOnly, query) = SplitPathAndQuery(request.Path);
+            var reqParams = request.Params ?? new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
             var parts = pathOnly.Split('/', StringSplitOptions.RemoveEmptyEntries);
 
-            foreach (var (m, segs, handler) in _routes) // Loop through all registered routes
+            var match = _routes
+                .Where(r => string.Equals(r.method, method, StringComparison.OrdinalIgnoreCase))
+                .Select(r => TryMatch(r, parts, query, reqParams))
+                .FirstOrDefault(r => r.ok);
+
+            if (match.ok)
             {
-                if (!string.Equals(m, method, StringComparison.OrdinalIgnoreCase)) continue; // skip if method does not match
-                if (parts.Length > segs.Length) continue; // skip if path has more segments registered route
-
-                var vals = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
-                bool ok = true;
-
-                int j = 0; // j is the index for parts (path segments)
-                for (int i = 0; i < segs.Length; i++) // Loop through each segment in the registered route
-                {
-                    var t = segs[i]; // current segment in the registered route
-                    bool isParam = t.StartsWith("{") && t.EndsWith("}"); // check if segment is a parameter
-
-                    if (!isParam) // literal segment
-                    {
-                        if (j >= parts.Length || !t.Equals(parts[j], StringComparison.OrdinalIgnoreCase)) // over path length or segment mismatch will break
-                        { 
-                            ok = false; break; 
-                        }
-                        j++; // move to next part
-                        continue; 
-                    }
-
-                    // param / optional param
-                    var nameRaw = t[1..^1]; // "/UserId?/" -> "UserId?"
-                    bool optional = nameRaw.EndsWith("?"); // check if param is optional
-                    var name = optional ? nameRaw[..^1] : nameRaw; // remove '?' if optional
-
-                    if (j < parts.Length) // still have parts left to match
-                    {
-                        if (optional)
-                        {
-                            // Lookahead: nếu segment tiếp theo trong template là literal
-                            // và đúng bằng parts[j], thì KHÔNG ăn parts[j] cho param optional
-                            bool nextIsLiteralMatch =
-                                (i + 1 < segs.Length) &&
-                                !(segs[i + 1].StartsWith("{") && segs[i + 1].EndsWith("}")) &&
-                                segs[i + 1].Equals(parts[j], StringComparison.OrdinalIgnoreCase);
-
-                            if (!nextIsLiteralMatch)
-                            {
-                                vals[name] = parts[j++]; // lấy từ path
-                            }
-                            else if (query.TryGetValue(name, out var qv) || reqParams.TryGetValue(name, out qv))
-                            {
-                                vals[name] = qv;         // lấy từ query hoặc Request.Params
-                            }
-                            else
-                            {
-                                ok = false; break;        // thiếu giá trị
-                            }
-                        }
-                        else
-                        {
-                            vals[name] = parts[j++];      // required param phải lấy từ path
-                        }
-                    }
-                    else
-                    {
-                        // path hết segment: thử lấy từ query hoặc Request.Params nếu optional
-                        if (optional && (query.TryGetValue(name, out var qv) || reqParams.TryGetValue(name, out qv)))
-                        {
-                            vals[name] = qv;
-                        }
-                        else
-                        {
-                            ok = false; break;            // thiếu required
-                        }
-                    }
-                }
-
-                if (!ok) continue;
-
-                // Merge các query/params còn lại: không ghi đè các key đã có từ path
-                foreach (var kv in query)
-                    if (!vals.ContainsKey(kv.Key)) vals[kv.Key] = kv.Value;
-                foreach (var kv in reqParams)
-                    if (!vals.ContainsKey(kv.Key)) vals[kv.Key] = kv.Value;
-
                 try
                 {
                     using var scope = _scopeFactory();
-                    var data = handler(vals, scope.ServiceProvider);
-
-                    return new Response
-                    {
-                        StatusCode = HttpStatus.OK,
-                        Body = data
-                    };
+                    var data = match.handler(match.vals, scope.ServiceProvider);
+                    return new Response { StatusCode = HttpStatus.OK, Body = data };
                 }
                 catch (Exception ex)
                 {
-                    return new Response
-                    {
-                        StatusCode = HttpStatus.InternalServerError,
-                        Body = ex
-                    };
+                    return new Response { StatusCode = HttpStatus.InternalServerError, Body = ex };
                 }
             }
 
             return new Response { StatusCode = HttpStatus.NotFound, Body = null };
         }
 
+        private static (string path, Dictionary<string, string> query) SplitPathAndQuery(string? raw)
+        {
+            raw = string.IsNullOrWhiteSpace(raw) ? "/" : raw.Trim();
+            if (!raw.StartsWith("/")) raw = "/" + raw;
+
+            var query = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+            var path = raw;
+            var qIdx = raw.IndexOf('?', StringComparison.Ordinal);
+            if (qIdx >= 0)
+            {
+                path = raw[..qIdx];
+                var qs = raw[(qIdx + 1)..];
+                foreach (var pair in qs.Split('&', StringSplitOptions.RemoveEmptyEntries))
+                {
+                    var kv = pair.Split('=', 2);
+                    var k = Uri.UnescapeDataString(kv[0]);
+                    var v = kv.Length > 1 ? Uri.UnescapeDataString(kv[1]) : "";
+                    query[k] = v;
+                }
+            }
+            return (path, query);
+        }
+
+        private static (bool ok, IDictionary<string, string> vals,
+            Func<IDictionary<string, string>, IServiceProvider, object?> handler)
+            TryMatch((string method, string[] segs,
+                      Func<IDictionary<string, string>, IServiceProvider, object?> handler) route,
+                     string[] parts,
+                     Dictionary<string, string> query,
+                     Dictionary<string, string> reqParams)
+        {
+            var vals = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+            int pi = 0; // pointer for parts
+
+            foreach (var (seg, si) in route.segs.Select((s, i) => (s, i)))
+            {
+                // literal segment
+                if (!IsParam(seg))
+                {
+                    if (pi >= parts.Length || !seg.Equals(parts[pi], StringComparison.OrdinalIgnoreCase))
+                        return (false, vals, route.handler);
+                    pi++;
+                    continue;
+                }
+
+                // parameter segment
+                var (name, optional) = ParseParam(seg);
+                var canConsumePath = pi < parts.Length;
+
+                // For optional param: if next segment is a literal equal to parts[pi], don't consume path here
+                var nextIsLiteralMatch =
+                    optional &&
+                    si + 1 < route.segs.Length &&
+                    !IsParam(route.segs[si + 1]) &&
+                    canConsumePath &&
+                    route.segs[si + 1].Equals(parts[pi], StringComparison.OrdinalIgnoreCase);
+
+                if (canConsumePath && !nextIsLiteralMatch)
+                {
+                    // take from path
+                    vals[name] = parts[pi++];
+                    continue;
+                }
+
+                // try query/params for optional
+                if (optional && (query.TryGetValue(name, out var qv) || reqParams.TryGetValue(name, out qv)))
+                {
+                    vals[name] = qv;
+                    continue;
+                }
+
+                // missing required or optional has no value anywhere
+                if (!optional) return (false, vals, route.handler);
+                // if optional but no value, just skip this seg
+            }
+
+            // If leftover path segments → fail
+            if (pi != parts.Length) return (false, vals, route.handler);
+
+            // merge query & params without overriding path-captured keys
+            foreach (var kv in query) if (!vals.ContainsKey(kv.Key)) vals[kv.Key] = kv.Value;
+            foreach (var kv in reqParams) if (!vals.ContainsKey(kv.Key)) vals[kv.Key] = kv.Value;
+
+            return (true, vals, route.handler);
+        }
+
+        private static bool IsParam(string s) => s.StartsWith("{") && s.EndsWith("}");
+        private static (string name, bool optional) ParseParam(string seg)
+        {
+            var raw = seg[1..^1];
+            return raw.EndsWith("?")
+                ? (raw[..^1], true)
+                : (raw, false);
+        }
     }
 }
