@@ -17,7 +17,7 @@ public class BoardRouterTest
     [TestInitialize]
     public void Setup()
     {
-        _router = TestStartUp.CreateRouter();
+        _router = TestStartup.CreateRouter();
     }
 
 
