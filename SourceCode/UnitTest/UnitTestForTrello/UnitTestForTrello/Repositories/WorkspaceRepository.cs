@@ -78,7 +78,8 @@ namespace UnitTestForTrello.Tests
             ";
 
             var data = _con.Query<WorkspaceTypeDTO>(sql, null);
-            _cache.Set(cacheKey, data, TimeSpan.FromMinutes(5));
+            int cacheDurationMinutes = 5;
+            _cache.Set(cacheKey, data, TimeSpan.FromMinutes(cacheDurationMinutes));
             return data;
         }
     }
