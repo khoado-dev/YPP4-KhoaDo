@@ -241,7 +241,8 @@ namespace UnitTestForTrello.Repositories
               ctf.Position;
             ";
             var data = _con.Query<CardCustomFieldDTO>(sql, new { CardId = cardId }).ToList();
-            _cache.Set(cacheKey, data, TimeSpan.FromMinutes(5));
+            int cacheDurationMinutes = 5;
+            _cache.Set(cacheKey, data, TimeSpan.FromMinutes(cacheDurationMinutes));
             return data;
         }
 

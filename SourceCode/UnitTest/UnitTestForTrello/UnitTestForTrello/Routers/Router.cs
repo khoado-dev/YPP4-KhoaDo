@@ -33,59 +33,61 @@ namespace UnitTestForTrello.Routers
             if (request is null) throw new ArgumentNullException(nameof(request));
 
             var method = request.Method.ToString();
-            var raw = string.IsNullOrWhiteSpace(request.Path) ? "/" : request.Path.Trim();
-            if (!raw.StartsWith("/")) raw = "/" + raw;
+            var raw = string.IsNullOrWhiteSpace(request.Path) ? "/" : request.Path.Trim(); // Ensure path is not null or empty
+            if (!raw.StartsWith("/")) raw = "/" + raw; // Ensure path starts with '/'
 
             // 1) Split path & query
             string pathOnly = raw;
             var query = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
-            int qIdx = raw.IndexOf('?', StringComparison.Ordinal);
+            int qIdx = raw.IndexOf('?', StringComparison.Ordinal); //get index of '?'
             if (qIdx >= 0)
             {
-                pathOnly = raw[..qIdx];
-                var qs = raw[(qIdx + 1)..];
+                pathOnly = raw[..qIdx]; //raw.Substring(0, qIdx);
+                var qs = raw[(qIdx + 1)..]; //raw.Substring(qIdx + 1);
                 foreach (var pair in qs.Split('&', StringSplitOptions.RemoveEmptyEntries))
                 {
-                    var kv = pair.Split('=', 2);
-                    var k = Uri.UnescapeDataString(kv[0]);
+                    var kv = pair.Split('=', 2); // Split at first '=' only
+                    var k = Uri.UnescapeDataString(kv[0]); //"first%20name" → "first name"
                     var v = kv.Length > 1 ? Uri.UnescapeDataString(kv[1]) : "";
-                    query[k] = v;
+                    query[k] = v; //add to query dictionary
                 }
             }
 
             // NEW: lấy params từ Request.Params
-            var reqParams = request.Params ?? new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+            var reqParams = request.Params ?? new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase); // create dictionary when have params
 
             var parts = pathOnly.Split('/', StringSplitOptions.RemoveEmptyEntries);
 
-            foreach (var (m, segs, handler) in _routes)
+            foreach (var (m, segs, handler) in _routes) // Loop through all registered routes
             {
-                if (!string.Equals(m, method, StringComparison.OrdinalIgnoreCase)) continue;
-                if (parts.Length > segs.Length) continue;
+                if (!string.Equals(m, method, StringComparison.OrdinalIgnoreCase)) continue; // skip if method does not match
+                if (parts.Length > segs.Length) continue; // skip if path has more segments registered route
 
                 var vals = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
                 bool ok = true;
 
-                int j = 0;
-                for (int i = 0; i < segs.Length; i++)
+                int j = 0; // j is the index for parts (path segments)
+                for (int i = 0; i < segs.Length; i++) // Loop through each segment in the registered route
                 {
-                    var t = segs[i];
-                    bool isParam = t.StartsWith("{") && t.EndsWith("}");
+                    var t = segs[i]; // current segment in the registered route
+                    bool isParam = t.StartsWith("{") && t.EndsWith("}"); // check if segment is a parameter
 
-                    if (!isParam)
+                    if (!isParam) // literal segment
                     {
-                        if (j >= parts.Length || !t.Equals(parts[j], StringComparison.OrdinalIgnoreCase))
-                        { ok = false; break; }
-                        j++;
-                        continue;
+                        if (j >= parts.Length || !t.Equals(parts[j], StringComparison.OrdinalIgnoreCase)) // over path length or segment mismatch will break
+                        { 
+                            ok = false; break; 
+                        }
+                        j++; // move to next part
+                        continue; 
                     }
 
                     // param / optional param
-                    var nameRaw = t[1..^1];
-                    bool optional = nameRaw.EndsWith("?");
-                    var name = optional ? nameRaw[..^1] : nameRaw;
+                    var nameRaw = t[1..^1]; // "/UserId?/" -> "UserId?"
+                    bool optional = nameRaw.EndsWith("?"); // check if param is optional
+                    var name = optional ? nameRaw[..^1] : nameRaw; // remove '?' if optional
 
-                    if (j < parts.Length)
+                    if (j < parts.Length) // still have parts left to match
                     {
                         if (optional)
                         {

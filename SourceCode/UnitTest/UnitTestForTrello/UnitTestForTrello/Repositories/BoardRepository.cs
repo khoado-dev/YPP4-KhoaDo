@@ -46,7 +46,8 @@ namespace UnitTestForTrello.Repositories
                 Status = BoardStatus.ACTIVE.ToString(),
                 StarredBoardsStatus = StaredBoardsStatus.ACTIVE
             });
-            _cache.Set(cacheKey, data, TimeSpan.FromMinutes(5));
+            int cacheDurationMinutes = 5;
+            _cache.Set(cacheKey, data, TimeSpan.FromMinutes(cacheDurationMinutes));
             return data;
         }
 
