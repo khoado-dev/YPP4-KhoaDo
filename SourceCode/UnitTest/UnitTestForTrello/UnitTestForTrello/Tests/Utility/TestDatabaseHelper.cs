@@ -790,7 +790,7 @@ namespace UnitTestForTrello.Tests.Utility
                 DELETE FROM Workspace;
                 DELETE FROM WorkspaceType;
                 DELETE FROM OwnerType;
-                DELETE FROM [User];
+                DELETE FROM Users;
             ";
             cmd.ExecuteNonQuery();
         }

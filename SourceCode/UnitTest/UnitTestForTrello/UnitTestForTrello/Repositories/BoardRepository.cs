@@ -129,6 +129,7 @@ namespace UnitTestForTrello.Repositories
               JOIN OwnerType owt ON owt.Id = me.OwnerTypeId 
             WHERE 
               me.UserId = @UserId 
+              AND brd.CreatedBy = @UserId  
               AND owt.OwnerTypeValue = @OwnerType
               AND wo.Id = @WorkspaceId 
             ORDER BY 
