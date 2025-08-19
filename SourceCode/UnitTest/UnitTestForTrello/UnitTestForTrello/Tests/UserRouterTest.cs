@@ -14,7 +14,7 @@ namespace UnitTestForTrello.Tests
         [TestInitialize]
         public void Setup()
         {
-            _router = TestStartUp.CreateRouter();
+            _router = TestStartup.CreateRouter();
         }
 
         [TestMethod]
