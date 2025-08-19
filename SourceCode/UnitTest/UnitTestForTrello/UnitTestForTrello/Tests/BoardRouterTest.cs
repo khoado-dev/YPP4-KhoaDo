@@ -66,7 +66,7 @@ public class BoardRouterTest
         var req = new Request
         {
             Method = HttpMethod.GET,
-            Path = $"/workspaces/users/boards/member",
+            Path = $"/workspaces/members/boards/",
             Params = { 
                 ["workspaceId"] = workspaceId.ToString(),
                 ["userId"] = userId.ToString()
@@ -88,7 +88,7 @@ public class BoardRouterTest
         var req = new Request
         {
             Method = HttpMethod.GET,
-            Path = $"/workspaces/{workspaceId}/users/{userId}/boards/owner",
+            Path = $"/workspaces/{workspaceId}/owners/{userId}/boards",
         };
 
         var res = _router.Handle(req);

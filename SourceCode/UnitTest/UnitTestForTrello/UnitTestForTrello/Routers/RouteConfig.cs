@@ -33,7 +33,7 @@ namespace UnitTestForTrello.Routers
                 return c.GetRecentBoards(int.Parse(rv["userId"])); // userId from path
             });
 
-            r.Map(HttpMethod.GET, "/workspaces/{workspaceId?}/users/{userId?}/boards/member", (rv, sp) =>
+            r.Map(HttpMethod.GET, "/workspaces/{workspaceId?}/members/{userId?}/boards", (rv, sp) =>
             {
                 var c = (BoardController)sp.GetService(typeof(BoardController))!;
                 var ws = int.Parse(rv["workspaceId"]);
@@ -42,7 +42,7 @@ namespace UnitTestForTrello.Routers
             });
 
 
-            r.Map(HttpMethod.GET, "/workspaces/{workspaceId?}/users/{userId?}/boards/owner", (rv, sp) =>
+            r.Map(HttpMethod.GET, "/workspaces/{workspaceId?}/owners/{userId?}/boards", (rv, sp) =>
             {
                 var c = (BoardController)sp.GetService(typeof(BoardController))!; // c = controller
                 return c.GetBoardsAsOwner(

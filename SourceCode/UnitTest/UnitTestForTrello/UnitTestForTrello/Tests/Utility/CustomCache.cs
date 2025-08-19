@@ -17,7 +17,8 @@ namespace UnitTestForTrello.Tests.Utility
 
         public CustomCache(TimeSpan? sweepInterval = null)
         {
-            _sweepInterval = sweepInterval ?? TimeSpan.FromMinutes(1);
+            int defaultSweepMinutes = 1;
+            _sweepInterval = sweepInterval ?? TimeSpan.FromMinutes(defaultSweepMinutes);
             _sweeper = new Timer(Sweep, null, _sweepInterval, _sweepInterval);
         }
 
