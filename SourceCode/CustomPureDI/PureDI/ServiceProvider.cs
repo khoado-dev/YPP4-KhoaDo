@@ -127,7 +127,7 @@ namespace PureDI
                 var ctors = implType
                     .GetConstructors(BindingFlags.Public | BindingFlags.Instance)
                     .OrderByDescending(c => c.GetParameters().Length)
-                    .ToArray();
+                    .ToArray(); 
 
                 if (ctors.Length == 0)
                     throw new InvalidOperationException($"Type {implType} has no public constructor.");
@@ -157,7 +157,7 @@ namespace PureDI
                         }
                     }
 
-                    if (ok) return ctor.Invoke(args!);
+                    if (ok) return ctor.Invoke(args!); // reflection here
                 }
 
                 throw new InvalidOperationException($"No satisfiable public constructor found for {implType}.");

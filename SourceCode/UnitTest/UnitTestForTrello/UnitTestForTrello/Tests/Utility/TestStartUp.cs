@@ -18,8 +18,10 @@ public static class TestStartUp
     [AssemblyInitialize]
     public static void AssemblyInit(TestContext context)
     {
+        int cacheSweepMinutes = 15;
+
         _services = new ServiceCollection()
-        .AddSingleton<ICustomCache>(new CustomCache(TimeSpan.FromMinutes(1)))
+        .AddSingleton<ICustomCache>(new CustomCache(TimeSpan.FromMinutes(cacheSweepMinutes)))
         .AddSingleton<IDbConnection>(InitSqlite())
         .AddBoardModule()
         .AddCardModule()
@@ -32,6 +34,8 @@ public static class TestStartUp
 
     private static IDbConnection InitSqlite()
     {
+        int defaultTimeout = 5000; // seconds
+
         var conn = TestDatabaseHelper.GetInMemoryDatabaseConnection();
         if (conn?.State != ConnectionState.Open) conn?.Open();
         if (conn is SqliteConnection)
@@ -39,7 +43,7 @@ public static class TestStartUp
             conn.Execute("PRAGMA journal_mode=WAL;");
             conn.Execute("PRAGMA synchronous=NORMAL;");
             conn.Execute("PRAGMA read_uncommitted = ON;");
-            conn.Execute("PRAGMA busy_timeout=5000;");
+            conn.Execute($"PRAGMA busy_timeout={defaultTimeout};");
         }
         TestDatabaseHelper.CreateInMemoryDatabaseAndSchema();
         TestDatabaseHelper.SeedAllData();
@@ -47,7 +51,7 @@ public static class TestStartUp
     }
     #endregion
 
-    public static IServiceScope CreateScope() => _root!.CreateScope();
+    private static IServiceScope CreateScope() => _root!.CreateScope();
     public static Router CreateRouter() => RouteConfig.Create(CreateScope);   
 
     #region Reset & Closse DB

@@ -34,7 +34,5 @@ namespace UnitTestForTrello.Tests.Utility
             => s.AddScoped<IUserRepository, UserRepository>()
                 .AddScoped<IUserService, UserService>()
                 .AddTransient<UserController>();
-
-
     }
 }
