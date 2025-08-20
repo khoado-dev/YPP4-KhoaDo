@@ -11,7 +11,7 @@ SELECT
 FROM UserStarredBoard usb
 JOIN Board brd ON brd.Id = usb.BoardId
 WHERE UserId = 1 AND brd.BoardStatus = 'active' AND usb.StarredBoardsStatus = 1
-ORDER BY usb.CreatedAt DESC
+ORDER BY usb.CreatedAt DESC;
 
 --List all Board that the user has accessed recently 
 SELECT 
@@ -64,7 +64,7 @@ SELECT
     Username,
     Bio
 FROM [Users]
-WHERE Email = 'james85@booth-daniels.net'
+WHERE Email = 'james85@booth-daniels.net';
 
 --3. WORKSPACE CREATE SCREEN
 --Retrieve all workspace types
@@ -84,7 +84,7 @@ SELECT
     Website,
     WorkspaceDescription
 FROM Workspace
-WHERE Id = 1
+WHERE Id = 1;
 
 --4. SELECT A WORKSPACE SCREEN
 --List all boards in a specific workspace, where the current user is member and owner.
@@ -180,7 +180,7 @@ LEFT JOIN CardComment ccm ON ccm.CardId = crd.Id
 LEFT JOIN CardCheckListItem cci ON cci.CardId = crd.Id
 LEFT JOIN CardAttachment cam ON cam.CardId = crd.Id
 WHERE brd.Id = 1
-ORDER BY stg.Position, crd.Position
+ORDER BY stg.Position, crd.Position;
 
 --Query avatar's member in a specific board
 SELECT 
@@ -191,7 +191,7 @@ SELECT
 FROM Members mmb
 JOIN OwnerType owt ON owt.Id = mmb.OwnerTypeId
 JOIN [Users] usr ON usr.Id = mmb.UserId
-WHERE owt.OwnerTypeValue = 'BOARD' AND mmb.OwnerId = 1
+WHERE owt.OwnerTypeValue = 'BOARD' AND mmb.OwnerId = 1;
 
 --CARD SCREEN
 --List all members available for selection on the card, including members from the workspace and from the board containing that card.
@@ -234,7 +234,7 @@ SELECT
     stg.Title StageTitle
 FROM Cards crd
 JOIN Stage stg ON stg.Id = crd.Id
-WHERE crd.Id = 1
+WHERE crd.Id = 1;
 
 --query avatar of members in a specific card
 SELECT 
@@ -258,7 +258,7 @@ FROM Cards crd
 JOIN CardLabel clb ON clb.CardId = crd.Id
 JOIN Labels lbl ON lbl.Id = clb.LabelId
 JOIN Color clr ON clr.Id = lbl.ColorId
-WHERE crd.Id = 16
+WHERE crd.Id = 16;
 
 --query comments and reactions in a specific card
 SELECT 
@@ -708,7 +708,8 @@ SELECT
     skc.DisplayValue
 FROM Sticker stk
 JOIN StickerCategory skc ON skc.Id = stk.CategoryId
-WHERE DisplayValue != 'Custom Stickers';
+WHERE DisplayValue != 'Custom Stickers'
+ORDER BY skc.DisplayValue;
 
 --Show list of custom sticker can select
 SELECT 

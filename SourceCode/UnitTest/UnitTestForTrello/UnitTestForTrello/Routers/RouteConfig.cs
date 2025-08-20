@@ -18,6 +18,7 @@ namespace UnitTestForTrello.Routers
             MapUserRoutes(r);
             MapTemplateRoutes(r);
             MapCollectionRoutes(r);
+            MapStickerRoutes(r);
 
             return r;
         }
@@ -201,7 +202,7 @@ namespace UnitTestForTrello.Routers
         private static void MapCollectionRoutes(Router r)
         {
             // Show board and the collection it belongs to in a specific workspace
-            r.Map(RequestMethod.GET, "/boards/with-collections", rv =>
+            r.Map(RequestMethod.GET, "/boards/with-collections", (rv) =>
             {
                 var c = ReflectionFactory.Get<CollectionController>();
 
@@ -214,6 +215,22 @@ namespace UnitTestForTrello.Routers
                 var c = ReflectionFactory.Get<CollectionController>();
 
                 return c.GetCollectionsByWorkspace(int.Parse(rv["workspaceId"]));
+            });
+        }
+        private static void MapStickerRoutes(Router r)
+        {
+            // Non-custom stickers (DisplayValue != 'Custom Stickers')
+            r.Map(RequestMethod.GET, "/stickers/non-custom", rv =>
+            {
+                var c = ReflectionFactory.Get<StickerController>();
+                return c.GetNonCustomStickers();
+            });
+
+            // Custom stickers của một user cụ thể
+            r.Map(RequestMethod.GET, "/stickers/custom", rv =>
+            {
+                var c = ReflectionFactory.Get<StickerController>();
+                return c.GetCustomStickersByUser(int.Parse(rv["userId"]));
             });
         }
 

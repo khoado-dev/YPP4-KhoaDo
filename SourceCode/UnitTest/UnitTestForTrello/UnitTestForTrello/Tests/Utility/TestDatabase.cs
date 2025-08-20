@@ -607,6 +607,9 @@ namespace UnitTestForTrello.Tests.Utility
 
             SeedTemplateCategories();
             SeedTemplates();
+
+            SeedStickerCategories();
+            SeedStickers();
         }
 
         private static void SeedBoards()
@@ -889,6 +892,32 @@ namespace UnitTestForTrello.Tests.Utility
                 (1, 2),  -- Board 1 -> Sprint  (WS1)
                 (2, 2);  -- Board 2 -> Sprint  (WS1)
             ");
+        }
+        private static void SeedStickerCategories()
+        {
+            GetConnection().Execute(@"
+            INSERT INTO StickerCategory (Id, CategoryValue, DisplayValue) VALUES
+                (1, 'emojis',          'Emojis'),
+                (2, 'animals',         'Animals'),
+                (3, 'custom_stickers', 'Custom Stickers');
+            ");
+        }
+
+        private static void SeedStickers()
+        {
+            GetConnection().Execute(@"
+            -- Non-custom (Emojis, Animals)
+            INSERT INTO Sticker (Id, CategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy) VALUES
+                (1, 1, 'Smile',     'https://example.com/stickers/smile.png',     datetime('now','-3 day'), 1),
+                (2, 1, 'ThumbUp',   'https://example.com/stickers/thumbup.png',   datetime('now','-2 day'), 2),
+                (3, 2, 'Panda',     'https://example.com/stickers/panda.png',     datetime('now','-1 day'), 2);
+
+            -- Custom Stickers (Category=Custom Stickers)
+            INSERT INTO Sticker (Id, CategoryId, StickerName, StickerUrl, CreatedAt, CreatedBy) VALUES
+                (10, 3, 'MyLogo',   'https://example.com/stickers/mylogo.png',    datetime('now','-5 day'), 1),
+                (11, 3, 'TeamIcon', 'https://example.com/stickers/teamicon.png',  datetime('now','-4 day'), 1),
+                (12, 3, 'Other',    'https://example.com/stickers/other.png',     datetime('now','-2 day'), 2);
+        ");
         }
 
     }
