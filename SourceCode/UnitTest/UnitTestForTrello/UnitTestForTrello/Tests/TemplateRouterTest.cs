@@ -18,7 +18,7 @@ namespace UnitTestForTrello.Tests
         }
 
         [TestMethod]
-        public void GetTemplateCategories_ReturnsAll()
+        public void GetTemplateCategoriesTest()
         {
             int expectedCount = 2; // from SeedTemplateCategories()
 
@@ -37,7 +37,7 @@ namespace UnitTestForTrello.Tests
         }
 
         [TestMethod]
-        public void GetTemplatesByCategory_ReturnsOnlyThatCategory()
+        public void GetTemplatesByCategoryTest()
         {
             int expectedCount = 2; // from SeedTemplates(): 2 items in categoryId=1
 
@@ -56,7 +56,7 @@ namespace UnitTestForTrello.Tests
         }
 
         [TestMethod]
-        public void GetTemplateDetail_ReturnsExpectedTemplate()
+        public void GetTemplateDetailTest()
         {
             var req = new RequestDTO
             {
