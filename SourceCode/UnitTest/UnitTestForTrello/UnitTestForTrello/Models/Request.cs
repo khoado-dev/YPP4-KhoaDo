@@ -8,12 +8,4 @@
         public Dictionary<string, string> Params { get; set; } =
             new(StringComparer.OrdinalIgnoreCase);
     }
-    public enum HttpMethod
-    {
-        GET,
-        POST,
-        PUT,
-        DELETE,
-        PATCH
-    }
 }

@@ -10,9 +10,9 @@ namespace UnitTestForTrello.Repositories
     {
         private readonly IDbConnection _con;
 
-        public MemberRepository(IDbConnection con)
+        public MemberRepository()
         {
-            _con = con;
+            _con = TestStartup.Conn!;
         }
 
         public IEnumerable<BoardMemberDTO> GetMembersByBoardId(int boardId)

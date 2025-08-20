@@ -1,7 +1,6 @@
 ﻿using UnitTestForTrello.Models;
 using UnitTestForTrello.Models.DTOs;
-using UnitTestForTrello.Routers;
-using HttpMethod = UnitTestForTrello.Models.HttpMethod;
+using UnitTestForTrello.Tests.Utility;
 
 namespace UnitTestForTrello.Tests
 {
@@ -16,7 +15,7 @@ namespace UnitTestForTrello.Tests
         [TestInitialize]
         public void Setup()
         {
-            _router = TestStartup.CreateRouter();
+            _router = TestStartup.Router!;
         }
 
         [TestMethod]
@@ -24,17 +23,17 @@ namespace UnitTestForTrello.Tests
         {
             int expectedNumberOfWorkspaces = 2;
 
-            var req = new Request
+            var req = new RequestDTO
             {
-                Method = HttpMethod.GET,
+                Method = RequestMethod.GET,
                 Path = $"/users/{loggeddInUserId}/workspaces"
                 // hoặc: "/users/workspaces?userId=1"
             };
 
             var res = _router.Handle(req);
 
-            Assert.AreEqual(HttpStatus.OK, res.StatusCode);
-            var result = ((IEnumerable<WorkspaceDTO>)res.Body!).ToList();
+            
+            var result = ((IEnumerable<WorkspaceDTO>)res.Data!).ToList();
             Assert.AreEqual(expectedNumberOfWorkspaces, result.Count);
         }
 
@@ -43,16 +42,16 @@ namespace UnitTestForTrello.Tests
         {
             int expectedNumberOfWorkspaceTypes = 9;
 
-            var req = new Request
+            var req = new RequestDTO
             {
-                Method = HttpMethod.GET,
+                Method = RequestMethod.GET,
                 Path = "/workspaces/types"
             };
 
             var res = _router.Handle(req);
 
-            Assert.AreEqual(HttpStatus.OK, res.StatusCode);
-            var result = ((IEnumerable<WorkspaceTypeDTO>)res.Body!).ToList();
+            
+            var result = ((IEnumerable<WorkspaceTypeDTO>)res.Data!).ToList();
             Assert.AreEqual(expectedNumberOfWorkspaceTypes, result.Count);
         }
 
@@ -69,16 +68,16 @@ namespace UnitTestForTrello.Tests
                 WorkspaceDescription = "Description for Workspace 1"
             };
 
-            var req = new Request
+            var req = new RequestDTO
             {
-                Method = HttpMethod.GET,
+                Method = RequestMethod.GET,
                 Path = $"/workspaces/{workspaceId}/detail"
             };
 
             var res = _router.Handle(req);
 
-            Assert.AreEqual(HttpStatus.OK, res.StatusCode);
-            var actual = (WorkspaceDetailDTO)res.Body!;
+            
+            var actual = (WorkspaceDetailDTO)res.Data!;
             Assert.AreEqual(expected.WorkspaceId, actual.WorkspaceId);
             Assert.AreEqual(expected.WorkspaceName, actual.WorkspaceName);
             Assert.AreEqual(expected.LogoUrl, actual.LogoUrl);

@@ -1,13 +1,14 @@
 ﻿using UnitTestForTrello.Models.DTOs;
+using UnitTestForTrello.Repositories;
 using UnitTestForTrello.Repositories.IRepositories;
 
 namespace UnitTestForTrello.Services.IServices
 {
-    public class BoardService : IBoardService
+    public class BoardService
     {
-        private readonly IBoardRepository _boardRepository;
+        private readonly BoardRepository _boardRepository;
 
-        public BoardService(IBoardRepository boardRepository)
+        public BoardService(BoardRepository boardRepository)
         {
             _boardRepository = boardRepository;
         }

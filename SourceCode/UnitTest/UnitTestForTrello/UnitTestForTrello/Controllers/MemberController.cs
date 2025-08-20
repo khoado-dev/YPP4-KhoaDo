@@ -6,8 +6,8 @@ namespace UnitTestForTrello.Controllers
 {
     public class MemberController
     {
-        private readonly IMemberService _memberService;
-        public MemberController(IMemberService memberService)
+        private readonly MemberService _memberService;
+        public MemberController(MemberService memberService)
         {
             _memberService = memberService;
         }

@@ -1,8 +1,7 @@
-﻿using UnitTestForTrello.Models;
+﻿using UnitTestForTrello.CustomDI;
+using UnitTestForTrello.Models;
 using UnitTestForTrello.Models.DTOs;
-using UnitTestForTrello.Routers;
 using UnitTestForTrello.Tests.Utility;
-using HttpMethod = UnitTestForTrello.Models.HttpMethod;
 
 namespace UnitTestForTrello.Tests;
 
@@ -17,7 +16,7 @@ public class BoardRouterTest
     [TestInitialize]
     public void Setup()
     {
-        _router = TestStartup.CreateRouter();
+        _router = TestStartup.Router!;
     }
 
 
@@ -26,16 +25,15 @@ public class BoardRouterTest
     {
         int expectedCount = 2;
 
-        var req = new Request
+        var req = new RequestDTO
         {
-            Method = HttpMethod.GET,
+            Method = RequestMethod.GET,
             Path = $"/boards/starred/{userId}"
         };
 
         var res = _router.Handle(req);
 
-        Assert.AreEqual(HttpStatus.OK, res.StatusCode);
-        var result = ((IEnumerable<StarredBoardDTO>)res.Body!).ToList();
+        var result = ((IEnumerable<StarredBoardDTO>)res.Data!).ToList();
         Assert.AreEqual(expectedCount, result.Count);
         Assert.IsTrue(result.All(b => b.BoardStatus == BoardStatus.ACTIVE.ToString() && b.StarredBoardsStatus));
     }
@@ -45,16 +43,15 @@ public class BoardRouterTest
     {
         int expectedCount = 2;
 
-        var req = new Request
+        var req = new RequestDTO
         {
-            Method = HttpMethod.GET,
-            Path = $"/boards/recent?userId={userId}"
+            Method = RequestMethod.GET,
+            Path = $"/boards/recent/{userId}"
         };
 
         var res = _router.Handle(req);
-
-        Assert.AreEqual(HttpStatus.OK, res.StatusCode);
-        var result = ((IEnumerable<RecentBoardDTO>)res.Body!).ToList();
+        
+        var result = ((IEnumerable<RecentBoardDTO>)res.Data!).ToList();
         Assert.AreEqual(expectedCount, result.Count);
         Assert.IsTrue(result.All(b => string.Equals(b.BoardStatus, BoardStatus.ACTIVE.ToString())));
     }
@@ -63,20 +60,14 @@ public class BoardRouterTest
     {
         int expectedCount = 2;
 
-        var req = new Request
+        var req = new RequestDTO
         {
-            Method = HttpMethod.GET,
-            Path = $"/workspaces/members/boards/",
-            Params = { 
-                ["workspaceId"] = workspaceId.ToString(),
-                ["userId"] = userId.ToString()
-            }
+            Method = RequestMethod.GET,
+            Path = $"/workspaces/{workspaceId}/members/{userId}/boards/"
         };
         var res = _router.Handle(req);
-
-
-        Assert.AreEqual(HttpStatus.OK, res.StatusCode);
-        var result = ((IEnumerable<BoardWithWorkspaceDTO>)res.Body!).ToList();
+        
+        var result = ((IEnumerable<BoardWithWorkspaceDTO>)res.Data!).ToList();
         Assert.AreEqual(expectedCount, result.Count);
     }
 
@@ -85,16 +76,15 @@ public class BoardRouterTest
     {
         int expectedCount = 2;
 
-        var req = new Request
+        var req = new RequestDTO
         {
-            Method = HttpMethod.GET,
+            Method = RequestMethod.GET,
             Path = $"/workspaces/{workspaceId}/owners/{userId}/boards",
         };
 
         var res = _router.Handle(req);
-
-        Assert.AreEqual(HttpStatus.OK, res.StatusCode);
-        var result = ((IEnumerable<BoardWithWorkspaceDTO>)res.Body!).ToList();
+        
+        var result = ((IEnumerable<BoardWithWorkspaceDTO>)res.Data!).ToList();
         Assert.AreEqual(expectedCount, result.Count);
     }
 }

@@ -1,7 +1,5 @@
-﻿using UnitTestForTrello.Models;
-using UnitTestForTrello.Models.DTOs;
-using UnitTestForTrello.Routers;
-using HttpMethod = UnitTestForTrello.Models.HttpMethod;
+﻿using UnitTestForTrello.Models.DTOs;
+using UnitTestForTrello.Tests.Utility;
 
 namespace UnitTestForTrello.Tests
 {
@@ -14,22 +12,22 @@ namespace UnitTestForTrello.Tests
         [TestInitialize]
         public void Setup()
         {
-            _router = TestStartup.CreateRouter();
+            _router = TestStartup.Router!;
         }
 
         [TestMethod]
         public void GetUserByEmail()
         {
-            var req = new Request
+            var req = new RequestDTO
             {
-                Method = HttpMethod.GET,
-                Path = $"/users?email={Uri.EscapeDataString(loggeddInUserEmail)}"
+                Method = RequestMethod.GET,
+                Path = $"/users/{loggeddInUserEmail}"
             };
 
             var res = _router.Handle(req);
 
-            Assert.AreEqual(HttpStatus.OK, res.StatusCode);
-            var user = (UserDTO)res.Body!;
+            
+            var user = (UserDTO)res.Data!;
             Assert.IsNotNull(user);
             Assert.AreEqual(loggeddInUserEmail, user.Email);
         }
