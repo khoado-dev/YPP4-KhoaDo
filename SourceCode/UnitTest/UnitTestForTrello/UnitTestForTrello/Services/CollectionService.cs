@@ -1,5 +1,6 @@
 ﻿using UnitTestForTrello.Models.DTOs;
-namespace UnitTestForTrello.Routers
+using UnitTestForTrello.Repositories;
+namespace UnitTestForTrello.Services
 {
     public class CollectionService
     {

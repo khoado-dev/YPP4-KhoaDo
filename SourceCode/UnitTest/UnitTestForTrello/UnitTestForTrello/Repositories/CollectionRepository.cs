@@ -3,7 +3,7 @@ using System.Data;
 using UnitTestForTrello.Models.DTOs;
 using UnitTestForTrello.Tests.Utility;
 
-namespace UnitTestForTrello.Routers
+namespace UnitTestForTrello.Repositories
 {
     public class CollectionRepository
     {

@@ -1,7 +1,7 @@
-﻿
-using UnitTestForTrello.Models.DTOs;
+﻿using UnitTestForTrello.Models.DTOs;
+using UnitTestForTrello.Services;
 
-namespace UnitTestForTrello.Routers
+namespace UnitTestForTrello.Controllers
 {
     public class CollectionController
     {

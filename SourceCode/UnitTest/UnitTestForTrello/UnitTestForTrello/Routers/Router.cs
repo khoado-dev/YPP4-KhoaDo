@@ -73,7 +73,7 @@ namespace UnitTestForTrello.Tests
             {
                 if (tmpl.StartsWith("{") && tmpl.EndsWith("}"))
                 {
-                    values[tmpl[1..^1]] = req;
+                    values[tmpl[1..^1]] = req; 
                 }
                 else if (!tmpl.Equals(req, StringComparison.OrdinalIgnoreCase))
                 {
