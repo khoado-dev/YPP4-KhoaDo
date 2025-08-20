@@ -21,15 +21,15 @@ namespace UnitTestForTrello.Tests
             var req = new RequestDTO
             {
                 Method = RequestMethod.GET,
-                Path = $"/users/{loggeddInUserEmail}"
+                Path = $"/users/by-email?email={loggeddInUserEmail}"
             };
 
             var res = _router.Handle(req);
 
-            
             var user = (UserDTO)res.Data!;
             Assert.IsNotNull(user);
             Assert.AreEqual(loggeddInUserEmail, user.Email);
         }
+
     }
 }

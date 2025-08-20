@@ -17,77 +17,73 @@ namespace UnitTestForTrello.Tests
         {
             _router = TestStartup.Router!;
         }
-
         [TestMethod]
         public void GetMembersByWorkspaceId()
         {
-            int expectedNumberOfMembersInBoard = 3;
+            int expectedMembersCount = 3;
 
             var req = new RequestDTO
             {
                 Method = RequestMethod.GET,
-                Path = $"/workspaces/{workspaceId}/members"
+                Path = $"/members/by-workspace?workspaceId={workspaceId}"
             };
 
             var res = _router.Handle(req);
 
-            
             var result = ((IEnumerable<object>)res.Data!).ToList();
-            Assert.AreEqual(expectedNumberOfMembersInBoard, result.Count);
+            Assert.AreEqual(expectedMembersCount, result.Count);
         }
 
         [TestMethod]
         public void GetMembersByBoardId()
         {
-            int expectedNumberOfMembersInBoard = 3;
+            int expectedMembersCount = 3;
 
             var req = new RequestDTO
             {
                 Method = RequestMethod.GET,
-                Path = $"/boards/{boardId}/members"
+                Path = $"/members/by-board?boardId={boardId}"
             };
 
             var res = _router.Handle(req);
 
-            
             var result = ((IEnumerable<object>)res.Data!).ToList();
-            Assert.AreEqual(expectedNumberOfMembersInBoard, result.Count);
+            Assert.AreEqual(expectedMembersCount, result.Count);
         }
 
         [TestMethod]
         public void GetMembersByCardId()
         {
-            int expectedNumberOfMembersInCard = 2;
+            int expectedMembersCount = 2;
 
             var req = new RequestDTO
             {
                 Method = RequestMethod.GET,
-                Path = $"/cards/{cardId}/members"
+                Path = $"/members/by-card?cardId={cardId}"
             };
 
             var res = _router.Handle(req);
 
-            
             var result = ((IEnumerable<object>)res.Data!).ToList();
-            Assert.AreEqual(expectedNumberOfMembersInCard, result.Count);
+            Assert.AreEqual(expectedMembersCount, result.Count);
         }
 
         [TestMethod]
         public void GetSelectableMembersByCardId()
         {
-            int expectedNumberOfSelectableMembersInCard = 8;
+            int expectedMembersCount = 8;
 
             var req = new RequestDTO
             {
                 Method = RequestMethod.GET,
-                Path = $"/cards/{cardId}/members/selectable"
+                Path = $"/members/selectable?cardId={cardId}"
             };
 
             var res = _router.Handle(req);
 
-            
             var result = ((IEnumerable<object>)res.Data!).ToList();
-            Assert.AreEqual(expectedNumberOfSelectableMembersInCard, result.Count);
+            Assert.AreEqual(expectedMembersCount, result.Count);
         }
+
     }
 }

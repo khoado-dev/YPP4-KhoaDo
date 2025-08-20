@@ -1,6 +1,4 @@
 ﻿using Microsoft.Data.Sqlite;
-using UnitTestForTrello.Controllers;
-using UnitTestForTrello.CustomDI;
 using UnitTestForTrello.Routers;
 using UnitTestForTrello.Tests;
 using UnitTestForTrello.Tests.Utility;

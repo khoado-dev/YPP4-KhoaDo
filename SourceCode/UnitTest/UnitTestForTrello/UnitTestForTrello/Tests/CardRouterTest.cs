@@ -17,18 +17,18 @@ namespace UnitTestForTrello.Tests
         {
             _router = TestStartup.Router!;
         }
+
         [TestMethod]
         public void GetCardDetailByCardId()
         {
             var req = new RequestDTO
             {
                 Method = RequestMethod.GET,
-                Path = $"/cards/{cardId}/detail"
+                Path = $"/cards/detail?cardId={cardId}"
             };
 
             var res = _router.Handle(req);
 
-            
             var actual = (CardDetailDTO)res.Data!;
             Assert.AreEqual(cardId, actual.CardId);
         }
@@ -41,12 +41,11 @@ namespace UnitTestForTrello.Tests
             var req = new RequestDTO
             {
                 Method = RequestMethod.GET,
-                Path = $"/boards/{boardId}/cards/detail"
+                Path = $"/cards/detail/by-board?boardId={boardId}"
             };
 
             var res = _router.Handle(req);
 
-            
             var result = ((IEnumerable<CardDetailDTO>)res.Data!).ToList();
             Assert.AreEqual(expectedNumberOfCards, result.Count);
             Assert.IsTrue(result.All(c => c.BoardId == boardId));
@@ -60,12 +59,11 @@ namespace UnitTestForTrello.Tests
             var req = new RequestDTO
             {
                 Method = RequestMethod.GET,
-                Path = $"/cards/{cardId}/labels"
+                Path = $"/cards/labels?cardId={cardId}"
             };
 
             var res = _router.Handle(req);
 
-            
             var result = ((IEnumerable<CardLabelDTO>)res.Data!).ToList();
             Assert.AreEqual(expectedNumberOfLabels, result.Count);
         }
@@ -78,12 +76,11 @@ namespace UnitTestForTrello.Tests
             var req = new RequestDTO
             {
                 Method = RequestMethod.GET,
-                Path = $"/cards/{cardId}/comments/reactions"
+                Path = $"/cards/comments/reactions?cardId={cardId}"
             };
 
             var res = _router.Handle(req);
 
-            
             var result = ((IEnumerable<CardCommentWithReactionCountDTO>)res.Data!).ToList();
             Assert.AreEqual(expectedNumberOfReactionEachComment, result.Count);
         }
@@ -96,12 +93,11 @@ namespace UnitTestForTrello.Tests
             var req = new RequestDTO
             {
                 Method = RequestMethod.GET,
-                Path = $"/cards/{cardId}/activities"
+                Path = $"/cards/activities?cardId={cardId}"
             };
 
             var res = _router.Handle(req);
 
-            
             var result = ((IEnumerable<CardActivityDTO>)res.Data!).ToList();
             Assert.AreEqual(expectedNumberOfActivities, result.Count);
         }
@@ -114,12 +110,11 @@ namespace UnitTestForTrello.Tests
             var req = new RequestDTO
             {
                 Method = RequestMethod.GET,
-                Path = $"/cards/{cardId}/custom-fields"
+                Path = $"/cards/custom-fields?cardId={cardId}"
             };
 
             var res = _router.Handle(req);
 
-            
             var result = ((IEnumerable<CardCustomFieldDTO>)res.Data!).ToList();
             Assert.AreEqual(expectedNumberOfCustomFields, result.Count);
         }
@@ -132,12 +127,11 @@ namespace UnitTestForTrello.Tests
             var req = new RequestDTO
             {
                 Method = RequestMethod.GET,
-                Path = $"/cards/{cardId}/custom-field-values"
+                Path = $"/cards/custom-field-values?cardId={cardId}"
             };
 
             var res = _router.Handle(req);
 
-            
             var result = ((IEnumerable<CardCustomFieldValueDTO>)res.Data!).ToList();
             Assert.AreEqual(expectedNumberOfCustomFieldValues, result.Count);
         }
@@ -150,14 +144,14 @@ namespace UnitTestForTrello.Tests
             var req = new RequestDTO
             {
                 Method = RequestMethod.GET,
-                Path = $"/cards/{cardId}/attachments"
+                Path = $"/cards/attachments?cardId={cardId}"
             };
 
             var res = _router.Handle(req);
 
-            
             var result = ((IEnumerable<CardAttachmentDTO>)res.Data!).ToList();
             Assert.AreEqual(expectedNumberOfAttachments, result.Count);
         }
+
     }
 }

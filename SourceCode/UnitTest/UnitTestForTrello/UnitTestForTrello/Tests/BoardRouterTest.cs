@@ -17,7 +17,6 @@ public class BoardRouterTest
         _router = TestStartup.Router!;
     }
 
-
     [TestMethod]
     public void GetStarredBoardsTest()
     {
@@ -57,7 +56,6 @@ public class BoardRouterTest
     [TestMethod]
     public void GetBoardsAsMemberTest()
     {
-        // Arrange
         int expectedCount = 2;
         string membership = "member";
 
@@ -67,10 +65,8 @@ public class BoardRouterTest
             Path = $"/boards?workspaceId={workspaceId}&userId={userId}&membership={membership}"
         };
 
-        // Act
         var res = _router.Handle(req);
 
-        // Assert
         var result = ((IEnumerable<BoardWithWorkspaceDTO>)res.Data!).ToList();
         Assert.AreEqual(expectedCount, result.Count);
     }
@@ -78,7 +74,6 @@ public class BoardRouterTest
     [TestMethod]
     public void GetBoardsAsOwnerTest()
     {
-        // Arrange
         int expectedCount = 2;
         string membership = "owner";
 
@@ -88,10 +83,8 @@ public class BoardRouterTest
             Path = $"/boards?workspaceId={workspaceId}&userId={userId}&membership={membership}"
         };
 
-        // Act
         var res = _router.Handle(req);
 
-        // Assert
         var result = ((IEnumerable<BoardWithWorkspaceDTO>)res.Data!).ToList();
         Assert.AreEqual(expectedCount, result.Count);
     }

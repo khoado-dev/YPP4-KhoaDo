@@ -1,5 +1,4 @@
-﻿using System;
-using Dapper;
+﻿using Dapper;
 using Microsoft.Data.Sqlite;
 
 namespace UnitTestForTrello.Tests.Utility
@@ -601,6 +600,9 @@ namespace UnitTestForTrello.Tests.Utility
 
             SeedAttachmentTypes();
             SeedAttachments();
+
+            SeedTemplateCategories();
+            SeedTemplates();
         }
 
         private static void SeedBoards()
@@ -844,5 +846,25 @@ namespace UnitTestForTrello.Tests.Utility
             (3, 'Viewer', 'VIEWER');
             ");
         }
+
+        private static void SeedTemplateCategories()
+        {
+            GetConnection().Execute(@"
+            INSERT INTO TemplateCategory (Id, CategoryValue, DisplayValue, IconUrl) VALUES
+            (1, 'business', 'Business Templates', 'https://example.com/icons/business.png'),
+            (2, 'education', 'Education Templates', 'https://example.com/icons/education.png');
+            ");
+        }
+
+        private static void SeedTemplates()
+        {
+            GetConnection().Execute(@"
+            INSERT INTO Template (Id, Title, TemplateDescription, CategoryId, Viewed, Copied, CreatedBy, CreatedAt, UpdatedAt, UpdatedBy, BoardId, BackgroundUrl) VALUES
+            (1, 'Project Plan', 'Template for project planning', 1, 10, 3, 1, datetime('now', '-5 day'), datetime('now', '-1 day'), 1, 1, 'bg1.png'),
+            (2, 'Marketing Campaign', 'Template for marketing activities', 1, 25, 5, 2, datetime('now', '-3 day'), datetime('now', '-2 day'), 2, 2, 'bg2.png'),
+            (3, 'Lesson Plan', 'Template for teachers', 2, 15, 2, 3, datetime('now', '-10 day'), datetime('now', '-5 day'), 3, 1, 'bg3.png');
+            ");
+        }
+
     }
 }
