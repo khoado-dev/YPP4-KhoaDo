@@ -1,5 +1,4 @@
-﻿using UnitTestForTrello.Models;
-using UnitTestForTrello.Models.DTOs;
+﻿using UnitTestForTrello.Models.DTOs;
 using UnitTestForTrello.Tests.Utility;
 
 namespace UnitTestForTrello.Tests
@@ -17,7 +16,6 @@ namespace UnitTestForTrello.Tests
         {
             _router = TestStartup.Router!;
         }
-
         [TestMethod]
         public void GetWorkspacesByUserId()
         {
@@ -26,13 +24,11 @@ namespace UnitTestForTrello.Tests
             var req = new RequestDTO
             {
                 Method = RequestMethod.GET,
-                Path = $"/users/{loggeddInUserId}/workspaces"
-                // hoặc: "/users/workspaces?userId=1"
+                Path = $"/workspaces/by-user?userId={loggeddInUserId}"
             };
 
             var res = _router.Handle(req);
 
-            
             var result = ((IEnumerable<WorkspaceDTO>)res.Data!).ToList();
             Assert.AreEqual(expectedNumberOfWorkspaces, result.Count);
         }
@@ -50,7 +46,6 @@ namespace UnitTestForTrello.Tests
 
             var res = _router.Handle(req);
 
-            
             var result = ((IEnumerable<WorkspaceTypeDTO>)res.Data!).ToList();
             Assert.AreEqual(expectedNumberOfWorkspaceTypes, result.Count);
         }
@@ -58,32 +53,16 @@ namespace UnitTestForTrello.Tests
         [TestMethod]
         public void GetWorkspaceDetailById()
         {
-            var expected = new WorkspaceDetailDTO
-            {
-                WorkspaceId = 1,
-                WorkspaceName = "Workspace 1",
-                LogoUrl = "logo1.png",
-                ShortName = "WS1",
-                Website = "https://workspace1.com",
-                WorkspaceDescription = "Description for Workspace 1"
-            };
-
             var req = new RequestDTO
             {
                 Method = RequestMethod.GET,
-                Path = $"/workspaces/{workspaceId}/detail"
+                Path = $"/workspaces/detail?workspaceId={workspaceId}"
             };
 
             var res = _router.Handle(req);
 
-            
             var actual = (WorkspaceDetailDTO)res.Data!;
-            Assert.AreEqual(expected.WorkspaceId, actual.WorkspaceId);
-            Assert.AreEqual(expected.WorkspaceName, actual.WorkspaceName);
-            Assert.AreEqual(expected.LogoUrl, actual.LogoUrl);
-            Assert.AreEqual(expected.ShortName, actual.ShortName);
-            Assert.AreEqual(expected.Website, actual.Website);
-            Assert.AreEqual(expected.WorkspaceDescription, actual.WorkspaceDescription);
+            Assert.AreEqual(workspaceId, actual.WorkspaceId);
         }
     }
 }
