@@ -739,11 +739,11 @@ WHERE CardId = 1;
 --15. Notification SCREEN
 --Show all notification are unread
 SELECT 
-    noti.Id AS notification_id,
+    noti.Id AS NotificationId,
     us.Id UserId,
-    us.PictureUrl AS user_picture,
+    us.PictureUrl AS UserPicture,
     us.Username,
-    ac.ActivityDescription AS activity_description,
+    ac.ActivityDescription AS ActivityDescription,
     noti.IsRead,
     owt.OwnerTypeValue,
     ac.OwnerId
@@ -755,11 +755,11 @@ WHERE ac.UserId = 2 AND noti.IsRead = 0;
 
 --Show all notification are read
 SELECT 
-    noti.Id AS notification_id,
+    noti.Id AS NotificationId,
     us.Id UserId,
-    us.PictureUrl AS user_picture,
+    us.PictureUrl AS UserPicture,
     us.Username,
-    ac.ActivityDescription AS activity_description,
+    ac.ActivityDescription AS ActivityDescription,
     noti.IsRead,
     owt.OwnerTypeValue,
     ac.OwnerId
