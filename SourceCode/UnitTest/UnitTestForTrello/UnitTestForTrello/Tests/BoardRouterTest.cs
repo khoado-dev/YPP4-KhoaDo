@@ -1,6 +1,4 @@
-﻿using UnitTestForTrello.CustomDI;
-using UnitTestForTrello.Models;
-using UnitTestForTrello.Models.DTOs;
+﻿using UnitTestForTrello.Models.DTOs;
 using UnitTestForTrello.Tests.Utility;
 
 namespace UnitTestForTrello.Tests;
@@ -28,7 +26,7 @@ public class BoardRouterTest
         var req = new RequestDTO
         {
             Method = RequestMethod.GET,
-            Path = $"/boards/starred/{userId}"
+            Path = $"/boards/starred?userId={userId}"
         };
 
         var res = _router.Handle(req);
@@ -46,27 +44,33 @@ public class BoardRouterTest
         var req = new RequestDTO
         {
             Method = RequestMethod.GET,
-            Path = $"/boards/recent/{userId}"
+            Path = $"/boards/recent?userId={userId}"
         };
 
         var res = _router.Handle(req);
-        
+
         var result = ((IEnumerable<RecentBoardDTO>)res.Data!).ToList();
         Assert.AreEqual(expectedCount, result.Count);
         Assert.IsTrue(result.All(b => string.Equals(b.BoardStatus, BoardStatus.ACTIVE.ToString())));
     }
+
     [TestMethod]
     public void GetBoardsAsMemberTest()
     {
+        // Arrange
         int expectedCount = 2;
+        string membership = "member";
 
         var req = new RequestDTO
         {
             Method = RequestMethod.GET,
-            Path = $"/workspaces/{workspaceId}/members/{userId}/boards/"
+            Path = $"/boards?workspaceId={workspaceId}&userId={userId}&membership={membership}"
         };
+
+        // Act
         var res = _router.Handle(req);
-        
+
+        // Assert
         var result = ((IEnumerable<BoardWithWorkspaceDTO>)res.Data!).ToList();
         Assert.AreEqual(expectedCount, result.Count);
     }
@@ -74,17 +78,22 @@ public class BoardRouterTest
     [TestMethod]
     public void GetBoardsAsOwnerTest()
     {
+        // Arrange
         int expectedCount = 2;
+        string membership = "owner";
 
         var req = new RequestDTO
         {
             Method = RequestMethod.GET,
-            Path = $"/workspaces/{workspaceId}/owners/{userId}/boards",
+            Path = $"/boards?workspaceId={workspaceId}&userId={userId}&membership={membership}"
         };
 
+        // Act
         var res = _router.Handle(req);
-        
+
+        // Assert
         var result = ((IEnumerable<BoardWithWorkspaceDTO>)res.Data!).ToList();
         Assert.AreEqual(expectedCount, result.Count);
     }
+
 }

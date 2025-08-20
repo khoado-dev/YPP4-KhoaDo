@@ -22,33 +22,26 @@ namespace UnitTestForTrello.Routers
 
         private static void MapBoardRoutes(Router r) // r = router
         {
-            r.Map(RequestMethod.GET, "/boards/starred/{userId}", (rv) => // rv = route values = service provider
+            r.Map(RequestMethod.GET, "/boards/starred", (rv) => // rv = route values = service provider
             {
                 var c = ReflectionFactory.Create<BoardController>(); // c = controller
                 return c.GetStarredBoards(int.Parse(rv["userId"])); // userId from path
             });
 
-            r.Map(RequestMethod.GET, "/boards/recent/{userId}", (rv) => // rv = route values = service provider
+            r.Map(RequestMethod.GET, "/boards/recent", (rv) => // rv = route values = service provider
             {
                 var c =ReflectionFactory.Create<BoardController>(); // c = controller
                 return c.GetRecentBoards(int.Parse(rv["userId"])); // userId from path
             });
 
-            r.Map(RequestMethod.GET, "/workspaces/{workspaceId}/members/{userId}/boards", (rv) =>
-            {
-                var c =ReflectionFactory.Create<BoardController>();
+            r.Map(RequestMethod.GET, "/boards", rv => {
+                var c = ReflectionFactory.Create<BoardController>();
                 var ws = int.Parse(rv["workspaceId"]);
-                var u = int.Parse(rv["userId"]); // có thể đến từ path HOẶC params query
-                return c.GetBoardsAsMember(u, ws);
-            });
-
-
-            r.Map(RequestMethod.GET, "/workspaces/{workspaceId}/owners/{userId}/boards", (rv) =>
-            {
-                var c =ReflectionFactory.Create<BoardController>(); // c = controller
-                return c.GetBoardsAsOwner(
-                    int.Parse(rv["userId"]),           // userId from path
-                    int.Parse(rv["workspaceId"]));     // workspaceId from path
+                var u = int.Parse(rv["userId"]);
+                var mem = rv.TryGetValue("membership", out var m) ? m : "member"; //default to "member"
+                return mem.Equals("owner", StringComparison.OrdinalIgnoreCase)
+                    ? c.GetBoardsAsOwner(u, ws) // if membership is owner, get boards as owner
+                    : c.GetBoardsAsMember(u, ws); // otherwise, get boards as member
             });
         }
         private static void MapCardRoutes(Router r)
