@@ -16,7 +16,7 @@ namespace UnitTestForTrello.Routers
             MapMemberRoutes(r);
             MapWorkspaceRoutes(r);
             MapUserRoutes(r);
-
+            MapTemplateRoutes(r);
             return r;
         }
 
@@ -176,6 +176,27 @@ namespace UnitTestForTrello.Routers
                 return c.GetUserByEmail(email);
             });
         }
+        private static void MapTemplateRoutes(Router r)
+        {
+            r.Map(RequestMethod.GET, "/template-categories", rv =>
+            {
+                var c = ReflectionFactory.Get<TemplateController>();
+                return c.GetAllCategories();
+            });
+
+            r.Map(RequestMethod.GET, "/templates/by-category", rv =>
+            {
+                var c = ReflectionFactory.Get<TemplateController>();
+                return c.GetTemplatesByCategory(int.Parse(rv["categoryId"]));
+            });
+
+            r.Map(RequestMethod.GET, "/templates/detail", rv =>
+            {
+                var c = ReflectionFactory.Get<TemplateController>();
+                return c.GetTemplateDetail(int.Parse(rv["templateId"]));
+            });
+        }
+
 
     }
 }
