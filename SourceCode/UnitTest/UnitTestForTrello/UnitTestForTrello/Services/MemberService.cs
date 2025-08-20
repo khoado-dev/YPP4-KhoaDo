@@ -1,13 +1,14 @@
 ﻿using UnitTestForTrello.Models.DTOs;
+using UnitTestForTrello.Repositories;
 using UnitTestForTrello.Repositories.IRepositories;
 
 namespace UnitTestForTrello.Services.IServices
 {
     public class MemberService : IMemberService
     {
-        private readonly IMemberRepository _memberRepository;
+        private readonly MemberRepository _memberRepository;
 
-        public MemberService(IMemberRepository memberRepository)
+        public MemberService(MemberRepository memberRepository)
         {
             _memberRepository = memberRepository;
         }

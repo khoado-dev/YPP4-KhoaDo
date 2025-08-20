@@ -10,10 +10,11 @@ namespace UnitTestForTrello.Tests
     {
         private readonly IDbConnection _con;
         private readonly ICustomCache _cache;
-        public WorkspaceRepository(IDbConnection con, ICustomCache cache)
+        public WorkspaceRepository()
         {
-            _con = con;
-            _cache = cache;
+            _con = TestStartup.Conn!;
+            _cache = TestStartup.Cache;
+
         }
 
         public WorkspaceDetailDTO? GetWorkspaceDetailById(int workspaceId)
@@ -55,8 +56,8 @@ namespace UnitTestForTrello.Tests
               wsp.CreatedAt;
             ";
 
-            return _con.Query<WorkspaceDTO>(sql, new 
-            { 
+            return _con.Query<WorkspaceDTO>(sql, new
+            {
                 UserId = userId,
                 WorkspaceType = OwnerType.WORKSPACE.ToString()
             });

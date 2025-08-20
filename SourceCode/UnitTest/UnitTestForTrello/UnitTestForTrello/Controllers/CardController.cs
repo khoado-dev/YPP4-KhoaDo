@@ -6,8 +6,8 @@ namespace UnitTestForTrello.Controllers
 {
     public class CardController
     {
-        private readonly ICardService _cardService;
-        public CardController(ICardService cardService)
+        private readonly CardService _cardService;
+        public CardController(CardService cardService)
         {
             _cardService = cardService;
         }

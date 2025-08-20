@@ -6,9 +6,9 @@ namespace UnitTestForTrello.Tests
 {
     public class WorkspaceService : IWorkspaceService
     {
-        private readonly IWorkspaceRepository _workspaceRepository;
+        private readonly WorkspaceRepository _workspaceRepository;
 
-        public WorkspaceService(IWorkspaceRepository workspaceRepository)
+        public WorkspaceService(WorkspaceRepository workspaceRepository)
         {
             _workspaceRepository = workspaceRepository;
         }

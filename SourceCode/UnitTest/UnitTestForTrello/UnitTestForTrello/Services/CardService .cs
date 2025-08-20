@@ -1,13 +1,14 @@
 ﻿using UnitTestForTrello.Models.DTOs;
+using UnitTestForTrello.Repositories;
 using UnitTestForTrello.Repositories.IRepositories;
 
 namespace UnitTestForTrello.Services.IServices
 {
     public class CardService : ICardService
     {
-        private readonly ICardRepository _cardRepository;
+        private readonly CardRepository _cardRepository;
 
-        public CardService(ICardRepository cardRepository)
+        public CardService(CardRepository cardRepository)
         {
             _cardRepository = cardRepository;
         }

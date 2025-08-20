@@ -11,10 +11,10 @@ namespace UnitTestForTrello.Repositories
         private readonly IDbConnection _con;
         private readonly ICustomCache _cache;
 
-        public CardRepository(IDbConnection con, ICustomCache cache)
+        public CardRepository()
         {
-            _con = con;
-            _cache = cache;
+            _con = TestStartup.Conn!;
+            _cache = TestStartup.Cache;
         }
 
         public IEnumerable<CardActivityDTO> GetActivitiesByCardId(int cardId)

@@ -1,12 +1,13 @@
 ﻿using UnitTestForTrello.Models.DTOs;
 using UnitTestForTrello.Services.IServices;
+using UnitTestForTrello.Tests;
 
 namespace UnitTestForTrello.Controllers
 {
     public class WorkspaceController
     {
-        private readonly IWorkspaceService _workspaceService;
-        public WorkspaceController(IWorkspaceService workspaceService)
+        private readonly WorkspaceService _workspaceService;
+        public WorkspaceController(WorkspaceService workspaceService)
         {
             _workspaceService = workspaceService;
         }

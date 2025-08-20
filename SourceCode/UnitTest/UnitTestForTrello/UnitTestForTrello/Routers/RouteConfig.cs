@@ -1,14 +1,15 @@
-﻿using PureDI;
-using UnitTestForTrello.Controllers;
-using HttpMethod = UnitTestForTrello.Models.HttpMethod;
+﻿using UnitTestForTrello.Controllers;
+using UnitTestForTrello.CustomDI;
+using UnitTestForTrello.Tests;
+using UnitTestForTrello.Tests.Utility;
 
 namespace UnitTestForTrello.Routers
 {
     public static class RouteConfig
     {
-        public static Router Create(Func<IServiceScope> scopeFactory) // scopeFactory = factory to create a per-request IServiceScope
+        public static Router Create() // scopeFactory = factory to create a per-request IServiceScope
         {
-            var r = new Router(scopeFactory); // r = router
+            var r = new Router(); // r = router
 
             MapBoardRoutes(r);
             MapCardRoutes(r);
@@ -21,30 +22,30 @@ namespace UnitTestForTrello.Routers
 
         private static void MapBoardRoutes(Router r) // r = router
         {
-            r.Map(HttpMethod.GET, "/boards/starred/{userId?}", (rv, sp) => // rv = route values, sp = service provider
+            r.Map(RequestMethod.GET, "/boards/starred/{userId}", (rv) => // rv = route values = service provider
             {
-                var c = (BoardController)sp.GetService(typeof(BoardController))!; // c = controller
+                var c = ReflectionFactory.Create<BoardController>(); // c = controller
                 return c.GetStarredBoards(int.Parse(rv["userId"])); // userId from path
             });
 
-            r.Map(HttpMethod.GET, "/boards/recent/{userId?}", (rv, sp) => // rv = route values, sp = service provider
+            r.Map(RequestMethod.GET, "/boards/recent/{userId}", (rv) => // rv = route values = service provider
             {
-                var c = (BoardController)sp.GetService(typeof(BoardController))!; // c = controller
+                var c =ReflectionFactory.Create<BoardController>(); // c = controller
                 return c.GetRecentBoards(int.Parse(rv["userId"])); // userId from path
             });
 
-            r.Map(HttpMethod.GET, "/workspaces/{workspaceId?}/members/{userId?}/boards", (rv, sp) =>
+            r.Map(RequestMethod.GET, "/workspaces/{workspaceId}/members/{userId}/boards", (rv) =>
             {
-                var c = (BoardController)sp.GetService(typeof(BoardController))!;
+                var c =ReflectionFactory.Create<BoardController>();
                 var ws = int.Parse(rv["workspaceId"]);
                 var u = int.Parse(rv["userId"]); // có thể đến từ path HOẶC params query
                 return c.GetBoardsAsMember(u, ws);
             });
 
 
-            r.Map(HttpMethod.GET, "/workspaces/{workspaceId?}/owners/{userId?}/boards", (rv, sp) =>
+            r.Map(RequestMethod.GET, "/workspaces/{workspaceId}/owners/{userId}/boards", (rv) =>
             {
-                var c = (BoardController)sp.GetService(typeof(BoardController))!; // c = controller
+                var c =ReflectionFactory.Create<BoardController>(); // c = controller
                 return c.GetBoardsAsOwner(
                     int.Parse(rv["userId"]),           // userId from path
                     int.Parse(rv["workspaceId"]));     // workspaceId from path
@@ -52,87 +53,98 @@ namespace UnitTestForTrello.Routers
         }
         private static void MapCardRoutes(Router r)
         {
-            r.Map(HttpMethod.GET, "/cards/{cardId?}/detail", (rv, sp) =>
+            r.Map(RequestMethod.GET, "/cards/{cardId}/detail", (rv) =>
             {
-                var c = (CardController)sp.GetService(typeof(CardController))!;
+                var c = ReflectionFactory.Create<CardController>();
                 return c.GetCardDetailByCardId(int.Parse(rv["cardId"]));
             });
 
-            r.Map(HttpMethod.GET, "/boards/{boardId?}/cards/detail", (rv, sp) =>
+            r.Map(RequestMethod.GET, "/boards/{boardId}/cards/detail", (rv) =>
             {
-                var c = (CardController)sp.GetService(typeof(CardController))!;
+                var c = ReflectionFactory.Create<CardController>();
                 return c.GetCardDetailsByBoardId(int.Parse(rv["boardId"]));
             });
 
-            r.Map(HttpMethod.GET, "/cards/{cardId?}/labels", (rv, sp) =>
+            r.Map(RequestMethod.GET, "/cards/{cardId}/labels", (rv) =>
             {
-                var c = (CardController)sp.GetService(typeof(CardController))!;
+                var c = ReflectionFactory.Create<CardController>();
                 return c.GetCardLabelsByCardId(int.Parse(rv["cardId"]));
             });
 
-            r.Map(HttpMethod.GET, "/cards/{cardId?}/comments/reactions", (rv, sp) =>
+            r.Map(RequestMethod.GET, "/cards/{cardId}/comments/reactions", (rv) =>
             {
-                var c = (CardController)sp.GetService(typeof(CardController))!;
+                var c = ReflectionFactory.Create<CardController>();
+
                 return c.GetCardCommentsAndReactionsCountByCardId(int.Parse(rv["cardId"]));
             });
 
-            r.Map(HttpMethod.GET, "/cards/{cardId?}/activities", (rv, sp) =>
+            r.Map(RequestMethod.GET, "/cards/{cardId}/activities", (rv) =>
             {
-                var c = (CardController)sp.GetService(typeof(CardController))!;
+                var c = ReflectionFactory.Create<CardController>();
+
                 return c.GetActivitiesByCardId(int.Parse(rv["cardId"]));
             });
 
-            r.Map(HttpMethod.GET, "/cards/{cardId?}/custom-fields", (rv, sp) =>
+            r.Map(RequestMethod.GET, "/cards/{cardId}/custom-fields", (rv) =>
             {
-                var c = (CardController)sp.GetService(typeof(CardController))!;
+                var c = ReflectionFactory.Create<CardController>();
+
                 return c.GetCustomFieldsByCardId(int.Parse(rv["cardId"]));
             });
 
-            r.Map(HttpMethod.GET, "/cards/{cardId?}/custom-field-values", (rv, sp) =>
+            r.Map(RequestMethod.GET, "/cards/{cardId}/custom-field-values", (rv) =>
             {
-                var c = (CardController)sp.GetService(typeof(CardController))!;
+                var c = ReflectionFactory.Create<CardController>();
+
                 return c.GetCustomFieldValuesByCardId(int.Parse(rv["cardId"]));
             });
 
-            r.Map(HttpMethod.GET, "/cards/{cardId?}/attachments", (rv, sp) =>
+            r.Map(RequestMethod.GET, "/cards/{cardId}/attachments", (rv) =>
             {
-                var c = (CardController)sp.GetService(typeof(CardController))!;
+                var c = ReflectionFactory.Create<CardController>();
+
                 return c.GetAttachmentsByCardId(int.Parse(rv["cardId"]));
             });
         }
         private static void MapMemberRoutes(Router r)
         {
             // Lấy tất cả member trong một workspace
-            r.Map(HttpMethod.GET, "/workspaces/{workspaceId?}/members", (rv, sp) =>
+            r.Map(RequestMethod.GET, "/workspaces/{workspaceId}/members", (rv) =>
             {
-                var c = (MemberController)sp.GetService(typeof(MemberController))!;
+                var c = ReflectionFactory.Create<MemberController>();
+
                 return c.GetMembersByWorkspaceId(int.Parse(rv["workspaceId"]));
             });
             // Lấy tất cả member trong một board
-            r.Map(HttpMethod.GET, "/boards/{boardId?}/members", (rv, sp) =>
+            r.Map(RequestMethod.GET, "/boards/{boardId}/members", (rv) =>
             {
-                var c = (MemberController)sp.GetService(typeof(MemberController))!;
+                var c = ReflectionFactory.Create<MemberController>();
+
                 return c.GetMembersByBoardId(int.Parse(rv["boardId"]));
             });
 
             // Lấy member theo card
-            r.Map(HttpMethod.GET, "/cards/{cardId?}/members", (rv, sp) =>
+            r.Map(RequestMethod.GET, "/cards/{cardId}/members", 
+                (rv) =>
             {
-                var c = (MemberController)sp.GetService(typeof(MemberController))!;
+                var c = ReflectionFactory.Create<MemberController>();
+
                 return c.GetMembersByCardId(int.Parse(rv["cardId"]));
             });
 
             // Lấy danh sách selectable members cho card (để assign)
-            r.Map(HttpMethod.GET, "/cards/{cardId?}/members/selectable", (rv, sp) =>
+            r.Map(RequestMethod.GET, "/cards/{cardId}/members/selectable", (rv) =>
             {
-                var c = (MemberController)sp.GetService(typeof(MemberController))!;
+                var c = ReflectionFactory.Create<MemberController>();
+
                 return c.GetSelectableMembersByCardId(int.Parse(rv["cardId"]));
             });
 
             // Lấy tất cả role-permissions
-            r.Map(HttpMethod.GET, "/rolepermissions", (rv, sp) =>
+            r.Map(RequestMethod.GET, "/rolepermissions", (rv) =>
             {
-                var c = (MemberController)sp.GetService(typeof(MemberController))!;
+                var c = ReflectionFactory.Create<MemberController>();
+
                 return c.GetRolePermissions();
             });
 
@@ -140,32 +152,36 @@ namespace UnitTestForTrello.Routers
         private static void MapWorkspaceRoutes(Router r)
         {
             // 1) Workspaces by user
-            r.Map(HttpMethod.GET, "/users/{userId?}/workspaces", (rv, sp) =>
+            r.Map(RequestMethod.GET, "/users/{userId}/workspaces", (rv) =>
             {
-                var c = (WorkspaceController)sp.GetService(typeof(WorkspaceController))!;
+                var c = ReflectionFactory.Create<WorkspaceController>();
+
                 return c.GetWorkspacesByUserId(int.Parse(rv["userId"]));
             });
 
             // 2) Workspace types
-            r.Map(HttpMethod.GET, "/workspaces/types", (rv, sp) =>
+            r.Map(RequestMethod.GET, "/workspaces/types", (rv) =>
             {
-                var c = (WorkspaceController)sp.GetService(typeof(WorkspaceController))!;
+                var c = ReflectionFactory.Create<WorkspaceController>();
+
                 return c.GetWorkspaceTypes();
             });
 
             // 3) Workspace detail
-            r.Map(HttpMethod.GET, "/workspaces/{workspaceId?}/detail", (rv, sp) =>
+            r.Map(RequestMethod.GET, "/workspaces/{workspaceId}/detail", (rv) =>
             {
-                var c = (WorkspaceController)sp.GetService(typeof(WorkspaceController))!;
+                var c = ReflectionFactory.Create<WorkspaceController>();
+
                 return c.GetWorkspaceDetailById(int.Parse(rv["workspaceId"]));
             });
         }
         private static void MapUserRoutes(Router r)
         {
-            r.Map(HttpMethod.GET, "/users/{email?}", (rv, sp) =>
+            r.Map(RequestMethod.GET, "/users/{email}", (rv) =>
             {
-                var c = (UserController)sp.GetService(typeof(UserController))!;
+                var c = ReflectionFactory.Create<UserController>();
                 var email = rv["email"]; // router của bạn đã merge path + query
+
                 return c.GetUserByEmail(email);
             });
         }

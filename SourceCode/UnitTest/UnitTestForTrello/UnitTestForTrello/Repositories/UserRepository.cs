@@ -9,9 +9,9 @@ namespace UnitTestForTrello.Repositories
     {
         private readonly IDbConnection _con;
 
-        public UserRepository(IDbConnection con)
+        public UserRepository()
         {
-            _con = con;
+            _con = TestStartup.Conn!;
         }
 
         public UserDTO? GetUserByEmail(string email)

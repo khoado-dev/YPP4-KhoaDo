@@ -1,7 +1,8 @@
-﻿using System.Data;
-using Microsoft.Data.Sqlite;
-using PureDI;
+﻿using Microsoft.Data.Sqlite;
+using UnitTestForTrello.Controllers;
+using UnitTestForTrello.CustomDI;
 using UnitTestForTrello.Routers;
+using UnitTestForTrello.Tests;
 using UnitTestForTrello.Tests.Utility;
 
 namespace UnitTestForTrello
@@ -9,40 +10,27 @@ namespace UnitTestForTrello
     [TestClass]
     public class TestStartup
     {
-        private static IServiceCollection? _services;
-        private static ServiceProvider? _root;
         private static SqliteConnection? _conn;
+        private static CustomCache? cache;
+        private static Router? router;
+
+        public static SqliteConnection? Conn { get => _conn; set => _conn = value; }
+        public static CustomCache Cache { get => cache; set => cache = value; }
+        public static Router? Router { get => router; private set => router = value; }
 
         [AssemblyInitialize]
         public static void AssemblyInit(TestContext _)
         {
+            cache = new CustomCache();
             _conn = TestDatabase.OpenAndInit();
-
-            int cacheSweepMinutes = 15;
-            _services = new ServiceCollection()
-                .AddSingleton<ICustomCache>(new CustomCache(TimeSpan.FromMinutes(cacheSweepMinutes)))
-                .AddSingleton<IDbConnection>(_conn)
-                .AddBoardModule()
-                .AddCardModule()
-                .AddMemberModule()
-                .AddWorkspaceModule()
-                .AddUserModule();
-
-            _root = new ServiceProvider(_services);
+            router = RouteConfig.Create();
         }
-
-        private static IServiceScope CreateScope() => _root!.CreateScope();
-        public static Router CreateRouter() => RouteConfig.Create(CreateScope);
 
         public static void ResetDatabase() => TestDatabase.Reset();
 
         [AssemblyCleanup]
         public static void AssemblyCleanup()
         {
-            (_root as IDisposable)?.Dispose();
-            _root = null;
-            _services = null;
-
             TestDatabase.Dispose();
             _conn = null;
         }

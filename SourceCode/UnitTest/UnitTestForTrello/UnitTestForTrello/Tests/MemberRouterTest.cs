@@ -1,6 +1,5 @@
 ﻿using UnitTestForTrello.Models;
-using UnitTestForTrello.Routers;
-using HttpMethod = UnitTestForTrello.Models.HttpMethod;
+using UnitTestForTrello.Tests.Utility;
 
 namespace UnitTestForTrello.Tests
 {
@@ -16,7 +15,7 @@ namespace UnitTestForTrello.Tests
         [TestInitialize]
         public void Setup()
         {
-            _router = TestStartup.CreateRouter();
+            _router = TestStartup.Router!;
         }
 
         [TestMethod]
@@ -24,16 +23,16 @@ namespace UnitTestForTrello.Tests
         {
             int expectedNumberOfMembersInBoard = 3;
 
-            var req = new Request
+            var req = new RequestDTO
             {
-                Method = HttpMethod.GET,
+                Method = RequestMethod.GET,
                 Path = $"/workspaces/{workspaceId}/members"
             };
 
             var res = _router.Handle(req);
 
-            Assert.AreEqual(HttpStatus.OK, res.StatusCode);
-            var result = ((IEnumerable<object>)res.Body!).ToList();
+            
+            var result = ((IEnumerable<object>)res.Data!).ToList();
             Assert.AreEqual(expectedNumberOfMembersInBoard, result.Count);
         }
 
@@ -42,16 +41,16 @@ namespace UnitTestForTrello.Tests
         {
             int expectedNumberOfMembersInBoard = 3;
 
-            var req = new Request
+            var req = new RequestDTO
             {
-                Method = HttpMethod.GET,
+                Method = RequestMethod.GET,
                 Path = $"/boards/{boardId}/members"
             };
 
             var res = _router.Handle(req);
 
-            Assert.AreEqual(HttpStatus.OK, res.StatusCode);
-            var result = ((IEnumerable<object>)res.Body!).ToList();
+            
+            var result = ((IEnumerable<object>)res.Data!).ToList();
             Assert.AreEqual(expectedNumberOfMembersInBoard, result.Count);
         }
 
@@ -60,16 +59,16 @@ namespace UnitTestForTrello.Tests
         {
             int expectedNumberOfMembersInCard = 2;
 
-            var req = new Request
+            var req = new RequestDTO
             {
-                Method = HttpMethod.GET,
+                Method = RequestMethod.GET,
                 Path = $"/cards/{cardId}/members"
             };
 
             var res = _router.Handle(req);
 
-            Assert.AreEqual(HttpStatus.OK, res.StatusCode);
-            var result = ((IEnumerable<object>)res.Body!).ToList();
+            
+            var result = ((IEnumerable<object>)res.Data!).ToList();
             Assert.AreEqual(expectedNumberOfMembersInCard, result.Count);
         }
 
@@ -78,16 +77,16 @@ namespace UnitTestForTrello.Tests
         {
             int expectedNumberOfSelectableMembersInCard = 8;
 
-            var req = new Request
+            var req = new RequestDTO
             {
-                Method = HttpMethod.GET,
+                Method = RequestMethod.GET,
                 Path = $"/cards/{cardId}/members/selectable"
             };
 
             var res = _router.Handle(req);
 
-            Assert.AreEqual(HttpStatus.OK, res.StatusCode);
-            var result = ((IEnumerable<object>)res.Body!).ToList();
+            
+            var result = ((IEnumerable<object>)res.Data!).ToList();
             Assert.AreEqual(expectedNumberOfSelectableMembersInCard, result.Count);
         }
     }
