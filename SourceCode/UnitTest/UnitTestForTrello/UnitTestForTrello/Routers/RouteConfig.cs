@@ -19,6 +19,7 @@ namespace UnitTestForTrello.Routers
             MapTemplateRoutes(r);
             MapCollectionRoutes(r);
             MapStickerRoutes(r);
+            MapNotificationRoutes(r);
 
             return r;
         }
@@ -231,6 +232,18 @@ namespace UnitTestForTrello.Routers
             {
                 var c = ReflectionFactory.Get<StickerController>();
                 return c.GetCustomStickersByUser(int.Parse(rv["userId"]));
+            });
+        }
+
+        private static void MapNotificationRoutes(Router r)
+        {
+            r.Map(RequestMethod.GET, "/notifications", rv =>
+            {
+                var c = ReflectionFactory.Get<NotificationController>();
+                return c.GetNotificationByUser(
+                    int.Parse(rv["userId"]),
+                    bool.Parse(rv["isRead"])
+                );
             });
         }
 

@@ -600,6 +600,9 @@ namespace UnitTestForTrello.Tests.Utility
             SeedMembersOfCard();
             SeedCommentsWithReactionsForCard();
             SeedCardActivities();
+            
+            SeedNotifications();
+            
             SeedCardCustomFieldAndValues();
 
             SeedAttachmentTypes();
@@ -610,6 +613,7 @@ namespace UnitTestForTrello.Tests.Utility
 
             SeedStickerCategories();
             SeedStickers();
+
         }
 
         private static void SeedBoards()
@@ -918,6 +922,14 @@ namespace UnitTestForTrello.Tests.Utility
                 (11, 3, 'TeamIcon', 'https://example.com/stickers/teamicon.png',  datetime('now','-4 day'), 1),
                 (12, 3, 'Other',    'https://example.com/stickers/other.png',     datetime('now','-2 day'), 2);
         ");
+        }
+        private static void SeedNotifications()
+        {
+            GetConnection().Execute(@"
+            INSERT INTO Notification (Id, ActivityId, IsRead) VALUES
+                (1, 1, 0),  -- unread
+                (2, 3, 1);  -- read
+            ");
         }
 
     }
