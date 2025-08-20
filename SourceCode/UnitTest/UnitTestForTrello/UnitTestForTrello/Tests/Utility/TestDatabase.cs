@@ -585,6 +585,10 @@ namespace UnitTestForTrello.Tests.Utility
             SeedOwnerTypes();
 
             SeedBoards();
+
+            SeedCollections();
+            SeedBoardCollections();
+
             SeedUserStarredBoards();
             SeedRolePermissions();
             SeedMembersOfWorkspace();
@@ -863,6 +867,27 @@ namespace UnitTestForTrello.Tests.Utility
             (1, 'Project Plan', 'Template for project planning', 1, 10, 3, 1, datetime('now', '-5 day'), datetime('now', '-1 day'), 1, 1, 'bg1.png'),
             (2, 'Marketing Campaign', 'Template for marketing activities', 1, 25, 5, 2, datetime('now', '-3 day'), datetime('now', '-2 day'), 2, 2, 'bg2.png'),
             (3, 'Lesson Plan', 'Template for teachers', 2, 15, 2, 3, datetime('now', '-10 day'), datetime('now', '-5 day'), 3, 1, 'bg3.png');
+            ");
+        }
+
+        private static void SeedCollections()
+        {
+            GetConnection().Execute(@"
+            INSERT INTO Collections (Id, CollectionName, CreatedAt, CreatedBy, WorkspaceId) VALUES
+                (1, 'Backlog',  datetime('now','-10 day'), 1, 1),
+                (2, 'Sprint',   datetime('now','-8 day'),  1, 1),
+                (3, 'Ideas',    datetime('now','-6 day'),  2, 2),
+                (4, 'Roadmap',  datetime('now','-4 day'),  2, 2);
+            ");
+        }
+
+        private static void SeedBoardCollections()
+        {
+            GetConnection().Execute(@"
+            INSERT INTO BoardCollection (BoardId, CollectionId) VALUES
+                (1, 1),  -- Board 1 -> Backlog (WS1)
+                (1, 2),  -- Board 1 -> Sprint  (WS1)
+                (2, 2);  -- Board 2 -> Sprint  (WS1)
             ");
         }
 

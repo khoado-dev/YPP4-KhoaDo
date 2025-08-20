@@ -681,14 +681,22 @@ WHERE bo.WorkspaceId = 1 AND co.WorkspaceId = bo.WorkspaceId
 ORDER BY bo.CreatedAt
 
 --Show all the collections in a specific workspace
-SELECT
-    clt.Id CollectionId,
-    clt.CollectionName,
-    clt.CreatedAt,
-    clt.WorkspaceId
-FROM Collections clt
-WHERE WorkspaceId = 2
-ORDER BY clt.CreatedAt
+SELECT 
+  bo.Id BoardId, 
+  bo.BoardName BoardName, 
+  bo.BackgroundUrl BoardBackgroundImage, 
+  co.Id CollectionId, 
+  co.CollectionName, 
+  bo.WorkspaceId WorkspaceId 
+FROM 
+  Board bo 
+  JOIN BoardCollection bc ON bc.BoardId = bo.Id 
+  JOIN Collections co ON co.Id = bc.CollectionId 
+WHERE 
+  bo.WorkspaceId = 2
+  AND co.WorkspaceId = bo.WorkspaceId 
+ORDER BY 
+  bo.CreatedAt
 
 --14. CARD STICKER SCREEN
 --Show list of general sticker can select

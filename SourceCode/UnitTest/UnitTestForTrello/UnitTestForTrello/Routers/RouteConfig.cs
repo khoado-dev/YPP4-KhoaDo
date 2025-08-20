@@ -17,6 +17,8 @@ namespace UnitTestForTrello.Routers
             MapWorkspaceRoutes(r);
             MapUserRoutes(r);
             MapTemplateRoutes(r);
+            MapCollectionRoutes(r);
+
             return r;
         }
 
@@ -194,6 +196,24 @@ namespace UnitTestForTrello.Routers
             {
                 var c = ReflectionFactory.Get<TemplateController>();
                 return c.GetTemplateDetail(int.Parse(rv["templateId"]));
+            });
+        }
+        private static void MapCollectionRoutes(Router r)
+        {
+            // Show board and the collection it belongs to in a specific workspace
+            r.Map(RequestMethod.GET, "/boards/with-collections", rv =>
+            {
+                var c = ReflectionFactory.Get<CollectionController>();
+
+                return c.GetBoardsWithCollectionsInWorkspace(int.Parse(rv["workspaceId"]));
+            });
+
+            // Show all collections in a specific workspace
+            r.Map(RequestMethod.GET, "/collections/by-workspace", rv =>
+            {
+                var c = ReflectionFactory.Get<CollectionController>();
+
+                return c.GetCollectionsByWorkspace(int.Parse(rv["workspaceId"]));
             });
         }
 
