@@ -614,6 +614,7 @@ namespace UnitTestForTrello.Tests.Utility
             SeedStickerCategories();
             SeedStickers();
 
+            SeedSettingKeysOptionsAndValues();
         }
 
         private static void SeedBoards()
@@ -929,6 +930,86 @@ namespace UnitTestForTrello.Tests.Utility
             INSERT INTO Notification (Id, ActivityId, IsRead) VALUES
                 (1, 1, 0),  -- unread
                 (2, 3, 1);  -- read
+            ");
+        }
+
+        private static void SeedSettingKeysOptionsAndValues()
+        {
+            // OwnerType: 1=WORKSPACE, 2=BOARD, 3=USER (đã có từ SeedOwnerTypes)
+
+            // ===== WORKSPACE =====
+            // non-boolean with options (Light/Dark)
+            GetConnection().Execute(@"
+            INSERT INTO SettingKey (Id, KeyName, SettingKeyDescription, OwnerTypeId, DefaultValue, IsBoolean)
+            VALUES
+                (101, 'WorkspaceTheme', 'Theme for workspace UI', 1, 1001, 0),
+                (102, 'AllowGuests',    'Allow guest members',     1, 0,    1);
+
+            INSERT INTO SettingOption (Id, DisplayValue, SettingOptionValue)
+            VALUES
+                (1001, 'Light', 'light'),
+                (1002, 'Dark',  'dark');
+
+            INSERT INTO SettingKeySettingOption (SettingKeyId, SettingOptionId)
+            VALUES
+                (101, 1001),
+                (101, 1002);
+
+            -- ownerId = 1 chọn Dark (1002) + bật AllowGuests=1
+            INSERT INTO SettingValue (Id, SettingKeyId, SettingContent, CreatedAt, OwnerId)
+            VALUES
+                (5001, 101, 1002, datetime('now','-1 day'), 1),
+                (5002, 102, 1,    datetime('now','-1 day'), 1);
+            ");
+
+            // ===== BOARD =====
+            // non-boolean with options (Compact/Comfortable)
+            GetConnection().Execute(@"
+            INSERT INTO SettingKey (Id, KeyName, SettingKeyDescription, OwnerTypeId, DefaultValue, IsBoolean)
+            VALUES
+                (201, 'CardLayout',   'Card layout style', 2, 2001, 0),
+                (202, 'EnableVoting', 'Enable card voting', 2, 0,   1);
+
+            INSERT INTO SettingOption (Id, DisplayValue, SettingOptionValue)
+            VALUES
+                (2001, 'Compact',     'compact'),
+                (2002, 'Comfortable', 'comfortable');
+
+            INSERT INTO SettingKeySettingOption (SettingKeyId, SettingOptionId)
+            VALUES
+                (201, 2001),
+                (201, 2002);
+
+            -- ownerId = 1 chọn Comfortable (2002) + EnableVoting=1
+            INSERT INTO SettingValue (Id, SettingKeyId, SettingContent, CreatedAt, OwnerId)
+            VALUES
+                (6001, 201, 2002, datetime('now','-1 day'), 1),
+                (6002, 202, 1,    datetime('now','-1 day'), 1);
+            ");
+
+            // ===== USER =====
+            // non-boolean with options (en/vi)
+            GetConnection().Execute(@"
+            INSERT INTO SettingKey (Id, KeyName, SettingKeyDescription, OwnerTypeId, DefaultValue, IsBoolean)
+            VALUES
+                (301, 'Language',            'Preferred language',     3, 3001, 0),
+                (302, 'EmailNotifications',  'Receive email alerts',   3, 1,    1);
+
+            INSERT INTO SettingOption (Id, DisplayValue, SettingOptionValue)
+            VALUES
+                (3001, 'English', 'en'),
+                (3002, 'Vietnamese', 'vi');
+
+            INSERT INTO SettingKeySettingOption (SettingKeyId, SettingOptionId)
+            VALUES
+                (301, 3001),
+                (301, 3002);
+
+            -- ownerId = 1 chọn Vietnamese (3002) + tắt EmailNotifications=0
+            INSERT INTO SettingValue (Id, SettingKeyId, SettingContent, CreatedAt, OwnerId)
+            VALUES
+                (7001, 301, 3002, datetime('now','-1 day'), 1),
+                (7002, 302, 0,    datetime('now','-1 day'), 1);
             ");
         }
 

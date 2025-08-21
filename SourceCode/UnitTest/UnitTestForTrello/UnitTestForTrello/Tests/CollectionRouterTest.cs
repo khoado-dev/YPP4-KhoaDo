@@ -15,8 +15,6 @@ namespace UnitTestForTrello.Tests
         public void Setup()
         {
             _router = TestStartup.Router!;
-            // Nếu cần reset DB mỗi test:
-            // TestDatabase.Reset();
         }
 
         [TestMethod]

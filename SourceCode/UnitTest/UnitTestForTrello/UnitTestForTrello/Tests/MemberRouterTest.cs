@@ -18,7 +18,7 @@ namespace UnitTestForTrello.Tests
             _router = TestStartup.Router!;
         }
         [TestMethod]
-        public void GetMembersByWorkspaceId()
+        public void GetMembersByWorkspaceIdTest()
         {
             int expectedMembersCount = 3;
 
@@ -35,7 +35,7 @@ namespace UnitTestForTrello.Tests
         }
 
         [TestMethod]
-        public void GetMembersByBoardId()
+        public void GetMembersByBoardIdTest()
         {
             int expectedMembersCount = 3;
 
@@ -52,7 +52,7 @@ namespace UnitTestForTrello.Tests
         }
 
         [TestMethod]
-        public void GetMembersByCardId()
+        public void GetMembersByCardIdTest()
         {
             int expectedMembersCount = 2;
 
@@ -69,7 +69,7 @@ namespace UnitTestForTrello.Tests
         }
 
         [TestMethod]
-        public void GetSelectableMembersByCardId()
+        public void GetSelectableMembersByCardIdTest()
         {
             int expectedMembersCount = 8;
 
