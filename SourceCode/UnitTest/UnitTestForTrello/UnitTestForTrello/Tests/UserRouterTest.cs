@@ -16,7 +16,7 @@ namespace UnitTestForTrello.Tests
         }
 
         [TestMethod]
-        public void GetUserByEmail()
+        public void GetUserByEmailTest()
         {
             var req = new RequestDTO
             {

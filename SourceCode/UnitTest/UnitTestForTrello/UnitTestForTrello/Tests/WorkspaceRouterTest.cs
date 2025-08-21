@@ -17,7 +17,7 @@ namespace UnitTestForTrello.Tests
             _router = TestStartup.Router!;
         }
         [TestMethod]
-        public void GetWorkspacesByUserId()
+        public void GetWorkspacesByUserIdTest()
         {
             int expectedNumberOfWorkspaces = 2;
 
@@ -34,7 +34,7 @@ namespace UnitTestForTrello.Tests
         }
 
         [TestMethod]
-        public void GetWorkspaceTypes()
+        public void GetWorkspaceTypesTest()
         {
             int expectedNumberOfWorkspaceTypes = 9;
 
@@ -51,7 +51,7 @@ namespace UnitTestForTrello.Tests
         }
 
         [TestMethod]
-        public void GetWorkspaceDetailById()
+        public void GetWorkspaceDetailByIdTest()
         {
             var req = new RequestDTO
             {

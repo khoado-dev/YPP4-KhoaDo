@@ -20,6 +20,7 @@ namespace UnitTestForTrello.Routers
             MapCollectionRoutes(r);
             MapStickerRoutes(r);
             MapNotificationRoutes(r);
+            MapSettingRoutes(r);
 
             return r;
         }
@@ -247,6 +248,36 @@ namespace UnitTestForTrello.Routers
             });
         }
 
+        private static void MapSettingRoutes(Router r)
+        {
+            r.Map(RequestMethod.GET, "/settings/values", rv =>
+            {
+                var c = ReflectionFactory.Get<SettingController>();
+
+                var ownerId = int.Parse(rv["ownerId"]);
+                var ownerTypeStr = rv["ownerType"];   // WORKSPACE, BOARD, USER...
+
+                return c.GetValuesByOwnerType(ParseOwnerType(ownerTypeStr), ownerId);
+            });
+
+            r.Map(RequestMethod.GET, "/settings/options", rv =>
+            {
+                var c = ReflectionFactory.Get<SettingController>();
+
+                var ownerTypeStr = rv["ownerType"];
+                var enumOwnerType = Enum.Parse<OwnerType>(ownerTypeStr);
+
+                return c.GetOptionsByOwnerType(ParseOwnerType(ownerTypeStr));
+            });
+
+            OwnerType ParseOwnerType(string ownerTypeStr)
+            {
+                if (!Enum.TryParse(ownerTypeStr, out OwnerType ownerType))
+                    throw new ArgumentException($"Invalid ownerType: '{ownerTypeStr}'. Allowed: WORKSPACE, BOARD, USER.");
+
+                return ownerType;
+            }
+        }
 
     }
 }

@@ -572,9 +572,9 @@ WHERE OwnerTypeValue = 'WORKSPACE' AND sv.OwnerId = 1;
 
 --List all options of setting is not boolean in workspace setting.
 SELECT 
-    sk.KeyName AS setting_key,
+    sk.KeyName AS SettingKey,
     sk.SettingKeyDescription,
-    so.DisplayValue AS setting_option_display_value
+    so.DisplayValue AS SettingOptionDisplayValue
 FROM SettingKey sk
 JOIN OwnerType owt ON owt.Id = sk.OwnerTypeId
 JOIN SettingKeySettingOption sso ON sso.SettingKeyId = sk.Id
@@ -594,9 +594,9 @@ WHERE OwnerTypeValue = 'BOARD' AND sv.OwnerId = 1;
 
 --List all options of setting is not boolean in board setting.
 SELECT 
-    sk.KeyName AS setting_key,
+    sk.KeyName AS SettingKey,
     sk.SettingKeyDescription,
-    so.DisplayValue AS setting_option_display_value
+    so.DisplayValue AS SettingOptionDisplayValue
 FROM SettingKey sk
 JOIN OwnerType owt ON owt.Id = sk.OwnerTypeId
 JOIN SettingKeySettingOption sso ON sso.SettingKeyId = sk.Id
@@ -616,9 +616,9 @@ WHERE OwnerTypeValue = 'USER' AND sv.OwnerId = 1;
 
 --List all options of setting is not boolean in user setting.
 SELECT 
-    sk.KeyName AS setting_key,
+    sk.KeyName AS SettingKey,
     sk.SettingKeyDescription,
-    so.DisplayValue AS setting_option_display_value
+    so.DisplayValue AS SettingOptionDisplayValue
 FROM SettingKey sk
 JOIN OwnerType owt ON owt.Id = sk.OwnerTypeId
 JOIN SettingKeySettingOption sso ON sso.SettingKeyId = sk.Id

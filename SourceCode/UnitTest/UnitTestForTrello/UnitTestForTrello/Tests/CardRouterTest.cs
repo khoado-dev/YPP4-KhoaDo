@@ -19,7 +19,7 @@ namespace UnitTestForTrello.Tests
         }
 
         [TestMethod]
-        public void GetCardDetailByCardId()
+        public void GetCardDetailByCardIdTest()
         {
             var req = new RequestDTO
             {
@@ -34,7 +34,7 @@ namespace UnitTestForTrello.Tests
         }
 
         [TestMethod]
-        public void GetCardDetailByBoardId()
+        public void GetCardDetailByBoardIdTest()
         {
             int expectedNumberOfCards = 3;
 
@@ -52,7 +52,7 @@ namespace UnitTestForTrello.Tests
         }
 
         [TestMethod]
-        public void GetCardLabelsByCardId()
+        public void GetCardLabelsByCardIdTest()
         {
             int expectedNumberOfLabels = 2;
 
@@ -69,7 +69,7 @@ namespace UnitTestForTrello.Tests
         }
 
         [TestMethod]
-        public void GetCardCommentsAndReactionsCountByCardId()
+        public void GetCardCommentsAndReactionsCountByCardIdTest()
         {
             int expectedNumberOfReactionEachComment = 3;
 
@@ -86,7 +86,7 @@ namespace UnitTestForTrello.Tests
         }
 
         [TestMethod]
-        public void GetActivitiesByCardId()
+        public void GetActivitiesByCardIdTest()
         {
             int expectedNumberOfActivities = 2;
 
@@ -103,7 +103,7 @@ namespace UnitTestForTrello.Tests
         }
 
         [TestMethod]
-        public void GetCustomFieldsByCardId()
+        public void GetCustomFieldsByCardIdTest()
         {
             int expectedNumberOfCustomFields = 4;
 
@@ -120,7 +120,7 @@ namespace UnitTestForTrello.Tests
         }
 
         [TestMethod]
-        public void GetCustomFieldValuesByCardId()
+        public void GetCustomFieldValuesByCardIdTest()
         {
             int expectedNumberOfCustomFieldValues = 3;
 
@@ -137,7 +137,7 @@ namespace UnitTestForTrello.Tests
         }
 
         [TestMethod]
-        public void GetAttachmentsByCardId()
+        public void GetAttachmentsByCardIdTest()
         {
             int expectedNumberOfAttachments = 3;
 
