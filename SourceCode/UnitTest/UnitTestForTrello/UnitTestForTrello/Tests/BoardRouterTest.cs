@@ -7,7 +7,6 @@ namespace UnitTestForTrello.Tests;
 public class BoardRouterTest
 {
     private Router _router = null!;
-
     private const int userId = 1;
     private const int workspaceId = 1;
 
