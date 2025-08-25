@@ -1,4 +1,5 @@
-﻿using HttpMethod = CustomMVC.Core.Http.HttpMethod;
+﻿using System.Reflection;
+using HttpMethod = CustomMVC.Core.Http.HttpMethod;
 
 namespace CustomMVC.Core.Routing;
 
@@ -9,6 +10,18 @@ public sealed class RouteTable
     public void Map(HttpMethod method, string template, RouteHandler handler)
     {
         var segs = NormalizePath(template).Split('/', StringSplitOptions.RemoveEmptyEntries);
+        _routes.Add(new RouteEntry(method, segs, handler));
+    }
+
+    public void Map(HttpMethod method, string template, Type controllerType, string actionName)
+    {
+        var segs = NormalizePath(template).Split('/', StringSplitOptions.RemoveEmptyEntries);
+        var mi = controllerType.GetMethod(actionName, BindingFlags.Instance | BindingFlags.Public)
+                 ?? throw new InvalidOperationException($"Action '{actionName}' not found on {controllerType.Name}");
+
+        RouteHandler handler = async (ctx, rv) =>
+            await ActionInvoker.InvokeAsync(ctx, new Endpoint(controllerType, mi), rv);
+
         _routes.Add(new RouteEntry(method, segs, handler));
     }
 

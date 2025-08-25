@@ -1,36 +1,29 @@
 ﻿using CustomMVC.Core.Http;
 using CustomMVC.Core.Routing;
+using CustomMVC.Samples;
 using HttpMethod = CustomMVC.Core.Http.HttpMethod;
 
 namespace CustomMVC
 {
     internal class Program
     {
+        private const string DefaultUrl = "http://localhost:5000/";
         static async Task Main(string[] args)
         {
             // 1) Initialize router and register routes
             var router = new RouteTable();
 
-            // Simple route: GET /hello → returns "Hello"
             router.Map(HttpMethod.GET, "/hello", async (ctx, rv) =>
             {
                 await ctx.Response.WriteAsync("Hello");
             });
 
-            // Route with a route value: GET /users/{id}
-            // Example: /users/42 → routeValues["id"] = "42"
-            router.Map(HttpMethod.GET, "/users/{id}", async (ctx, rv) =>
-            {
-                var id = rv["id"];
-                await ctx.Response.WriteAsync($"User {id}");
-            });
+            // map tới controller/action
+            router.Map(HttpMethod.GET, "/users/find", typeof(UsersController), nameof(UsersController.Find));
+            router.Map(HttpMethod.GET, "/users/{id}", typeof(UsersController), nameof(UsersController.Show));
 
-            // 2) Create and start the HTTP server
-            // For each request: try to match a route
-            // If matched → call the route handler
-            // If not matched → return 404 Not Found
             var server = new HttpServer(
-                new[] { "http://localhost:5000/" },
+                new[] { DefaultUrl },
                 app: async ctx =>
                 {
                     var matched = router.Match(ctx.Request.Method, ctx.Request.Path);
@@ -43,10 +36,9 @@ namespace CustomMVC
 
                     var (entry, routeValues) = matched.Value;
                     await entry.Handler(ctx, routeValues);
-                }
-            );
+                });
 
-            Console.WriteLine("Listening at http://localhost:5000");
+            Console.WriteLine($"Listening at {DefaultUrl}");
             await server.StartAsync();
         }
     }
