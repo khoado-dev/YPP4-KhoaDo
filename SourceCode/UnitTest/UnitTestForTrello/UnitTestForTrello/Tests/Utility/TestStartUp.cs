@@ -6,7 +6,7 @@ using UnitTestForTrello.Tests.Utility;
 namespace UnitTestForTrello
 {
     [TestClass]
-    public class TestStartup
+    public static class TestStartup
     {
         private static SqliteConnection? _conn;
         private static CustomCache? cache;
@@ -17,7 +17,7 @@ namespace UnitTestForTrello
         public static Router? Router { get => router; private set => router = value; }
 
         [AssemblyInitialize]
-        public static void AssemblyInit(TestContext _)
+        public static void AssemblyInit()
         {
             cache = new CustomCache();
             _conn = TestDatabase.OpenAndInit();
