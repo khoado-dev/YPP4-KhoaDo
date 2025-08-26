@@ -7,9 +7,14 @@ namespace UnitTestForTrello
         {
             var prefixes = new[] { "http://localhost:5000/" };
             var listener = new HttpListener();
-            foreach (var p in prefixes) listener.Prefixes.Add(p);
+
+            foreach (var p in prefixes)
+            {
+                listener.Prefixes.Add(p);
+            }
             listener.Start();
             Console.WriteLine($"API listening on {string.Join(", ", prefixes)}");
+
             TestStartup.AssemblyInit();
             var router = TestStartup.Router;
 
@@ -29,9 +34,9 @@ namespace UnitTestForTrello
                         }
 
                         var reqDto = HttpRequestAdapter.From(ctx.Request);
-                        var resDto = router.Handle(reqDto);
+                        var resDto = router?.Handle(reqDto);
 
-                        await HttpResponseAdapter.WriteJson(ctx.Response, resDto);
+                        await HttpResponseAdapter.WriteJson(ctx.Response, resDto!);
                     }
                     catch (Exception ex)
                     {

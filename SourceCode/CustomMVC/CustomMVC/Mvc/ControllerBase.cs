@@ -16,5 +16,14 @@ namespace CustomMVC.Mvc
 
         protected IActionResult NotFound(string? message = null) =>
             new ContentResult(message ?? "Not Found", 404, "text/plain; charset=utf-8");
+        protected IActionResult StatusCode(int status, string? message = null) =>
+            new StatusCodeResult(status, message);
+
+        protected IActionResult Redirect(string url, bool permanent = false) =>
+            new RedirectResult(url, permanent);
+
+        protected IActionResult File(byte[] bytes, string contentType, string? downloadFileName = null) =>
+            new FileResult(bytes, contentType, downloadFileName);
+
     }
 }
