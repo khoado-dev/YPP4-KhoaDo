@@ -5,23 +5,28 @@ namespace CustomMVC.Samples
 {
     public sealed class UsersController : ControllerBase
     {
-        // GET /users/{id}
-        public IActionResult Show(int id) => Json(new { id, name = $"user-{id}" });
-
-        // GET /users/find?name=alice
-        public IActionResult Find(string name) => Ok($"Looking for user: {name}");
-
-        // GET /users/notfound
-        public IActionResult NotFoundDemo() => StatusCode(404, "User not found");
-
-        // GET /users/redirect
-        public IActionResult RedirectDemo() => Redirect("/hello"); // 302 by default
-
-        // GET /users/file
-        public IActionResult FileDemo()
+        private readonly List<UserDTO> _users;
+        public UsersController()
         {
-            var bytes = System.Text.Encoding.UTF8.GetBytes("Sample file content");
-            return File(bytes, "text/plain; charset=utf-8", "sample.txt");
+            // Seed some users
+            _users = new List<UserDTO>
+            {
+                new UserDTO { Id = 1, Name = "Alice", Email = "alice@example.com" },
+                new UserDTO { Id = 2, Name = "Bob", Email = "bob@example.com" },
+                new UserDTO { Id = 3, Name = "Charlie", Email = "charlie@example.com" }
+            };
+        }
+
+        public IActionResult GetUserByEmail(string email)
+        {
+            var user = _users.FirstOrDefault(u =>
+                u.Email.Equals(email, StringComparison.OrdinalIgnoreCase));
+            return user != null ? Json(user) : NotFound($"User with email {email} was not found!");
+        }
+
+        public IActionResult GetUsers()
+        {
+            return Json(_users);
         }
     }
 }
