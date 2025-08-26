@@ -19,11 +19,8 @@ namespace CustomMVC
             });
 
             // map tới controller/action
-            router.Map(HttpMethod.GET, "/users/redirect", typeof(UsersController), nameof(UsersController.RedirectDemo));
-            router.Map(HttpMethod.GET, "/users/find", typeof(UsersController), nameof(UsersController.Find));
-            router.Map(HttpMethod.GET, "/users/{id}", typeof(UsersController), nameof(UsersController.Show));
-            router.Map(HttpMethod.GET, "/users/notfound", typeof(UsersController), nameof(UsersController.NotFoundDemo));
-            router.Map(HttpMethod.GET, "/users/file", typeof(UsersController), nameof(UsersController.FileDemo));
+            router.Map(HttpMethod.GET, "/users", typeof(UsersController), nameof(UsersController.GetUsers));
+            router.Map(HttpMethod.GET, "/users/{email}", typeof(UsersController), nameof(UsersController.GetUserByEmail));
 
 
             var server = new HttpServer(
