@@ -7,6 +7,24 @@ namespace CustomMVC.Core.Routing
 {
     public static class ActionInvoker
     {
+        private static readonly Dictionary<Type, Func<string, object?>> Parsers = new Dictionary<Type, Func<string, object?>>()
+        {
+            { typeof(string), v => v },
+            { typeof(int), v => int.TryParse(v, out var i) ? i : null },
+            { typeof(int?), v => int.TryParse(v, out var i) ? (int?)i : null },
+            { typeof(long), v => long.TryParse(v, out var l) ? l : null },
+            { typeof(long?), v => long.TryParse(v, out var l) ? (long?)l : null },
+            { typeof(bool), v => bool.TryParse(v, out var b) ? b : null },
+            { typeof(bool?), v => bool.TryParse(v, out var b) ? (bool?)b : null },
+        };
+
+        private static readonly List<(Type key, Func<object, IActionResult> factory)> ResultMap = new()
+        {
+            (typeof(IActionResult), v => (IActionResult)v),
+            (typeof(string),       v => new ContentResult((string)v)),
+            (typeof(object),       v => new JsonResult(v)) // fallback
+        };
+
         public static async Task InvokeAsync(HttpContext ctx, Endpoint ep, IDictionary<string, string> routeValues)
         {
             // Create controller
@@ -17,47 +35,38 @@ namespace CustomMVC.Core.Routing
             var paramInfos = method.GetParameters();
             var args = new object?[paramInfos.Length];
 
-            // Bind params from route -> query
             for (int i = 0; i < paramInfos.Length; i++)
             {
                 var p = paramInfos[i];
-                if (routeValues.TryGetValue(p.Name!, out var fromRoute))
-                {
-                    args[i] = ConvertSimple(fromRoute, p.ParameterType);
-                    continue;
-                }
 
-                if (ctx.Request.Query.TryGetValue(p.Name!, out var fromQuery))
-                {
-                    args[i] = ConvertSimple(fromQuery, p.ParameterType);
-                    continue;
-                }
-
-                // default
-                args[i] = p.HasDefaultValue
-                    ? p.DefaultValue
-                    : (p.ParameterType.IsValueType ? Activator.CreateInstance(p.ParameterType) : null);
+                args[i] =
+                    routeValues.TryGetValue(p.Name!, out var fromRoute) ? ConvertSimple(fromRoute, p.ParameterType) :
+                    ctx.Request.Query.TryGetValue(p.Name!, out var fromQuery) ? ConvertSimple(fromQuery, p.ParameterType) :
+                    p.HasDefaultValue ? p.DefaultValue :
+                    p.ParameterType.IsValueType ? Activator.CreateInstance(p.ParameterType) :
+                    null;
             }
 
             // Invoke
             var result = method.Invoke(controller, args);
 
-            // Normalize output
-            if (result is IActionResult ar)
-                await ar.ExecuteAsync(ctx);
-            else if (result is string s)
-                await new ContentResult(s).ExecuteAsync(ctx);
-            else
-                await new JsonResult(result!).ExecuteAsync(ctx);
+            var t = result?.GetType();
+
+            var factory = ResultMap
+                .OrderByDescending(e => e.key == t)                  
+                .ThenByDescending(e => e.key.IsAssignableFrom(t))  
+                .Select(e => e.factory)
+                .First();
+
+            await factory(result!).ExecuteAsync(ctx);
+
         }
 
         private static object? ConvertSimple(string value, Type t)
         {
-            if (t == typeof(string)) return value;
-            if (t == typeof(int) || t == typeof(int?)) return int.TryParse(value, out var i) ? i : null;
-            if (t == typeof(long) || t == typeof(long?)) return long.TryParse(value, out var l) ? l : null;
-            if (t == typeof(bool) || t == typeof(bool?)) return bool.TryParse(value, out var b) ? b : null;
-            return value; // fallback
+            return Parsers.TryGetValue(t, out var parser)
+            ? parser(value)
+            : value; // fallback
         }
     }
 }

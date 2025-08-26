@@ -27,5 +27,14 @@ namespace CustomMVC.Core.Http
             _raw.ContentLength64 = bytes.Length;
             await _raw.OutputStream.WriteAsync(bytes, startOffset, bytes.Length);
         }
+
+        public async Task WriteAsync(byte[] bytes, string contentType)
+        {
+            _raw.ContentType = contentType;
+            foreach (var kv in Headers) _raw.Headers[kv.Key] = kv.Value;
+            _raw.ContentLength64 = bytes.Length;
+            await _raw.OutputStream.WriteAsync(bytes, 0, bytes.Length);
+        }
+
     }
 }

@@ -6,17 +6,22 @@ namespace CustomMVC.Samples
     public sealed class UsersController : ControllerBase
     {
         // GET /users/{id}
-        public IActionResult Show(int id)
-        {
-            // example logic (mock)
-            return Json(new { id, name = $"user-{id}" });
-        }
+        public IActionResult Show(int id) => Json(new { id, name = $"user-{id}" });
 
         // GET /users/find?name=alice
-        public IActionResult Find(string name)
+        public IActionResult Find(string name) => Ok($"Looking for user: {name}");
+
+        // GET /users/notfound
+        public IActionResult NotFoundDemo() => StatusCode(404, "User not found");
+
+        // GET /users/redirect
+        public IActionResult RedirectDemo() => Redirect("/hello"); // 302 by default
+
+        // GET /users/file
+        public IActionResult FileDemo()
         {
-            // read from query binder set (name)
-            return Ok($"Looking for user: {name}");
+            var bytes = System.Text.Encoding.UTF8.GetBytes("Sample file content");
+            return File(bytes, "text/plain; charset=utf-8", "sample.txt");
         }
     }
 }
