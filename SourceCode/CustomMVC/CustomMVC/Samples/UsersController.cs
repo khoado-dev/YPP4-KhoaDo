@@ -28,5 +28,12 @@ namespace CustomMVC.Samples
         {
             return Json(_users);
         }
+        public IActionResult Profile(int id)
+        {
+            var user = _users.FirstOrDefault(u => u.Id == id);
+            return View(user); // will find Views/Users/Profile.html
+        }
+
+
     }
 }

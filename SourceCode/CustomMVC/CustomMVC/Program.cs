@@ -13,14 +13,15 @@ namespace CustomMVC
             // 1) Initialize router and register routes
             var router = new RouteTable();
 
-            router.Map(HttpMethod.GET, "/hello", async (ctx, rv) =>
+            router.Map(HttpMethod.GET, "/", async (ctx, rv) =>
             {
-                await ctx.Response.WriteAsync("Hello");
+                await ctx.Response.WriteAsync("Hello World");
             });
 
-            // map tới controller/action
+            // map to controller/action
             router.Map(HttpMethod.GET, "/users", typeof(UsersController), nameof(UsersController.GetUsers));
             router.Map(HttpMethod.GET, "/users/{email}", typeof(UsersController), nameof(UsersController.GetUserByEmail));
+            router.Map(HttpMethod.GET, "/users/{id}/profile", typeof(UsersController), nameof(UsersController.Profile));
 
 
             var server = new HttpServer(

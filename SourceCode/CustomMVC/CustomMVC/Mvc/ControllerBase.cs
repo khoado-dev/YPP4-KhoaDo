@@ -21,9 +21,14 @@ namespace CustomMVC.Mvc
 
         protected IActionResult Redirect(string url, bool permanent = false) =>
             new RedirectResult(url, permanent);
+        protected IActionResult View(object? model = null, string? viewName = null)
+        {
+            var action = viewName ?? HttpContext.Items["__actionName"]?.ToString() ?? "Index";
+            var controller = GetType().Name.Replace("Controller", "");
+            var fullViewName = $"{controller}/{action}";
+            return new ViewResult(fullViewName, model);
+        }
 
-        protected IActionResult File(byte[] bytes, string contentType, string? downloadFileName = null) =>
-            new FileResult(bytes, contentType, downloadFileName);
 
     }
 }

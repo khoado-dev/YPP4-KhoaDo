@@ -47,7 +47,9 @@ namespace CustomMVC.Core.Routing
                     null;
             }
 
-            // Invoke
+            ctx.Items["__actionName"] = ep.Action.Name;
+
+            // Invoke method of controller
             var result = method.Invoke(controller, args);
 
             var t = result?.GetType();
