@@ -14,7 +14,7 @@ namespace CustomMVC.Samples
 
         public IActionResult GetUserByEmail(string email)
         {
-            var user = _userService.GetUserByEmail(email);
+            var user = _userService.GetUserByEmail(email); //call api here next time
 
             return user != null ? Json(user) : NotFound($"User with email {email} was not found!");
         }
@@ -25,7 +25,7 @@ namespace CustomMVC.Samples
         }
         public IActionResult Profile(int id)
         {
-            var user = _userService.GetUserById(id);
+            var user = _userService.GetUserById(id); //call api here next time
 
             return user != null ? View(user) : NotFound("User was not exist!"); // will find Views/Users/Profile.html
         }

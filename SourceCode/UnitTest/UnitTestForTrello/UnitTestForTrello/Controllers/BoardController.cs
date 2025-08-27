@@ -5,8 +5,8 @@ namespace UnitTestForTrello.Controllers
 {
     public class BoardController
     {
-        private readonly BoardService _boardService;
-        public BoardController(BoardService boardService)
+        private readonly IBoardService _boardService;
+        public BoardController(IBoardService boardService)
         {
             _boardService = boardService;
         }

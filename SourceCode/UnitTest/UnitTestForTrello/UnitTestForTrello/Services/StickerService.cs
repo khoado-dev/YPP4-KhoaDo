@@ -1,13 +1,15 @@
 ﻿using UnitTestForTrello.Models.DTOs;
 using UnitTestForTrello.Repositories;
+using UnitTestForTrello.Repositories.IRepositories;
+using UnitTestForTrello.Services.IServices;
 
 namespace UnitTestForTrello.Services
 {
-    public class StickerService
+    public class StickerService : IStickerService
     {
-        private readonly StickerRepository _stickerRepository;
+        private readonly IStickerRepository _stickerRepository;
 
-        public StickerService(StickerRepository stickerRepository)
+        public StickerService(IStickerRepository stickerRepository)
         {
             _stickerRepository = stickerRepository;
         }

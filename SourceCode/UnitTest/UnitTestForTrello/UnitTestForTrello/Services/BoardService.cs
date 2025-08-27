@@ -4,11 +4,11 @@ using UnitTestForTrello.Repositories.IRepositories;
 
 namespace UnitTestForTrello.Services.IServices
 {
-    public class BoardService
+    public class BoardService : IBoardService
     {
-        private readonly BoardRepository _boardRepository;
+        private readonly IBoardRepository _boardRepository;
 
-        public BoardService(BoardRepository boardRepository)
+        public BoardService(IBoardRepository boardRepository)
         {
             _boardRepository = boardRepository;
         }

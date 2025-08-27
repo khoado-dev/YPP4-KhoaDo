@@ -1,11 +1,12 @@
 ﻿using Dapper;
 using System.Data;
 using UnitTestForTrello.Models.DTOs;
+using UnitTestForTrello.Repositories.IRepositories;
 using UnitTestForTrello.Tests.Utility;
 
 namespace UnitTestForTrello.Repositories
 {
-    public class TemplateRepository
+    public class TemplateRepository : ITemplateRepository
     {
         private readonly IDbConnection _con;
         private readonly ICustomCache _cache;

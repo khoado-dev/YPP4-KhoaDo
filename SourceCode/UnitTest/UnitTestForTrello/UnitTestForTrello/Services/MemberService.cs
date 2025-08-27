@@ -6,9 +6,9 @@ namespace UnitTestForTrello.Services.IServices
 {
     public class MemberService : IMemberService
     {
-        private readonly MemberRepository _memberRepository;
+        private readonly IMemberRepository _memberRepository;
 
-        public MemberService(MemberRepository memberRepository)
+        public MemberService(IMemberRepository memberRepository)
         {
             _memberRepository = memberRepository;
         }
