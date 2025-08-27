@@ -30,7 +30,7 @@ namespace CustomMVC.App.Controllers
         [HttpGet("profile/{id}")]
         public IActionResult Profile(int id)
         {
-            var user = _userService.GetUserById(id); //call api here next time 
+            var user = _userService.GetUserById(id);
 
             return user != null ? View(user) : NotFound("User was not exist!"); // will find Views/Users/Profile.html
         }

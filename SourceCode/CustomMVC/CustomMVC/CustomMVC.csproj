@@ -6,6 +6,12 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.1.66" />
+    <PackageReference Include="Microsoft.Data.Sqlite.Core" Version="9.0.8" />
+    <PackageReference Include="SQLitePCLRaw.bundle_e_sqlite3" Version="3.0.1" />
+  </ItemGroup>
 	<ItemGroup>
 	  <None Update="App\Views\Users\ListUsers.html">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
