@@ -5,33 +5,29 @@ namespace CustomMVC.Samples
 {
     public sealed class UsersController : ControllerBase
     {
-        private readonly List<UserDTO> _users;
-        public UsersController()
+        private readonly IUserService _userService;
+
+        public UsersController(IUserService userService)
         {
-            // Seed some users
-            _users = new List<UserDTO>
-            {
-                new UserDTO { Id = 1, Name = "Alice", Email = "alice@example.com" },
-                new UserDTO { Id = 2, Name = "Bob", Email = "bob@example.com" },
-                new UserDTO { Id = 3, Name = "Charlie", Email = "charlie@example.com" }
-            };
+            _userService = userService;
         }
 
         public IActionResult GetUserByEmail(string email)
         {
-            var user = _users.FirstOrDefault(u =>
-                u.Email.Equals(email, StringComparison.OrdinalIgnoreCase));
+            var user = _userService.GetUserByEmail(email);
+
             return user != null ? Json(user) : NotFound($"User with email {email} was not found!");
         }
-
+        
         public IActionResult GetUsers()
         {
-            return Json(_users);
+            return Json(_userService);
         }
         public IActionResult Profile(int id)
         {
-            var user = _users.FirstOrDefault(u => u.Id == id);
-            return View(user); // will find Views/Users/Profile.html
+            var user = _userService.GetUserById(id);
+
+            return user != null ? View(user) : NotFound("User was not exist!"); // will find Views/Users/Profile.html
         }
 
 
