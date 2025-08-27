@@ -6,8 +6,8 @@ namespace UnitTestForTrello.Controllers
 {
     public class SettingController
     {
-        private readonly SettingService _settingService;
-        public SettingController(SettingService settingService)
+        private readonly ISettingService _settingService;
+        public SettingController(ISettingService settingService)
         {
             _settingService = settingService;
         }

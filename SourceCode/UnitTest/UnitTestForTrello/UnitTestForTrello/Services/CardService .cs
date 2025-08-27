@@ -6,9 +6,9 @@ namespace UnitTestForTrello.Services.IServices
 {
     public class CardService : ICardService
     {
-        private readonly CardRepository _cardRepository;
+        private readonly ICardRepository _cardRepository;
 
-        public CardService(CardRepository cardRepository)
+        public CardService(ICardRepository cardRepository)
         {
             _cardRepository = cardRepository;
         }

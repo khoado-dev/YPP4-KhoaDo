@@ -9,9 +9,9 @@ namespace CustomMVC
 {
     internal class Program
     {
-        private const string DefaultUrl = "http://localhost:5000/";
         static async Task Main(string[] args)
         {
+            var prefixes = new[] { "http://localhost:5000/" };
             // 1) Initialize router and register routes
             var router = new RouteTable();
 
@@ -29,7 +29,7 @@ namespace CustomMVC
             router.Map(HttpMethod.GET, "/users/{id}/profile", typeof(UsersController), nameof(UsersController.Profile));
 
             var server = new HttpServer(
-                new[] { DefaultUrl },
+                prefixes,
                 app: async ctx =>
                 {
                     var matched = router.Match(ctx.Request.Method, ctx.Request.Path);
@@ -44,7 +44,7 @@ namespace CustomMVC
                     await entry.Handler(ctx, routeValues);
                 });
 
-            Console.WriteLine($"Listening at {DefaultUrl}");
+            Console.WriteLine($"Listening at {prefixes[0]}");
             await server.StartAsync();
         }
     }

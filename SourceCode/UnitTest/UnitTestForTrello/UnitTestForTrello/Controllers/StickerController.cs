@@ -1,13 +1,12 @@
-﻿
-using UnitTestForTrello.Models.DTOs;
-using UnitTestForTrello.Services;
+﻿using UnitTestForTrello.Models.DTOs;
+using UnitTestForTrello.Services.IServices;
 
 namespace UnitTestForTrello.Controllers
 {
     public class StickerController
     {
-        private readonly StickerService _stickerService;
-        public StickerController(StickerService stickerService)
+        private readonly IStickerService _stickerService;
+        public StickerController(IStickerService stickerService)
         {
             _stickerService = stickerService;
         }

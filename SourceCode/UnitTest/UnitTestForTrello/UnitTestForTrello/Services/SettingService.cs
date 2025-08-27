@@ -1,15 +1,14 @@
 ﻿using UnitTestForTrello.Models.DTOs;
-using UnitTestForTrello.Repositories;
 using UnitTestForTrello.Repositories.IRepositories;
 using UnitTestForTrello.Tests.Utility;
 
 namespace UnitTestForTrello.Services.IServices
 {
-    public class SettingService
+    public class SettingService : ISettingService
     {
-        private readonly SettingRepository _settingRepository;
+        private readonly ISettingRepository _settingRepository;
 
-        public SettingService(SettingRepository settingRepository)
+        public SettingService(ISettingRepository settingRepository)
         {
             _settingRepository = settingRepository;
         }

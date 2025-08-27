@@ -1,10 +1,11 @@
 ﻿using Dapper;
 using System.Data;
 using UnitTestForTrello.Models.DTOs;
+using UnitTestForTrello.Repositories.IRepositories;
 
 namespace UnitTestForTrello.Repositories
 {
-    public class NotificationRepository
+    public class NotificationRepository : INotificationRepository
     {
         private readonly IDbConnection _con;
         public NotificationRepository()

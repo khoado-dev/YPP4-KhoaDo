@@ -1,13 +1,13 @@
 ﻿using UnitTestForTrello.Models.DTOs;
-using UnitTestForTrello.Services;
+using UnitTestForTrello.Services.IServices;
 
 namespace UnitTestForTrello.Controllers
 {
     public class CollectionController
     {
-        private readonly CollectionService _collectionService;
+        private readonly ICollectionService _collectionService;
 
-        public CollectionController(CollectionService collectionService)
+        public CollectionController(ICollectionService collectionService)
         {
             _collectionService = collectionService;
         }

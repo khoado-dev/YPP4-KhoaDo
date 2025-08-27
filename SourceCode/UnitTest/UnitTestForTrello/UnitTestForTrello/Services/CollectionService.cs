@@ -1,22 +1,24 @@
 ﻿using UnitTestForTrello.Models.DTOs;
 using UnitTestForTrello.Repositories;
+using UnitTestForTrello.Repositories.IRepositories;
+using UnitTestForTrello.Services.IServices;
 namespace UnitTestForTrello.Services
 {
-    public class CollectionService
+    public class CollectionService : ICollectionService
     {
-        private readonly CollectionRepository _collectionRepository;
+        private readonly ICollectionRepository _collectionRepository;
 
-        public CollectionService(CollectionRepository collectionRepository)
+        public CollectionService(ICollectionRepository collectionRepository)
         {
             _collectionRepository = collectionRepository;
         }
 
-        internal IEnumerable<BoardWithCollectionDTO>? GetBoardsWithCollectionsInWorkspace(int workspaceId)
+        public IEnumerable<BoardWithCollectionDTO>? GetBoardsWithCollectionsInWorkspace(int workspaceId)
         {
             return _collectionRepository.GetBoardsWithCollectionsInWorkspace(workspaceId);
         }
 
-        internal IEnumerable<CollectionDTO>? GetCollectionsByWorkspace(int workspaceId)
+        public IEnumerable<CollectionDTO>? GetCollectionsByWorkspace(int workspaceId)
         {
             return _collectionRepository.GetCollectionsByWorkspace(workspaceId);
         }

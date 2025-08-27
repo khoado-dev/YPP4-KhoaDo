@@ -6,8 +6,8 @@ namespace UnitTestForTrello.Controllers
 {
     public class TemplateController
     {
-        private readonly TemplateService _templateService;
-        public TemplateController(TemplateService templateService)
+        private readonly ITemplateService _templateService;
+        public TemplateController(ITemplateService templateService)
         {
             _templateService = templateService;
         }

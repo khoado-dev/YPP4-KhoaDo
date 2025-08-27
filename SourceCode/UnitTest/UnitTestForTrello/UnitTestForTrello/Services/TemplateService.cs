@@ -1,13 +1,15 @@
 ﻿using UnitTestForTrello.Models.DTOs;
 using UnitTestForTrello.Repositories;
+using UnitTestForTrello.Repositories.IRepositories;
+using UnitTestForTrello.Services.IServices;
 
 namespace UnitTestForTrello.Services
 {
-    public class TemplateService
+    public class TemplateService : ITemplateService
     {
-        private readonly TemplateRepository _templateRepository;
+        private readonly ITemplateRepository _templateRepository;
 
-        public TemplateService(TemplateRepository templateRepository)
+        public TemplateService(ITemplateRepository templateRepository)
         {
             _templateRepository = templateRepository;
         }
