@@ -1,24 +1,60 @@
-﻿using CustomMVC.App.Models;
+﻿using CustomMVC.App.Data;
+using CustomMVC.App.Models;
 using CustomMVC.App.Repositories.IRepository;
+using Dapper;
 
 namespace CustomMVC.App.Repositories
 {
     public class UserRepository : IUserRepository
     {
-        // Seed data at repository
-        private readonly List<UserDTO> _users = new()
+        private readonly IDbConnection _db;
+
+        public UserRepository(IDbConnection db)
         {
-            new UserDTO { Id = 1, Name = "Alice",   Email = "alice@example.com" },
-            new UserDTO { Id = 2, Name = "Bob",     Email = "bob@example.com" },
-            new UserDTO { Id = 3, Name = "Charlie", Email = "charlie@example.com" }
-        };
+            _db = db;
+        }
 
-        public IEnumerable<UserDTO> GetAll() => _users;
+        public IEnumerable<UserDTO> GetAll() {
+            const string sql = @"
+            SELECT 
+              Id, 
+              Name,
+              Email
+            FROM 
+              Users;
+            ";
+            using var conn = _db.Open();
+            return conn.Query<UserDTO>(sql);
+        }
 
-        public UserDTO? GetByEmail(string email) =>
-            _users.FirstOrDefault(u => u.Email.Equals(email, StringComparison.OrdinalIgnoreCase));
-
-        public UserDTO? GetById(int id) =>
-            _users.FirstOrDefault(u => u.Id == id);
+        public UserDTO? GetByEmail(string email)
+        {
+            const string sql = @"
+            SELECT 
+              Id, 
+              Name, 
+              Email
+            FROM 
+              Users 
+            WHERE 
+              Email = @Email;
+            ";
+            using var conn = _db.Open();
+            return conn.QueryFirstOrDefault<UserDTO>(sql, new { Email = email });
+        }
+        public UserDTO? GetById(int id) {
+            const string sql = @"
+            SELECT 
+              Id, 
+              Name, 
+              Email
+            FROM 
+              Users 
+            WHERE 
+              Id = @UserId;
+            ";
+            using var conn = _db.Open();
+            return conn.QueryFirstOrDefault<UserDTO>(sql, new { UserId = id });
+        }
     }
 }

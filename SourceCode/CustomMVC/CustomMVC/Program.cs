@@ -1,4 +1,5 @@
-﻿using CustomMVC.App.Repositories;
+﻿using CustomMVC.App.Data;
+using CustomMVC.App.Repositories;
 using CustomMVC.App.Repositories.IRepository;
 using CustomMVC.App.Service;
 using CustomMVC.App.Service.IService;
@@ -48,6 +49,9 @@ namespace CustomMVC
 
         private static void ConfigureDependencies()
         {
+            var db = new DbConnection();
+            db.EnsureCreatedAndSeed();
+            ReflectionFactory.RegisterInstance<IDbConnection>(db);
             ReflectionFactory.Register<IUserService, UserService>();
             ReflectionFactory.Register<IUserRepository, UserRepository>();
         }
