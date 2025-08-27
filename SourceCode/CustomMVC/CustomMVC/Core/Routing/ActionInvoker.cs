@@ -1,5 +1,5 @@
-﻿using System.Reflection;
-using CustomMVC.Core.Http;
+﻿using CustomMVC.Core.Http;
+using CustomMVC.DI;
 using CustomMVC.Mvc;
 using CustomMVC.Mvc.Results;
 
@@ -28,7 +28,8 @@ namespace CustomMVC.Core.Routing
         public static async Task InvokeAsync(HttpContext ctx, Endpoint ep, IDictionary<string, string> routeValues)
         {
             // Create controller
-            var controller = (ControllerBase)Activator.CreateInstance(ep.ControllerType)!;
+
+            var controller = (ControllerBase)ReflectionFactory.Get(ep.ControllerType);
             controller.HttpContext = ctx;
 
             var method = ep.Action;
@@ -43,7 +44,7 @@ namespace CustomMVC.Core.Routing
                     routeValues.TryGetValue(p.Name!, out var fromRoute) ? ConvertSimple(fromRoute, p.ParameterType) :
                     ctx.Request.Query.TryGetValue(p.Name!, out var fromQuery) ? ConvertSimple(fromQuery, p.ParameterType) :
                     p.HasDefaultValue ? p.DefaultValue :
-                    p.ParameterType.IsValueType ? Activator.CreateInstance(p.ParameterType) :
+                    p.ParameterType.IsValueType ? ReflectionFactory.Get(p.ParameterType) :
                     null;
             }
 

@@ -4,5 +4,6 @@
     {
         IEnumerable<UserDTO> GetAllUsers();
         UserDTO? GetUserByEmail(string email);
+        UserDTO? GetUserById(int id);
     }
 }
