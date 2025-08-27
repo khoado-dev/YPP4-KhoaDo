@@ -48,7 +48,7 @@ namespace CustomMVC.Core.Routing
                     null;
             }
 
-            ctx.Items["__actionName"] = ep.Action.Name;
+            ctx.Items["__actionName"] = ep.Action.Name; //for find name of View
 
             // Invoke method of controller
             var result = method.Invoke(controller, args);

@@ -23,9 +23,10 @@ namespace CustomMVC.Core.Mvc
             new RedirectResult(url, permanent);
         protected IActionResult View(object? model = null, string? viewName = null)
         {
-            var action = viewName ?? HttpContext.Items["__actionName"]?.ToString() ?? "Index";
+            var action = viewName ?? HttpContext.Items["__actionName"]?.ToString() ?? "Index"; //priority: parameter, HttpContext, default
             var controller = GetType().Name.Replace("Controller", "");
             var fullViewName = $"{controller}/{action}";
+
             return new ViewResult(fullViewName, model);
         }
 

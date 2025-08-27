@@ -8,7 +8,6 @@ namespace CustomMVC.App.Service
     {
         private readonly IUserRepository _repo;
 
-        // Inject repository qua constructor
         public UserService(IUserRepository repo)
         {
             _repo = repo;
