@@ -1,4 +1,6 @@
-﻿namespace CustomMVC.Samples
+﻿using CustomMVC.App.Models;
+
+namespace CustomMVC.App.Repositories.IRepository
 {
     public interface IUserRepository
     {

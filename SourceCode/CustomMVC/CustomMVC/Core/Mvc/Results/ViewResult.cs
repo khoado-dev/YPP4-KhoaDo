@@ -1,7 +1,7 @@
 ﻿using CustomMVC.Core.Http;
-using CustomMVC.Mvc.Views;
+using CustomMVC.Core.Mvc.Views;
 
-namespace CustomMVC.Mvc.Results
+namespace CustomMVC.Core.Mvc.Results
 {
     public sealed class ViewResult : IActionResult
     {

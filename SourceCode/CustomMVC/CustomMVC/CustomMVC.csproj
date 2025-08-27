@@ -7,10 +7,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 	<ItemGroup>
-	  <None Update="Mvc\Views\Users\ListUsers.html">
+	  <None Update="App\Views\Users\ListUsers.html">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="Mvc\Views\Users\Profile.html">
+	  <None Update="App\Views\Users\Profile.html">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
 	</ItemGroup>

@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace CustomMVC.Mvc.Views
+namespace CustomMVC.Core.Mvc.Views
 {
     public sealed class SimpleViewEngine : IViewEngine
     {
@@ -8,7 +8,7 @@ namespace CustomMVC.Mvc.Views
 
         public SimpleViewEngine()
         {
-            _basePath = Path.Combine(AppContext.BaseDirectory, "Mvc", "Views");
+            _basePath = Path.Combine(AppContext.BaseDirectory, "App", "Views");
         }
 
         public string Render(string viewName, object? model)

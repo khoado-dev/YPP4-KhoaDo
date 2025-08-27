@@ -1,7 +1,7 @@
 ﻿using System.Text.Json;
 using CustomMVC.Core.Http;
 
-namespace CustomMVC.Mvc.Results
+namespace CustomMVC.Core.Mvc.Results
 {
     public sealed class JsonResult : IActionResult
     {

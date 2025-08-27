@@ -1,4 +1,4 @@
-﻿namespace CustomMVC.Mvc.Views
+﻿namespace CustomMVC.Core.Mvc.Views
 {
     public interface IViewEngine
     {
