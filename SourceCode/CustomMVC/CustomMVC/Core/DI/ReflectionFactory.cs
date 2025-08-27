@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace CustomMVC.DI
+namespace CustomMVC.Core.DI
 {
     // Purpose: Use reflection and recursion to create and resolve type instances automatically.
     // Supports interface-to-implementation mapping, factories, singletons, and transients.

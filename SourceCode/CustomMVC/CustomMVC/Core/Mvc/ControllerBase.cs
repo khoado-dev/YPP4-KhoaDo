@@ -1,7 +1,7 @@
 ﻿using CustomMVC.Core.Http;
-using CustomMVC.Mvc.Results;
+using CustomMVC.Core.Mvc.Results;
 
-namespace CustomMVC.Mvc
+namespace CustomMVC.Core.Mvc
 {
     public abstract class ControllerBase
     {

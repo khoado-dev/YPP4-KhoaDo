@@ -1,6 +1,6 @@
 ﻿using CustomMVC.Core.Http;
 
-namespace CustomMVC.Mvc.Results
+namespace CustomMVC.Core.Mvc.Results
 {
     public sealed class StatusCodeResult : IActionResult
     {

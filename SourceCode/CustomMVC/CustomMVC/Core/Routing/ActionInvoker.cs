@@ -1,7 +1,7 @@
-﻿using CustomMVC.Core.Http;
-using CustomMVC.DI;
-using CustomMVC.Mvc;
-using CustomMVC.Mvc.Results;
+﻿using CustomMVC.Core.DI;
+using CustomMVC.Core.Http;
+using CustomMVC.Core.Mvc;
+using CustomMVC.Core.Mvc.Results;
 
 namespace CustomMVC.Core.Routing
 {

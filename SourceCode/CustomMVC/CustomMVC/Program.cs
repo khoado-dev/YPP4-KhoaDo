@@ -1,8 +1,10 @@
-﻿using CustomMVC.Core.Http;
+﻿using CustomMVC.App.Repositories;
+using CustomMVC.App.Repositories.IRepository;
+using CustomMVC.App.Service;
+using CustomMVC.App.Service.IService;
+using CustomMVC.Core.DI;
+using CustomMVC.Core.Http;
 using CustomMVC.Core.Routing;
-using CustomMVC.DI;
-using CustomMVC.Mvc.Views;
-using CustomMVC.Samples;
 using HttpMethod = CustomMVC.Core.Http.HttpMethod;
 
 namespace CustomMVC
@@ -12,21 +14,17 @@ namespace CustomMVC
         static async Task Main(string[] args)
         {
             var prefixes = new[] { "http://localhost:5000/" };
+
             // 1) Initialize router and register routes
             var router = new RouteTable();
-
+            RouteScanner.Build(router, typeof(Program).Assembly);
+            //default route
             router.Map(HttpMethod.GET, "/", async (ctx, rv) =>
             {
                 await ctx.Response.WriteAsync("Hello World");
             });
 
-            ReflectionFactory.Register<IUserService, UserService>();
-            ReflectionFactory.Register<IUserRepository, UserRepository>();
-
-            // map to controller/action
-            router.Map(HttpMethod.GET, "/users", typeof(UsersController), nameof(UsersController.GetUsers));
-            router.Map(HttpMethod.GET, "/users/{email}", typeof(UsersController), nameof(UsersController.GetUserByEmail));
-            router.Map(HttpMethod.GET, "/users/{id}/profile", typeof(UsersController), nameof(UsersController.Profile));
+            ConfigureDependencies();
 
             var server = new HttpServer(
                 prefixes,
@@ -46,6 +44,12 @@ namespace CustomMVC
 
             Console.WriteLine($"Listening at {prefixes[0]}");
             await server.StartAsync();
+        }
+
+        private static void ConfigureDependencies()
+        {
+            ReflectionFactory.Register<IUserService, UserService>();
+            ReflectionFactory.Register<IUserRepository, UserRepository>();
         }
     }
 }
