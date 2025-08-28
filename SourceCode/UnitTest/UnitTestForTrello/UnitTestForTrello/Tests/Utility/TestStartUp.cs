@@ -13,11 +13,11 @@ namespace UnitTestForTrello
         private static Router? router;
 
         public static SqliteConnection? Conn { get => _conn; set => _conn = value; }
-        public static CustomCache Cache { get => cache; set => cache = value; }
+        public static CustomCache? Cache { get => cache; set => cache = value; }
         public static Router? Router { get => router; private set => router = value; }
 
         [AssemblyInitialize]
-        public static void AssemblyInit()
+        public static void AssemblyInit(TestContext ctx)
         {
             cache = new CustomCache();
             _conn = TestDatabase.OpenAndInit();
