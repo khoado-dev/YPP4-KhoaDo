@@ -16,10 +16,10 @@ public sealed class RouteTable
     public void Map(HttpMethod method, string template, Type controllerType, string actionName)
     {
         var segs = NormalizePath(template).Split('/', StringSplitOptions.RemoveEmptyEntries);
-        var mi = controllerType.GetMethod(actionName, BindingFlags.Instance | BindingFlags.Public)
+        var mi = controllerType.GetMethod(actionName, BindingFlags.Instance | BindingFlags.Public) //get public instance method
                  ?? throw new InvalidOperationException($"Action '{actionName}' not found on {controllerType.Name}");
 
-        RouteHandler handler = async (ctx, rv) =>
+        RouteHandler handler = async (ctx, rv) => // define handler that invokes the action
             await ActionInvoker.InvokeAsync(ctx, new Endpoint(controllerType, mi), rv);
 
         _routes.Add(new RouteEntry(method, segs, handler));
