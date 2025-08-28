@@ -13,6 +13,7 @@
                 <th>Id</th>
                 <th>Name</th>
                 <th>Email</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -22,6 +23,9 @@
                 <td>@u.Id</td>
                 <td>@u.Name</td>
                 <td>@u.Email</td>
+                <td>
+                    <a href="/users/@u.Id">Details</a>
+                </td>
             </tr>
             }
         </tbody>

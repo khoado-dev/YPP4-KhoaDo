@@ -28,7 +28,6 @@ namespace CustomMVC.Core.Routing
         public static async Task InvokeAsync(HttpContext ctx, Endpoint ep, IDictionary<string, string> routeValues)
         {
             // Create controller
-
             var controller = (ControllerBase)ReflectionFactory.Get(ep.ControllerType);
             controller.HttpContext = ctx;
 

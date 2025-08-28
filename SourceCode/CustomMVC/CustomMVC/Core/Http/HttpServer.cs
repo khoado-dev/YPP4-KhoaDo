@@ -31,7 +31,7 @@ namespace CustomMVC.Core.Http
 
                 _ = Task.Run(async () =>
                 {
-                    var httpCtx = new HttpContext(new HttpRequest(ctx.Request), new HttpResponse(ctx.Response));
+                    var httpCtx = new HttpContext(new HttpRequest(ctx.Request), new HttpResponse(ctx.Response)); // create custom HttpContext by request and response of HttpListenerContext
 
                     try
                     {

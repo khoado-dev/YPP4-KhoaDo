@@ -39,8 +39,8 @@ namespace CustomMVC
                         return;
                     }
 
-                    var (entry, routeValues) = matched.Value;
-                    await entry.Handler(ctx, routeValues);
+                    var (routeEntry, routeValues) = matched.Value;
+                    await routeEntry.Handler(ctx, routeValues); // Call the handler
                 });
 
             Console.WriteLine($"Listening at {prefixes[0]}");

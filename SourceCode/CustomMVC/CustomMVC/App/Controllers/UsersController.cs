@@ -23,19 +23,18 @@ namespace CustomMVC.App.Controllers
             return View(new
             {
                 Users = users,
-                //Total = users.Count()
             },
             "ListUsers"
             );
         }
         public IActionResult GetUserByEmail(string email)
         {
-            var user = _userService.GetUserByEmail(email); //call api here next time
+            var user = _userService.GetUserByEmail(email);
 
             return user != null ? Json(user) : NotFound($"User with email {email} was not found!");
         }
 
-        [HttpGet("profile/{id}")]
+        [HttpGet("{id}")]
         public IActionResult Profile(int id)
         {
             var user = _userService.GetUserById(id);
