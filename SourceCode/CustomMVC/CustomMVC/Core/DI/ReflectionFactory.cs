@@ -88,7 +88,7 @@ namespace CustomMVC.Core.DI
 
         private static Type ResolveImplementationType(Type service)
         {
-            return _implMap.TryGetValue(service, out var impl) ? impl : service;
+            return _implMap.TryGetValue(service, out var impl) ? impl : service; //try to get interface of that implement type
         }
     }
 }

@@ -955,7 +955,6 @@ namespace UnitTestForTrello.Tests.Utility
                 (101, 1001),
                 (101, 1002);
 
-            -- ownerId = 1 chọn Dark (1002) + bật AllowGuests=1
             INSERT INTO SettingValue (Id, SettingKeyId, SettingContent, CreatedAt, OwnerId)
             VALUES
                 (5001, 101, 1002, datetime('now','-1 day'), 1),
@@ -980,7 +979,6 @@ namespace UnitTestForTrello.Tests.Utility
                 (201, 2001),
                 (201, 2002);
 
-            -- ownerId = 1 chọn Comfortable (2002) + EnableVoting=1
             INSERT INTO SettingValue (Id, SettingKeyId, SettingContent, CreatedAt, OwnerId)
             VALUES
                 (6001, 201, 2002, datetime('now','-1 day'), 1),
@@ -1005,7 +1003,6 @@ namespace UnitTestForTrello.Tests.Utility
                 (301, 3001),
                 (301, 3002);
 
-            -- ownerId = 1 chọn Vietnamese (3002) + tắt EmailNotifications=0
             INSERT INTO SettingValue (Id, SettingKeyId, SettingContent, CreatedAt, OwnerId)
             VALUES
                 (7001, 301, 3002, datetime('now','-1 day'), 1),

@@ -6,8 +6,8 @@ namespace UnitTestForTrello.Controllers
 {
     public class WorkspaceController
     {
-        private readonly WorkspaceService _workspaceService;
-        public WorkspaceController(WorkspaceService workspaceService)
+        private readonly IWorkspaceService _workspaceService;
+        public WorkspaceController(IWorkspaceService workspaceService)
         {
             _workspaceService = workspaceService;
         }
@@ -22,7 +22,7 @@ namespace UnitTestForTrello.Controllers
             return _workspaceService.GetWorkspaceTypes();
         }
 
-        public WorkspaceDetailDTO GetWorkspaceDetailById(int workspaceId)
+        public WorkspaceDetailDTO? GetWorkspaceDetailById(int workspaceId)
         {
             return _workspaceService.GetWorkspaceDetailById(workspaceId);
         }

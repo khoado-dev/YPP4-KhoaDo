@@ -23,7 +23,7 @@ namespace UnitTestForTrello
             listener.Start();
             Console.WriteLine($"API listening on {string.Join(", ", prefixes)}");
 
-            TestStartup.AssemblyInit();
+            //TestStartup.AssemblyInit();
             var router = TestStartup.Router;
 
             while (true)

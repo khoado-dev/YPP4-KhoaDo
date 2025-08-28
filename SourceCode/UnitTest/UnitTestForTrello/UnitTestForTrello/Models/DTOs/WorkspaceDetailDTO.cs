@@ -3,11 +3,11 @@
     public class WorkspaceDetailDTO
     {
         public int WorkspaceId { get; set; }
-        public string LogoUrl { get; set; }
-        public string WorkspaceName { get; set; }
-        public string ShortName { get; set; }
-        public string Website { get; set; }
-        public string WorkspaceDescription { get; set; }
+        public string LogoUrl { get; set; } = string.Empty;
+        public string WorkspaceName { get; set; } = string.Empty;
+        public string ShortName { get; set; } = string.Empty;
+        public string Website { get; set; } = string.Empty;
+        public string WorkspaceDescription { get; set; } = string.Empty;
     }
 
 }
