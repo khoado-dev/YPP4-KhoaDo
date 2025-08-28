@@ -17,7 +17,7 @@ namespace UnitTestForTrello.Repositories
             _cache = TestStartup.Cache;
         }
 
-        public IEnumerable<TemplateCategoryDTO>? GetAllCategories()
+        public IEnumerable<TemplateCategoryDTO>? GetTemplateCategories()
         {
             const string sql = @"
             SELECT 

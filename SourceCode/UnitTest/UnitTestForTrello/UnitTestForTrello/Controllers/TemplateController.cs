@@ -12,9 +12,9 @@ namespace UnitTestForTrello.Controllers
             _templateService = templateService;
         }
 
-        public IEnumerable<TemplateCategoryDTO>? GetAllCategories()
+        public IEnumerable<TemplateCategoryDTO>? GetTemplateCategories()
         {
-            return _templateService.GetAllCategories();
+            return _templateService.GetTemplateCategories();
         }
 
         public IEnumerable<TemplateByCategoryDTO>? GetTemplatesByCategory(int categoryId)
