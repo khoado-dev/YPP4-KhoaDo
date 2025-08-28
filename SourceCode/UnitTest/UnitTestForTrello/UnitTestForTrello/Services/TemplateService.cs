@@ -14,9 +14,9 @@ namespace UnitTestForTrello.Services
             _templateRepository = templateRepository;
         }
 
-        public IEnumerable<TemplateCategoryDTO>? GetAllCategories()
+        public IEnumerable<TemplateCategoryDTO>? GetTemplateCategories()
         {
-            return _templateRepository.GetAllCategories();
+            return _templateRepository.GetTemplateCategories();
         }
 
         public IEnumerable<TemplateByCategoryDTO>? GetTemplatesByCategory(int categoryId)

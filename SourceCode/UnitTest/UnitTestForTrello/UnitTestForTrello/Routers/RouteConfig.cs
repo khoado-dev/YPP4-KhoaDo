@@ -186,7 +186,7 @@ namespace UnitTestForTrello.Routers
             r.Map(RequestMethod.GET, "/template-categories", rv =>
             {
                 var c = ReflectionFactory.Get<TemplateController>();
-                return c.GetAllCategories();
+                return c.GetTemplateCategories();
             });
 
             r.Map(RequestMethod.GET, "/templates/by-category", rv =>
